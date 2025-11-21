@@ -4,6 +4,8 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { motion } from 'framer-motion';
 import '../styles/index.css';
 
+import galleryImage from '../assets/1.jpg';
+
 // Generate dummy portfolio data
 const generatePortfolio = (count) => {
     const items = [];
@@ -13,13 +15,13 @@ const generatePortfolio = (count) => {
             id: i,
             title: `${styles[Math.floor(Math.random() * styles.length)]} Study #${i + 1}`,
             year: 2020 + Math.floor(Math.random() * 5),
-            color: Math.random() > 0.5 ? '#cc3333' : '#1a1a1a'
+            image: galleryImage
         });
     }
     return items;
 };
 
-const portfolioItems = generatePortfolio(500);
+const portfolioItems = generatePortfolio(20);
 
 const Cell = ({ columnIndex, rowIndex, style }) => {
     const index = rowIndex * 3 + columnIndex;
@@ -30,14 +32,19 @@ const Cell = ({ columnIndex, rowIndex, style }) => {
         <div style={{ ...style, padding: '10px' }}>
             <div style={{
                 height: '100%',
-                background: 'var(--glass-bg)',
+                background: `url(${item.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
                 border: '1px solid var(--glass-border)',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
+                justifyContent: 'flex-end',
+                alignItems: 'flex-start',
                 transition: 'all 0.3s ease',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                position: 'relative'
             }}
                 onMouseOver={(e) => {
                     e.currentTarget.style.transform = 'scale(0.98)';
@@ -48,8 +55,15 @@ const Cell = ({ columnIndex, rowIndex, style }) => {
                     e.currentTarget.style.borderColor = 'var(--glass-border)';
                 }}
             >
-                <div style={{ fontSize: '1.2rem', fontFamily: 'Playfair Display, serif', color: 'var(--text-color)' }}>{item.title}</div>
-                <div style={{ color: 'var(--primary)', marginTop: '0.5rem' }}>{item.year}</div>
+                <div style={{
+                    padding: '1.5rem',
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
+                    width: '100%',
+                    borderRadius: '0 0 12px 12px'
+                }}>
+                    <div style={{ fontSize: '1.2rem', fontFamily: 'Playfair Display, serif', color: '#fff', fontWeight: 700 }}>{item.title}</div>
+                    <div style={{ color: 'var(--primary)', marginTop: '0.25rem', fontSize: '0.9rem' }}>{item.year}</div>
+                </div>
             </div>
         </div>
     );
@@ -66,7 +80,7 @@ const VirtualGallery = () => {
                     style={{ marginBottom: '3rem', textAlign: 'center' }}
                 >
                     <h2 style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>Selected <span className="text-gradient">Works</span></h2>
-                    <p style={{ color: 'var(--text-muted)', fontFamily: 'Inter, sans-serif' }}>A collection of 500+ masterpieces.</p>
+                    <p style={{ color: 'var(--text-muted)', fontFamily: 'Inter, sans-serif' }}>A collection of 20 masterpieces.</p>
                 </motion.div>
 
                 <div style={{ flex: 1 }}>

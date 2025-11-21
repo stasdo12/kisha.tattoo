@@ -186,7 +186,7 @@ const Hero = () => {
                         willChange: 'transform'
                     }}
                 >
-                    Master of <span style={{ fontStyle: 'italic', fontFamily: 'Playfair Display, serif', color: 'var(--primary)' }}>Ink</span>
+                    Kisha <span style={{ fontStyle: 'italic', fontFamily: 'Playfair Display, serif', color: 'var(--primary)' }}>Tattoo</span>
                 </h1>
 
                 <p

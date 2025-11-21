@@ -61,7 +61,7 @@ const Booking = () => {
             id="booking"
             ref={sectionRef}
             style={{
-                padding: '10rem 2rem',
+                padding: '6rem 2rem',
                 position: 'relative',
                 background: 'linear-gradient(180deg, var(--bg-color) 0%, #0a0a0a 100%)'
             }}

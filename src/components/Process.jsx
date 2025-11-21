@@ -8,61 +8,88 @@ const steps = [
     {
         id: '01',
         title: 'Consultation',
-        desc: 'Understanding your vision and story.',
-        details: 'We explore symbolism, cultural significance, and personal meaning. Every design begins with understanding your story.',
+        kanji: '相談',
+        subtitle: 'Sōdan',
         color: '#cc3333'
     },
     {
         id: '02',
         title: 'Design',
-        desc: 'Crafting a unique piece of art.',
-        details: 'Hand-drawn sketches blend traditional Japanese motifs with modern artistry. Each line carries intention.',
+        kanji: '設計',
+        subtitle: 'Sekkei',
         color: '#d4af37'
     },
     {
         id: '03',
-        title: 'Session',
-        desc: 'The ritual of ink and skin.',
-        details: 'A meditative practice. Precision, patience, and respect for the ancient craft of Irezumi.',
+        title: 'Sketch',
+        kanji: '下絵',
+        subtitle: 'Shitae',
         color: '#cc3333'
     },
     {
         id: '04',
+        title: 'Session',
+        kanji: '刺青',
+        subtitle: 'Irezumi',
+        color: '#d4af37'
+    },
+    {
+        id: '05',
         title: 'Aftercare',
-        desc: 'Preserving the legacy.',
-        details: 'Proper healing ensures your art remains vibrant for decades. Traditional wisdom meets modern care.',
+        kanji: '養生',
+        subtitle: 'Yōjō',
+        color: '#cc3333'
+    },
+    {
+        id: '06',
+        title: 'Follow-up',
+        kanji: '確認',
+        subtitle: 'Kakunin',
         color: '#d4af37'
     }
 ];
 
 const Process = () => {
-    const containerRef = useRef(null);
-    const pinWrapRef = useRef(null);
-    const cardsRef = useRef(null);
+    const sectionRef = useRef(null);
+    const cardsRef = useRef([]);
 
     useEffect(() => {
-        if (!cardsRef.current || !containerRef.current || !pinWrapRef.current) return;
+        if (!sectionRef.current) return;
 
         const ctx = gsap.context(() => {
-            const cards = cardsRef.current;
-            if (!cards) return;
-
-            const totalWidth = cards.scrollWidth;
-            const windowWidth = window.innerWidth;
-
-            gsap.to(cards, {
-                x: -(totalWidth - windowWidth),
-                ease: 'none',
+            // Animate all cards together with stagger
+            gsap.from(cardsRef.current, {
                 scrollTrigger: {
-                    trigger: containerRef.current,
-                    pin: pinWrapRef.current,
+                    trigger: sectionRef.current,
+                    start: 'top 60%',
+                    end: 'top 20%',
                     scrub: 1,
-                    start: 'top top',
-                    end: () => `+=${totalWidth}`,
-                    invalidateOnRefresh: true,
+                },
+                opacity: 0,
+                rotateY: 90,
+                scale: 0.7,
+                y: 100,
+                stagger: {
+                    amount: 0.6,
+                    from: 'start'
                 }
             });
-        }, containerRef);
+
+            // Add continuous subtle rotation on scroll
+            cardsRef.current.forEach((card) => {
+                if (!card) return;
+
+                gsap.to(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: 1.5,
+                    },
+                    y: -15,
+                });
+            });
+        }, sectionRef);
 
         return () => {
             ctx.revert();
@@ -72,31 +99,24 @@ const Process = () => {
     return (
         <section
             id="process"
-            ref={containerRef}
+            ref={sectionRef}
             style={{
-                background: 'linear-gradient(180deg, #0a0a0a 0%, var(--bg-color) 100%)',
-                overflow: 'hidden'
+                padding: '6rem 2rem',
+                background: 'transparent',
+                position: 'relative',
+                overflow: 'hidden',
+                minHeight: '60vh'
             }}
         >
-            <div
-                ref={pinWrapRef}
-                style={{
-                    height: '100vh',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    overflow: 'hidden'
-                }}
-            >
+            <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 {/* Title */}
                 <h2 style={{
                     fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
-                    marginBottom: '4rem',
+                    marginBottom: '5rem',
                     textAlign: 'center',
                     fontFamily: 'Playfair Display, serif',
                     color: 'var(--text-color)',
-                    fontWeight: 700,
-                    paddingTop: '2rem'
+                    fontWeight: 700
                 }}>
                     The <span style={{
                         background: 'linear-gradient(135deg, #cc3333, #ff6b35)',
@@ -106,116 +126,108 @@ const Process = () => {
                     }}>Ritual</span>
                 </h2>
 
-                {/* Horizontal scrolling cards */}
-                <div style={{ overflow: 'hidden', width: '100%' }}>
-                    <div
-                        ref={cardsRef}
-                        style={{
-                            display: 'flex',
-                            gap: '3rem',
-                            paddingLeft: '10vw',
-                            paddingRight: '10vw',
-                            willChange: 'transform'
-                        }}
-                    >
-                        {steps.map((step, index) => (
-                            <div
-                                key={index}
-                                style={{
-                                    minWidth: '420px',
-                                    maxWidth: '420px',
-                                    padding: '3rem',
-                                    background: 'rgba(255, 255, 255, 0.03)',
-                                    backdropFilter: 'blur(10px)',
-                                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                                    borderRadius: '20px',
-                                    position: 'relative',
-                                    transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
-                                    cursor: 'pointer',
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
-                                    e.currentTarget.style.borderColor = `${step.color}40`;
-                                    e.currentTarget.style.boxShadow = `0 20px 40px rgba(0, 0, 0, 0.3)`;
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-                                    e.currentTarget.style.boxShadow = 'none';
-                                }}
-                            >
-                                {/* Accent line */}
-                                <div style={{
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    width: '4px',
-                                    height: '100%',
-                                    background: `linear-gradient(180deg, ${step.color}, transparent)`,
-                                    borderRadius: '20px 0 0 20px'
-                                }} />
-
-                                {/* Step number */}
-                                <span style={{
-                                    fontSize: '5rem',
-                                    color: step.color,
-                                    opacity: 0.2,
-                                    fontFamily: 'Playfair Display, serif',
-                                    fontWeight: 800,
-                                    display: 'block',
-                                    marginBottom: '1rem',
-                                    lineHeight: 1
-                                }}>
-                                    {step.id}
-                                </span>
-
-                                {/* Title */}
-                                <h3 style={{
-                                    fontSize: '2rem',
-                                    fontFamily: 'Playfair Display, serif',
-                                    color: 'var(--text-color)',
-                                    marginBottom: '1rem',
-                                    fontWeight: 700
-                                }}>
-                                    {step.title}
-                                </h3>
-
-                                {/* Description */}
-                                <p style={{
-                                    color: 'rgba(255, 255, 255, 0.7)',
-                                    fontFamily: 'Inter, sans-serif',
-                                    fontSize: '1rem',
-                                    marginBottom: '1.5rem',
-                                    lineHeight: 1.6
-                                }}>
-                                    {step.desc}
-                                </p>
-
-                                {/* Details */}
-                                <p style={{
-                                    color: 'var(--text-muted)',
-                                    fontFamily: 'Inter, sans-serif',
-                                    fontSize: '0.9rem',
-                                    lineHeight: 1.7,
-                                    fontStyle: 'italic'
-                                }}>
-                                    {step.details}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Scroll indicator */}
+                {/* Cards Grid */}
                 <div style={{
-                    textAlign: 'center',
-                    marginTop: '3rem',
-                    color: 'var(--text-muted)',
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.875rem',
-                    opacity: 0.6
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    gap: '3rem',
+                    perspective: '1000px'
                 }}>
-                    ← Scroll to explore →
+                    {steps.map((step, index) => (
+                        <div
+                            key={index}
+                            ref={(el) => (cardsRef.current[index] = el)}
+                            style={{
+                                padding: '3rem 2rem',
+                                background: 'rgba(255, 255, 255, 0.03)',
+                                backdropFilter: 'blur(10px)',
+                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                                borderRadius: '20px',
+                                position: 'relative',
+                                transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+                                cursor: 'pointer',
+                                transformStyle: 'preserve-3d',
+                                willChange: 'transform, opacity',
+                                textAlign: 'center',
+                                minHeight: '200px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.transform = 'translateY(-12px) rotateY(5deg)';
+                                e.currentTarget.style.borderColor = `${step.color}40`;
+                                e.currentTarget.style.boxShadow = `0 24px 48px rgba(0, 0, 0, 0.3)`;
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.transform = 'translateY(0) rotateY(0deg)';
+                                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}
+                        >
+                            {/* Accent line */}
+                            <div style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '4px',
+                                height: '100%',
+                                background: `linear-gradient(180deg, ${step.color}, transparent)`,
+                                borderRadius: '20px 0 0 20px'
+                            }} />
+
+                            {/* Step number */}
+                            <span style={{
+                                fontSize: '1.5rem',
+                                color: step.color,
+                                opacity: 0.3,
+                                fontFamily: 'Playfair Display, serif',
+                                fontWeight: 800,
+                                display: 'block',
+                                marginBottom: '1rem',
+                                lineHeight: 1
+                            }}>
+                                {step.id}
+                            </span>
+
+                            {/* Kanji */}
+                            <div style={{
+                                fontSize: '5rem',
+                                marginBottom: '0.5rem',
+                                fontWeight: 300,
+                                color: step.color,
+                                lineHeight: 1,
+                                fontFamily: 'serif'
+                            }}>
+                                {step.kanji}
+                            </div>
+
+                            {/* Subtitle (Romanized) */}
+                            <p style={{
+                                fontSize: '0.875rem',
+                                color: 'var(--text-muted)',
+                                fontFamily: 'Inter, sans-serif',
+                                letterSpacing: '0.15em',
+                                textTransform: 'uppercase',
+                                marginBottom: '1.5rem',
+                                fontWeight: 300
+                            }}>
+                                {step.subtitle}
+                            </p>
+
+                            {/* Title */}
+                            <h3 style={{
+                                fontSize: '1.5rem',
+                                fontFamily: 'Playfair Display, serif',
+                                color: 'var(--text-color)',
+                                fontWeight: 700,
+                                margin: 0
+                            }}>
+                                {step.title}
+                            </h3>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

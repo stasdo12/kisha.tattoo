@@ -80,7 +80,21 @@ const Navbar = () => {
                         borderRadius: '50%',
                         boxShadow: '0 0 12px rgba(204, 51, 51, 0.6)'
                     }} />
-                    INK MASTER
+                    <span style={{
+                        color: '#fff',
+                        textShadow: `
+                            0 0 5px #cc3333,
+                            0 0 10px #cc3333,
+                            0 0 20px #cc3333,
+                            0 0 40px #cc3333
+                        `,
+                        fontFamily: 'Playfair Display, serif',
+                        fontWeight: 700,
+                        letterSpacing: '0.05em',
+                        animation: 'neon-flicker 3s infinite alternate'
+                    }}>
+                        KishaTattoo
+                    </span>
                 </motion.div>
 
                 {/* Desktop Navigation */}

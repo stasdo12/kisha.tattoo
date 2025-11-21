@@ -34,19 +34,23 @@ const ritualSteps = [
 
 const RitualAccordion = () => {
     const [expandedIndex, setExpandedIndex] = useState(null);
+    const sectionRef = useRef(null);
 
     const toggleExpand = (index) => {
         setExpandedIndex(expandedIndex === index ? null : index);
     };
 
     return (
-        <section id="ritual-accordion" style={{
-            padding: '8rem 2rem',
-            background: 'var(--bg-color)',
-            position: 'relative',
-            overflow: 'hidden'
-        }}>
-            {/* Background decoration */}
+        <section
+            id="ritual-accordion"
+            ref={sectionRef}
+            style={{
+                padding: '6rem 2rem',
+                background: 'var(--bg-color)',
+                position: 'relative',
+                overflow: 'hidden'
+            }}
+        >    {/* Background decoration */}
             <div style={{
                 position: 'absolute',
                 top: '50%',

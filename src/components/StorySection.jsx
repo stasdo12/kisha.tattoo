@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
+import kishaImage from '../assets/Kisha1.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,7 +11,7 @@ const storyChapters = [
         id: 'beginning',
         title: 'The Beginning',
         text: 'Born in the shadow of Mount Fuji, the journey began with a single drop of ink. A fascination with the permanence of art on the impermanence of skin.',
-        image: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
+        image: `url(${kishaImage})`,
         symbol: '始',
         accent: '#cc3333'
     },
@@ -18,7 +19,7 @@ const storyChapters = [
         id: 'journey',
         title: 'The Journey',
         text: 'Years of apprenticeship under the masters of Tokyo. Learning that the needle is not a tool, but an extension of the soul. Pain is fleeting, art is eternal.',
-        image: 'linear-gradient(135deg, #2a1a1a 0%, #3a2a2a 100%)',
+        image: `url(${kishaImage})`,
         symbol: '旅',
         accent: '#d4af37'
     },
@@ -26,7 +27,7 @@ const storyChapters = [
         id: 'mastery',
         title: 'The Mastery',
         text: 'Now, bridging the gap between ancient tradition and modern expression. Every piece is a collaboration, a story woven into the very fabric of existence.',
-        image: 'linear-gradient(135deg, #1a2a2a 0%, #2a3a3a 100%)',
+        image: `url(${kishaImage})`,
         symbol: '極',
         accent: '#cc3333'
     }
@@ -61,8 +62,8 @@ const StorySection = () => {
                 gsap.from(chapter, {
                     scrollTrigger: {
                         trigger: chapter,
-                        start: 'top 80%',
-                        end: 'top 50%',
+                        start: 'top 90%',
+                        end: 'top 60%',
                         scrub: 1,
                     },
                     opacity: 0,
@@ -104,10 +105,11 @@ const StorySection = () => {
         <section
             ref={sectionRef}
             style={{
-                padding: '12rem 2rem',
+                padding: '9.72rem 2rem',
                 position: 'relative',
-                background: 'linear-gradient(180deg, var(--bg-color) 0%, #0a0a0a 100%)',
-                overflow: 'hidden'
+                background: 'transparent',
+                overflow: 'hidden',
+                minHeight: '54vh'
             }}
         >
             {/* Ambient background effects */}
@@ -263,6 +265,8 @@ const StorySection = () => {
                                 width: '100%',
                                 height: '100%',
                                 background: activeChapter.image,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
                                 borderRadius: '24px',
                                 boxShadow: '0 24px 64px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
                                 display: 'flex',

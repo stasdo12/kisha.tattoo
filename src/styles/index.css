@@ -198,3 +198,29 @@ textarea::placeholder {
   color: var(--text-muted);
   opacity: 0.6;
 }
+
+@keyframes neon-flicker {
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px #cc3333,
+      0 0 10px #cc3333,
+      0 0 20px #cc3333,
+      0 0 40px #cc3333;
+  }
+
+  20%,
+  24%,
+  55% {
+    opacity: 0.5;
+    text-shadow: none;
+  }
+}

@@ -19,7 +19,7 @@ const KanjiBackground = () => {
             zIndex: 0,
             overflow: 'hidden'
         }}>
-            {Array.from({ length: 50 }).map((_, index) => {
+            {Array.from({ length: 100 }).map((_, index) => {
                 const char = kanjiList[Math.floor(Math.random() * kanjiList.length)];
                 return (
                     <motion.div
