@@ -163,7 +163,7 @@ const Hero = () => {
                         padding: '0.5rem 1rem',
                         border: '1px solid var(--primary)',
                         color: 'var(--primary)',
-                        fontFamily: 'Inter, sans-serif',
+                        fontFamily: 'var(--font-body)',
                         letterSpacing: '0.2em',
                         fontSize: '0.9rem',
                         background: 'var(--glass-bg)',
@@ -179,14 +179,14 @@ const Hero = () => {
                         fontSize: 'clamp(3rem, 8vw, 6rem)',
                         marginBottom: '1.5rem',
                         color: 'var(--text-color)',
-                        fontFamily: 'Playfair Display, serif',
+                        fontFamily: 'var(--font-heading)',
                         fontWeight: 400,
                         letterSpacing: '-0.02em',
                         textShadow: '0 0 20px rgba(0,0,0,0.1)',
                         willChange: 'transform'
                     }}
                 >
-                    Kisha <span style={{ fontStyle: 'italic', fontFamily: 'Playfair Display, serif', color: 'var(--primary)' }}>Tattoo</span>
+                    Kisha <span style={{ fontStyle: 'italic', fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}>Tattoo</span>
                 </h1>
 
                 <p
@@ -196,7 +196,7 @@ const Hero = () => {
                         color: 'var(--text-muted)',
                         maxWidth: '500px',
                         margin: '0 auto 3rem',
-                        fontFamily: 'Inter, sans-serif',
+                        fontFamily: 'var(--font-body)',
                         willChange: 'transform'
                     }}
                 >

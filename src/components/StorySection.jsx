@@ -140,7 +140,7 @@ const StorySection = () => {
                         style={{
                             fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
                             marginBottom: '4rem',
-                            fontFamily: 'Playfair Display, serif',
+                            fontFamily: 'var(--font-heading)',
                             fontWeight: 800,
                             letterSpacing: '-0.03em',
                             lineHeight: 1.1,
@@ -207,7 +207,7 @@ const StorySection = () => {
                                 {/* Chapter number */}
                                 <div style={{
                                     fontSize: '0.75rem',
-                                    fontFamily: 'Inter, sans-serif',
+                                    fontFamily: 'var(--font-body)',
                                     fontWeight: 700,
                                     color: chapter.accent,
                                     textTransform: 'uppercase',
@@ -220,7 +220,7 @@ const StorySection = () => {
                                 <h3 style={{
                                     fontSize: '1.75rem',
                                     marginBottom: '1rem',
-                                    fontFamily: 'Playfair Display, serif',
+                                    fontFamily: 'var(--font-heading)',
                                     fontWeight: 700,
                                     color: '#ffffff',
                                     letterSpacing: '-0.02em'
@@ -230,7 +230,7 @@ const StorySection = () => {
 
                                 <p style={{
                                     color: 'rgba(255, 255, 255, 0.6)',
-                                    fontFamily: 'Inter, sans-serif',
+                                    fontFamily: 'var(--font-body)',
                                     fontSize: '1rem',
                                     lineHeight: 1.7,
                                     fontWeight: 400
@@ -307,7 +307,7 @@ const StorySection = () => {
                                 style={{
                                     fontSize: 'clamp(8rem, 15vw, 12rem)',
                                     color: 'rgba(255, 255, 255, 0.9)',
-                                    fontFamily: 'Inter, sans-serif',
+                                    fontFamily: 'var(--font-body)',
                                     fontWeight: 900,
                                     textShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
                                     position: 'relative',
@@ -323,7 +323,7 @@ const StorySection = () => {
                                 bottom: '40px',
                                 right: '40px',
                                 fontSize: '0.875rem',
-                                fontFamily: 'Inter, sans-serif',
+                                fontFamily: 'var(--font-body)',
                                 fontWeight: 700,
                                 letterSpacing: '0.2em',
                                 color: 'rgba(255, 255, 255, 0.8)',

@@ -75,7 +75,7 @@ const Services = () => {
                         fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
                         marginBottom: '1rem',
                         color: 'var(--text-color)',
-                        fontFamily: 'Playfair Display, serif',
+                        fontFamily: 'var(--font-heading)',
                         fontWeight: 700
                     }}>
                         Our <span style={{
@@ -87,7 +87,7 @@ const Services = () => {
                     </h2>
                     <p style={{
                         color: 'var(--text-muted)',
-                        fontFamily: 'Inter, sans-serif',
+                        fontFamily: 'var(--font-body)',
                         fontSize: '1.1rem'
                     }}>
                         Precision. Tradition. Artistry.
@@ -160,7 +160,7 @@ const ServiceCard = ({ service }) => (
         <h3 style={{
             fontSize: '1.75rem',
             marginBottom: '1rem',
-            fontFamily: 'Playfair Display, serif',
+            fontFamily: 'var(--font-heading)',
             color: 'var(--text-color)',
             fontWeight: 700
         }}>
@@ -169,7 +169,7 @@ const ServiceCard = ({ service }) => (
         <p style={{
             color: 'var(--text-muted)',
             lineHeight: '1.8',
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'var(--font-body)',
             fontSize: '1rem'
         }}>
             {service.desc}

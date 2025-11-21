@@ -74,7 +74,7 @@ const Booking = () => {
                     <h2 style={{
                         fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
                         marginBottom: '1rem',
-                        fontFamily: 'Playfair Display, serif',
+                        fontFamily: 'var(--font-heading)',
                         fontWeight: 700
                     }}>
                         Begin Your <span style={{
@@ -86,7 +86,7 @@ const Booking = () => {
                     </h2>
                     <p style={{
                         color: 'var(--text-muted)',
-                        fontFamily: 'Inter, sans-serif',
+                        fontFamily: 'var(--font-body)',
                         fontSize: '1.1rem'
                     }}>
                         Consultations are by appointment only. Tell us your story.
@@ -127,7 +127,7 @@ const Booking = () => {
                         style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
                     >
                         <label style={{
-                            fontFamily: 'Inter, sans-serif',
+                            fontFamily: 'var(--font-body)',
                             color: 'var(--text-color)',
                             fontSize: '0.875rem',
                             fontWeight: 600,

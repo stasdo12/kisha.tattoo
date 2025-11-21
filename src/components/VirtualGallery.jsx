@@ -61,7 +61,7 @@ const Cell = ({ columnIndex, rowIndex, style }) => {
                     width: '100%',
                     borderRadius: '0 0 12px 12px'
                 }}>
-                    <div style={{ fontSize: '1.2rem', fontFamily: 'Playfair Display, serif', color: '#fff', fontWeight: 700 }}>{item.title}</div>
+                    <div style={{ fontSize: '1.2rem', fontFamily: 'var(--font-heading)', color: '#fff', fontWeight: 700 }}>{item.title}</div>
                     <div style={{ color: 'var(--primary)', marginTop: '0.25rem', fontSize: '0.9rem' }}>{item.year}</div>
                 </div>
             </div>
@@ -80,8 +80,35 @@ const VirtualGallery = () => {
                     style={{ marginBottom: '3rem', textAlign: 'center' }}
                 >
                     <h2 style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>Selected <span className="text-gradient">Works</span></h2>
-                    <p style={{ color: 'var(--text-muted)', fontFamily: 'Inter, sans-serif' }}>A collection of 20 masterpieces.</p>
+                    <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>A collection of 20 masterpieces.</p>
                 </motion.div>
+
+                <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: 10,
+                    textAlign: 'center',
+                    pointerEvents: 'none'
+                }}>
+                    <h2 style={{
+                        fontSize: '4rem',
+                        color: '#ffffff',
+                        fontFamily: 'var(--font-heading)',
+                        textShadow: '0 4px 12px rgba(0,0,0,0.5)',
+                        marginBottom: '1rem'
+                    }}>
+                        Virtual Gallery
+                    </h2>
+                    <p style={{
+                        fontSize: '1.2rem',
+                        color: 'rgba(255,255,255,0.8)',
+                        fontFamily: 'var(--font-body)'
+                    }}>
+                        A collection of 20 masterpieces.
+                    </p>
+                </div>
 
                 <div style={{ flex: 1 }}>
                     <AutoSizer>

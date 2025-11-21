@@ -74,28 +74,28 @@ const ScrollAnimationSection = () => {
 
     const cards = [
         {
-            emoji: '🐉',
-            kanji: '龍',
-            title: 'Dragon',
-            subtitle: 'Strength & Wisdom',
-            description: 'Symbol of power, wisdom, and protection. The dragon represents strength and good fortune in Japanese culture.',
+            emoji: '🦊',
+            kanji: '狐',
+            title: 'Kitsune',
+            subtitle: 'The Shapeshifter',
+            description: 'Intelligent and magical foxes with the ability to shapeshift. They are guardians of the rice fields and messengers of Inari, embodying both benevolence and mischief.',
+            gradient: 'linear-gradient(135deg, #d4af37 0%, #cc3333 100%)',
+        },
+        {
+            emoji: '👹',
+            kanji: '鬼',
+            title: 'Oni',
+            subtitle: 'The Protector',
+            description: 'Fearsome demons that ward off evil spirits and punish the wicked. In tattoos, they often symbolize protection, strength, and the duality of good and evil.',
             gradient: 'linear-gradient(135deg, #cc3333 0%, #661111 100%)',
         },
         {
-            emoji: '🐟',
-            kanji: '鯉',
-            title: 'Koi Fish',
-            subtitle: 'Perseverance',
-            description: 'The koi\'s journey upstream symbolizes overcoming adversity and achieving goals through determination.',
-            gradient: 'linear-gradient(135deg, #d4af37 0%, #8b7500 100%)',
-        },
-        {
-            emoji: '🔥',
-            kanji: '鳳',
-            title: 'Phoenix',
-            subtitle: 'Rebirth & Renewal',
-            description: 'Rising from ashes, the phoenix embodies transformation, new beginnings, and eternal life.',
-            gradient: 'linear-gradient(135deg, #ff6b35 0%, #cc3333 100%)',
+            emoji: '👺',
+            kanji: '天狗',
+            title: 'Tengu',
+            subtitle: 'The Warrior',
+            description: 'Mountain spirits and masters of martial arts. With their long noses or bird-like beaks, they are protectors of the forests and teachers of the samurai way.',
+            gradient: 'linear-gradient(135deg, #ff6b35 0%, #8b0000 100%)',
         },
     ];
 
@@ -150,7 +150,7 @@ const ScrollAnimationSection = () => {
                         ref={titleRef}
                         style={{
                             fontSize: 'clamp(3rem, 8vw, 6rem)',
-                            fontFamily: 'Playfair Display, serif',
+                            fontFamily: 'var(--font-heading)',
                             fontWeight: 800,
                             color: '#ffffff',
                             marginBottom: '2rem',
@@ -173,7 +173,7 @@ const ScrollAnimationSection = () => {
                         style={{
                             fontSize: 'clamp(1.1rem, 2vw, 1.5rem)',
                             color: 'rgba(255, 255, 255, 0.6)',
-                            fontFamily: 'Inter, sans-serif',
+                            fontFamily: 'var(--font-body)',
                             maxWidth: '800px',
                             margin: '0 auto',
                             lineHeight: 1.6,
@@ -240,7 +240,7 @@ const ScrollAnimationSection = () => {
                                 transform: 'translateY(-50%)',
                                 fontSize: '15rem',
                                 opacity: 0.03,
-                                fontFamily: 'Inter, sans-serif',
+                                fontFamily: 'var(--font-body)',
                                 fontWeight: 900,
                                 color: '#ffffff',
                                 pointerEvents: 'none',
@@ -263,7 +263,7 @@ const ScrollAnimationSection = () => {
                                 {/* Title */}
                                 <h3 style={{
                                     fontSize: '2.25rem',
-                                    fontFamily: 'Playfair Display, serif',
+                                    fontFamily: 'var(--font-heading)',
                                     fontWeight: 700,
                                     color: '#ffffff',
                                     marginBottom: '0.5rem',
@@ -275,7 +275,7 @@ const ScrollAnimationSection = () => {
                                 {/* Subtitle */}
                                 <div style={{
                                     fontSize: '0.875rem',
-                                    fontFamily: 'Inter, sans-serif',
+                                    fontFamily: 'var(--font-body)',
                                     fontWeight: 600,
                                     color: '#cc3333',
                                     textTransform: 'uppercase',
@@ -288,7 +288,7 @@ const ScrollAnimationSection = () => {
                                 {/* Description */}
                                 <p style={{
                                     fontSize: '1rem',
-                                    fontFamily: 'Inter, sans-serif',
+                                    fontFamily: 'var(--font-body)',
                                     color: 'rgba(255, 255, 255, 0.6)',
                                     lineHeight: 1.7,
                                     fontWeight: 400,

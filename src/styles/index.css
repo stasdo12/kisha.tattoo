@@ -7,7 +7,10 @@
   --accent: #ffd700;
   /* Gold */
 
-  font-family: 'Helvetica Neue', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  font-family: var(--font-body);
   line-height: 1.6;
   font-weight: 400;
 }
@@ -98,7 +101,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -107,13 +110,13 @@ h3 {
 p,
 span,
 a {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
 }
 
 /* Modern Button Styles - 2025 */
 button {
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   border: none;
   outline: none;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -175,7 +178,7 @@ button {
 /* Input Styles - 2025 */
 input,
 textarea {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   padding: 0.875rem 1.25rem;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.12);

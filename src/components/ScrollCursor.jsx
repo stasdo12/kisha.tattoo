@@ -47,7 +47,7 @@ const ScrollCursor = () => {
         justifyContent: 'center',
         color: 'var(--primary)',
         fontSize: '1rem',
-        fontFamily: 'Inter, sans-serif',
+        fontFamily: 'var(--font-body)',
         userSelect: 'none',
         willChange: 'transform, opacity',
     };

@@ -21,32 +21,38 @@ const KanjiBackground = () => {
         }}>
             {Array.from({ length: 100 }).map((_, index) => {
                 const char = kanjiList[Math.floor(Math.random() * kanjiList.length)];
+                const startX = Math.random() * 100; // %
+                const startY = Math.random() * 100; // %
+                const duration = 15 + Math.random() * 20;
+                const moveY = -50 - Math.random() * 100; // Move up 50-150px
+
                 return (
                     <motion.div
                         key={index}
                         initial={{
-                            x: Math.random() * window.innerWidth,
-                            y: Math.random() * window.innerHeight,
                             opacity: 0,
-                            scale: 0.5 + Math.random() * 0.5
+                            scale: 0.5 + Math.random() * 0.5,
+                            y: 0
                         }}
                         animate={{
-                            y: [null, Math.random() * -50],
-                            opacity: [0, 0.15, 0], // Slightly more visible
-                            rotate: [0, Math.random() * 10 - 5]
+                            opacity: [0, 0.6, 0], // Fade in and out
+                            y: moveY, // Move up relative to start
+                            rotate: [0, Math.random() * 20 - 10]
                         }}
                         transition={{
-                            duration: 15 + Math.random() * 15,
+                            duration: duration,
                             repeat: Infinity,
-                            delay: Math.random() * 10,
-                            ease: "easeInOut"
+                            delay: Math.random() * 20,
+                            ease: "linear" // Smoother continuous movement
                         }}
                         style={{
                             position: 'absolute',
+                            top: `${startY}%`,
+                            left: `${startX}%`,
                             fontSize: `${Math.random() * 4 + 2}rem`,
-                            color: 'var(--primary)', // ALWAYS RED as requested
-                            fontFamily: 'Inter, sans-serif',
-                            filter: 'blur(1px)'
+                            color: 'var(--primary)',
+                            fontFamily: 'var(--font-body)',
+                            willChange: 'transform, opacity'
                         }}
                     >
                         {char}

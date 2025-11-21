@@ -46,7 +46,7 @@ const AssemblySection = () => {
                         borderBottom: '2px solid var(--bg-color)',
                         zIndex: 2
                     }}>
-                        <span style={{ fontSize: '4rem', color: '#cc3333', fontFamily: 'Playfair Display, serif' }}>TR</span>
+                        <span style={{ fontSize: '4rem', color: '#cc3333', fontFamily: 'var(--font-heading)' }}>TR</span>
                     </motion.div>
 
                     {/* Top Right Piece */}
@@ -59,7 +59,7 @@ const AssemblySection = () => {
                         borderBottom: '2px solid var(--bg-color)',
                         zIndex: 2
                     }}>
-                        <span style={{ fontSize: '4rem', color: '#ffffff', fontFamily: 'Playfair Display, serif' }}>UE</span>
+                        <span style={{ fontSize: '4rem', color: '#ffffff', fontFamily: 'var(--font-heading)' }}>UE</span>
                     </motion.div>
 
                     {/* Bottom Left Piece */}
@@ -72,7 +72,7 @@ const AssemblySection = () => {
                         borderTop: '2px solid var(--bg-color)',
                         zIndex: 2
                     }}>
-                        <span style={{ fontSize: '4rem', color: '#d4af37', fontFamily: 'Playfair Display, serif' }}>AR</span>
+                        <span style={{ fontSize: '4rem', color: '#d4af37', fontFamily: 'var(--font-heading)' }}>AR</span>
                     </motion.div>
 
                     {/* Bottom Right Piece */}
@@ -85,7 +85,7 @@ const AssemblySection = () => {
                         borderTop: '2px solid var(--bg-color)',
                         zIndex: 2
                     }}>
-                        <span style={{ fontSize: '4rem', color: '#cc3333', fontFamily: 'Playfair Display, serif' }}>T</span>
+                        <span style={{ fontSize: '4rem', color: '#cc3333', fontFamily: 'var(--font-heading)' }}>T</span>
                     </motion.div>
 
                     {/* Center Glow */}

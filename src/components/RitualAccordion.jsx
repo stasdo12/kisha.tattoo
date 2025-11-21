@@ -58,7 +58,7 @@ const RitualAccordion = () => {
                 transform: 'translate(-50%, -50%)',
                 fontSize: '20rem',
                 opacity: 0.02,
-                fontFamily: 'Inter, sans-serif',
+                fontFamily: 'var(--font-body)',
                 pointerEvents: 'none',
                 userSelect: 'none',
                 color: 'var(--primary)'
@@ -85,7 +85,7 @@ const RitualAccordion = () => {
                 >
                     <h2 style={{
                         fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                        fontFamily: 'Playfair Display, serif',
+                        fontFamily: 'var(--font-heading)',
                         color: 'var(--text-color)',
                         marginBottom: '1rem',
                         letterSpacing: '2px'
@@ -95,7 +95,7 @@ const RitualAccordion = () => {
                     <p style={{
                         fontSize: '1.1rem',
                         color: 'var(--text-muted)',
-                        fontFamily: 'Inter, sans-serif',
+                        fontFamily: 'var(--font-body)',
                         maxWidth: '600px',
                         margin: '0 auto'
                     }}>
@@ -147,7 +147,7 @@ const RitualAccordion = () => {
                                     {/* Step Number */}
                                     <span style={{
                                         fontSize: '2.5rem',
-                                        fontFamily: 'Playfair Display, serif',
+                                        fontFamily: 'var(--font-heading)',
                                         color: 'var(--primary)',
                                         opacity: 0.5,
                                         fontWeight: 300,
@@ -160,7 +160,7 @@ const RitualAccordion = () => {
                                     <div style={{ flex: 1 }}>
                                         <h3 style={{
                                             fontSize: '1.8rem',
-                                            fontFamily: 'Playfair Display, serif',
+                                            fontFamily: 'var(--font-heading)',
                                             color: 'var(--text-color)',
                                             marginBottom: '0.5rem',
                                             fontWeight: 400
@@ -170,7 +170,7 @@ const RitualAccordion = () => {
                                         <p style={{
                                             fontSize: '1rem',
                                             color: 'var(--text-muted)',
-                                            fontFamily: 'Inter, sans-serif',
+                                            fontFamily: 'var(--font-body)',
                                             margin: 0
                                         }}>
                                             {step.desc}
@@ -242,7 +242,7 @@ const RitualAccordion = () => {
                                                     fontSize: '1.05rem',
                                                     lineHeight: 1.9,
                                                     color: 'var(--text-color)',
-                                                    fontFamily: 'Inter, sans-serif',
+                                                    fontFamily: 'var(--font-body)',
                                                     fontStyle: 'italic',
                                                     margin: 0
                                                 }}>

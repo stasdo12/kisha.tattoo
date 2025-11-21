@@ -62,7 +62,7 @@ const Navbar = () => {
                     whileTap={{ scale: 0.98 }}
                     style={{
                         fontSize: scrolled ? '1.25rem' : '1.5rem',
-                        fontFamily: 'Playfair Display, serif',
+                        fontFamily: 'var(--font-heading)',
                         fontWeight: 700,
                         color: '#ffffff',
                         letterSpacing: '0.05em',
@@ -88,7 +88,7 @@ const Navbar = () => {
                             0 0 20px #cc3333,
                             0 0 40px #cc3333
                         `,
-                        fontFamily: 'Playfair Display, serif',
+                        fontFamily: 'var(--font-heading)',
                         fontWeight: 700,
                         letterSpacing: '0.05em',
                         animation: 'neon-flicker 3s infinite alternate'
@@ -115,7 +115,7 @@ const Navbar = () => {
                                     padding: '0.625rem 1.5rem',
                                     background: 'linear-gradient(135deg, #cc3333, #aa2222)',
                                     color: '#ffffff',
-                                    fontFamily: 'Inter, sans-serif',
+                                    fontFamily: 'var(--font-body)',
                                     fontSize: '0.875rem',
                                     fontWeight: 600,
                                     borderRadius: '10px',
@@ -147,7 +147,7 @@ const Navbar = () => {
                                 style={{
                                     textDecoration: 'none',
                                     color: 'rgba(255, 255, 255, 0.7)',
-                                    fontFamily: 'Inter, sans-serif',
+                                    fontFamily: 'var(--font-body)',
                                     fontSize: '0.875rem',
                                     fontWeight: 500,
                                     padding: '0.625rem 1rem',

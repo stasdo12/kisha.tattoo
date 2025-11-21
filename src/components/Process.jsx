@@ -57,38 +57,76 @@ const Process = () => {
         if (!sectionRef.current) return;
 
         const ctx = gsap.context(() => {
-            // Animate all cards together with stagger
-            gsap.from(cardsRef.current, {
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: 'top 60%',
-                    end: 'top 20%',
-                    scrub: 1,
+            // 1. Entrance Animation (Triggered, not scrubbed)
+            // This ensures they always appear fully when the section is reached.
+            gsap.fromTo(cardsRef.current,
+                {
+                    opacity: 0,
+                    rotateX: -30,
+                    y: 100,
+                    scale: 0.8
                 },
-                opacity: 0,
-                rotateY: 90,
-                scale: 0.7,
-                y: 100,
-                stagger: {
-                    amount: 0.6,
-                    from: 'start'
-                }
-            });
-
-            // Add continuous subtle rotation on scroll
-            cardsRef.current.forEach((card) => {
-                if (!card) return;
-
-                gsap.to(card, {
+                {
                     scrollTrigger: {
-                        trigger: card,
-                        start: 'top bottom',
-                        end: 'bottom top',
-                        scrub: 1.5,
+                        trigger: sectionRef.current,
+                        start: 'top 70%',
+                        end: 'bottom 20%',
+                        toggleActions: 'play none none reverse'
                     },
-                    y: -15,
+                    opacity: 1,
+                    rotateX: 0,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: 'back.out(1.2)',
+                    onComplete: () => {
+                        // Start floating animation after entrance
+                        startFloating();
+                    }
+                }
+            );
+
+            // 2. Continuous Floating Animation
+            const startFloating = () => {
+                cardsRef.current.forEach((card, i) => {
+                    if (!card) return;
+                    gsap.to(card, {
+                        y: -10,
+                        duration: 2 + Math.random(),
+                        repeat: -1,
+                        yoyo: true,
+                        ease: 'sine.inOut',
+                        delay: i * 0.1
+                    });
                 });
-            });
+            };
+
+            // 3. 3D Tilt Effect on Mouse Move (for the container)
+            // Adding a subtle parallax effect to the whole grid based on mouse position
+            const handleMouseMove = (e) => {
+                const { clientX, clientY } = e;
+                const xPos = (clientX / window.innerWidth - 0.5) * 20;
+                const yPos = (clientY / window.innerHeight - 0.5) * 20;
+
+                gsap.to(cardsRef.current, {
+                    rotateY: xPos,
+                    rotateX: -yPos,
+                    stagger: 0.05,
+                    duration: 1,
+                    ease: 'power2.out'
+                });
+            };
+
+            // Only add mouse move listener if device is likely desktop
+            if (window.matchMedia('(min-width: 768px)').matches) {
+                window.addEventListener('mousemove', handleMouseMove);
+            }
+
+            return () => {
+                window.removeEventListener('mousemove', handleMouseMove);
+            };
+
         }, sectionRef);
 
         return () => {
@@ -114,7 +152,7 @@ const Process = () => {
                     fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
                     marginBottom: '5rem',
                     textAlign: 'center',
-                    fontFamily: 'Playfair Display, serif',
+                    fontFamily: 'var(--font-heading)',
                     color: 'var(--text-color)',
                     fontWeight: 700
                 }}>
@@ -182,7 +220,7 @@ const Process = () => {
                                 fontSize: '1.5rem',
                                 color: step.color,
                                 opacity: 0.3,
-                                fontFamily: 'Playfair Display, serif',
+                                fontFamily: 'var(--font-heading)',
                                 fontWeight: 800,
                                 display: 'block',
                                 marginBottom: '1rem',
@@ -207,7 +245,7 @@ const Process = () => {
                             <p style={{
                                 fontSize: '0.875rem',
                                 color: 'var(--text-muted)',
-                                fontFamily: 'Inter, sans-serif',
+                                fontFamily: 'var(--font-body)',
                                 letterSpacing: '0.15em',
                                 textTransform: 'uppercase',
                                 marginBottom: '1.5rem',
@@ -219,7 +257,7 @@ const Process = () => {
                             {/* Title */}
                             <h3 style={{
                                 fontSize: '1.5rem',
-                                fontFamily: 'Playfair Display, serif',
+                                fontFamily: 'var(--font-heading)',
                                 color: 'var(--text-color)',
                                 fontWeight: 700,
                                 margin: 0
