@@ -7,6 +7,7 @@ import ScrollAnimationSection from './components/ScrollAnimationSection';
 import Process from './components/Process';
 import RitualAccordion from './components/RitualAccordion';
 import AssemblySection from './components/AssemblySection';
+import MasterProfile from './components/MasterProfile';
 import VirtualGallery from './components/VirtualGallery';
 import Booking from './components/Booking';
 import Footer from './components/Footer';
@@ -37,6 +38,7 @@ function App() {
         <Process />
         <RitualAccordion />
         <AssemblySection />
+        <MasterProfile />
         <VirtualGallery />
         <Booking />
         <Footer />

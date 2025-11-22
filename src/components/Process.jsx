@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -11,6 +11,7 @@ const steps = [
         kanji: '覚醒',
         subtitle: 'Kakusei',
         description: 'The moment you decide to mark your skin, you awaken to your true self.',
+        details: 'This is the spark of realization. It is not just about wanting a tattoo; it is about recognizing a hidden part of your soul that demands expression. We discuss your motivations, your fears, and your deepest desires to ensure the art aligns with your true spirit.',
         color: '#cc3333'
     },
     {
@@ -19,6 +20,7 @@ const steps = [
         kanji: '繋がり',
         subtitle: 'Tsunagari',
         description: 'Art becomes a bridge between your inner world and outer expression.',
+        details: 'We build a bond of trust. Through deep consultation, we connect your personal narrative with the rich tapestry of Japanese mythology and symbolism. This connection ensures that the design is not just an image, but a reflection of your inner world.',
         color: '#d4af37'
     },
     {
@@ -27,6 +29,7 @@ const steps = [
         kanji: '勇気',
         subtitle: 'Yūki',
         description: 'Embracing the needle, you discover strength you never knew existed.',
+        details: 'Facing the needle requires a warrior\'s spirit. It is a commitment to endure pain for the sake of beauty and meaning. We honor this courage, creating a safe and sacred space where you can test your limits and discover your resilience.',
         color: '#cc3333'
     },
     {
@@ -35,6 +38,7 @@ const steps = [
         kanji: '変容',
         subtitle: 'Henyō',
         description: 'Pain becomes meditation. Each mark is a step toward becoming whole.',
+        details: 'The session is a rite of passage. As the ink settles into your skin, you are physically and spiritually altered. The pain becomes a meditative focus, washing away the old and welcoming the new. You leave the studio different from how you entered.',
         color: '#d4af37'
     },
     {
@@ -43,6 +47,7 @@ const steps = [
         kanji: '力',
         subtitle: 'Chikara',
         description: 'Your body becomes a canvas of power, carrying stories only you can tell.',
+        details: 'Wearing the art empowers you. It is a permanent talisman of your journey, a source of strength you can draw upon daily. Your body is no longer just a vessel, but a proclaimed masterpiece of your own making.',
         color: '#cc3333'
     },
     {
@@ -51,6 +56,7 @@ const steps = [
         kanji: '遺産',
         subtitle: 'Isan',
         description: 'The art lives with you, a permanent reminder of who you chose to become.',
+        details: 'Irezumi is a lifelong commitment. It ages with you, evolving as you evolve. It is a legacy you carry to the grave, a testament to your values, your struggles, and your triumphs. It is the ultimate mark of your existence.',
         color: '#d4af37'
     }
 ];
@@ -58,13 +64,20 @@ const steps = [
 const Process = () => {
     const sectionRef = useRef(null);
     const cardsRef = useRef([]);
+    const [flippedCards, setFlippedCards] = useState({});
+
+    const toggleFlip = (index) => {
+        setFlippedCards(prev => ({
+            ...prev,
+            [index]: !prev[index]
+        }));
+    };
 
     useEffect(() => {
         if (!sectionRef.current) return;
 
         const ctx = gsap.context(() => {
-            // 1. Entrance Animation (Triggered, not scrubbed)
-            // This ensures they always appear fully when the section is reached.
+            // Entrance Animation
             gsap.fromTo(cardsRef.current,
                 {
                     opacity: 0,
@@ -87,13 +100,12 @@ const Process = () => {
                     stagger: 0.1,
                     ease: 'back.out(1.2)',
                     onComplete: () => {
-                        // Start floating animation after entrance
                         startFloating();
                     }
                 }
             );
 
-            // 2. Continuous Floating Animation
+            // Continuous Floating Animation
             const startFloating = () => {
                 cardsRef.current.forEach((card, i) => {
                     if (!card) return;
@@ -108,8 +120,7 @@ const Process = () => {
                 });
             };
 
-            // 3. 3D Tilt Effect on Mouse Move (for the container)
-            // Adding a subtle parallax effect to the whole grid based on mouse position
+            // 3D Tilt Effect on Mouse Move (Applied to Outer Container)
             const handleMouseMove = (e) => {
                 const { clientX, clientY } = e;
                 const xPos = (clientX / window.innerWidth - 0.5) * 20;
@@ -124,7 +135,6 @@ const Process = () => {
                 });
             };
 
-            // Only add mouse move listener if device is likely desktop
             if (window.matchMedia('(min-width: 768px)').matches) {
                 window.addEventListener('mousemove', handleMouseMove);
             }
@@ -135,10 +145,8 @@ const Process = () => {
 
         }, sectionRef);
 
-        return () => {
-            ctx.revert();
-        };
-    }, []);
+        return () => ctx.revert();
+    }, []); // Empty dependency array - GSAP runs once and stays
 
     return (
         <section
@@ -182,94 +190,158 @@ const Process = () => {
                             key={index}
                             ref={(el) => (cardsRef.current[index] = el)}
                             style={{
-                                padding: '3rem 2rem',
-                                background: 'var(--card-bg)',
-                                backdropFilter: 'blur(10px)',
-                                border: '1px solid var(--glass-border)',
-                                borderRadius: '20px',
                                 position: 'relative',
-                                transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+                                height: '400px',
                                 cursor: 'pointer',
                                 transformStyle: 'preserve-3d',
-                                willChange: 'transform, opacity',
-                                textAlign: 'center',
-                                minHeight: '200px',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center'
+                                // GSAP controls transform here (tilt/float)
                             }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-12px) rotateY(5deg)';
-                                e.currentTarget.style.borderColor = `${step.color}40`;
-                                e.currentTarget.style.boxShadow = `0 24px 48px rgba(0, 0, 0, 0.3)`;
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.transform = 'translateY(0) rotateY(0deg)';
-                                e.currentTarget.style.borderColor = 'var(--glass-border)';
-                                e.currentTarget.style.boxShadow = 'none';
-                            }}
+                            onClick={() => toggleFlip(index)}
                         >
-                            {/* Accent line */}
+                            {/* Inner Flipper Container - Controlled by React State */}
                             <div style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                width: '4px',
+                                position: 'relative',
+                                width: '100%',
                                 height: '100%',
-                                background: `linear-gradient(180deg, ${step.color}, transparent)`,
-                                borderRadius: '20px 0 0 20px'
-                            }} />
-
-                            {/* Step number */}
-                            <span style={{
-                                fontSize: '1.5rem',
-                                color: step.color,
-                                opacity: 0.3,
-                                fontFamily: 'var(--font-heading)',
-                                fontWeight: 800,
-                                display: 'block',
-                                marginBottom: '1rem',
-                                lineHeight: 1
+                                transformStyle: 'preserve-3d',
+                                transition: 'transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1)',
+                                transform: flippedCards[index] ? 'rotateY(180deg)' : 'rotateY(0deg)'
                             }}>
-                                {step.id}
-                            </span>
+                                {/* Front Face */}
+                                <div style={{
+                                    position: 'absolute',
+                                    width: '100%',
+                                    height: '100%',
+                                    backfaceVisibility: 'hidden',
+                                    padding: '3rem 2rem',
+                                    background: 'var(--card-bg)',
+                                    backdropFilter: 'blur(10px)',
+                                    border: '1px solid var(--glass-border)',
+                                    borderRadius: '20px',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    textAlign: 'center',
+                                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                                }}>
+                                    {/* Accent line */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '4px',
+                                        height: '100%',
+                                        background: `linear-gradient(180deg, ${step.color}, transparent)`,
+                                        borderRadius: '20px 0 0 20px'
+                                    }} />
 
-                            {/* Kanji */}
-                            <div style={{
-                                fontSize: '5rem',
-                                marginBottom: '0.5rem',
-                                fontWeight: 300,
-                                color: step.color,
-                                lineHeight: 1,
-                                fontFamily: 'serif'
-                            }}>
-                                {step.kanji}
+                                    <span style={{
+                                        fontSize: '1.5rem',
+                                        color: step.color,
+                                        opacity: 0.3,
+                                        fontFamily: 'var(--font-heading)',
+                                        fontWeight: 800,
+                                        display: 'block',
+                                        marginBottom: '1rem',
+                                        lineHeight: 1
+                                    }}>
+                                        {step.id}
+                                    </span>
+
+                                    <div style={{
+                                        fontSize: '5rem',
+                                        marginBottom: '0.5rem',
+                                        fontWeight: 300,
+                                        color: step.color,
+                                        lineHeight: 1,
+                                        fontFamily: 'serif'
+                                    }}>
+                                        {step.kanji}
+                                    </div>
+
+                                    <p style={{
+                                        fontSize: '0.875rem',
+                                        color: 'var(--text-muted)',
+                                        fontFamily: 'var(--font-body)',
+                                        letterSpacing: '0.15em',
+                                        textTransform: 'uppercase',
+                                        marginBottom: '1.5rem',
+                                        fontWeight: 300
+                                    }}>
+                                        {step.subtitle}
+                                    </p>
+
+                                    <h3 style={{
+                                        fontSize: '1.5rem',
+                                        fontFamily: 'var(--font-heading)',
+                                        color: 'var(--text-color)',
+                                        fontWeight: 700,
+                                        margin: 0
+                                    }}>
+                                        {step.title}
+                                    </h3>
+
+                                    <div style={{
+                                        marginTop: '2rem',
+                                        fontSize: '0.8rem',
+                                        color: 'var(--text-muted)',
+                                        opacity: 0.6
+                                    }}>
+                                        Click to reveal
+                                    </div>
+                                </div>
+
+                                {/* Back Face */}
+                                <div style={{
+                                    position: 'absolute',
+                                    width: '100%',
+                                    height: '100%',
+                                    backfaceVisibility: 'hidden',
+                                    transform: 'rotateY(180deg)',
+                                    padding: '3rem 2rem',
+                                    background: 'var(--card-bg)',
+                                    backdropFilter: 'blur(10px)',
+                                    border: `1px solid ${step.color}40`,
+                                    borderRadius: '20px',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    textAlign: 'center',
+                                    boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+                                }}>
+                                    <h3 style={{
+                                        fontSize: '1.5rem',
+                                        fontFamily: 'var(--font-heading)',
+                                        color: step.color,
+                                        fontWeight: 700,
+                                        marginBottom: '1.5rem'
+                                    }}>
+                                        {step.title}
+                                    </h3>
+
+                                    <p style={{
+                                        fontSize: '1rem',
+                                        color: 'var(--text-color)',
+                                        fontFamily: 'var(--font-body)',
+                                        marginBottom: '1.5rem',
+                                        lineHeight: 1.6
+                                    }}>
+                                        {step.description}
+                                    </p>
+
+                                    <p style={{
+                                        fontSize: '0.9rem',
+                                        color: 'var(--text-muted)',
+                                        fontFamily: 'var(--font-body)',
+                                        lineHeight: 1.6,
+                                        fontStyle: 'italic'
+                                    }}>
+                                        {step.details}
+                                    </p>
+                                </div>
                             </div>
-
-                            {/* Subtitle (Romanized) */}
-                            <p style={{
-                                fontSize: '0.875rem',
-                                color: 'var(--text-muted)',
-                                fontFamily: 'var(--font-body)',
-                                letterSpacing: '0.15em',
-                                textTransform: 'uppercase',
-                                marginBottom: '1.5rem',
-                                fontWeight: 300
-                            }}>
-                                {step.subtitle}
-                            </p>
-
-                            {/* Title */}
-                            <h3 style={{
-                                fontSize: '1.5rem',
-                                fontFamily: 'var(--font-heading)',
-                                color: 'var(--text-color)',
-                                fontWeight: 700,
-                                margin: 0
-                            }}>
-                                {step.title}
-                            </h3>
                         </div>
                     ))}
                 </div>
