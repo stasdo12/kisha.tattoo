@@ -282,3 +282,22 @@ textarea::placeholder {
     text-shadow: none;
   }
 }
+
+/* Showreel Trigger Responsive Styles */
+.showreel-trigger {
+  display: none !important;
+}
+
+.mobile-showreel-trigger {
+  display: flex !important;
+}
+
+@media (min-width: 1024px) {
+  .showreel-trigger {
+    display: block !important;
+  }
+
+  .mobile-showreel-trigger {
+    display: none !important;
+  }
+}

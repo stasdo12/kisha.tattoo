@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import showreelPreview from '../assets/1.jpg';
 import '../styles/index.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -14,6 +15,7 @@ const Hero = () => {
     const buttonRef = useRef(null);
     const bg1Ref = useRef(null);
     const bg2Ref = useRef(null);
+    const showreelRef = useRef(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -52,6 +54,19 @@ const Hero = () => {
                 },
                 opacity: 0,
                 y: -100,
+            });
+
+            // Showreel fade-out on scroll
+            gsap.to(showreelRef.current, {
+                scrollTrigger: {
+                    trigger: heroRef.current,
+                    start: 'top top',
+                    end: '40% top',
+                    scrub: 1,
+                },
+                opacity: 0,
+                y: 50,
+                pointerEvents: 'none'
             });
 
             // Title parallax (slower)
@@ -151,7 +166,8 @@ const Hero = () => {
                 style={{
                     textAlign: 'center',
                     zIndex: 1,
-                    willChange: 'transform, opacity'
+                    willChange: 'transform, opacity',
+                    position: 'relative' // For absolute positioning of showreel trigger if needed
                 }}
             >
                 <div
@@ -215,6 +231,114 @@ const Hero = () => {
                     >
                         Book Consultation
                     </button>
+                </div>
+            </div>
+
+            {/* Persistent Showreel - Bottom Right */}
+            <div
+                ref={showreelRef}
+                style={{
+                    position: 'absolute',
+                    bottom: '2rem',
+                    right: '2rem',
+                    zIndex: 10,
+                    width: 'clamp(220px, 20vw, 320px)',
+                    background: 'var(--card-bg)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid var(--glass-border)',
+                    borderRadius: '4px',
+                    overflow: 'hidden',
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                    display: 'flex',
+                    flexDirection: 'column'
+                }}
+            >
+                {/* Header Bar */}
+                <div style={{
+                    padding: '0.5rem 0.8rem',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    background: 'var(--bg-color)',
+                    borderBottom: '1px solid var(--glass-border)'
+                }}>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        fontSize: '0.7rem',
+                        fontFamily: 'var(--font-body)',
+                        fontWeight: 700,
+                        letterSpacing: '0.1em',
+                        color: 'var(--text-color)'
+                    }}>
+                        <span style={{ color: 'var(--primary)' }}>▶</span> SHOWREEL
+                    </div>
+                    <div style={{
+                        fontSize: '0.7rem',
+                        fontFamily: 'var(--font-body)',
+                        color: 'var(--text-muted)',
+                        letterSpacing: '0.05em'
+                    }}>
+                        1:35
+                    </div>
+                </div>
+
+                {/* Video/Image Content */}
+                <div style={{
+                    position: 'relative',
+                    width: '100%',
+                    aspectRatio: '16/9',
+                    overflow: 'hidden'
+                }}>
+                    <img
+                        src={showreelPreview}
+                        alt="Showreel"
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            transition: 'transform 0.5s ease',
+                            cursor: 'pointer'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                    />
+
+                    {/* Play Overlay on Hover */}
+                    <div style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        background: 'rgba(0,0,0,0.2)',
+                        pointerEvents: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <div style={{
+                            width: '40px',
+                            height: '40px',
+                            background: 'rgba(255,255,255,0.1)',
+                            backdropFilter: 'blur(4px)',
+                            borderRadius: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            border: '1px solid rgba(255,255,255,0.2)'
+                        }}>
+                            <div style={{
+                                width: 0,
+                                height: 0,
+                                borderTop: '6px solid transparent',
+                                borderBottom: '6px solid transparent',
+                                borderLeft: '10px solid white',
+                                marginLeft: '3px'
+                            }} />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
