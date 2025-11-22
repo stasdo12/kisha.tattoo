@@ -110,16 +110,40 @@ const Booking = () => {
                         ref={(el) => (fieldsRef.current[0] = el)}
                         style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}
                     >
-                        <input
-                            type="text"
-                            placeholder="NAME"
-                            className="form-input"
-                        />
-                        <input
-                            type="email"
-                            placeholder="EMAIL"
-                            className="form-input"
-                        />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                            <label style={{
+                                fontFamily: 'var(--font-body)',
+                                color: 'var(--text-color)',
+                                fontSize: '0.875rem',
+                                fontWeight: 600,
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.1em'
+                            }}>
+                                Name
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Enter your name"
+                                className="form-input"
+                            />
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                            <label style={{
+                                fontFamily: 'var(--font-body)',
+                                color: 'var(--text-color)',
+                                fontSize: '0.875rem',
+                                fontWeight: 600,
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.1em'
+                            }}>
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                className="form-input"
+                            />
+                        </div>
                     </div>
 
                     <div

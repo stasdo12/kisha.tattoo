@@ -10,7 +10,6 @@ const Hero = () => {
     const heroRef = useRef(null);
     const contentRef = useRef(null);
     const titleRef = useRef(null);
-    const subtitleRef = useRef(null);
     const badgeRef = useRef(null);
     const buttonRef = useRef(null);
     const bg1Ref = useRef(null);
@@ -33,11 +32,6 @@ const Hero = () => {
                     opacity: 0,
                     duration: 1
                 }, '-=0.5')
-                .from(subtitleRef.current, {
-                    y: 20,
-                    opacity: 0,
-                    duration: 1
-                }, '-=0.7')
                 .from(buttonRef.current, {
                     y: 20,
                     opacity: 0,
@@ -78,17 +72,6 @@ const Hero = () => {
                     scrub: 1.5,
                 },
                 y: -150,
-            });
-
-            // Subtitle parallax (faster)
-            gsap.to(subtitleRef.current, {
-                scrollTrigger: {
-                    trigger: heroRef.current,
-                    start: 'top top',
-                    end: 'bottom top',
-                    scrub: 0.8,
-                },
-                y: -80,
             });
 
             // Background elements parallax
@@ -172,55 +155,40 @@ const Hero = () => {
             >
                 <div
                     ref={badgeRef}
-                    style={{ marginBottom: '2rem' }}
+                    style={{ marginBottom: '1rem' }}
                 >
-                    <span style={{
+                    <div style={{
                         display: 'inline-block',
                         padding: '0.5rem 1rem',
                         border: '1px solid var(--primary)',
+                        borderRadius: '50px',
                         color: 'var(--primary)',
                         fontFamily: 'var(--font-body)',
-                        letterSpacing: '0.2em',
                         fontSize: '0.9rem',
-                        background: 'var(--glass-bg)',
-                        borderRadius: '4px'
+                        letterSpacing: '0.2em',
+                        marginBottom: '1rem',
+                        textTransform: 'uppercase'
                     }}>
-                        東京 • 刺青
-                    </span>
+                        喜捨刺青
+                    </div>
                 </div>
 
-                <h1
-                    ref={titleRef}
-                    style={{
-                        fontSize: 'clamp(3rem, 8vw, 6rem)',
-                        marginBottom: '1.5rem',
-                        color: 'var(--text-color)',
-                        fontFamily: 'var(--font-heading)',
-                        fontWeight: 400,
-                        letterSpacing: '-0.02em',
-                        textShadow: '0 0 20px rgba(0,0,0,0.1)',
-                        willChange: 'transform'
-                    }}
-                >
-                    Kisha <span style={{ fontStyle: 'italic', fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}>Tattoo</span>
+                <h1 ref={titleRef} style={{
+                    fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+                    lineHeight: 1.2,
+                    marginBottom: '4rem',
+                    fontFamily: 'var(--font-heading)',
+                    fontWeight: 700,
+                    letterSpacing: '-0.02em',
+                    textTransform: 'uppercase',
+                    maxWidth: '800px',
+                    marginLeft: 'auto',
+                    marginRight: 'auto'
+                }}>
+                    Traditional Japanese <span style={{ color: 'var(--primary)' }}>Irezumi</span> art for the modern <span style={{ color: 'var(--primary)' }}>soul</span>
                 </h1>
 
-                <p
-                    ref={subtitleRef}
-                    style={{
-                        fontSize: '1.2rem',
-                        color: 'var(--text-muted)',
-                        maxWidth: '500px',
-                        margin: '0 auto 3rem',
-                        fontFamily: 'var(--font-body)',
-                        willChange: 'transform'
-                    }}
-                >
-                    Traditional Japanese Irezumi art for the modern soul.
-                    Experience the flow of eternity on your skin.
-                </p>
-
-                <div ref={buttonRef}>
+                <div ref={buttonRef} style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
                     <button
                         className="btn btn-primary"
                         style={{
@@ -230,6 +198,24 @@ const Hero = () => {
                         }}
                     >
                         Book Consultation
+                    </button>
+                    <button
+                        className="btn btn-ghost"
+                        style={{
+                            padding: '1rem 3rem',
+                            fontSize: '1rem',
+                            letterSpacing: '0.1em',
+                            backdropFilter: 'blur(10px)',
+                            background: 'rgba(255,255,255,0.05)'
+                        }}
+                        onClick={() => {
+                            const portfolioSection = document.getElementById('portfolio');
+                            if (portfolioSection) {
+                                portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                    >
+                        View Works
                     </button>
                 </div>
             </div>

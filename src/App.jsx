@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import KanjiBackground from './components/KanjiBackground';
 import ScrollCursor from './components/ScrollCursor';
 import LoadingScreen from './components/LoadingScreen';
+import ScrollToTop from './components/ScrollToTop';
 import { ThemeProvider } from './context/ThemeContext';
 import './styles/index.css';
 
@@ -42,6 +43,7 @@ function App() {
         <VirtualGallery />
         <Booking />
         <Footer />
+        <ScrollToTop />
       </div>
     </ThemeProvider>
   );
