@@ -42,58 +42,18 @@ const StorySection = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Title animation - fade and slide from left
-            gsap.from(titleRef.current, {
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: 'top 70%',
-                    end: 'top 50%',
-                    scrub: 1,
-                },
-                opacity: 0,
-                x: -100,
-                scale: 0.9,
-            });
-
-            // Chapters stagger animation
+            // Chapters auto-activation on scroll
             chaptersRef.current.forEach((chapter, index) => {
                 if (!chapter) return;
 
-                gsap.from(chapter, {
-                    scrollTrigger: {
-                        trigger: chapter,
-                        start: 'top 90%',
-                        end: 'top 70%',
-                        scrub: 1,
-                    },
-                    opacity: 0,
-                    x: -50,
-                    y: 30,
+                // Auto-activate chapter on scroll
+                ScrollTrigger.create({
+                    trigger: chapter,
+                    start: 'top center',
+                    end: 'bottom center',
+                    onEnter: () => setActiveChapter(storyChapters[index]),
+                    onEnterBack: () => setActiveChapter(storyChapters[index]),
                 });
-            });
-
-            // Visual panel animation
-            gsap.from(visualRef.current, {
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: 'top 70%',
-                    end: 'top 50%',
-                    scrub: 1,
-                },
-                opacity: 0,
-                x: 100,
-                rotateY: 15,
-            });
-
-            // Parallax effect for the entire section
-            gsap.to(sectionRef.current, {
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: 2,
-                },
-                y: -50,
             });
 
         }, sectionRef);
@@ -101,15 +61,16 @@ const StorySection = () => {
         return () => ctx.revert();
     }, []);
 
+
     return (
         <section
             ref={sectionRef}
             style={{
-                padding: '9.72rem 2rem',
+                padding: '8rem 2rem 100vh 2rem',
                 position: 'relative',
                 background: 'transparent',
-                overflow: 'hidden',
-                minHeight: '54vh'
+                overflow: 'visible',
+                minHeight: '100vh'
             }}
         >
             {/* Ambient background effects */}
@@ -128,9 +89,9 @@ const StorySection = () => {
                 maxWidth: '1400px',
                 margin: '0 auto',
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+                gridTemplateColumns: '1fr 1fr',
                 gap: '6rem',
-                alignItems: 'center'
+                alignItems: 'start'
             }}>
 
                 {/* Left Column: Story Text */}
@@ -155,7 +116,7 @@ const StorySection = () => {
                         }}>Master's</span> Path
                     </h2>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '50vh' }}>
                         {storyChapters.map((chapter, index) => (
                             <div
                                 key={chapter.id}
@@ -175,6 +136,7 @@ const StorySection = () => {
                                     position: 'relative',
                                     overflow: 'hidden',
                                     backdropFilter: activeChapter.id === chapter.id ? 'blur(10px)' : 'none',
+                                    marginBottom: index === storyChapters.length - 1 ? '50vh' : '0'
                                 }}
                                 onMouseEnter={(e) => {
                                     if (activeChapter.id !== chapter.id) {
@@ -246,105 +208,116 @@ const StorySection = () => {
                 <div
                     ref={visualRef}
                     style={{
-                        height: '600px',
-                        position: 'relative',
-                        perspective: '1000px'
+                        height: '80vh',
+                        position: 'sticky',
+                        top: '10vh',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }}
                 >
-                    <AnimatePresence mode='wait'>
-                        <motion.div
-                            key={activeChapter.id}
-                            initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
-                            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, rotateY: 15 }}
-                            transition={{
-                                duration: 0.6,
-                                ease: [0.22, 1, 0.36, 1]
-                            }}
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                background: activeChapter.image,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                                borderRadius: '24px',
-                                boxShadow: '0 24px 64px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                position: 'relative',
-                                overflow: 'hidden',
-                                border: '1px solid rgba(255, 255, 255, 0.08)',
-                                transformStyle: 'preserve-3d'
-                            }}
-                        >
-                            {/* Gradient overlay */}
-                            <div style={{
-                                position: 'absolute',
-                                inset: 0,
-                                background: `radial-gradient(circle at 30% 30%, ${activeChapter.accent}20 0%, transparent 70%)`,
-                                pointerEvents: 'none',
-                            }} />
-
-                            {/* Decorative grid */}
-                            <div style={{
-                                position: 'absolute',
-                                inset: '40px',
-                                border: '1px solid var(--glass-border)',
-                                borderRadius: '12px',
-                                pointerEvents: 'none'
-                            }} />
-
-                            {/* Large Kanji Symbol */}
-                            <motion.span
-                                initial={{ opacity: 0, scale: 0.5, rotateZ: -45 }}
-                                animate={{ opacity: 1, scale: 1, rotateZ: 0 }}
+                    <div style={{
+                        height: '100%',
+                        maxHeight: '600px',
+                        width: '100%',
+                        position: 'relative',
+                        perspective: '1000px'
+                    }}>
+                        <AnimatePresence mode='wait'>
+                            <motion.div
+                                key={activeChapter.id}
+                                initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
+                                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                                exit={{ opacity: 0, scale: 0.95, rotateY: 15 }}
                                 transition={{
-                                    delay: 0.2,
-                                    type: 'spring',
-                                    stiffness: 100
+                                    duration: 0.6,
+                                    ease: [0.22, 1, 0.36, 1]
                                 }}
                                 style={{
-                                    fontSize: 'clamp(8rem, 15vw, 12rem)',
-                                    color: 'var(--overlay-text)',
-                                    fontFamily: 'var(--font-body)',
-                                    fontWeight: 900,
-                                    textShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
+                                    width: '100%',
+                                    height: '100%',
+                                    background: activeChapter.image,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    borderRadius: '24px',
+                                    boxShadow: '0 24px 64px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
                                     position: 'relative',
-                                    zIndex: 1
+                                    overflow: 'hidden',
+                                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                                    transformStyle: 'preserve-3d'
                                 }}
                             >
-                                {activeChapter.symbol}
-                            </motion.span>
+                                {/* Gradient overlay */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    background: `radial-gradient(circle at 30% 30%, ${activeChapter.accent}20 0%, transparent 70%)`,
+                                    pointerEvents: 'none',
+                                }} />
 
-                            {/* Chapter title - vertical */}
-                            <div style={{
-                                position: 'absolute',
-                                bottom: '40px',
-                                right: '40px',
-                                fontSize: '0.875rem',
-                                fontFamily: 'var(--font-body)',
-                                fontWeight: 700,
-                                letterSpacing: '0.2em',
-                                color: 'var(--overlay-text-muted)',
-                                writingMode: 'vertical-rl',
-                                textTransform: 'uppercase'
-                            }}>
-                                {activeChapter.title}
-                            </div>
+                                {/* Decorative grid */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: '40px',
+                                    border: '1px solid var(--glass-border)',
+                                    borderRadius: '12px',
+                                    pointerEvents: 'none'
+                                }} />
 
-                            {/* Accent line */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '40px',
-                                left: '40px',
-                                width: '60px',
-                                height: '3px',
-                                background: `linear-gradient(90deg, ${activeChapter.accent}, transparent)`,
-                                borderRadius: '3px'
-                            }} />
-                        </motion.div>
-                    </AnimatePresence>
+                                {/* Large Kanji Symbol */}
+                                <motion.span
+                                    initial={{ opacity: 0, scale: 0.5, rotateZ: -45 }}
+                                    animate={{ opacity: 1, scale: 1, rotateZ: 0 }}
+                                    transition={{
+                                        delay: 0.2,
+                                        type: 'spring',
+                                        stiffness: 100
+                                    }}
+                                    style={{
+                                        fontSize: 'clamp(8rem, 15vw, 12rem)',
+                                        color: 'var(--overlay-text)',
+                                        fontFamily: 'var(--font-body)',
+                                        fontWeight: 900,
+                                        textShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
+                                        position: 'relative',
+                                        zIndex: 1
+                                    }}
+                                >
+                                    {activeChapter.symbol}
+                                </motion.span>
+
+                                {/* Chapter title - vertical */}
+                                <div style={{
+                                    position: 'absolute',
+                                    bottom: '40px',
+                                    right: '40px',
+                                    fontSize: '0.875rem',
+                                    fontFamily: 'var(--font-body)',
+                                    fontWeight: 700,
+                                    letterSpacing: '0.2em',
+                                    color: 'var(--overlay-text-muted)',
+                                    writingMode: 'vertical-rl',
+                                    textTransform: 'uppercase'
+                                }}>
+                                    {activeChapter.title}
+                                </div>
+
+                                {/* Accent line */}
+                                <div style={{
+                                    position: 'absolute',
+                                    top: '40px',
+                                    left: '40px',
+                                    width: '60px',
+                                    height: '3px',
+                                    background: `linear-gradient(90deg, ${activeChapter.accent}, transparent)`,
+                                    borderRadius: '3px'
+                                }} />
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
                 </div>
 
             </div>

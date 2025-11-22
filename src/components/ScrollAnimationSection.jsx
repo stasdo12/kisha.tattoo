@@ -54,17 +54,6 @@ const ScrollAnimationSection = () => {
                     rotateX: 45,
                     scale: 0.8,
                 });
-
-                // Parallax effect on scroll
-                gsap.to(card, {
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: 'top bottom',
-                        end: 'bottom top',
-                        scrub: 2,
-                    },
-                    y: index % 2 === 0 ? -50 : 50,
-                });
             });
 
         }, sectionRef);
@@ -96,6 +85,30 @@ const ScrollAnimationSection = () => {
             subtitle: 'The Warrior',
             description: 'Mountain spirits and masters of martial arts. With their long noses or bird-like beaks, they are protectors of the forests and teachers of the samurai way.',
             gradient: 'linear-gradient(135deg, #ff6b35 0%, #8b0000 100%)',
+        },
+        {
+            emoji: '👺',
+            kanji: '般若',
+            title: 'Hannya',
+            subtitle: 'The Mask of Jealousy',
+            description: 'A demon mask representing a jealous female spirit. In Japanese theater and tattoo art, it symbolizes the duality of human emotion—beauty and rage, love and vengeance.',
+            gradient: 'linear-gradient(135deg, #8b0000 0%, #4a0000 100%)',
+        },
+        {
+            emoji: '🐉',
+            kanji: '龍',
+            title: 'Ryu',
+            subtitle: 'The Dragon',
+            description: 'Powerful water deities that control rain, rivers, and oceans. Unlike Western dragons, they are benevolent and wise, symbolizing strength, wisdom, and good fortune.',
+            gradient: 'linear-gradient(135deg, #1e3a8a 0%, #cc3333 100%)',
+        },
+        {
+            emoji: '🐟',
+            kanji: '鯉',
+            title: 'Koi',
+            subtitle: 'The Carp',
+            description: 'Sacred fish that swim upstream against powerful currents. They represent perseverance, courage, and transformation—inspired by the legend of koi becoming dragons.',
+            gradient: 'linear-gradient(135deg, #ff6b35 0%, #d4af37 100%)',
         },
     ];
 
@@ -158,15 +171,16 @@ const ScrollAnimationSection = () => {
                             lineHeight: 1.1,
                         }}
                     >
-                        The Art of{' '}
+                        Popular{' '}
                         <span style={{
                             background: 'linear-gradient(135deg, #cc3333, #ff6b35)',
                             WebkitBackgroundClip: 'text',
                             WebkitTextFillColor: 'transparent',
                             backgroundClip: 'text',
                         }}>
-                            Irezumi
+                            Yokai
                         </span>
+                        {' '}and Mythical Creatures
                     </h2>
                     <p
                         ref={subtitleRef}
@@ -180,15 +194,14 @@ const ScrollAnimationSection = () => {
                             fontWeight: 400,
                         }}
                     >
-                        Where ancient tradition meets modern artistry. Each piece tells a story,
-                        carries meaning, and becomes part of your journey.
+                        Below you'll find cards with their meanings, history, and symbolism.
                     </p>
                 </div>
 
                 {/* Cards Grid */}
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
                     gap: '2.5rem',
                     perspective: '1000px',
                 }}>
