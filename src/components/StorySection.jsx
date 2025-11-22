@@ -116,7 +116,18 @@ const StorySection = () => {
                         }}>Master's</span> Path
                     </h2>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '50vh' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '50vh', position: 'relative' }}>
+                        {/* Timeline vertical line */}
+                        <div style={{
+                            position: 'absolute',
+                            left: '-2rem',
+                            top: '2rem',
+                            bottom: '50vh',
+                            width: '2px',
+                            background: 'linear-gradient(180deg, #cc3333, #ff6b35, #d4af37)',
+                            opacity: 0.3,
+                        }} />
+
                         {storyChapters.map((chapter, index) => (
                             <div
                                 key={chapter.id}
@@ -125,6 +136,7 @@ const StorySection = () => {
                                 style={{
                                     cursor: 'pointer',
                                     padding: '2rem',
+                                    paddingLeft: '3rem',
                                     borderRadius: '16px',
                                     background: activeChapter.id === chapter.id
                                         ? 'var(--card-bg)'
@@ -153,6 +165,25 @@ const StorySection = () => {
                                     }
                                 }}
                             >
+                                {/* Timeline dot */}
+                                <div style={{
+                                    position: 'absolute',
+                                    left: '-2.5rem',
+                                    top: '2rem',
+                                    width: '12px',
+                                    height: '12px',
+                                    borderRadius: '50%',
+                                    background: activeChapter.id === chapter.id
+                                        ? 'linear-gradient(135deg, #cc3333, #ff6b35)'
+                                        : 'var(--text-muted)',
+                                    border: '2px solid var(--bg-color)',
+                                    boxShadow: activeChapter.id === chapter.id
+                                        ? '0 0 12px rgba(204, 51, 51, 0.6)'
+                                        : 'none',
+                                    transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+                                    zIndex: 2,
+                                }} />
+
                                 {/* Active indicator */}
                                 {activeChapter.id === chapter.id && (
                                     <div style={{
