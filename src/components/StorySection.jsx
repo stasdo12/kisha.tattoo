@@ -47,7 +47,7 @@ const StorySection = () => {
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: 'top 70%',
-                    end: 'top 30%',
+                    end: 'top 50%',
                     scrub: 1,
                 },
                 opacity: 0,
@@ -63,7 +63,7 @@ const StorySection = () => {
                     scrollTrigger: {
                         trigger: chapter,
                         start: 'top 90%',
-                        end: 'top 60%',
+                        end: 'top 70%',
                         scrub: 1,
                     },
                     opacity: 0,
@@ -77,7 +77,7 @@ const StorySection = () => {
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: 'top 70%',
-                    end: 'top 30%',
+                    end: 'top 50%',
                     scrub: 1,
                 },
                 opacity: 0,
@@ -144,7 +144,7 @@ const StorySection = () => {
                             fontWeight: 800,
                             letterSpacing: '-0.03em',
                             lineHeight: 1.1,
-                            color: '#ffffff'
+                            color: 'var(--text-color)'
                         }}
                     >
                         The <span style={{
@@ -166,11 +166,11 @@ const StorySection = () => {
                                     padding: '2rem',
                                     borderRadius: '16px',
                                     background: activeChapter.id === chapter.id
-                                        ? 'rgba(255, 255, 255, 0.05)'
+                                        ? 'var(--card-bg)'
                                         : 'transparent',
                                     border: `1px solid ${activeChapter.id === chapter.id
                                         ? 'rgba(204, 51, 51, 0.3)'
-                                        : 'rgba(255, 255, 255, 0.05)'}`,
+                                        : 'var(--glass-border)'}`,
                                     transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
                                     position: 'relative',
                                     overflow: 'hidden',
@@ -178,15 +178,15 @@ const StorySection = () => {
                                 }}
                                 onMouseEnter={(e) => {
                                     if (activeChapter.id !== chapter.id) {
-                                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
-                                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                                        e.currentTarget.style.background = 'var(--card-bg-hover)';
+                                        e.currentTarget.style.borderColor = 'var(--glass-border)';
                                         e.currentTarget.style.transform = 'translateX(8px)';
                                     }
                                 }}
                                 onMouseLeave={(e) => {
                                     if (activeChapter.id !== chapter.id) {
                                         e.currentTarget.style.background = 'transparent';
-                                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+                                        e.currentTarget.style.borderColor = 'var(--glass-border)';
                                         e.currentTarget.style.transform = 'translateX(0)';
                                     }
                                 }}
@@ -222,14 +222,14 @@ const StorySection = () => {
                                     marginBottom: '1rem',
                                     fontFamily: 'var(--font-heading)',
                                     fontWeight: 700,
-                                    color: '#ffffff',
+                                    color: 'var(--text-color)',
                                     letterSpacing: '-0.02em'
                                 }}>
                                     {chapter.title}
                                 </h3>
 
                                 <p style={{
-                                    color: 'rgba(255, 255, 255, 0.6)',
+                                    color: 'var(--text-muted)',
                                     fontFamily: 'var(--font-body)',
                                     fontSize: '1rem',
                                     lineHeight: 1.7,
@@ -290,7 +290,7 @@ const StorySection = () => {
                             <div style={{
                                 position: 'absolute',
                                 inset: '40px',
-                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                border: '1px solid var(--glass-border)',
                                 borderRadius: '12px',
                                 pointerEvents: 'none'
                             }} />
@@ -306,7 +306,7 @@ const StorySection = () => {
                                 }}
                                 style={{
                                     fontSize: 'clamp(8rem, 15vw, 12rem)',
-                                    color: 'rgba(255, 255, 255, 0.9)',
+                                    color: 'var(--overlay-text)',
                                     fontFamily: 'var(--font-body)',
                                     fontWeight: 900,
                                     textShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
@@ -326,7 +326,7 @@ const StorySection = () => {
                                 fontFamily: 'var(--font-body)',
                                 fontWeight: 700,
                                 letterSpacing: '0.2em',
-                                color: 'rgba(255, 255, 255, 0.8)',
+                                color: 'var(--overlay-text-muted)',
                                 writingMode: 'vertical-rl',
                                 textTransform: 'uppercase'
                             }}>

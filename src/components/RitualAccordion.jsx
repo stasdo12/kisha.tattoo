@@ -137,7 +137,7 @@ const RitualAccordion = () => {
                                     transition: 'background 0.3s ease'
                                 }}
                                 onMouseEnter={(e) => {
-                                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                                    e.currentTarget.style.background = 'var(--card-bg-hover)';
                                 }}
                                 onMouseLeave={(e) => {
                                     e.currentTarget.style.background = 'transparent';

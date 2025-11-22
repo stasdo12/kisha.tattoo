@@ -67,33 +67,6 @@ const Services = () => {
             }}
         >
             <div className="container">
-                <div
-                    ref={titleRef}
-                    style={{ textAlign: 'center', marginBottom: '5rem' }}
-                >
-                    <h2 style={{
-                        fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
-                        marginBottom: '1rem',
-                        color: 'var(--text-color)',
-                        fontFamily: 'var(--font-heading)',
-                        fontWeight: 700
-                    }}>
-                        Our <span style={{
-                            background: 'linear-gradient(135deg, #cc3333, #ff6b35)',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            backgroundClip: 'text',
-                        }}>Craft</span>
-                    </h2>
-                    <p style={{
-                        color: 'var(--text-muted)',
-                        fontFamily: 'var(--font-body)',
-                        fontSize: '1.1rem'
-                    }}>
-                        Precision. Tradition. Artistry.
-                    </p>
-                </div>
-
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',

@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import StorySection from './components/StorySection';
 import ScrollAnimationSection from './components/ScrollAnimationSection';
-import Services from './components/Services';
+
 import Process from './components/Process';
 import RitualAccordion from './components/RitualAccordion';
 import AssemblySection from './components/AssemblySection';
@@ -34,7 +34,6 @@ function App() {
         <Hero />
         <StorySection />
         <ScrollAnimationSection />
-        <Services />
         <Process />
         <RitualAccordion />
         <AssemblySection />

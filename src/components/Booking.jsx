@@ -63,7 +63,7 @@ const Booking = () => {
             style={{
                 padding: '6rem 2rem',
                 position: 'relative',
-                background: 'linear-gradient(180deg, var(--bg-color) 0%, #0a0a0a 100%)'
+                background: 'var(--bg-color)'
             }}
         >
             <div className="container" style={{ maxWidth: '800px' }}>
@@ -99,9 +99,9 @@ const Booking = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '2rem',
-                        background: 'rgba(255, 255, 255, 0.03)',
+                        background: 'var(--card-bg)',
                         backdropFilter: 'blur(10px)',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        border: '1px solid var(--glass-border)',
                         borderRadius: '20px',
                         padding: '3rem'
                     }}

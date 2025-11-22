@@ -109,7 +109,7 @@ const ScrollAnimationSection = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: '10rem 2rem',
-                background: 'linear-gradient(180deg, var(--bg-color) 0%, #0a0a0a 50%, var(--bg-color) 100%)',
+                background: 'var(--bg-color)',
                 overflow: 'hidden',
             }}
         >
@@ -152,7 +152,7 @@ const ScrollAnimationSection = () => {
                             fontSize: 'clamp(3rem, 8vw, 6rem)',
                             fontFamily: 'var(--font-heading)',
                             fontWeight: 800,
-                            color: '#ffffff',
+                            color: 'var(--text-color)',
                             marginBottom: '2rem',
                             letterSpacing: '-0.03em',
                             lineHeight: 1.1,
@@ -172,7 +172,7 @@ const ScrollAnimationSection = () => {
                         ref={subtitleRef}
                         style={{
                             fontSize: 'clamp(1.1rem, 2vw, 1.5rem)',
-                            color: 'rgba(255, 255, 255, 0.6)',
+                            color: 'var(--text-muted)',
                             fontFamily: 'var(--font-body)',
                             maxWidth: '800px',
                             margin: '0 auto',
@@ -198,9 +198,9 @@ const ScrollAnimationSection = () => {
                             ref={(el) => (cardsRef.current[index] = el)}
                             style={{
                                 position: 'relative',
-                                background: 'rgba(255, 255, 255, 0.03)',
+                                background: 'var(--card-bg)',
                                 backdropFilter: 'blur(20px)',
-                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                                border: '1px solid var(--glass-border)',
                                 borderRadius: '24px',
                                 padding: '3rem 2.5rem',
                                 overflow: 'hidden',
@@ -215,7 +215,7 @@ const ScrollAnimationSection = () => {
                             }}
                             onMouseLeave={(e) => {
                                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                                e.currentTarget.style.borderColor = 'var(--glass-border)';
                                 e.currentTarget.style.boxShadow = 'none';
                             }}
                         >
@@ -242,7 +242,7 @@ const ScrollAnimationSection = () => {
                                 opacity: 0.03,
                                 fontFamily: 'var(--font-body)',
                                 fontWeight: 900,
-                                color: '#ffffff',
+                                color: 'var(--text-color)',
                                 pointerEvents: 'none',
                                 userSelect: 'none',
                                 lineHeight: 1,
@@ -265,7 +265,7 @@ const ScrollAnimationSection = () => {
                                     fontSize: '2.25rem',
                                     fontFamily: 'var(--font-heading)',
                                     fontWeight: 700,
-                                    color: '#ffffff',
+                                    color: 'var(--text-color)',
                                     marginBottom: '0.5rem',
                                     letterSpacing: '-0.02em',
                                 }}>
@@ -289,7 +289,7 @@ const ScrollAnimationSection = () => {
                                 <p style={{
                                     fontSize: '1rem',
                                     fontFamily: 'var(--font-body)',
-                                    color: 'rgba(255, 255, 255, 0.6)',
+                                    color: 'var(--text-muted)',
                                     lineHeight: 1.7,
                                     fontWeight: 400,
                                 }}>

@@ -177,9 +177,9 @@ const Process = () => {
                             ref={(el) => (cardsRef.current[index] = el)}
                             style={{
                                 padding: '3rem 2rem',
-                                background: 'rgba(255, 255, 255, 0.03)',
+                                background: 'var(--card-bg)',
                                 backdropFilter: 'blur(10px)',
-                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                                border: '1px solid var(--glass-border)',
                                 borderRadius: '20px',
                                 position: 'relative',
                                 transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
@@ -200,7 +200,7 @@ const Process = () => {
                             }}
                             onMouseLeave={(e) => {
                                 e.currentTarget.style.transform = 'translateY(0) rotateY(0deg)';
-                                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                                e.currentTarget.style.borderColor = 'var(--glass-border)';
                                 e.currentTarget.style.boxShadow = 'none';
                             }}
                         >

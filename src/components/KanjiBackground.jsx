@@ -23,8 +23,8 @@ const KanjiBackground = () => {
                 const char = kanjiList[Math.floor(Math.random() * kanjiList.length)];
                 const startX = Math.random() * 100; // %
                 const startY = Math.random() * 100; // %
-                const duration = 15 + Math.random() * 20;
-                const moveY = -50 - Math.random() * 100; // Move up 50-150px
+                const duration = 8 + Math.random() * 10; // Faster: 8-18 seconds
+                const moveY = -100 - Math.random() * 150; // More movement: 100-250px
 
                 return (
                     <motion.div
@@ -35,14 +35,14 @@ const KanjiBackground = () => {
                             y: 0
                         }}
                         animate={{
-                            opacity: [0, 0.6, 0], // Fade in and out
+                            opacity: [0, 0.8, 0], // More visible
                             y: moveY, // Move up relative to start
-                            rotate: [0, Math.random() * 20 - 10]
+                            rotate: [0, Math.random() * 40 - 20] // More rotation: -20 to 20 degrees
                         }}
                         transition={{
                             duration: duration,
                             repeat: Infinity,
-                            delay: Math.random() * 20,
+                            delay: Math.random() * 10, // Faster start: 0-10s delay
                             ease: "linear" // Smoother continuous movement
                         }}
                         style={{

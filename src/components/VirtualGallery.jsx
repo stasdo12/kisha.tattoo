@@ -61,7 +61,7 @@ const Cell = ({ columnIndex, rowIndex, style }) => {
                     width: '100%',
                     borderRadius: '0 0 12px 12px'
                 }}>
-                    <div style={{ fontSize: '1.2rem', fontFamily: 'var(--font-heading)', color: '#fff', fontWeight: 700 }}>{item.title}</div>
+                    <div style={{ fontSize: '1.2rem', fontFamily: 'var(--font-heading)', color: 'var(--overlay-text)', fontWeight: 700 }}>{item.title}</div>
                     <div style={{ color: 'var(--primary)', marginTop: '0.25rem', fontSize: '0.9rem' }}>{item.year}</div>
                 </div>
             </div>
@@ -94,7 +94,7 @@ const VirtualGallery = () => {
                 }}>
                     <h2 style={{
                         fontSize: '4rem',
-                        color: '#ffffff',
+                        color: 'var(--overlay-text)',
                         fontFamily: 'var(--font-heading)',
                         textShadow: '0 4px 12px rgba(0,0,0,0.5)',
                         marginBottom: '1rem'
@@ -103,7 +103,7 @@ const VirtualGallery = () => {
                     </h2>
                     <p style={{
                         fontSize: '1.2rem',
-                        color: 'rgba(255,255,255,0.8)',
+                        color: 'var(--overlay-text-muted)',
                         fontFamily: 'var(--font-body)'
                     }}>
                         A collection of 20 masterpieces.
