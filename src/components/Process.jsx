@@ -7,44 +7,50 @@ gsap.registerPlugin(ScrollTrigger);
 const steps = [
     {
         id: '01',
-        title: 'Consultation',
-        kanji: '相談',
-        subtitle: 'Sōdan',
+        title: 'Awakening',
+        kanji: '覚醒',
+        subtitle: 'Kakusei',
+        description: 'The moment you decide to mark your skin, you awaken to your true self.',
         color: '#cc3333'
     },
     {
         id: '02',
-        title: 'Design',
-        kanji: '設計',
-        subtitle: 'Sekkei',
+        title: 'Connection',
+        kanji: '繋がり',
+        subtitle: 'Tsunagari',
+        description: 'Art becomes a bridge between your inner world and outer expression.',
         color: '#d4af37'
     },
     {
         id: '03',
-        title: 'Sketch',
-        kanji: '下絵',
-        subtitle: 'Shitae',
+        title: 'Courage',
+        kanji: '勇気',
+        subtitle: 'Yūki',
+        description: 'Embracing the needle, you discover strength you never knew existed.',
         color: '#cc3333'
     },
     {
         id: '04',
-        title: 'Session',
-        kanji: '刺青',
-        subtitle: 'Irezumi',
+        title: 'Transformation',
+        kanji: '変容',
+        subtitle: 'Henyō',
+        description: 'Pain becomes meditation. Each mark is a step toward becoming whole.',
         color: '#d4af37'
     },
     {
         id: '05',
-        title: 'Aftercare',
-        kanji: '養生',
-        subtitle: 'Yōjō',
+        title: 'Empowerment',
+        kanji: '力',
+        subtitle: 'Chikara',
+        description: 'Your body becomes a canvas of power, carrying stories only you can tell.',
         color: '#cc3333'
     },
     {
         id: '06',
-        title: 'Follow-up',
-        kanji: '確認',
-        subtitle: 'Kakunin',
+        title: 'Legacy',
+        kanji: '遺産',
+        subtitle: 'Isan',
+        description: 'The art lives with you, a permanent reminder of who you chose to become.',
         color: '#d4af37'
     }
 ];

@@ -1,31 +1,35 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const ritualSteps = [
+const processSteps = [
     {
         id: '01',
+        kanji: '相談',
+        romaji: 'Sōdan',
         title: 'Consultation',
         desc: 'Understanding your vision and story.',
         details: 'We explore symbolism, cultural significance, and personal meaning. Every design begins with understanding your story. Through careful dialogue, we uncover the essence of what you wish to carry with you forever.',
     },
     {
         id: '02',
+        kanji: '設計',
+        romaji: 'Sekkei',
         title: 'Design',
         desc: 'Crafting a unique piece of art.',
         details: 'Hand-drawn sketches blend traditional Japanese motifs with modern artistry. Each line carries intention. The design process honors centuries of Irezumi tradition while creating something uniquely yours.',
     },
     {
         id: '03',
+        kanji: '施術',
+        romaji: 'Sejutsu',
         title: 'Session',
         desc: 'The ritual of ink and skin.',
         details: 'A meditative practice. Precision, patience, and respect for the ancient craft of Irezumi. The session is not merely technical—it is a shared journey, a moment of transformation where art becomes part of you.',
     },
     {
         id: '04',
+        kanji: '保護',
+        romaji: 'Hogo',
         title: 'Aftercare',
         desc: 'Preserving the legacy.',
         details: 'Proper healing ensures your art remains vibrant for decades. We guide you through every step of the healing process, providing traditional wisdom and modern care techniques to protect your investment.',
@@ -33,24 +37,26 @@ const ritualSteps = [
 ];
 
 const RitualAccordion = () => {
-    const [expandedIndex, setExpandedIndex] = useState(null);
-    const sectionRef = useRef(null);
+    const [flippedCards, setFlippedCards] = useState({});
 
-    const toggleExpand = (index) => {
-        setExpandedIndex(expandedIndex === index ? null : index);
+    const toggleFlip = (index) => {
+        setFlippedCards(prev => ({
+            ...prev,
+            [index]: !prev[index]
+        }));
     };
 
     return (
         <section
             id="ritual-accordion"
-            ref={sectionRef}
             style={{
-                padding: '6rem 2rem',
+                padding: '8rem 2rem',
                 background: 'var(--bg-color)',
                 position: 'relative',
                 overflow: 'hidden'
             }}
-        >    {/* Background decoration */}
+        >
+            {/* Background decoration */}
             <div style={{
                 position: 'absolute',
                 top: '50%',
@@ -63,11 +69,11 @@ const RitualAccordion = () => {
                 userSelect: 'none',
                 color: 'var(--primary)'
             }}>
-                儀
+                工
             </div>
 
             <div style={{
-                maxWidth: '900px',
+                maxWidth: '1400px',
                 margin: '0 auto',
                 position: 'relative',
                 zIndex: 1
@@ -88,9 +94,9 @@ const RitualAccordion = () => {
                         fontFamily: 'var(--font-heading)',
                         color: 'var(--text-color)',
                         marginBottom: '1rem',
-                        letterSpacing: '2px'
+                        letterSpacing: '-0.02em'
                     }}>
-                        The <span style={{ color: 'var(--primary)' }}>Ritual</span>
+                        My <span style={{ color: 'var(--primary)' }}>Work Process</span>
                     </h2>
                     <p style={{
                         fontSize: '1.1rem',
@@ -103,13 +109,14 @@ const RitualAccordion = () => {
                     </p>
                 </motion.div>
 
-                {/* Accordion Items */}
+                {/* Flip Cards Grid */}
                 <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1.5rem'
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                    gap: '2.5rem',
+                    perspective: '1000px'
                 }}>
-                    {ritualSteps.map((step, index) => (
+                    {processSteps.map((step, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
@@ -117,171 +124,170 @@ const RitualAccordion = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             style={{
-                                background: 'var(--glass-bg)',
-                                backdropFilter: 'blur(10px)',
-                                border: '1px solid var(--glass-border)',
-                                borderRadius: '12px',
-                                overflow: 'hidden',
-                                transition: 'all 0.3s ease'
+                                height: '400px',
+                                perspective: '1000px'
                             }}
                         >
-                            {/* Accordion Header */}
-                            <div
-                                onClick={() => toggleExpand(index)}
+                            <motion.div
+                                onClick={() => toggleFlip(index)}
+                                animate={{ rotateY: flippedCards[index] ? 180 : 0 }}
+                                transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
                                 style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between',
-                                    padding: '2rem',
-                                    cursor: 'pointer',
-                                    transition: 'background 0.3s ease'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.background = 'var(--card-bg-hover)';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.background = 'transparent';
+                                    width: '100%',
+                                    height: '100%',
+                                    position: 'relative',
+                                    transformStyle: 'preserve-3d',
+                                    cursor: 'pointer'
                                 }}
                             >
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flex: 1 }}>
-                                    {/* Step Number */}
-                                    <span style={{
-                                        fontSize: '2.5rem',
-                                        fontFamily: 'var(--font-heading)',
-                                        color: 'var(--primary)',
-                                        opacity: 0.5,
-                                        fontWeight: 300,
-                                        minWidth: '60px'
-                                    }}>
-                                        {step.id}
-                                    </span>
+                                {/* Front Side - Kanji */}
+                                <div style={{
+                                    position: 'absolute',
+                                    width: '100%',
+                                    height: '100%',
+                                    backfaceVisibility: 'hidden',
+                                    background: 'var(--card-bg)',
+                                    backdropFilter: 'blur(20px)',
+                                    border: '1px solid var(--glass-border)',
+                                    borderRadius: '24px',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    padding: '2rem',
+                                    overflow: 'hidden',
+                                    transition: 'all 0.3s ease'
+                                }}>
+                                    {/* Gradient overlay */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        right: 0,
+                                        height: '100%',
+                                        background: 'linear-gradient(135deg, rgba(204, 51, 51, 0.1), transparent)',
+                                        pointerEvents: 'none'
+                                    }} />
 
-                                    {/* Title and Description */}
-                                    <div style={{ flex: 1 }}>
+                                    <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+                                        {/* Large Kanji */}
+                                        <div style={{
+                                            fontSize: '8rem',
+                                            fontFamily: 'var(--font-body)',
+                                            fontWeight: 900,
+                                            color: 'var(--text-color)',
+                                            marginBottom: '1rem',
+                                            lineHeight: 1
+                                        }}>
+                                            {step.kanji}
+                                        </div>
+
+                                        {/* Romaji */}
+                                        <div style={{
+                                            fontSize: '1.5rem',
+                                            fontFamily: 'var(--font-heading)',
+                                            color: 'var(--primary)',
+                                            marginBottom: '0.5rem',
+                                            fontWeight: 600
+                                        }}>
+                                            {step.romaji}
+                                        </div>
+
+                                        {/* Title */}
+                                        <div style={{
+                                            fontSize: '1.25rem',
+                                            fontFamily: 'var(--font-body)',
+                                            color: 'var(--text-muted)',
+                                            fontWeight: 500
+                                        }}>
+                                            {step.title}
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                {/* Back Side - Details */}
+                                <div style={{
+                                    position: 'absolute',
+                                    width: '100%',
+                                    height: '100%',
+                                    backfaceVisibility: 'hidden',
+                                    transform: 'rotateY(180deg)',
+                                    background: 'var(--card-bg)',
+                                    backdropFilter: 'blur(20px)',
+                                    border: '1px solid rgba(204, 51, 51, 0.3)',
+                                    borderRadius: '24px',
+                                    padding: '2.5rem',
+                                    overflow: 'hidden',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'space-between'
+                                }}>
+                                    {/* Gradient overlay */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        right: 0,
+                                        height: '100%',
+                                        background: 'linear-gradient(135deg, rgba(204, 51, 51, 0.15), transparent)',
+                                        pointerEvents: 'none'
+                                    }} />
+
+                                    <div style={{ position: 'relative', zIndex: 1 }}>
+                                        {/* Step number */}
+                                        <div style={{
+                                            fontSize: '2rem',
+                                            fontFamily: 'var(--font-heading)',
+                                            color: 'var(--primary)',
+                                            opacity: 0.3,
+                                            marginBottom: '0.5rem',
+                                            fontWeight: 300
+                                        }}>
+                                            {step.id}
+                                        </div>
+
+                                        {/* Title */}
                                         <h3 style={{
-                                            fontSize: '1.8rem',
+                                            fontSize: '1.5rem',
                                             fontFamily: 'var(--font-heading)',
                                             color: 'var(--text-color)',
                                             marginBottom: '0.5rem',
-                                            fontWeight: 400
+                                            fontWeight: 700
                                         }}>
                                             {step.title}
                                         </h3>
+
+                                        {/* Description */}
                                         <p style={{
-                                            fontSize: '1rem',
-                                            color: 'var(--text-muted)',
+                                            fontSize: '0.85rem',
+                                            color: 'var(--primary)',
                                             fontFamily: 'var(--font-body)',
-                                            margin: 0
+                                            marginBottom: '1rem',
+                                            fontWeight: 600
                                         }}>
                                             {step.desc}
                                         </p>
-                                    </div>
-                                </div>
 
-                                {/* Expand Button */}
-                                <motion.div
-                                    animate={{ rotate: expandedIndex === index ? 45 : 0 }}
-                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                    style={{
-                                        width: '48px',
-                                        height: '48px',
-                                        borderRadius: '50%',
-                                        background: expandedIndex === index ? 'var(--primary)' : 'transparent',
-                                        border: '2px solid var(--primary)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        fontSize: '2rem',
-                                        color: expandedIndex === index ? 'white' : 'var(--primary)',
-                                        fontWeight: 300,
-                                        transition: 'all 0.3s ease',
-                                        flexShrink: 0
-                                    }}
-                                >
-                                    +
-                                </motion.div>
-                            </div>
-
-                            {/* Expandable Content */}
-                            <AnimatePresence>
-                                {expandedIndex === index && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: 'auto', opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.4, ease: 'easeInOut' }}
-                                        style={{ overflow: 'hidden' }}
-                                    >
-                                        <div style={{
-                                            padding: '0 2rem 2rem 2rem',
-                                            paddingLeft: 'calc(2rem + 60px + 2rem)', // Align with title
-                                            borderTop: '1px solid var(--glass-border)'
+                                        {/* Details */}
+                                        <p style={{
+                                            fontSize: '0.85rem',
+                                            lineHeight: 1.6,
+                                            color: 'var(--text-muted)',
+                                            fontFamily: 'var(--font-body)',
+                                            fontStyle: 'italic'
                                         }}>
-                                            <motion.div
-                                                initial={{ y: -10 }}
-                                                animate={{ y: 0 }}
-                                                transition={{ duration: 0.3, delay: 0.1 }}
-                                                style={{
-                                                    paddingTop: '2rem',
-                                                    position: 'relative'
-                                                }}
-                                            >
-                                                {/* Decorative corner accents */}
-                                                <div style={{
-                                                    position: 'absolute',
-                                                    top: '1rem',
-                                                    left: '-1rem',
-                                                    width: '24px',
-                                                    height: '24px',
-                                                    borderTop: '2px solid var(--primary)',
-                                                    borderLeft: '2px solid var(--primary)',
-                                                    opacity: 0.3
-                                                }} />
+                                            {step.details}
+                                        </p>
+                                    </div>
 
-                                                <p style={{
-                                                    fontSize: '1.05rem',
-                                                    lineHeight: 1.9,
-                                                    color: 'var(--text-color)',
-                                                    fontFamily: 'var(--font-body)',
-                                                    fontStyle: 'italic',
-                                                    margin: 0
-                                                }}>
-                                                    {step.details}
-                                                </p>
 
-                                                {/* Bottom corner accent */}
-                                                <div style={{
-                                                    position: 'absolute',
-                                                    bottom: 0,
-                                                    right: 0,
-                                                    width: '24px',
-                                                    height: '24px',
-                                                    borderBottom: '2px solid var(--primary)',
-                                                    borderRight: '2px solid var(--primary)',
-                                                    opacity: 0.3
-                                                }} />
-                                            </motion.div>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                                </div>
+                            </motion.div>
                         </motion.div>
                     ))}
                 </div>
-
-                {/* Bottom decorative element */}
-                <motion.div
-                    initial={{ opacity: 0, scaleX: 0 }}
-                    whileInView={{ opacity: 1, scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    style={{
-                        height: '2px',
-                        background: 'linear-gradient(90deg, transparent, var(--primary), transparent)',
-                        marginTop: '5rem',
-                        transformOrigin: 'center'
-                    }}
-                />
             </div>
         </section>
     );
