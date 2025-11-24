@@ -66,13 +66,11 @@ const StorySection = () => {
         <section
             ref={sectionRef}
             style={{
-                padding: '8rem 2rem 200vh 2rem',
+                padding: '8rem 2rem 100vh 2rem',
                 position: 'relative',
                 background: 'transparent',
                 overflow: 'visible',
-                minHeight: '100vh',
-                scrollSnapType: 'y proximity',
-                scrollPaddingTop: '20vh'
+                minHeight: '100vh'
             }}
         >
             {/* Ambient background effects */}
@@ -124,7 +122,7 @@ const StorySection = () => {
                             position: 'absolute',
                             left: '-2rem',
                             top: '2rem',
-                            bottom: '100vh',
+                            bottom: '50vh',
                             width: '2px',
                             background: 'linear-gradient(180deg, #cc3333, #ff6b35, #d4af37)',
                             opacity: 0.3,
@@ -150,9 +148,7 @@ const StorySection = () => {
                                     position: 'relative',
                                     overflow: 'hidden',
                                     backdropFilter: activeChapter.id === chapter.id ? 'blur(10px)' : 'none',
-                                    marginBottom: index === storyChapters.length - 1 ? '100vh' : '0',
-                                    scrollSnapAlign: 'center',
-                                    scrollMarginTop: '20vh'
+                                    marginBottom: index === storyChapters.length - 1 ? '50vh' : '0'
                                 }}
                                 onMouseEnter={(e) => {
                                     if (activeChapter.id !== chapter.id) {

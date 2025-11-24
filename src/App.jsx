@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import StorySection from './components/StorySection';
 import ScrollAnimationSection from './components/ScrollAnimationSection';
-
 import Process from './components/Process';
 import RitualAccordion from './components/RitualAccordion';
 import AssemblySection from './components/AssemblySection';
@@ -15,6 +15,7 @@ import KanjiBackground from './components/KanjiBackground';
 import ScrollCursor from './components/ScrollCursor';
 import LoadingScreen from './components/LoadingScreen';
 import ScrollToTop from './components/ScrollToTop';
+import GalleryPage from './pages/GalleryPage';
 import { ThemeProvider } from './context/ThemeContext';
 import './styles/index.css';
 
@@ -33,16 +34,28 @@ function App() {
       <div className="App" style={{ visibility: loading ? 'hidden' : 'visible' }}>
         <KanjiBackground />
         <Navbar />
-        <Hero />
-        <StorySection />
-        <ScrollAnimationSection />
-        <Process />
-        <RitualAccordion />
-        <AssemblySection />
-        <MasterProfile />
-        <VirtualGallery />
-        <Booking />
-        <Footer />
+
+        <Routes>
+          {/* Home Page - All Landing Sections */}
+          <Route path="/" element={
+            <>
+              <Hero />
+              <StorySection />
+              <ScrollAnimationSection />
+              <Process />
+              <RitualAccordion />
+              <AssemblySection />
+              <MasterProfile />
+              <VirtualGallery />
+              <Booking />
+              <Footer />
+            </>
+          } />
+
+          {/* Gallery Page */}
+          <Route path="/gallery" element={<GalleryPage />} />
+        </Routes>
+
         <ScrollToTop />
       </div>
     </ThemeProvider>
