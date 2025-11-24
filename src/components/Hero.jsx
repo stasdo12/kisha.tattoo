@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import showreelPreview from '../assets/1.jpg';
 import useMediaQuery from '../hooks/useMediaQuery';
 import '../styles/index.css';
+import LazyImage from './LazyImage';
 
 gsap.registerPlugin(ScrollTrigger);
 

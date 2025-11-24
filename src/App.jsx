@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import StorySection from './components/StorySection';
-import ScrollAnimationSection from './components/ScrollAnimationSection';
-import Process from './components/Process';
-import RitualAccordion from './components/RitualAccordion';
-import AssemblySection from './components/AssemblySection';
-import MasterProfile from './components/MasterProfile';
-import VirtualGallery from './components/VirtualGallery';
-import Booking from './components/Booking';
-import Footer from './components/Footer';
-import KanjiBackground from './components/KanjiBackground';
-import ScrollCursor from './components/ScrollCursor';
 import LoadingScreen from './components/LoadingScreen';
+import ScrollCursor from './components/ScrollCursor';
 import ScrollToTop from './components/ScrollToTop';
-import GalleryPage from './pages/GalleryPage';
 import { ThemeProvider } from './context/ThemeContext';
 import './styles/index.css';
+
+// Lazy load heavy components
+const StorySection = lazy(() => import('./components/StorySection'));
+const ScrollAnimationSection = lazy(() => import('./components/ScrollAnimationSection'));
+const Process = lazy(() => import('./components/Process'));
+const RitualAccordion = lazy(() => import('./components/RitualAccordion'));
+const AssemblySection = lazy(() => import('./components/AssemblySection'));
+const MasterProfile = lazy(() => import('./components/MasterProfile'));
+const VirtualGallery = lazy(() => import('./components/VirtualGallery'));
+const Booking = lazy(() => import('./components/Booking'));
+const Footer = lazy(() => import('./components/Footer'));
+const KanjiBackground = lazy(() => import('./components/KanjiBackground'));
+const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,13 +34,15 @@ function App() {
       {loading && <LoadingScreen />}
       <ScrollCursor />
       <div className="App" style={{ visibility: loading ? 'hidden' : 'visible' }}>
-        <KanjiBackground />
+        <Suspense fallback={<div style={{ height: '100vh', background: 'var(--bg-color)' }} />}>
+          <KanjiBackground />
+        </Suspense>
         <Navbar />
 
         <Routes>
           {/* Home Page - All Landing Sections */}
           <Route path="/" element={
-            <>
+            <Suspense fallback={<div style={{ height: '100vh' }} />}>
               <Hero />
               <StorySection />
               <ScrollAnimationSection />
@@ -49,11 +53,15 @@ function App() {
               <VirtualGallery />
               <Booking />
               <Footer />
-            </>
+            </Suspense>
           } />
 
           {/* Gallery Page */}
-          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/gallery" element={
+            <Suspense fallback={<LoadingScreen />}>
+              <GalleryPage />
+            </Suspense>
+          } />
         </Routes>
 
         <ScrollToTop />

@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import galleryImage from '../assets/1.jpg';
 import useMediaQuery from '../hooks/useMediaQuery';
+import LazyImage from '../components/LazyImage';
+
+
 
 // Generate portfolio data (same as VirtualGallery)
 const generatePortfolio = (count) => {

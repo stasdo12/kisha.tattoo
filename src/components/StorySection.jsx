@@ -1,20 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react';
+import LazyImage from './LazyImage';
+
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion, AnimatePresence } from 'framer-motion';
-import kishaImage from '../assets/Kisha1.webp';
+import { useState, useRef, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import useMediaQuery from '../hooks/useMediaQuery';
 import kishaSlider1 from '../assets/Kisha-slider1.webp';
 import kishaSlider2 from '../assets/Kisha-slider2.webp';
-import useMediaQuery from '../hooks/useMediaQuery';
-
-gsap.registerPlugin(ScrollTrigger);
+import kishaImage from '../assets/Kisha1.webp';
 
 const storyChapters = [
     {
         id: 'beginning',
         title: 'The Beginning',
         text: 'Born in the shadow of Mount Fuji, the journey began with a single drop of ink. A fascination with the permanence of art on the impermanence of skin.',
-        image: `url(${kishaSlider1})`,
+        image: kishaSlider1, // Removed url() wrapper
         symbol: '始',
         accent: '#cc3333'
     },
@@ -22,7 +22,7 @@ const storyChapters = [
         id: 'journey',
         title: 'The Journey',
         text: 'Years of apprenticeship under the masters of Tokyo. Learning that the needle is not a tool, but an extension of the soul. Pain is fleeting, art is eternal.',
-        image: `url(${kishaSlider2})`,
+        image: kishaSlider2, // Removed url() wrapper
         symbol: '旅',
         accent: '#d4af37'
     },
@@ -30,11 +30,13 @@ const storyChapters = [
         id: 'mastery',
         title: 'The Mastery',
         text: 'Now, bridging the gap between ancient tradition and modern expression. Every piece is a collaboration, a story woven into the very fabric of existence.',
-        image: `url(${kishaImage})`,
+        image: kishaImage, // Removed url() wrapper
         symbol: '極',
         accent: '#cc3333'
     }
 ];
+
+
 
 const StorySection = () => {
     const [activeChapter, setActiveChapter] = useState(storyChapters[0]);
@@ -246,7 +248,7 @@ const StorySection = () => {
                                         width: '100%',
                                         height: '300px',
                                         marginTop: '1rem',
-                                        background: chapter.image,
+                                        backgroundImage: `url(${chapter.image})`,
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
                                         borderRadius: '12px',
@@ -320,7 +322,7 @@ const StorySection = () => {
                                     style={{
                                         width: '100%',
                                         height: '100%',
-                                        background: activeChapter.image,
+                                        backgroundImage: `url(${activeChapter.image})`,
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
                                         borderRadius: '24px',

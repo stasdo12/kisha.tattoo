@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import '../styles/index.css';
-
 import galleryImage from '../assets/1.jpg';
+import LazyImage from './LazyImage';
 
 // Generate dummy portfolio data
 const generatePortfolio = (count) => {
