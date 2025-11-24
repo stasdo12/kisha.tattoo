@@ -30,6 +30,7 @@ const GalleryPage = () => {
             background: 'var(--bg-color)',
             color: 'var(--text-color)',
             padding: '2rem',
+            paddingTop: '120px', // Added to account for fixed Navbar
             display: 'flex',
             gap: '3rem',
             position: 'relative',
@@ -52,8 +53,8 @@ const GalleryPage = () => {
                 width: '350px',
                 flexShrink: 0,
                 position: 'sticky',
-                top: '2rem',
-                height: 'calc(100vh - 4rem)',
+                top: '120px', // Adjusted for Navbar
+                height: 'calc(100vh - 140px)', // Adjusted height
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '3rem',
@@ -274,37 +275,50 @@ const GalleryPage = () => {
                         {/* Main Image */}
                         <div style={{
                             width: '100%',
-                            aspectRatio: '4/5',
+                            height: 'calc(100vh - 160px)', // Increased height to fill space
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                             borderRadius: '16px',
-                            backgroundImage: `url(${selectedImage.image})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
                             border: '1px solid var(--glass-border)',
                             boxShadow: '0 24px 64px rgba(0, 0, 0, 0.4)',
                             position: 'relative',
-                            overflow: 'hidden'
+                            overflow: 'hidden',
+                            background: '#000' // Dark background for letterboxing
                         }}>
-                            {/* Gradient overlay */}
+                            <img
+                                src={selectedImage.image}
+                                alt={selectedImage.title}
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'contain', // Prevents stretching
+                                    display: 'block'
+                                }}
+                            />
+
+                            {/* Gradient overlay - adjusted to be less intrusive */}
                             <div style={{
                                 position: 'absolute',
                                 bottom: 0,
                                 left: 0,
                                 right: 0,
-                                padding: '3rem 2rem 2rem',
-                                background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%)',
+                                padding: '2rem',
+                                background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%)',
+                                pointerEvents: 'none'
                             }}>
                                 <h2 style={{
-                                    fontSize: '2.5rem',
+                                    fontSize: '2rem',
                                     fontFamily: 'var(--font-heading)',
                                     fontWeight: 700,
                                     color: '#ffffff',
-                                    marginBottom: '0.5rem',
+                                    marginBottom: '0.25rem',
                                     letterSpacing: '-0.02em'
                                 }}>
                                     {selectedImage.title}
                                 </h2>
                                 <p style={{
-                                    fontSize: '1.25rem',
+                                    fontSize: '1.1rem',
                                     color: '#d4af37',
                                     fontFamily: 'var(--font-body)',
                                     fontWeight: 600

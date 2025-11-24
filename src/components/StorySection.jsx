@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import kishaImage from '../assets/Kisha1.webp';
 import kishaSlider1 from '../assets/Kisha-slider1.webp';
 import kishaSlider2 from '../assets/Kisha-slider2.webp';
+import useMediaQuery from '../hooks/useMediaQuery';
 
 gsap.registerPlugin(ScrollTrigger);
 
