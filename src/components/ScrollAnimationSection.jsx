@@ -116,7 +116,7 @@ const ScrollAnimationSection = () => {
         <section
             ref={sectionRef}
             style={{
-                minHeight: '150vh',
+                minHeight: '195vh',
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',

@@ -66,11 +66,13 @@ const StorySection = () => {
         <section
             ref={sectionRef}
             style={{
-                padding: '8rem 2rem 100vh 2rem',
+                padding: '8rem 2rem 200vh 2rem',
                 position: 'relative',
                 background: 'transparent',
                 overflow: 'visible',
-                minHeight: '100vh'
+                minHeight: '100vh',
+                scrollSnapType: 'y proximity',
+                scrollPaddingTop: '20vh'
             }}
         >
             {/* Ambient background effects */}
@@ -116,13 +118,13 @@ const StorySection = () => {
                         }}>Master's</span> Path
                     </h2>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '50vh', position: 'relative' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '100vh', position: 'relative' }}>
                         {/* Timeline vertical line */}
                         <div style={{
                             position: 'absolute',
                             left: '-2rem',
                             top: '2rem',
-                            bottom: '50vh',
+                            bottom: '100vh',
                             width: '2px',
                             background: 'linear-gradient(180deg, #cc3333, #ff6b35, #d4af37)',
                             opacity: 0.3,
@@ -148,7 +150,9 @@ const StorySection = () => {
                                     position: 'relative',
                                     overflow: 'hidden',
                                     backdropFilter: activeChapter.id === chapter.id ? 'blur(10px)' : 'none',
-                                    marginBottom: index === storyChapters.length - 1 ? '50vh' : '0'
+                                    marginBottom: index === storyChapters.length - 1 ? '100vh' : '0',
+                                    scrollSnapAlign: 'center',
+                                    scrollMarginTop: '20vh'
                                 }}
                                 onMouseEnter={(e) => {
                                     if (activeChapter.id !== chapter.id) {

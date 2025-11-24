@@ -301,3 +301,24 @@ textarea::placeholder {
     display: none !important;
   }
 }
+
+/* Custom map container background */
+.map-container {
+  background: var(--bg-color);
+}
+
+/* Custom map marker */
+.custom-marker {
+  background: var(--primary);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure Leaflet map fills its container */
+.leaflet-container {
+  height: 100% !important;
+  width: 100% !important;
+}

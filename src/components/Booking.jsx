@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import LocationMap from './LocationMap';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -183,6 +184,10 @@ const Booking = () => {
                         Send Request
                     </button>
                 </form>
+                <div style={{ marginTop: '3rem', textAlign: 'center' }}>
+                    <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontFamily: 'var(--font-heading)', fontWeight: 600, marginBottom: '1rem', color: 'var(--text-color)' }}>Available place</h3>
+                    <LocationMap />
+                </div>
             </div>
         </section>
     );
