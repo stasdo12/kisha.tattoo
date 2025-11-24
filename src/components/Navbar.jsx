@@ -76,11 +76,8 @@ const Navbar = () => {
                             display: 'flex',
                             alignItems: 'center',
                             gap: '0.4rem', // Reduced gap
-                            border: '1px solid #cc3333',
                             padding: '0.3rem 0.8rem', // Reduced padding
-                            borderRadius: '50px',
-                            boxShadow: '0 0 15px rgba(204, 51, 51, 0.2)',
-                            background: 'rgba(204, 51, 51, 0.05)'
+                            borderRadius: '50px'
                         }}
                     >
                         <span style={{

@@ -3,6 +3,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
 import kishaImage from '../assets/Kisha1.webp';
+import kishaSlider1 from '../assets/Kisha-slider1.webp';
+import kishaSlider2 from '../assets/Kisha-slider2.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +13,7 @@ const storyChapters = [
         id: 'beginning',
         title: 'The Beginning',
         text: 'Born in the shadow of Mount Fuji, the journey began with a single drop of ink. A fascination with the permanence of art on the impermanence of skin.',
-        image: `url(${kishaImage})`,
+        image: `url(${kishaSlider1})`,
         symbol: '始',
         accent: '#cc3333'
     },
@@ -19,7 +21,7 @@ const storyChapters = [
         id: 'journey',
         title: 'The Journey',
         text: 'Years of apprenticeship under the masters of Tokyo. Learning that the needle is not a tool, but an extension of the soul. Pain is fleeting, art is eternal.',
-        image: `url(${kishaImage})`,
+        image: `url(${kishaSlider2})`,
         symbol: '旅',
         accent: '#d4af37'
     },

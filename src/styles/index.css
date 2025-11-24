@@ -17,7 +17,7 @@
 
 /* Light Theme (Default) */
 [data-theme='light'] {
-  --bg-color: #f5f5f5;
+  --bg-color: #ebebeb;
   --text-color: #1a1a1a;
   --text-secondary: rgba(0, 0, 0, 0.7);
   --text-muted: #666666;
