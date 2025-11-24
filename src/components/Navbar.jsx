@@ -67,36 +67,44 @@ const Navbar = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         style={{
-                            fontSize: scrolled ? '1.25rem' : '1.5rem',
+                            fontSize: scrolled ? '1rem' : '1.2rem', // Reduced size
                             fontFamily: 'var(--font-heading)',
                             fontWeight: 700,
                             letterSpacing: '0.05em',
                             cursor: 'pointer',
-                            transition: 'font-size 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+                            transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '0.5rem'
+                            gap: '0.4rem', // Reduced gap
+                            border: '1px solid #cc3333',
+                            padding: '0.3rem 0.8rem', // Reduced padding
+                            borderRadius: '50px',
+                            boxShadow: '0 0 15px rgba(204, 51, 51, 0.2)',
+                            background: 'rgba(204, 51, 51, 0.05)'
                         }}
                     >
                         <span style={{
-                            width: '8px',
-                            height: '8px',
+                            width: '5px', // Reduced dot size
+                            height: '5px',
                             background: '#cc3333',
-                            borderRadius: '50%'
+                            borderRadius: '50%',
+                            boxShadow: '0 0 6px rgba(204, 51, 51, 0.6)'
                         }} />
                         <span style={{
                             color: '#cc3333',
-                            fontFamily: 'var(--font-heading)',
+                            fontFamily: "'Cinzel', serif",
                             fontWeight: 700,
-                            letterSpacing: '0.05em'
+                            letterSpacing: '0.08em',
+                            textShadow: '0 0 20px rgba(204, 51, 51, 0.3)'
                         }}>
                             KishaTattoo
                         </span>
                         <span style={{
-                            width: '8px',
-                            height: '8px',
+                            width: '5px', // Reduced dot size
+                            height: '5px',
                             background: '#cc3333',
-                            borderRadius: '50%'
+                            borderRadius: '50%',
+                            boxShadow: '0 0 6px rgba(204, 51, 51, 0.6)'
                         }} />
                     </motion.div>
                 </div>
@@ -151,7 +159,7 @@ const Navbar = () => {
                                 whileTap={{ scale: 0.95 }}
                                 style={{
                                     textDecoration: 'none',
-                                    color: 'rgba(255, 255, 255, 0.7)',
+                                    color: 'var(--text-secondary)',
                                     fontFamily: 'var(--font-body)',
                                     fontSize: '0.875rem',
                                     fontWeight: 500,
@@ -166,7 +174,7 @@ const Navbar = () => {
                                     e.currentTarget.style.background = 'var(--card-bg-hover)';
                                 }}
                                 onMouseLeave={(e) => {
-                                    e.currentTarget.style.color = 'rgba(255, 255, 255, 0.7)';
+                                    e.currentTarget.style.color = 'var(--text-secondary)';
                                     e.currentTarget.style.background = 'transparent';
                                 }}
                             >
