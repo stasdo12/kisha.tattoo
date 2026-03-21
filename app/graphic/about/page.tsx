@@ -18,11 +18,11 @@ export const metadata: Metadata = buildMetadata({
 })
 
 const NAV_LINKS = [
-  { href: '/graphic',         label: 'Home'    },
-  { href: '/graphic/works',   label: 'Works'   },
-  { href: '/graphic/about',   label: 'About'   },
-  { href: '/graphic/stories', label: 'Stories' },
-  { href: '/graphic/contact', label: 'Contact' },
+  { href: '/graphic',          label: 'Home'    },
+  { href: '/graphic/works',    label: 'Works'   },
+  { href: '/graphic/about',    label: 'About'   },
+  { href: '/graphic/blog',     label: 'Blog'    },
+  { href: '/graphic/contact',  label: 'Contact' },
 ]
 
 const MINI_GALLERY = [
@@ -179,8 +179,8 @@ export default function GraphicAboutPage() {
           aria-label="Main navigation"
           style={{
             position: 'absolute',
-            right: '5.1%',
-            top: '43.85%',
+            right: 'var(--g-pad)',
+            top: '45.5%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-end',
@@ -582,7 +582,7 @@ export default function GraphicAboutPage() {
             </div>
           </div>
 
-          {/* CTA button — white on dark */}
+          {/* CTA button — same width as hero CTA (negative margin cancels half of g-container padding) */}
           <CtaStrip
             label="Discuss your vision"
             style={{

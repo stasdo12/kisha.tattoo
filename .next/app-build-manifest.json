@@ -42,11 +42,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/graphic/about/page.js"
     ],
-    "/graphic/stories/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/graphic/stories/page.js"
-    ],
     "/graphic/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -67,10 +62,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
     ],
-    "/graphic/stories/[slug]/page": [
+    "/graphic/blog/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/graphic/stories/[slug]/page.js"
+      "static/chunks/app/graphic/blog/page.js"
+    ],
+    "/graphic/blog/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/graphic/blog/[slug]/page.js"
     ]
   }
 }

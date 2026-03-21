@@ -22,9 +22,11 @@ export const metadata: Metadata = buildMetadata({
 /* ── Data ──────────────────────────────────────────────────────────────────── */
 
 const NAV_LINKS = [
-  { href: '/graphic', label: 'Home' },
-  { href: '/graphic/works', label: 'Works' },
-  { href: '/graphic/about', label: 'About' },
+  { href: '/graphic',          label: 'Home'    },
+  { href: '/graphic/works',    label: 'Works'   },
+  { href: '/graphic/about',    label: 'About'   },
+  { href: '/graphic/blog',     label: 'Blog'    },
+  { href: '/graphic/contact',  label: 'Contact' },
 ]
 
 /*
@@ -138,7 +140,7 @@ export default function GraphicHomePage() {
             aria-hidden="true"
             style={{
               position: 'absolute',
-              left: 0,
+              left: 'var(--g-pad)',
               top: '60px',
               width: 'clamp(160px, 16.67vw, 320px)',
               height: 'clamp(173px, 18.06vw, 346px)',
@@ -195,7 +197,7 @@ export default function GraphicHomePage() {
             className="g-hero-content"
             style={{
               position: 'absolute',
-              left: 'calc(clamp(160px, 16.67vw, 320px) + 2rem)',
+              left: 'calc(var(--g-pad) + clamp(160px, 16.67vw, 320px) + 2rem)',
               top: '60px',
               maxWidth: 'clamp(20rem, 38.5vw, 44rem)',
             }}
@@ -267,8 +269,8 @@ export default function GraphicHomePage() {
             aria-label="Main navigation"
             style={{
               position: 'absolute',
-              right: '5.1%',
-              top: '43.85%',
+              right: 'var(--g-pad)',
+              top: '45.5%',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-end',
@@ -312,8 +314,8 @@ export default function GraphicHomePage() {
             [ Scroll for more info ]
           </div>
 
-          {/* CTA strip — desktop: bottom: 0; mobile: top: 716px */}
-          <div className="g-hero-cta" style={{ position: 'absolute', bottom: 0, left: 0, right: 0 }}>
+          {/* CTA strip — 20px inset each side */}
+          <div className="g-hero-cta" style={{ position: 'absolute', bottom: 0, left: 'var(--g-pad)', right: 'var(--g-pad)' }}>
             <CtaStrip />
           </div>
         </section>
@@ -692,16 +694,28 @@ export default function GraphicHomePage() {
             </div>
 
             {/*
-              Staggered absolute-positioned layout.
-              Card width: 24.25% (339px @ 1440 ✓  448px @ 1920 ✓)
-              Row 1 top: 0          Dragon | Carp | Fox
-              Row 2 top: clamp(600px, 360px+16.67vw, 680px)
-                         → 600px @ 1440 (180px text room)  680px @ 1920
-              Left positions (% of wrapper = container inner width):
-                Dragon  0%      Carp   25.25%   Fox    50.5%
-                Cherry  12.63%  Tiger  37.88%
+              4-slot staggered layout (slot 2 intentionally empty):
+              Row 1: Dragon[0] | Carp[1] | [empty 2] | Fox[3]
+              Row 2:           Cherry[1.5]  Tiger[2.5]
+
+              Card width: calc(25% - 12px)  → 338px @ 1440 ✓  448px @ 1920 ✓
+              4 cards + 3×16px gaps = 100% exactly.
+
+              Slot left edges (n = slot index):
+                left = calc(n * 25% + n * 4px)  →  0 | 25%+4px | 50%+8px | 75%+12px
+              Half-slot (n=1.5, 2.5):
+                left = calc(1.5 * (25% + 4px)) = calc(37.5% + 6px)
+                left = calc(2.5 * (25% + 4px)) = calc(62.5% + 10px)
+
+              Verified @ 1440px (container=1400):
+                Dragon  0        Carp   354px   Fox    1062px (right edge 1400px ✓)
+                Cherry  531px    Tiger  885px
+              Verified @ 1920px (container=1840):
+                Dragon  0        Carp   464px   Fox    1392px (right edge 1840px ✓)
+                Cherry  696px    Tiger  1160px
+
+              Row 2 top: clamp(600px, 360px+16.67vw, 680px) — 180px room for text
               Wrapper height: clamp(1200px, 800px+27.78vw, 1380px)
-                → 1200px @ 1440  1333px @ 1920
               Mobile (≤430px): CSS overrides to flex-column stack.
             */}
             <div
@@ -710,14 +724,21 @@ export default function GraphicHomePage() {
             >
               {MOTIFS.map((motif, i) => {
                 const isRow2 = i >= 3
-                const leftMap = ['0%', '25.25%', '50.5%', '12.63%', '37.88%']
+                // Slot index: Dragon=0, Carp=1, Fox=3, Cherry=1.5, Tiger=2.5
+                const leftMap = [
+                  '0',                      // Dragon  — slot 0
+                  'calc(25% + 4px)',         // Carp    — slot 1
+                  'calc(75% + 12px)',        // Fox     — slot 3 (slot 2 left empty)
+                  'calc(37.5% + 6px)',       // Cherry  — slot 1.5
+                  'calc(62.5% + 10px)',      // Tiger   — slot 2.5
+                ]
                 return (
                   <article
                     key={motif.id}
                     className="g-trad-card"
                     style={{
                       position: 'absolute',
-                      width: '24.25%',
+                      width: 'calc(25% - 12px)',
                       left: leftMap[i],
                       top: isRow2 ? 'clamp(600px, calc(360px + 16.67vw), 680px)' : '0',
                       display: 'flex',
@@ -739,8 +760,8 @@ export default function GraphicHomePage() {
 
           </div>
 
-          {/* CTA strip */}
-          <div style={{ marginTop: 'clamp(2rem, 4.2vw, 5rem)' }}>
+          {/* CTA strip — 20px inset each side */}
+          <div style={{ marginTop: 'clamp(2rem, 4.2vw, 5rem)', marginLeft: 'var(--g-pad)', marginRight: 'var(--g-pad)' }}>
             <CtaStrip />
           </div>
         </section>
@@ -871,7 +892,7 @@ export default function GraphicHomePage() {
               </div>
             </div>
 
-            {/* CTA button (white) — opens form popup */}
+            {/* CTA button — 20px inset via g-container padding */}
             <CtaStrip
               label="Discuss your vision"
               style={{
