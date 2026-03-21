@@ -59,7 +59,7 @@ const MOTIFS = [
     id: 'fox',
     name: 'Fox',
     src: 'https://picsum.photos/seed/fox-motif/896/1000',
-    desc: 'Cunning, intellect, longevity, magical abilities. Often associated with guardian against evil',
+    desc: 'Cunning, intellect, longevity, and magical abilities. Often associated with being a guardian against evil',
   },
   {
     id: 'cherry',
@@ -633,22 +633,39 @@ export default function GraphicHomePage() {
         </section>
 
         {/* ── TRAD (Motifs) ─────────────────────────────────────────────────── */}
+        {/*
+          Desktop (1440–1920): cards absolutely positioned inside a relative wrapper.
+          LEFT positions use %-of-wrapper so they scale at any viewport ≥ 430px:
+            • Card width:   24.25%   (338/1400 @ 1440 ✓  448/1840 @ 1920 ✓)
+            • Carp left:    25.25%   (354/1400 ✓  464/1840 ✓)
+            • Fox left:     50.5%    (708/1400 ✓  928/1840 ✓)
+            • Cherry left:  12.63%   (177/1400 ✓  232/1840 ✓)
+            • Tiger left:   37.88%   (531/1400 ✓  696/1840 ✓)
+          TOP and image-height use vw-based clamp (exact spec values).
+          Wrapper height:  clamp(1146px, 666px + 33.33vw, 1306px)
+          Row-2 top:       clamp(553px,  193px + 25vw,    673px)
+          Img height:      clamp(420px,  180px + 16.67vw, 500px)
+
+          Mobile (≤430px): wrapper → flex column, cards fill 100%.
+        */}
         <section
           aria-labelledby="trad-heading"
+          className="g-trad-section"
           style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
         >
-          <div className="g-container">
-            {/* Header row */}
+          <div className="g-container" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(2rem, 3.61vw, 3.25rem)' }}>
+
+            {/* Heading: text LEFT — 忍 RIGHT (with caption) */}
             <div
+              className="g-trad-heading"
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'flex-start',
-                marginBottom: 'clamp(2rem, 3.1vw, 3.75rem)',
                 gap: '2rem',
-                flexWrap: 'wrap',
               }}
             >
+              {/* Left: h2 + body */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '27rem' }}>
                 <h2
                   id="trad-heading"
@@ -656,15 +673,16 @@ export default function GraphicHomePage() {
                 >
                   The Language of traditional japanese art
                 </h2>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', maxWidth: '19.75rem' }}>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
                   Traditional Japanese tattooing speaks the language of symbols. Here are
-                  the meanings of the most popular motifs we work with:
+                  the meanings of the most popular motifs we work with
                 </p>
               </div>
 
+              {/* Right: 忍 kanji + caption */}
               <div
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.75rem' }}
                 aria-hidden="true"
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.75rem', flexShrink: 0 }}
               >
                 <span className="g-kanji">忍</span>
                 <span className="g-kanji-caption" style={{ textAlign: 'right' }}>
@@ -673,75 +691,52 @@ export default function GraphicHomePage() {
               </div>
             </div>
 
-            {/* Motif grid */}
+            {/*
+              Staggered absolute-positioned layout.
+              Card width: 24.25% (339px @ 1440 ✓  448px @ 1920 ✓)
+              Row 1 top: 0          Dragon | Carp | Fox
+              Row 2 top: clamp(600px, 360px+16.67vw, 680px)
+                         → 600px @ 1440 (180px text room)  680px @ 1920
+              Left positions (% of wrapper = container inner width):
+                Dragon  0%      Carp   25.25%   Fox    50.5%
+                Cherry  12.63%  Tiger  37.88%
+              Wrapper height: clamp(1200px, 800px+27.78vw, 1380px)
+                → 1200px @ 1440  1333px @ 1920
+              Mobile (≤430px): CSS overrides to flex-column stack.
+            */}
             <div
-              className="g-motif-grid-3"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '1rem',
-              }}
+              className="g-trad-cards-wrapper"
+              style={{ position: 'relative', height: 'clamp(1200px, calc(800px + 27.78vw), 1380px)' }}
             >
-              {MOTIFS.slice(0, 3).map((motif) => (
-                <article key={motif.id} className="g-motif-card">
-                  <div
+              {MOTIFS.map((motif, i) => {
+                const isRow2 = i >= 3
+                const leftMap = ['0%', '25.25%', '50.5%', '12.63%', '37.88%']
+                return (
+                  <article
+                    key={motif.id}
+                    className="g-trad-card"
                     style={{
-                      position: 'relative',
-                      width: '100%',
-                      aspectRatio: '448 / 500',
-                      overflow: 'hidden',
-                      borderRadius: '2px',
+                      position: 'absolute',
+                      width: '24.25%',
+                      left: leftMap[i],
+                      top: isRow2 ? 'clamp(600px, calc(360px + 16.67vw), 680px)' : '0',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '1.5rem',
                     }}
                   >
-                    <Image
-                      src={motif.src}
-                      alt={motif.name + ' tattoo motif'}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      sizes="33vw"
-                    />
-                  </div>
-                  <h3 className="g-motif-card__name">{motif.name}</h3>
-                  <p className="g-motif-card__desc">{motif.desc}</p>
-                </article>
-              ))}
+                    <div style={{ position: 'relative', width: '100%', height: 'clamp(420px, calc(180px + 16.67vw), 500px)', overflow: 'hidden', borderRadius: '2px' }}>
+                      <Image src={motif.src} alt={motif.name + ' tattoo motif'} fill style={{ objectFit: 'cover' }} sizes="25vw" />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                      <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{motif.name}</h3>
+                      <p className="g-trad-desc" style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{motif.desc}</p>
+                    </div>
+                  </article>
+                )
+              })}
             </div>
 
-            {/* Second row — 2 cards */}
-            <div
-              className="g-motif-grid-2"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '1rem',
-                marginTop: '1rem',
-                maxWidth: 'calc(66.6% + 0.333rem)',
-              }}
-            >
-              {MOTIFS.slice(3, 5).map((motif) => (
-                <article key={motif.id} className="g-motif-card">
-                  <div
-                    style={{
-                      position: 'relative',
-                      width: '100%',
-                      aspectRatio: '448 / 500',
-                      overflow: 'hidden',
-                      borderRadius: '2px',
-                    }}
-                  >
-                    <Image
-                      src={motif.src}
-                      alt={motif.name + ' tattoo motif'}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      sizes="33vw"
-                    />
-                  </div>
-                  <h3 className="g-motif-card__name">{motif.name}</h3>
-                  <p className="g-motif-card__desc">{motif.desc}</p>
-                </article>
-              ))}
-            </div>
           </div>
 
           {/* CTA strip */}

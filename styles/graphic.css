@@ -387,6 +387,42 @@
     padding: 8px !important;
   }
 
+  /* ── TRAD SECTION ── */
+
+  /* Heading: kanji on top, text below */
+  .g-trad-heading {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  /* Cards wrapper: absolute → flex column on mobile */
+  .g-trad-cards-wrapper {
+    position: static !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Each card: reset absolute → normal flow */
+  .g-trad-card {
+    position: static !important;
+    width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    gap: 1rem !important;
+  }
+
+  /* Card image: fixed height on mobile */
+  .g-trad-card > div:first-child {
+    height: 360px !important;
+  }
+
+  /* Description: fill width */
+  .g-trad-desc {
+    max-width: 100% !important;
+  }
+
   /* ── WORKS ── */
 
   .g-works-section {
