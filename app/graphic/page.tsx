@@ -470,14 +470,7 @@ export default function GraphicHomePage() {
         <section aria-labelledby="steps-heading" style={{ background: '#F2F2F2' }}>
           {/* Header — light bg */}
           <div className="g-container">
-            <div
-              style={{
-                paddingBottom: '1.25rem',
-                borderBottom: '2px solid #0D0D0D',
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
+            <div className="g-section-header" style={{ justifyContent: 'center' }}>
               <h2
                 id="steps-heading"
                 style={{
@@ -548,7 +541,6 @@ export default function GraphicHomePage() {
                         fontSize: 'var(--g-s)',
                         lineHeight: 'var(--g-lh-s)',
                         color: '#F2F2F2',
-                        textAlign: 'center',
                       }}
                     >
                       {step.title}
@@ -559,7 +551,6 @@ export default function GraphicHomePage() {
                         lineHeight: 'var(--g-lh-bm)',
                         color: '#F2F2F2',
                         maxWidth: '22rem',
-                        margin: '0 auto',
                       }}
                     >
                       {step.body}
@@ -727,8 +718,8 @@ export default function GraphicHomePage() {
               className="g-faq-grid"
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'clamp(180px, 18.4vw, 354px) 1fr',
-                gap: 'clamp(2rem, 4.2vw, 5rem)',
+                gridTemplateColumns: 'clamp(180px, 18.4vw, 354px) 1fr 2fr',
+                gap: 'clamp(1rem, 2vw, 2rem)',
                 alignItems: 'start',
               }}
             >
@@ -751,7 +742,10 @@ export default function GraphicHomePage() {
                 />
               </div>
 
-              {/* Right: heading + questions */}
+              {/* Spacer — column 2 */}
+              <div aria-hidden="true" />
+
+              {/* Right: heading + questions — column 3 */}
               <div className="g-faq-content" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 <h2
                   id="faq-heading"

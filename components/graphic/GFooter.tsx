@@ -11,11 +11,13 @@ export function GFooter() {
     <footer
       role="contentinfo"
       className="g-footer-section"
-      style={{ background: '#0D0D0D', padding: 'clamp(1.5rem, 2.08vw, 2.5rem)' }}
+      style={{ background: '#0D0D0D' }}
     >
-      <div className="g-container">
-
-        {/* Top row */}
+      {/* Top row */}
+      <div
+        className="g-container"
+        style={{ paddingTop: 'clamp(1.5rem, 2.08vw, 2.5rem)' }}
+      >
         <div
           className="g-footer-top"
           style={{
@@ -59,18 +61,24 @@ export function GFooter() {
             </a>
           </div>
         </div>
+      </div>
 
-        {/* CTA */}
+      {/* CTA — exactly 20px from footer edges */}
+      <div style={{ padding: '0 var(--g-pad)', marginBottom: 'clamp(1.5rem, 2.08vw, 2.5rem)' }}>
         <CtaStrip
           label="Discuss your vision"
           style={{
             background: '#F2F2F2',
             color: '#0D0D0D',
-            marginBottom: 'clamp(1.5rem, 2.08vw, 2.5rem)',
           }}
         />
+      </div>
 
-        {/* Bottom bar */}
+      {/* Bottom bar */}
+      <div
+        className="g-container"
+        style={{ paddingBottom: 'clamp(1.5rem, 2.08vw, 2.5rem)' }}
+      >
         <div
           className="g-footer-bottom"
           style={{
@@ -90,8 +98,8 @@ export function GFooter() {
           <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>[ All Rights Reserved. 2025 ]</span>
           <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>[ Made by Artem Yakovrokul ]</span>
         </div>
-
       </div>
+
     </footer>
   )
 }

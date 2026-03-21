@@ -72,7 +72,7 @@
   justify-content: center;
   width: 100%;
   background: var(--g-black);
-  padding: 1rem clamp(1.25rem, 2.08vw, 2.5rem);
+  padding: 1rem 20px;
   text-decoration: none;
   cursor: pointer;
 }
