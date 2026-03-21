@@ -77,10 +77,14 @@
   cursor: pointer;
 }
 
+.g-cta-strip {
+  color: var(--g-white); /* default: white text on dark bg */
+}
+
 .g-cta-strip span {
   font-size: var(--g-bm);
   line-height: var(--g-lh-bm);
-  color: var(--g-white);
+  color: inherit; /* inherits from button — allows color override via style prop */
 }
 
 /* === SECTION CONTAINER === */
@@ -532,6 +536,95 @@
     line-height: 0.9 !important;
     max-width: 310px !important;
   }
+
+  /* ── ABOUT PAGE ── */
+
+  /* Hero: fixed 820px per spec */
+  .g-about-hero { height: 820px !important; }
+
+  /* H1: Heading M (40px) on mobile, below logo bar */
+  .g-about-h1 {
+    font-size: var(--g-m) !important;
+    top: 52px !important;
+    left: 15px !important;
+    right: 15px !important;
+    width: auto !important;
+  }
+
+  /* 命 kanji: hide on mobile */
+  .g-about-kanji { display: none !important; }
+
+  /* Master photo: full-width square (360×360) below logo bar */
+  .g-about-master-photo {
+    top: 52px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: 360px !important;
+  }
+
+  /* "Dedicated to..." text: below photo */
+  .g-about-dedicated {
+    top: calc(52px + 360px + 16px) !important;
+    left: 15px !important;
+    right: 15px !important;
+    bottom: auto !important;
+    width: auto !important;
+  }
+
+  /* About image: square on mobile */
+  .g-about-img { aspect-ratio: 1 / 1 !important; }
+
+  /* About info: stack columns */
+  .g-about-info {
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+  .g-about-info p {
+    width: auto !important;
+    flex-shrink: 1 !important;
+  }
+
+  /* Passion header: stack on mobile */
+  .g-about-passion-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+  .g-about-passion-header h2 {
+    flex: none !important;
+    width: auto !important;
+    font-size: var(--g-m) !important;
+  }
+  .g-about-passion-header p {
+    text-align: left !important;
+    margin-left: 0 !important;
+  }
+
+  /* Passion dark block: stack vertically */
+  .g-about-passion-block { flex-direction: column !important; }
+  .g-about-passion-left {
+    padding: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    flex: none !important;
+  }
+  .g-about-passion-right {
+    min-height: 360px !important;
+    flex: none !important;
+    width: 100% !important;
+  }
+  .g-about-mini-gallery { flex-wrap: nowrap !important; overflow-x: auto !important; }
+
+  /* Mastery: stack 3 cols vertically */
+  .g-about-steps { flex-direction: column !important; gap: 2rem !important; }
+  .g-about-step-col {
+    padding: 0 !important;
+    border-left: none !important;
+    padding-bottom: 2rem !important;
+    border-bottom: 1px solid #0D0D0D;
+  }
+  .g-about-step-col:last-child { border-bottom: none !important; padding-bottom: 0 !important; }
 
   /* ── FOOTER ── */
   .g-footer-section { padding: 20px 0 0 !important; }
