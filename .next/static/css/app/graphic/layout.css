@@ -1,0 +1,450 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"app/graphic/layout.tsx","import":"DM_Sans","arguments":[{"subsets":["latin"],"variable":"--font-neue","display":"swap","weight":["500"]}],"variableName":"dmSans"} ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/951687eeeffb7cfa-s.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/780675ab64c32ee4-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {font-family: 'DM Sans Fallback';src: local("Arial");ascent-override: 94.90%;descent-override: 29.66%;line-gap-override: 0.00%;size-adjust: 104.53%
+}.__className_152b84 {font-family: 'DM Sans', 'DM Sans Fallback';font-weight: 500;font-style: normal
+}.__variable_152b84 {--font-neue: 'DM Sans', 'DM Sans Fallback'
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/graphic.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+/* ─────────────────────────────────────────────────────────────────────────────
+   KISHA — Graphic Section Design System
+   Font: DM Sans (PP Neue Montreal fallback), weight 500 only
+   Colors: #0D0D0D · #BFBFBF · #F2F2F2
+   ───────────────────────────────────────────────────────────────────────────── */
+
+[data-theme='graphic'] {
+  --g-black:   #0D0D0D;
+  --g-grey:    #BFBFBF;
+  --g-white:   #F2F2F2;
+  --g-font:    var(--font-neue, 'DM Sans'), 'Inter', system-ui, sans-serif;
+
+  /* Fluid type scale — anchored at 1440px */
+  --g-xl:   clamp(2.5rem, 5.56vw, 5rem);        /* 80px @ 1440  */
+  --g-l:    clamp(1.75rem, 3.61vw, 3.25rem);     /* 52px @ 1440  */
+  --g-m:    clamp(1.375rem, 2.78vw, 2.5rem);     /* 40px @ 1440  */
+  --g-s:    clamp(1.125rem, 2.22vw, 2rem);       /* 32px @ 1440  */
+  --g-xs:   clamp(1rem, 1.67vw, 1.5rem);         /* 24px @ 1440  */
+  --g-bm:   clamp(1rem, 1.39vw, 1.25rem);        /* 20px @ 1440  */
+  --g-bs:   1rem;                                 /* 16px         */
+  --g-bxs:  0.875rem;                             /* 14px         */
+  --g-tag:  0.75rem;                              /* 12px         */
+
+  /* Line heights per spec */
+  --g-lh-xl:  0.9;
+  --g-lh-l:   0.9;
+  --g-lh-s:   0.9;
+  --g-lh-bm:  1;
+
+  /* Letter spacing: -2 tracking units = -0.02em */
+  --g-ls: -0.02em;
+
+  /* Container padding — 20px @ 1440, 40px @ 1920
+   * linear: -40px + 4.167vw  → 1440: -40+60=20 ✓  1920: -40+80=40 ✓ */
+  --g-pad: clamp(1.25rem, calc(-2.5rem + 4.167vw), 2.5rem);
+}
+
+/* Reset font + weight for graphic section */
+[data-theme='graphic'] * {
+  font-family: var(--g-font);
+  font-weight: 500;
+  letter-spacing: var(--g-ls);
+}
+
+[data-theme='graphic'] h1,
+[data-theme='graphic'] h2,
+[data-theme='graphic'] h3,
+[data-theme='graphic'] h4 {
+  font-family: var(--g-font);
+  font-weight: 500;
+  color: var(--g-black);
+}
+
+/* === TAG LABEL === */
+.g-tag {
+  font-size: var(--g-tag);
+  color: var(--g-black);
+  line-height: 1;
+}
+
+.g-tag::before { content: '[ '; }
+.g-tag::after  { content: ' ]'; }
+
+.g-tag--white {
+  color: var(--g-white);
+}
+
+/* === CTA STRIP (Black banner) === */
+.g-cta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--g-black);
+  padding: 1rem clamp(1.25rem, 2.08vw, 2.5rem);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.g-cta-strip span {
+  font-size: var(--g-bm);
+  line-height: var(--g-lh-bm);
+  color: var(--g-white);
+}
+
+/* === SECTION CONTAINER === */
+.g-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-left:  var(--g-pad);
+  padding-right: var(--g-pad);
+}
+
+/* === SECTION DIVIDER HEADER === */
+.g-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--g-black);
+  margin-bottom: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+/* === KANJI ACCENT === */
+.g-kanji {
+  font-size: var(--g-xl);
+  line-height: var(--g-lh-xl);
+  color: var(--g-black);
+}
+
+.g-kanji-caption {
+  font-size: var(--g-tag);
+  color: var(--g-grey);
+  line-height: 1;
+  max-width: 10rem;
+}
+
+/* === STEP CARD === */
+.g-step {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 11.5vw, 13.75rem);
+  padding-right: clamp(1rem, 1.67vw, 2rem);
+}
+
+.g-step:not(:last-child) {
+  border-right: 1px solid var(--g-white);
+}
+
+/* === MOTIF CARD === */
+.g-motif-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.g-motif-card__name {
+  font-size: var(--g-s);
+  line-height: var(--g-lh-s);
+  color: var(--g-black);
+}
+
+.g-motif-card__desc {
+  font-size: var(--g-tag);
+  color: var(--g-grey);
+  line-height: 1;
+}
+
+/* === FAQ ITEM === */
+.g-faq-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--g-black);
+}
+
+.g-faq-item__num {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: var(--g-tag);
+  color: var(--g-black);
+}
+
+.g-faq-item__q {
+  font-size: var(--g-s);
+  line-height: var(--g-lh-s);
+  color: var(--g-black);
+  max-width: 32rem;
+}
+
+.g-faq-item__a {
+  font-size: var(--g-bm);
+  color: var(--g-black);
+  line-height: var(--g-lh-bm);
+  max-width: 28rem;
+}
+
+/*
+ * Works gallery: 6th item (5th small) fills the row at 1920 (total = 1840px).
+ * At 1440 only 5 items fit (total ≈ 1399px), so hide the 6th.
+ * At 1919px and below: hide item 6.
+ */
+.g-works-item:nth-child(6) { display: block; }
+
+@media (max-width: 1919px) {
+  .g-works-item:nth-child(6) { display: none; }
+}
+
+/* ── Logo: desktop shows text, mobile shows 3 strips ── */
+.g-hero-logo-text   { display: flex; align-items: center; gap: 0.375rem; }
+.g-hero-logo-strips { display: none; align-items: center; gap: 4px; }
+.g-hero-logo-strips span { display: block; height: 12px; background: #0D0D0D; }
+.g-hero-logo-strips span:nth-child(1) { width: 45px; }
+.g-hero-logo-strips span:nth-child(2) { width: 45px; }
+.g-hero-logo-strips span:nth-child(3) { width: 42px; }
+
+/* Mobile-only hero tags (hidden on desktop) */
+.g-hero-tags { display: none; }
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  [data-theme='graphic'] {
+    --g-pad: 1.5rem;
+  }
+
+  .g-motif-grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 767px) {
+  [data-theme='graphic'] {
+    --g-pad: 1rem;
+  }
+
+  /* Hero: stack vertically on mobile */
+  .g-hero-photo {
+    position: relative !important;
+    width: 100% !important;
+    height: 60vw !important;
+    min-height: 220px;
+  }
+
+  .g-hero-content {
+    position: relative !important;
+    left: auto !important;
+    padding: 1.5rem 1rem 5rem !important;
+  }
+
+  .g-hero-kanji {
+    display: none !important;
+  }
+
+  .g-hero-nav {
+    top: 1rem !important;
+    transform: none !important;
+  }
+
+  /* Section header: stack on mobile */
+  .g-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  /* Steps: single column */
+  .g-step {
+    border-right: none !important;
+    border-bottom: 1px solid #F2F2F2;
+    padding-right: 0 !important;
+    padding-bottom: 2rem;
+  }
+
+  /* Motif grid: 2 col → 1 col */
+  .g-motif-grid-3 { grid-template-columns: 1fr !important; }
+  .g-motif-grid-2 { grid-template-columns: 1fr !important; max-width: 100% !important; }
+
+  /* FAQ: stack portrait + questions */
+  .g-faq-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .g-faq-portrait {
+    aspect-ratio: 16 / 9 !important;
+    max-height: 240px;
+  }
+}
+
+/* === MOBILE 390px (iPhone 14-size) === */
+@media (max-width: 430px) {
+  [data-theme='graphic'] {
+    --g-pad: 0.9375rem; /* 15px */
+  }
+
+  /* ── HERO ── */
+
+  /* Logo bar: border-bottom strip design, 52px tall */
+  .g-hero-logobar {
+    border-bottom: 2px solid #0D0D0D !important;
+    height: 52px !important;
+    padding: 0 15px !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+  /* Switch to strip logo on mobile */
+  .g-hero-logo-text  { display: none !important; }
+  .g-hero-logo-strips { display: flex !important; }
+  .g-hero-logo-tag   { display: none !important; }
+
+  /* Photo: full-width, fixed height, starts at 52px (below logo bar) */
+  .g-hero-photo {
+    position: absolute !important;
+    top: 52px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 387px !important;
+  }
+
+  /* Tags row: location / status below photo (top: photo_bottom + 12px = 451px) */
+  .g-hero-tags {
+    display: flex !important;
+    position: absolute !important;
+    top: 451px !important;
+    left: 15px !important;
+    right: 15px !important;
+    justify-content: space-between !important;
+    font-size: var(--g-tag) !important;
+    color: #0D0D0D;
+    line-height: 1;
+  }
+
+  /* 道 symbol: visible on mobile, column layout, below tags */
+  .g-hero-kanji {
+    display: flex !important;
+    position: absolute !important;
+    left: 15px !important;
+    top: 478px !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: auto !important;
+  }
+  .g-hero-kanji .g-kanji {
+    font-size: 2rem !important;    /* 32px */
+    line-height: 28.8px !important;
+  }
+  .g-hero-kanji .g-kanji-caption {
+    width: 141px !important;
+    max-width: none !important;
+    font-size: var(--g-tag) !important;
+    color: #BFBFBF !important;
+  }
+
+  /* H1 + subtitle: below 道 block */
+  .g-hero-content {
+    position: absolute !important;
+    left: 15px !important;
+    top: 562px !important;
+    right: 15px !important;
+    max-width: 316px !important;
+    gap: 8px !important;
+  }
+  .g-hero-content h1 {
+    margin-bottom: 0 !important;
+    /* font-size already clamps to 40px at 390px (--g-xl min = 2.5rem) */
+    /* line-height already 0.9 × 40px = 36px via --g-lh-xl */
+  }
+  .g-hero-content p {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    max-width: none !important;
+  }
+
+  /* Scroll hint: hidden on mobile */
+  .g-hero-scroll { display: none !important; }
+
+  /* CTA: top: 716px (per spec) — always within 100dvh on 390×844 iPhone 14 */
+  .g-hero-cta {
+    position: absolute !important;
+    top: 716px !important;
+    bottom: auto !important;
+  }
+  .g-hero-cta .g-cta-strip {
+    padding: 16px 12px !important;
+  }
+
+  /* Nav: horizontal row at bottom of hero (top: 788px), left-aligned */
+  /* Меню находится внизу первого экрана */
+  .g-hero-nav {
+    position: absolute !important;
+    top: 788px !important;
+    left: 25px !important;
+    right: auto !important;
+    bottom: auto !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  .g-hero-nav a[aria-current='page'] {
+    padding: 8px !important;
+  }
+
+  /* ── WORKS ── */
+
+  .g-works-section {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+  /* Section header: column + centered */
+  .g-section-header {
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  /* Works title: 302px, 32px */
+  .g-works-title {
+    width: 302px !important;
+    font-size: 2rem !important;   /* 32px */
+    line-height: 28.8px !important;
+    text-align: center !important;
+  }
+  /* Gallery: vertical stack */
+  .g-works-gallery {
+    flex-direction: column !important;
+    gap: 16px !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    align-items: stretch !important;
+  }
+  .g-works-item {
+    width: 100% !important;
+    height: 387px !important;
+    aspect-ratio: auto !important;
+    scroll-snap-align: none !important;
+  }
+  .g-works-item:first-child {
+    height: 389px !important;
+  }
+  /* Always hide 6th item on mobile */
+  .g-works-item:nth-child(6) { display: none !important; }
+}
+

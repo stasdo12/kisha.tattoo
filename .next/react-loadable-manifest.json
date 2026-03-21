@@ -1,0 +1,80 @@
+{
+  "components/japanese/AssemblySection.tsx -> gsap": {
+    "id": "components/japanese/AssemblySection.tsx -> gsap",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_index_js.js"
+    ]
+  },
+  "components/japanese/AssemblySection.tsx -> gsap/ScrollTrigger": {
+    "id": "components/japanese/AssemblySection.tsx -> gsap/ScrollTrigger",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_ScrollTrigger_js.js"
+    ]
+  },
+  "components/japanese/Hero.tsx -> gsap": {
+    "id": "components/japanese/Hero.tsx -> gsap",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_index_js.js"
+    ]
+  },
+  "components/japanese/Hero.tsx -> gsap/ScrollTrigger": {
+    "id": "components/japanese/Hero.tsx -> gsap/ScrollTrigger",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_ScrollTrigger_js.js"
+    ]
+  },
+  "components/japanese/MasterProfile.tsx -> gsap": {
+    "id": "components/japanese/MasterProfile.tsx -> gsap",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_index_js.js"
+    ]
+  },
+  "components/japanese/MasterProfile.tsx -> gsap/ScrollTrigger": {
+    "id": "components/japanese/MasterProfile.tsx -> gsap/ScrollTrigger",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_ScrollTrigger_js.js"
+    ]
+  },
+  "components/japanese/Process.tsx -> gsap": {
+    "id": "components/japanese/Process.tsx -> gsap",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_index_js.js"
+    ]
+  },
+  "components/japanese/Process.tsx -> gsap/ScrollTrigger": {
+    "id": "components/japanese/Process.tsx -> gsap/ScrollTrigger",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_ScrollTrigger_js.js"
+    ]
+  },
+  "components/japanese/Services.tsx -> gsap": {
+    "id": "components/japanese/Services.tsx -> gsap",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_index_js.js"
+    ]
+  },
+  "components/japanese/Services.tsx -> gsap/ScrollTrigger": {
+    "id": "components/japanese/Services.tsx -> gsap/ScrollTrigger",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_ScrollTrigger_js.js"
+    ]
+  },
+  "components/japanese/StorySection.tsx -> gsap": {
+    "id": "components/japanese/StorySection.tsx -> gsap",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_index_js.js"
+    ]
+  },
+  "components/japanese/StorySection.tsx -> gsap/ScrollTrigger": {
+    "id": "components/japanese/StorySection.tsx -> gsap/ScrollTrigger",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_gsap_ScrollTrigger_js.js"
+    ]
+  },
+  "components/shared/LocationMap.tsx -> leaflet": {
+    "id": "components/shared/LocationMap.tsx -> leaflet",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_leaflet_dist_leaflet-src_js.js"
+    ]
+  }
+}
