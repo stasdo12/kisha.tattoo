@@ -1,0 +1,272 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   KISHA — Form Popup
+   Design: 1920px / 1440px / 390px
+   Colors: #0A0A0A · #FFFFFF · #C4C4C4
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@keyframes fp-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* OVERLAY */
+.fp-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* POPUP */
+.fp-popup {
+  /* clamp: 1360px@1440 → 1840px@1920, side margin 40px each */
+  width: clamp(1360px, calc(100vw - 80px), 1840px);
+  background: #FFFFFF;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 172px;
+  animation: fp-in 300ms ease forwards;
+}
+
+/* ── TOP SECTION ── */
+.fp-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 20px;
+}
+
+/* Heading row: tag+h2 on left, close on right */
+.fp-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.fp-heading-block {
+  max-width: 667px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fp-tag {
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+.fp-heading {
+  font-family: var(--g-font);
+  font-weight: 500;
+  /* 40px@1440 → 52px@1920: calc(4px + 2.5vw) */
+  font-size: clamp(40px, calc(4px + 2.5vw), 52px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+/* CLOSE BUTTON */
+.fp-close {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #0A0A0A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.fp-close:hover { opacity: 0.6; }
+
+/* KANJI */
+.fp-kanji {
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: clamp(52px, 5.56vw, 80px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+/* ── FORM SECTION ── */
+.fp-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 20px 0;
+}
+
+.fp-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ROW: name + email side by side */
+.fp-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+/* FIELD (name / email) */
+.fp-field {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+/* LABEL "My name is" etc. */
+.fp-label {
+  font-family: var(--g-font);
+  font-weight: 500;
+  /* 28px@1440 → 32px@1920: calc(16px + 0.833vw) */
+  font-size: clamp(28px, calc(16px + 0.833vw), 32px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* INPUT WRAPPER */
+.fp-input {
+  flex: 1;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 4px 16px;
+  border-bottom: 1px solid #C4C4C4;
+}
+
+.fp-input input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+.fp-input input::placeholder {
+  color: #C4C4C4;
+}
+
+/* IDEA FIELD — spans full width */
+.fp-field--idea {
+  width: 100%;
+}
+
+/* SUBMIT */
+.fp-submit {
+  width: 100%;
+  background: #0A0A0A;
+  color: #FFFFFF;
+  padding: 16px 12px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fp-submit:hover { background: #2a2a2a; }
+
+/* ── MOBILE 390px ── */
+@media (max-width: 430px) {
+  .fp-overlay {
+    align-items: center;
+  }
+
+  .fp-popup {
+    width: 100%;
+    max-width: 390px;
+    height: 543px;
+    padding: 8px 1px 4px;
+    gap: 8px;
+    overflow-y: auto;
+  }
+
+  .fp-top {
+    padding: 8px 12px;
+    gap: 12px;
+  }
+
+  .fp-heading-block {
+    max-width: none;
+  }
+
+  .fp-heading {
+    font-size: 32px;
+  }
+
+  .fp-kanji {
+    font-size: 2rem; /* 32px */
+  }
+
+  .fp-close {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .fp-form {
+    padding: 8px 12px 0;
+    gap: 20px;
+  }
+
+  /* Name + email stack vertically */
+  .fp-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Each field: label on top, input below */
+  .fp-field {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .fp-field--idea {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fp-label {
+    font-size: 24px;
+  }
+
+  .fp-input {
+    width: 100%;
+    height: 24px;
+    padding-left: 0;
+  }
+}

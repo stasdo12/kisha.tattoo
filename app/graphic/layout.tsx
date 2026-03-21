@@ -7,6 +7,8 @@
  */
 import { DM_Sans } from 'next/font/google'
 import '@/styles/graphic.css'
+import '@/styles/form-popup.css'
+import { FormPopup } from '@/components/graphic/FormPopup'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -19,6 +21,7 @@ export default function GraphicLayout({ children }: { children: React.ReactNode 
   return (
     <div data-theme="graphic" className={dmSans.variable} style={{ background: '#F2F2F2', minHeight: '100dvh' }}>
       {children}
+      <FormPopup />
     </div>
   )
 }

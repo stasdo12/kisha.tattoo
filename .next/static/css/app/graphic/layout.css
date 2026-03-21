@@ -208,18 +208,20 @@
 }
 
 /*
- * Works gallery: 6th item (5th small) fills the row at 1920 (total = 1840px).
- * At 1440 only 5 items fit (total ≈ 1399px), so hide the 6th.
- * At 1919px and below: hide item 6.
+ * Works gallery: 6 items always visible on desktop.
+ * At 1920: 460 + 5×260 + 5×16 = 1840px = exact fit.
+ * At 1440: 389 + 5×186 + 5×16 = 1399px ≤ 1400px (fits by 1px at min clamp).
+ * overflow-x: auto handles any marginal overflow gracefully.
+ * Mobile hides 6th item via .g-works-item:nth-child(6) in the 430px block.
  */
 .g-works-item:nth-child(6) { display: block; }
 
-@media (max-width: 1919px) {
+@media (max-width: 1440px) {
   .g-works-item:nth-child(6) { display: none; }
 }
 
-/* ── Logo: desktop shows text, mobile shows 3 strips ── */
-.g-hero-logo-text   { display: flex; align-items: center; gap: 0.375rem; }
+/* ── Logo: desktop shows text group (space-between), mobile shows 3 strips ── */
+.g-hero-logo-text   { display: flex; justify-content: space-between; align-items: center; width: 100%; }
 .g-hero-logo-strips { display: none; align-items: center; gap: 4px; }
 .g-hero-logo-strips span { display: block; height: 12px; background: #0D0D0D; }
 .g-hero-logo-strips span:nth-child(1) { width: 45px; }
@@ -431,8 +433,6 @@
   .g-works-gallery {
     flex-direction: column !important;
     gap: 16px !important;
-    overflow-x: visible !important;
-    scroll-snap-type: none !important;
     align-items: stretch !important;
   }
   .g-works-item {
@@ -446,5 +446,433 @@
   }
   /* Always hide 6th item on mobile */
   .g-works-item:nth-child(6) { display: none !important; }
+
+  /* Hero section: fixed height per spec */
+  .g-hero-section { height: 820px !important; }
+
+  /* Works: hide desktop "explore" link, show mobile version inside gallery */
+  .g-works-explore-link   { display: none !important; }
+  .g-works-explore-mobile {
+    display: block !important;
+    font-size: var(--g-tag) !important;
+    color: #0D0D0D !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    padding: 8px 0 !important;
+  }
+
+  /* ── PHILOSOPHY ── */
+  .g-philosophy-section { height: 815px !important; }
+
+  .g-philosophy-heading {
+    position: absolute !important;
+    left: 15px !important;
+    top: 0 !important;
+    right: 15px !important;
+    width: auto !important;
+    font-size: 2rem !important;
+    line-height: 0.9 !important;
+  }
+
+  /* Right stack: 愛 + caption + "My work…" — stacks below h2 */
+  .g-philosophy-right {
+    position: absolute !important;
+    left: 15px !important;
+    top: 76px !important;
+    right: 15px !important;
+    width: auto !important;
+    gap: 12px !important;
+  }
+
+  /* Photo: full width, fixed height, starts at 315px */
+  .g-philosophy-photo {
+    top: 315px !important;
+    height: 380px !important;
+  }
+
+  /* Bottom paragraph below photo */
+  .g-philosophy-bottom {
+    position: absolute !important;
+    left: 15px !important;
+    top: 735px !important;
+    right: 15px !important;
+    width: auto !important;
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* ── STEPS ── */
+  .g-steps-dark { padding: 20px 24px !important; }
+  .g-steps-dark .g-container {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  /* Override 767px step styles for mobile spec */
+  .g-step {
+    gap: 60px !important;
+    padding-bottom: 1.5rem !important;
+    border-bottom: 1px solid #F2F2F2 !important;
+  }
+  .g-step:last-child { border-bottom: none !important; }
+  .g-step h3 {
+    font-size: 1.5rem !important;  /* 24px */
+    line-height: 0.9 !important;
+    text-align: center !important;
+  }
+
+  /* ── TRAD ── */
+  .g-motif-grid-3,
+  .g-motif-grid-2 {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+  }
+  /* Card image: fixed height instead of aspect-ratio */
+  .g-motif-card > div:first-child {
+    aspect-ratio: auto !important;
+    height: 380px !important;
+  }
+  .g-motif-card__name {
+    font-size: 1.5rem !important;  /* 24px */
+    text-align: center !important;
+  }
+  .g-motif-card__desc {
+    font-size: 1rem !important;    /* 16px */
+    text-align: center !important;
+  }
+
+  /* ── FAQ ── */
+  .g-faq-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  /* Portrait moves to bottom */
+  .g-faq-portrait {
+    order: 2 !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    max-height: 240px !important;
+  }
+  .g-faq-content { order: 1 !important; }
+  /* FAQ heading: 32px, max 310px */
+  #faq-heading {
+    font-size: 2rem !important;
+    line-height: 0.9 !important;
+    max-width: 310px !important;
+  }
+
+  /* ── FOOTER ── */
+  .g-footer-section { padding: 20px 0 0 !important; }
+  /* Remove horizontal padding so content is full-bleed */
+  .g-footer-section > .g-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .g-footer-top {
+    padding: 0 15px !important;
+    margin-bottom: 100px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+  }
+  /* 2 lines: "Relax and book your seat / right now" at 390px */
+  .g-footer-heading {
+    font-size: 2rem !important;   /* 32px — fits in 2 lines at 330px container */
+    width: 100% !important;
+    max-width: none !important;
+  }
+  .g-footer-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    padding: 0 15px 20px !important;
+  }
+  /* Hide text logo, show white rectangles */
+  .g-footer-logo-text   { display: none !important; }
+  .g-footer-logo-rects  { display: flex !important; justify-content: space-between; align-items: flex-end; }
+  .g-footer-logo-rects span:nth-child(1) { display: block; width: 64px; height: 16px; background: #F2F2F2; }
+  .g-footer-logo-rects span:nth-child(2) { display: block; width: 64px; height: 18px; background: #F2F2F2; }
+  /* Copyright stacked */
+  .g-footer-copyright {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/form-popup.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+/* ─────────────────────────────────────────────────────────────────────────────
+   KISHA — Form Popup
+   Design: 1920px / 1440px / 390px
+   Colors: #0A0A0A · #FFFFFF · #C4C4C4
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@keyframes fp-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* OVERLAY */
+.fp-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* POPUP */
+.fp-popup {
+  /* clamp: 1360px@1440 → 1840px@1920, side margin 40px each */
+  width: clamp(1360px, calc(100vw - 80px), 1840px);
+  background: #FFFFFF;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 172px;
+  animation: fp-in 300ms ease forwards;
+}
+
+/* ── TOP SECTION ── */
+.fp-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 20px;
+}
+
+/* Heading row: tag+h2 on left, close on right */
+.fp-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.fp-heading-block {
+  max-width: 667px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fp-tag {
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+.fp-heading {
+  font-family: var(--g-font);
+  font-weight: 500;
+  /* 40px@1440 → 52px@1920: calc(4px + 2.5vw) */
+  font-size: clamp(40px, calc(4px + 2.5vw), 52px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+/* CLOSE BUTTON */
+.fp-close {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #0A0A0A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.fp-close:hover { opacity: 0.6; }
+
+/* KANJI */
+.fp-kanji {
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: clamp(52px, 5.56vw, 80px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+/* ── FORM SECTION ── */
+.fp-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 20px 0;
+}
+
+.fp-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ROW: name + email side by side */
+.fp-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+/* FIELD (name / email) */
+.fp-field {
+  flex: 1 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+/* LABEL "My name is" etc. */
+.fp-label {
+  font-family: var(--g-font);
+  font-weight: 500;
+  /* 28px@1440 → 32px@1920: calc(16px + 0.833vw) */
+  font-size: clamp(28px, calc(16px + 0.833vw), 32px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* INPUT WRAPPER */
+.fp-input {
+  flex: 1 1;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 4px 16px;
+  border-bottom: 1px solid #C4C4C4;
+}
+
+.fp-input input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+.fp-input input::placeholder {
+  color: #C4C4C4;
+}
+
+/* IDEA FIELD — spans full width */
+.fp-field--idea {
+  width: 100%;
+}
+
+/* SUBMIT */
+.fp-submit {
+  width: 100%;
+  background: #0A0A0A;
+  color: #FFFFFF;
+  padding: 16px 12px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fp-submit:hover { background: #2a2a2a; }
+
+/* ── MOBILE 390px ── */
+@media (max-width: 430px) {
+  .fp-overlay {
+    align-items: center;
+  }
+
+  .fp-popup {
+    width: 100%;
+    max-width: 390px;
+    height: 543px;
+    padding: 8px 1px 4px;
+    gap: 8px;
+    overflow-y: auto;
+  }
+
+  .fp-top {
+    padding: 8px 12px;
+    gap: 12px;
+  }
+
+  .fp-heading-block {
+    max-width: none;
+  }
+
+  .fp-heading {
+    font-size: 32px;
+  }
+
+  .fp-kanji {
+    font-size: 2rem; /* 32px */
+  }
+
+  .fp-close {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .fp-form {
+    padding: 8px 12px 0;
+    gap: 20px;
+  }
+
+  /* Name + email stack vertically */
+  .fp-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Each field: label on top, input below */
+  .fp-field {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .fp-field--idea {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fp-label {
+    font-size: 24px;
+  }
+
+  .fp-input {
+    width: 100%;
+    height: 24px;
+    padding-left: 0;
+  }
 }
 

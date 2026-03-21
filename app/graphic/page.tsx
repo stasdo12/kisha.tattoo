@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { serviceSchema } from '@/lib/structured-data'
 import { SITE } from '@/content/site'
+import { CtaStrip } from '@/components/graphic/CtaStrip'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Kisha — Irezumi Mastery. Stories Etched in Skin',
@@ -97,15 +98,6 @@ const FAQ = [
   },
 ]
 
-/* ── CTA Strip component ────────────────────────────────────────────────────── */
-function CtaStrip() {
-  return (
-    <Link href="/graphic/contact" className="g-cta-strip">
-      <span>Start your consultation</span>
-    </Link>
-  )
-}
-
 /* ── Page ───────────────────────────────────────────────────────────────────── */
 export default function GraphicHomePage() {
   const schema = serviceSchema({
@@ -132,6 +124,7 @@ export default function GraphicHomePage() {
         */}
         <section
           aria-label="Kisha — Irezumi Mastery"
+          className="g-hero-section"
           style={{
             position: 'relative',
             height: '100dvh',
@@ -146,7 +139,7 @@ export default function GraphicHomePage() {
             style={{
               position: 'absolute',
               left: 0,
-              top: 0,
+              top: '60px',
               width: 'clamp(160px, 16.67vw, 320px)',
               height: 'clamp(173px, 18.06vw, 346px)',
             }}
@@ -161,7 +154,7 @@ export default function GraphicHomePage() {
             />
           </div>
 
-          {/* Logo bar — top, full width */}
+          {/* Logo bar — opaque strip, border-bottom; desktop: text 3-way, mobile: 3 dark rectangles */}
           <div
             className="g-hero-logobar"
             style={{
@@ -170,34 +163,25 @@ export default function GraphicHomePage() {
               left: 0,
               right: 0,
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: '1rem var(--g-pad)',
+              alignItems: 'flex-end',
+              padding: '6px var(--g-pad) 12px',
+              background: '#F2F2F2',
+              borderBottom: '2px solid #0D0D0D',
               zIndex: 10,
             }}
           >
-            <Link
-              href="/graphic"
-              aria-label="Kisha — Home"
-              style={{ display: 'flex', alignItems: 'center', fontSize: 'var(--g-bs)', color: '#0D0D0D', textDecoration: 'none' }}
-            >
-              {/* Desktop: dot + text */}
-              <span className="g-hero-logo-text">
-                <span>●</span>&nbsp;Kisha
-              </span>
-              {/* Mobile: 3 rectangular strips */}
-              <span className="g-hero-logo-strips" aria-hidden="true">
-                <span /><span /><span />
-              </span>
-            </Link>
-
-            <span
-              className="g-hero-logo-tag"
-              style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}
-              aria-label="Tattoo"
-            >
-              [ タトゥ ] Tattoo
-            </span>
+            {/* Desktop: text labels space-between */}
+            <div className="g-hero-logo-text">
+              <span style={{ fontSize: 'var(--g-bs)', color: '#0D0D0D' }}>● Kisha</span>
+              <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>[ タトゥ ]</span>
+              <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>Tattoo</span>
+            </div>
+            {/* Mobile: 3 dark rectangles (45×12, 45×12, 42×12) */}
+            <div className="g-hero-logo-strips" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
           </div>
 
           {/* Mobile-only: location / status tags below photo (top: 451px) */}
@@ -212,7 +196,7 @@ export default function GraphicHomePage() {
             style={{
               position: 'absolute',
               left: 'calc(clamp(160px, 16.67vw, 320px) + 2rem)',
-              top: '15%',
+              top: '60px',
               maxWidth: 'clamp(20rem, 38.5vw, 44rem)',
             }}
           >
@@ -373,6 +357,7 @@ export default function GraphicHomePage() {
               </h2>
               <Link
                 href="/graphic/works"
+                className="g-works-explore-link"
                 style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap' }}
               >
                 [ Explore work and tattooing ]
@@ -386,10 +371,17 @@ export default function GraphicHomePage() {
                 display: 'flex',
                 gap: '1rem',
                 alignItems: 'flex-start',
-                overflowX: 'auto',
-                scrollSnapType: 'x mandatory',
               }}
             >
+              {/* Mobile-only explore link (shown inside gallery on 430px) */}
+              <Link
+                href="/graphic/works"
+                className="g-works-explore-mobile"
+                style={{ display: 'none', fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none' }}
+              >
+                [ Explore work and tattooing ]
+              </Link>
+
               {WORKS.map((item) => (
                 <div
                   key={item.id}
@@ -410,7 +402,6 @@ export default function GraphicHomePage() {
                     aspectRatio: '5 / 6',
                     borderRadius: '2px',
                     overflow: 'hidden',
-                    scrollSnapAlign: 'start',
                   }}
                 >
                   <Image
@@ -442,6 +433,7 @@ export default function GraphicHomePage() {
         */}
         <section
           aria-labelledby="philosophy-heading"
+          className="g-philosophy-section"
           style={{
             background: '#F2F2F2',
             position: 'relative',
@@ -452,6 +444,7 @@ export default function GraphicHomePage() {
           {/* H2 — top-left, aligns to content padding */}
           <h2
             id="philosophy-heading"
+            className="g-philosophy-heading"
             style={{
               position: 'absolute',
               left: 'var(--g-pad)',
@@ -468,6 +461,7 @@ export default function GraphicHomePage() {
           {/* Right column above photo: kanji 愛 + caption + "My work…" */}
           {/* gap reduced to 1.25rem so content bottom ~278px stays above photo (top: 320px) */}
           <div
+            className="g-philosophy-right"
             style={{
               position: 'absolute',
               left: 'calc(48px + 45.83vw)',
@@ -498,6 +492,7 @@ export default function GraphicHomePage() {
           {/* height: 50vw (720@1440, 960@1920); bottom: 1040@1440, 1280@1920 */}
           <div
             aria-hidden="true"
+            className="g-philosophy-photo"
             style={{
               position: 'absolute',
               left: 0,
@@ -518,6 +513,7 @@ export default function GraphicHomePage() {
           {/* "In the world…" — below photo, same column as right stack */}
           {/* top: calc(372px + 50vw) → 1092px@1440, 1332px@1920 (photo bottom + 52px) */}
           <p
+            className="g-philosophy-bottom"
             style={{
               position: 'absolute',
               left: 'calc(48px + 45.83vw)',
@@ -563,6 +559,7 @@ export default function GraphicHomePage() {
 
           {/* Dark columns */}
           <div
+            className="g-steps-dark"
             style={{
               background: '#0D0D0D',
               padding: 'clamp(1.5rem, 2.08vw, 2.5rem)',
@@ -678,6 +675,7 @@ export default function GraphicHomePage() {
 
             {/* Motif grid */}
             <div
+              className="g-motif-grid-3"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
@@ -711,6 +709,7 @@ export default function GraphicHomePage() {
 
             {/* Second row — 2 cards */}
             <div
+              className="g-motif-grid-2"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(2, 1fr)',
@@ -760,6 +759,7 @@ export default function GraphicHomePage() {
             <span className="g-tag" style={{ display: 'block', marginBottom: '2rem' }}>FAQ</span>
 
             <div
+              className="g-faq-grid"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'clamp(180px, 18.4vw, 354px) 1fr',
@@ -769,6 +769,7 @@ export default function GraphicHomePage() {
             >
               {/* Left: master portrait */}
               <div
+                className="g-faq-portrait"
                 style={{
                   position: 'relative',
                   aspectRatio: '354 / 384',
@@ -786,7 +787,7 @@ export default function GraphicHomePage() {
               </div>
 
               {/* Right: heading + questions */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div className="g-faq-content" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 <h2
                   id="faq-heading"
                   style={{
@@ -816,6 +817,7 @@ export default function GraphicHomePage() {
         {/* ── FOOTER ───────────────────────────────────────────────────────── */}
         <footer
           role="contentinfo"
+          className="g-footer-section"
           style={{
             background: '#0D0D0D',
             padding: 'clamp(1.5rem, 2.08vw, 2.5rem)',
@@ -824,6 +826,7 @@ export default function GraphicHomePage() {
           <div className="g-container">
             {/* Top row */}
             <div
+              className="g-footer-top"
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -834,11 +837,12 @@ export default function GraphicHomePage() {
               }}
             >
               <h2
+                className="g-footer-heading"
                 style={{
                   fontSize: 'var(--g-l)',
                   lineHeight: 'var(--g-lh-l)',
                   color: '#F2F2F2',
-                  maxWidth: '22.5rem',
+                  maxWidth: '40rem',
                 }}
               >
                 Relax and book your seat right now
@@ -872,28 +876,19 @@ export default function GraphicHomePage() {
               </div>
             </div>
 
-            {/* CTA button (white) */}
-            <Link
-              href="/graphic/contact"
+            {/* CTA button (white) — opens form popup */}
+            <CtaStrip
+              label="Discuss your vision"
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '100%',
-                padding: '1rem clamp(1.25rem, 2.08vw, 2.5rem)',
                 background: '#F2F2F2',
-                fontSize: 'var(--g-bm)',
-                lineHeight: 'var(--g-lh-bm)',
                 color: '#0D0D0D',
-                textDecoration: 'none',
                 marginBottom: 'clamp(1.5rem, 2.08vw, 2.5rem)',
               }}
-            >
-              Discuss your vision
-            </Link>
+            />
 
             {/* Bottom bar */}
             <div
+              className="g-footer-bottom"
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -902,9 +897,11 @@ export default function GraphicHomePage() {
                 gap: '1rem',
               }}
             >
+              {/* Desktop: text logo — hidden on mobile */}
               <Link
                 href="/graphic"
                 aria-label="Kisha — Home"
+                className="g-footer-logo-text"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -921,13 +918,22 @@ export default function GraphicHomePage() {
                 </span>
               </Link>
 
-              <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>
-                [ All Rights Reserved. {new Date().getFullYear()} ]
-              </span>
+              {/* Mobile: 2 white rectangles (64×16, 64×18) — hidden on desktop */}
+              <div className="g-footer-logo-rects" aria-hidden="true" style={{ display: 'none' }}>
+                <span />
+                <span />
+              </div>
 
-              <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>
-                [ Made by Artem Yakovrokul ]
-              </span>
+              {/* Copyright — stacked on mobile */}
+              <div className="g-footer-copyright" style={{ display: 'contents' }}>
+                <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>
+                  [ All Rights Reserved. {new Date().getFullYear()} ]
+                </span>
+
+                <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>
+                  [ Made by Artem Yakovrokul ]
+                </span>
+              </div>
             </div>
           </div>
         </footer>
