@@ -11,16 +11,10 @@ import type React from 'react'
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SITE } from '@/content/site'
-import { CtaStrip } from '@/components/graphic/CtaStrip'
-
-const NAV_LINKS = [
-  { href: '/graphic',          label: 'Home'    },
-  { href: '/graphic/works',    label: 'Works'   },
-  { href: '/graphic/about',    label: 'About'   },
-  { href: '/graphic/blog',     label: 'Blog'    },
-  { href: '/graphic/contact',  label: 'Contact' },
-]
+import { GLogoBar } from '@/components/graphic/GLogoBar'
+import { GNav } from '@/components/graphic/GNav'
+import { GFooter } from '@/components/graphic/GFooter'
+import { GArticleCard } from '@/components/graphic/GArticleCard'
 
 const HERO_ARTICLE = {
   src: 'https://picsum.photos/seed/blog-hero-chrome/448/368',
@@ -67,24 +61,7 @@ export default function GraphicBlogPage() {
       >
 
         {/* ── Logo bar — 3-column ── */}
-        <div
-          className="g-blog-logobar"
-          style={{
-            position: 'absolute',
-            top: 0, left: 0, right: 0,
-            display: 'flex',
-            alignItems: 'flex-end',
-            justifyContent: 'space-between',
-            padding: '6px var(--g-pad) 12px',
-            background: '#F2F2F2',
-            borderBottom: '2px solid #0D0D0D',
-            zIndex: 10,
-          }}
-        >
-          <span style={{ fontSize: 'var(--g-bs)', color: '#0D0D0D' }}>● Kisha</span>
-          <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>[ タトゥ ]</span>
-          <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>Tattoo</span>
-        </div>
+        <GLogoBar layout="spread" theme="light" />
 
         {/* ── H1 — centred ── */}
         <h1
@@ -197,43 +174,7 @@ export default function GraphicBlogPage() {
         </div>
 
         {/* ── Vertical nav ── */}
-        <nav
-          className="g-hero-nav"
-          aria-label="Main navigation"
-          style={{
-            position: 'absolute',
-            right: 'var(--g-pad)',
-            top: '360px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-end',
-            gap: '0.5rem',
-            zIndex: 10,
-          }}
-        >
-          {NAV_LINKS.map((link) => {
-            const isActive = link.href === '/graphic/blog'
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={isActive ? 'page' : undefined}
-                style={{
-                  fontSize: 'var(--g-bs)',
-                  color: '#0D0D0D',
-                  textDecoration: 'none',
-                  textAlign: 'right',
-                  lineHeight: 1,
-                  opacity: isActive ? 1 : 0.45,
-                  borderBottom: isActive ? '1px solid #0D0D0D' : 'none',
-                  paddingBottom: isActive ? '1px' : '0',
-                }}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
-        </nav>
+        <GNav activePath="/graphic/blog" theme="light" top="360px" />
 
       </section>
 
@@ -297,116 +238,21 @@ export default function GraphicBlogPage() {
           style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}
         >
           {visibleArticles.map((article) => (
-            <article key={article.id}>
-              <Link
-                href={`/graphic/blog/article-${article.id}`}
-                style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}
-              >
-                {/* Square image */}
-                <div
-                  style={{
-                    position: 'relative',
-                    aspectRatio: '1/1',
-                    overflow: 'hidden',
-                    marginBottom: '20px',
-                    background: '#BFBFBF',
-                  }}
-                >
-                  <Image
-                    src={`https://picsum.photos/seed/blog-card-${article.id}/448/448`}
-                    alt={article.title}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 430px) 100vw, 25vw"
-                  />
-                </div>
-
-                {/* Info */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <h3
-                    style={{
-                      fontSize: 'var(--g-s)',
-                      lineHeight: 'var(--g-lh-s)',
-                      color: '#0D0D0D',
-                      fontWeight: 500,
-                    }}
-                  >
-                    {article.title}
-                  </h3>
-                  <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF' }}>
-                    {article.category} · {article.date}
-                  </span>
-                </div>
-              </Link>
-            </article>
+            <GArticleCard
+              key={article.id}
+              id={article.id}
+              title={article.title}
+              category={article.category}
+              date={article.date}
+              href={`/graphic/blog/article-${article.id}`}
+            />
           ))}
         </div>
 
       </section>
 
       {/* ── FOOTER ───────────────────────────────────────────────────────── */}
-      <footer
-        role="contentinfo"
-        className="g-footer-section"
-        style={{ background: '#0D0D0D', padding: 'clamp(1.5rem, 2.08vw, 2.5rem)' }}
-      >
-        <div className="g-container">
-
-          <div
-            className="g-footer-top"
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-start',
-              marginBottom: 'clamp(3rem, 17.7vw, 21.25rem)',
-              gap: '2rem',
-              flexWrap: 'wrap',
-            }}
-          >
-            <h2
-              className="g-footer-heading"
-              style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '40rem' }}
-            >
-              Relax and book your seat right now
-            </h2>
-
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.75rem' }}>
-              <span className="g-tag g-tag--white">Social media</span>
-              <a
-                href={SITE.social.instagram}
-                target="_blank" rel="noopener noreferrer"
-                style={{ fontSize: 'var(--g-bm)', color: '#F2F2F2', textDecoration: 'none' }}
-              >
-                Instagram
-              </a>
-              <a
-                href={`https://wa.me/${SITE.contact.phone.replace(/\D/g, '')}`}
-                target="_blank" rel="noopener noreferrer"
-                style={{ fontSize: 'var(--g-bm)', color: '#F2F2F2', textDecoration: 'none' }}
-              >
-                What&apos;s App
-              </a>
-            </div>
-          </div>
-
-          <CtaStrip
-            label="Discuss your vision"
-            style={{ background: '#F2F2F2', color: '#0D0D0D', marginBottom: 'clamp(1.5rem, 2.08vw, 2.5rem)' }}
-          />
-
-          <div
-            className="g-footer-bottom"
-            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}
-          >
-            <Link href="/graphic" style={{ fontSize: 'var(--g-bs)', color: '#F2F2F2', textDecoration: 'none' }}>
-              ● Kisha
-            </Link>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF' }}>[ All Rights Reserved. 2025 ]</span>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF' }}>Design by Artist Nowhere</span>
-          </div>
-
-        </div>
-      </footer>
+      <GFooter />
 
     </main>
   )

@@ -693,16 +693,19 @@
   }
 
   /* ── STEPS ── */
-  .g-steps-dark { padding: 20px 24px !important; }
-  .g-steps-dark .g-container {
+  .g-steps-dark { padding: 0 15px !important; }
+  .g-steps-inner {
     flex-direction: column !important;
-    gap: 0 !important;
   }
-  /* Override 767px step styles for mobile spec */
+  /* vertical separators → horizontal on mobile, with 10px side inset */
+  .g-steps-inner > div[style*="width: 1px"] {
+    width: auto !important;
+    height: 1px !important;
+    margin: 0 10px !important;
+  }
   .g-step {
     gap: 60px !important;
     padding-bottom: 1.5rem !important;
-    border-bottom: 1px solid #F2F2F2 !important;
   }
   .g-step:last-child { border-bottom: none !important; }
   .g-step h3 {

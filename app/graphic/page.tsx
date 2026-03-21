@@ -9,8 +9,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { serviceSchema } from '@/lib/structured-data'
-import { SITE } from '@/content/site'
 import { CtaStrip } from '@/components/graphic/CtaStrip'
+import { GLogoBar } from '@/components/graphic/GLogoBar'
+import { GNav } from '@/components/graphic/GNav'
+import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Kisha — Irezumi Mastery. Stories Etched in Skin',
@@ -20,14 +22,6 @@ export const metadata: Metadata = buildMetadata({
 })
 
 /* ── Data ──────────────────────────────────────────────────────────────────── */
-
-const NAV_LINKS = [
-  { href: '/graphic',          label: 'Home'    },
-  { href: '/graphic/works',    label: 'Works'   },
-  { href: '/graphic/about',    label: 'About'   },
-  { href: '/graphic/blog',     label: 'Blog'    },
-  { href: '/graphic/contact',  label: 'Contact' },
-]
 
 /*
  * Works gallery
@@ -156,35 +150,7 @@ export default function GraphicHomePage() {
             />
           </div>
 
-          {/* Logo bar — opaque strip, border-bottom; desktop: text 3-way, mobile: 3 dark rectangles */}
-          <div
-            className="g-hero-logobar"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              display: 'flex',
-              alignItems: 'flex-end',
-              padding: '6px var(--g-pad) 12px',
-              background: '#F2F2F2',
-              borderBottom: '2px solid #0D0D0D',
-              zIndex: 10,
-            }}
-          >
-            {/* Desktop: text labels space-between */}
-            <div className="g-hero-logo-text">
-              <span style={{ fontSize: 'var(--g-bs)', color: '#0D0D0D' }}>● Kisha</span>
-              <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>[ タトゥ ]</span>
-              <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>Tattoo</span>
-            </div>
-            {/* Mobile: 3 dark rectangles (45×12, 45×12, 42×12) */}
-            <div className="g-hero-logo-strips" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
+          <GLogoBar theme="light" />
 
           {/* Mobile-only: location / status tags below photo (top: 451px) */}
           <div className="g-hero-tags" aria-hidden="true">
@@ -263,40 +229,7 @@ export default function GraphicHomePage() {
             </span>
           </div>
 
-          {/* Vertical nav — desktop: right-aligned mid-hero; mobile: horizontal bottom of screen */}
-          <nav
-            className="g-hero-nav"
-            aria-label="Main navigation"
-            style={{
-              position: 'absolute',
-              right: 'var(--g-pad)',
-              top: '45.5%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-end',
-              gap: '0.5rem',
-              zIndex: 10,
-            }}
-          >
-            {NAV_LINKS.map((link, i) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={i === 0 ? 'page' : undefined}
-                style={{
-                  fontSize: 'var(--g-bs)',
-                  color: i === 0 ? '#F2F2F2' : '#0D0D0D',
-                  textDecoration: 'none',
-                  textAlign: 'right',
-                  padding: i === 0 ? '0.25rem 0.5rem' : '0',
-                  background: i === 0 ? '#0D0D0D' : 'transparent',
-                  lineHeight: 1,
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          <GNav activePath="/graphic" theme="light" />
 
           {/* Scroll hint — hidden on mobile */}
           <div
@@ -451,13 +384,13 @@ export default function GraphicHomePage() {
               position: 'absolute',
               left: 'var(--g-pad)',
               top: 0,
-              width: '15.875rem',
+              width: '24rem',
               fontSize: 'var(--g-l)',
               lineHeight: 'var(--g-lh-l)',
               color: '#0D0D0D',
             }}
           >
-            The Love of the Craft
+            The Love<br />of the Craft
           </h2>
 
           {/* Right column above photo: kanji 愛 + caption + "My work…" */}
@@ -559,20 +492,21 @@ export default function GraphicHomePage() {
             </div>
           </div>
 
-          {/* Dark columns */}
+          {/* Dark columns: 20px side margins, thin 2px strips with 20px vertical inset */}
           <div
             className="g-steps-dark"
             style={{
-              background: '#0D0D0D',
-              padding: 'clamp(1.5rem, 2.08vw, 2.5rem)',
+              paddingLeft: 'var(--g-pad)',
+              paddingRight: 'var(--g-pad)',
+              paddingTop: 0,
+              paddingBottom: 0,
             }}
           >
             <div
-              className="g-container"
+              className="g-steps-inner"
               style={{
                 display: 'flex',
-                justifyContent: 'space-between',
-                gap: '2rem',
+                background: '#0D0D0D',
               }}
             >
               {[
@@ -592,7 +526,22 @@ export default function GraphicHomePage() {
                   body: 'We begin the work. Each session is a focused ritual, dedicated to bringing the project to life',
                 },
               ].map((step, i) => (
-                <div key={step.title} className="g-step">
+                <div key={step.title} style={{ display: 'contents' }}>
+                  {i > 0 && (
+                    <div
+                      aria-hidden="true"
+                      style={{ width: '1px', background: '#F2F2F2', margin: '15px 0', flexShrink: 0 }}
+                    />
+                  )}
+                  <div
+                    className="g-step"
+                    style={{
+                      background: '#0D0D0D',
+                      padding: 'clamp(1.5rem, 2.08vw, 2.5rem)',
+                      flex: '1 1 0',
+                      minWidth: 0,
+                    }}
+                  >
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                     <h3
                       style={{
@@ -611,7 +560,6 @@ export default function GraphicHomePage() {
                         color: '#F2F2F2',
                         maxWidth: '22rem',
                         margin: '0 auto',
-                        textAlign: i === 0 ? 'left' : 'left',
                       }}
                     >
                       {step.body}
@@ -628,6 +576,7 @@ export default function GraphicHomePage() {
                   >
                     {step.kanji}
                   </div>
+                </div>
                 </div>
               ))}
             </div>
@@ -830,129 +779,7 @@ export default function GraphicHomePage() {
           </div>
         </section>
 
-        {/* ── FOOTER ───────────────────────────────────────────────────────── */}
-        <footer
-          role="contentinfo"
-          className="g-footer-section"
-          style={{
-            background: '#0D0D0D',
-            padding: 'clamp(1.5rem, 2.08vw, 2.5rem)',
-          }}
-        >
-          <div className="g-container">
-            {/* Top row */}
-            <div
-              className="g-footer-top"
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                marginBottom: 'clamp(3rem, 17.7vw, 21.25rem)',
-                gap: '2rem',
-                flexWrap: 'wrap',
-              }}
-            >
-              <h2
-                className="g-footer-heading"
-                style={{
-                  fontSize: 'var(--g-l)',
-                  lineHeight: 'var(--g-lh-l)',
-                  color: '#F2F2F2',
-                  maxWidth: '40rem',
-                }}
-              >
-                Relax and book your seat right now
-              </h2>
-
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-end',
-                  gap: '0.75rem',
-                }}
-              >
-                <span className="g-tag g-tag--white">Social media</span>
-                <a
-                  href={SITE.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ fontSize: 'var(--g-bm)', color: '#F2F2F2', textDecoration: 'none', textAlign: 'right' }}
-                >
-                  Instagram
-                </a>
-                <a
-                  href={`https://wa.me/${SITE.contact.phone.replace(/\D/g, '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ fontSize: 'var(--g-bm)', color: '#F2F2F2', textDecoration: 'none', textAlign: 'right' }}
-                >
-                  What&apos;s App
-                </a>
-              </div>
-            </div>
-
-            {/* CTA button — 20px inset via g-container padding */}
-            <CtaStrip
-              label="Discuss your vision"
-              style={{
-                background: '#F2F2F2',
-                color: '#0D0D0D',
-                marginBottom: 'clamp(1.5rem, 2.08vw, 2.5rem)',
-              }}
-            />
-
-            {/* Bottom bar */}
-            <div
-              className="g-footer-bottom"
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: '1rem',
-              }}
-            >
-              {/* Desktop: text logo — hidden on mobile */}
-              <Link
-                href="/graphic"
-                aria-label="Kisha — Home"
-                className="g-footer-logo-text"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.375rem',
-                  fontSize: 'var(--g-bs)',
-                  color: '#F2F2F2',
-                  textDecoration: 'none',
-                }}
-              >
-                <span>●</span>
-                Kisha
-                <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF', marginLeft: '0.5rem' }}>
-                  Tattoo
-                </span>
-              </Link>
-
-              {/* Mobile: 2 white rectangles (64×16, 64×18) — hidden on desktop */}
-              <div className="g-footer-logo-rects" aria-hidden="true" style={{ display: 'none' }}>
-                <span />
-                <span />
-              </div>
-
-              {/* Copyright — stacked on mobile */}
-              <div className="g-footer-copyright" style={{ display: 'contents' }}>
-                <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>
-                  [ All Rights Reserved. {new Date().getFullYear()} ]
-                </span>
-
-                <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>
-                  [ Made by Artem Yakovrokul ]
-                </span>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <GFooter />
 
       </main>
     </>

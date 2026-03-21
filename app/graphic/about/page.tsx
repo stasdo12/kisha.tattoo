@@ -7,8 +7,9 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
-import { SITE } from '@/content/site'
-import { CtaStrip } from '@/components/graphic/CtaStrip'
+import { GLogoBar } from '@/components/graphic/GLogoBar'
+import { GNav } from '@/components/graphic/GNav'
+import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
   title: 'About — Kisha Tattoo. One grand story at a time',
@@ -16,14 +17,6 @@ export const metadata: Metadata = buildMetadata({
     'Five years dedicated to preserving the tradition of Japanese tattooing. Learn about Kisha — the philosophy, discipline, and devotion behind every piece.',
   path: '/graphic/about',
 })
-
-const NAV_LINKS = [
-  { href: '/graphic',          label: 'Home'    },
-  { href: '/graphic/works',    label: 'Works'   },
-  { href: '/graphic/about',    label: 'About'   },
-  { href: '/graphic/blog',     label: 'Blog'    },
-  { href: '/graphic/contact',  label: 'Contact' },
-]
 
 const MINI_GALLERY = [
   { id: 1, src: 'https://picsum.photos/seed/about-mini-1/200/200', alt: 'Irezumi detail 1' },
@@ -62,33 +55,7 @@ export default function GraphicAboutPage() {
           overflow: 'hidden',
         }}
       >
-        {/* Logo bar — top strip */}
-        <div
-          className="g-hero-logobar"
-          style={{
-            position: 'absolute',
-            top: 0, left: 0, right: 0,
-            display: 'flex',
-            alignItems: 'flex-end',
-            padding: '6px var(--g-pad) 12px',
-            background: '#F2F2F2',
-            borderBottom: '2px solid #0D0D0D',
-            zIndex: 10,
-          }}
-        >
-          {/* Desktop: text group, space-between */}
-          <div className="g-hero-logo-text">
-            <span style={{ fontSize: 'var(--g-bs)', color: '#0D0D0D' }}>● Kisha</span>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>[ タトゥ ]</span>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>Tattoo</span>
-          </div>
-          {/* Mobile: 3 dark rectangles */}
-          <div className="g-hero-logo-strips" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </div>
-        </div>
+        <GLogoBar theme="light" />
 
         {/* H1 — top left */}
         <h1
@@ -173,40 +140,7 @@ export default function GraphicAboutPage() {
           <span>[ Available ]</span>
         </div>
 
-        {/* Vertical nav — right side (like homepage) */}
-        <nav
-          className="g-hero-nav"
-          aria-label="Main navigation"
-          style={{
-            position: 'absolute',
-            right: 'var(--g-pad)',
-            top: '45.5%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-end',
-            gap: '0.5rem',
-            zIndex: 10,
-          }}
-        >
-          {NAV_LINKS.map((link, i) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={i === 2 ? 'page' : undefined}
-              style={{
-                fontSize: 'var(--g-bs)',
-                color: i === 2 ? '#F2F2F2' : '#0D0D0D',
-                textDecoration: 'none',
-                textAlign: 'right',
-                padding: i === 2 ? '0.25rem 0.5rem' : '0',
-                background: i === 2 ? '#0D0D0D' : 'transparent',
-                lineHeight: 1,
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <GNav activePath="/graphic/about" theme="light" />
       </section>
 
       {/* ── 2. ABOUT SECTION ──────────────────────────────────────────────────── */}
@@ -517,126 +451,7 @@ export default function GraphicAboutPage() {
         </div>
       </section>
 
-      {/* ── 5. FOOTER ─────────────────────────────────────────────────────────── */}
-      <footer
-        role="contentinfo"
-        className="g-footer-section"
-        style={{
-          background: '#0D0D0D',
-          padding: 'clamp(1.5rem, 2.08vw, 2.5rem)',
-        }}
-      >
-        <div className="g-container">
-
-          {/* Top row */}
-          <div
-            className="g-footer-top"
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-start',
-              marginBottom: 'clamp(3rem, 17.7vw, 21.25rem)',
-              gap: '2rem',
-              flexWrap: 'wrap',
-            }}
-          >
-            <h2
-              className="g-footer-heading"
-              style={{
-                fontSize: 'var(--g-xl)',
-                lineHeight: 'var(--g-lh-xl)',
-                color: '#F2F2F2',
-                maxWidth: '40rem',
-              }}
-            >
-              Relax and book<br />your seat right now
-            </h2>
-
-            <div style={{
-              display: 'flex', flexDirection: 'column',
-              alignItems: 'flex-end', gap: '0.75rem',
-            }}>
-              <span className="g-tag g-tag--white">Social media</span>
-              <a
-                href={SITE.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontSize: 'var(--g-bm)', color: '#F2F2F2',
-                  textDecoration: 'none', textAlign: 'right',
-                }}
-              >
-                Instagram
-              </a>
-              <a
-                href={`https://wa.me/${SITE.contact.phone.replace(/\D/g, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontSize: 'var(--g-bm)', color: '#F2F2F2',
-                  textDecoration: 'none', textAlign: 'right',
-                }}
-              >
-                What&apos;s App
-              </a>
-            </div>
-          </div>
-
-          {/* CTA button — same width as hero CTA (negative margin cancels half of g-container padding) */}
-          <CtaStrip
-            label="Discuss your vision"
-            style={{
-              background: '#F2F2F2',
-              color: '#0D0D0D',
-              marginBottom: 'clamp(1.5rem, 2.08vw, 2.5rem)',
-            }}
-          />
-
-          {/* Bottom bar */}
-          <div
-            className="g-footer-bottom"
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '1rem',
-            }}
-          >
-            <Link
-              href="/graphic"
-              aria-label="Kisha — Home"
-              className="g-footer-logo-text"
-              style={{
-                display: 'flex', alignItems: 'center', gap: '0.375rem',
-                fontSize: 'var(--g-bs)', color: '#F2F2F2', textDecoration: 'none',
-              }}
-            >
-              <span>●</span>
-              Kisha
-              <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF', marginLeft: '0.5rem' }}>
-                Tattoo
-              </span>
-            </Link>
-
-            {/* Mobile: 2 white rectangles */}
-            <div className="g-footer-logo-rects" aria-hidden="true" style={{ display: 'none' }}>
-              <span />
-              <span />
-            </div>
-
-            <div className="g-footer-copyright" style={{ display: 'contents' }}>
-              <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>
-                [ All Rights Reserved. {new Date().getFullYear()} ]
-              </span>
-              <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>
-                [ Made by Artem Yakovrokul ]
-              </span>
-            </div>
-          </div>
-
-        </div>
-      </footer>
+      <GFooter />
 
     </main>
   )

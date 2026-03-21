@@ -8,18 +8,10 @@
  * Footer: reused dark footer
  */
 import type React from 'react'
-import Link from 'next/link'
 import { useState } from 'react'
-import { SITE } from '@/content/site'
-import { CtaStrip } from '@/components/graphic/CtaStrip'
-
-const NAV_LINKS = [
-  { href: '/graphic',          label: 'Home'    },
-  { href: '/graphic/works',    label: 'Works'   },
-  { href: '/graphic/about',    label: 'About'   },
-  { href: '/graphic/blog',     label: 'Blog'    },
-  { href: '/graphic/contact',  label: 'Contact' },
-]
+import { GLogoBar } from '@/components/graphic/GLogoBar'
+import { GNav } from '@/components/graphic/GNav'
+import { GFooter } from '@/components/graphic/GFooter'
 
 /* ── Shared style tokens ──────────────────────────────────────────────────── */
 const LABEL: React.CSSProperties = {
@@ -71,26 +63,7 @@ export default function GraphicContactPage() {
       >
 
         {/* ── Logo bar ── */}
-        <div
-          className="g-hero-logobar"
-          style={{
-            position: 'absolute',
-            top: 0, left: 0, right: 0,
-            display: 'flex',
-            alignItems: 'flex-end',
-            padding: '6px var(--g-pad) 12px',
-            background: '#F2F2F2',
-            borderBottom: '2px solid #0D0D0D',
-            zIndex: 10,
-          }}
-        >
-          <div className="g-hero-logo-text">
-            <span style={{ fontSize: 'var(--g-bs)', color: '#0D0D0D' }}>● Kisha</span>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>[ タトゥ ]</span>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>Tattoo</span>
-          </div>
-          <div className="g-hero-logo-strips" aria-hidden="true" />
-        </div>
+        <GLogoBar theme="light" />
 
         {/* ── H1 ── */}
         <h1
@@ -242,108 +215,12 @@ export default function GraphicContactPage() {
         </form>
 
         {/* ── Vertical nav ── */}
-        <nav
-          className="g-hero-nav"
-          aria-label="Main navigation"
-          style={{
-            position: 'absolute',
-            right: 'var(--g-pad)',
-            top: '45.5%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-end',
-            gap: '0.5rem',
-            zIndex: 10,
-          }}
-        >
-          {NAV_LINKS.map((link) => {
-            const isActive = link.href === '/graphic/contact'
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={isActive ? 'page' : undefined}
-                style={{
-                  fontSize: 'var(--g-bs)',
-                  color: isActive ? '#F2F2F2' : '#0D0D0D',
-                  textDecoration: 'none',
-                  textAlign: 'right',
-                  lineHeight: 1,
-                  padding: isActive ? '0.25rem 0.5rem' : '0',
-                  background: isActive ? '#0D0D0D' : 'transparent',
-                }}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
-        </nav>
+        <GNav activePath="/graphic/contact" theme="light" />
 
       </section>
 
       {/* ── FOOTER ───────────────────────────────────────────────────────── */}
-      <footer
-        role="contentinfo"
-        className="g-footer-section"
-        style={{ background: '#0D0D0D', padding: 'clamp(1.5rem, 2.08vw, 2.5rem)' }}
-      >
-        <div className="g-container">
-
-          <div
-            className="g-footer-top"
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-start',
-              marginBottom: 'clamp(3rem, 17.7vw, 21.25rem)',
-              gap: '2rem',
-              flexWrap: 'wrap',
-            }}
-          >
-            <h2
-              className="g-footer-heading"
-              style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '40rem' }}
-            >
-              Relax and book your seat right now
-            </h2>
-
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.75rem' }}>
-              <span className="g-tag g-tag--white">Social media</span>
-              <a
-                href={SITE.social.instagram}
-                target="_blank" rel="noopener noreferrer"
-                style={{ fontSize: 'var(--g-bm)', color: '#F2F2F2', textDecoration: 'none' }}
-              >
-                Instagram
-              </a>
-              <a
-                href={`https://wa.me/${SITE.contact.phone.replace(/\D/g, '')}`}
-                target="_blank" rel="noopener noreferrer"
-                style={{ fontSize: 'var(--g-bm)', color: '#F2F2F2', textDecoration: 'none' }}
-              >
-                What&apos;s App
-              </a>
-            </div>
-          </div>
-
-          <CtaStrip
-            label="Discuss your vision"
-            style={{ background: '#F2F2F2', color: '#0D0D0D', marginBottom: 'clamp(1.5rem, 2.08vw, 2.5rem)' }}
-          />
-
-          <div
-            className="g-footer-bottom"
-            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}
-          >
-            <Link href="/graphic" style={{ fontSize: 'var(--g-bs)', color: '#F2F2F2', textDecoration: 'none' }}>
-              ● Kisha
-            </Link>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF' }}>[ All Rights Reserved. 2025 ]</span>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF' }}>Design by Artist Nowhere</span>
-          </div>
-
-        </div>
-      </footer>
+      <GFooter />
 
     </main>
   )
