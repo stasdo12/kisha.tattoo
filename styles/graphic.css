@@ -204,12 +204,13 @@
 .g-hero-logo-strips span:nth-child(2) { width: 45px; }
 .g-hero-logo-strips span:nth-child(3) { width: 42px; }
 
-/* Hero info tags — space-between, top: 72px on desktop, overlays image */
+/* Hero info tags — space-between, top: 72px on desktop
+   left starts after photo right edge (same anchor as .g-hero-content) */
 .g-hero-tags {
   position: absolute;
   display: flex;
   justify-content: space-between;
-  left: var(--g-pad);
+  left: calc(var(--g-pad) + clamp(160px, 16.67vw, 320px) + 2rem);
   right: var(--g-pad);
   top: 72px;
   font-size: var(--g-tag);
