@@ -624,6 +624,9 @@
     padding: 0.25rem 0.5rem !important;
   }
 
+  /* Kanji 術 block: 50px higher on mobile */
+  .g-works-kanji { bottom: calc(clamp(30px, 4.6vw, 60px) + 50px) !important; }
+
   /* Gallery section: single-column stack */
   .g-works-gallery-section {
     padding-left: 15px !important;
