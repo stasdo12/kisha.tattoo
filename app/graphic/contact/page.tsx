@@ -138,6 +138,7 @@ export default function GraphicContactPage() {
                 <button
                   key={val}
                   type="button"
+                  aria-pressed={experience === val}
                   onClick={() => setExperience(val)}
                   className="g-contact-toggle"
                   style={{
