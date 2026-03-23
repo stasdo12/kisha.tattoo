@@ -221,6 +221,27 @@
     --g-pad: 1rem;
   }
 
+  /* Contact form: switch to flow layout so content isn't clipped */
+  .g-contact-hero {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding-bottom: 3rem !important;
+  }
+  .g-contact-form {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 140px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Prevent iOS zoom on inputs (font-size must be ≥16px) */
+  .g-contact-form input,
+  .g-contact-form textarea,
+  .g-contact-form select {
+    font-size: 16px !important;
+  }
+
   /* Hero: stack vertically on mobile */
   .g-hero-photo {
     position: relative !important;
@@ -361,30 +382,34 @@
   /* Scroll hint: hidden on mobile */
   .g-hero-scroll { display: none !important; }
 
-  /* CTA: top: 716px (per spec) — always within 100dvh on 390×844 iPhone 14 */
+  /* CTA: anchored to bottom, not fixed px from top */
   .g-hero-cta {
     position: absolute !important;
-    top: 716px !important;
-    bottom: auto !important;
+    top: auto !important;
+    bottom: 68px !important;
   }
   .g-hero-cta .g-cta-strip {
     padding: 16px 12px !important;
   }
 
-  /* Nav: horizontal row at bottom of hero (top: 788px), left-aligned */
-  /* Меню находится внизу первого экрана */
+  /* Nav: horizontal row at bottom of hero */
   .g-hero-nav {
     position: absolute !important;
-    top: 788px !important;
-    left: 25px !important;
+    top: auto !important;
+    bottom: 1.5rem !important;
+    left: 15px !important;
     right: auto !important;
-    bottom: auto !important;
     flex-direction: row !important;
     align-items: center !important;
     gap: 1rem !important;
   }
+  .g-hero-nav a {
+    min-height: 36px;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
   .g-hero-nav a[aria-current='page'] {
-    padding: 8px !important;
+    padding: 0.25rem 0.5rem !important;
   }
 
   /* ── TRAD SECTION ── */
@@ -638,8 +663,8 @@
   /* Always hide 6th item on mobile */
   .g-works-item:nth-child(6) { display: none !important; }
 
-  /* Hero section: fixed height per spec */
-  .g-hero-section { height: 820px !important; }
+  /* Hero section: use dvh so it fits any phone screen */
+  .g-hero-section { height: 100dvh !important; min-height: 680px !important; }
 
   /* Works: hide desktop "explore" link, show mobile version inside gallery */
   .g-works-explore-link   { display: none !important; }
@@ -653,7 +678,7 @@
   }
 
   /* ── PHILOSOPHY ── */
-  .g-philosophy-section { height: 815px !important; }
+  .g-philosophy-section { height: auto !important; min-height: 815px !important; }
 
   .g-philosophy-heading {
     position: absolute !important;
