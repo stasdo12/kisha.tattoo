@@ -591,11 +591,12 @@ body:has([data-theme='graphic']) {
 
   /* ── CONTACT PAGE ── */
 
-  /* Hero: light bg, expand with form content */
+  /* Hero: padding-top prevents margin-collapse from form leaking out */
   .g-contact-hero {
     height: auto !important;
     min-height: 0 !important;
     overflow: visible !important;
+    padding-top: 100px !important;
     padding-bottom: 6rem !important;
   }
 
@@ -610,11 +611,11 @@ body:has([data-theme='graphic']) {
     top: 52px !important;
   }
 
-  /* Form: full width, static position */
+  /* Form: full width, static position, no margin-top (hero padding handles space) */
   .g-contact-form {
     position: static !important;
     width: 100% !important;
-    margin-top: 90px !important;
+    margin-top: 0 !important;
     padding: 0 15px !important;
     box-sizing: border-box !important;
   }
