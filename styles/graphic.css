@@ -377,6 +377,7 @@
     right: 15px !important;
     max-width: 316px !important;
     gap: 8px !important;
+    padding: 0 !important;
   }
   .g-hero-content h1 {
     margin-bottom: 0 !important;
