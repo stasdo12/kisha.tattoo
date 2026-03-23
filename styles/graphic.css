@@ -518,8 +518,48 @@
     color: #0D0D0D !important;
   }
 
-  /* Main card: full width */
-  .g-blog-main-card { width: 100% !important; align-self: auto !important; }
+  /* Main card: Figma spec 390px */
+  .g-blog-main-card {
+    width: 100% !important;
+    align-self: auto !important;
+    padding: 20px !important;
+    gap: 20px !important;
+    margin: 12px 0 !important;
+    overflow: visible !important;
+  }
+  /* Image container: fixed height */
+  .g-blog-main-card > div:first-child {
+    aspect-ratio: auto !important;
+    height: 220px !important;
+    flex-shrink: 0 !important;
+  }
+  /* Body: remove padding (card handles it) */
+  .g-blog-main-card > div:nth-child(2) {
+    padding: 0 !important;
+    gap: 20px !important;
+  }
+  /* H2: 24px, 90% line-height, white */
+  .g-blog-main-card h2 {
+    font-size: 24px !important;
+    line-height: 21.6px !important;
+    color: #F2F2F2 !important;
+  }
+  /* Meta: 12px, white */
+  .g-blog-main-card span {
+    font-size: 12px !important;
+    color: #F2F2F2 !important;
+  }
+  /* Button: light bg, dark text, 20px, no border */
+  .g-blog-main-card a {
+    background: #F2F2F2 !important;
+    color: #0D0D0D !important;
+    font-size: 20px !important;
+    line-height: 20px !important;
+    padding: 16px 12px !important;
+    border: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
 
   /* Nav: same as homepage — horizontal centered at bottom */
   .g-blog-hero .g-hero-nav {
