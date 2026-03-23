@@ -509,9 +509,11 @@
     gap: 1rem !important;
   }
 
-  /* Side tags: show on mobile, above/below card */
+  /* Side tags: show on mobile, centered */
   .g-blog-side-tag {
     display: block !important;
+    width: 100% !important;
+    text-align: center !important;
     font-size: var(--g-tag) !important;
     color: #0D0D0D !important;
   }
