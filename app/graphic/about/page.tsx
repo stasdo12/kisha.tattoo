@@ -95,13 +95,13 @@ export default function GraphicAboutPage() {
           命
         </div>
 
-        {/* Master photo — bottom left */}
+        {/* Master photo — top left, below H1 */}
         <div
           className="g-about-master-photo"
           style={{
             position: 'absolute',
             left: 0,
-            bottom: 'clamp(4rem, 8vw, 9rem)',
+            top: 'clamp(160px, 18vw, 260px)',
             width: 'clamp(120px, 12.5vw, 240px)',
             height: 'clamp(130px, 13.5vw, 260px)',
             overflow: 'hidden',
@@ -117,13 +117,13 @@ export default function GraphicAboutPage() {
           />
         </div>
 
-        {/* "Dedicated to..." — right of photo, bottom */}
+        {/* "Dedicated to..." — right of photo, same top */}
         <p
           className="g-about-dedicated"
           style={{
             position: 'absolute',
             left: 'calc(clamp(120px, 12.5vw, 240px) + 1.5rem)',
-            bottom: 'clamp(4rem, 8vw, 9rem)',
+            top: 'clamp(160px, 18vw, 260px)',
             width: 'clamp(180px, 17.7vw, 340px)',
             fontSize: 'var(--g-bm)',
             lineHeight: 'var(--g-lh-bm)',
