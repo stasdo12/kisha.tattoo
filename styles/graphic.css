@@ -506,10 +506,15 @@
     align-items: flex-start !important;
     margin-top: 160px !important;
     padding: 0 15px !important;
+    gap: 1rem !important;
   }
 
-  /* Side tags: hide on mobile */
-  .g-blog-side-tag { display: none !important; }
+  /* Side tags: show on mobile, above/below card */
+  .g-blog-side-tag {
+    display: block !important;
+    font-size: var(--g-tag) !important;
+    color: #0D0D0D !important;
+  }
 
   /* Main card: full width */
   .g-blog-main-card { width: 100% !important; align-self: auto !important; }
