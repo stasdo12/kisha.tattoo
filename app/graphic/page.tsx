@@ -154,8 +154,8 @@ export default function GraphicHomePage() {
 
           {/* Mobile-only: location / status tags below photo (top: 451px) */}
           <div className="g-hero-tags" aria-hidden="true">
-            <span>[ Munich ]</span>
-            <span>[ Available ]</span>
+            <span>[ Available for cooperation ]</span>
+            <span>[ Munich, Germany ]</span>
           </div>
 
           {/* H1 + subtitle — to the right of photo */}

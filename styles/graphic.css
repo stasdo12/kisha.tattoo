@@ -204,13 +204,14 @@
 .g-hero-logo-strips span:nth-child(2) { width: 45px; }
 .g-hero-logo-strips span:nth-child(3) { width: 42px; }
 
-/* Hero tags — desktop: right side below logobar */
+/* Hero info tags — space-between, top: 72px on desktop, overlays image */
 .g-hero-tags {
   position: absolute;
   display: flex;
+  justify-content: space-between;
+  left: var(--g-pad);
   right: var(--g-pad);
-  top: 44px;
-  gap: 1.5rem;
+  top: 72px;
   font-size: var(--g-tag);
   color: #0D0D0D;
   line-height: 1;
@@ -334,11 +335,11 @@
     height: 360px !important;
   }
 
-  /* Tags row: below photo (67 + 360 + 12 = 439px) */
+  /* Tags row: top: 451px per spec (anchored above CTA) */
   .g-hero-tags {
     display: flex !important;
     position: absolute !important;
-    top: 439px !important;
+    top: 451px !important;
     left: 15px !important;
     right: 15px !important;
     justify-content: space-between !important;
