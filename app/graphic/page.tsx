@@ -430,9 +430,9 @@ export default function GraphicHomePage() {
             className="g-philosophy-photo"
             style={{
               position: 'absolute',
-              left: 0,
+              left: 'var(--g-pad)',
+              right: 'var(--g-pad)',
               top: '320px',
-              width: '100%',
               height: 'clamp(720px, 50vw, 960px)',
             }}
           >

@@ -392,15 +392,16 @@
     padding: 16px 12px !important;
   }
 
-  /* Nav: horizontal row at bottom of hero */
+  /* Nav: horizontal row at bottom of hero — centered */
   .g-hero-nav {
     position: absolute !important;
     top: auto !important;
     bottom: 1.5rem !important;
-    left: 15px !important;
-    right: auto !important;
+    left: 0 !important;
+    right: 0 !important;
     flex-direction: row !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 1rem !important;
   }
   .g-hero-nav a {
@@ -510,14 +511,15 @@
   /* Main card: full width */
   .g-blog-main-card { width: 100% !important; align-self: auto !important; }
 
-  /* Nav: horizontal at bottom */
+  /* Nav: horizontal at bottom — centered */
   .g-blog-hero .g-hero-nav {
     flex-direction: row !important;
     top: auto !important;
     bottom: 1.5rem !important;
-    right: auto !important;
-    left: 15px !important;
+    left: 0 !important;
+    right: 0 !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 0.75rem !important;
     flex-wrap: wrap !important;
   }
@@ -573,14 +575,15 @@
     width: 100% !important;
   }
 
-  /* Nav: horizontal at bottom */
+  /* Nav: horizontal at bottom — centered */
   .g-contact-hero .g-hero-nav {
     flex-direction: row !important;
     top: auto !important;
     bottom: 1.5rem !important;
-    right: auto !important;
-    left: 15px !important;
+    left: 0 !important;
+    right: 0 !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 1rem !important;
   }
   .g-contact-hero .g-hero-nav a[aria-current='page'] { border-bottom: 1px solid #0D0D0D !important; }
@@ -591,14 +594,15 @@
   .g-works-hero { min-height: 840px !important; height: 840px !important; }
   .g-works-hero-sub { display: none !important; }
 
-  /* Nav: horizontal at bottom of hero */
+  /* Nav: horizontal at bottom of hero — centered */
   .g-works-hero .g-hero-nav {
     flex-direction: row !important;
     top: auto !important;
     bottom: 2rem !important;
-    right: auto !important;
-    left: var(--g-pad) !important;
+    left: 0 !important;
+    right: 0 !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 1rem !important;
   }
 
