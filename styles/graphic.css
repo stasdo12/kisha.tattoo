@@ -4,6 +4,11 @@
    Colors: #0D0D0D · #BFBFBF · #F2F2F2
    ───────────────────────────────────────────────────────────────────────────── */
 
+/* Override dark body background for graphic section */
+body:has([data-theme='graphic']) {
+  background-color: #F2F2F2;
+}
+
 [data-theme='graphic'] {
   --g-black:   #0D0D0D;
   --g-grey:    #BFBFBF;
@@ -586,9 +591,12 @@
 
   /* ── CONTACT PAGE ── */
 
-  /* Hero: keep light bg, fixed height */
+  /* Hero: light bg, expand with form content */
   .g-contact-hero {
-    min-height: 820px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding-bottom: 6rem !important;
   }
 
   /* Logo bar: keep light */
