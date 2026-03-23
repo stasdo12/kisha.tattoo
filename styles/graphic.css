@@ -604,16 +604,25 @@
   .g-works-hero { min-height: 840px !important; height: 840px !important; }
   .g-works-hero-sub { display: none !important; }
 
-  /* Nav: horizontal at bottom of hero — centered */
+  /* Nav: same as homepage but white links */
   .g-works-hero .g-hero-nav {
     flex-direction: row !important;
     top: auto !important;
-    bottom: 2rem !important;
+    bottom: 1.5rem !important;
     left: 0 !important;
     right: 0 !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 1rem !important;
+  }
+  .g-works-hero .g-hero-nav a {
+    color: #F2F2F2 !important;
+    opacity: 1 !important;
+    border-bottom: none !important;
+  }
+  .g-works-hero .g-hero-nav a[aria-current='page'] {
+    outline: 1px solid #F2F2F2 !important;
+    padding: 0.25rem 0.5rem !important;
   }
 
   /* Gallery section: single-column stack */
