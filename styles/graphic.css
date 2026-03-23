@@ -204,13 +204,12 @@
 .g-hero-logo-strips span:nth-child(2) { width: 45px; }
 .g-hero-logo-strips span:nth-child(3) { width: 42px; }
 
-/* Hero info tags — full width, space-between, top: 72px per Figma spec
-   Overlays hero image — matches "перекриває зображення" design intent */
+/* Hero info tags — starts right of photo, extends to right edge, top: 72px per Figma spec */
 .g-hero-tags {
   position: absolute;
   display: flex;
   justify-content: space-between;
-  left: var(--g-pad);
+  left: calc(var(--g-pad) + clamp(160px, 16.67vw, 320px) + 2rem);
   right: var(--g-pad);
   top: 72px;
   font-size: var(--g-tag);
