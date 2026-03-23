@@ -492,8 +492,10 @@
     width: calc(100% - 30px) !important;
     font-size: var(--g-m) !important;
     white-space: normal !important;
-    color: #F2F2F2 !important;
+    color: #0D0D0D !important;
     top: 52px !important;
+    left: 15px !important;
+    transform: none !important;
   }
 
   /* hero-info: stack vertically, card full width */
