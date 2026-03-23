@@ -50,7 +50,7 @@ export default function GraphicAboutPage() {
         className="g-hero-section g-about-hero"
         style={{
           position: 'relative',
-          height: 'clamp(780px, 75vw, 1080px)',
+          height: 'clamp(680px, 90vh, 900px)',
           background: '#F2F2F2',
           overflow: 'hidden',
         }}
@@ -95,13 +95,13 @@ export default function GraphicAboutPage() {
           命
         </div>
 
-        {/* Master photo — top left, below H1 */}
+        {/* Master photo — bottom left */}
         <div
           className="g-about-master-photo"
           style={{
             position: 'absolute',
             left: 0,
-            top: 'clamp(160px, 18vw, 260px)',
+            bottom: 'clamp(3rem, 5vw, 6rem)',
             width: 'clamp(120px, 12.5vw, 240px)',
             height: 'clamp(130px, 13.5vw, 260px)',
             overflow: 'hidden',
@@ -117,13 +117,13 @@ export default function GraphicAboutPage() {
           />
         </div>
 
-        {/* "Dedicated to..." — right of photo, same top */}
+        {/* "Dedicated to..." — right of photo, bottom-aligned */}
         <p
           className="g-about-dedicated"
           style={{
             position: 'absolute',
             left: 'calc(clamp(120px, 12.5vw, 240px) + 1.5rem)',
-            top: 'clamp(160px, 18vw, 260px)',
+            bottom: 'clamp(3rem, 5vw, 6rem)',
             width: 'clamp(180px, 17.7vw, 340px)',
             fontSize: 'var(--g-bm)',
             lineHeight: 'var(--g-lh-bm)',
