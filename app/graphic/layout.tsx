@@ -6,9 +6,14 @@
  * within the hero section per the Figma spec.
  */
 import { DM_Sans } from 'next/font/google'
+import dynamic from 'next/dynamic'
 import '@/styles/graphic.css'
 import '@/styles/form-popup.css'
-import { FormPopup } from '@/components/graphic/FormPopup'
+
+const FormPopup = dynamic(
+  () => import('@/components/graphic/FormPopup').then((m) => m.FormPopup),
+  { ssr: false },
+)
 
 const dmSans = DM_Sans({
   subsets: ['latin'],

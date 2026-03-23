@@ -22,8 +22,8 @@
 
 /* POPUP */
 .fp-popup {
-  /* clamp: 1360px@1440 → 1840px@1920, side margin 40px each */
-  width: clamp(1360px, calc(100vw - 80px), 1840px);
+  /* Desktop: fill viewport minus 80px margins, max 1840px */
+  width: min(calc(100vw - 80px), 1840px);
   background: #FFFFFF;
   padding: 20px;
   display: flex;
