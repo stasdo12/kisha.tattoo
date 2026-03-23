@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 
 /**
  * Form Popup — triggered via custom event 'openFormPopup'.
@@ -10,13 +10,31 @@ import { useEffect, useRef, useState } from 'react'
 export function FormPopup() {
   const [isOpen, setIsOpen] = useState(false)
   const overlayRef = useRef<HTMLDivElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const triggerRef = useRef<Element | null>(null)
+
+  const close = useCallback(() => {
+    setIsOpen(false)
+    // Return focus to the element that opened the dialog
+    if (triggerRef.current instanceof HTMLElement) {
+      triggerRef.current.focus()
+    }
+  }, [])
 
   /* Listen for open trigger */
   useEffect(() => {
-    const open = () => setIsOpen(true)
+    const open = () => {
+      triggerRef.current = document.activeElement
+      setIsOpen(true)
+    }
     window.addEventListener('openFormPopup', open)
     return () => window.removeEventListener('openFormPopup', open)
   }, [])
+
+  /* Move focus into dialog when it opens */
+  useEffect(() => {
+    if (isOpen) closeButtonRef.current?.focus()
+  }, [isOpen])
 
   /* Lock body scroll while open */
   useEffect(() => {
@@ -26,10 +44,10 @@ export function FormPopup() {
 
   /* Escape key */
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setIsOpen(false) }
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') close() }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [])
+  }, [close])
 
   if (!isOpen) return null
 
@@ -37,7 +55,7 @@ export function FormPopup() {
     <div
       className="fp-overlay"
       ref={overlayRef}
-      onClick={(e) => { if (e.target === overlayRef.current) setIsOpen(false) }}
+      onClick={(e) => { if (e.target === overlayRef.current) close() }}
     >
       <div
         className="fp-popup"
@@ -55,8 +73,9 @@ export function FormPopup() {
               </h2>
             </div>
             <button
+              ref={closeButtonRef}
               className="fp-close"
-              onClick={() => setIsOpen(false)}
+              onClick={close}
               aria-label="Close"
             >
               ✕
@@ -71,7 +90,7 @@ export function FormPopup() {
           onSubmit={(e) => {
             e.preventDefault()
             /* TODO: wire up submission */
-            setIsOpen(false)
+            close()
           }}
         >
           <div className="fp-fields">

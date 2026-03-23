@@ -15,6 +15,7 @@ export function CtaStrip({ label = 'Start your consultation', style }: Props) {
       className="g-cta-strip"
       onClick={() => window.dispatchEvent(new CustomEvent('openFormPopup'))}
       type="button"
+      aria-haspopup="dialog"
       style={style}
     >
       <span>{label}</span>
