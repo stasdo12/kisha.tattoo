@@ -614,7 +614,7 @@ body:has([data-theme='graphic']) {
   .g-contact-form {
     position: static !important;
     width: 100% !important;
-    margin-top: 140px !important;
+    margin-top: 90px !important;
     padding: 0 15px !important;
     box-sizing: border-box !important;
   }
