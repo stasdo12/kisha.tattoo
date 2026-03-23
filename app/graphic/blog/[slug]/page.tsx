@@ -10,23 +10,44 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { STORIES, getStoryBySlug } from '@/content/stories'
+import { buildMetadata } from '@/lib/seo'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
 
-export const metadata: Metadata = {
-  title: 'Chrome tattoos: the hyper-polished future of ink — Kisha Irezumi',
+export function generateStaticParams() {
+  return STORIES.map((s) => ({ slug: s.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const story = getStoryBySlug(slug)
+  return buildMetadata({
+    title: story ? `${story.title} — Kisha Irezumi` : 'Article — Kisha Irezumi',
+    description: story?.excerpt ?? '',
+    path: `/graphic/blog/${slug}`,
+  })
 }
 
 const RELATED = [
-  { id: 1, title: 'Inspiring small tattoo ideas with Kisha Tattoo', category: 'Tattoo', date: 'October 2025' },
-  { id: 2, title: 'Inspiring small tattoo ideas with Kisha Tattoo', category: 'Tattoo', date: 'October 2025' },
-  { id: 3, title: 'Inspiring small tattoo ideas with Kisha Tattoo', category: 'Tattoo', date: 'October 2025' },
-  { id: 4, title: 'Inspiring small tattoo ideas with Kisha Tattoo', category: 'Tattoo', date: 'October 2025' },
+  { id: 1, slug: 'history-of-japanese-irezumi',    title: 'The History of Japanese Irezumi',          category: 'Culture',     date: 'November 2024' },
+  { id: 2, slug: 'choosing-your-first-japanese-tattoo', title: 'Choosing Your First Japanese Tattoo', category: 'Guide',       date: 'October 2024'  },
+  { id: 3, slug: 'blackwork-tattoo-explained',      title: 'Blackwork Tattooing: Bold & Built to Last', category: 'Style Guide', date: 'September 2024' },
 ]
 
-export default function ArticleDetailPage() {
+export default async function ArticleDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const story = getStoryBySlug(slug)
   return (
     <main id="main-content">
 
@@ -43,7 +64,7 @@ export default function ArticleDetailPage() {
       >
         {/* Background photo */}
         <Image
-          src="https://picsum.photos/seed/article-hero-chrome/1920/1080"
+          src={story?.coverImage ?? 'https://picsum.photos/seed/article-hero/1920/1080'}
           alt=""
           aria-hidden="true"
           fill
@@ -98,7 +119,7 @@ export default function ArticleDetailPage() {
             zIndex: 2,
           }}
         >
-          Chrome tattoos: the hyper-polished future of ink
+          {story?.title ?? 'Article'}
         </h1>
 
         {/* ── Bottom meta bar ── */}
@@ -116,10 +137,10 @@ export default function ArticleDetailPage() {
           }}
         >
           <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.7)' }}>
-            Tattoo · October, 2025
+            {story?.category} · {story?.publishedAt}
           </span>
           <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.7)' }}>
-            5 min read
+            {story?.readingTime}
           </span>
         </div>
 
@@ -148,81 +169,11 @@ export default function ArticleDetailPage() {
             gap: '32px',
           }}
         >
-          {/* Lead */}
-          <p
-            style={{
-              fontSize: 'var(--g-bm)',
-              lineHeight: 1.5,
-              color: '#0D0D0D',
-              fontWeight: 500,
-            }}
-          >
-            We&apos;ve always stood at the crossroads of innovation and craftsmanship—
-            bringing together some of the most forward-thinking tattoo artists from around the world.
-            From architectural linework to generative art based on brainwaves, pushing boundaries is
-            in our DNA. Today, we&apos;re diving into a tattoo style that&apos;s been capturing the
-            attention of collectors, artists, and design obsessives alike: chrome tattoos. Whether
-            you&apos;ve seen them trending online or you&apos;re just hearing about them for the first
-            time, this blog was written to give you everything you need to know—from the roots of the
-            style to why some of the best chrome tattoo work in the world is being created right here
-          </p>
-
-          {/* H2 */}
-          <h2
-            style={{
-              fontSize: 'var(--g-l)',
-              lineHeight: 'var(--g-lh-l)',
-              color: '#0D0D0D',
-              fontWeight: 500,
-            }}
-          >
-            Chrome Tattoos
-          </h2>
-
-          <p style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}>
-            Chrome tattoos are tattoos designed to mimic the reflective, high-shine appearance of
-            polished metal—think liquid silver, molten chrome, or a high-gloss metallic object. The
-            illusion of shine, depth, and reflection is achieved entirely through expert shading, light
-            placement, and hyperrealistic techniques
-          </p>
-
-          <p style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}>
-            They belong to the broader realism and hyperrealism tattoo family but stand out for their
-            futuristic, surreal, and eye-catching finish. At first glance, a great chrome tattoo can
-            genuinely look like there&apos;s a 3D metallic object embedded in the skin. No filters. No
-            edits. Just insanely skilled artistry
-          </p>
-
-          {/* H2 */}
-          <h2
-            style={{
-              fontSize: 'var(--g-l)',
-              lineHeight: 'var(--g-lh-l)',
-              color: '#0D0D0D',
-              fontWeight: 500,
-            }}
-          >
-            The Rise of Chrome Aesthetics in Art &amp; Tattooing
-          </h2>
-
-          <p style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}>
-            The popularity of chrome visuals can be traced back to digital and graphic art—especially
-            the 3D design community. With the rise of Y2K revival aesthetics, liquid metal typography,
-            and surreal renderings in generative art, chrome became a symbol of futuristic luxury and
-            tech-influenced design
-          </p>
-
-          <p style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}>
-            Tattoo artists started to experiment with how they could bring that same feel into the
-            analog world of ink and skin. The result? Chrome tattoos: a cutting-edge style that blurs
-            the line between fantasy and physicality
-          </p>
-
-          <p style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}>
-            Today, chrome ink is everywhere in modern design, from album art and fashion to NFTs and
-            immersive installations. And now it&apos;s made its way to tattooing—with Monolith Studio
-            proudly leading the charge
-          </p>
+          {story?.body.split('\n\n').map((para, i) => (
+            <p key={i} style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}>
+              {para}
+            </p>
+          ))}
         </article>
       </section>
 
@@ -263,7 +214,7 @@ export default function ArticleDetailPage() {
               title={article.title}
               category={article.category}
               date={article.date}
-              href={`/graphic/blog/article-${article.id}`}
+              href={`/graphic/blog/${article.slug}`}
             />
           ))}
         </div>
