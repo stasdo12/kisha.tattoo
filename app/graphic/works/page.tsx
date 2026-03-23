@@ -158,6 +158,11 @@ export default function GraphicWorksPage() {
         </div>
       </section>
 
+      {/* ── Mobile-only nav bar below hero ── */}
+      <div className="g-works-nav-mobile">
+        <GNav activePath="/graphic/works" theme="dark" />
+      </div>
+
       {/* ── GALLERY ────────────────────────────────────────────────────────── */}
       {/*
         Container uses var(--g-pad) on both sides.

@@ -191,6 +191,7 @@
  * Mobile hides 6th item via .g-works-item:nth-child(6) in the 430px block.
  */
 .g-works-item:nth-child(6) { display: block; }
+.g-works-nav-mobile { display: none; }
 
 @media (max-width: 1440px) {
   .g-works-item:nth-child(6) { display: none; }
@@ -604,16 +605,35 @@
   .g-works-hero { min-height: 840px !important; height: 840px !important; }
   .g-works-hero-sub { display: none !important; }
 
-  /* Nav: horizontal at bottom of hero — centered */
-  .g-works-hero .g-hero-nav {
+  /* Hide nav inside hero on mobile — shown in bar below instead */
+  .g-works-hero .g-hero-nav { display: none !important; }
+
+  /* Mobile nav bar below hero */
+  .g-works-nav-mobile {
+    background: #0D0D0D;
+    padding: 0.75rem 1rem;
+  }
+  .g-works-nav-mobile .g-hero-nav {
+    position: static !important;
+    transform: none !important;
     flex-direction: row !important;
-    top: auto !important;
-    bottom: 2rem !important;
-    left: 0 !important;
-    right: 0 !important;
-    align-items: center !important;
     justify-content: center !important;
+    align-items: center !important;
     gap: 1rem !important;
+    width: auto !important;
+  }
+  .g-works-nav-mobile .g-hero-nav a {
+    color: #F2F2F2 !important;
+    opacity: 1 !important;
+    font-size: var(--g-tag) !important;
+    min-height: 36px;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .g-works-nav-mobile .g-hero-nav a[aria-current='page'] {
+    background: #F2F2F2 !important;
+    color: #0D0D0D !important;
+    padding: 0.25rem 0.5rem !important;
   }
 
   /* Gallery section: single-column stack */
