@@ -21,11 +21,11 @@
   --g-bxs:  0.875rem;                             /* 14px         */
   --g-tag:  0.75rem;                              /* 12px         */
 
-  /* Line heights per spec */
-  --g-lh-xl:  0.9;
-  --g-lh-l:   0.9;
-  --g-lh-s:   0.9;
-  --g-lh-bm:  1;
+  /* Line heights — +10% from original spec */
+  --g-lh-xl:  0.99;
+  --g-lh-l:   0.99;
+  --g-lh-s:   0.99;
+  --g-lh-bm:  1.1;
 
   /* Letter spacing: -2 tracking units = -0.02em */
   --g-ls: -0.02em;
