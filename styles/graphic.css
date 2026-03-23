@@ -204,8 +204,18 @@
 .g-hero-logo-strips span:nth-child(2) { width: 45px; }
 .g-hero-logo-strips span:nth-child(3) { width: 42px; }
 
-/* Mobile-only hero tags (hidden on desktop) */
-.g-hero-tags { display: none; }
+/* Hero tags — desktop: right side below logobar */
+.g-hero-tags {
+  position: absolute;
+  display: flex;
+  right: var(--g-pad);
+  top: 44px;
+  gap: 1.5rem;
+  font-size: var(--g-tag);
+  color: #0D0D0D;
+  line-height: 1;
+  z-index: 5;
+}
 
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
@@ -311,25 +321,24 @@
     align-items: center !important;
     justify-content: flex-start !important;
   }
-  /* Switch to strip logo on mobile */
-  .g-hero-logo-text  { display: none !important; }
-  .g-hero-logo-strips { display: flex !important; }
-  .g-hero-logo-tag   { display: none !important; }
+  /* Mobile: keep text logo visible, hide decorative strips */
+  .g-hero-logo-strips { display: none !important; }
 
-  /* Photo: full-width, fixed height, starts at 52px (below logo bar) */
+  /* Photo: 15px padding sides, 15px gap below logobar (52px + 15px = 67px) */
   .g-hero-photo {
     position: absolute !important;
-    top: 52px !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 387px !important;
+    top: 67px !important;
+    left: 15px !important;
+    right: 15px !important;
+    width: auto !important;
+    height: 360px !important;
   }
 
-  /* Tags row: location / status below photo (top: photo_bottom + 12px = 451px) */
+  /* Tags row: below photo (67 + 360 + 12 = 439px) */
   .g-hero-tags {
     display: flex !important;
     position: absolute !important;
-    top: 451px !important;
+    top: 439px !important;
     left: 15px !important;
     right: 15px !important;
     justify-content: space-between !important;
@@ -338,12 +347,12 @@
     line-height: 1;
   }
 
-  /* 道 symbol: visible on mobile, column layout, below tags */
+  /* 道 symbol: below tags */
   .g-hero-kanji {
     display: flex !important;
     position: absolute !important;
     left: 15px !important;
-    top: 478px !important;
+    top: 466px !important;
     flex-direction: column !important;
     gap: 12px !important;
     width: auto !important;
@@ -359,11 +368,11 @@
     color: #BFBFBF !important;
   }
 
-  /* H1 + subtitle: below 道 block */
+  /* H1 + subtitle: below 道 block (466 + 12px kanji + 36px caption + 16px gap ≈ 550) */
   .g-hero-content {
     position: absolute !important;
     left: 15px !important;
-    top: 562px !important;
+    top: 550px !important;
     right: 15px !important;
     max-width: 316px !important;
     gap: 8px !important;
