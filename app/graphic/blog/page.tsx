@@ -94,11 +94,12 @@ export default function GraphicBlogPage() {
               background: '#0D0D0D',
               display: 'flex',
               flexDirection: 'column',
-              overflow: 'hidden',
+              padding: '20px',
+              gap: '20px',
             }}
           >
             {/* Image */}
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '448/368', flexShrink: 0 }}>
+            <div style={{ position: 'relative', width: '100%', height: '220px', flexShrink: 0 }}>
               <Image
                 src={heroStory.coverImage}
                 alt={heroStory.coverAlt}
@@ -110,18 +111,18 @@ export default function GraphicBlogPage() {
             </div>
 
             {/* Body */}
-            <div style={{ padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <h2
                 style={{
-                  fontSize: 'var(--g-bm)',
-                  lineHeight: 1.3,
+                  fontSize: '24px',
+                  lineHeight: '21.6px',
                   color: '#F2F2F2',
                   fontWeight: 500,
                 }}
               >
                 {heroStory.title}
               </h2>
-              <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF' }}>
+              <span style={{ fontSize: '12px', color: '#F2F2F2' }}>
                 {heroStory.category} · {heroStory.publishedAt}
               </span>
               <Link
@@ -130,13 +131,13 @@ export default function GraphicBlogPage() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  border: '1px solid #F2F2F2',
-                  padding: '10px 24px',
-                  fontSize: 'var(--g-tag)',
+                  background: '#F2F2F2',
+                  padding: '16px 12px',
+                  fontSize: '20px',
+                  lineHeight: '20px',
                   fontFamily: 'var(--g-font)',
                   fontWeight: 500,
-                  letterSpacing: 'var(--g-ls)',
-                  color: '#F2F2F2',
+                  color: '#0D0D0D',
                   textDecoration: 'none',
                 }}
               >
