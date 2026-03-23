@@ -101,7 +101,7 @@ export default function GraphicAboutPage() {
           style={{
             position: 'absolute',
             left: 0,
-            bottom: 'calc(clamp(3rem, 5vw, 6rem) - 50px)',
+            bottom: 'calc(clamp(3rem, 5vw, 6rem) - 100px)',
             width: 'clamp(120px, 12.5vw, 240px)',
             height: 'clamp(130px, 13.5vw, 260px)',
             overflow: 'hidden',
@@ -123,7 +123,7 @@ export default function GraphicAboutPage() {
           style={{
             position: 'absolute',
             left: 'calc(clamp(120px, 12.5vw, 240px) + 1.5rem)',
-            bottom: 'calc(clamp(3rem, 5vw, 6rem) - 50px)',
+            bottom: 'calc(clamp(3rem, 5vw, 6rem) - 100px)',
             width: 'clamp(180px, 17.7vw, 340px)',
             fontSize: 'var(--g-bm)',
             lineHeight: 'var(--g-lh-bm)',
