@@ -750,7 +750,7 @@
   .g-step h3 {
     font-size: 1.5rem !important;  /* 24px */
     line-height: 0.9 !important;
-    text-align: center !important;
+    text-align: left !important;
   }
 
   /* ── TRAD ── */
