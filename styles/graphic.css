@@ -484,18 +484,8 @@
 
   /* ── BLOG PAGE ── */
 
-  /* Hero: dark bg on mobile (per spec) */
-  .g-blog-hero {
-    background: #0D0D0D !important;
-    min-height: 820px !important;
-  }
-
-  /* Logo bar */
-  .g-blog-logobar {
-    background: #0D0D0D !important;
-    border-bottom-color: rgba(242,242,242,0.2) !important;
-  }
-  .g-blog-logobar span { color: #F2F2F2 !important; }
+  /* Hero: light bg */
+  .g-blog-hero { min-height: 820px !important; }
 
   /* H1 */
   .g-blog-h1 {
@@ -522,7 +512,7 @@
   /* Main card: full width */
   .g-blog-main-card { width: 100% !important; align-self: auto !important; }
 
-  /* Nav: horizontal at bottom — centered */
+  /* Nav: same as homepage — horizontal centered at bottom */
   .g-blog-hero .g-hero-nav {
     flex-direction: row !important;
     top: auto !important;
@@ -531,11 +521,8 @@
     right: 0 !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0.75rem !important;
-    flex-wrap: wrap !important;
+    gap: 1rem !important;
   }
-  .g-blog-hero .g-hero-nav a { color: #F2F2F2 !important; opacity: 1 !important; border-bottom: none !important; font-size: 11px !important; }
-  .g-blog-hero .g-hero-nav a[aria-current='page'] { border-bottom: 1px solid #F2F2F2 !important; }
 
   /* Articles section */
   .g-blog-articles { padding-top: 40px !important; padding-bottom: 40px !important; }
