@@ -1,49 +1,30 @@
-'use client'
 /**
  * GRAPHIC BLOG — Kisha Irezumi
  * Design: Figma spec 1920 / 1440 / 390px
  *
  * Hero: light bg, 3-col logo bar, centred H1, featured card + side tags, vertical nav
- * Articles: 4-col grid with filter tabs
+ * Articles: 4-col grid with filter tabs (client component)
  * Footer: standard dark footer
  */
-import type React from 'react'
-import { useState } from 'react'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { STORIES } from '@/content/stories'
+import { buildMetadata } from '@/lib/seo'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
-import { GArticleCard } from '@/components/graphic/GArticleCard'
+import { BlogFilter } from '@/components/graphic/BlogFilter'
 
-const HERO_ARTICLE = {
-  src: 'https://picsum.photos/seed/blog-hero-chrome/448/368',
-  alt: 'Chrome tattoo back piece — hyper-polished Irezumi',
-  category: 'Tattoo',
-  date: 'October 2025',
-  title: 'Chrome tattoos: the hyper-polished future of ink',
-  href: '/graphic/blog/chrome-tattoos',
-}
+export const metadata: Metadata = buildMetadata({
+  title: 'Blog — The artisan\'s dô · Kisha Irezumi',
+  description: 'Insights on traditional Japanese tattooing, culture, and the craft of Irezumi.',
+  path: '/graphic/blog',
+})
 
-const ARTICLES = [
-  { id: 1,  title: 'Inspiring small tattoo ideas with Kisha Tattoo',      category: 'Tattoo',     date: 'October 2025' },
-  { id: 2,  title: 'Inspiring small tattoo ideas with Kisha Tattoo',      category: 'Tattoo',     date: 'October 2025' },
-  { id: 3,  title: 'Inspiring small tattoo ideas with Kisha Tattoo',      category: 'Education',  date: 'October 2025' },
-  { id: 4,  title: 'Inspiring small tattoo ideas with Kisha Tattoo',      category: 'Culture',    date: 'October 2025' },
-  { id: 5,  title: 'Inspiring small tattoo ideas with Kisha Tattoo',      category: 'Tattoo',     date: 'October 2025' },
-  { id: 6,  title: 'Inspiring small tattoo ideas with Kisha Tattoo',      category: 'Tattoo',     date: 'October 2025' },
-  { id: 7,  title: 'Inspiring small tattoo ideas with Kisha Tattoo',      category: 'Education',  date: 'October 2025' },
-  { id: 8,  title: 'Inspiring small tattoo ideas with Kisha Tattoo',      category: 'Culture',    date: 'October 2025' },
-]
-
-const FILTER_TABS = ['All', 'Tattoo', 'Education', 'Culture']
+const heroStory = STORIES[0]
 
 export default function GraphicBlogPage() {
-  const [activeFilter, setActiveFilter] = useState('All')
-
-  const visibleArticles = activeFilter === 'All'
-    ? ARTICLES
-    : ARTICLES.filter((a) => a.category === activeFilter)
 
   return (
     <main id="main-content">
@@ -119,8 +100,8 @@ export default function GraphicBlogPage() {
             {/* Image */}
             <div style={{ position: 'relative', width: '100%', aspectRatio: '448/368', flexShrink: 0 }}>
               <Image
-                src={HERO_ARTICLE.src}
-                alt={HERO_ARTICLE.alt}
+                src={heroStory.coverImage}
+                alt={heroStory.coverAlt}
                 fill
                 priority
                 style={{ objectFit: 'cover' }}
@@ -138,13 +119,13 @@ export default function GraphicBlogPage() {
                   fontWeight: 500,
                 }}
               >
-                {HERO_ARTICLE.title}
+                {heroStory.title}
               </h2>
               <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF' }}>
-                {HERO_ARTICLE.category} · {HERO_ARTICLE.date}
+                {heroStory.category} · {heroStory.publishedAt}
               </span>
               <Link
-                href={HERO_ARTICLE.href}
+                href={`/graphic/blog/${heroStory.slug}`}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -191,7 +172,7 @@ export default function GraphicBlogPage() {
         }}
       >
 
-        {/* Heading + filter tabs */}
+        {/* Heading */}
         <div
           className="g-blog-heading-wrapper"
           style={{
@@ -206,48 +187,10 @@ export default function GraphicBlogPage() {
           <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
             All articles
           </h2>
-
-          {/* Filter tabs */}
-          <div className="g-blog-filter-tabs" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-            {FILTER_TABS.map((tab) => (
-              <button
-                key={tab}
-                type="button"
-                onClick={() => setActiveFilter(tab)}
-                style={{
-                  padding: '4px 14px',
-                  border: 'none',
-                  background: activeFilter === tab ? '#0D0D0D' : 'transparent',
-                  color: activeFilter === tab ? '#F2F2F2' : '#0D0D0D',
-                  fontSize: 'var(--g-tag)',
-                  fontFamily: 'var(--g-font)',
-                  fontWeight: 500,
-                  letterSpacing: 'var(--g-ls)',
-                  cursor: 'pointer',
-                }}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
         </div>
 
-        {/* Articles grid — 4 columns */}
-        <div
-          className="g-blog-articles-grid"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}
-        >
-          {visibleArticles.map((article) => (
-            <GArticleCard
-              key={article.id}
-              id={article.id}
-              title={article.title}
-              category={article.category}
-              date={article.date}
-              href={`/graphic/blog/article-${article.id}`}
-            />
-          ))}
-        </div>
+        {/* Filter tabs + articles grid — client component for interactivity */}
+        <BlogFilter articles={STORIES} />
 
       </section>
 
