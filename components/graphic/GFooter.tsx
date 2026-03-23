@@ -95,7 +95,7 @@ export function GFooter() {
           >
             ● Kisha
           </Link>
-          <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>[ All Rights Reserved. 2025 ]</span>
+          <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>{`[ All Rights Reserved. ${new Date().getFullYear()} ]`}</span>
           <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>[ Made by Artem Yakovrokul ]</span>
         </div>
       </div>
