@@ -7,6 +7,7 @@
  * theme="light" → dark text on light (#F2F2F2) bg, 2px solid border
  * theme="dark"  → white text on transparent bg, 1px rgba border
  */
+import Link from 'next/link'
 
 interface GLogoBarProps {
   layout?: 'left' | 'spread'
@@ -56,11 +57,13 @@ export function GLogoBar({ layout = 'left', theme = 'light' }: GLogoBarProps) {
         zIndex: 10,
       }}
     >
-      <div className="g-hero-logo-text">
-        <span style={{ fontSize: 'var(--g-bs)', color }}>● Kisha</span>
-        <span style={{ fontSize: 'var(--g-tag)', color }}>[ タトゥ ]</span>
-        <span style={{ fontSize: 'var(--g-tag)', color }}>Tattoo</span>
-      </div>
+      <Link href="/graphic" aria-label="Kisha Tattoo — home" style={{ textDecoration: 'none', display: 'contents' }}>
+        <div className="g-hero-logo-text">
+          <span style={{ fontSize: 'var(--g-bs)', color }}>● Kisha</span>
+          <span style={{ fontSize: 'var(--g-tag)', color }}>[ タトゥ ]</span>
+          <span style={{ fontSize: 'var(--g-tag)', color }}>Tattoo</span>
+        </div>
+      </Link>
       <div className="g-hero-logo-strips" aria-hidden="true" />
     </div>
   )
