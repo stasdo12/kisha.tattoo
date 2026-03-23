@@ -348,12 +348,13 @@
     line-height: 1;
   }
 
-  /* 道 symbol: below tags */
+  /* 道 symbol: below nav at very bottom */
   .g-hero-kanji {
     display: flex !important;
     position: absolute !important;
     left: 15px !important;
-    top: 500px !important;
+    top: auto !important;
+    bottom: 1rem !important;
     flex-direction: column !important;
     gap: 12px !important;
     width: auto !important;
@@ -402,11 +403,11 @@
     padding: 16px 12px !important;
   }
 
-  /* Nav: horizontal row at bottom of hero — centered */
+  /* Nav: horizontal row at bottom of hero — centered, above 道 kanji */
   .g-hero-nav {
     position: absolute !important;
     top: auto !important;
-    bottom: 1.5rem !important;
+    bottom: 6rem !important;
     left: 0 !important;
     right: 0 !important;
     flex-direction: row !important;
