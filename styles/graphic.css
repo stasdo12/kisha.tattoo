@@ -478,7 +478,7 @@
   .g-article-body h2 { font-size: var(--g-m) !important; }
   .g-article-body p  { font-size: var(--g-bs) !important; }
 
-  .g-article-back { top: 56px !important; }
+  .g-article-back { top: 20px !important; left: 15px !important; }
   .g-article-meta { bottom: 78px !important; }
 
   .g-article-content-section { padding-top: 40px !important; padding-bottom: 40px !important; }

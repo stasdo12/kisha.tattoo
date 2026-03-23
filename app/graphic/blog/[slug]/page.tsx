@@ -87,19 +87,21 @@ export default async function ArticleDetailPage({
           className="g-article-back"
           style={{
             position: 'absolute',
-            top: '72px',
-            left: 'var(--g-pad)',
+            top: '20px',
+            left: '20px',
             zIndex: 2,
             display: 'inline-flex',
             alignItems: 'center',
-            padding: '10px 16px',
-            border: '1px solid #F2F2F2',
-            fontSize: 'var(--g-tag)',
+            justifyContent: 'center',
+            padding: '12px',
+            background: '#F2F2F2',
+            fontSize: '20px',
             fontFamily: 'var(--g-font)',
             fontWeight: 500,
-            letterSpacing: 'var(--g-ls)',
-            color: '#F2F2F2',
+            lineHeight: '20px',
+            color: '#0D0D0D',
             textDecoration: 'none',
+            whiteSpace: 'nowrap',
           }}
         >
           Back to blog
