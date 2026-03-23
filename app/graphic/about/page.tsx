@@ -86,7 +86,7 @@ export default function GraphicAboutPage() {
             fontSize: 'clamp(4rem, 10vw, 12rem)',
             lineHeight: 0.9,
             color: '#0D0D0D',
-            opacity: 0.18,
+            opacity: 0.45,
             userSelect: 'none',
             pointerEvents: 'none',
             whiteSpace: 'nowrap',
