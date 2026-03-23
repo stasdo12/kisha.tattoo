@@ -134,11 +134,6 @@ export default function GraphicAboutPage() {
           one grand story at a time
         </p>
 
-        {/* Mobile location / status tags (hidden on desktop) */}
-        <div className="g-hero-tags" aria-hidden="true">
-          <span>[ Available for cooperation ]</span>
-          <span>[ Munich, Germany ]</span>
-        </div>
 
         <GNav activePath="/graphic/about" theme="light" />
       </section>
