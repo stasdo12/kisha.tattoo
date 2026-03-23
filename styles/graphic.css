@@ -608,7 +608,7 @@ body:has([data-theme='graphic']) {
   /* H1: dark text */
   .g-contact-h1 {
     font-size: var(--g-m) !important;
-    top: 52px !important;
+    top: 82px !important;
   }
 
   /* Form: full width, static position, no margin-top (hero padding handles space) */
