@@ -787,6 +787,8 @@
     max-height: 240px !important;
   }
   .g-faq-content { order: 1 !important; }
+  /* FAQ item: pad right so question text doesn't overlap the № label */
+  .g-faq-item__q { padding-right: 100px !important; }
   /* FAQ heading: 32px, max 310px */
   #faq-heading {
     font-size: 2rem !important;
