@@ -810,34 +810,34 @@
 
   /* ── ABOUT PAGE ── */
 
-  /* Hero: taller to fit H1 + kanji + photo */
-  .g-about-hero { height: 900px !important; }
+  /* Hero: fits H1 + kanji + photo + dedicated text */
+  .g-about-hero { height: 800px !important; }
 
-  /* H1: below logo bar, 15px sides */
+  /* H1: large font (xl), left-aligned, below logo bar */
   .g-about-h1 {
-    font-size: var(--g-m) !important;
+    font-size: var(--g-xl) !important;
     top: 62px !important;
     left: 15px !important;
     right: 15px !important;
     width: auto !important;
   }
 
-  /* 命 kanji: show below H1, small decorative */
+  /* 命 kanji: centered below H1 */
   .g-about-kanji {
     display: block !important;
     position: absolute !important;
-    left: 15px !important;
-    top: 118px !important;
-    font-size: 2rem !important;
+    left: 50% !important;
+    top: 230px !important;
+    font-size: 2.5rem !important;
     line-height: 1 !important;
-    opacity: 0.35 !important;
-    transform: none !important;
+    opacity: 0.6 !important;
+    transform: translateX(-50%) !important;
     white-space: nowrap !important;
   }
 
   /* Master photo: below kanji, 15px side padding like homepage */
   .g-about-master-photo {
-    top: 160px !important;
+    top: 310px !important;
     left: 15px !important;
     right: 15px !important;
     bottom: auto !important;
@@ -847,7 +847,7 @@
 
   /* "Dedicated to..." text: below photo */
   .g-about-dedicated {
-    top: calc(160px + 360px + 16px) !important;
+    top: calc(310px + 360px + 16px) !important;
     left: 15px !important;
     right: 15px !important;
     bottom: auto !important;
