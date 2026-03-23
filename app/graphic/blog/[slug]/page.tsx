@@ -87,7 +87,7 @@ export default async function ArticleDetailPage({
           className="g-article-back"
           style={{
             position: 'absolute',
-            top: '20px',
+            top: '70px',
             left: '20px',
             zIndex: 2,
             display: 'inline-flex',
