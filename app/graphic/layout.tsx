@@ -6,14 +6,9 @@
  * within the hero section per the Figma spec.
  */
 import { DM_Sans } from 'next/font/google'
-import dynamic from 'next/dynamic'
 import '@/styles/graphic.css'
 import '@/styles/form-popup.css'
-
-const FormPopup = dynamic(
-  () => import('@/components/graphic/FormPopup').then((m) => m.FormPopup),
-  { ssr: false },
-)
+import { FormPopupLoader } from '@/components/graphic/FormPopupLoader'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -26,7 +21,7 @@ export default function GraphicLayout({ children }: { children: React.ReactNode 
   return (
     <div data-theme="graphic" className={dmSans.variable} style={{ background: '#F2F2F2', minHeight: '100dvh' }}>
       {children}
-      <FormPopup />
+      <FormPopupLoader />
     </div>
   )
 }
