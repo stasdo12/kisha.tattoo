@@ -608,7 +608,7 @@
   .g-works-hero .g-hero-nav {
     flex-direction: row !important;
     top: auto !important;
-    bottom: 1.5rem !important;
+    bottom: calc(1.5rem - 20px) !important;
     left: 0 !important;
     right: 0 !important;
     align-items: center !important;
@@ -621,7 +621,6 @@
     border-bottom: none !important;
   }
   .g-works-hero .g-hero-nav a[aria-current='page'] {
-    outline: 1px solid #F2F2F2 !important;
     padding: 0.25rem 0.5rem !important;
   }
 
