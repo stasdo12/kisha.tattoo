@@ -164,7 +164,7 @@ export default function GraphicHomePage() {
             style={{
               position: 'absolute',
               left: 'calc(var(--g-pad) + clamp(160px, 16.67vw, 320px) + 2rem)',
-              top: '60px',
+              top: '96px',
               maxWidth: 'clamp(20rem, 38.5vw, 44rem)',
             }}
           >
