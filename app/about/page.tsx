@@ -56,7 +56,7 @@ export default function GraphicAboutPage() {
           overflow: 'hidden',
         }}
       >
-        <GLogoBar />
+        <GLogoBar theme="light" />
 
         {/* H1 — top left */}
         <h1
@@ -136,7 +136,7 @@ export default function GraphicAboutPage() {
         </p>
 
 
-        <GNav activePath="/about" />
+        <GNav activePath="/about" theme="light" />
       </section>
 
       {/* ── 2. ABOUT SECTION ──────────────────────────────────────────────────── */}

@@ -79,7 +79,7 @@ export default async function ArticleDetailPage({
         />
 
         {/* ── Logo bar — 3-column ── */}
-        <GLogoBar />
+        <GLogoBar theme="dark" />
 
         {/* ── Back to blog ── */}
         <Link
@@ -147,7 +147,7 @@ export default async function ArticleDetailPage({
         </div>
 
         {/* ── Vertical nav ── */}
-        <GNav activePath="/blog" />
+        <GNav activePath="/blog" theme="dark" />
       </section>
 
       {/* ── ARTICLE CONTENT ──────────────────────────────────────────────── */}

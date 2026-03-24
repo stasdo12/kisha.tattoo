@@ -95,7 +95,7 @@ export default function GraphicWorksPage() {
         />
 
         {/* ── Logo bar ── */}
-        <GLogoBar />
+        <GLogoBar theme="dark" />
 
         {/* ── H1 ── */}
         <h1
@@ -132,7 +132,7 @@ export default function GraphicWorksPage() {
         </p>
 
         {/* ── Vertical nav ── */}
-        <GNav activePath="/works" />
+        <GNav activePath="/works" theme="dark" />
 
         {/* ── Kanji 術 + caption ── */}
         <div

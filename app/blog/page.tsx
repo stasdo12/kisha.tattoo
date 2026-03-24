@@ -42,7 +42,7 @@ export default function GraphicBlogPage() {
       >
 
         {/* ── Logo bar — 3-column ── */}
-        <GLogoBar />
+        <GLogoBar theme="light" />
 
         {/* ── H1 — centred ── */}
         <h1
@@ -156,7 +156,7 @@ export default function GraphicBlogPage() {
         </div>
 
         {/* ── Vertical nav ── */}
-        <GNav activePath="/blog" top="360px" />
+        <GNav activePath="/blog" theme="light" top="360px" />
 
       </section>
 
