@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Cinzel, Inter, Noto_Sans_JP, Playfair_Display, DM_Sans } from 'next/font/google'
+import { Cinzel, Inter, Noto_Sans_JP, DM_Sans } from 'next/font/google'
 import { SITE } from '@/content/site'
 import { localBusinessSchema, websiteSchema } from '@/lib/structured-data'
 import { FormPopupLoader } from '@/components/graphic/FormPopupLoader'
@@ -27,13 +27,6 @@ const notoSansJP = Noto_Sans_JP({
   variable: '--font-noto-jp',
   display: 'swap',
   weight: ['300', '400', '700'],
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-  display: 'swap',
-  weight: ['400', '700'],
 })
 
 const dmSans = DM_Sans({
@@ -91,9 +84,13 @@ export default function RootLayout({
     <html
       lang={SITE.language}
       suppressHydrationWarning
-      className={`${cinzel.variable} ${inter.variable} ${notoSansJP.variable} ${playfair.variable} ${dmSans.variable}`}
+      className={`${cinzel.variable} ${inter.variable} ${notoSansJP.variable} ${dmSans.variable}`}
     >
       <head>
+        {/* Preconnect to external image domains — reduces DNS + TLS handshake time */}
+        <link rel="preconnect" href="https://picsum.photos" />
+        <link rel="preconnect" href="https://placehold.co" />
+
         {/* Root structured data — present on every page */}
         <script
           type="application/ld+json"
