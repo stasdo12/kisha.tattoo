@@ -3,6 +3,7 @@ import { Cinzel, Inter, Noto_Sans_JP, Playfair_Display, DM_Sans } from 'next/fon
 import { SITE } from '@/content/site'
 import { localBusinessSchema, websiteSchema } from '@/lib/structured-data'
 import { FormPopupLoader } from '@/components/graphic/FormPopupLoader'
+import { GMobileBottomNav } from '@/components/graphic/GMobileBottomNav'
 import '@/styles/globals.css'
 import '@/styles/graphic.css'
 import '@/styles/form-popup.css'
@@ -114,6 +115,7 @@ export default function RootLayout({
         </a>
         <div data-theme="graphic">
           {children}
+          <GMobileBottomNav />
           <FormPopupLoader />
         </div>
       </body>
