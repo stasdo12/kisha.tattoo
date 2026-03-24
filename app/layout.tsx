@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from 'next'
-import { Cinzel, Inter, Noto_Sans_JP, Playfair_Display } from 'next/font/google'
+import { Cinzel, Inter, Noto_Sans_JP, Playfair_Display, DM_Sans } from 'next/font/google'
 import { SITE } from '@/content/site'
 import { localBusinessSchema, websiteSchema } from '@/lib/structured-data'
+import { FormPopupLoader } from '@/components/graphic/FormPopupLoader'
 import '@/styles/globals.css'
+import '@/styles/graphic.css'
+import '@/styles/form-popup.css'
 import 'leaflet/dist/leaflet.css'
 
 /* ── Fonts loaded via next/font — zero layout shift, optimal performance ── */
@@ -31,6 +34,13 @@ const playfair = Playfair_Display({
   variable: '--font-playfair',
   display: 'swap',
   weight: ['400', '700'],
+})
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-neue',
+  display: 'swap',
+  weight: ['500'],
 })
 
 /* ── Root metadata — overridden per-page via generateMetadata or export const metadata ── */
@@ -81,7 +91,7 @@ export default function RootLayout({
     <html
       lang={SITE.language}
       suppressHydrationWarning
-      className={`${cinzel.variable} ${inter.variable} ${notoSansJP.variable} ${playfair.variable}`}
+      className={`${cinzel.variable} ${inter.variable} ${notoSansJP.variable} ${playfair.variable} ${dmSans.variable}`}
     >
       <head>
         {/* Root structured data — present on every page */}
@@ -99,11 +109,13 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {/* Accessibility: skip navigation for keyboard users */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
-        {children}
+        <div data-theme="graphic">
+          {children}
+          <FormPopupLoader />
+        </div>
       </body>
     </html>
   )

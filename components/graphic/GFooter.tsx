@@ -90,7 +90,7 @@ export function GFooter() {
           }}
         >
           <Link
-            href="/graphic"
+            href="/"
             style={{ fontSize: 'var(--g-bs)', color: '#F2F2F2', textDecoration: 'none' }}
           >
             ● Kisha

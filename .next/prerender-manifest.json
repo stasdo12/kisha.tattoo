@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/graphic/blog/history-of-japanese-irezumi":{},"/graphic/blog/choosing-your-first-japanese-tattoo":{},"/graphic/blog/blackwork-tattoo-explained":{}},"dynamicRoutes":{"/graphic/blog/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/graphic/blog/[slug]","routeRegex":"^\\/graphic\\/blog\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"16d7515fa2ebf827712d44c1f986a312","previewModeSigningKey":"6ed49af0fd8eb63870b96a22dfff854a971ea394f902c2aaefdcd123b2ed69f6","previewModeEncryptionKey":"cb0d559d74ae7e79eabe3c6f3f4db20115045a9f74b4abe37acbdbd28c9ca8ad"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "6fcbc16888541f22c007d88a2dda3c5a",
+    "previewModeSigningKey": "4ad262556f9181e5d2ddb36ddde5f992ed3c38ec6b216d102534ffd40ff23e69",
+    "previewModeEncryptionKey": "2845d5abfa50181b031827d907b1dae5de8251f124fcdfed8b4623204a999354"
+  }
+}

@@ -15,17 +15,10 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Backward-compatible redirects from old React SPA routes
-      {
-        source: '/graphics',
-        destination: '/graphic',
-        permanent: true,
-      },
-      {
-        source: '/graphics/:path*',
-        destination: '/graphic/:path*',
-        permanent: true,
-      },
+      { source: '/graphic',          destination: '/',         permanent: true },
+      { source: '/graphic/:path*',   destination: '/:path*',   permanent: true },
+      { source: '/graphics',         destination: '/',         permanent: true },
+      { source: '/graphics/:path*',  destination: '/:path*',   permanent: true },
     ]
   },
   async headers() {

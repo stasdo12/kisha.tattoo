@@ -8,11 +8,11 @@ import Link from 'next/link'
 import type React from 'react'
 
 export const NAV_LINKS = [
-  { href: '/graphic',         label: 'Home'    },
-  { href: '/graphic/works',   label: 'Works'   },
-  { href: '/graphic/about',   label: 'About'   },
-  { href: '/graphic/blog',    label: 'Blog'    },
-  { href: '/graphic/contact', label: 'Contact' },
+  { href: '/',         label: 'Home'    },
+  { href: '/works',    label: 'Works'   },
+  { href: '/about',    label: 'About'   },
+  { href: '/blog',     label: 'Blog'    },
+  { href: '/contact',  label: 'Contact' },
 ]
 
 interface GNavProps {
