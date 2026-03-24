@@ -1,5 +1,9 @@
 import { SITE } from '@/content/site'
-import type { FaqItem } from '@/content/faq'
+
+interface FaqItem {
+  question: string
+  answer: string
+}
 
 /**
  * JSON-LD structured data helpers.

@@ -66,6 +66,7 @@ export default function GraphicWorksPage() {
       <section
         aria-label="Latest works — Kisha Irezumi"
         className="g-works-hero"
+        data-nav-dark
         style={{
           position: 'relative',
           height: '100dvh',

@@ -1,29 +1,42 @@
 import { NextResponse } from 'next/server'
+import { sendMessage, escapeHtml } from '@/lib/telegram'
 
-const TOKEN = process.env.TELEGRAM_BOT_TOKEN!
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID!
+const MAX = { name: 100, phone: 30, idea: 500 }
 
 export async function POST(req: Request) {
+  let body: unknown
   try {
-    const { name, phone, idea } = await req.json()
-
-    const text = [
-      '📩 <b>Новая заявка с сайта</b>',
-      '',
-      `👤 <b>Имя:</b> ${name || '—'}`,
-      `📞 <b>Телефон:</b> ${phone || '—'}`,
-      `💭 <b>Идея:</b> ${idea || '—'}`,
-    ].join('\n')
-
-    const res = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML' }),
-    })
-
-    if (!res.ok) throw new Error('Telegram error')
-    return NextResponse.json({ ok: true })
+    body = await req.json()
   } catch {
+    return NextResponse.json({ ok: false, error: 'Invalid JSON' }, { status: 400 })
+  }
+
+  const { name, phone, idea } = body as Record<string, unknown>
+
+  if (!name || typeof name !== 'string' || !name.trim()) {
+    return NextResponse.json({ ok: false, error: 'Name is required' }, { status: 422 })
+  }
+  if (!phone || typeof phone !== 'string' || !phone.trim()) {
+    return NextResponse.json({ ok: false, error: 'Phone is required' }, { status: 422 })
+  }
+
+  const safeName  = escapeHtml(String(name).slice(0, MAX.name).trim())
+  const safePhone = escapeHtml(String(phone).slice(0, MAX.phone).trim())
+  const safeIdea  = idea ? escapeHtml(String(idea).slice(0, MAX.idea).trim()) : '—'
+
+  const text = [
+    '📩 <b>Новая заявка с сайта</b>',
+    '',
+    `👤 <b>Имя:</b> ${safeName}`,
+    `📞 <b>Телефон:</b> ${safePhone}`,
+    `💭 <b>Идея:</b> ${safeIdea}`,
+  ].join('\n')
+
+  try {
+    await sendMessage(text)
+    return NextResponse.json({ ok: true })
+  } catch (err) {
+    console.error('[api/booking]', err)
     return NextResponse.json({ ok: false }, { status: 500 })
   }
 }

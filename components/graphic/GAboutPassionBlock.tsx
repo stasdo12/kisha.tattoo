@@ -41,6 +41,7 @@ export function GAboutPassionBlock() {
   return (
     <div
       className="g-about-passion-block"
+      data-nav-dark
       style={{
         background: '#0D0D0D',
         display: 'flex',

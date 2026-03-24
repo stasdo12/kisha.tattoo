@@ -11,6 +11,7 @@ export function GFooter() {
     <footer
       role="contentinfo"
       className="g-footer-section"
+      data-nav-dark
       style={{ background: '#0D0D0D' }}
     >
       {/* Top row */}

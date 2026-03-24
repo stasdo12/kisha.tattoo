@@ -7,7 +7,6 @@ import { GMobileBottomNav } from '@/components/graphic/GMobileBottomNav'
 import '@/styles/globals.css'
 import '@/styles/graphic.css'
 import '@/styles/form-popup.css'
-import 'leaflet/dist/leaflet.css'
 
 /* ── Fonts loaded via next/font — zero layout shift, optimal performance ── */
 const cinzel = Cinzel({

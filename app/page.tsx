@@ -497,6 +497,7 @@ export default function GraphicHomePage() {
           >
             <div
               className="g-steps-inner"
+              data-nav-dark
               style={{
                 display: 'flex',
                 background: '#0D0D0D',

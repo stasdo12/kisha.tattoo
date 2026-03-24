@@ -55,6 +55,7 @@ export default async function ArticleDetailPage({
       <section
         aria-label="Article hero"
         className="g-article-hero"
+        data-nav-dark
         style={{
           position: 'relative',
           height: 'clamp(780px, 56.25vw, 1080px)',
