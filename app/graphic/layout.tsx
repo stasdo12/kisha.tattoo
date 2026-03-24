@@ -9,6 +9,7 @@ import { DM_Sans } from 'next/font/google'
 import '@/styles/graphic.css'
 import '@/styles/form-popup.css'
 import { FormPopupLoader } from '@/components/graphic/FormPopupLoader'
+import { GMobileBottomNav } from '@/components/graphic/GMobileBottomNav'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -21,6 +22,7 @@ export default function GraphicLayout({ children }: { children: React.ReactNode 
   return (
     <div data-theme="graphic" className={dmSans.variable} style={{ background: '#F2F2F2', minHeight: '100dvh' }}>
       {children}
+      <GMobileBottomNav />
       <FormPopupLoader />
     </div>
   )

@@ -9,6 +9,22 @@ body:has([data-theme='graphic']) {
   background-color: #F2F2F2;
 }
 
+/* === MOBILE BOTTOM NAV === */
+.g-mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .g-mobile-bottom-nav {
+    display: flex;
+  }
+
+  /* push page content above the bottom nav (~48px bar) */
+  [data-theme='graphic'] {
+    padding-bottom: calc(48px + env(safe-area-inset-bottom));
+  }
+}
+
 [data-theme='graphic'] {
   --g-black:   #0D0D0D;
   --g-grey:    #BFBFBF;
@@ -408,25 +424,9 @@ body:has([data-theme='graphic']) {
     padding: 16px 12px !important;
   }
 
-  /* Nav: horizontal row at bottom of hero — centered */
+  /* Nav: hidden on mobile — replaced by fixed bottom nav */
   .g-hero-nav {
-    position: absolute !important;
-    top: auto !important;
-    bottom: 1.5rem !important;
-    left: 0 !important;
-    right: 0 !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 1rem !important;
-  }
-  .g-hero-nav a {
-    min-height: 36px;
-    display: inline-flex !important;
-    align-items: center !important;
-  }
-  .g-hero-nav a[aria-current='page'] {
-    padding: 0.25rem 0.5rem !important;
+    display: none !important;
   }
 
   /* ── TRAD SECTION ── */
@@ -567,18 +567,6 @@ body:has([data-theme='graphic']) {
     box-sizing: border-box !important;
   }
 
-  /* Nav: same as homepage — horizontal centered at bottom */
-  .g-blog-hero .g-hero-nav {
-    flex-direction: row !important;
-    top: auto !important;
-    bottom: 1.5rem !important;
-    left: 0 !important;
-    right: 0 !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 1rem !important;
-  }
-
   /* Articles section */
   .g-blog-articles { padding-top: 40px !important; padding-bottom: 40px !important; }
 
@@ -632,44 +620,11 @@ body:has([data-theme='graphic']) {
     width: 100% !important;
   }
 
-  /* Nav: horizontal at bottom — centered */
-  .g-contact-hero .g-hero-nav {
-    flex-direction: row !important;
-    top: auto !important;
-    bottom: 1.5rem !important;
-    left: 0 !important;
-    right: 0 !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 1rem !important;
-  }
-  .g-contact-hero .g-hero-nav a[aria-current='page'] { border-bottom: 1px solid #0D0D0D !important; }
-
   /* ── WORKS PAGE GALLERY ── */
 
   /* Hero: hide subtitle, fixed height 840px */
   .g-works-hero { min-height: 840px !important; height: 840px !important; }
   .g-works-hero-sub { display: none !important; }
-
-  /* Nav: same as homepage but white links */
-  .g-works-hero .g-hero-nav {
-    flex-direction: row !important;
-    top: auto !important;
-    bottom: calc(1.5rem - 20px) !important;
-    left: 0 !important;
-    right: 0 !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 1rem !important;
-  }
-  .g-works-hero .g-hero-nav a {
-    color: #F2F2F2 !important;
-    opacity: 1 !important;
-    border-bottom: none !important;
-  }
-  .g-works-hero .g-hero-nav a[aria-current='page'] {
-    padding: 0.25rem 0.5rem !important;
-  }
 
   /* Kanji 術 block: 50px higher on mobile */
   .g-works-kanji { bottom: calc(clamp(30px, 4.6vw, 60px) + 50px) !important; }
