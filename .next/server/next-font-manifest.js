@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{},\"appUsingSizeAdjust\":false,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/stanislav-macbook/.gemini/antigravity/scratch/parallax-landing/app/layout\":[\"static/media/a273567b21a7c318-s.p.woff2\",\"static/media/780675ab64c32ee4-s.p.woff2\",\"static/media/e4af272ccee01ff0-s.p.woff2\",\"static/media/24f6ebe2756575bd-s.p.woff2\",\"static/media/eaead17c7dbfcd5d-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
