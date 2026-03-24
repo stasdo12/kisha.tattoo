@@ -10,6 +10,7 @@ import { buildMetadata } from '@/lib/seo'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
+import { GAboutPassionBlock } from '@/components/graphic/GAboutPassionBlock'
 
 export const metadata: Metadata = buildMetadata({
   title: 'About — Kisha Tattoo. One grand story at a time',
@@ -268,96 +269,7 @@ export default function GraphicAboutPage() {
             </p>
           </div>
 
-          {/* Dark block: text+gallery left, large photo right */}
-          <div
-            className="g-about-passion-block"
-            style={{
-              background: '#0D0D0D',
-              display: 'flex',
-              gap: '1rem',
-              overflow: 'hidden',
-              borderRadius: '2px',
-            }}
-          >
-            {/* Left: heading + body + mini gallery */}
-            <div
-              className="g-about-passion-left"
-              style={{
-                flex: '0 0 clamp(18rem, 40%, 700px)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem',
-                padding: 'clamp(1.5rem, 2.08vw, 2.5rem)',
-                paddingRight: 0,
-              }}
-            >
-              <h3 style={{
-                fontSize: 'var(--g-l)',
-                lineHeight: 'var(--g-lh-l)',
-                color: '#F2F2F2',
-              }}>
-                The art we create is far more than just an image
-              </h3>
-              <p style={{
-                fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#F2F2F2',
-              }}>
-                It is a profound transformation. Every single element, from the flow
-                of the Nami (Waves) to the intricate scales of the Ryu (Dragon), is
-                drawn with intention and fuelled by this passion. I work directly with
-                you, the client, to distill your unique idea, personal metaphor, or
-                life philosophy into a timeless design.
-              </p>
-              {/* Mini gallery row */}
-              <div
-                className="g-about-mini-gallery"
-                style={{
-                  display: 'flex',
-                  gap: '0.5rem',
-                  marginTop: 'auto',
-                  paddingTop: '1rem',
-                }}
-              >
-                {MINI_GALLERY.map((item) => (
-                  <div
-                    key={item.id}
-                    style={{
-                      flex: '1 1 0',
-                      position: 'relative',
-                      aspectRatio: '1 / 1',
-                      overflow: 'hidden',
-                      borderRadius: '2px',
-                    }}
-                  >
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      sizes="8vw"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: large photo */}
-            <div
-              className="g-about-passion-right"
-              style={{
-                flex: '1 1 0',
-                position: 'relative',
-                minHeight: 'clamp(400px, 50vw, 800px)',
-              }}
-            >
-              <Image
-                src="https://picsum.photos/seed/about-back-piece/800/1000"
-                alt="Full back Irezumi — traditional Japanese tattooing masterpiece"
-                fill
-                style={{ objectFit: 'cover', objectPosition: 'center top' }}
-                sizes="55vw"
-              />
-            </div>
-          </div>
+          <GAboutPassionBlock />
 
         </div>
       </section>
