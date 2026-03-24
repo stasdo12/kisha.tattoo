@@ -213,6 +213,35 @@ body:has([data-theme='graphic']) {
  */
 .g-works-item:nth-child(6) { display: block; }
 
+/* Works gallery: accordion hover — desktop only */
+@media (hover: hover) {
+  /* Fix gallery height to large item height so content below never jumps */
+  .g-works-gallery {
+    height: clamp(467px, 32.4vw, 552px);
+    align-items: flex-start;
+    overflow: visible;
+  }
+
+  /* All items: smooth transition */
+  .g-works-item {
+    width: clamp(186px, calc(-36px + 15.42vw), 260px) !important;
+    transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Default state: first item is large */
+  .g-works-item:first-of-type {
+    width: clamp(389px, 27vw, 460px) !important;
+  }
+
+  /* While hovering gallery: all small except the hovered item */
+  .g-works-gallery:hover .g-works-item {
+    width: clamp(186px, calc(-36px + 15.42vw), 260px) !important;
+  }
+  .g-works-gallery:hover .g-works-item:hover {
+    width: clamp(389px, 27vw, 460px) !important;
+  }
+}
+
 @media (max-width: 1440px) {
   .g-works-item:nth-child(6) { display: none; }
 }
