@@ -84,6 +84,7 @@ export default function RootLayout({
     <html
       lang={SITE.language}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${cinzel.variable} ${inter.variable} ${notoSansJP.variable} ${dmSans.variable}`}
     >
       <head>

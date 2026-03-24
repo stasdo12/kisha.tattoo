@@ -146,7 +146,7 @@ export default function GraphicHomePage() {
               fill
               priority
               style={{ objectFit: 'cover', objectPosition: 'top center' }}
-              sizes="17vw"
+              sizes="(max-width: 767px) 160px, (max-width: 1919px) 17vw, 320px"
             />
           </div>
 
