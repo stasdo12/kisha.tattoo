@@ -1,8 +1,8 @@
 {
-  "/graphic/page": "app/graphic/page.js",
+  "/page": "app/page.js",
   "/graphic/works/page": "app/graphic/works/page.js",
+  "/graphic/page": "app/graphic/page.js",
+  "/graphic/contact/page": "app/graphic/contact/page.js",
   "/graphic/about/page": "app/graphic/about/page.js",
-  "/graphic/blog/page": "app/graphic/blog/page.js",
-  "/graphic/blog/[slug]/page": "app/graphic/blog/[slug]/page.js",
-  "/graphic/contact/page": "app/graphic/contact/page.js"
+  "/graphic/blog/page": "app/graphic/blog/page.js"
 }

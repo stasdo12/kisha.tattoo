@@ -286,6 +286,10 @@ body:has([data-theme='graphic']) {
     min-height: 0 !important;
     padding-bottom: 3rem !important;
   }
+
+  .g-contact-form input::placeholder {
+    color: #BFBFBF;
+  }
   .g-contact-form {
     position: static !important;
     width: 100% !important;
@@ -298,6 +302,10 @@ body:has([data-theme='graphic']) {
   .g-contact-form textarea,
   .g-contact-form select {
     font-size: 16px !important;
+  }
+
+  .g-contact-form input::placeholder {
+    color: #BFBFBF;
   }
 
   /* Hero: stack vertically on mobile */

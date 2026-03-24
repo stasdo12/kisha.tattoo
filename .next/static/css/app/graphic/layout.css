@@ -241,6 +241,32 @@ body:has([data-theme='graphic']) {
  */
 .g-works-item:nth-child(6) { display: block; }
 
+/* Works gallery accordion hover — homepage only (.g-works-section), desktop only */
+@media (hover: hover) {
+  .g-works-section .g-works-gallery {
+    height: clamp(467px, 32.4vw, 552px);
+    align-items: flex-start;
+    overflow: visible;
+  }
+
+  .g-works-section .g-works-item {
+    width: clamp(186px, calc(-36px + 15.42vw), 260px) !important;
+    transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .g-works-section .g-works-item:first-of-type {
+    width: clamp(389px, 27vw, 460px) !important;
+  }
+
+  .g-works-section .g-works-gallery:hover .g-works-item {
+    width: clamp(186px, calc(-36px + 15.42vw), 260px) !important;
+  }
+
+  .g-works-section .g-works-gallery:hover .g-works-item:hover {
+    width: clamp(389px, 27vw, 460px) !important;
+  }
+}
+
 @media (max-width: 1440px) {
   .g-works-item:nth-child(6) { display: none; }
 }
@@ -288,6 +314,10 @@ body:has([data-theme='graphic']) {
     min-height: 0 !important;
     padding-bottom: 3rem !important;
   }
+
+  .g-contact-form input::placeholder {
+    color: #BFBFBF;
+  }
   .g-contact-form {
     position: static !important;
     width: 100% !important;
@@ -300,6 +330,10 @@ body:has([data-theme='graphic']) {
   .g-contact-form textarea,
   .g-contact-form select {
     font-size: 16px !important;
+  }
+
+  .g-contact-form input::placeholder {
+    color: #BFBFBF;
   }
 
   /* Hero: stack vertically on mobile */

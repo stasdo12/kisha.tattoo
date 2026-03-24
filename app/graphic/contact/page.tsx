@@ -36,15 +36,34 @@ const INPUT: React.CSSProperties = {
   border: 'none',
   outline: 'none',
   fontFamily: 'var(--g-font)',
-  fontSize: 'var(--g-tag)',
+  fontSize: 'var(--g-bs)',
   fontWeight: 500,
-  color: '#BFBFBF',
+  color: '#0D0D0D',
   width: '100%',
   letterSpacing: 'var(--g-ls)',
 }
 
 export default function GraphicContactPage() {
   const [experience, setExperience] = useState<'yes' | 'no' | null>(null)
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setStatus('submitting')
+    const raw = new FormData(e.currentTarget)
+    const fd = new FormData()
+    fd.append('name',  raw.get('name')  as string)
+    fd.append('email', raw.get('email') as string)
+    fd.append('brief', `Phone: ${raw.get('phone') || '—'}\nIdea: ${raw.get('idea') || '—'}\nWorked together: ${experience ?? '—'}`)
+    const file = raw.get('files') as File
+    if (file && file.size > 0) fd.append('file', file)
+    try {
+      const res = await fetch('/api/contact', { method: 'POST', body: fd })
+      setStatus(res.ok ? 'success' : 'error')
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <main id="main-content">
@@ -92,7 +111,7 @@ export default function GraphicContactPage() {
             flexDirection: 'column',
             gap: '16px',
           }}
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
         >
 
           {/* Name */}
@@ -108,8 +127,7 @@ export default function GraphicContactPage() {
           <div className="g-contact-row" style={{ display: 'flex', alignItems: 'flex-end', gap: '1rem' }}>
             <label htmlFor="c-email" style={LABEL}>My email is</label>
             <div style={UNDERLINE_ROW}>
-              <input id="c-email" name="email" type="email" placeholder="[ Email ]" required style={INPUT} />
-              <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>*</span>
+              <input id="c-email" name="email" type="email" placeholder="[ Email ]" style={INPUT} />
             </div>
           </div>
 
@@ -192,26 +210,37 @@ export default function GraphicContactPage() {
             <input id="c-files" name="files" type="file" multiple style={{ display: 'none' }} />
           </div>
 
-          {/* Submit */}
-          <button
-            type="submit"
-            style={{
-              width: '100%',
-              padding: '16px',
-              background: '#0D0D0D',
-              color: '#F2F2F2',
-              border: 'none',
-              fontFamily: 'var(--g-font)',
-              fontSize: 'var(--g-s)',
-              lineHeight: 'var(--g-lh-s)',
-              fontWeight: 500,
-              letterSpacing: 'var(--g-ls)',
-              cursor: 'pointer',
-              marginTop: '8px',
-            }}
-          >
-            Submit
-          </button>
+          {status === 'error' && (
+            <p style={{ fontSize: 'var(--g-tag)', color: 'red' }}>Something went wrong. Please try again.</p>
+          )}
+
+          {status === 'success' ? (
+            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', marginTop: '8px' }}>
+              Thank you — every idea is a unique phenomenon. I will review yours shortly and get back to you.
+            </p>
+          ) : (
+            <button
+              type="submit"
+              disabled={status === 'submitting'}
+              style={{
+                width: '100%',
+                padding: '16px',
+                background: '#0D0D0D',
+                color: '#F2F2F2',
+                border: 'none',
+                fontFamily: 'var(--g-font)',
+                fontSize: 'var(--g-s)',
+                lineHeight: 'var(--g-lh-s)',
+                fontWeight: 500,
+                letterSpacing: 'var(--g-ls)',
+                cursor: status === 'submitting' ? 'wait' : 'pointer',
+                marginTop: '8px',
+                opacity: status === 'submitting' ? 0.6 : 1,
+              }}
+            >
+              {status === 'submitting' ? 'Sending…' : 'Submit'}
+            </button>
+          )}
 
         </form>
 
