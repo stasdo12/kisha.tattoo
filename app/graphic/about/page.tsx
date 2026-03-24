@@ -100,7 +100,7 @@ export default function GraphicAboutPage() {
           className="g-about-master-photo"
           style={{
             position: 'absolute',
-            left: 0,
+            left: 'var(--g-pad)',
             bottom: '24px',
             width: 'clamp(120px, 12.5vw, 240px)',
             height: 'clamp(130px, 13.5vw, 260px)',
@@ -122,7 +122,7 @@ export default function GraphicAboutPage() {
           className="g-about-dedicated"
           style={{
             position: 'absolute',
-            left: 'calc(clamp(120px, 12.5vw, 240px) + 1.5rem)',
+            left: 'calc(var(--g-pad) + clamp(120px, 12.5vw, 240px) + 1.5rem)',
             bottom: '24px',
             width: 'clamp(180px, 17.7vw, 340px)',
             fontSize: 'var(--g-bm)',
