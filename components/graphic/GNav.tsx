@@ -29,14 +29,14 @@ export function GNav({ activePath, theme = 'light', top = '45.5%' }: GNavProps) 
       className="g-hero-nav"
       aria-label="Main navigation"
       style={{
-        position: 'absolute',
+        position: 'fixed',
         right: 'var(--g-pad)',
         top,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-end',
         gap: '0.5rem',
-        zIndex: 10,
+        zIndex: 50,
       }}
     >
       {NAV_LINKS.map((link) => {
