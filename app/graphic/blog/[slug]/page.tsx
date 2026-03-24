@@ -79,7 +79,7 @@ export default async function ArticleDetailPage({
         />
 
         {/* ── Logo bar — 3-column ── */}
-        <GLogoBar layout="spread" theme="dark" />
+        <GLogoBar theme="dark" />
 
         {/* ── Back to blog ── */}
         <Link

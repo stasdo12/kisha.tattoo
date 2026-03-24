@@ -42,7 +42,7 @@ export default function GraphicBlogPage() {
       >
 
         {/* ── Logo bar — 3-column ── */}
-        <GLogoBar layout="spread" theme="light" />
+        <GLogoBar theme="light" />
 
         {/* ── H1 — centred ── */}
         <h1

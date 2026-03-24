@@ -32,6 +32,11 @@
    Colors: #0D0D0D · #BFBFBF · #F2F2F2
    ───────────────────────────────────────────────────────────────────────────── */
 
+/* Override dark body background for graphic section */
+body:has([data-theme='graphic']) {
+  background-color: #F2F2F2;
+}
+
 [data-theme='graphic'] {
   --g-black:   #0D0D0D;
   --g-grey:    #BFBFBF;
@@ -49,11 +54,11 @@
   --g-bxs:  0.875rem;                             /* 14px         */
   --g-tag:  0.75rem;                              /* 12px         */
 
-  /* Line heights per spec */
-  --g-lh-xl:  0.9;
-  --g-lh-l:   0.9;
-  --g-lh-s:   0.9;
-  --g-lh-bm:  1;
+  /* Line heights — +10% from original spec */
+  --g-lh-xl:  0.99;
+  --g-lh-l:   0.99;
+  --g-lh-s:   0.99;
+  --g-lh-bm:  1.1;
 
   /* Letter spacing: -2 tracking units = -0.02em */
   --g-ls: -0.02em;
@@ -232,8 +237,19 @@
 .g-hero-logo-strips span:nth-child(2) { width: 45px; }
 .g-hero-logo-strips span:nth-child(3) { width: 42px; }
 
-/* Mobile-only hero tags (hidden on desktop) */
-.g-hero-tags { display: none; }
+/* Hero info tags — starts right of photo, extends to right edge, top: 72px per Figma spec */
+.g-hero-tags {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  left: calc(var(--g-pad) + clamp(160px, 16.67vw, 320px) + 2rem);
+  right: var(--g-pad);
+  top: 72px;
+  font-size: var(--g-tag);
+  color: #0D0D0D;
+  line-height: 1;
+  z-index: 5;
+}
 
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
@@ -247,6 +263,27 @@
 @media (max-width: 767px) {
   [data-theme='graphic'] {
     --g-pad: 1rem;
+  }
+
+  /* Contact form: switch to flow layout so content isn't clipped */
+  .g-contact-hero {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding-bottom: 3rem !important;
+  }
+  .g-contact-form {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 140px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Prevent iOS zoom on inputs (font-size must be ≥16px) */
+  .g-contact-form input,
+  .g-contact-form textarea,
+  .g-contact-form select {
+    font-size: 16px !important;
   }
 
   /* Hero: stack vertically on mobile */
@@ -318,21 +355,20 @@
     align-items: center !important;
     justify-content: flex-start !important;
   }
-  /* Switch to strip logo on mobile */
-  .g-hero-logo-text  { display: none !important; }
-  .g-hero-logo-strips { display: flex !important; }
-  .g-hero-logo-tag   { display: none !important; }
+  /* Mobile: keep text logo visible, hide decorative strips */
+  .g-hero-logo-strips { display: none !important; }
 
-  /* Photo: full-width, fixed height, starts at 52px (below logo bar) */
+  /* Photo: 15px padding sides, 15px gap below logobar (52px + 15px = 67px) */
   .g-hero-photo {
     position: absolute !important;
-    top: 52px !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 387px !important;
+    top: 67px !important;
+    left: 15px !important;
+    right: 15px !important;
+    width: auto !important;
+    height: 360px !important;
   }
 
-  /* Tags row: location / status below photo (top: photo_bottom + 12px = 451px) */
+  /* Tags row: top: 451px per spec (anchored above CTA) */
   .g-hero-tags {
     display: flex !important;
     position: absolute !important;
@@ -345,12 +381,12 @@
     line-height: 1;
   }
 
-  /* 道 symbol: visible on mobile, column layout, below tags */
+  /* 道 symbol: below tags */
   .g-hero-kanji {
     display: flex !important;
     position: absolute !important;
     left: 15px !important;
-    top: 478px !important;
+    top: 500px !important;
     flex-direction: column !important;
     gap: 12px !important;
     width: auto !important;
@@ -366,14 +402,15 @@
     color: #BFBFBF !important;
   }
 
-  /* H1 + subtitle: below 道 block */
+  /* H1 + subtitle: below 道 block (466 + 12px kanji + 36px caption + 16px gap ≈ 550) */
   .g-hero-content {
     position: absolute !important;
     left: 15px !important;
-    top: 562px !important;
+    top: 580px !important;
     right: 15px !important;
     max-width: 316px !important;
     gap: 8px !important;
+    padding: 0 !important;
   }
   .g-hero-content h1 {
     margin-bottom: 0 !important;
@@ -389,30 +426,35 @@
   /* Scroll hint: hidden on mobile */
   .g-hero-scroll { display: none !important; }
 
-  /* CTA: top: 716px (per spec) — always within 100dvh on 390×844 iPhone 14 */
+  /* CTA: anchored to bottom, not fixed px from top */
   .g-hero-cta {
     position: absolute !important;
-    top: 716px !important;
-    bottom: auto !important;
+    top: auto !important;
+    bottom: 68px !important;
   }
   .g-hero-cta .g-cta-strip {
     padding: 16px 12px !important;
   }
 
-  /* Nav: horizontal row at bottom of hero (top: 788px), left-aligned */
-  /* Меню находится внизу первого экрана */
+  /* Nav: horizontal row at bottom of hero — centered */
   .g-hero-nav {
     position: absolute !important;
-    top: 788px !important;
-    left: 25px !important;
-    right: auto !important;
-    bottom: auto !important;
+    top: auto !important;
+    bottom: 1.5rem !important;
+    left: 0 !important;
+    right: 0 !important;
     flex-direction: row !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 1rem !important;
   }
+  .g-hero-nav a {
+    min-height: 36px;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
   .g-hero-nav a[aria-current='page'] {
-    padding: 8px !important;
+    padding: 0.25rem 0.5rem !important;
   }
 
   /* ── TRAD SECTION ── */
@@ -469,32 +511,25 @@
   .g-article-body h2 { font-size: var(--g-m) !important; }
   .g-article-body p  { font-size: var(--g-bs) !important; }
 
-  .g-article-back { top: 56px !important; }
+  .g-article-back { top: 55px !important; left: 15px !important; }
+  .g-article-meta { bottom: 78px !important; }
 
   .g-article-content-section { padding-top: 40px !important; padding-bottom: 40px !important; }
 
   /* ── BLOG PAGE ── */
 
-  /* Hero: dark bg on mobile (per spec) */
-  .g-blog-hero {
-    background: #0D0D0D !important;
-    min-height: 820px !important;
-  }
-
-  /* Logo bar */
-  .g-blog-logobar {
-    background: #0D0D0D !important;
-    border-bottom-color: rgba(242,242,242,0.2) !important;
-  }
-  .g-blog-logobar span { color: #F2F2F2 !important; }
+  /* Hero: light bg */
+  .g-blog-hero { min-height: 820px !important; }
 
   /* H1 */
   .g-blog-h1 {
     width: calc(100% - 30px) !important;
-    font-size: var(--g-m) !important;
+    font-size: var(--g-xl) !important;
     white-space: normal !important;
-    color: #F2F2F2 !important;
-    top: 52px !important;
+    color: #0D0D0D !important;
+    top: 72px !important;
+    left: 15px !important;
+    transform: none !important;
   }
 
   /* hero-info: stack vertically, card full width */
@@ -505,27 +540,72 @@
     align-items: flex-start !important;
     margin-top: 160px !important;
     padding: 0 15px !important;
+    gap: 1rem !important;
   }
 
-  /* Side tags: hide on mobile */
-  .g-blog-side-tag { display: none !important; }
+  /* Side tags: show on mobile, centered */
+  .g-blog-side-tag {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-size: var(--g-tag) !important;
+    color: #0D0D0D !important;
+  }
 
-  /* Main card: full width */
-  .g-blog-main-card { width: 100% !important; align-self: auto !important; }
+  /* Main card: Figma spec 390px */
+  .g-blog-main-card {
+    width: 100% !important;
+    align-self: auto !important;
+    padding: 20px !important;
+    gap: 20px !important;
+    margin: 12px 0 !important;
+    overflow: visible !important;
+  }
+  /* Image container: fixed height */
+  .g-blog-main-card > div:first-child {
+    aspect-ratio: auto !important;
+    height: 220px !important;
+    flex-shrink: 0 !important;
+  }
+  /* Body: remove padding (card handles it) */
+  .g-blog-main-card > div:nth-child(2) {
+    padding: 0 !important;
+    gap: 20px !important;
+  }
+  /* H2: 24px, 90% line-height, white */
+  .g-blog-main-card h2 {
+    font-size: 24px !important;
+    line-height: 21.6px !important;
+    color: #F2F2F2 !important;
+  }
+  /* Meta: 12px, white */
+  .g-blog-main-card span {
+    font-size: 12px !important;
+    color: #F2F2F2 !important;
+  }
+  /* Button: light bg, dark text, 20px, no border */
+  .g-blog-main-card a {
+    background: #F2F2F2 !important;
+    color: #0D0D0D !important;
+    font-size: 20px !important;
+    line-height: 20px !important;
+    padding: 16px 12px !important;
+    border: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
 
-  /* Nav: horizontal at bottom */
+  /* Nav: same as homepage — horizontal centered at bottom */
   .g-blog-hero .g-hero-nav {
     flex-direction: row !important;
     top: auto !important;
     bottom: 1.5rem !important;
-    right: auto !important;
-    left: 15px !important;
+    left: 0 !important;
+    right: 0 !important;
     align-items: center !important;
-    gap: 0.75rem !important;
-    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1rem !important;
   }
-  .g-blog-hero .g-hero-nav a { color: #F2F2F2 !important; opacity: 1 !important; border-bottom: none !important; font-size: 11px !important; }
-  .g-blog-hero .g-hero-nav a[aria-current='page'] { border-bottom: 1px solid #F2F2F2 !important; }
 
   /* Articles section */
   .g-blog-articles { padding-top: 40px !important; padding-bottom: 40px !important; }
@@ -539,9 +619,13 @@
 
   /* ── CONTACT PAGE ── */
 
-  /* Hero: keep light bg, fixed height */
+  /* Hero: padding-top prevents margin-collapse from form leaking out */
   .g-contact-hero {
-    min-height: 820px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding-top: 100px !important;
+    padding-bottom: 6rem !important;
   }
 
   /* Logo bar: keep light */
@@ -552,14 +636,14 @@
   /* H1: dark text */
   .g-contact-h1 {
     font-size: var(--g-m) !important;
-    top: 52px !important;
+    top: 82px !important;
   }
 
-  /* Form: full width, static position */
+  /* Form: full width, static position, no margin-top (hero padding handles space) */
   .g-contact-form {
     position: static !important;
     width: 100% !important;
-    margin-top: 140px !important;
+    margin-top: 0 !important;
     padding: 0 15px !important;
     box-sizing: border-box !important;
   }
@@ -576,14 +660,15 @@
     width: 100% !important;
   }
 
-  /* Nav: horizontal at bottom */
+  /* Nav: horizontal at bottom — centered */
   .g-contact-hero .g-hero-nav {
     flex-direction: row !important;
     top: auto !important;
     bottom: 1.5rem !important;
-    right: auto !important;
-    left: 15px !important;
+    left: 0 !important;
+    right: 0 !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 1rem !important;
   }
   .g-contact-hero .g-hero-nav a[aria-current='page'] { border-bottom: 1px solid #0D0D0D !important; }
@@ -594,16 +679,28 @@
   .g-works-hero { min-height: 840px !important; height: 840px !important; }
   .g-works-hero-sub { display: none !important; }
 
-  /* Nav: horizontal at bottom of hero */
+  /* Nav: same as homepage but white links */
   .g-works-hero .g-hero-nav {
     flex-direction: row !important;
     top: auto !important;
-    bottom: 2rem !important;
-    right: auto !important;
-    left: var(--g-pad) !important;
+    bottom: calc(1.5rem - 20px) !important;
+    left: 0 !important;
+    right: 0 !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 1rem !important;
   }
+  .g-works-hero .g-hero-nav a {
+    color: #F2F2F2 !important;
+    opacity: 1 !important;
+    border-bottom: none !important;
+  }
+  .g-works-hero .g-hero-nav a[aria-current='page'] {
+    padding: 0.25rem 0.5rem !important;
+  }
+
+  /* Kanji 術 block: 50px higher on mobile */
+  .g-works-kanji { bottom: calc(clamp(30px, 4.6vw, 60px) + 50px) !important; }
 
   /* Gallery section: single-column stack */
   .g-works-gallery-section {
@@ -666,8 +763,8 @@
   /* Always hide 6th item on mobile */
   .g-works-item:nth-child(6) { display: none !important; }
 
-  /* Hero section: fixed height per spec */
-  .g-hero-section { height: 820px !important; }
+  /* Hero section: use dvh so it fits any phone screen */
+  .g-hero-section { height: 100dvh !important; min-height: 680px !important; }
 
   /* Works: hide desktop "explore" link, show mobile version inside gallery */
   .g-works-explore-link   { display: none !important; }
@@ -681,7 +778,7 @@
   }
 
   /* ── PHILOSOPHY ── */
-  .g-philosophy-section { height: 815px !important; }
+  .g-philosophy-section { height: auto !important; min-height: 815px !important; }
 
   .g-philosophy-heading {
     position: absolute !important;
@@ -739,7 +836,7 @@
   .g-step h3 {
     font-size: 1.5rem !important;  /* 24px */
     line-height: 0.9 !important;
-    text-align: center !important;
+    text-align: left !important;
   }
 
   /* ── TRAD ── */
@@ -776,6 +873,8 @@
     max-height: 240px !important;
   }
   .g-faq-content { order: 1 !important; }
+  /* FAQ item: pad right so question text doesn't overlap the № label */
+  .g-faq-item__q { padding-right: 100px !important; }
   /* FAQ heading: 32px, max 310px */
   #faq-heading {
     font-size: 2rem !important;
@@ -785,34 +884,44 @@
 
   /* ── ABOUT PAGE ── */
 
-  /* Hero: fixed 820px per spec */
-  .g-about-hero { height: 820px !important; }
+  /* Hero: fits H1 + kanji + photo + dedicated text */
+  .g-about-hero { height: 800px !important; }
 
-  /* H1: Heading M (40px) on mobile, below logo bar */
+  /* H1: large font (xl), left-aligned, below logo bar */
   .g-about-h1 {
-    font-size: var(--g-m) !important;
-    top: 52px !important;
+    font-size: var(--g-xl) !important;
+    top: 62px !important;
     left: 15px !important;
     right: 15px !important;
     width: auto !important;
   }
 
-  /* 命 kanji: hide on mobile */
-  .g-about-kanji { display: none !important; }
+  /* 命 kanji: centered below H1 */
+  .g-about-kanji {
+    display: block !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 230px !important;
+    font-size: 2.5rem !important;
+    line-height: 1 !important;
+    opacity: 0.6 !important;
+    transform: translateX(-50%) !important;
+    white-space: nowrap !important;
+  }
 
-  /* Master photo: full-width square (360×360) below logo bar */
+  /* Master photo: below kanji, 15px side padding like homepage */
   .g-about-master-photo {
-    top: 52px !important;
-    left: 0 !important;
-    right: 0 !important;
+    top: 310px !important;
+    left: 15px !important;
+    right: 15px !important;
     bottom: auto !important;
-    width: 100% !important;
+    width: auto !important;
     height: 360px !important;
   }
 
   /* "Dedicated to..." text: below photo */
   .g-about-dedicated {
-    top: calc(52px + 360px + 16px) !important;
+    top: calc(310px + 360px + 16px) !important;
     left: 15px !important;
     right: 15px !important;
     bottom: auto !important;
@@ -938,8 +1047,8 @@
 
 /* POPUP */
 .fp-popup {
-  /* clamp: 1360px@1440 → 1840px@1920, side margin 40px each */
-  width: clamp(1360px, calc(100vw - 80px), 1840px);
+  /* Desktop: fill viewport minus 80px margins, max 1840px */
+  width: min(calc(100vw - 80px), 1840px);
   background: #FFFFFF;
   padding: 20px;
   display: flex;
