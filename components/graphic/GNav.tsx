@@ -17,13 +17,10 @@ export const NAV_LINKS = [
 
 interface GNavProps {
   activePath: string
-  theme?: 'light' | 'dark'
   top?: string
 }
 
-export function GNav({ activePath, theme = 'light', top = '45.5%' }: GNavProps) {
-  const isLight = theme === 'light'
-
+export function GNav({ activePath, top = '45.5%' }: GNavProps) {
   return (
     <nav
       className="g-hero-nav"
@@ -37,6 +34,7 @@ export function GNav({ activePath, theme = 'light', top = '45.5%' }: GNavProps) 
         alignItems: 'flex-end',
         gap: '0.5rem',
         zIndex: 50,
+        mixBlendMode: 'difference',
       }}
     >
       {NAV_LINKS.map((link) => {
@@ -46,12 +44,9 @@ export function GNav({ activePath, theme = 'light', top = '45.5%' }: GNavProps) 
           textDecoration: 'none',
           textAlign: 'right',
           lineHeight: 1,
-          // active: always black block + white text
-          // inactive: dark text on light bg, white text on dark bg
-          color: isActive ? '#F2F2F2' : (isLight ? '#0D0D0D' : '#F2F2F2'),
-          background: isActive ? '#0D0D0D' : 'transparent',
-          padding: isActive ? '0.25rem 0.5rem' : '0',
-          opacity: isActive ? 1 : (isLight ? 1 : 0.7),
+          color: '#ffffff',
+          borderBottom: isActive ? '1.5px solid #ffffff' : 'none',
+          paddingBottom: isActive ? '1px' : '0',
         }
         return (
           <Link

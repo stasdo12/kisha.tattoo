@@ -82,7 +82,7 @@ export default function GraphicContactPage() {
       >
 
         {/* ── Logo bar ── */}
-        <GLogoBar theme="light" />
+        <GLogoBar />
 
         {/* ── H1 ── */}
         <h1
@@ -245,7 +245,7 @@ export default function GraphicContactPage() {
         </form>
 
         {/* ── Vertical nav ── */}
-        <GNav activePath="/contact" theme="light" />
+        <GNav activePath="/contact" />
 
       </section>
 

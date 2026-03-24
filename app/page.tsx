@@ -150,7 +150,7 @@ export default function GraphicHomePage() {
             />
           </div>
 
-          <GLogoBar theme="light" />
+          <GLogoBar />
 
           {/* Mobile-only: location / status tags below photo (top: 451px) */}
           <div className="g-hero-tags" aria-hidden="true">
@@ -229,7 +229,7 @@ export default function GraphicHomePage() {
             </span>
           </div>
 
-          <GNav activePath="/" theme="light" />
+          <GNav activePath="/" />
 
           {/* Scroll hint — hidden on mobile */}
           <div
