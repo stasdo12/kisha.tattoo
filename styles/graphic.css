@@ -985,4 +985,5 @@ body:has([data-theme='graphic']) {
     flex-direction: column !important;
     gap: 0.5rem !important;
   }
+  .g-scroll-top { display: none !important; }
 }
