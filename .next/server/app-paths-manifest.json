@@ -1,7 +1,11 @@
 {
-  "/page": "app/page.js",
-  "/works/page": "app/works/page.js",
-  "/about/page": "app/about/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/contact/page": "app/contact/page.js"
+  "/aftercare/page": "app/aftercare/page.js",
+  "/awards/page": "app/awards/page.js",
+  "/tattoo-freising/page": "app/tattoo-freising/page.js",
+  "/tattoo-neufahrn/page": "app/tattoo-neufahrn/page.js",
+  "/japanisches-tattoo-muenchen/page": "app/japanisches-tattoo-muenchen/page.js",
+  "/grafik-tattoo-muenchen/page": "app/grafik-tattoo-muenchen/page.js",
+  "/linework-tattoo-muenchen/page": "app/linework-tattoo-muenchen/page.js",
+  "/booking/page": "app/booking/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
 }

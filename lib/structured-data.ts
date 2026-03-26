@@ -160,10 +160,11 @@ export function articleSchema({
     headline: title,
     description: excerpt,
     datePublished: publishedAt,
-    url: `${SITE.url}/graphic/stories/${slug}`,
+    url: `${SITE.url}/blog/${slug}`,
     image: coverImage,
     author: {
       '@type': 'Person',
+      '@id': `${SITE.url}/#person`,
       name: 'Kisha',
       url: SITE.url,
     },
@@ -174,7 +175,65 @@ export function articleSchema({
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE.url}/graphic/stories/${slug}`,
+      '@id': `${SITE.url}/blog/${slug}`,
+    },
+  }
+}
+
+/**
+ * Person schema — for About page and AI entity recognition (GEO/AEO).
+ * Helps Google and AI systems (ChatGPT, Perplexity) understand KishaTattoo as a real entity.
+ */
+export function personSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${SITE.url}/#person`,
+    name: 'Kisha',
+    alternateName: 'KishaTattoo',
+    jobTitle: 'Tattoo Artist',
+    description: 'Tattoo-Künstlerin in München — Japanisches Irezumi, Grafik-Tattoo, Linework.',
+    url: SITE.url,
+    image: `${SITE.url}/og/default.jpg`,
+    sameAs: [SITE.social.instagram, SITE.social.facebook],
+    knowsLanguage: ['de', 'en', 'uk'],
+    worksFor: { '@type': 'LocalBusiness', '@id': `${SITE.url}/#business`, name: SITE.name },
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'Tattoo Artist',
+      occupationLocation: { '@type': 'City', name: 'München', addressCountry: 'DE' },
+      skills: ['Japanese Irezumi', 'Graphic Tattoo', 'Linework', 'Blackwork', 'Fineline'],
+    },
+  }
+}
+
+/**
+ * Location-specific service schema — for suburb landing pages.
+ */
+export function locationServiceSchema({
+  cityName,
+  citySlug,
+  travelMinutes,
+}: {
+  cityName: string
+  citySlug: string
+  travelMinutes: number
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `Tattoo ${cityName} — KishaTattoo München`,
+    description: `KishaTattoo bietet professionelles Tatowieren für Kunden aus ${cityName}. Erreichbar in ca. ${travelMinutes} Minuten nach München.`,
+    url: `${SITE.url}/tattoo-${citySlug}`,
+    provider: { '@type': 'LocalBusiness', '@id': `${SITE.url}/#business`, name: SITE.name },
+    areaServed: [
+      { '@type': 'City', name: 'München', addressCountry: 'DE' },
+      { '@type': 'City', name: cityName, addressCountry: 'DE' },
+    ],
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      serviceUrl: `${SITE.url}/booking`,
+      servicePhone: SITE.contact.phone,
     },
   }
 }

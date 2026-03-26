@@ -1,0 +1,24 @@
+{
+  "name": "kisha-tattoo",
+  "description": "Kisha Tattoo — Japanese & Graphic Tattoo Studio Munich",
+  "keywords": ["nextjs", "tattoo", "munich"],
+  "env": {
+    "TELEGRAM_BOT_TOKEN": {
+      "description": "Telegram Bot token from @BotFather",
+      "required": true
+    },
+    "TELEGRAM_CHAT_ID": {
+      "description": "Telegram Chat ID that receives form submissions",
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    { "url": "heroku/nodejs" }
+  ]
+}

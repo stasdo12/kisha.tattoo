@@ -56,6 +56,24 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../app/aftercare/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/aftercare">> = Specific
+  const handler = {} as typeof import("../../app/aftercare/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/awards/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/awards">> = Specific
+  const handler = {} as typeof import("../../app/awards/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../app/blog/[slug]/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/blog/[slug]">> = Specific
@@ -74,6 +92,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../app/booking/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/booking">> = Specific
+  const handler = {} as typeof import("../../app/booking/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../app/contact/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/contact">> = Specific
@@ -83,10 +110,73 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../app/faq/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/faq">> = Specific
+  const handler = {} as typeof import("../../app/faq/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/grafik-tattoo-muenchen/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/grafik-tattoo-muenchen">> = Specific
+  const handler = {} as typeof import("../../app/grafik-tattoo-muenchen/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/japanisches-tattoo-muenchen/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/japanisches-tattoo-muenchen">> = Specific
+  const handler = {} as typeof import("../../app/japanisches-tattoo-muenchen/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/linework-tattoo-muenchen/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/linework-tattoo-muenchen">> = Specific
+  const handler = {} as typeof import("../../app/linework-tattoo-muenchen/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../app/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/">> = Specific
   const handler = {} as typeof import("../../app/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/tattoo-eching/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/tattoo-eching">> = Specific
+  const handler = {} as typeof import("../../app/tattoo-eching/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/tattoo-freising/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/tattoo-freising">> = Specific
+  const handler = {} as typeof import("../../app/tattoo-freising/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/tattoo-neufahrn/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/tattoo-neufahrn">> = Specific
+  const handler = {} as typeof import("../../app/tattoo-neufahrn/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

@@ -2,12 +2,19 @@
   "name": "kisha-tattoo",
   "private": true,
   "version": "1.0.0",
+  "engines": {
+    "node": ">=20.x",
+    "npm": ">=10.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.3.5",
@@ -19,8 +26,11 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@vitest/coverage-v8": "^4.1.1",
     "eslint": "^9.0.0",
     "eslint-config-next": "^15.3.0",
-    "typescript": "^5.8.0"
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "typescript": "^5.8.0",
+    "vitest": "^4.1.1"
   }
 }

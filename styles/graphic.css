@@ -986,4 +986,14 @@ body:has([data-theme='graphic']) {
     gap: 0.5rem !important;
   }
   .g-scroll-top { display: none !important; }
+
+  /* Two-column intro text → single column on mobile */
+  .g-text-cols {
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+  .g-text-cols > p {
+    width: 100% !important;
+    flex-shrink: 1 !important;
+  }
 }

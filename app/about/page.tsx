@@ -7,6 +7,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
+import { personSchema, localBusinessSchema } from '@/lib/structured-data'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
@@ -44,6 +45,14 @@ const STEPS = [
 export default function GraphicAboutPage() {
   return (
     <main id="main-content">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
+      />
 
       {/* ── 1. HERO — light bg, black text, vertical nav right, 命 centered ── */}
       <section
@@ -355,6 +364,44 @@ export default function GraphicAboutPage() {
             ))}
           </div>
 
+        </div>
+      </section>
+
+      {/* ── 5. AWARDS TEASER ──────────────────────────────────────────────── */}
+      <section
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+      >
+        <div
+          className="g-container"
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '2rem',
+            flexWrap: 'wrap',
+            paddingTop: 'clamp(1.5rem, 2.5vw, 3rem)',
+            borderTop: '2px solid #0D0D0D',
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>[ Recognition ]</span>
+            <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', maxWidth: '28rem' }}>
+              Ausgezeichnet auf dem Munich Tattoo Convention
+            </p>
+          </div>
+          <Link
+            href="/awards"
+            style={{
+              fontSize: 'var(--g-bm)',
+              color: '#0D0D0D',
+              textDecoration: 'none',
+              borderBottom: '1px solid currentColor',
+              paddingBottom: '2px',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Awards & Recognition ansehen →
+          </Link>
         </div>
       </section>
 
