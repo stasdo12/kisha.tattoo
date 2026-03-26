@@ -47,13 +47,8 @@ const nextConfig: NextConfig = {
           { key: 'X-DNS-Prefetch-Control',  value: 'on'                            },
         ],
       },
-      {
-        // Immutable cache for Next.js static chunks (they're content-hashed)
-        source: '/_next/static/:path*',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-        ],
-      },
+      // Next.js sets Cache-Control: immutable automatically for /_next/static in production.
+      // Do NOT add it manually — in dev mode filenames are NOT content-hashed, so it breaks HMR.
     ]
   },
 }
