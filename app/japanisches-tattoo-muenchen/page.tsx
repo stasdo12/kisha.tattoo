@@ -110,13 +110,14 @@ export default function JapanischesTattooMuenchen() {
         <p
           style={{
             position: 'absolute',
-            top: 'clamp(148px, calc(88px + 4.17vw), 164px)',
-            left: 'var(--g-pad)',
-            width: 'clamp(280px, 28vw, 420px)',
+            bottom: '24px',
+            right: 'var(--g-pad)',
+            width: 'clamp(16rem, 28vw, 420px)',
             fontSize: 'var(--g-bm)',
             lineHeight: 1.5,
             color: 'rgba(242,242,242,0.8)',
             zIndex: 2,
+            textAlign: 'right',
           }}
         >
           Traditionelles Irezumi — großformatige Werke, die eine Geschichte erzählen.
