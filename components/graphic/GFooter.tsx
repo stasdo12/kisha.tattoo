@@ -75,7 +75,67 @@ export function GFooter() {
         />
       </div>
 
-      {/* Bottom bar */}
+      {/* SEO links — 3 columns, same pattern as bottom bar */}
+      <div
+        className="g-container"
+        style={{
+          borderTop: '1px solid rgba(242,242,242,0.1)',
+          paddingTop: 'clamp(1.5rem, 2.08vw, 2.5rem)',
+          paddingBottom: 'clamp(1.5rem, 2.08vw, 2.5rem)',
+        }}
+      >
+        <div
+          className="g-footer-links"
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: '2rem',
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Stile</span>
+            {[
+              { href: '/japanisches-tattoo-muenchen', label: 'Japanisches Tattoo München' },
+              { href: '/grafik-tattoo-muenchen',      label: 'Grafik Tattoo München' },
+              { href: '/linework-tattoo-muenchen',    label: 'Linework Tattoo München' },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.65)', textDecoration: 'none' }}>
+                {l.label}
+              </Link>
+            ))}
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Pages</span>
+            {[
+              { href: '/booking',   label: 'Termin buchen' },
+              { href: '/faq',       label: 'FAQ' },
+              { href: '/aftercare', label: 'Aftercare' },
+              { href: '/awards',    label: 'Awards' },
+              { href: '/about',     label: 'Über Kisha' },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.65)', textDecoration: 'none' }}>
+                {l.label}
+              </Link>
+            ))}
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-end' }}>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Einzugsgebiet</span>
+            {[
+              { href: '/tattoo-eching',   label: 'Tattoo Eching' },
+              { href: '/tattoo-freising', label: 'Tattoo Freising' },
+              { href: '/tattoo-neufahrn', label: 'Tattoo Neufahrn' },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.65)', textDecoration: 'none' }}>
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar — exact original structure */}
       <div
         className="g-container"
         style={{ paddingBottom: 'clamp(1.5rem, 2.08vw, 2.5rem)' }}
@@ -86,18 +146,21 @@ export function GFooter() {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
+            borderTop: '1px solid rgba(242,242,242,0.1)',
+            paddingTop: 'clamp(1rem, 1.5vw, 1.5rem)',
             flexWrap: 'wrap',
             gap: '1rem',
           }}
         >
-          <Link
-            href="/"
-            style={{ fontSize: 'var(--g-bs)', color: '#F2F2F2', textDecoration: 'none' }}
-          >
+          <Link href="/" style={{ fontSize: 'var(--g-bs)', color: '#F2F2F2', textDecoration: 'none' }}>
             ● Kisha
           </Link>
-          <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>{`[ All Rights Reserved. ${new Date().getFullYear()} ]`}</span>
-          <span style={{ fontSize: 'var(--g-tag)', color: '#F2F2F2' }}>[ Made by Artem Yakovrokul ]</span>
+          <span suppressHydrationWarning style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.55)' }}>
+            {`[ All Rights Reserved. ${new Date().getFullYear()} ]`}
+          </span>
+          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.55)' }}>
+            [ Made by Artem Yakovrokul ]
+          </span>
         </div>
       </div>
 
