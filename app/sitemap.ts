@@ -32,10 +32,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/motive/kitsune-tattoo-muenchen`,  lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE.url}/motive/sakura-tattoo-muenchen`,   lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
 
+    // ── Walk-in page ─────────────────────────────────────────────────────────
+    { url: `${SITE.url}/walk-in-tattoo-muenchen`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+
     // ── Location pages — near-zero competition suburbs ───────────────────────
     { url: `${SITE.url}/tattoo-eching`,    lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     { url: `${SITE.url}/tattoo-freising`,  lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     { url: `${SITE.url}/tattoo-neufahrn`,  lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
+    { url: `${SITE.url}/tattoo-ottobrunn`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
+    { url: `${SITE.url}/tattoo-dachau`,    lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
   ]
 
   const blogRoutes: MetadataRoute.Sitemap = STORIES.map((story) => ({

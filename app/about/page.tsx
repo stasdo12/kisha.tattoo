@@ -75,12 +75,12 @@ export default function GraphicAboutPage() {
             top: '72px',
             left: 'var(--g-pad)',
             width: 'clamp(18rem, 42.6vw, 817px)',
-            fontSize: 'var(--g-xl)',
-            lineHeight: 'var(--g-lh-xl)',
+            fontSize: 'var(--g-l)',
+            lineHeight: 'var(--g-lh-l)',
             color: '#0D0D0D',
           }}
         >
-          Tattoo Artist München —<br />
+          Tattoo Artist München<br />
           eine Geschichte auf einmal
         </h1>
 

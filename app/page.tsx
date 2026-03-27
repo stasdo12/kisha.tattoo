@@ -15,9 +15,9 @@ import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Tattoo München — Japanisches Irezumi & Fineline Tattoo Studio | KishaTattoo',
+  title: 'Tattoo München — Kisha · Japanisches Irezumi & Fineline | KishaTattoo',
   description:
-    'Tattoo Studio München — spezialisiert auf Japanisches Irezumi, Fineline & Grafik Tattoo. Individuelle Tattoo-Projekte mit 5+ Jahren Erfahrung. Jetzt Termin buchen.',
+    'Kisha — Tattoo Artist München, spezialisiert auf Japanisches Irezumi, Fineline & Grafik. Individuelle Tattoo-Projekte mit 5+ Jahren Erfahrung. Jetzt Termin buchen.',
   path: '/',
 })
 
@@ -86,7 +86,7 @@ const FAQ = [
     a: 'Wir sind spezialisiert auf Japanisches Irezumi (Drachen, Koi, Kitsune, Sakura), Fineline / Fine Line Tattoo und grafische Stile. Alle Motive werden individuell entworfen — kein Flash, keine Vorlagen.',
   },
   {
-    q: 'Wie buche ich einen Termin im Tattoo Studio München?',
+    q: 'Wie buche ich einen Termin bei Kisha Tattoo München?',
     a: 'Kontaktiere uns über WhatsApp oder Instagram DM mit deiner Idee, dem gewünschten Körperteil und einem Wunschtermin. Wir melden uns für eine kostenlose Beratung.',
   },
   {
@@ -102,8 +102,8 @@ const FAQ = [
 /* ── Page ───────────────────────────────────────────────────────────────────── */
 export default function GraphicHomePage() {
   const schema = serviceSchema({
-    name: 'Tattoo Studio München — KishaTattoo',
-    description: 'Tattoo Studio München spezialisiert auf Japanisches Irezumi, Fineline und Grafik Tattoo. Individuelle Tattoo-Projekte mit 5+ Jahren Erfahrung.',
+    name: 'Kisha — Tattoo Artist München',
+    description: 'Kisha ist Tattoo Artist in München — spezialisiert auf Japanisches Irezumi, Fineline und Grafik. Individuelle Tattoo-Projekte mit 5+ Jahren Erfahrung.',
     url: '/',
   })
 
@@ -184,9 +184,9 @@ export default function GraphicHomePage() {
                 marginBottom: '1.5rem',
               }}
             >
-              Tattoo München —
+              Tattoo München
               <br />
-              Irezumi Mastery
+              Kisha Irezumi
             </h1>
             <p
               style={{
@@ -196,7 +196,7 @@ export default function GraphicHomePage() {
                 maxWidth: '17.5rem',
               }}
             >
-              Tattoo Studio München — fünf Jahre gewidmet der Kunst des Irezumi: großformatige,
+              Tattoo Artist München — fünf Jahre gewidmet der Kunst des Irezumi: großformatige,
               bedeutungsvolle Projekte, die zu deiner persönlichen Geschichte werden
             </p>
           </div>
@@ -767,7 +767,7 @@ export default function GraphicHomePage() {
                     maxWidth: '30rem',
                   }}
                 >
-                  Häufige Fragen zum Tattoo Studio München
+                  Häufige Fragen zum Tattoo Artist München
                 </h2>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
