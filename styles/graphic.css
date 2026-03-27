@@ -723,7 +723,7 @@ body:has([data-theme='graphic']) {
   .g-works-item:nth-child(6) { display: none !important; }
 
   /* Hero section: use dvh so it fits any phone screen */
-  .g-hero-section { height: 100dvh !important; min-height: 680px !important; }
+  .g-hero-section { height: 800px !important; } /* 100dvh causes iOS Safari CTA float — fixed height instead */
 
   /* Works: hide desktop "explore" link, show mobile version inside gallery */
   .g-works-explore-link   { display: none !important; }
