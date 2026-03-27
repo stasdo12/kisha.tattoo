@@ -9,6 +9,7 @@
  */
 import type React from 'react'
 import { useState } from 'react'
+import Link from 'next/link'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'

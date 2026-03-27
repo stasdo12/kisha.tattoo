@@ -11,6 +11,7 @@
  */
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
