@@ -44,42 +44,42 @@ const MOTIFS = [
     name: 'Dragon',
     href: '/motive/drachen-tattoo-muenchen',
     src: 'https://picsum.photos/seed/dragon-motif/896/1000',
-    desc: 'Wisdom, strength, protection, and supernatural powers. A symbol of water and generosity',
+    desc: 'Weisheit, Stärke, Schutz und übernatürliche Kräfte. Symbol des Wassers und der Großzügigkeit.',
   },
   {
     id: 'carp',
-    name: 'Carp',
+    name: 'Karpfen',
     href: '/motive/koi-tattoo-muenchen',
     src: 'https://picsum.photos/seed/carp-motif/896/1000',
-    desc: 'Perseverance, success in struggle, courage, and the ability to overcome difficulties',
+    desc: 'Ausdauer, Erfolg im Kampf, Mut und die Fähigkeit, Hindernisse zu überwinden.',
   },
   {
     id: 'fox',
-    name: 'Fox',
+    name: 'Fuchs',
     href: '/motive/kitsune-tattoo-muenchen',
     src: 'https://picsum.photos/seed/fox-motif/896/1000',
-    desc: 'Cunning, intellect, longevity, and magical abilities. Often associated with being a guardian against evil',
+    desc: 'Schlauheit, Intellekt, Langlebigkeit und magische Kräfte. Gilt als Beschützer vor dem Bösen.',
   },
   {
     id: 'cherry',
-    name: 'Cherry Blossom',
+    name: 'Kirschblüte',
     href: '/motive/sakura-tattoo-muenchen',
     src: 'https://picsum.photos/seed/cherry-motif/896/1000',
-    desc: 'The transience and beauty of life, the philosophy of "memento mori"',
+    desc: 'Die Vergänglichkeit und Schönheit des Lebens — die Philosophie des Memento Mori.',
   },
   {
     id: 'tiger',
     name: 'Tiger',
     href: '/motive/tiger-tattoo-muenchen',
     src: 'https://picsum.photos/seed/tiger-motif/896/1000',
-    desc: 'Power, bravery, longevity, and protection against evil and sickness. The symbol of the wind element and the north',
+    desc: 'Kraft, Tapferkeit, Langlebigkeit und Schutz vor Krankheit. Symbol des Windes und des Nordens.',
   },
 ]
 
 const FAQ = [
   {
     q: 'Was kostet ein Tattoo in München?',
-    a: 'Die Tattoo Kosten in München hängen von Größe, Stil und Komplexität ab. Kleine Tattoos ab ca. 80 €, ein Sleeve ab 1.200 €. Eine ausführliche Übersicht mit Beispielpreisen findest du auf unserer Preise-Seite.',
+    a: 'Die Tattoo Kosten in München hängen von Größe, Stil und Komplexität ab. Kleine Tattoos ab 150 €, ein Sleeve ab 2.500 € gesamt. Eine ausführliche Übersicht findest du auf der Seite Tattoo Preise München.',
   },
   {
     q: 'Welche Tattoo-Stile bietet KishaTattoo München an?',
@@ -626,8 +626,7 @@ export default function GraphicHomePage() {
                 </h2>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
                   Das japanische Tattoo spricht die Sprache der Symbole. Hier sind die
-                  Bedeutungen der beliebtesten Motive, mit denen wir in unserem Münchner
-                  Tattoo Studio arbeiten
+                  Bedeutungen der beliebtesten Motive, mit denen Kisha in München arbeitet
                 </p>
               </div>
 
