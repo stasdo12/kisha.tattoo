@@ -274,6 +274,13 @@ body:has([data-theme='graphic']) {
   .g-motif-grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
+/* Force absolute positioning on desktop — inline style may be lost on re-mount */
+@media (min-width: 768px) {
+  .g-contact-form {
+    position: absolute !important;
+  }
+}
+
 @media (max-width: 767px) {
   [data-theme='graphic'] {
     --g-pad: 1rem;
