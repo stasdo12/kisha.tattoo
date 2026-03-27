@@ -7,29 +7,44 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
-import { serviceSchema, breadcrumbSchema } from '@/lib/structured-data'
+import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Grafik Tattoo München — Blackwork & Illustration | KishaTattoo',
+  title: 'Tattoo Munich — Custom Grafik & Blackwork | KishaTattoo München',
   description:
-    'Grafik Tattoo in München — Blackwork, geometrische Designs, Illustration. KishaTattoo: präzise Linienführung, klare Kontraste, individuelle Designs. Jetzt Termin buchen.',
+    'Tattoo Munich — KishaTattoo: custom grafik tattoo, blackwork & illustration in München. Munich tattoo studio spezialisiert auf individuelle Designs. Book your appointment.',
   path: '/grafik-tattoo-muenchen',
   keywords: [
-    'grafik tattoo münchen',
-    'graphik tattoo münchen',
+    'munich tattoo',
+    'tattoo munich',
     'blackwork tattoo münchen',
+    'custom tattoo münchen',
+    'grafik tattoo münchen',
+    'graphic tattoo artist munich',
     'geometric tattoo münchen',
     'illustratives tattoo münchen',
-    'graphic tattoo artist munich',
-    'blackwork künstlerin münchen',
-    'geometric tattoo münchen',
-    'contemporary tattoo münchen',
-    'fine line tattoo münchen',
+    'tattoo studio münchen',
+    'bestes tattoo studio münchen',
   ],
 })
+
+const FAQ_GRAFIK = [
+  {
+    question: 'What tattoo styles does KishaTattoo Munich offer?',
+    answer: 'KishaTattoo Munich (KishaTattoo München) specializes in Japanese Irezumi, Fineline, and Graphic/Blackwork tattoos. Every design is custom — no flash, no templates. Book a free consultation to discuss your vision.',
+  },
+  {
+    question: 'Wie buche ich einen Termin bei KishaTattoo München?',
+    answer: 'Kontaktiere uns per WhatsApp oder Instagram mit deiner Idee und dem gewünschten Körperteil. Wir melden uns innerhalb von 24 Stunden für eine kostenlose Beratung.',
+  },
+  {
+    question: 'Was kostet ein Grafik Tattoo in München?',
+    answer: 'Custom Grafik Tattoos werden nach Stunden abgerechnet. Kleine Motive ab ca. 80–150 €, große Blackwork-Stücke ab 600 € pro Sitzung. Alle Details zu Tattoo Preisen München findest du auf unserer Preisseite.',
+  },
+]
 
 const GALLERY = [
   { src: 'https://picsum.photos/seed/gr-1/600/700', alt: 'Grafik Tattoo München — geometrisches Blackwork Design' },
@@ -44,10 +59,13 @@ export default function GrafikTattooMuenchen() {
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        serviceSchema({ name: 'Grafik Tattoo München', description: 'Grafik-Tattoo in München — Blackwork, Geometrie, Illustration. Custom-Design, präzise Linienführung.', url: '/grafik-tattoo-muenchen' })
+        serviceSchema({ name: 'Tattoo Munich — KishaTattoo', description: 'Tattoo Munich: custom grafik tattoo, blackwork & illustration. Munich tattoo studio specialized in individual designs.', url: '/grafik-tattoo-muenchen' })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Grafik Tattoo München', url: '/grafik-tattoo-muenchen' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Munich — Grafik & Blackwork', url: '/grafik-tattoo-muenchen' }])
+      )}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        faqSchema(FAQ_GRAFIK.map((f) => ({ question: f.question, answer: f.answer })))
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
@@ -73,7 +91,7 @@ export default function GrafikTattooMuenchen() {
             color: '#0D0D0D',
           }}
         >
-          Grafik Tattoo<br />München
+          Tattoo Munich —<br />Grafik & Blackwork
         </h1>
 
         {/* Decorative kanji 墨 — ink */}
@@ -106,8 +124,8 @@ export default function GrafikTattooMuenchen() {
             color: '#0D0D0D',
           }}
         >
-          Präzise Linien, starke Kontraste, individuelle Komposition.
-          Grafik-Tattoo nach Maß — buchbar in München und Umgebung.
+          Custom tattoo Munich — präzise Linien, starke Kontraste, individuelle Komposition.
+          Grafik & Blackwork Tattoo nach Maß — buchbar in München und Umgebung.
         </p>
 
         <GNav activePath="/" theme="light" />
@@ -135,7 +153,7 @@ export default function GrafikTattooMuenchen() {
                 flexShrink: 0,
               }}
             >
-              Grafisches Design auf der Haut
+              Tattoo Munich — Custom Design auf der Haut
             </h2>
             <Link
               href="/works"
@@ -155,15 +173,16 @@ export default function GrafikTattooMuenchen() {
             }}
           >
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Grafik-Tattoo verbindet illustrative Präzision mit der Ausdruckskraft des Blackwork.
-              In München setzt KishaTattoo grafische Designs um, die mit klaren Linien, starken
-              Schwarzflächen und durchdachter Komposition überzeugen — vom kleinen Detail bis zum
-              großformatigen Sleeve.
+              Looking for a tattoo in Munich (Tattoo Munich / Munich Tattoo)? KishaTattoo is a
+              custom tattoo studio in München combining illustrative precision with Blackwork impact.
+              Clear lines, bold black fills, thoughtful composition — from a small detail to a
+              full-scale Blackwork sleeve.
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Jedes grafische Tattoo beginnt mit einem Custom-Design — kein Template, kein Katalog.
+              Jedes Tattoo beginnt mit einem Custom-Design — kein Template, kein Katalog.
               Die Komposition wird auf deinen Körper und deine Geschichte zugeschnitten.
-              Geometrie, Botanik, Illustration oder freies Blackwork: der Stil folgt deiner Vision.
+              Geometrie, Botanik, Illustration oder freies Blackwork: als bestes Tattoo
+              Studio München folgt KishaTattoo stets deiner Vision.
             </p>
           </div>
 
@@ -233,6 +252,45 @@ export default function GrafikTattooMuenchen() {
               >
                 <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{col.title}</h3>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{col.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
+      <section
+        aria-labelledby="gr-faq-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+      >
+        <div className="g-container">
+          <h2
+            id="gr-faq-heading"
+            style={{
+              fontSize: 'var(--g-l)',
+              lineHeight: 'var(--g-lh-l)',
+              color: '#0D0D0D',
+              marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
+              paddingBottom: '1.25rem',
+              borderBottom: '2px solid #0D0D0D',
+            }}
+          >
+            FAQ — Tattoo Munich / München
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {FAQ_GRAFIK.map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 'clamp(2rem, 4vw, 5rem)',
+                  padding: 'clamp(1rem, 1.8vw, 1.75rem) 0',
+                  borderBottom: '1px solid rgba(13,13,13,0.2)',
+                }}
+              >
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
               </div>
             ))}
           </div>

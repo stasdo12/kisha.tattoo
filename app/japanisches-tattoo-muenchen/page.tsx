@@ -13,21 +13,21 @@ import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Japanisches Tattoo München — Irezumi & Horimono | KishaTattoo',
+  title: 'Japanischer Tätowierer München — Traditional Japanese Tattoo | KishaTattoo',
   description:
-    'Traditionelles japanisches Tattoo in München — Irezumi, Koi, Drachen, Oni-Masken. KishaTattoo: 5 Jahre Erfahrung in klassischer Irezumi-Technik. Termin jetzt buchen.',
+    'Japanischer Tätowierer in München — spezialisiert auf Traditional Japanese Tattoo, Irezumi & Horimono. Japanische Tattoos München: Koi, Drachen, Oni. Termin buchen.',
   path: '/japanisches-tattoo-muenchen',
   keywords: [
-    'japanisches tattoo münchen',
+    'japanischer tätowierer',
+    'japanischer tätowierer münchen',
+    'japanische tattoos münchen',
+    'traditional tattoo münchen',
+    'japanese tattoo artist germany',
     'irezumi münchen',
-    'japanisches tattoo künstlerin münchen',
+    'japanese tattoo munich',
     'horimono münchen',
     'koi tattoo münchen',
     'drachen tattoo münchen',
-    'oni tattoo münchen',
-    'japanisches sleeve tattoo münchen',
-    'tebori münchen',
-    'japanese tattoo munich',
   ],
 })
 
@@ -42,15 +42,19 @@ const GALLERY = [
 
 const FAQ = [
   {
+    question: 'Wie finde ich einen japanischen Tätowierer in München?',
+    answer: 'Einen echten japanischen Tätowierer in München zu finden, erfordert Recherche: achte auf Erfahrung mit Traditional Japanese Tattoo, Kenntnis der Kompositionslehre und ein Portfolio mit großformatigen Irezumi-Arbeiten. KishaTattoo spezialisiert sich seit 5+ Jahren ausschließlich auf diesen Stil.',
+  },
+  {
     question: 'Was kostet ein japanisches Tattoo in München?',
-    answer: 'Japanische Irezumi-Arbeiten werden nach Stunden abgerechnet. Kleine Motive starten bei ca. 200–300 €, große Backpieces oder Sleeves ab 800 € pro Sitzung. Jedes Projekt wird individuell kalkuliert — kontaktiere uns für ein persönliches Angebot.',
+    answer: 'Japanische Irezumi-Arbeiten werden nach Stunden abgerechnet. Kleine Motive starten bei ca. 200–300 €, große Backpieces oder Sleeves ab 800 € pro Sitzung. Details zu Tattoo Preisen München findest du auf unserer Preisseite.',
   },
   {
-    question: 'Wie lange dauert ein japanisches Sleeve Tattoo?',
-    answer: 'Ein vollständiger Sleeve im klassischen Irezumi-Stil benötigt typischerweise 20–40 Stunden, aufgeteilt auf mehrere Sitzungen über mehrere Monate. Die Heilungszeit zwischen den Sitzungen ist Teil des Prozesses.',
+    question: 'Was bedeutet Traditional Tattoo München?',
+    answer: 'Traditional Tattoo München bezieht sich auf klassische Tattoo-Stile mit klaren Umrissen und satten Farben — darunter japanisches Irezumi. Bei KishaTattoo steht "traditional" für die Treue zur japanischen Kompositionslehre: Motive werden an der natürlichen Muskulatur ausgerichtet.',
   },
   {
-    question: 'Was ist der Unterschied zwischen Irezumi und modernem japanischen Tattoo?',
+    question: 'Was ist der Unterschied zwischen Irezumi und modernem Japanese Style?',
     answer: 'Traditionelles Irezumi folgt einer jahrhundertealten Kompositionslehre: Motive wie Koi, Drachen oder Oni werden nach den Muskeln des Körpers ausgerichtet und in klare Flächen und Übergänge gegliedert. Modernes "Japanese Style" ist oft freier interpretiert.',
   },
 ]
@@ -59,7 +63,7 @@ export default function JapanischesTattooMuenchen() {
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        serviceSchema({ name: 'Japanisches Tattoo München', description: 'Traditionelles Irezumi und japanisches Tattoo in München — Koi, Drachen, Oni, Sleeve, Backpiece.', url: '/japanisches-tattoo-muenchen' })
+        serviceSchema({ name: 'Japanischer Tätowierer München — KishaTattoo', description: 'Japanischer Tätowierer in München — Traditional Japanese Tattoo, Irezumi, Koi, Drachen, Oni, Sleeve, Backpiece.', url: '/japanisches-tattoo-muenchen' })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Japanisches Tattoo München', url: '/japanisches-tattoo-muenchen' }])
@@ -104,7 +108,7 @@ export default function JapanischesTattooMuenchen() {
             zIndex: 2,
           }}
         >
-          Japanisches Tattoo<br />München
+          Japanischer Tätowierer<br />München
         </h1>
 
         <p
@@ -120,8 +124,8 @@ export default function JapanischesTattooMuenchen() {
             textAlign: 'right',
           }}
         >
-          Traditionelles Irezumi — großformatige Werke, die eine Geschichte erzählen.
-          Buchbar in München und Umgebung.
+          Traditional Japanese Tattoo Artist in Germany — großformatige Irezumi-Werke,
+          die eine Geschichte erzählen. Buchbar in München und Umgebung.
         </p>
 
         <GNav activePath="/" theme="dark" />
@@ -169,7 +173,7 @@ export default function JapanischesTattooMuenchen() {
                 flexShrink: 0,
               }}
             >
-              Traditionelles Irezumi in München
+              Japanische Tattoos München — Traditional Style
             </h2>
             <Link
               href="/works"
@@ -189,15 +193,16 @@ export default function JapanischesTattooMuenchen() {
             }}
           >
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Japanisches Tatowieren — bekannt als Irezumi (刺青) oder Horimono (彫り物) — ist eine der
-              ältesten und komplexesten Tattoo-Traditionen der Welt. In München bietet KishaTattoo
-              authentisches Irezumi nach klassischer Kompositionslehre: Motive wie Koi, Drachen, Oni-Masken
-              und Kirschblüten, ausgerichtet an der natürlichen Muskulatur des Körpers.
+              Als japanischer Tätowierer in München bietet KishaTattoo authentisches Irezumi (刺青) und
+              Horimono (彫り物) nach klassischer Kompositionslehre. Traditional Tattoo München bedeutet
+              hier: Motive wie Koi, Drachen, Oni-Masken und Kirschblüten, ausgerichtet an der natürlichen
+              Muskulatur des Körpers — keine Schablonen, kein Flash.
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Jedes japanische Tattoo ist ein mehrjähriges Projekt. KishaTattoo spezialisiert sich auf
-              großformatige Irezumi-Arbeiten: vollständige Rückenstücke, Sleeves und Bodysuits. Jede
-              Linie, jeder Übergang wird mit der Geduld und Präzision ausgeführt, die diese Kunstform verlangt.
+              Als Japanese Tattoo Artist in Germany spezialisiert sich Kisha auf großformatige
+              Irezumi-Projekte: vollständige Backpieces, Sleeves und Bodysuits. Japanische Tattoos
+              München von KishaTattoo — jede Linie mit der Geduld und Präzision, die diese
+              Jahrhunderte alte Kunstform verlangt.
             </p>
           </div>
 

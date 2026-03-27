@@ -6,7 +6,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
-import { locationServiceSchema, breadcrumbSchema } from '@/lib/structured-data'
+import { locationServiceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
@@ -25,6 +25,21 @@ export const metadata: Metadata = buildMetadata({
   ],
 })
 
+const FAQ_NEUFAHRN = [
+  {
+    question: 'Gibt es ein gutes Tattoo Studio in Neufahrn?',
+    answer: 'In Neufahrn bei Freising gibt es kein spezialisiertes Tattoo-Studio für hochwertige Custom-Arbeiten. Das nächste empfehlenswerte Atelier ist KishaTattoo in München — ca. 25 Minuten mit dem Auto oder der S1-Bahn.',
+  },
+  {
+    question: 'Wie komme ich von Neufahrn nach KishaTattoo München?',
+    answer: 'Von Neufahrn bei Freising nach München fährst du mit der S1 Richtung München in ca. 25–30 Minuten oder mit dem Auto über die A92/A9. Über die Autobahn Anschluss A9/Neufahrn sind es ca. 25 Minuten.',
+  },
+  {
+    question: 'Welche Tattoo-Stile bietet KishaTattoo für Kunden aus Neufahrn?',
+    answer: 'Alle unsere Stile stehen für Kunden aus Neufahrn zur Verfügung: Japanisches Irezumi, Fineline Tattoo und Grafik/Blackwork. Jedes Motiv ist ein Custom-Design. Kostenlose Erstberatung per WhatsApp oder Instagram.',
+  },
+]
+
 export default function TattooNeufahrn() {
   return (
     <main id="main-content">
@@ -33,6 +48,9 @@ export default function TattooNeufahrn() {
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Neufahrn', url: '/tattoo-neufahrn' }])
+      )}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        faqSchema(FAQ_NEUFAHRN.map((f) => ({ question: f.question, answer: f.answer })))
       )}} />
 
       <section
@@ -129,6 +147,27 @@ export default function TattooNeufahrn() {
                 {link.label}
               </Link>
             ))}
+          </div>
+
+          {/* FAQ */}
+          <div style={{ marginTop: 'clamp(2rem, 3.5vw, 4rem)' }}>
+            <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', marginBottom: '1.5rem', paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D' }}>
+              FAQ — Tattoo Neufahrn
+            </h2>
+            {FAQ_NEUFAHRN.map((item, i) => (
+              <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 5rem)', padding: 'clamp(1rem, 1.8vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.2)' }}>
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Related location pages */}
+          <div style={{ marginTop: 'clamp(1.5rem, 2.5vw, 3rem)', display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>Weitere Seiten →</span>
+            <Link href="/tattoo-freising" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Freising</Link>
+            <Link href="/tattoo-eching" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Eching</Link>
+            <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Preise München</Link>
           </div>
 
         </div>

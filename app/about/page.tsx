@@ -14,9 +14,9 @@ import { GFooter } from '@/components/graphic/GFooter'
 import { GAboutPassionBlock } from '@/components/graphic/GAboutPassionBlock'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'About — Kisha Tattoo. One grand story at a time',
+  title: 'Tattoo Artist München — Kisha, Japanischer Tätowierer | KishaTattoo',
   description:
-    'Five years dedicated to preserving the tradition of Japanese tattooing. Learn about Kisha — the philosophy, discipline, and devotion behind every piece.',
+    'Kisha ist Tattoo Artist in München — spezialisiert auf Japanisches Irezumi, Fineline & Grafik. Bester Tätowierer München mit 5+ Jahren Erfahrung. Jetzt Termin anfragen.',
   path: '/about',
 })
 
@@ -29,16 +29,16 @@ const MINI_GALLERY = [
 
 const STEPS = [
   {
-    title: 'For the artist',
-    body: 'It requires the focused discipline to master the technique, respect the body\u2019s anatomy, and dedicate countless hours to perfection.',
+    title: 'Für den Tätowierer',
+    body: 'Es erfordert die konzentrierte Disziplin, die Technik zu meistern, die Anatomie des Körpers zu respektieren und unzählige Stunden der Perfektion zu widmen.',
   },
   {
-    title: 'For the client',
-    body: 'The courage and patience to commit to a long, multi-session process, knowing that the final masterpiece will be a permanent testament to your inner strength.',
+    title: 'Für den Kunden',
+    body: 'Den Mut und die Geduld, sich auf einen langen Prozess mit mehreren Sitzungen einzulassen — in dem Wissen, dass das fertige Meisterwerk ein dauerhaftes Zeugnis deiner inneren Stärke sein wird.',
   },
   {
-    title: 'My dedication',
-    body: 'Is to those who seek an authentic, meaningful, and enduring piece of art. If you are ready to embark on this focused journey, I am here to guide the process and ensure your legacy is beautifully etched in skin.',
+    title: 'Meine Hingabe',
+    body: 'Gilt denen, die ein authentisches, bedeutungsvolles und dauerhaftes Kunstwerk suchen. Als Tattoo Artist in München bin ich hier, um den Prozess zu leiten und sicherzustellen, dass dein Vermächtnis wunderschön in die Haut gestochen wird.',
   },
 ]
 
@@ -80,8 +80,8 @@ export default function GraphicAboutPage() {
             color: '#0D0D0D',
           }}
         >
-          About Kisha Tattoo.<br />
-          One grand story at a time
+          Tattoo Artist München —<br />
+          eine Geschichte auf einmal
         </h1>
 
         {/* 命 kanji — centered in hero, large, decorative */}
@@ -140,8 +140,8 @@ export default function GraphicAboutPage() {
             color: '#0D0D0D',
           }}
         >
-          Dedicated to preserving the tradition of Japanese tattooing,
-          one grand story at a time
+          Tätowierer München — gewidmet der Bewahrung der japanischen Tattoo-Tradition,
+          eine Geschichte auf einmal
         </p>
 
 
@@ -161,7 +161,7 @@ export default function GraphicAboutPage() {
               fontSize: 'var(--g-tag)', color: '#0D0D0D',
               whiteSpace: 'nowrap', flexShrink: 0,
             }}>
-              [ Art that becomes a story ]
+              [ Kunst, die zur Geschichte wird ]
             </span>
             <h2
               id="about-journey-heading"
@@ -174,7 +174,7 @@ export default function GraphicAboutPage() {
                 flexShrink: 0,
               }}
             >
-              The journey: etched in discipline
+              Der Weg: in Disziplin gestochen
             </h2>
             <Link
               href="/works"
@@ -183,7 +183,7 @@ export default function GraphicAboutPage() {
                 textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0,
               }}
             >
-              [ Explore work and tattooing ]
+              [ Alle Arbeiten ansehen ]
             </Link>
           </div>
 
@@ -222,20 +222,20 @@ export default function GraphicAboutPage() {
               width: 'clamp(16rem, 23.3vw, 448px)',
               flexShrink: 0,
             }}>
-              For over five years, my life has been dedicated to the pursuit of
-              traditional Japanese tattooing. My journey began with a profound
-              respect for the legacy of Irezumi, seeing it not as a trend, but
-              as a commitment — a powerful, living art form.
+              Seit über fünf Jahren bin ich als Tattoo Artist in München der japanischen
+              Tattoo-Tradition gewidmet. Meine Reise begann mit tiefem Respekt vor dem
+              Erbe des Irezumi — nicht als Trend, sondern als Verpflichtung gegenüber
+              einer kraftvollen, lebendigen Kunstform.
             </p>
             <p style={{
               fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D',
               width: 'clamp(16rem, 23.3vw, 448px)',
               flexShrink: 0,
             }}>
-              I specialize in the large, complex works that define this tradition:
-              full backpieces, sleeves, and bodysuits. These projects require a
-              special level of discipline and patience, which I bring to every
-              single line.
+              Als Tätowierer in München bin ich spezialisiert auf großformatige,
+              komplexe Arbeiten: Full Backpieces, Sleeves und Bodysuits. Diese Projekte
+              erfordern ein besonderes Maß an Disziplin und Geduld — Eigenschaften,
+              die ich in jede einzelne Linie einbringe.
             </p>
           </div>
 
@@ -263,8 +263,8 @@ export default function GraphicAboutPage() {
                 flex: '0 0 clamp(18rem, 32.6vw, 470px)',
               }}
             >
-              The philosophy —{' '}
-              <span style={{ textTransform: 'lowercase' }}>love and devotion</span>
+              Die Philosophie —{' '}
+              <span style={{ textTransform: 'lowercase' }}>Liebe und Hingabe</span>
             </h2>
             <p style={{
               fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D',
@@ -273,8 +273,8 @@ export default function GraphicAboutPage() {
               maxWidth: '22rem',
               marginLeft: 'auto',
             }}>
-              In our studio, we are guided by the principle of deep love for the
-              craft and heartfelt devotion to your vision
+              In unserem Tattoo Studio München leiten uns tiefe Liebe zum Handwerk
+              und aufrichtige Hingabe an deine Vision
             </p>
           </div>
 
@@ -309,7 +309,7 @@ export default function GraphicAboutPage() {
                 textAlign: 'center',
               }}
             >
-              The commitment of endurance and mastery
+              Das Engagement des besten Tätowierers München
             </h2>
           </div>
 
@@ -320,8 +320,8 @@ export default function GraphicAboutPage() {
             maxWidth: '25rem',
             margin: '0 auto clamp(2rem, 3.5vw, 4rem)',
           }}>
-            Traditional Irezumi is an act of endurance, requiring patience from
-            both the artist and the client
+            Traditionelles Irezumi ist ein Akt der Ausdauer — er erfordert Geduld
+            von Tätowierer und Kunde gleichermaßen
           </p>
 
           {/* Three columns */}

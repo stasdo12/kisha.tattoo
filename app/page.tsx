@@ -8,16 +8,16 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
-import { serviceSchema } from '@/lib/structured-data'
+import { serviceSchema, faqSchema } from '@/lib/structured-data'
 import { CtaStrip } from '@/components/graphic/CtaStrip'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Kisha — Irezumi Mastery. Stories Etched in Skin',
+  title: 'Tattoo München — Japanisches Irezumi & Fineline Tattoo Studio | KishaTattoo',
   description:
-    'Five years dedicated to the art of Irezumi: crafting large, meaningful projects that become your personal history. Japanese tattoo studio in Munich.',
+    'Tattoo Studio München — spezialisiert auf Japanisches Irezumi, Fineline & Grafik Tattoo. Individuelle Tattoo-Projekte mit 5+ Jahren Erfahrung. Jetzt Termin buchen.',
   path: '/',
 })
 
@@ -42,30 +42,35 @@ const MOTIFS = [
   {
     id: 'dragon',
     name: 'Dragon',
+    href: '/motive/drachen-tattoo-muenchen',
     src: 'https://picsum.photos/seed/dragon-motif/896/1000',
     desc: 'Wisdom, strength, protection, and supernatural powers. A symbol of water and generosity',
   },
   {
     id: 'carp',
     name: 'Carp',
+    href: '/motive/koi-tattoo-muenchen',
     src: 'https://picsum.photos/seed/carp-motif/896/1000',
     desc: 'Perseverance, success in struggle, courage, and the ability to overcome difficulties',
   },
   {
     id: 'fox',
     name: 'Fox',
+    href: '/motive/kitsune-tattoo-muenchen',
     src: 'https://picsum.photos/seed/fox-motif/896/1000',
     desc: 'Cunning, intellect, longevity, and magical abilities. Often associated with being a guardian against evil',
   },
   {
     id: 'cherry',
     name: 'Cherry Blossom',
+    href: '/motive/sakura-tattoo-muenchen',
     src: 'https://picsum.photos/seed/cherry-motif/896/1000',
     desc: 'The transience and beauty of life, the philosophy of "memento mori"',
   },
   {
     id: 'tiger',
     name: 'Tiger',
+    href: '/motive/tiger-tattoo-muenchen',
     src: 'https://picsum.photos/seed/tiger-motif/896/1000',
     desc: 'Power, bravery, longevity, and protection against evil and sickness. The symbol of the wind element and the north',
   },
@@ -73,38 +78,41 @@ const MOTIFS = [
 
 const FAQ = [
   {
-    q: 'How should I prepare for my tattoo session?',
-    a: 'Ensure you are well-rested, hydrated, and have eaten. Avoid alcohol and blood thinners for 24 hours prior and wear comfortable, loose clothing',
+    q: 'Was kostet ein Tattoo in München?',
+    a: 'Die Tattoo Kosten in München hängen von Größe, Stil und Komplexität ab. Kleine Tattoos ab ca. 80 €, ein Sleeve ab 1.200 €. Eine ausführliche Übersicht mit Beispielpreisen findest du auf unserer Preise-Seite.',
   },
   {
-    q: 'What is your booking process?',
-    a: 'Start by submitting an inquiry via WhatsApp or Instagram DM (links at the footer), outlining your vision',
+    q: 'Welche Tattoo-Stile bietet KishaTattoo München an?',
+    a: 'Wir sind spezialisiert auf Japanisches Irezumi (Drachen, Koi, Kitsune, Sakura), Fineline / Fine Line Tattoo und grafische Stile. Alle Motive werden individuell entworfen — kein Flash, keine Vorlagen.',
   },
   {
-    q: 'How long does a large Irezumi piece take?',
-    a: 'Large projects require significant commitment, typically ranging from 5 to 15+ sessions, spaced 4–6 weeks apart for proper healing',
+    q: 'Wie buche ich einen Termin im Tattoo Studio München?',
+    a: 'Kontaktiere uns über WhatsApp oder Instagram DM mit deiner Idee, dem gewünschten Körperteil und einem Wunschtermin. Wir melden uns für eine kostenlose Beratung.',
   },
   {
-    q: 'How should I care for my new tattoo (Aftercare)?',
-    a: 'Keep the area clean, gently wash with mild soap, and apply a thin layer of recommended ointment. Strictly avoid sun, swimming, and soaking for 2–3 weeks',
+    q: 'Wie lange dauert ein großes Irezumi-Tattoo?',
+    a: 'Großformatige Projekte wie ein Sleeve oder Backpiece erfordern 5–15+ Sitzungen im Abstand von je 4–6 Wochen zur Abheilung. Jede Sitzung dauert 3–6 Stunden.',
   },
   {
-    q: 'Does traditional Irezumi hurt?',
-    a: 'Yes, all tattooing involves discomfort, but your comfort is our priority. We approach the process, which requires endurance (耐), with great care, using mindful techniques and taking regular breaks as needed',
+    q: 'Wie pflege ich mein neues Tattoo richtig?',
+    a: 'Halte das Tattoo sauber, wasche es sanft mit milder Seife und trage eine dünne Schicht Pflegecreme auf. Sonne, Schwimmen und Einweichen mindestens 2–3 Wochen vermeiden. Alle Details findest du auf unserer Aftercare-Seite.',
   },
 ]
 
 /* ── Page ───────────────────────────────────────────────────────────────────── */
 export default function GraphicHomePage() {
   const schema = serviceSchema({
-    name: 'Irezumi — Traditional Japanese Tattooing',
-    description: 'Five years dedicated to the art of Irezumi. Custom large-scale Japanese tattoo projects in Munich.',
+    name: 'Tattoo Studio München — KishaTattoo',
+    description: 'Tattoo Studio München spezialisiert auf Japanisches Irezumi, Fineline und Grafik Tattoo. Individuelle Tattoo-Projekte mit 5+ Jahren Erfahrung.',
     url: '/',
   })
+
+  const faq = faqSchema(FAQ.map((f) => ({ question: f.q, answer: f.a })))
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
 
       <main id="main-content">
 
@@ -176,9 +184,9 @@ export default function GraphicHomePage() {
                 marginBottom: '1.5rem',
               }}
             >
-              Irezumi Mastery.
+              Tattoo München —
               <br />
-              Stories Etched in Skin
+              Irezumi Mastery
             </h1>
             <p
               style={{
@@ -188,8 +196,8 @@ export default function GraphicHomePage() {
                 maxWidth: '17.5rem',
               }}
             >
-              Five years dedicated to the art of Irezumi: crafting large, meaningful
-              projects that become your personal history
+              Tattoo Studio München — fünf Jahre gewidmet der Kunst des Irezumi: großformatige,
+              bedeutungsvolle Projekte, die zu deiner persönlichen Geschichte werden
             </p>
           </div>
 
@@ -225,7 +233,7 @@ export default function GraphicHomePage() {
                 lineHeight: 1,
               }}
             >
-              The Kanji fundamentally means &ldquo;road&rdquo; or &ldquo;path&rdquo;
+              Das Kanji bedeutet im Kern &bdquo;Weg&ldquo; oder &bdquo;Pfad&ldquo;
             </span>
           </div>
 
@@ -274,7 +282,7 @@ export default function GraphicHomePage() {
                   flexShrink: 0,
                 }}
               >
-                [ Art that becomes a story ]
+                [ Kunst, die zur Geschichte wird ]
               </span>
               <h2
                 id="works-heading"
@@ -288,14 +296,14 @@ export default function GraphicHomePage() {
                   width: 'clamp(22rem, 29.3vw, 35rem)',
                 }}
               >
-                The image is more than just a picture
+                Tattoo München — das Bild ist mehr als nur ein Bild
               </h2>
               <Link
                 href="/works"
                 className="g-works-explore-link"
                 style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap' }}
               >
-                [ Explore work and tattooing ]
+                [ Alle Arbeiten ansehen ]
               </Link>
             </div>
 
@@ -314,7 +322,7 @@ export default function GraphicHomePage() {
                 className="g-works-explore-mobile"
                 style={{ display: 'none', fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none' }}
               >
-                [ Explore work and tattooing ]
+                [ Alle Arbeiten ansehen ]
               </Link>
 
               {WORKS.map((item) => (
@@ -390,7 +398,7 @@ export default function GraphicHomePage() {
               color: '#0D0D0D',
             }}
           >
-            The Love<br />of the Craft
+            Die Leidenschaft<br />für das Handwerk
           </h2>
 
           {/* Right column above photo: kanji 愛 + caption + "My work…" */}
@@ -414,12 +422,13 @@ export default function GraphicHomePage() {
               愛
             </span>
             <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF', width: '9.875rem', lineHeight: 1 }}>
-              It signifies a profound love or affection for someone or something
+              Das Kanji steht für tiefe Liebe und Zuneigung zu jemandem oder etwas
             </span>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
-              My work is not driven by fleeting trends, but by profound respect for the
-              metaphor and the core idea. This commitment ensures that your unique vision
-              is transformed into a lasting masterpiece, carefully etched with skill and affection
+              Meine Arbeit als Tattoo Artist in München folgt nicht flüchtigen Trends,
+              sondern einem tiefen Respekt vor der Metapher und der Kernidee. Diese
+              Überzeugung stellt sicher, dass deine einzigartige Vision in ein dauerhaftes
+              Meisterwerk verwandelt wird — präzise gestochen mit Können und Leidenschaft
             </p>
           </div>
 
@@ -459,10 +468,10 @@ export default function GraphicHomePage() {
               color: '#0D0D0D',
             }}
           >
-            In the world of Irezumi, every line is drawn with intention, powered by
-            deep love for the tradition and dedication to the client&apos;s vision. For over
-            five years, I have channeled this passion into creating large, traditional
-            Japanese projects
+            Im Irezumi wird jede Linie mit Absicht gezogen — getragen von tiefer Liebe
+            zur Tradition und Hingabe an die Vision des Kunden. Seit über fünf Jahren
+            lebe ich diese Leidenschaft in großformatigen, traditionellen Japanischen
+            Tattoo-Projekten im Herzen von München
           </p>
         </section>
 
@@ -480,7 +489,7 @@ export default function GraphicHomePage() {
                   textAlign: 'center',
                 }}
               >
-                Your journey to Irezumi:<br />a three-step process
+                Dein Weg zum Tattoo in München:<br />drei Schritte zum Meisterwerk
               </h2>
             </div>
           </div>
@@ -506,18 +515,18 @@ export default function GraphicHomePage() {
               {[
                 {
                   kanji: '一',
-                  title: 'Consultation',
-                  body: 'We discuss your idea, metaphors, and the philosophy behind the future tattoo. This is the stage where your story becomes our starting point',
+                  title: 'Beratung',
+                  body: 'Wir besprechen deine Idee, die Metaphern und die Philosophie hinter dem zukünftigen Tattoo. In dieser Phase wird deine Geschichte zu unserem Ausgangspunkt',
                 },
                 {
                   kanji: '二',
-                  title: 'Sketch',
-                  body: 'I create an individual sketch that respects the traditional canons of Irezumi but reflects your unique goal. The sketch is approved only when we are both confident in its perfection',
+                  title: 'Entwurf',
+                  body: 'Ich erstelle einen individuellen Entwurf, der die traditionellen Irezumi-Kanons respektiert und dein einzigartiges Ziel widerspiegelt. Der Sketch wird erst freigegeben, wenn wir beide von seiner Perfektion überzeugt sind',
                 },
                 {
                   kanji: '三',
-                  title: 'Session',
-                  body: 'We begin the work. Each session is a focused ritual, dedicated to bringing the project to life',
+                  title: 'Sitzung',
+                  body: 'Wir beginnen die Arbeit. Jede Sitzung ist ein konzentriertes Ritual, das dem Ziel gewidmet ist, das Projekt zum Leben zu erwecken',
                 },
               ].map((step, i) => (
                 <div key={step.title} style={{ display: 'contents' }}>
@@ -614,11 +623,12 @@ export default function GraphicHomePage() {
                   id="trad-heading"
                   style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}
                 >
-                  The Language of traditional japanese art
+                  Japanische Tattoo-Motive in München
                 </h2>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
-                  Traditional Japanese tattooing speaks the language of symbols. Here are
-                  the meanings of the most popular motifs we work with
+                  Das japanische Tattoo spricht die Sprache der Symbole. Hier sind die
+                  Bedeutungen der beliebtesten Motive, mit denen wir in unserem Münchner
+                  Tattoo Studio arbeiten
                 </p>
               </div>
 
@@ -629,7 +639,7 @@ export default function GraphicHomePage() {
               >
                 <span className="g-kanji">忍</span>
                 <span className="g-kanji-caption" style={{ textAlign: 'right' }}>
-                  A symbol that represents an internal strength and discipline
+                  Ein Symbol für innere Stärke und Disziplin
                 </span>
               </div>
             </div>
@@ -687,9 +697,9 @@ export default function GraphicHomePage() {
                       gap: '1.5rem',
                     }}
                   >
-                    <div style={{ position: 'relative', width: '100%', height: 'clamp(420px, calc(180px + 16.67vw), 500px)', overflow: 'hidden', borderRadius: '2px' }}>
+                    <Link href={motif.href} style={{ display: 'block', position: 'relative', width: '100%', height: 'clamp(420px, calc(180px + 16.67vw), 500px)', overflow: 'hidden', borderRadius: '2px' }}>
                       <Image src={motif.src} alt={motif.name + ' tattoo motif'} fill style={{ objectFit: 'cover' }} sizes="25vw" />
-                    </div>
+                    </Link>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                       <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{motif.name}</h3>
                       <p className="g-trad-desc" style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{motif.desc}</p>
@@ -757,13 +767,13 @@ export default function GraphicHomePage() {
                     maxWidth: '30rem',
                   }}
                 >
-                  Have questions? Feel free to ask everything about tattooing
+                  Häufige Fragen zum Tattoo Studio München
                 </h2>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {FAQ.map((item, i) => (
                     <div key={i} className="g-faq-item">
-                      <span className="g-faq-item__num g-tag">Question №{i + 1}</span>
+                      <span className="g-faq-item__num g-tag">Frage №{i + 1}</span>
                       <h3 className="g-faq-item__q">{item.q}</h3>
                       <p className="g-faq-item__a">{item.a}</p>
                     </div>

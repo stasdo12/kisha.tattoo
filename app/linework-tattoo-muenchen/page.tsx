@@ -1,57 +1,86 @@
 /**
- * LINEWORK TATTOO MÜNCHEN — Style landing page
- * Target keyword: "linework tattoo münchen" + "feine linien tattoo münchen"
- * Design: Graphic design system — matches existing pages
+ * FINELINE TATTOO MÜNCHEN — Style landing page
+ * Primary keyword: "fineline tattoo münchen" (590/mo, KD 10)
+ * Cluster: fine line tattoo münchen · fineline tattoos münchen · tattoo münchen fine line
+ * Design: Graphic design system — unchanged
  */
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
-import { serviceSchema, breadcrumbSchema } from '@/lib/structured-data'
+import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Linework Tattoo München — Feine Linien & Fineline | KishaTattoo',
+  title: 'Fineline Tattoo München — Fine Line & Linework | KishaTattoo',
   description:
-    'Linework & Fineline Tattoo in München — botanische Motive, minimalistische Designs, präzise feine Linien. KishaTattoo München. Termin jetzt buchen.',
+    'Fineline Tattoo in München — präzise feine Linien, botanische Motive, Single-Needle-Technik. KishaTattoo: Expertin für Fine Line und Linework in München. Jetzt Termin buchen.',
   path: '/linework-tattoo-muenchen',
   keywords: [
-    'linework tattoo münchen',
-    'feine linien tattoo münchen',
     'fineline tattoo münchen',
-    'minimalistisches tattoo münchen',
+    'fine line tattoo münchen',
+    'fineline tattoos münchen',
+    'tattoo münchen fine line',
+    'tattoo fineline münchen',
+    'feine linien tattoo münchen',
+    'linework tattoo münchen',
     'botanisches tattoo münchen',
-    'fine line tattoo munich',
-    'linework künstlerin münchen',
-    'thin line tattoo münchen',
-    'zierliches tattoo münchen',
+    'minimalistisches tattoo münchen',
+    'single needle tattoo münchen',
+    'fineline tattoo münchen preise',
   ],
 })
 
 const GALLERY = [
-  { src: 'https://picsum.photos/seed/lw-1/600/700', alt: 'Linework Tattoo München — botanische feine Linien' },
-  { src: 'https://picsum.photos/seed/lw-2/600/700', alt: 'Fineline Tattoo München — minimalistisches Design' },
-  { src: 'https://picsum.photos/seed/lw-3/600/700', alt: 'Botanisches Linework Tattoo München KishaTattoo' },
-  { src: 'https://picsum.photos/seed/lw-4/600/700', alt: 'Feine Linien Tattoo München — Blumen Linework' },
-  { src: 'https://picsum.photos/seed/lw-5/600/700', alt: 'Minimalistisches Tattoo München — single needle' },
-  { src: 'https://picsum.photos/seed/lw-6/600/700', alt: 'Linework Sleeve München — feine Botanik' },
+  { src: 'https://picsum.photos/seed/lw-1/600/700', alt: 'Fineline Tattoo München — botanische feine Linien KishaTattoo' },
+  { src: 'https://picsum.photos/seed/lw-2/600/700', alt: 'Fine Line Tattoo München — minimalistisches Blumen Design' },
+  { src: 'https://picsum.photos/seed/lw-3/600/700', alt: 'Fineline Tattoos München — botanisches Linework KishaTattoo' },
+  { src: 'https://picsum.photos/seed/lw-4/600/700', alt: 'Feine Linien Tattoo München — Single Needle Technik' },
+  { src: 'https://picsum.photos/seed/lw-5/600/700', alt: 'Fineline Tattoo München — minimalistisches Einzelmotiv' },
+  { src: 'https://picsum.photos/seed/lw-6/600/700', alt: 'Fine Line Sleeve München — botanische Linework Komposition' },
 ]
 
-export default function LineworkTattooMuenchen() {
+const FAQ = [
+  {
+    question: 'Was ist ein Fineline Tattoo?',
+    answer: 'Ein Fineline Tattoo (auch Fine Line oder Single Needle Tattoo) wird mit einer einzelnen, sehr dünnen Nadel gestochen. Das Ergebnis sind präzise, zarte Linien ohne breite Konturen — ideal für botanische Motive, Minimalismus, Portraits und Schriften.',
+  },
+  {
+    question: 'Was kostet ein Fineline Tattoo in München?',
+    answer: 'Fineline Tattoos bei KishaTattoo München starten ab ca. 150–200 € für kleine Motive (5–8 cm). Mittlere Designs (10–15 cm) liegen bei 300–500 €, größere Linework-Projekte werden nach Stunden abgerechnet. Schreib uns für ein individuelles Angebot.',
+  },
+  {
+    question: 'Wie lange hält ein Fineline Tattoo?',
+    answer: 'Fineline Tattoos halten bei guter Pflege viele Jahre. Dünnere Linien können mit der Zeit etwas weicher werden — deshalb ist es wichtig, einen erfahrenen Künstler zu wählen, der die richtige Tiefe und Technik beherrscht. KishaTattoo hat jahrelange Erfahrung in präziser Linienführung.',
+  },
+  {
+    question: 'Tut ein Fineline Tattoo mehr weh?',
+    answer: 'Fineline Tattoos werden mit weniger Nadeln gestochen, was oft als weniger intensiv empfunden wird als breitere Styles. Allerdings arbeitet die Nadel präzise und konzentriert — die Schmerzintensität hängt stark von der Körperstelle ab.',
+  },
+  {
+    question: 'Wo bekomme ich das beste Fineline Tattoo in München?',
+    answer: 'KishaTattoo ist eine auf Fineline, Fine Line und Linework spezialisierte Tattoo-Künstlerin in München. Mit jahrelanger Erfahrung in präziser Linienführung — trainiert durch Irezumi-Technik — entstehen klare, dauerhafte Fineline-Tattoos, die auch nach Jahren scharf bleiben.',
+  },
+]
+
+export default function FinelineTattooMuenchen() {
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        serviceSchema({ name: 'Linework Tattoo München', description: 'Linework und Fineline Tattoo in München — botanische Motive, Minimalismus, feine Linien.', url: '/linework-tattoo-muenchen' })
+        serviceSchema({ name: 'Fineline Tattoo München', description: 'Fineline und Fine Line Tattoo in München — botanische Motive, Single Needle, Linework. KishaTattoo München.', url: '/linework-tattoo-muenchen' })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Linework Tattoo München', url: '/linework-tattoo-muenchen' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Fineline Tattoo München', url: '/linework-tattoo-muenchen' }])
+      )}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        faqSchema(FAQ)
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
-        aria-label="Linework Tattoo München — KishaTattoo"
+        aria-label="Fineline Tattoo München — KishaTattoo"
         style={{
           position: 'relative',
           height: 'clamp(680px, 90vh, 900px)',
@@ -72,7 +101,7 @@ export default function LineworkTattooMuenchen() {
             color: '#0D0D0D',
           }}
         >
-          Linework Tattoo<br />München
+          Fineline Tattoo<br />München
         </h1>
 
         {/* Decorative kanji 線 — line */}
@@ -105,7 +134,7 @@ export default function LineworkTattooMuenchen() {
             color: '#0D0D0D',
           }}
         >
-          Feine Linien, klare Aussage. Linework und Fineline Tattoo —
+          Fine Line, präzise Technik. Fineline und Linework Tattoo —
           buchbar in München und Umgebung.
         </p>
 
@@ -121,7 +150,7 @@ export default function LineworkTattooMuenchen() {
 
           <div className="g-section-header" style={{ alignItems: 'center' }}>
             <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              [ Linework · Fineline · Botanik ]
+              [ Fineline · Fine Line · Linework · München ]
             </span>
             <h2
               id="lw-intro-heading"
@@ -134,7 +163,7 @@ export default function LineworkTattooMuenchen() {
                 flexShrink: 0,
               }}
             >
-              Feine Linien, tiefe Bedeutung
+              Fineline Tattoo München — präzise bis zur letzten Linie
             </h2>
             <Link href="/works" style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
               [ Portfolio ansehen ]
@@ -151,16 +180,16 @@ export default function LineworkTattooMuenchen() {
             }}
           >
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Linework-Tattoos leben von Präzision. Eine einzige, perfekt gesetzte Linie kann mehr
-              ausdrücken als ein ganzer Komplex aus Flächen und Farben. KishaTattoo setzt in München
-              Linework-Designs um, die durch handwerkliche Akkuratheit überzeugen — vom minimalistischen
-              Einzelmotiv bis zum botanischen Full-Sleeve.
+              Fineline Tattoos stehen für Präzision und Zurückhaltung. Eine einzige, perfekt gesetzte
+              feine Linie sagt mehr als ein ganzer Komplex aus Flächen und Füllung. KishaTattoo
+              ist spezialisiert auf Fine Line und Fineline Tattoos in München — vom minimalistischen
+              Einzelmotiv bis zum botanischen Linework-Sleeve.
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Fineline-Tattoos sind anspruchsvoll: dünne Linien verzeihen keine Fehler. Die Erfahrung
-              aus jahrelanger Irezumi-Praxis — wo Linienführung alles bedeutet — fließt direkt in
-              jeden Linework-Auftrag ein. Das Ergebnis: klare, dauerhafte Linien, die auch nach Jahren
-              scharf bleiben.
+              Die Grundlage für außergewöhnliche Fineline-Qualität liegt in der Irezumi-Technik: Wo
+              jede Linie zählt und nichts korrigiert werden kann. Diese Disziplin fließt in jedes
+              Fine Line Tattoo ein. Das Ergebnis: klare, dauerhafte Linien, die auch nach Jahren
+              scharf bleiben — das Markenzeichen eines guten Fineline-Tattoos in München.
             </p>
           </div>
 
@@ -169,7 +198,7 @@ export default function LineworkTattooMuenchen() {
 
       {/* ── GALLERY ───────────────────────────────────────────────────────── */}
       <section
-        aria-label="Linework Tattoo Portfolio München"
+        aria-label="Fineline Tattoo Portfolio München — KishaTattoo"
         style={{
           background: '#F2F2F2',
           paddingLeft: 'var(--g-pad)',
@@ -186,7 +215,7 @@ export default function LineworkTattooMuenchen() {
         </div>
         <div style={{ textAlign: 'center', marginTop: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}>
           <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
-            Alle Arbeiten ansehen →
+            Alle Fineline-Arbeiten ansehen →
           </Link>
         </div>
       </section>
@@ -207,14 +236,23 @@ export default function LineworkTattooMuenchen() {
             }}
           >
             <h2 id="lw-substyle-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}>
-              Linework-Varianten
+              Fine Line Tattoo München — drei Varianten
             </h2>
           </div>
           <div className="g-about-steps" style={{ display: 'flex' }}>
             {[
-              { title: 'Botanical Linework', body: 'Blumen, Farne, Zweige, Blätter — ausgeführt in einzelnen, präzisen Linien ohne Füllung. Botanische Linework-Tattoos wirken zeitlos elegant und altern dank ihrer Klarheit besonders gut.' },
-              { title: 'Fineline / Single Needle', body: 'Die dünnstmögliche Linie, oft mit Single-Needle-Technik gesetzt. Ideal für Details, Schriften, Portraits oder minimalistische Motive, die nah an der Haut bleiben sollen.' },
-              { title: 'Minimalismus', body: 'Weniger ist mehr — ein Kreis, ein Strich, eine Form. Minimalistische Tattoos bestechen durch ihre Reduktion. KishaTattoo findet die Essenz deiner Idee und setzt sie mit einem Minimum an Mitteln um.' },
+              {
+                title: 'Botanisches Fineline',
+                body: 'Blumen, Farne, Zweige, Blätter — ausgeführt in einzelnen, präzisen Linien ohne Füllung. Botanische Fineline-Tattoos sind in München besonders gefragt: zeitlos elegant, körperschonend und langlebig.',
+              },
+              {
+                title: 'Single Needle / Fine Line',
+                body: 'Die dünnstmögliche Linie, gesetzt mit Single-Needle-Technik. Ideal für Schriften, Portraits, feine Details und minimalistische Motive. Fine Line Tattoos in München — das Spezialgebiet von KishaTattoo.',
+              },
+              {
+                title: 'Minimalistisches Linework',
+                body: 'Ein Kreis, ein Strich, eine Form. KishaTattoo findet die Essenz deiner Idee und setzt sie mit maximalem Effekt bei minimalem Mitteleinsatz um — Linework-Tattoos aus München, die durch Reduktion überzeugen.',
+              },
             ].map((col, i) => (
               <div
                 key={col.title}
@@ -236,19 +274,60 @@ export default function LineworkTattooMuenchen() {
         </div>
       </section>
 
-      {/* ── RELATED + CTA ─────────────────────────────────────────────────── */}
+      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
+      <section
+        aria-labelledby="lw-faq-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+      >
+        <div className="g-container">
+          <h2
+            id="lw-faq-heading"
+            style={{
+              fontSize: 'var(--g-l)',
+              lineHeight: 'var(--g-lh-l)',
+              color: '#0D0D0D',
+              marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
+              paddingBottom: '1.25rem',
+              borderBottom: '2px solid #0D0D0D',
+            }}
+          >
+            Häufige Fragen zum Fineline Tattoo
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {FAQ.map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 'clamp(2rem, 4vw, 5rem)',
+                  padding: 'clamp(1rem, 1.8vw, 1.75rem) 0',
+                  borderBottom: '1px solid rgba(13,13,13,0.2)',
+                }}
+              >
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── RELATED ───────────────────────────────────────────────────────── */}
       <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>Weitere Stile →</span>
           <Link href="/japanisches-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Japanisches Tattoo München</Link>
           <Link href="/grafik-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Grafik Tattoo München</Link>
+          <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Preise München</Link>
         </div>
       </section>
 
+      {/* ── CTA ───────────────────────────────────────────────────────────── */}
       <section data-nav-dark style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
-            Dein Linework Tattoo in München
+            Dein Fineline Tattoo in München
           </p>
           <Link href="/booking" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', background: '#F2F2F2', color: '#0D0D0D', fontSize: 'var(--g-bm)', textDecoration: 'none', whiteSpace: 'nowrap' }}>
             Termin buchen
