@@ -258,6 +258,35 @@ export default function GrafikTattooMuenchen() {
         </div>
       </section>
 
+      {/* ── PRICE TEASER ──────────────────────────────────────────────────── */}
+      <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+        <div className="g-container">
+          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
+            <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
+              Was kostet ein Grafik Tattoo?
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 2vw, 2rem)' }}>
+            {[
+              { size: 'Mini (bis 5 cm)', price: 'ab 150 €', time: '1–2 Std.' },
+              { size: 'Mittel (10–20 cm)', price: 'ab 400 €', time: '3–5 Std.' },
+              { size: 'Custom Komposition', price: 'ab 800 € / Sitzung', time: '5–7 Std.' },
+            ].map((row) => (
+              <div key={row.size} style={{ padding: 'clamp(1rem, 1.5vw, 1.5rem)', borderBottom: '1px solid rgba(13,13,13,0.15)' }}>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{row.size}</p>
+                <p style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', marginTop: '0.5rem' }}>{row.price}</p>
+                <p style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.55)', marginTop: '0.25rem' }}>{row.time}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: '1.5rem' }}>
+            <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
+              Vollständige Preisübersicht ansehen →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="gr-faq-heading"

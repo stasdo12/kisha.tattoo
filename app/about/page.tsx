@@ -273,7 +273,7 @@ export default function GraphicAboutPage() {
               maxWidth: '22rem',
               marginLeft: 'auto',
             }}>
-              In unserem Tattoo Studio München leiten uns tiefe Liebe zum Handwerk
+              Bei KishaTattoo München leiten uns tiefe Liebe zum Handwerk
               und aufrichtige Hingabe an deine Vision
             </p>
           </div>
@@ -401,6 +401,32 @@ export default function GraphicAboutPage() {
             }}
           >
             Awards & Recognition ansehen →
+          </Link>
+        </div>
+      </section>
+
+      {/* ── 6. BOOKING CTA ────────────────────────────────────────────────── */}
+      <section
+        data-nav-dark
+        style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+      >
+        <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+          <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
+            Bereit für dein Tattoo bei Kisha in München?
+          </p>
+          <Link
+            href="/booking"
+            style={{
+              display: 'inline-block',
+              padding: '0.875rem 2.5rem',
+              background: '#F2F2F2',
+              color: '#0D0D0D',
+              fontSize: 'var(--g-bm)',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Termin anfragen
           </Link>
         </div>
       </section>
