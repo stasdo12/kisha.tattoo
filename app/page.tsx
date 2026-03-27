@@ -425,10 +425,9 @@ export default function GraphicHomePage() {
               Das Kanji steht für tiefe Liebe und Zuneigung zu jemandem oder etwas
             </span>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
-              Meine Arbeit als Tattoo Artist in München folgt nicht flüchtigen Trends,
-              sondern einem tiefen Respekt vor der Metapher und der Kernidee. Diese
-              Überzeugung stellt sicher, dass deine einzigartige Vision in ein dauerhaftes
-              Meisterwerk verwandelt wird — präzise gestochen mit Können und Leidenschaft
+              Nicht flüchtige Trends, sondern tiefer Respekt vor der Metapher und der
+              Kernidee. Deine einzigartige Vision wird zum dauerhaften Meisterwerk —
+              präzise gestochen mit Können und Leidenschaft
             </p>
           </div>
 
