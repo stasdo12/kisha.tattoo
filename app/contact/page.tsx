@@ -249,6 +249,16 @@ export default function GraphicContactPage() {
 
       </section>
 
+      {/* ── QUICK LINKS ───────────────────────────────────────────────────── */}
+      <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
+        <div className="g-container" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>Oder direkt →</span>
+          <Link href="/booking" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Termin buchen</Link>
+          <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Preise ansehen</Link>
+          <Link href="/faq" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>FAQ</Link>
+        </div>
+      </section>
+
       {/* ── FOOTER ───────────────────────────────────────────────────────── */}
       <GFooter />
 

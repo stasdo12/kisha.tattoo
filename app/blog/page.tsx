@@ -195,6 +195,46 @@ export default function GraphicBlogPage() {
 
       </section>
 
+      {/* ── KISHA TEASER ──────────────────────────────────────────────────── */}
+      <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+        <div
+          className="g-container"
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '2rem',
+            flexWrap: 'wrap',
+            paddingTop: 'clamp(1.5rem, 2.5vw, 3rem)',
+            borderTop: '2px solid #0D0D0D',
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '28rem' }}>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>[ KishaTattoo München ]</span>
+            <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
+              Japanisches Irezumi, Fineline & Grafik — individuell für dich.
+            </p>
+            <Link href="/about" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
+              Über Kisha →
+            </Link>
+          </div>
+          <Link
+            href="/booking"
+            style={{
+              display: 'inline-block',
+              padding: '0.875rem 2.5rem',
+              border: '1px solid #0D0D0D',
+              color: '#0D0D0D',
+              fontSize: 'var(--g-bm)',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Termin anfragen
+          </Link>
+        </div>
+      </section>
+
       {/* ── FOOTER ───────────────────────────────────────────────────────── */}
       <GFooter />
 

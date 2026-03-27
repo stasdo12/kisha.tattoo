@@ -783,6 +783,75 @@ export default function GraphicHomePage() {
           </div>
         </section>
 
+        {/* ── STYLE CARDS ───────────────────────────────────────────────────── */}
+        <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+          <div className="g-container">
+            <div
+              style={{
+                paddingBottom: '1.25rem',
+                borderBottom: '2px solid #0D0D0D',
+                marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'baseline',
+                gap: '2rem',
+                flexWrap: 'wrap',
+              }}
+            >
+              <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
+                Stile & Preise
+              </h2>
+              <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: 'rgba(13,13,13,0.55)', textDecoration: 'none', borderBottom: '1px solid rgba(13,13,13,0.3)', paddingBottom: '2px', whiteSpace: 'nowrap' }}>
+                Alle Preise ansehen →
+              </Link>
+            </div>
+
+            <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 2rem)', flexWrap: 'wrap' }}>
+              {[
+                {
+                  href: '/linework-tattoo-muenchen',
+                  style: 'Fineline Tattoo',
+                  price: 'ab 150 €',
+                  desc: 'Botanische Linework, geometrische Formen, feine Schriften — höchste Präzision auf kleinstem Raum.',
+                },
+                {
+                  href: '/japanisches-tattoo-muenchen',
+                  style: 'Japanisches Irezumi',
+                  price: 'ab 200 €',
+                  desc: 'Koi, Drachen, Tiger — traditionelle Kompositionen nach klassischer Irezumi-Bildsprache.',
+                },
+                {
+                  href: '/grafik-tattoo-muenchen',
+                  style: 'Grafik & Blackwork',
+                  price: 'ab 150 €',
+                  desc: 'Custom Grafik, Blackwork, geometrische Tattoos — starke, zeitlose Bildsprache.',
+                },
+              ].map((card) => (
+                <Link
+                  key={card.href}
+                  href={card.href}
+                  style={{
+                    flex: '1 1 clamp(14rem, 28vw, 380px)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1rem',
+                    padding: 'clamp(1.25rem, 2vw, 2rem)',
+                    border: '1px solid rgba(13,13,13,0.2)',
+                    textDecoration: 'none',
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '1rem' }}>
+                    <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{card.style}</span>
+                    <span style={{ fontSize: 'var(--g-bm)', color: 'rgba(13,13,13,0.55)', whiteSpace: 'nowrap' }}>{card.price}</span>
+                  </div>
+                  <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{card.desc}</p>
+                  <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', marginTop: 'auto' }}>Mehr erfahren →</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <GFooter />
 
       </main>

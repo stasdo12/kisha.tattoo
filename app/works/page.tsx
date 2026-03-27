@@ -269,6 +269,42 @@ export default function GraphicWorksPage() {
         </div>
       </section>
 
+      {/* ── CTA ───────────────────────────────────────────────────────────── */}
+      <section
+        data-nav-dark
+        style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+      >
+        <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
+              Dein Custom Tattoo — bereit für den nächsten Schritt?
+            </p>
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: 'rgba(242,242,242,0.55)', textDecoration: 'none', borderBottom: '1px solid rgba(242,242,242,0.3)', paddingBottom: '2px' }}>
+                Preise ansehen
+              </Link>
+              <Link href="/about" style={{ fontSize: 'var(--g-bm)', color: 'rgba(242,242,242,0.55)', textDecoration: 'none', borderBottom: '1px solid rgba(242,242,242,0.3)', paddingBottom: '2px' }}>
+                Über Kisha
+              </Link>
+            </div>
+          </div>
+          <Link
+            href="/booking"
+            style={{
+              display: 'inline-block',
+              padding: '0.875rem 2.5rem',
+              background: '#F2F2F2',
+              color: '#0D0D0D',
+              fontSize: 'var(--g-bm)',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Termin anfragen
+          </Link>
+        </div>
+      </section>
+
       {/* ── FOOTER ───────────────────────────────────────────────────────── */}
       <GFooter />
 
