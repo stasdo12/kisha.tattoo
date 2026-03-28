@@ -79,7 +79,7 @@ export default function GraphicWorksPage() {
       >
         {/* Background image */}
         <Image
-          src="/images/work/main-work-tattoo.JPG"
+          src="/images/work/main-work-tattoo.jpg"
           alt=""
           aria-hidden="true"
           fill

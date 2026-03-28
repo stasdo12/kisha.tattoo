@@ -89,6 +89,14 @@ export default function RootLayout({
       className={`${cinzel.variable} ${inter.variable} ${notoSansJP.variable} ${dmSans.variable}`}
     >
       <head>
+        {/* Google Analytics GA4 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKLZT9R83C" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EKLZT9R83C');`,
+          }}
+        />
+
         {/* Preconnect to external image domains — reduces DNS + TLS handshake time */}
         <link rel="preconnect" href="https://picsum.photos" />
         <link rel="preconnect" href="https://placehold.co" />

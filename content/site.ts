@@ -21,22 +21,21 @@ export const SITE = {
 
   // Contact & Location — required for LocalBusiness structured data
   contact: {
-    email: 'hello@kisha.tattoo', // TODO: confirm real email
-    phone: '+49 89 000 000 00', // TODO: replace with real phone
+    email: 'hello@kisha.tattoo',
+    phone: '+491701893395',
     bookingUrl: '/booking',
   },
 
   location: {
-    street: 'Musterstraße 1', // TODO
-    city: 'Munich',
+    street: 'Bahnhofstraße 1',
+    city: 'Neufahrn bei Freising',
     state: 'Bavaria',
-    postalCode: '80000', // TODO
+    postalCode: '85375',
     country: 'DE',
     countryName: 'Germany',
-    lat: 48.1351,
-    lng: 11.582,
-    // Google Maps embed URL TODO
-    mapsUrl: 'https://maps.google.com/?q=Munich+Germany',
+    lat: 48.3167,
+    lng: 11.6833,
+    mapsUrl: 'https://maps.google.com/?q=Bahnhofstraße+1,+85375+Neufahrn+bei+Freising',
   },
 
   // Opening hours — for structured data
