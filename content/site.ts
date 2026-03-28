@@ -5,24 +5,24 @@
  */
 export const SITE = {
   name: 'Kisha Tattoo',
-  tagline: 'Japanese & Graphic Tattoo Studio Munich',
+  tagline: 'Japanisches Irezumi & Grafik Tattoo München',
   description:
-    'Kisha Tattoo is a premium tattoo studio in Munich specialising in traditional Japanese Irezumi and contemporary graphic tattoos. Custom designs, Tebori technique, expert artistry.',
-  url: 'https://kishatattoo.com', // TODO: replace with real domain
-  locale: 'en_DE',
-  language: 'en',
+    'Kisha — Tattoo-Künstlerin in München, spezialisiert auf Japanisches Irezumi, Grafik-Tattoo und Linework. Preisgekrönt 2025. Custom-Design, Tebori-Technik. Jetzt Termin buchen.',
+  url: 'https://kisha.tattoo',
+  locale: 'de_DE',
+  language: 'de',
 
   // Social
   social: {
-    instagram: 'https://instagram.com/kishatattoo', // TODO
-    facebook: 'https://facebook.com/kishatattoo', // TODO
-    reddit: 'https://reddit.com/u/kishatattoo', // TODO
+    instagram: 'https://www.instagram.com/kisha.tattoo/',
+    facebook: 'https://www.facebook.com/bavariatattoo1',
+    reddit: 'https://www.reddit.com/r/tattoo/search/?q=kisha.tattoo',
   },
 
   // Contact & Location — required for LocalBusiness structured data
   contact: {
-    email: 'hello@kishatattoo.com', // TODO
-    phone: '+49 89 000 000 00', // TODO
+    email: 'hello@kisha.tattoo', // TODO: confirm real email
+    phone: '+49 89 000 000 00', // TODO: replace with real phone
     bookingUrl: '/booking',
   },
 

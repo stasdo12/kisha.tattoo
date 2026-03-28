@@ -35,4 +35,4 @@ User-agent: Applebot
 Allow: /
 
 # Sitemap location
-Sitemap: https://kishatattoo.com/sitemap.xml
+Sitemap: https://kisha.tattoo/sitemap.xml
