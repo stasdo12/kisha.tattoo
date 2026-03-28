@@ -571,6 +571,7 @@ export default function GraphicHomePage() {
                       lineHeight: 'var(--g-lh-s)',
                       color: '#F2F2F2',
                       textAlign: 'center',
+                      marginTop: 'auto',
                     }}
                     aria-hidden="true"
                   >

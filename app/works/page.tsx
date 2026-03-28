@@ -16,6 +16,7 @@ import { buildMetadata } from '@/lib/seo'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
+import { GWorkImage } from '@/components/graphic/GWorkImage'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Latest Works — Kisha Irezumi',
@@ -32,10 +33,10 @@ const ROW1_LEFT = {
   alt: 'Irezumi back piece — Oni mask',
 }
 const ROW1_RIGHT = [
-  { src: 'https://picsum.photos/seed/w-hand-1/448/472',  alt: 'Hand tattoo detail' },
-  { src: 'https://picsum.photos/seed/w-sleeve-1/448/472', alt: 'Sleeve Irezumi'     },
-  { src: 'https://picsum.photos/seed/w-carp-1/448/472',  alt: 'Carp koi tattoo'    },
-  { src: 'https://picsum.photos/seed/w-tiger-1/448/472', alt: 'Tiger chest piece'  },
+  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Japanisches Fuchs Tattoo München — Kisha' },
+  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',    alt: 'Grafik Hasen Tattoo München — Kisha'     },
+  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',    alt: 'Grafik Vögel Tattoo München — Kisha'     },
+  { src: '/images/work/4x4-bugs-tattoo-graphic.jpg',     alt: 'Grafik Insekten Tattoo München — Kisha'  },
 ]
 const ROW2 = {
   src: 'https://picsum.photos/seed/w-sakura-back/1840/960',
@@ -46,10 +47,10 @@ const ROW3 = [
   { src: 'https://picsum.photos/seed/w-back-wolf/912/960', alt: 'Back piece wolf mask'  },
 ]
 const ROW4 = [
-  { src: 'https://picsum.photos/seed/w-face-2/448/472',   alt: 'Face tattoo detail'    },
-  { src: 'https://picsum.photos/seed/w-dragon-arm/448/472', alt: 'Dragon arm tattoo'   },
-  { src: 'https://picsum.photos/seed/w-mask-2/448/472',   alt: 'Sleeve mask tattoo'    },
-  { src: 'https://picsum.photos/seed/w-profile-2/448/472', alt: 'Man profile tattoo'   },
+  { src: '/images/work/4x4-dog-tattoo-fineline.jpg',     alt: 'Fineline Hund Tattoo München — Kisha'   },
+  { src: '/images/work/4x4-fogel-tattoo-graphic.jpg',    alt: 'Grafik Vogel Tattoo München — Kisha'    },
+  { src: '/images/work/4x4-owl-tattoo-fineline.jpg',     alt: 'Fineline Eule Tattoo München — Kisha'   },
+  { src: '/images/work/4x4-sakura-tattoo.jpg',           alt: 'Sakura Tattoo München — Kisha'          },
 ]
 
 /* Shared image height tokens (fluid, anchored 1440→1920) */
@@ -78,12 +79,12 @@ export default function GraphicWorksPage() {
       >
         {/* Background image */}
         <Image
-          src="https://picsum.photos/seed/works-hero-bg/1920/1080"
+          src="/images/work/main-work-tattoo.JPG"
           alt=""
           aria-hidden="true"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center right' }}
+          style={{ objectFit: 'cover', objectPosition: 'center center' }}
           sizes="100vw"
         />
         {/* Dark overlay rgba(13,13,13,0.35) */}
@@ -188,15 +189,12 @@ export default function GraphicWorksPage() {
             style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}
           >
             {/* Left: single tall image */}
-            <div style={{ position: 'relative', height: H_LARGE, overflow: 'hidden' }}>
-              <Image
-                src={ROW1_LEFT.src}
-                alt={ROW1_LEFT.alt}
-                fill
-                style={{ objectFit: 'cover' }}
-                sizes="50vw"
-              />
-            </div>
+            <GWorkImage
+              src={ROW1_LEFT.src}
+              alt={ROW1_LEFT.alt}
+              sizes="50vw"
+              style={{ height: H_LARGE }}
+            />
 
             {/* Right: 2×2 grid */}
             <div
@@ -210,42 +208,23 @@ export default function GraphicWorksPage() {
               }}
             >
               {ROW1_RIGHT.map((img) => (
-                <div key={img.src} style={{ position: 'relative', overflow: 'hidden' }}>
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="25vw"
-                  />
-                </div>
+                <GWorkImage key={img.src} src={img.src} alt={img.alt} sizes="25vw" />
               ))}
             </div>
           </div>
 
           {/* ROW 2 — Full-width ─────────────────────────────────────────── */}
-          <div style={{ position: 'relative', height: H_LARGE, overflow: 'hidden' }}>
-            <Image
-              src={ROW2.src}
-              alt={ROW2.alt}
-              fill
-              style={{ objectFit: 'cover' }}
-              sizes="100vw"
-            />
-          </div>
+          <GWorkImage
+            src={ROW2.src}
+            alt={ROW2.alt}
+            sizes="100vw"
+            style={{ height: H_LARGE }}
+          />
 
           {/* ROW 3 — 2 equal columns ────────────────────────────────────── */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             {ROW3.map((img) => (
-              <div key={img.src} style={{ position: 'relative', height: H_LARGE, overflow: 'hidden' }}>
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="50vw"
-                />
-              </div>
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} sizes="50vw" style={{ height: H_LARGE }} />
             ))}
           </div>
 
@@ -255,15 +234,7 @@ export default function GraphicWorksPage() {
             style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}
           >
             {ROW4.map((img) => (
-              <div key={img.src} style={{ position: 'relative', height: H_SMALL, overflow: 'hidden' }}>
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="25vw"
-                />
-              </div>
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} sizes="25vw" style={{ height: H_SMALL }} />
             ))}
           </div>
 
