@@ -42,35 +42,35 @@ const MOTIFS = [
   {
     id: 'dragon',
     name: 'Dragon',
-    href: '/motive/drachen-tattoo-muenchen',
+    href: '/motive#drachen',
     src: '/images/home/motif-dragon.jpg',
     desc: 'Weisheit, Stärke, Schutz und übernatürliche Kräfte. Symbol des Wassers und der Großzügigkeit.',
   },
   {
     id: 'carp',
     name: 'Karpfen',
-    href: '/motive/koi-tattoo-muenchen',
+    href: '/motive#koi',
     src: '/images/home/motif-koi.jpg',
     desc: 'Ausdauer, Erfolg im Kampf, Mut und die Fähigkeit, Hindernisse zu überwinden.',
   },
   {
     id: 'fox',
     name: 'Fuchs',
-    href: '/motive/kitsune-tattoo-muenchen',
+    href: '/motive#kitsune',
     src: '/images/home/motif-fox.jpg',
     desc: 'Schlauheit, Intellekt, Langlebigkeit und magische Kräfte. Gilt als Beschützer vor dem Bösen.',
   },
   {
     id: 'cherry',
     name: 'Kirschblüte',
-    href: '/motive/sakura-tattoo-muenchen',
+    href: '/motive#sakura',
     src: '/images/home/motif-sakura.jpg',
     desc: 'Die Vergänglichkeit und Schönheit des Lebens — die Philosophie des Memento Mori.',
   },
   {
     id: 'tiger',
     name: 'Tiger',
-    href: '/motive/tiger-tattoo-muenchen',
+    href: '/motive#tiger',
     src: '/images/home/motif-tiger.jpg',
     desc: 'Kraft, Tapferkeit, Langlebigkeit und Schutz vor Krankheit. Symbol des Windes und des Nordens.',
   },
@@ -696,8 +696,11 @@ export default function GraphicHomePage() {
                       gap: '1.5rem',
                     }}
                   >
-                    <Link href={motif.href} style={{ display: 'block', position: 'relative', width: '100%', height: 'clamp(420px, calc(180px + 16.67vw), 500px)', overflow: 'hidden', borderRadius: '2px' }}>
+                    <Link href={motif.href} className="g-trad-card__img-wrap" style={{ width: '100%', height: 'clamp(420px, calc(180px + 16.67vw), 500px)' }}>
                       <Image src={motif.src} alt={motif.name + ' tattoo motif'} fill style={{ objectFit: 'cover' }} sizes="25vw" />
+                      <div className="g-trad-overlay" aria-hidden="true">
+                        <span className="g-trad-overlay__btn">Symbolik lesen →</span>
+                      </div>
                     </Link>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                       <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{motif.name}</h3>

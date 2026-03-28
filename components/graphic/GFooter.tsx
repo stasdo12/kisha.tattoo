@@ -105,6 +105,22 @@ export function GFooter() {
             ))}
           </div>
 
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Motive</span>
+            {[
+              { href: '/motive',                           label: 'Alle Motive' },
+              { href: '/motive#drachen',                   label: 'Drachen (Ryū)' },
+              { href: '/motive#koi',                       label: 'Koi' },
+              { href: '/motive#kitsune',                   label: 'Kitsune' },
+              { href: '/motive#sakura',                    label: 'Sakura' },
+              { href: '/motive#tiger',                     label: 'Tiger (Tora)' },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.65)', textDecoration: 'none' }}>
+                {l.label}
+              </Link>
+            ))}
+          </div>
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
             <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Pages</span>
             {[

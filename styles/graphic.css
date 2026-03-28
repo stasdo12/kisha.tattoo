@@ -172,6 +172,47 @@ body:has([data-theme='graphic']) {
   line-height: 1;
 }
 
+/* === TRAD CARD HOVER OVERLAY === */
+.g-trad-card__img-wrap {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.g-trad-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 1.25rem;
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+.g-trad-overlay__btn {
+  padding: 0.6rem 1.5rem;
+  background: #F2F2F2;
+  color: #0D0D0D;
+  font-size: var(--g-bm);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.g-trad-card__img-wrap:hover .g-trad-overlay {
+  background: rgba(13, 13, 13, 0.55);
+}
+
+.g-trad-card__img-wrap:hover .g-trad-overlay__btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* === FAQ ITEM === */
 .g-faq-item {
   position: relative;
@@ -495,7 +536,7 @@ body:has([data-theme='graphic']) {
   }
 
   /* Card image: fixed height on mobile */
-  .g-trad-card > div:first-child {
+  .g-trad-card__img-wrap {
     height: 360px !important;
   }
 

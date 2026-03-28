@@ -32,6 +32,12 @@ const nextConfig: NextConfig = {
       { source: '/graphic/:path*',  destination: '/:path*', permanent: true },
       { source: '/graphics',        destination: '/',       permanent: true },
       { source: '/graphics/:path*', destination: '/:path*', permanent: true },
+      // Individual motif slug pages → hub page with anchor
+      { source: '/motive/drachen-tattoo-muenchen',  destination: '/motive#drachen',  permanent: true },
+      { source: '/motive/koi-tattoo-muenchen',      destination: '/motive#koi',      permanent: true },
+      { source: '/motive/kitsune-tattoo-muenchen',  destination: '/motive#kitsune',  permanent: true },
+      { source: '/motive/sakura-tattoo-muenchen',   destination: '/motive#sakura',   permanent: true },
+      { source: '/motive/tiger-tattoo-muenchen',    destination: '/motive#tiger',    permanent: true },
     ]
   },
 
