@@ -25,12 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/grafik-tattoo-muenchen`,      lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${SITE.url}/linework-tattoo-muenchen`,    lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
 
-    // ── Motive pages ─────────────────────────────────────────────────────────
-    { url: `${SITE.url}/motive/drachen-tattoo-muenchen`,  lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE.url}/motive/koi-tattoo-muenchen`,      lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE.url}/motive/tiger-tattoo-muenchen`,    lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE.url}/motive/kitsune-tattoo-muenchen`,  lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${SITE.url}/motive/sakura-tattoo-muenchen`,   lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    // ── Motive hub — all 5 motifs on one pillar page ─────────────────────────
+    { url: `${SITE.url}/motive`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
 
     // ── Walk-in page ─────────────────────────────────────────────────────────
     { url: `${SITE.url}/walk-in-tattoo-muenchen`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
