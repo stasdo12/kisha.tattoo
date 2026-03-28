@@ -54,7 +54,7 @@ const AWARDS = [
   {
     year: '2025',
     event: 'Tattooconvention Eggenfelden',
-    eventUrl: 'https://www.instagram.com/tattoo_convention_eggenfelden/',
+    eventUrl: 'https://www.instagram.com/p/DOS9-6rjaaM/?img_index=2',
     category: 'Black & Grey',
     description: 'Preis in der Kategorie Black & Grey auf der Tattooconvention Eggenfelden.',
     placement: 'Auszeichnung',
@@ -62,7 +62,7 @@ const AWARDS = [
   {
     year: '2025',
     event: 'Tattooconvention Eggenfelden',
-    eventUrl: 'https://www.instagram.com/tattoo_convention_eggenfelden/',
+    eventUrl: 'https://www.instagram.com/p/DOQdGJ2DdCc/?img_index=1',
     category: 'Fineline / Dotwork',
     description: 'Auszeichnung für präzises Fineline- und Dotwork-Tattoo in München.',
     placement: 'Auszeichnung',
