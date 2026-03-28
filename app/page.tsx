@@ -836,7 +836,7 @@ export default function GraphicHomePage() {
                     flexDirection: 'column',
                     gap: '1rem',
                     padding: 'clamp(1.25rem, 2vw, 2rem)',
-                    border: '1px solid rgba(13,13,13,0.2)',
+                    border: '1px solid rgba(13,13,13,0.6)',
                     textDecoration: 'none',
                   }}
                 >

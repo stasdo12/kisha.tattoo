@@ -42,7 +42,7 @@ export function GWorkImage({ src, alt, sizes, style }: Props) {
           background: 'rgba(13,13,13,0.6)',
           display: 'flex',
           alignItems: 'flex-end',
-          justifyContent: 'flex-end',
+          justifyContent: 'flex-start',
           padding: 'clamp(0.75rem, 1.25vw, 1.25rem)',
           opacity: visible ? 1 : 0,
           transition: 'opacity 0.3s ease',
@@ -51,9 +51,13 @@ export function GWorkImage({ src, alt, sizes, style }: Props) {
       >
         <span style={{
           color: '#F2F2F2',
-          fontSize: 'var(--g-bm)',
-          lineHeight: 'var(--g-lh-bm)',
-          textAlign: 'right',
+          fontSize: 'var(--g-tag)',
+          lineHeight: 1.4,
+          textAlign: 'left',
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
         }}>
           {alt}
         </span>
