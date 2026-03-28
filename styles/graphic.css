@@ -590,6 +590,7 @@ body:has([data-theme='graphic']) {
     font-size: 2rem !important;
     gap: 0.4rem !important;
     letter-spacing: 0.05em !important;
+    opacity: 0.55 !important;
   }
 
   /* Intro: photo + text → stack, photo fixed height */
