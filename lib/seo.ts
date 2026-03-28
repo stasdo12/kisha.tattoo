@@ -32,7 +32,7 @@ export function buildMetadata(input: SeoInput): Metadata {
   const fullTitle = `${title} | ${SITE.name}`
 
   return {
-    title: fullTitle,
+    title,  // layout template adds '| Kisha Tattoo' automatically
     description,
     keywords: keywords.join(', '),
     authors: [{ name: SITE.name, url: SITE.url }],
