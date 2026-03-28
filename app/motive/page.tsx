@@ -192,6 +192,7 @@ export default function MotiveHub() {
         {/* Floating kanji cluster */}
         <div
           aria-hidden="true"
+          className="g-motive-hero-kanji"
           style={{
             position: 'absolute',
             left: '50%',
@@ -325,9 +326,9 @@ export default function MotiveHub() {
               </div>
             </div>
 
-            {/* Intro: photo left + two text cols right */}
-            <div className="g-motive-intro" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(1.5rem, 3vw, 4rem)', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)', alignItems: 'start' }}>
-              <div style={{ position: 'relative', height: 'clamp(320px, 26vw, 500px)', overflow: 'hidden' }}>
+            {/* Intro: photo left (homepage proportions) + text right */}
+            <div className="g-motive-intro" style={{ display: 'grid', gridTemplateColumns: 'clamp(200px, 26vw, 400px) 1fr', gap: 'clamp(1.5rem, 3vw, 4rem)', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)', alignItems: 'start' }}>
+              <div style={{ position: 'relative', height: 'clamp(380px, calc(180px + 16.67vw), 480px)', overflow: 'hidden' }}>
                 <Image
                   src={m.imgSrc}
                   alt={m.imgAlt}

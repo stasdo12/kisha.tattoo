@@ -585,6 +585,11 @@ body:has([data-theme='graphic']) {
     gap: 0.75rem !important;
   }
 
+  /* Hero kanji cluster: hide on mobile (overlaps h1) */
+  .g-motive-hero-kanji {
+    display: none !important;
+  }
+
   /* Intro: photo + text → stack, photo fixed height */
   .g-motive-intro {
     grid-template-columns: 1fr !important;
