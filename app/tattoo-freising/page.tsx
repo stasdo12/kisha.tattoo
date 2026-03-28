@@ -4,6 +4,7 @@
  * Secondary: "tätowierer freising" · "tattoo studio freising" · "tattoo münchen freising"
  */
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { locationServiceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
@@ -302,6 +303,26 @@ export default function TattooFreising() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Gallery preview ───────────────────────────────────────────────── */}
+      <section style={{ background: '#F2F2F2', padding: '0 0 clamp(2rem, 4.2vw, 5rem)' }}>
+        <div className="g-container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '1rem' }}>
+            {[
+              { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Japanisches Fuchs Tattoo München — Kisha' },
+              { src: '/images/work/middle-graphic-body-flower-tattoo.JPG', alt: 'Grafik Blumen Körper Tattoo München — Kisha' },
+              { src: '/images/work/4x4-sakura-tattoo.jpg', alt: 'Sakura Tattoo München — Kisha' },
+            ].map((img) => (
+              <div key={img.src} style={{ position: 'relative', aspectRatio: '1/1', overflow: 'hidden' }}>
+                <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} sizes="33vw" />
+              </div>
+            ))}
+          </div>
+          <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
+            Alle Arbeiten ansehen →
+          </Link>
         </div>
       </section>
 

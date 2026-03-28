@@ -61,12 +61,12 @@ const DAYS = [
 ]
 
 const AVOID = [
-  { icon: '☀', label: 'Direkte Sonne', note: 'Mind. 3–4 Wochen, danach immer LSF 50+' },
-  { icon: '🏊', label: 'Schwimmen / Baden', note: 'Pool, Meer, Badewanne — mind. 3 Wochen' },
-  { icon: '🧖', label: 'Sauna & Dampfbad', note: 'Ausdehnung der Haut stört die Heilung' },
-  { icon: '✋', label: 'Kratzen & Reiben', note: 'Schorf entfernt Pigment — Geduld!' },
-  { icon: '🏋', label: 'Intensiver Sport', note: 'Schweiß und Dehnung der Haut: mind. 1 Woche Pause' },
-  { icon: '🍺', label: 'Alkohol', note: '24h vor und nach der Sitzung — verdünnt das Blut' },
+  { icon: '日', label: 'Direkte Sonne', note: 'Mind. 3–4 Wochen, danach immer LSF 50+' },
+  { icon: '水', label: 'Schwimmen / Baden', note: 'Pool, Meer, Badewanne — mind. 3 Wochen' },
+  { icon: '熱', label: 'Sauna & Dampfbad', note: 'Ausdehnung der Haut stört die Heilung' },
+  { icon: '禁', label: 'Kratzen & Reiben', note: 'Schorf entfernt Pigment — Geduld!' },
+  { icon: '力', label: 'Intensiver Sport', note: 'Schweiß und Dehnung der Haut: mind. 1 Woche Pause' },
+  { icon: '酒', label: 'Alkohol', note: '24h vor und nach der Sitzung — verdünnt das Blut' },
 ]
 
 const PRODUCTS = [
@@ -241,7 +241,7 @@ export default function AftercarePage() {
                   gap: '0.5rem',
                 }}
               >
-                <span style={{ fontSize: '1.5rem', lineHeight: 1 }} aria-hidden="true">{item.icon}</span>
+                <span style={{ fontSize: 'var(--g-l)', lineHeight: 1, color: 'rgba(13,13,13,0.15)', fontWeight: 500 }} aria-hidden="true">{item.icon}</span>
                 <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{item.label}</span>
                 <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.5, color: 'rgba(13,13,13,0.6)' }}>{item.note}</p>
               </div>

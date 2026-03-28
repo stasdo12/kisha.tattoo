@@ -4,6 +4,7 @@
  * Design: Graphic design system — matches existing pages
  */
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { locationServiceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
@@ -136,9 +137,9 @@ export default function TattooEching() {
 
           <div className="g-text-cols" style={{ display: 'flex', justifyContent: 'flex-end', gap: 'clamp(2rem, 4.2vw, 5rem)' }}>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Kein eigenes Tattoo-Studio in Eching, das deinen Ansprüchen gerecht wird?
-              KishaTattoo ist in München erreichbar und arbeitet regelmäßig mit Kunden
-              aus Eching, Neufahrn und dem gesamten Münchner Norden.
+              Viele Kunden aus Eching, Neufahrn und dem Münchner Norden kommen regelmäßig
+              zu KishaTattoo — der Weg nach München dauert keine 20 Minuten und lohnt sich
+              für ein Tattoo, das ein Leben lang hält.
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
               Spezialisiert auf japanisches Irezumi, Grafik-Tattoo und Linework —
@@ -176,6 +177,24 @@ export default function TattooEching() {
                 {link.label}
               </Link>
             ))}
+          </div>
+
+          {/* Gallery preview */}
+          <div style={{ marginTop: 'clamp(2rem, 3.5vw, 4rem)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '1rem' }}>
+              {[
+                { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Japanisches Fuchs Tattoo München — Kisha' },
+                { src: '/images/work/middle-graphic-body-flower-tattoo.JPG', alt: 'Grafik Blumen Körper Tattoo München — Kisha' },
+                { src: '/images/work/4x4-sakura-tattoo.jpg', alt: 'Sakura Tattoo München — Kisha' },
+              ].map((img) => (
+                <div key={img.src} style={{ position: 'relative', aspectRatio: '1/1', overflow: 'hidden' }}>
+                  <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} sizes="33vw" />
+                </div>
+              ))}
+            </div>
+            <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
+              Alle Arbeiten ansehen →
+            </Link>
           </div>
 
           {/* FAQ */}
