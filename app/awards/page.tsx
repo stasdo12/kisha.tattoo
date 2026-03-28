@@ -26,6 +26,33 @@ export const metadata: Metadata = buildMetadata({
   ],
 })
 
+const REDDIT_QUOTES = [
+  {
+    quote: 'Holy smokes that is beautiful work!',
+    user: 'u/Spooky-Cat-666',
+    upvotes: 13,
+    url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/',
+  },
+  {
+    quote: 'Absolutely love the composition of this! The symmetrical tiger and dragon! So cool',
+    user: 'u/No-Explanation-1008',
+    upvotes: 2,
+    url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/',
+  },
+  {
+    quote: "That's top notch work. If I ever make it to Germany I'll look you up",
+    user: 'u/WreckedRalph_NoLefty',
+    upvotes: 2,
+    url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/',
+  },
+  {
+    quote: 'Omg this is gorgeous',
+    user: 'u/Katyamuffin',
+    upvotes: 3,
+    url: 'https://www.reddit.com/r/tattoo/comments/1s2bpk7/tattoo_by_kishatattoo_at_bavariatattoo_studio/',
+  },
+]
+
 const AWARDS = [
   {
     year: '2025',
@@ -397,6 +424,79 @@ export default function AwardsPage() {
                   <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.5, color: 'rgba(13,13,13,0.6)' }}>
                     {m.note}
                   </p>
+                </div>
+              </a>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── REDDIT QUOTES ─────────────────────────────────────────────────── */}
+      <section
+        data-nav-dark
+        aria-label="Community-Stimmen"
+        style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+      >
+        <div className="g-container">
+
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+            paddingBottom: '1.25rem',
+            borderBottom: '1px solid rgba(242,242,242,0.15)',
+            marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
+          }}>
+            <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2' }}>
+              Was die Community sagt
+            </h2>
+            <a
+              href="https://www.reddit.com/r/tattoo/search/?q=kisha.tattoo"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.5)', textDecoration: 'none', whiteSpace: 'nowrap' }}
+            >
+              [ r/tattoo · 1 017 000 Mitglieder ]
+            </a>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: 'clamp(1rem, 1.5vw, 1.5rem)',
+          }}>
+            {REDDIT_QUOTES.map((q, i) => (
+              <a
+                key={i}
+                href={q.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1rem',
+                  padding: 'clamp(1rem, 1.5vw, 1.5rem)',
+                  border: '1px solid rgba(242,242,242,0.12)',
+                  textDecoration: 'none',
+                  transition: 'border-color 0.2s',
+                }}
+              >
+                <p style={{
+                  fontSize: 'var(--g-s)',
+                  lineHeight: 'var(--g-lh-s)',
+                  color: '#F2F2F2',
+                  flex: 1,
+                }}>
+                  &ldquo;{q.quote}&rdquo;
+                </p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.45)' }}>
+                    {q.user} · r/tattoo
+                  </span>
+                  <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.3)' }}>
+                    ↑ {q.upvotes}
+                  </span>
                 </div>
               </a>
             ))}
