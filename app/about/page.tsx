@@ -20,12 +20,6 @@ export const metadata: Metadata = buildMetadata({
   path: '/about',
 })
 
-const MINI_GALLERY = [
-  { id: 1, src: 'https://picsum.photos/seed/about-mini-1/200/200', alt: 'Irezumi detail 1' },
-  { id: 2, src: 'https://picsum.photos/seed/about-mini-2/200/200', alt: 'Irezumi detail 2' },
-  { id: 3, src: 'https://picsum.photos/seed/about-mini-3/200/200', alt: 'Irezumi detail 3' },
-  { id: 4, src: 'https://picsum.photos/seed/about-mini-4/200/200', alt: 'Irezumi detail 4' },
-]
 
 const STEPS = [
   {
@@ -118,8 +112,8 @@ export default function GraphicAboutPage() {
           }}
         >
           <Image
-            src="https://picsum.photos/seed/kisha-master-about/480/520"
-            alt="Kisha — Japanese tattoo master at work"
+            src="/images/about/hero-portrait.jpg"
+            alt="Kisha — Tattoo Artist München, Spezialistin für Japanisches Tattoo"
             fill
             priority
             style={{ objectFit: 'cover', objectPosition: 'top center' }}
@@ -200,8 +194,8 @@ export default function GraphicAboutPage() {
             }}
           >
             <Image
-              src="https://picsum.photos/seed/about-studio-wide/1840/960"
-              alt="Kisha tattooing in progress — traditional Japanese technique"
+              src="/images/about/studio-wide.jpg"
+              alt="Kisha beim Tätowieren in München — Tattoo Artist bei der Arbeit"
               fill
               style={{ objectFit: 'cover' }}
               sizes="100vw"
