@@ -29,8 +29,8 @@ export const metadata: Metadata = buildMetadata({
 
 /* Gallery images — replace src with real photos */
 const ROW1_LEFT = {
-  src: 'https://picsum.photos/seed/w-back-oni/912/960',
-  alt: 'Irezumi back piece — Oni mask',
+  src: '/images/work/middle-graphic-body-flower-tattoo.jpg',
+  alt: 'Grafik Blumen Körper Tattoo München — Kisha',
 }
 const ROW1_RIGHT = [
   { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Japanisches Fuchs Tattoo München — Kisha' },
@@ -43,8 +43,8 @@ const ROW2 = {
   alt: 'Full back sakura and dragon Irezumi',
 }
 const ROW3 = [
-  { src: 'https://picsum.photos/seed/w-hands-2/912/960', alt: 'Hands and fingers tattoo' },
-  { src: 'https://picsum.photos/seed/w-back-wolf/912/960', alt: 'Back piece wolf mask'  },
+  { src: '/images/work/middle-graphic-hand-with-flower-tattoo.jpg', alt: 'Grafik Blumen Hand Tattoo München — Kisha' },
+  { src: '/images/work/middle-graphic-legs-tattoo.jpg',             alt: 'Grafik Bein Tattoo München — Kisha'        },
 ]
 const ROW4 = [
   { src: '/images/work/4x4-dog-tattoo-fineline.jpg',     alt: 'Fineline Hund Tattoo München — Kisha'   },
@@ -56,7 +56,7 @@ const ROW4 = [
 /* Shared image height tokens (fluid, anchored 1440→1920) */
 // Large: 720px@1440 → 960px@1920  = 50vw
 // Small: 356px@1440 → 472px@1920  ≈ calc(8px + 24.17vw)
-const H_LARGE = 'clamp(720px, 50vw, 960px)'
+const H_LARGE = 'clamp(720px, 50vw, 820px)'
 const H_SMALL = 'clamp(356px, calc(8px + 24.17vw), 472px)'
 
 /* ── Page ───────────────────────────────────────────────────────────────────── */
