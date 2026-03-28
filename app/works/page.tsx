@@ -39,8 +39,8 @@ const ROW1_RIGHT = [
   { src: '/images/work/4x4-bugs-tattoo-graphic.jpg',     alt: 'Grafik Insekten Tattoo München — Kisha'  },
 ]
 const ROW2 = {
-  src: 'https://picsum.photos/seed/w-sakura-back/1840/960',
-  alt: 'Full back sakura and dragon Irezumi',
+  src: '/images/work/row2-snake-knie-tattoo.jpg',
+  alt: 'Grafik Schlangen Knie Tattoo München — Kisha',
 }
 const ROW3 = [
   { src: '/images/work/middle-graphic-hand-with-flower-tattoo.jpg', alt: 'Grafik Blumen Hand Tattoo München — Kisha' },
