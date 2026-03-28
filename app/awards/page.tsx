@@ -107,7 +107,7 @@ const MENTIONS = [
     source: 'Facebook · Bavaria Tattoo',
     title: 'Fineline Tattoo by @kisha.tattoo',
     note: 'Die Studio-Seite BavariaTattoo präsentiert Kishas Fineline-Arbeit — feiner, präziser Stil, internationale Sichtbarkeit.',
-    url: 'https://www.facebook.com/bavariatattoo1/photos/little-fineline-tattoo-made-by-kishatattoo-tattoo-tattooed-tattooedpeople-ink-in/',
+    url: 'https://www.facebook.com/bavariatattoo1/photos/little-fineline-tattoo-made-by-kishatattoo-tattoo-tattooed-tattooedpeople-ink-in/1313688046870963/',
   },
   {
     source: 'Facebook · Skindreams Tattoo',
