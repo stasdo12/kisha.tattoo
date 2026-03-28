@@ -243,6 +243,7 @@ export default function MotiveHub() {
 
           {/* Motif navigation grid */}
           <div
+            className="g-motive-nav-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(5, 1fr)',
@@ -291,7 +292,7 @@ export default function MotiveHub() {
           <div className="g-container">
 
             {/* Section header */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'flex-end', gap: '2rem', paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
+            <div className="g-motive-section-header" style={{ display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'flex-end', gap: '2rem', paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
               <div>
                 <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)', display: 'block', marginBottom: '0.5rem' }}>{m.reading} — {m.tagline}</span>
                 <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
@@ -325,6 +326,7 @@ export default function MotiveHub() {
 
             {/* Symbolism columns */}
             <div
+              className="g-motive-sym-grid"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
@@ -354,7 +356,7 @@ export default function MotiveHub() {
             {/* FAQ for this motif */}
             <div style={{ marginBottom: 'clamp(1.5rem, 2.5vw, 2rem)' }}>
               {m.faq.map((item, i) => (
-                <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 5rem)', padding: 'clamp(1rem, 1.8vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.2)' }}>
+                <div key={i} className="g-motive-faq-item" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 5rem)', padding: 'clamp(1rem, 1.8vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.2)' }}>
                   <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
                   <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
                 </div>

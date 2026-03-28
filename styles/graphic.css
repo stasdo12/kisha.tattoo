@@ -540,9 +540,44 @@ body:has([data-theme='graphic']) {
     height: 360px !important;
   }
 
+  /* Overlay button — always visible on mobile (no hover on touch) */
+  .g-trad-overlay {
+    background: rgba(13, 13, 13, 0.38) !important;
+  }
+  .g-trad-overlay__btn {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
   /* Description: fill width */
   .g-trad-desc {
     max-width: 100% !important;
+  }
+
+  /* ── MOTIVE HUB PAGE ── */
+
+  /* Nav grid: 5 col → 3 col (then wrap to 2nd row) */
+  .g-motive-nav-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* Section header: hide the big kanji on mobile (saves space) */
+  .g-motive-section-header {
+    grid-template-columns: 1fr !important;
+  }
+  .g-motive-section-header > [aria-hidden="true"] {
+    display: none !important;
+  }
+
+  /* Symbolism: 3 col → 1 col */
+  .g-motive-sym-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* FAQ: 2 col → 1 col */
+  .g-motive-faq-item {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
   }
 
   /* ── ARTICLE DETAIL PAGE ── */
