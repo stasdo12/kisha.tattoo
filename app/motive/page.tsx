@@ -13,9 +13,9 @@ import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Japanische Tattoo Motive — Irezumi Symbolik | KishaTattoo München',
+  title: 'Japanische Tattoo Motive — Irezumi Symbolik',
   description:
-    'Drachen, Koi, Kitsune, Sakura, Tiger — die bedeutendsten Motive des japanischen Irezumi. Symbolik, Bedeutung und kultureller Kontext erklärt. KishaTattoo München.',
+    'Drachen, Koi, Kitsune, Sakura, Tiger — Symbolik und Bedeutung der wichtigsten Irezumi-Motive. Erklärt von KishaTattoo München.',
   path: '/motive',
   keywords: [
     'japanische tattoo motive',

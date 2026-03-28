@@ -57,7 +57,7 @@ export function GLogoBar({ layout = 'left', theme = 'light' }: GLogoBarProps) {
         zIndex: 10,
       }}
     >
-      <Link href="/graphic" aria-label="Kisha Tattoo — home" style={{ textDecoration: 'none', display: 'contents' }}>
+      <Link href="/" aria-label="Kisha Tattoo — home" style={{ textDecoration: 'none', display: 'contents' }}>
         <div className="g-hero-logo-text">
           <span style={{ fontSize: 'var(--g-bs)', color }}>● Kisha</span>
           <span style={{ fontSize: 'var(--g-tag)', color }}>[ タトゥ ]</span>

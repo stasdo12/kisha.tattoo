@@ -13,9 +13,9 @@ import { GFooter } from '@/components/graphic/GFooter'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Japanischer Tätowierer München — Traditional Japanese Tattoo | KishaTattoo',
+  title: 'Japanisches Tattoo München — Irezumi | KishaTattoo',
   description:
-    'Japanischer Tätowierer in München — spezialisiert auf Traditional Japanese Tattoo, Irezumi & Horimono. Japanische Tattoos München: Koi, Drachen, Oni. Termin buchen.',
+    'Japanischer Tätowierer München — Traditional Irezumi, Koi, Drachen, Oni, Sleeve, Backpiece. KishaTattoo: Custom-Design, Tebori-Technik. Termin buchen.',
   path: '/japanisches-tattoo-muenchen',
   keywords: [
     'japanischer tätowierer',

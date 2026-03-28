@@ -15,9 +15,9 @@ import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Tattoo München — Kisha · Japanisches Irezumi & Fineline | KishaTattoo',
+  title: 'Tattoo München — Kisha · Irezumi & Fineline',
   description:
-    'Kisha — Tattoo Artist München, spezialisiert auf Japanisches Irezumi, Fineline & Grafik. Individuelle Tattoo-Projekte mit 5+ Jahren Erfahrung. Jetzt Termin buchen.',
+    'Kisha — Tattoo Artist München, spezialisiert auf Irezumi, Fineline & Grafik. Preisgekrönt 2025. Custom-Design, Tebori. Jetzt Termin buchen.',
   path: '/',
 })
 

@@ -14,7 +14,7 @@ import { GFooter } from '@/components/graphic/GFooter'
 export const metadata: Metadata = buildMetadata({
   title: 'Awards & Ausbildung — KishaTattoo München',
   description:
-    'KishaTattoo — ausgezeichnete Tattoo-Künstlerin und Ausbilderin in München. Preise auf Tattooconventions 2025, über 10 ausgebildete Tätowierer — Tattoo Schule München.',
+    'Kisha — ausgezeichnete Tattoo-Künstlerin in München. 5 Convention Awards 2025, über 10 ausgebildete Tätowierer. Tattoo Schule München.',
   path: '/awards',
   keywords: [
     'Tattoo Award München',

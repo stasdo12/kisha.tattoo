@@ -56,7 +56,7 @@ export function BlogFilter({ articles }: Props) {
             title={article.title}
             category={article.category}
             date={article.publishedAt}
-            href={`/graphic/blog/${article.slug}`}
+            href={`/blog/${article.slug}`}
           />
         ))}
       </div>

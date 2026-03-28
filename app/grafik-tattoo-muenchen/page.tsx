@@ -13,9 +13,9 @@ import { GFooter } from '@/components/graphic/GFooter'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Tattoo Munich — Custom Grafik & Blackwork | KishaTattoo München',
+  title: 'Grafik Tattoo München — Blackwork | KishaTattoo',
   description:
-    'Tattoo Munich — KishaTattoo: custom grafik tattoo, blackwork & illustration in München. Munich tattoo studio spezialisiert auf individuelle Designs. Book your appointment.',
+    'Grafik Tattoo München — Blackwork, Geometrie & Illustration. KishaTattoo: individuelle Custom-Designs, präzise Linienführung. Jetzt Termin buchen.',
   path: '/grafik-tattoo-muenchen',
   keywords: [
     'munich tattoo',

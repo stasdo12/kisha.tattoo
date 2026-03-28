@@ -13,9 +13,9 @@ import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Tattoo Preise München 2026 — Was kostet ein Tattoo? | KishaTattoo',
+  title: 'Tattoo Preise München 2026 — Was kostet ein Tattoo?',
   description:
-    'Tattoo Preise in München: kleine Tattoos ab 150 €, Oberarm ab 400 €, Sleeve ab 800 € pro Sitzung. Transparente Kosten, individuelle Angebote. KishaTattoo München.',
+    'Tattoo Preise München: kleine Tattoos ab 150 €, Oberarm ab 400 €, Sleeve ab 800 € pro Sitzung. Transparente Kosten. KishaTattoo München.',
   path: '/tattoo-preise-muenchen',
   keywords: [
     'tattoo preise münchen',

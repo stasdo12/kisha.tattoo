@@ -12,9 +12,9 @@ import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Tattoo Aftercare — Pflegeanleitung | KishaTattoo München',
+  title: 'Tattoo Aftercare — Pflegeanleitung | KishaTattoo',
   description:
-    'Tattoo-Pflege nach der Sitzung: Schritt-für-Schritt-Anleitung von KishaTattoo München. Richtige Heilung, Pflegeprodukte und was du unbedingt vermeiden solltest.',
+    'Tattoo-Pflege nach der Sitzung: Anleitung von KishaTattoo München. Heilung, Pflegeprodukte und was du vermeiden solltest.',
   path: '/aftercare',
   keywords: [
     'tattoo aftercare münchen',

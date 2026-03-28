@@ -12,9 +12,9 @@ import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Walk In Tattoo München — Spontan & ohne Termin | KishaTattoo',
+  title: 'Walk In Tattoo München — Spontan & ohne Termin',
   description:
-    'Walk In Tattoo München — spontan stechen lassen ohne langen Vorlauf. KishaTattoo: Walk-In verfügbar für ausgewählte Motive. Jetzt anfragen und kurzfristig Termin sichern.',
+    'Walk In Tattoo München — spontan stechen ohne langen Vorlauf. KishaTattoo: Walk-In für ausgewählte Motive. Jetzt anfragen.',
   path: '/walk-in-tattoo-muenchen',
   keywords: [
     'walk in tattoo münchen',

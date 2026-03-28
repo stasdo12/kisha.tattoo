@@ -14,9 +14,9 @@ import { GFooter } from '@/components/graphic/GFooter'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Fineline Tattoo München — Fine Line & Linework | KishaTattoo',
+  title: 'Fineline Tattoo München — Fine Line & Linework',
   description:
-    'Fineline Tattoo in München — präzise feine Linien, botanische Motive, Single-Needle-Technik. KishaTattoo: Expertin für Fine Line und Linework in München. Jetzt Termin buchen.',
+    'Fineline Tattoo München — botanische Motive, Single-Needle, Linework. KishaTattoo: Expertin für präzise Fine Line Tattoos. Jetzt Termin buchen.',
   path: '/linework-tattoo-muenchen',
   keywords: [
     'fineline tattoo münchen',
