@@ -4,6 +4,7 @@
  * All motifs on one page: Drachen · Koi · Kitsune · Sakura · Tiger
  */
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { faqSchema, breadcrumbSchema, serviceSchema } from '@/lib/structured-data'
@@ -38,6 +39,8 @@ const MOTIFS = [
     kanji:   '龍',
     label:   'Drachen',
     reading: 'Ryū',
+    imgSrc:  '/images/home/motif-dragon.jpg',
+    imgAlt:  'Drachen Tattoo München — japanischer Ryū Irezumi',
     tagline: 'Weisheit · Stärke · Schutz',
     intro1:  'Der Ryū (龍) ist das bedeutendste Symbol der japanischen Mythologie. Im Gegensatz zum westlichen Drachen gilt der japanische Ryū als wohlwollendes Wesen — Hüter des Wassers, Beschützer der Unschuldigen, Verkörperung göttlicher Weisheit und Stärke. In der Irezumi-Tradition ist er ein Motiv, das den gesamten Körper füllen kann.',
     intro2:  'KishaTattoo spezialisiert sich auf großformatige Drachen-Kompositionen nach klassischer Irezumi-Lehre. Der Ryū schlingt sich um Arme, überspannt Rücken- oder Bruststücke — seine Bewegung folgt dem natürlichen Fluss der Muskulatur.',
@@ -58,6 +61,8 @@ const MOTIFS = [
     kanji:   '鯉',
     label:   'Koi',
     reading: 'Koi',
+    imgSrc:  '/images/home/motif-koi.jpg',
+    imgAlt:  'Koi Tattoo München — japanischer Karpfen Irezumi',
     tagline: 'Ausdauer · Transformation · Mut',
     intro1:  'Der Koi (鯉) gehört zu den ältesten und bedeutungsreichsten Motiven der japanischen Irezumi-Tradition. Die Legende beschreibt den Koi, der gegen den Strom schwimmt und sich am Wasserfall in einen Drachen verwandelt — ein Bild für Ausdauer, Transformation und die Kraft, Hindernisse zu überwinden.',
     intro2:  'KishaTattoo setzt Koi-Tattoos in München nach klassischer Irezumi-Kompositionslehre um. Der Koi schwimmt gegen den Strom der Muskulatur, umgeben von Wellen, Kirschblüten oder Lotusblüten — jede Linie, jede Schuppe mit Präzision und Respekt für die Tradition gesetzt.',
@@ -78,6 +83,8 @@ const MOTIFS = [
     kanji:   '狐',
     label:   'Kitsune',
     reading: 'Kitsune',
+    imgSrc:  '/images/home/motif-fox.jpg',
+    imgAlt:  'Kitsune Tattoo München — japanischer Fuchs Irezumi',
     tagline: 'Intelligenz · Magie · Schutz',
     intro1:  'Der Kitsune (狐) — der japanische Fuchs — ist eines der faszinierendsten Wesen der japanischen Folklore. Kitsune gelten als intelligente, langlebige Tiere mit magischen Fähigkeiten, die mit dem Alter wachsen. Je mehr Schwänze (bis zu neun), desto mächtiger und weiser das Wesen.',
     intro2:  'Im Irezumi ist der Kitsune ein Motiv mit zwei Seiten: als Schutzgeist (Inari-Bote) steht er für Glück, Schutz und Weisheit. Als listiger Trickster verkörpert er Cleverness und die Fähigkeit, die eigene Realität zu gestalten.',
@@ -98,6 +105,8 @@ const MOTIFS = [
     kanji:   '桜',
     label:   'Sakura',
     reading: 'Sakura',
+    imgSrc:  '/images/home/motif-sakura.jpg',
+    imgAlt:  'Sakura Tattoo München — Kirschblüten Irezumi',
     tagline: 'Vergänglichkeit · mono no aware · Schönheit',
     intro1:  'Die Sakura (桜) — Kirschblüte — ist das nationalste Symbol Japans. Ihre Blütezeit dauert nur wenige Tage, bevor die Blüten im Wind verwehen. Eben diese Vergänglichkeit macht sie so tiefgründig: sie erinnert uns daran, jeden Augenblick voll zu leben — die japanische Philosophie des „mono no aware".',
     intro2:  'Im Irezumi ist Sakura eines der vielseitigsten Motive: als eigenständiges Stück oder als Füllmotiv, das großformatige Kompositionen aus Drachen, Koi oder Tiger umschließt und in den Körper einbettet. KishaTattoo setzt Kirschblüten in München mit der Präzision und Sensibilität um, die dieses stille Motiv verdient.',
@@ -118,6 +127,8 @@ const MOTIFS = [
     kanji:   '虎',
     label:   'Tiger',
     reading: 'Tora',
+    imgSrc:  '/images/home/motif-tiger.jpg',
+    imgAlt:  'Tiger Tattoo München — japanischer Tora Irezumi',
     tagline: 'Kraft · Schutz · Langlebigkeit',
     intro1:  'Der Tora (虎) — Tiger — ist im japanischen Irezumi einer der vier Himmelsrichtungs-Könige: Er herrscht über den Norden und das Wind-Element. Als Gegenstück zum Drachen (Süden und Wasser) bildet er eine der kraftvollsten kompositorischen Spannungen in der Irezumi-Tradition.',
     intro2:  'Tiger-Tattoos strahlen unmittelbare Kraft aus. KishaTattoo setzt den Tora in München nach klassischer Irezumi-Komposition um — mit starken schwarzen Linien, kräftigen Schattierungen und der dynamischen Körperspannung, die ein Tiger-Motiv verlangt.',
@@ -314,14 +325,25 @@ export default function MotiveHub() {
               </div>
             </div>
 
-            {/* Intro text */}
-            <div className="g-text-cols" style={{ display: 'flex', justifyContent: 'flex-end', gap: 'clamp(2rem, 4.2vw, 5rem)', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-              <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-                {m.intro1}
-              </p>
-              <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-                {m.intro2}
-              </p>
+            {/* Intro: photo left + two text cols right */}
+            <div className="g-motive-intro" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(1.5rem, 3vw, 4rem)', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)', alignItems: 'start' }}>
+              <div style={{ position: 'relative', height: 'clamp(320px, 26vw, 500px)', overflow: 'hidden' }}>
+                <Image
+                  src={m.imgSrc}
+                  alt={m.imgAlt}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 430px) 100vw, 50vw"
+                />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 2vw, 1.75rem)' }}>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
+                  {m.intro1}
+                </p>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
+                  {m.intro2}
+                </p>
+              </div>
             </div>
 
             {/* Symbolism columns */}

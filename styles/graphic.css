@@ -556,9 +556,14 @@ body:has([data-theme='graphic']) {
 
   /* ── MOTIVE HUB PAGE ── */
 
-  /* Nav grid: 5 col → 3 col (then wrap to 2nd row) */
+  /* Nav grid: 5 col → flex wrap so no orphan black cell */
   .g-motive-nav-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+  .g-motive-nav-grid > a {
+    flex: 1 1 33.33% !important;
+    box-sizing: border-box !important;
   }
 
   /* Section header: hide the big kanji on mobile (saves space) */
@@ -578,6 +583,14 @@ body:has([data-theme='graphic']) {
   .g-motive-faq-item {
     grid-template-columns: 1fr !important;
     gap: 0.75rem !important;
+  }
+
+  /* Intro: photo + text → stack, photo fixed height */
+  .g-motive-intro {
+    grid-template-columns: 1fr !important;
+  }
+  .g-motive-intro > div:first-child {
+    height: 280px !important;
   }
 
   /* ── ARTICLE DETAIL PAGE ── */
