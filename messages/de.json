@@ -1,0 +1,251 @@
+{
+  "nav": {
+    "home": "Home",
+    "works": "Works",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+
+  "footer": {
+    "cta": "Discuss your vision",
+    "heading": "Relax and book your seat right now",
+    "social": "Social media",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
+    "sections": {
+      "styles": "Stile",
+      "motifs": "Motive",
+      "pages": "Pages",
+      "area": "Einzugsgebiet"
+    },
+    "links": {
+      "japanese": "Japanisches Tattoo München",
+      "graphic": "Grafik Tattoo München",
+      "linework": "Linework Tattoo München",
+      "allMotifs": "Alle Motive",
+      "dragon": "Drachen (Ryū)",
+      "koi": "Koi",
+      "kitsune": "Kitsune",
+      "sakura": "Sakura",
+      "tiger": "Tiger (Tora)",
+      "booking": "Termin buchen",
+      "prices": "Preise",
+      "walkin": "Walk-in Tattoo",
+      "faq": "FAQ",
+      "aftercare": "Aftercare",
+      "awards": "Awards",
+      "about": "Über Kisha",
+      "eching": "Tattoo Eching",
+      "freising": "Tattoo Freising",
+      "neufahrn": "Tattoo Neufahrn",
+      "dachau": "Tattoo Dachau",
+      "ottobrunn": "Tattoo Ottobrunn"
+    },
+    "rights": "All Rights Reserved."
+  },
+
+  "home": {
+    "meta": {
+      "title": "Kisha Tattoo München — Japanisches Irezumi & Grafik Tattoo",
+      "description": "Tattoo Studio in Neufahrn bei München. Spezialisiert auf japanisches Irezumi, Grafik und Fineline. Jetzt Termin anfragen."
+    },
+    "hero": {
+      "tag": "Tattoo Artist München",
+      "h1": "Kisha Tattoo —\nIrezumi München",
+      "cta": "Termin anfragen",
+      "scroll": "Scroll"
+    },
+    "works": {
+      "tag": "Portfolio",
+      "heading": "Ausgewählte Arbeiten",
+      "link": "Alle Arbeiten ansehen"
+    },
+    "about": {
+      "tag": "Über Kisha",
+      "heading": "7+ Jahre Erfahrung.\n5 Convention Awards.",
+      "body": "Seit über fünf Jahren widme ich mich der japanischen Tattoo-Tradition in München. Jedes Motiv erzählt eine Geschichte — in Tinte und Zeit.",
+      "link": "Mehr über Kisha"
+    },
+    "cta": {
+      "heading": "Bereit für dein Custom Tattoo?",
+      "button": "Termin anfragen"
+    }
+  },
+
+  "works": {
+    "meta": {
+      "title": "Latest Works — Kisha Irezumi",
+      "description": "Dive into the collection and witness the result of deep devotion, precise technique, and unwavering standards."
+    },
+    "hero": {
+      "h1": "Latest works",
+      "sub": "Dive into the collection and witness the result of deep devotion, precise technique, and unwavering standards",
+      "kanjiCaption": "In the context of large-scale Irezumi, underscores the professionalism of the master"
+    },
+    "cta": {
+      "heading": "Dein Custom Tattoo — bereit für den nächsten Schritt?",
+      "prices": "Preise ansehen",
+      "about": "Über Kisha",
+      "button": "Termin anfragen"
+    }
+  },
+
+  "about": {
+    "meta": {
+      "title": "Tattoo Artist München — Kisha | Irezumi & Fineline",
+      "description": "Kisha ist Tattoo Artist in München — Irezumi, Fineline & Grafik. 7+ Jahre Erfahrung, 5 Convention Awards 2025. Jetzt Termin anfragen."
+    },
+    "hero": {
+      "h1": "Tattoo Artist München\neine Geschichte auf einmal",
+      "dedicated": "Tätowierer München — gewidmet der Bewahrung der japanischen Tattoo-Tradition, eine Geschichte auf einmal"
+    },
+    "journey": {
+      "tag": "[ Kunst, die zur Geschichte wird ]",
+      "heading": "Der Weg: in Disziplin gestochen",
+      "link": "[ Alle Arbeiten ansehen ]",
+      "p1": "Seit über fünf Jahren bin ich als Tattoo Artist in München der japanischen Tattoo-Tradition gewidmet. Meine Reise begann mit tiefem Respekt vor dem Erbe des Irezumi — nicht als Trend, sondern als Verpflichtung gegenüber einer kraftvollen, lebendigen Kunstform.",
+      "p2": "Als Tätowierer in München bin ich spezialisiert auf großformatige, komplexe Arbeiten: Full Backpieces, Sleeves und Bodysuits. Diese Projekte erfordern ein besonderes Maß an Disziplin und Geduld — Eigenschaften, die ich in jede einzelne Linie einbringe."
+    },
+    "philosophy": {
+      "heading": "Die Philosophie — Liebe und Hingabe",
+      "body": "Bei KishaTattoo München leiten uns tiefe Liebe zum Handwerk und aufrichtige Hingabe an deine Vision"
+    },
+    "mastery": {
+      "heading": "Das Engagement des besten Tätowierers München",
+      "sub": "Traditionelles Irezumi ist ein Akt der Ausdauer — er erfordert Geduld von Tätowierer und Kunde gleichermaßen",
+      "steps": [
+        {
+          "title": "Für den Tätowierer",
+          "body": "Es erfordert die konzentrierte Disziplin, die Technik zu meistern, die Anatomie des Körpers zu respektieren und unzählige Stunden der Perfektion zu widmen."
+        },
+        {
+          "title": "Für den Kunden",
+          "body": "Den Mut und die Geduld, sich auf einen langen Prozess mit mehreren Sitzungen einzulassen — in dem Wissen, dass das fertige Meisterwerk ein dauerhaftes Zeugnis deiner inneren Stärke sein wird."
+        },
+        {
+          "title": "Meine Hingabe",
+          "body": "Gilt denen, die ein authentisches, bedeutungsvolles und dauerhaftes Kunstwerk suchen. Als Tattoo Artist in München bin ich hier, um den Prozess zu leiten und sicherzustellen, dass dein Vermächtnis wunderschön in die Haut gestochen wird."
+        }
+      ]
+    },
+    "awards": {
+      "tag": "[ Recognition ]",
+      "heading": "Ausgezeichnet auf dem Munich Tattoo Convention",
+      "link": "Awards & Recognition ansehen →"
+    },
+    "cta": {
+      "heading": "Bereit für dein Tattoo bei Kisha in München?",
+      "button": "Termin anfragen"
+    }
+  },
+
+  "booking": {
+    "meta": {
+      "title": "Termin buchen — Kisha Tattoo München",
+      "description": "Termin bei Kisha Tattoo anfragen — japanisches Irezumi, Grafik und Fineline in München. Antwort innerhalb von 48 Stunden."
+    },
+    "hero": {
+      "h1": "Termin buchen"
+    },
+    "form": {
+      "nameLabel": "My name is",
+      "namePlaceholder": "[ Name ]",
+      "emailLabel": "My email is",
+      "emailPlaceholder": "[ Email ]",
+      "phoneLabel": "My phone number is",
+      "phonePlaceholder": "[ Number ]",
+      "styleLabel": "Tattoo style",
+      "stylePlaceholder": "[ Japanese · Graphic · Linework ]",
+      "placementLabel": "Placement / body part",
+      "placementPlaceholder": "[ Back · Sleeve · Ribs · etc. ]",
+      "ideaLabel": "My tattoo idea is",
+      "ideaPlaceholder": "[ Describe your vision ]",
+      "togetherLabel": "Did we work together before?",
+      "yes": "Yes, I liked it",
+      "no": "No, I'm new",
+      "filesLabel": "Reference images",
+      "filesHint": "*Send reference images and inspiration — the more context, the better the custom design",
+      "filesMax": "[ max 100 mb ]",
+      "filesButton": "Choose files",
+      "submit": "Send booking request",
+      "submitting": "Sending…",
+      "success": "Thank you — your vision has been received. Kisha will review it and get back to you within 48 hours.",
+      "error": "Something went wrong. Please try again."
+    },
+    "steps": {
+      "heading": "Wie funktioniert die Buchung?",
+      "list": [
+        {
+          "num": "01",
+          "title": "Anfrage senden",
+          "body": "Fülle das Formular aus — beschreibe deine Idee, das gewünschte Motiv, Stil und Platzierung. Füge Referenzbilder bei, falls vorhanden."
+        },
+        {
+          "num": "02",
+          "title": "Konsultation",
+          "body": "Kisha meldet sich innerhalb von 48 Stunden. Gemeinsam besprechen wir dein Projekt, die Machbarkeit und den ungefähren Zeitaufwand."
+        },
+        {
+          "num": "03",
+          "title": "Design & Termin",
+          "body": "Nach der Anzahlung wird das Custom-Design erstellt. Der finale Termin wird gemeinsam festgelegt — erste Sitzung startet mit dem Stencil-Check."
+        }
+      ]
+    }
+  },
+
+  "contact": {
+    "meta": {
+      "title": "Kontakt — Kisha Tattoo München",
+      "description": "Schreib Kisha an — Tattoo-Künstlerin in Neufahrn bei München. Instagram, WhatsApp oder Kontaktformular."
+    },
+    "hero": {
+      "h1": "Kontakt"
+    }
+  },
+
+  "blog": {
+    "meta": {
+      "title": "Blog — Kisha Irezumi München",
+      "description": "Artikel über japanisches Tattoo, Irezumi-Tradition, Pflege und Stilkunde von Kisha Tattoo München."
+    },
+    "hero": {
+      "h1": "Stories & Insights",
+      "sub": "Tinte, Tradition und die Kunst des Irezumi"
+    },
+    "backToList": "Back to blog",
+    "related": "Related articles",
+    "readMore": "Read more"
+  },
+
+  "faq": {
+    "meta": {
+      "title": "FAQ — Kisha Tattoo München",
+      "description": "Häufig gestellte Fragen zu Tattoo-Termin, Preisen, Pflege und Stilen bei Kisha Tattoo München."
+    },
+    "hero": {
+      "h1": "FAQ"
+    }
+  },
+
+  "aftercare": {
+    "meta": {
+      "title": "Tattoo Aftercare — Kisha Tattoo München",
+      "description": "Pflegehinweise für dein neues Tattoo von Kisha. So bleibt dein Irezumi lange schön."
+    }
+  },
+
+  "awards": {
+    "meta": {
+      "title": "Awards — Kisha Tattoo München",
+      "description": "5 Convention Awards 2025 — Kisha Tattoo München ausgezeichnet auf der Munich Tattoo Convention."
+    }
+  },
+
+  "common": {
+    "bookButton": "Termin anfragen",
+    "viewWorks": "Arbeiten ansehen",
+    "backToTop": "Nach oben"
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "nav": {
+    "home": "Home",
+    "works": "Works",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+
+  "footer": {
+    "cta": "Discuss your vision",
+    "heading": "Relax and book your seat right now",
+    "social": "Social media",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
+    "sections": {
+      "styles": "Styles",
+      "motifs": "Motifs",
+      "pages": "Pages",
+      "area": "Service area"
+    },
+    "links": {
+      "japanese": "Japanese Tattoo Munich",
+      "graphic": "Graphic Tattoo Munich",
+      "linework": "Linework Tattoo Munich",
+      "allMotifs": "All Motifs",
+      "dragon": "Dragon (Ryū)",
+      "koi": "Koi",
+      "kitsune": "Kitsune",
+      "sakura": "Sakura",
+      "tiger": "Tiger (Tora)",
+      "booking": "Book appointment",
+      "prices": "Prices",
+      "walkin": "Walk-in Tattoo",
+      "faq": "FAQ",
+      "aftercare": "Aftercare",
+      "awards": "Awards",
+      "about": "About Kisha",
+      "eching": "Tattoo Eching",
+      "freising": "Tattoo Freising",
+      "neufahrn": "Tattoo Neufahrn",
+      "dachau": "Tattoo Dachau",
+      "ottobrunn": "Tattoo Ottobrunn"
+    },
+    "rights": "All Rights Reserved."
+  },
+
+  "home": {
+    "meta": {
+      "title": "Kisha Tattoo Munich — Japanese Irezumi & Graphic Tattoo",
+      "description": "Tattoo studio near Munich. Specialising in Japanese Irezumi, graphic and fine line. Book your appointment now."
+    },
+    "hero": {
+      "tag": "Tattoo Artist Munich",
+      "h1": "Kisha Tattoo —\nIrezumi Munich",
+      "cta": "Book appointment",
+      "scroll": "Scroll"
+    },
+    "works": {
+      "tag": "Portfolio",
+      "heading": "Selected works",
+      "link": "View all works"
+    },
+    "about": {
+      "tag": "About Kisha",
+      "heading": "7+ years experience.\n5 Convention Awards.",
+      "body": "For over five years I have dedicated myself to the Japanese tattoo tradition in Munich. Every motif tells a story — in ink and time.",
+      "link": "More about Kisha"
+    },
+    "cta": {
+      "heading": "Ready for your custom tattoo?",
+      "button": "Book appointment"
+    }
+  },
+
+  "works": {
+    "meta": {
+      "title": "Latest Works — Kisha Irezumi Munich",
+      "description": "Dive into the collection and witness the result of deep devotion, precise technique, and unwavering standards."
+    },
+    "hero": {
+      "h1": "Latest works",
+      "sub": "Dive into the collection and witness the result of deep devotion, precise technique, and unwavering standards",
+      "kanjiCaption": "In the context of large-scale Irezumi, underscores the professionalism of the master"
+    },
+    "cta": {
+      "heading": "Your custom tattoo — ready for the next step?",
+      "prices": "View prices",
+      "about": "About Kisha",
+      "button": "Book appointment"
+    }
+  },
+
+  "about": {
+    "meta": {
+      "title": "Tattoo Artist Munich — Kisha | Irezumi & Fine Line",
+      "description": "Kisha is a tattoo artist in Munich — Irezumi, fine line & graphic. 7+ years experience, 5 Convention Awards 2025. Book now."
+    },
+    "hero": {
+      "h1": "Tattoo Artist Munich\none story at a time",
+      "dedicated": "Tattoo artist Munich — dedicated to preserving the Japanese tattoo tradition, one story at a time"
+    },
+    "journey": {
+      "tag": "[ Art that becomes history ]",
+      "heading": "The path: etched in discipline",
+      "link": "[ View all works ]",
+      "p1": "For over five years I have dedicated myself as a tattoo artist in Munich to the Japanese tattoo tradition. My journey began with deep respect for the legacy of Irezumi — not as a trend, but as a commitment to a powerful, living art form.",
+      "p2": "As a tattooist in Munich I specialise in large-scale, complex work: full backpieces, sleeves and bodysuits. These projects require an exceptional degree of discipline and patience — qualities I bring to every single line."
+    },
+    "philosophy": {
+      "heading": "The philosophy — love and devotion",
+      "body": "At KishaTattoo Munich we are guided by deep love for the craft and sincere dedication to your vision"
+    },
+    "mastery": {
+      "heading": "The commitment of the best tattooist in Munich",
+      "sub": "Traditional Irezumi is an act of endurance — it demands patience from tattooist and client alike",
+      "steps": [
+        {
+          "title": "For the tattooist",
+          "body": "It requires focused discipline to master the technique, respect the anatomy of the body and dedicate countless hours to perfection."
+        },
+        {
+          "title": "For the client",
+          "body": "The courage and patience to commit to a long process involving multiple sessions — knowing that the finished masterpiece will be a lasting testament to your inner strength."
+        },
+        {
+          "title": "My dedication",
+          "body": "Goes to those who seek an authentic, meaningful and enduring work of art. As a tattoo artist in Munich I am here to guide the process and ensure that your legacy is beautifully etched into skin."
+        }
+      ]
+    },
+    "awards": {
+      "tag": "[ Recognition ]",
+      "heading": "Awarded at the Munich Tattoo Convention",
+      "link": "View awards & recognition →"
+    },
+    "cta": {
+      "heading": "Ready for your tattoo with Kisha in Munich?",
+      "button": "Book appointment"
+    }
+  },
+
+  "booking": {
+    "meta": {
+      "title": "Book Appointment — Kisha Tattoo Munich",
+      "description": "Request an appointment at Kisha Tattoo — Japanese Irezumi, graphic and fine line in Munich. Reply within 48 hours."
+    },
+    "hero": {
+      "h1": "Book appointment"
+    },
+    "form": {
+      "nameLabel": "My name is",
+      "namePlaceholder": "[ Name ]",
+      "emailLabel": "My email is",
+      "emailPlaceholder": "[ Email ]",
+      "phoneLabel": "My phone number is",
+      "phonePlaceholder": "[ Number ]",
+      "styleLabel": "Tattoo style",
+      "stylePlaceholder": "[ Japanese · Graphic · Linework ]",
+      "placementLabel": "Placement / body part",
+      "placementPlaceholder": "[ Back · Sleeve · Ribs · etc. ]",
+      "ideaLabel": "My tattoo idea is",
+      "ideaPlaceholder": "[ Describe your vision ]",
+      "togetherLabel": "Did we work together before?",
+      "yes": "Yes, I liked it",
+      "no": "No, I'm new",
+      "filesLabel": "Reference images",
+      "filesHint": "*Send reference images and inspiration — the more context, the better the custom design",
+      "filesMax": "[ max 100 mb ]",
+      "filesButton": "Choose files",
+      "submit": "Send booking request",
+      "submitting": "Sending…",
+      "success": "Thank you — your vision has been received. Kisha will review it and get back to you within 48 hours.",
+      "error": "Something went wrong. Please try again."
+    },
+    "steps": {
+      "heading": "How does booking work?",
+      "list": [
+        {
+          "num": "01",
+          "title": "Send request",
+          "body": "Fill in the form — describe your idea, the desired motif, style and placement. Attach reference images if you have them."
+        },
+        {
+          "num": "02",
+          "title": "Consultation",
+          "body": "Kisha will get back to you within 48 hours. Together we discuss your project, feasibility and approximate time required."
+        },
+        {
+          "num": "03",
+          "title": "Design & appointment",
+          "body": "After the deposit the custom design is created. The final appointment is set together — the first session starts with the stencil check."
+        }
+      ]
+    }
+  },
+
+  "contact": {
+    "meta": {
+      "title": "Contact — Kisha Tattoo Munich",
+      "description": "Get in touch with Kisha — tattoo artist near Munich. Instagram, WhatsApp or contact form."
+    },
+    "hero": {
+      "h1": "Contact"
+    }
+  },
+
+  "blog": {
+    "meta": {
+      "title": "Blog — Kisha Irezumi Munich",
+      "description": "Articles about Japanese tattoo, Irezumi tradition, aftercare and style guides by Kisha Tattoo Munich."
+    },
+    "hero": {
+      "h1": "Stories & Insights",
+      "sub": "Ink, tradition and the art of Irezumi"
+    },
+    "backToList": "Back to blog",
+    "related": "Related articles",
+    "readMore": "Read more"
+  },
+
+  "faq": {
+    "meta": {
+      "title": "FAQ — Kisha Tattoo Munich",
+      "description": "Frequently asked questions about appointments, prices, aftercare and tattoo styles at Kisha Tattoo Munich."
+    },
+    "hero": {
+      "h1": "FAQ"
+    }
+  },
+
+  "aftercare": {
+    "meta": {
+      "title": "Tattoo Aftercare — Kisha Tattoo Munich",
+      "description": "Aftercare instructions for your new tattoo from Kisha. Keep your Irezumi looking great for years."
+    }
+  },
+
+  "awards": {
+    "meta": {
+      "title": "Awards — Kisha Tattoo Munich",
+      "description": "5 Convention Awards 2025 — Kisha Tattoo Munich recognised at the Munich Tattoo Convention."
+    }
+  },
+
+  "common": {
+    "bookButton": "Book appointment",
+    "viewWorks": "View works",
+    "backToTop": "Back to top"
+  }
+}
