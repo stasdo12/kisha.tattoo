@@ -12,66 +12,79 @@ import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Awards & Recognition — KishaTattoo München',
+  title: 'Awards & Ausbildung — KishaTattoo München',
   description:
-    'KishaTattoo — ausgezeichnete Tattoo-Künstlerin in München. Preise auf dem Munich Tattoo Festival, internationale Anerkennung für japanisches Irezumi und Grafik-Tattoo.',
+    'KishaTattoo — ausgezeichnete Tattoo-Künstlerin und Ausbilderin in München. Preise auf Tattooconventions 2025, über 10 ausgebildete Tätowierer — Tattoo Schule München.',
   path: '/awards',
   keywords: [
     'Tattoo Award München',
-    'München Tattoo Festival',
-    'ausgezeichnete Tattoo Künstlerin München',
-    'Irezumi Award',
+    'Tattooconvention Eggenfelden',
+    'Tattooconvention Burgkirchen',
+    'Tattoo Ausbildung München',
+    'Tattoo Schule München',
     'beste Tattoo Künstlerin München',
   ],
 })
 
 const AWARDS = [
   {
-    year: '2024',
-    event: 'Munich Tattoo Convention',
-    category: 'Best Japanese — Large Scale',
-    description:
-      'Auszeichnung für ein traditionelles Irezumi-Rückenstück in klassischer Horimono-Komposition. Juried by international masters.',
-    placement: '1. Platz',
+    year: '2025',
+    event: 'Tattooconvention Burgkirchen',
+    eventUrl: 'https://www.instagram.com/tattoo_art.ist.ink/p/DLS7qH2N0hO/',
+    category: 'Best of Show',
+    description: 'Höchste Auszeichnung der Convention — vergeben für das beste Tattoo des gesamten Wettbewerbs.',
+    placement: 'Best of Show',
   },
   {
-    year: '2024',
-    event: 'Munich Tattoo Convention',
-    category: 'Best Black & Grey',
-    description:
-      'Preis für ein großformatiges Grafik-Tattoo mit präziser Schattierung und klarer Linienführung.',
-    placement: '2. Platz',
+    year: '2025',
+    event: 'Tattooconvention Burgkirchen',
+    eventUrl: 'https://www.instagram.com/tattoo_art.ist.ink/p/DLS7qH2N0hO/',
+    category: 'Best of Day',
+    description: 'Tagespreis für das herausragendste Tattoo des Wettkampftages.',
+    placement: 'Best of Day',
   },
   {
-    year: '2023',
-    event: 'Munich Tattoo & Art Expo',
-    category: 'Best Japanese Sleeve',
-    description:
-      'Anerkannt für einen vollständigen Sleeve im klassischen Irezumi-Stil mit Koi, Wellen und Kirschblüten.',
-    placement: '1. Platz',
+    year: '2025',
+    event: 'Tattooconvention Burgkirchen',
+    eventUrl: 'https://www.instagram.com/tattoo_art.ist.ink/p/DLS7qH2N0hO/',
+    category: 'Black & Grey',
+    description: 'Auszeichnung in der Kategorie Black & Grey für präzise Schattierung und Komposition.',
+    placement: 'Auszeichnung',
   },
   {
-    year: '2023',
-    event: 'Munich Tattoo & Art Expo',
-    category: 'Best Linework',
-    description:
-      'Auszeichnung für botanisches Linework Tattoo — feine, präzise Linienführung ohne Schattierung.',
-    placement: 'Nominierung',
+    year: '2025',
+    event: 'Tattooconvention Eggenfelden',
+    eventUrl: 'https://www.instagram.com/tattoo_convention_eggenfelden/',
+    category: 'Black & Grey',
+    description: 'Preis in der Kategorie Black & Grey auf der Tattooconvention Eggenfelden.',
+    placement: 'Auszeichnung',
   },
   {
-    year: '2022',
-    event: 'Munich Tattoo Convention',
-    category: 'Best Japanese — Small / Medium',
-    description:
-      'Preis für ein Koi-Tattoo am Unterarm in traditioneller Irezumi-Technik mit echter Tebori-Finissage.',
-    placement: '1. Platz',
+    year: '2025',
+    event: 'Tattooconvention Eggenfelden',
+    eventUrl: 'https://www.instagram.com/tattoo_convention_eggenfelden/',
+    category: 'Fineline / Dotwork',
+    description: 'Auszeichnung für präzises Fineline- und Dotwork-Tattoo in München.',
+    placement: 'Auszeichnung',
   },
 ]
 
-const FEATURES = [
-  { outlet: 'Tattoo Life Magazine', year: '2024', note: 'Featured artist — European Irezumi issue' },
-  { outlet: 'Skin Deep DE', year: '2023', note: 'Interview: Japanisches Tatowieren in Deutschland' },
-  { outlet: 'Tatau Obscur Blog', year: '2023', note: 'Spotlight: Kisha Tattoo München' },
+const SCHOOL_STATS = [
+  {
+    number: '10+',
+    label: 'Ausgebildete Tattoo Artists',
+    body: 'Absolventinnen und Absolventen der Schule sind heute selbst erfolgreiche Tätowierer in Deutschland und Europa.',
+  },
+  {
+    number: '5+',
+    label: 'Jahre Ausbildungserfahrung',
+    body: 'Kisha gibt ihr Wissen in Einzelcoachings und intensiven Ausbildungsprogrammen in München weiter.',
+  },
+  {
+    number: '100%',
+    label: 'Praxisbasiert',
+    body: 'Anatomie, Komposition, Maschinenkunde, Hygiene, Irezumi-Tradition — eine vollständige Ausbildung zum Tattoo Artist.',
+  },
 ]
 
 export default function AwardsPage() {
@@ -136,8 +149,8 @@ export default function AwardsPage() {
             color: '#0D0D0D',
           }}
         >
-          Auszeichnungen und internationale Anerkennung für Japanisches Irezumi,
-          Grafik-Tattoo und Linework in München.
+          Auszeichnungen auf Tattooconventions 2025 und über 10 ausgebildete
+          Tattoo Artists — Kisha setzt Maßstäbe in München.
         </p>
 
         <GNav activePath="/about" theme="light" />
@@ -168,10 +181,10 @@ export default function AwardsPage() {
                 color: '#0D0D0D',
               }}
             >
-              Tattoo Festivals München
+              Tattoo Convention Awards
             </h2>
             <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>
-              [ 2022 — 2024 ]
+              [ 2025 ]
             </span>
           </div>
 
@@ -192,9 +205,14 @@ export default function AwardsPage() {
                   {award.year}
                 </span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>
+                  <a
+                    href={award.eventUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid rgba(13,13,13,0.3)' }}
+                  >
                     {award.event}
-                  </span>
+                  </a>
                   <span style={{ fontSize: 'var(--g-bm)', color: 'rgba(13,13,13,0.7)' }}>
                     {award.category}
                   </span>
@@ -220,9 +238,9 @@ export default function AwardsPage() {
         </div>
       </section>
 
-      {/* ── PRESS / FEATURES ──────────────────────────────────────────────── */}
+      {/* ── SCHULE & AUSBILDUNG ────────────────────────────────────────────── */}
       <section
-        aria-labelledby="press-heading"
+        aria-labelledby="schule-heading"
         style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
       >
         <div className="g-container">
@@ -231,45 +249,75 @@ export default function AwardsPage() {
             style={{
               paddingBottom: '1.25rem',
               borderBottom: '2px solid #0D0D0D',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
               marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
             }}
           >
             <h2
-              id="press-heading"
+              id="schule-heading"
               style={{
                 fontSize: 'var(--g-l)',
                 lineHeight: 'var(--g-lh-l)',
                 color: '#0D0D0D',
               }}
             >
-              Press & Features
+              Tattoo-Ausbildung München —<br />eine Schule, die Meister formt
             </h2>
+            <a
+              href="https://www.instagram.com/kisha.tattoo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap', borderBottom: '1px solid rgba(13,13,13,0.4)' }}
+            >
+              [ @kisha.tattoo ]
+            </a>
           </div>
 
+          {/* Intro text */}
+          <p style={{
+            fontSize: 'var(--g-bm)',
+            lineHeight: 'var(--g-lh-bm)',
+            color: '#0D0D0D',
+            maxWidth: 'clamp(24rem, 55vw, 820px)',
+            marginBottom: 'clamp(2rem, 3.5vw, 4rem)',
+          }}>
+            Kisha ist nicht nur Tattoo Artist — sie ist Ausbilderin. Über Jahre hat sie in ihrer
+            Tattoo-Schule in München mehr als 10 professionelle Tätowierer ausgebildet, die heute
+            selbst etablierte Karrieren in Deutschland und Europa führen. Ihre Ausbildung vereint
+            die Disziplin des japanischen Irezumi mit modernem Handwerk — und hat in der deutschen
+            Tattoo-Szene Maßstäbe gesetzt.
+          </p>
+
+          {/* Three stats columns */}
           <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: 'clamp(1rem, 2vw, 2rem)',
-            }}
+            style={{ display: 'flex' }}
           >
-            {FEATURES.map((f, i) => (
+            {SCHOOL_STATS.map((s, i) => (
               <div
                 key={i}
                 style={{
+                  flex: '1 1 0',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '0.5rem',
-                  padding: 'clamp(1rem, 1.5vw, 1.5rem)',
-                  border: '1px solid rgba(13,13,13,0.15)',
+                  gap: '1rem',
+                  padding: i === 0
+                    ? '0 clamp(1rem, 2vw, 2rem) 0 0'
+                    : i === 1
+                    ? '0 clamp(1rem, 2vw, 2rem)'
+                    : '0 0 0 clamp(1rem, 2vw, 2rem)',
+                  borderLeft: i > 0 ? '1px solid #0D0D0D' : 'none',
                 }}
               >
-                <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{f.year}</span>
+                <span style={{ fontSize: 'clamp(2rem, 3.5vw, 3.5rem)', lineHeight: 1, color: '#0D0D0D' }}>
+                  {s.number}
+                </span>
                 <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>
-                  {f.outlet}
+                  {s.label}
                 </span>
                 <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.5, color: 'rgba(13,13,13,0.65)' }}>
-                  {f.note}
+                  {s.body}
                 </p>
               </div>
             ))}
