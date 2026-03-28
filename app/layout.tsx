@@ -97,10 +97,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Preconnect to external image domains — reduces DNS + TLS handshake time */}
-        <link rel="preconnect" href="https://picsum.photos" />
-        <link rel="preconnect" href="https://placehold.co" />
-
         {/* Root structured data — present on every page */}
         <script
           type="application/ld+json"

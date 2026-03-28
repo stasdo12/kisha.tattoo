@@ -93,7 +93,7 @@ export function GFooter() {
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Stile</span>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.6)', marginBottom: '0.25rem' }}>Stile</span>
             {[
               { href: '/japanisches-tattoo-muenchen', label: 'Japanisches Tattoo München' },
               { href: '/grafik-tattoo-muenchen',      label: 'Grafik Tattoo München' },
@@ -106,7 +106,7 @@ export function GFooter() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Motive</span>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.6)', marginBottom: '0.25rem' }}>Motive</span>
             {[
               { href: '/motive',                           label: 'Alle Motive' },
               { href: '/motive#drachen',                   label: 'Drachen (Ryū)' },
@@ -122,7 +122,7 @@ export function GFooter() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Pages</span>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.6)', marginBottom: '0.25rem' }}>Pages</span>
             {[
               { href: '/booking',                label: 'Termin buchen' },
               { href: '/tattoo-preise-muenchen', label: 'Preise' },
@@ -139,7 +139,7 @@ export function GFooter() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-end' }}>
-            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Einzugsgebiet</span>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.6)', marginBottom: '0.25rem' }}>Einzugsgebiet</span>
             {[
               { href: '/tattoo-eching',    label: 'Tattoo Eching' },
               { href: '/tattoo-freising',  label: 'Tattoo Freising' },
