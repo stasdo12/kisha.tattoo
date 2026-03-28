@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 interface Props {
   src: string
@@ -12,13 +12,20 @@ interface Props {
 
 export function GWorkImage({ src, alt, sizes, style }: Props) {
   const [visible, setVisible] = useState(false)
+  const isTouch = useRef(false)
 
   return (
     <div
       style={{ position: 'relative', overflow: 'hidden', ...style }}
-      onMouseEnter={() => setVisible(true)}
-      onMouseLeave={() => setVisible(false)}
-      onClick={() => setVisible(v => !v)}
+      onTouchStart={() => { isTouch.current = true }}
+      onMouseEnter={() => { if (!isTouch.current) setVisible(true) }}
+      onMouseLeave={() => { if (!isTouch.current) setVisible(false) }}
+      onClick={() => {
+        if (isTouch.current) {
+          setVisible(v => !v)
+          isTouch.current = false
+        }
+      }}
     >
       <Image
         src={src}
@@ -44,7 +51,7 @@ export function GWorkImage({ src, alt, sizes, style }: Props) {
       >
         <span style={{
           color: '#F2F2F2',
-          fontSize: 'var(--g-tag)',
+          fontSize: 'var(--g-bm)',
           lineHeight: 'var(--g-lh-bm)',
           textAlign: 'right',
         }}>

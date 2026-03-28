@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"components/graphic/FormPopupLoader.tsx -> @/components/graphic/FormPopup\":{\"id\":\"components/graphic/FormPopupLoader.tsx -> @/components/graphic/FormPopup\",\"files\":[\"static/chunks/_app-pages-browser_components_graphic_FormPopup_tsx.js\"]}}"

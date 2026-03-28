@@ -218,7 +218,7 @@ export default function GraphicWorksPage() {
             src={ROW2.src}
             alt={ROW2.alt}
             sizes="100vw"
-            style={{ height: H_LARGE }}
+            style={{ height: 'clamp(432px, 39.6vw, 672px)' }}
           />
 
           {/* ROW 3 — 2 equal columns ────────────────────────────────────── */}
