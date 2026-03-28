@@ -26,6 +26,42 @@ export const metadata: Metadata = buildMetadata({
   ],
 })
 
+const TIMELINE = [
+  {
+    period: '2017 — 2018',
+    title: 'Die ersten Linien',
+    description:
+      'Kisha beginnt ihre Karriere als Tattoo Artist — erste dokumentierte Arbeiten, Grundlagen des Handwerks, Aufbau eines eigenen Stils. Diese Videos zeigen den ehrlichen Anfang.',
+    tag: 'Frühe Arbeiten',
+    links: [
+      { label: 'Kisha_tattoo bei der Arbeit (2017)', url: 'https://www.youtube.com/watch?v=keNnl1Y62ao' },
+      { label: 'Blumen-Armband by Kisha_tattoo', url: 'https://www.youtube.com/watch?v=9DboBeBOjXE' },
+    ],
+  },
+  {
+    period: '2021 — 2022',
+    title: 'Reife des Stils',
+    description:
+      'Komplexere Kompositionen, präziseres Linework, erste großformatige Projekte. Die Handschrift wird unverwechselbar — Fineline trifft auf japanische Einflüsse.',
+    tag: 'Stilentwicklung',
+    links: [
+      { label: 'Ловец снов — Traumfänger-Tattoo (kisha.tattoo)', url: 'https://www.youtube.com/watch?v=h6W9WYK7D1M' },
+      { label: 'Хризантема — Chrysantheme by kisha.tattoo', url: 'https://www.youtube.com/watch?v=kEAnk157u30' },
+    ],
+  },
+  {
+    period: '2025',
+    title: 'Ausgezeichnete Meisterschaft',
+    description:
+      'München, Tattooconventions, fünf Auszeichnungen in einem Jahr — Best of Show, Best of Day, Black & Grey. Der Weg von den ersten Linien bis zur Convention-Siegerin ist dokumentiert.',
+    tag: 'Convention-Gewinnerin',
+    links: [
+      { label: 'Burgkirchen 2025 — Best of Show (Instagram)', url: 'https://www.instagram.com/tattoo_art.ist.ink/p/DLS7qH2N0hO/' },
+      { label: 'Eggenfelden 2025 — Sieger-Post (Instagram)', url: 'https://www.instagram.com/p/DOS9-6rjaaM/?img_index=2' },
+    ],
+  },
+]
+
 const REDDIT_QUOTES = [
   {
     quote: 'Holy smokes that is beautiful work!',
@@ -102,18 +138,6 @@ const MENTIONS = [
     title: 'Tattoo by @kisha.tattoo at BavariaTattoo Studio — 4 Posts',
     note: 'Mehrere Beiträge im größten Tattoo-Subreddit (r/tattoo) — Kishas Arbeiten begeistern die internationale Community mit hunderten Upvotes und Kommentaren.',
     url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/',
-  },
-  {
-    source: 'YouTube · Kisha_tattoo',
-    title: 'Света "Kisha_tattoo" — Tattoo-Prozess',
-    note: 'Externer YouTube-Kanal zeigt Kisha bei der Arbeit — Namenserwähnung im Titel bestätigt die Urheberschaft.',
-    url: 'https://www.youtube.com/watch?v=keNnl1Y62ao',
-  },
-  {
-    source: 'YouTube · kisha.tattoo',
-    title: 'Tattoo-Prozess by kisha.tattoo',
-    note: 'Weiteres YouTube-Video mit direkter Erwähnung von @kisha.tattoo — Beleg für internationale Online-Präsenz.',
-    url: 'https://www.youtube.com/watch?v=9DboBeBOjXE',
   },
   {
     source: 'Facebook · Bavaria Tattoo',
@@ -438,6 +462,90 @@ export default function AwardsPage() {
                   </p>
                 </div>
               </a>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── TIMELINE ──────────────────────────────────────────────────────── */}
+      <section
+        aria-labelledby="timeline-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+      >
+        <div className="g-container">
+
+          <div style={{
+            paddingBottom: '1.25rem',
+            borderBottom: '2px solid #0D0D0D',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+            marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
+          }}>
+            <h2
+              id="timeline-heading"
+              style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}
+            >
+              7 Jahre Handwerk —<br />der dokumentierte Weg
+            </h2>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)', whiteSpace: 'nowrap' }}>
+              [ 2017 — 2025 ]
+            </span>
+          </div>
+
+          <div style={{ display: 'flex' }}>
+            {TIMELINE.map((era, i) => (
+              <div
+                key={i}
+                style={{
+                  flex: '1 1 0',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1.25rem',
+                  padding: i === 0
+                    ? '0 clamp(1rem, 2vw, 2.5rem) 0 0'
+                    : i === 1
+                    ? '0 clamp(1rem, 2vw, 2.5rem)'
+                    : '0 0 0 clamp(1rem, 2vw, 2.5rem)',
+                  borderLeft: i > 0 ? '1px solid #0D0D0D' : 'none',
+                }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                  <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>
+                    {era.tag}
+                  </span>
+                  <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>
+                    {era.period}
+                  </span>
+                  <span style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', fontWeight: 500 }}>
+                    {era.title}
+                  </span>
+                </div>
+                <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.6, color: 'rgba(13,13,13,0.65)' }}>
+                  {era.description}
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: 'auto' }}>
+                  {era.links.map((link, j) => (
+                    <a
+                      key={j}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontSize: 'var(--g-tag)',
+                        color: '#0D0D0D',
+                        textDecoration: 'none',
+                        borderBottom: '1px solid rgba(13,13,13,0.3)',
+                        paddingBottom: '2px',
+                        width: 'fit-content',
+                      }}
+                    >
+                      {link.label} ↗
+                    </a>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
 
