@@ -30,12 +30,12 @@ export const metadata: Metadata = buildMetadata({
  * → 6 items total; 5th small is hidden at 1440 via CSS (see .g-works-5th)
  */
 const WORKS = [
-  { id: 1, src: 'https://picsum.photos/seed/irezumi-main/778/840',    alt: 'Large Irezumi back piece',  large: true },
-  { id: 2, src: 'https://picsum.photos/seed/dragon-sleeve/372/400',   alt: 'Dragon sleeve tattoo',      large: false },
-  { id: 3, src: 'https://picsum.photos/seed/koi-tattoo/372/400',      alt: 'Koi fish tattoo',            large: false },
-  { id: 4, src: 'https://picsum.photos/seed/tiger-tattoo/372/400',    alt: 'Tiger tattoo',               large: false },
-  { id: 5, src: 'https://picsum.photos/seed/sakura-tattoo/372/400',   alt: 'Cherry blossom tattoo',      large: false },
-  { id: 6, src: 'https://picsum.photos/seed/phoenix-irezumi/372/400', alt: 'Phoenix tattoo',             large: false },
+  { id: 1, src: '/images/home/works-01-blackwork-fullbody.jpg', alt: 'Japanisches Irezumi Vollkörper-Tattoo in Schwarz — Kisha München',       large: true },
+  { id: 2, src: '/images/home/works-02-fox-japanese.jpg',       alt: 'Kitsune Fuchs-Tattoo im japanischen Stil — Kisha Tattoo München',        large: false },
+  { id: 3, src: '/images/home/works-03-flower-japanese.jpg',    alt: 'Japanisches Blumen-Tattoo — traditioneller Irezumi-Stil München',        large: false },
+  { id: 4, src: '/images/home/works-04-god-japanese.jpg',       alt: 'Japanischer Gott Tattoo — Irezumi München — Kisha',                      large: false },
+  { id: 5, src: '/images/home/works-05-flowers-graphic.jpg',    alt: 'Grafik-Tattoo Blumen — femininer Stil — Kisha Tattoo München',           large: false },
+  { id: 6, src: '/images/home/works-06-mace-graphic-leg.jpg',   alt: 'Grafik-Tattoo Keule am Bein — großformatiges Tattoo München — Kisha',   large: false },
 ]
 
 const MOTIFS = [
@@ -43,35 +43,35 @@ const MOTIFS = [
     id: 'dragon',
     name: 'Dragon',
     href: '/motive/drachen-tattoo-muenchen',
-    src: 'https://picsum.photos/seed/dragon-motif/896/1000',
+    src: '/images/home/motif-dragon.jpg',
     desc: 'Weisheit, Stärke, Schutz und übernatürliche Kräfte. Symbol des Wassers und der Großzügigkeit.',
   },
   {
     id: 'carp',
     name: 'Karpfen',
     href: '/motive/koi-tattoo-muenchen',
-    src: 'https://picsum.photos/seed/carp-motif/896/1000',
+    src: '/images/home/motif-koi.jpg',
     desc: 'Ausdauer, Erfolg im Kampf, Mut und die Fähigkeit, Hindernisse zu überwinden.',
   },
   {
     id: 'fox',
     name: 'Fuchs',
     href: '/motive/kitsune-tattoo-muenchen',
-    src: 'https://picsum.photos/seed/fox-motif/896/1000',
+    src: '/images/home/motif-fox.jpg',
     desc: 'Schlauheit, Intellekt, Langlebigkeit und magische Kräfte. Gilt als Beschützer vor dem Bösen.',
   },
   {
     id: 'cherry',
     name: 'Kirschblüte',
     href: '/motive/sakura-tattoo-muenchen',
-    src: 'https://picsum.photos/seed/cherry-motif/896/1000',
+    src: '/images/home/motif-sakura.jpg',
     desc: 'Die Vergänglichkeit und Schönheit des Lebens — die Philosophie des Memento Mori.',
   },
   {
     id: 'tiger',
     name: 'Tiger',
     href: '/motive/tiger-tattoo-muenchen',
-    src: 'https://picsum.photos/seed/tiger-motif/896/1000',
+    src: '/images/home/motif-tiger.jpg',
     desc: 'Kraft, Tapferkeit, Langlebigkeit und Schutz vor Krankheit. Symbol des Windes und des Nordens.',
   },
 ]
@@ -149,8 +149,8 @@ export default function GraphicHomePage() {
             }}
           >
             <Image
-              src="https://picsum.photos/seed/kisha-master-hero/480/520"
-              alt="Master Kisha — Japanese tattoo artist"
+              src="/images/home/hero-portrait.jpg"
+              alt="Kisha — Tattoo Artist München, Spezialistin für Japanisches Irezumi"
               fill
               priority
               style={{ objectFit: 'cover', objectPosition: 'top center' }}
@@ -352,7 +352,7 @@ export default function GraphicHomePage() {
                     alt={item.alt}
                     fill
                     style={{ objectFit: 'cover' }}
-                    sizes={item.large ? '25vw' : '14vw'}
+                    sizes="(max-width: 767px) 100vw, 25vw"
                   />
                 </div>
               ))}
@@ -380,7 +380,7 @@ export default function GraphicHomePage() {
           style={{
             background: '#F2F2F2',
             position: 'relative',
-            height: 'clamp(1300px, calc(580px + 50vw), 1540px)',
+            height: 'clamp(1300px, calc(580px + 50vw), 1340px)',
             overflow: 'hidden',
           }}
         >
@@ -441,12 +441,12 @@ export default function GraphicHomePage() {
               left: 'var(--g-pad)',
               right: 'var(--g-pad)',
               top: '320px',
-              height: 'clamp(720px, 50vw, 960px)',
+              height: 'clamp(720px, 50vw, 760px)',
             }}
           >
             <Image
-              src="https://picsum.photos/seed/kisha-back-irezumi/1840/960"
-              alt="Full Irezumi back piece — traditional Japanese tattooing"
+              src="/images/home/philosophy-snake-graphic.jpg"
+              alt="Grafik-Tattoo Schlange — großformatiges Tattoo München — Kisha"
               fill
               style={{ objectFit: 'cover' }}
               sizes="100vw"
@@ -460,7 +460,7 @@ export default function GraphicHomePage() {
             style={{
               position: 'absolute',
               left: 'calc(48px + 45.83vw)',
-              top: 'calc(372px + 50vw)',
+              top: 'min(calc(372px + 50vw), 1132px)',
               width: '28rem',
               fontSize: 'var(--g-bm)',
               lineHeight: 'var(--g-lh-bm)',
@@ -743,8 +743,8 @@ export default function GraphicHomePage() {
                 }}
               >
                 <Image
-                  src="https://picsum.photos/seed/kisha-portrait-faq/354/384"
-                  alt="Kisha — tattoo master"
+                  src="/images/home/faq-section-kisha-tattoo.jpg"
+                  alt="Kisha — Tattoo Master München"
                   fill
                   style={{ objectFit: 'cover' }}
                   sizes="20vw"
