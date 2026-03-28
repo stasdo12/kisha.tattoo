@@ -108,11 +108,13 @@ export function GFooter() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
             <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Pages</span>
             {[
-              { href: '/booking',   label: 'Termin buchen' },
-              { href: '/faq',       label: 'FAQ' },
-              { href: '/aftercare', label: 'Aftercare' },
-              { href: '/awards',    label: 'Awards' },
-              { href: '/about',     label: 'Über Kisha' },
+              { href: '/booking',                label: 'Termin buchen' },
+              { href: '/tattoo-preise-muenchen', label: 'Preise' },
+              { href: '/walk-in-tattoo-muenchen',label: 'Walk-in Tattoo' },
+              { href: '/faq',                    label: 'FAQ' },
+              { href: '/aftercare',              label: 'Aftercare' },
+              { href: '/awards',                 label: 'Awards' },
+              { href: '/about',                  label: 'Über Kisha' },
             ].map((l) => (
               <Link key={l.href} href={l.href} style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.65)', textDecoration: 'none' }}>
                 {l.label}
@@ -123,9 +125,11 @@ export function GFooter() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-end' }}>
             <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.4)', marginBottom: '0.25rem' }}>Einzugsgebiet</span>
             {[
-              { href: '/tattoo-eching',   label: 'Tattoo Eching' },
-              { href: '/tattoo-freising', label: 'Tattoo Freising' },
-              { href: '/tattoo-neufahrn', label: 'Tattoo Neufahrn' },
+              { href: '/tattoo-eching',    label: 'Tattoo Eching' },
+              { href: '/tattoo-freising',  label: 'Tattoo Freising' },
+              { href: '/tattoo-neufahrn',  label: 'Tattoo Neufahrn' },
+              { href: '/tattoo-dachau',    label: 'Tattoo Dachau' },
+              { href: '/tattoo-ottobrunn', label: 'Tattoo Ottobrunn' },
             ].map((l) => (
               <Link key={l.href} href={l.href} style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.65)', textDecoration: 'none' }}>
                 {l.label}
