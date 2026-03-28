@@ -141,7 +141,7 @@ export function GAboutPassionBlock() {
           src={slide.large}
           alt={slide.alt}
           fill
-          style={{ objectFit: 'cover', objectPosition: 'center top' }}
+          style={{ objectFit: 'cover', objectPosition: 'center center' }}
           sizes="55vw"
         />
       </div>

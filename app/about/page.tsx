@@ -188,6 +188,7 @@ export default function GraphicAboutPage() {
               position: 'relative',
               width: '100%',
               aspectRatio: '1840 / 960',
+              maxHeight: '730px',
               overflow: 'hidden',
               borderRadius: '2px',
               marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
