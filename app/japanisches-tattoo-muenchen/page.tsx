@@ -4,13 +4,13 @@
  * Design: Graphic design system — matches existing pages
  */
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
+import { GWorkImage } from '@/components/graphic/GWorkImage'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Japanischer Tätowierer München — Traditional Japanese Tattoo | KishaTattoo',
@@ -30,15 +30,6 @@ export const metadata: Metadata = buildMetadata({
     'drachen tattoo münchen',
   ],
 })
-
-const GALLERY = [
-  { src: 'https://picsum.photos/seed/jp-1/600/700', alt: 'Japanisches Irezumi Rückenstück München — Drachen und Wellen' },
-  { src: 'https://picsum.photos/seed/jp-2/600/700', alt: 'Koi Tattoo München — traditioneller Irezumi Stil' },
-  { src: 'https://picsum.photos/seed/jp-3/600/700', alt: 'Oni Maske Tattoo München — japanisches Blackwork' },
-  { src: 'https://picsum.photos/seed/jp-4/600/700', alt: 'Japanischer Sleeve München — Kirschblüten und Tiger' },
-  { src: 'https://picsum.photos/seed/jp-5/600/700', alt: 'Irezumi Hannya Maske München' },
-  { src: 'https://picsum.photos/seed/jp-6/600/700', alt: 'Japanisches Rückenstück München — Phönix Tattoo' },
-]
 
 const FAQ = [
   {
@@ -75,80 +66,64 @@ export default function JapanischesTattooMuenchen() {
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
         aria-label="Japanisches Tattoo München — KishaTattoo"
-        data-nav-dark
         style={{
           position: 'relative',
-          height: '100dvh',
-          minHeight: '780px',
+          height: 'clamp(680px, 90vh, 900px)',
+          background: '#F2F2F2',
           overflow: 'hidden',
-          background: '#0D0D0D',
         }}
       >
-        <Image
-          src="https://picsum.photos/seed/jp-hero/1920/1080"
-          alt="Japanisches Irezumi Tattoo München — KishaTattoo"
-          fill
-          priority
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
-          sizes="100vw"
-        />
-        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'rgba(13,13,13,0.5)', zIndex: 1 }} />
-
-        <GLogoBar theme="dark" />
+        <GLogoBar theme="light" />
 
         <h1
           style={{
             position: 'absolute',
             top: '72px',
             left: 'var(--g-pad)',
-            width: 'clamp(18rem, 52vw, 900px)',
+            width: 'clamp(18rem, 42.6vw, 817px)',
             fontSize: 'var(--g-xl)',
             lineHeight: 'var(--g-lh-xl)',
-            color: '#F2F2F2',
-            zIndex: 2,
+            color: '#0D0D0D',
           }}
         >
           Japanischer Tätowierer<br />München
         </h1>
 
-        <p
-          style={{
-            position: 'absolute',
-            bottom: '24px',
-            right: 'var(--g-pad)',
-            width: 'clamp(16rem, 28vw, 420px)',
-            fontSize: 'var(--g-bm)',
-            lineHeight: 1.5,
-            color: 'rgba(242,242,242,0.8)',
-            zIndex: 2,
-            textAlign: 'right',
-          }}
-        >
-          Traditional Japanese Tattoo Artist in Germany — großformatige Irezumi-Werke,
-          die eine Geschichte erzählen. Buchbar in München und Umgebung.
-        </p>
-
-        <GNav activePath="/" theme="dark" />
-
-        {/* Kanji 刺青 — Irezumi */}
+        {/* Decorative kanji 刺青 — Irezumi */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
-            bottom: 'clamp(30px, 4.6vw, 60px)',
-            left: 'var(--g-pad)',
-            zIndex: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            width: '170px',
+            left: '50%',
+            top: '48%',
+            transform: 'translate(-50%, -50%)',
+            fontSize: 'clamp(4rem, 10vw, 12rem)',
+            lineHeight: 0.9,
+            color: '#0D0D0D',
+            opacity: 0.07,
+            userSelect: 'none',
+            pointerEvents: 'none',
           }}
         >
-          <span style={{ fontSize: 'clamp(48px, 4.44vw, 64px)', lineHeight: 1, color: '#F2F2F2' }}>刺青</span>
-          <span style={{ fontSize: 'var(--g-tag)', lineHeight: 1.4, color: 'rgba(242,242,242,0.55)' }}>
-            Irezumi — das in die Haut gestochene Bild
-          </span>
+          刺青
         </div>
+
+        <p
+          style={{
+            position: 'absolute',
+            left: 'var(--g-pad)',
+            bottom: '24px',
+            width: 'clamp(18rem, 28vw, 480px)',
+            fontSize: 'var(--g-bm)',
+            lineHeight: 'var(--g-lh-bm)',
+            color: '#0D0D0D',
+          }}
+        >
+          Traditional Japanese Tattoo Artist in München — Irezumi, Horimono und Tebori.
+          Großformatige Arbeiten nach klassischer Kompositionslehre.
+        </p>
+
+        <GNav activePath="/" theme="light" />
       </section>
 
       {/* ── INTRO TEXT ────────────────────────────────────────────────────── */}
@@ -209,7 +184,7 @@ export default function JapanischesTattooMuenchen() {
         </div>
       </section>
 
-      {/* ── GALLERY GRID ──────────────────────────────────────────────────── */}
+      {/* ── GALLERY ───────────────────────────────────────────────────────── */}
       <section
         aria-label="Japanisches Tattoo Portfolio München"
         style={{
@@ -219,33 +194,32 @@ export default function JapanischesTattooMuenchen() {
           paddingBottom: 'clamp(2rem, 4.2vw, 5rem)',
         }}
       >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '16px',
-          }}
-        >
-          {GALLERY.map((img) => (
-            <div
-              key={img.src}
-              style={{ position: 'relative', aspectRatio: '6/7', overflow: 'hidden' }}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                style={{ objectFit: 'cover' }}
-                sizes="33vw"
-              />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {/* Row 1: exact same as works ROW1 — left large + right 2×2 grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <GWorkImage
+              src="/images/work/4x4-japan-fox-tattoo-graphic.jpg"
+              alt="Japanisches Fuchs Tattoo München — Irezumi KishaTattoo"
+              sizes="50vw"
+              style={{ height: 'clamp(720px, 50vw, 820px)' }}
+            />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '16px', height: 'clamp(720px, 50vw, 820px)' }}>
+              <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg"    alt="Japanisches Hase Tattoo München — KishaTattoo"    sizes="25vw" />
+              <GWorkImage src="/images/work/4x4-birds-tattoo-graphic.jpg"     alt="Japanisches Vögel Tattoo München — KishaTattoo"   sizes="25vw" />
+              <GWorkImage src="/images/work/4x4-bugs-tattoo-graphic.jpg"      alt="Japanisches Insekten Tattoo München — KishaTattoo" sizes="25vw" />
+              <GWorkImage src="/images/work/4x4-sakura-tattoo.jpg"            alt="Sakura Kirschblüten Tattoo München — KishaTattoo" sizes="25vw" />
             </div>
-          ))}
+          </div>
+          {/* Row 2: full-width landscape — exact same as works ROW2 */}
+          <GWorkImage
+            src="/images/work/row2-snake-knie-tattoo.jpg"
+            alt="Japanische Schlange Knie Tattoo München — KishaTattoo"
+            sizes="100vw"
+            style={{ height: 'clamp(432px, 39.6vw, 672px)' }}
+          />
         </div>
         <div style={{ textAlign: 'center', marginTop: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}>
-          <Link
-            href="/works"
-            style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'underline', textUnderlineOffset: '4px' }}
-          >
+          <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
             Alle Arbeiten ansehen →
           </Link>
         </div>
@@ -369,9 +343,7 @@ export default function JapanischesTattooMuenchen() {
       </section>
 
       {/* ── RELATED STYLES ────────────────────────────────────────────────── */}
-      <section
-        style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}
-      >
+      <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>Weitere Stile →</span>
           <Link href="/grafik-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Grafik Tattoo München</Link>
@@ -380,10 +352,7 @@ export default function JapanischesTattooMuenchen() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section
-        data-nav-dark
-        style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
-      >
+      <section data-nav-dark style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
             Dein japanisches Tattoo in München

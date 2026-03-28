@@ -3,8 +3,8 @@
  * Primary keyword: "tattoo ottobrunn" (140/mo, KD 5)
  */
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
+import { GWorkImage } from '@/components/graphic/GWorkImage'
 import { buildMetadata } from '@/lib/seo'
 import { locationServiceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
@@ -179,17 +179,21 @@ export default function TattooOttobrunn() {
           </div>
 
           {/* Gallery preview */}
-          <div style={{ marginTop: 'clamp(2rem, 3.5vw, 4rem)' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '1rem' }}>
-              {[
-                { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Japanisches Fuchs Tattoo München — Kisha' },
-                { src: '/images/work/middle-graphic-body-flower-tattoo.JPG', alt: 'Grafik Blumen Körper Tattoo München — Kisha' },
-                { src: '/images/work/4x4-sakura-tattoo.jpg', alt: 'Sakura Tattoo München — Kisha' },
-              ].map((img) => (
-                <div key={img.src} style={{ position: 'relative', aspectRatio: '1/1', overflow: 'hidden' }}>
-                  <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} sizes="33vw" />
-                </div>
-              ))}
+          <div style={{ marginTop: 'clamp(2rem, 3.5vw, 4rem)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {/* Row 1: left large + right 2×2 */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <GWorkImage
+                src="/images/work/middle-graphic-body-flower-tattoo.jpg"
+                alt="Grafik Blumen Körper Tattoo München — Kisha"
+                sizes="50vw"
+                style={{ height: 'clamp(720px, 50vw, 820px)' }}
+              />
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '12px', height: 'clamp(720px, 50vw, 820px)' }}>
+                <GWorkImage src="/images/work/4x4-japan-fox-tattoo-graphic.jpg" alt="Japanisches Fuchs Tattoo München — Kisha"  sizes="25vw" />
+                <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg"    alt="Grafik Hase Tattoo München — Kisha"         sizes="25vw" />
+                <GWorkImage src="/images/work/4x4-sakura-tattoo.jpg"            alt="Sakura Tattoo München — Kisha"              sizes="25vw" />
+                <GWorkImage src="/images/work/4x4-birds-tattoo-graphic.jpg"     alt="Grafik Vögel Tattoo München — Kisha"        sizes="25vw" />
+              </div>
             </div>
             <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
               Alle Arbeiten ansehen →

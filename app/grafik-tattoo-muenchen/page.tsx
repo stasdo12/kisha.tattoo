@@ -4,13 +4,13 @@
  * Design: Graphic design system — matches existing pages
  */
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
+import { GWorkImage } from '@/components/graphic/GWorkImage'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Tattoo Munich — Custom Grafik & Blackwork | KishaTattoo München',
@@ -44,15 +44,6 @@ const FAQ_GRAFIK = [
     question: 'Was kostet ein Grafik Tattoo in München?',
     answer: 'Custom Grafik Tattoos werden nach Stunden abgerechnet. Kleine Motive ab ca. 80–150 €, große Blackwork-Stücke ab 600 € pro Sitzung. Alle Details zu Tattoo Preisen München findest du auf unserer Preisseite.',
   },
-]
-
-const GALLERY = [
-  { src: 'https://picsum.photos/seed/gr-1/600/700', alt: 'Grafik Tattoo München — geometrisches Blackwork Design' },
-  { src: 'https://picsum.photos/seed/gr-2/600/700', alt: 'Blackwork Tattoo München — Illustration KishaTattoo' },
-  { src: 'https://picsum.photos/seed/gr-3/600/700', alt: 'Geometrisches Tattoo München — präzise Linien' },
-  { src: 'https://picsum.photos/seed/gr-4/600/700', alt: 'Grafik Tattoo Sleeve München — KishaTattoo' },
-  { src: 'https://picsum.photos/seed/gr-5/600/700', alt: 'Illustratives Tattoo München — contemporary style' },
-  { src: 'https://picsum.photos/seed/gr-6/600/700', alt: 'Blackwork Brust Tattoo München — grafisch' },
 ]
 
 export default function GrafikTattooMuenchen() {
@@ -105,7 +96,7 @@ export default function GrafikTattooMuenchen() {
             fontSize: 'clamp(4rem, 10vw, 12rem)',
             lineHeight: 0.9,
             color: '#0D0D0D',
-            opacity: 0.1,
+            opacity: 0.07,
             userSelect: 'none',
             pointerEvents: 'none',
           }}
@@ -199,12 +190,37 @@ export default function GrafikTattooMuenchen() {
           paddingBottom: 'clamp(2rem, 4.2vw, 5rem)',
         }}
       >
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-          {GALLERY.map((img) => (
-            <div key={img.src} style={{ position: 'relative', aspectRatio: '6/7', overflow: 'hidden' }}>
-              <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} sizes="33vw" />
-            </div>
-          ))}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {/* Row 1: 2 equal large columns — exact same as works ROW3 */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <GWorkImage
+              src="/images/work/middle-graphic-body-flower-tattoo.jpg"
+              alt="Grafik Blumen Körper Tattoo München — KishaTattoo"
+              sizes="50vw"
+              style={{ height: 'clamp(720px, 50vw, 820px)' }}
+            />
+            <GWorkImage
+              src="/images/work/middle-graphic-hand-with-flower-tattoo.jpg"
+              alt="Grafik Hand mit Blumen Tattoo München — KishaTattoo"
+              sizes="50vw"
+              style={{ height: 'clamp(720px, 50vw, 820px)' }}
+            />
+          </div>
+          {/* Row 2: 4-column grid — same as works ROW4, each item 25vw × H_SMALL = square */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
+            <GWorkImage
+              src="/images/work/4x4-bugs-tattoo-graphic.jpg"
+              alt="Grafik Insekten Tattoo München — KishaTattoo Blackwork"
+              sizes="25vw"
+              style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }}
+            />
+            <GWorkImage
+              src="/images/work/4x4-fogel-tattoo-graphic.jpg"
+              alt="Grafik Vogel Tattoo München — KishaTattoo"
+              sizes="25vw"
+              style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }}
+            />
+          </div>
         </div>
         <div style={{ textAlign: 'center', marginTop: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}>
           <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
@@ -235,7 +251,7 @@ export default function GrafikTattooMuenchen() {
           <div className="g-about-steps" style={{ display: 'flex' }}>
             {[
               { title: 'Blackwork', body: 'Kraftvolle Schwarzflächen, harte Kontraste, null Grau. Blackwork ist die direkteste Form des grafischen Tattoos — maximale Wirkung, minimale Kompromisse.' },
-              { title: 'Geometrie', body: 'Präzise Formen, symmetrische Kompositionen, mathematische Schönheit. Geometrische Tattoos sind zeitlos — und durch KishasTattoos präzise Linienführung besonders langlebig.' },
+              { title: 'Geometrie', body: 'Präzise Formen, symmetrische Kompositionen, mathematische Schönheit. Geometrische Tattoos sind zeitlos — und durch KishaTattoos präzise Linienführung besonders langlebig.' },
               { title: 'Illustration', body: 'Freies illustratives Design: von botanischen Motiven bis zu figurativen Darstellungen. Jedes Motiv wird als eigenständiges Kunstwerk konzipiert und für deinen Körper adaptiert.' },
             ].map((col, i) => (
               <div
