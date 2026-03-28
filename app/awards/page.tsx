@@ -104,6 +104,18 @@ const MENTIONS = [
     url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/',
   },
   {
+    source: 'YouTube · Kisha_tattoo',
+    title: 'Света "Kisha_tattoo" — Tattoo-Prozess',
+    note: 'Externer YouTube-Kanal zeigt Kisha bei der Arbeit — Namenserwähnung im Titel bestätigt die Urheberschaft.',
+    url: 'https://www.youtube.com/watch?v=keNnl1Y62ao',
+  },
+  {
+    source: 'YouTube · kisha.tattoo',
+    title: 'Tattoo-Prozess by kisha.tattoo',
+    note: 'Weiteres YouTube-Video mit direkter Erwähnung von @kisha.tattoo — Beleg für internationale Online-Präsenz.',
+    url: 'https://www.youtube.com/watch?v=9DboBeBOjXE',
+  },
+  {
     source: 'Facebook · Bavaria Tattoo',
     title: 'Fineline Tattoo by @kisha.tattoo',
     note: 'Die Studio-Seite BavariaTattoo präsentiert Kishas Fineline-Arbeit — feiner, präziser Stil, internationale Sichtbarkeit.',
