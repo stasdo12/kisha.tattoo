@@ -45,8 +45,8 @@ const TIMELINE = [
       'Komplexere Kompositionen, präziseres Linework, erste großformatige Projekte. Die Handschrift wird unverwechselbar — Fineline trifft auf japanische Einflüsse.',
     tag: 'Stilentwicklung',
     links: [
-      { label: 'Ловец снов — Traumfänger-Tattoo (kisha.tattoo)', url: 'https://www.youtube.com/watch?v=h6W9WYK7D1M' },
-      { label: 'Хризантема — Chrysantheme by kisha.tattoo', url: 'https://www.youtube.com/watch?v=kEAnk157u30' },
+      { label: 'Traumfänger-Tattoo by kisha.tattoo', url: 'https://www.youtube.com/watch?v=h6W9WYK7D1M' },
+      { label: 'Chrysantheme-Tattoo by kisha.tattoo', url: 'https://www.youtube.com/watch?v=kEAnk157u30' },
     ],
   },
   {
