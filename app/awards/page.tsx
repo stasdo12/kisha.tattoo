@@ -71,10 +71,10 @@ const AWARDS = [
 
 const MENTIONS = [
   {
-    source: 'Reddit · r/MarkedByPain',
-    title: 'Best Festival Winners — Dominik & Kisha',
-    note: 'Community-Post über die Festivalsieger: Kisha ausgezeichnet für Grafik-Tattoo, als Benchmark für Skill und Qualität bezeichnet.',
-    url: 'https://www.reddit.com/r/MarkedByPain/comments/1q87fkb/dominik_kisha_best_festival_winners_realism/',
+    source: 'Reddit · r/tattoo',
+    title: 'Tattoo by @kisha.tattoo at BavariaTattoo Studio — 4 Posts',
+    note: 'Mehrere Beiträge im größten Tattoo-Subreddit (r/tattoo) — Kishas Arbeiten begeistern die internationale Community mit hunderten Upvotes und Kommentaren.',
+    url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/',
   },
   {
     source: 'Facebook · Bavaria Tattoo',
