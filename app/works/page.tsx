@@ -80,7 +80,7 @@ export default function GraphicWorksPage() {
         {/* Background image */}
         <Image
           src="/images/work/main-work-tattoo.jpg"
-          alt=""
+          alt="Japanisches Irezumi Tattoo — KishaTattoo München"
           aria-hidden="true"
           fill
           priority

@@ -66,7 +66,7 @@ export default async function ArticleDetailPage({
         {/* Background photo */}
         <Image
           src={story?.coverImage ?? 'https://picsum.photos/seed/article-hero/1920/1080'}
-          alt=""
+          alt={story?.title ?? 'Tattoo Blog — KishaTattoo München'}
           aria-hidden="true"
           fill
           priority
