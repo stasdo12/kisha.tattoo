@@ -69,6 +69,27 @@ const AWARDS = [
   },
 ]
 
+const MENTIONS = [
+  {
+    source: 'Reddit · r/MarkedByPain',
+    title: 'Best Festival Winners — Dominik & Kisha',
+    note: 'Community-Post über die Festivalsieger: Kisha ausgezeichnet für Grafik-Tattoo, als Benchmark für Skill und Qualität bezeichnet.',
+    url: 'https://www.reddit.com/r/MarkedByPain/comments/1q87fkb/dominik_kisha_best_festival_winners_realism/',
+  },
+  {
+    source: 'Facebook · Bavaria Tattoo',
+    title: 'Fineline Tattoo by @kisha.tattoo',
+    note: 'Die Studio-Seite BavariaTattoo präsentiert Kishas Fineline-Arbeit — feiner, präziser Stil, internationale Sichtbarkeit.',
+    url: 'https://www.facebook.com/bavariatattoo1/photos/little-fineline-tattoo-made-by-kishatattoo-tattoo-tattooed-tattooedpeople-ink-in/',
+  },
+  {
+    source: 'Facebook · Skindreams Tattoo',
+    title: 'Großformatiger Sleeve by @kisha.tattoo',
+    note: 'Skindreams Tattoo Kharkiv zeigt Kishas Sleeve-Arbeit — Beleg für ihre Expertise bei komplexen Großprojekten.',
+    url: 'https://www.facebook.com/permalink.php?id=168171823911465&story_fbid=684290145632961',
+  },
+]
+
 const SCHOOL_STATS = [
   {
     number: '10+',
@@ -320,6 +341,64 @@ export default function AwardsPage() {
                   {s.body}
                 </p>
               </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── COMMUNITY MENTIONS ────────────────────────────────────────────── */}
+      <section
+        aria-labelledby="mentions-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+      >
+        <div className="g-container">
+
+          <div
+            style={{
+              paddingBottom: '1.25rem',
+              borderBottom: '2px solid #0D0D0D',
+              marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
+            }}
+          >
+            <h2
+              id="mentions-heading"
+              style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}
+            >
+              Erwähnt in der Community
+            </h2>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+            {MENTIONS.map((m, i) => (
+              <a
+                key={i}
+                href={m.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'clamp(10rem, 18vw, 22rem) 1fr',
+                  gap: '1.5rem',
+                  alignItems: 'start',
+                  padding: 'clamp(1rem, 1.8vw, 1.75rem) 0',
+                  borderBottom: '1px solid rgba(13,13,13,0.2)',
+                  textDecoration: 'none',
+                  color: 'inherit',
+                }}
+              >
+                <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)', paddingTop: '0.2rem' }}>
+                  {m.source}
+                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                  <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>
+                    {m.title} ↗
+                  </span>
+                  <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.5, color: 'rgba(13,13,13,0.6)' }}>
+                    {m.note}
+                  </p>
+                </div>
+              </a>
             ))}
           </div>
 
