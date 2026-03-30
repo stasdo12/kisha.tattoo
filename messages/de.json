@@ -6,7 +6,6 @@
     "blog": "Blog",
     "contact": "Contact"
   },
-
   "footer": {
     "cta": "Discuss your vision",
     "heading": "Relax and book your seat right now",
@@ -22,7 +21,7 @@
     "links": {
       "japanese": "Japanisches Tattoo München",
       "graphic": "Grafik Tattoo München",
-      "linework": "Linework Tattoo München",
+      "fineline": "Fineline Tattoo München",
       "allMotifs": "Alle Motive",
       "dragon": "Drachen (Ryū)",
       "koi": "Koi",
@@ -44,7 +43,6 @@
     },
     "rights": "All Rights Reserved."
   },
-
   "home": {
     "meta": {
       "title": "Kisha Tattoo München — Japanisches Irezumi & Grafik Tattoo",
@@ -52,14 +50,17 @@
     },
     "hero": {
       "tag": "Tattoo Artist München",
-      "h1": "Kisha Tattoo —\nIrezumi München",
+      "h1": "Tattoo München\nKisha Irezumi",
       "cta": "Termin anfragen",
-      "scroll": "Scroll"
+      "scroll": "[ Scroll for more info ]",
+      "location": "[ München, Deutschland ]",
+      "sub": "Tattoo Artist München — fünf Jahre gewidmet der Kunst des Irezumi: großformatige, bedeutungsvolle Projekte, die zu deiner persönlichen Geschichte werden",
+      "kanji_caption": "Das Kanji bedeutet im Kern »Weg« oder »Pfad«"
     },
     "works": {
-      "tag": "Portfolio",
-      "heading": "Ausgewählte Arbeiten",
-      "link": "Alle Arbeiten ansehen"
+      "tag": "[ Kunst, die zur Geschichte wird ]",
+      "heading": "Tattoo München — das Bild ist mehr als nur ein Bild",
+      "link": "[ Alle Arbeiten ansehen ]"
     },
     "about": {
       "tag": "Über Kisha",
@@ -70,9 +71,102 @@
     "cta": {
       "heading": "Bereit für dein Custom Tattoo?",
       "button": "Termin anfragen"
+    },
+    "philosophy": {
+      "heading": "Die Leidenschaft\nfür das Handwerk",
+      "kanji_caption": "Das Kanji steht für tiefe Liebe und Zuneigung zu jemandem oder etwas",
+      "p1": "Nicht flüchtige Trends, sondern tiefer Respekt vor der Metapher und der Kernidee. Deine einzigartige Vision wird zum dauerhaften Meisterwerk — präzise gestochen mit Können und Leidenschaft",
+      "p2": "Im Irezumi wird jede Linie mit Absicht gezogen — getragen von tiefer Liebe zur Tradition und Hingabe an die Vision des Kunden. Seit über fünf Jahren lebe ich diese Leidenschaft in großformatigen, traditionellen Japanischen Tattoo-Projekten im Herzen von München"
+    },
+    "steps": {
+      "heading": "Dein Weg zum Tattoo in München:\ndrei Schritte zum Meisterwerk",
+      "item0": {
+        "title": "Beratung",
+        "body": "Wir besprechen deine Idee, die Metaphern und die Philosophie hinter dem zukünftigen Tattoo. In dieser Phase wird deine Geschichte zu unserem Ausgangspunkt"
+      },
+      "item1": {
+        "title": "Entwurf",
+        "body": "Ich erstelle einen individuellen Entwurf, der die traditionellen Irezumi-Kanons respektiert und dein einzigartiges Ziel widerspiegelt. Der Sketch wird erst freigegeben, wenn wir beide von seiner Perfektion überzeugt sind"
+      },
+      "item2": {
+        "title": "Sitzung",
+        "body": "Wir beginnen die Arbeit. Jede Sitzung ist ein konzentriertes Ritual, das dem Ziel gewidmet ist, das Projekt zum Leben zu erwecken"
+      }
+    },
+    "motifs": {
+      "heading": "Japanische Tattoo-Motive in München",
+      "body": "Das japanische Tattoo spricht die Sprache der Symbole. Hier sind die Bedeutungen der beliebtesten Motive, mit denen Kisha in München arbeitet",
+      "kanji_caption": "Ein Symbol für innere Stärke und Disziplin",
+      "overlay": "Symbolik lesen →",
+      "dragon": {
+        "name": "Dragon",
+        "desc": "Weisheit, Stärke, Schutz und übernatürliche Kräfte. Symbol des Wassers und der Großzügigkeit."
+      },
+      "carp": {
+        "name": "Koi Tattoo München",
+        "desc": "Ausdauer, Mut und Stärke. Das Koi Tattoo im japanischen Irezumi-Stil — eines der kraftvollsten Motive für ein großformatiges Tattoo in München."
+      },
+      "fox": {
+        "name": "Fuchs",
+        "desc": "Schlauheit, Intellekt, Langlebigkeit und magische Kräfte. Gilt als Beschützer vor dem Bösen."
+      },
+      "cherry": {
+        "name": "Kirschblüte",
+        "desc": "Die Vergänglichkeit und Schönheit des Lebens — die Philosophie des Memento Mori."
+      },
+      "tiger": {
+        "name": "Tiger Tattoo München",
+        "desc": "Kraft, Tapferkeit und Schutz vor Krankheit. Ein Tiger Tattoo im Irezumi-Stil — Symbol des Windes und ein Klassiker des japanischen Tattoos in München."
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen zum Tattoo Artist München",
+      "label": "FAQ",
+      "question": "Frage №",
+      "item0": {
+        "q": "Was kostet ein Tattoo in München?",
+        "a": "Die Tattoo Kosten in München hängen von Größe, Stil und Komplexität ab. Kleine Tattoos ab 150 €, ein Sleeve ab 2.500 € gesamt. Eine ausführliche Übersicht findest du auf der Seite Tattoo Preise München."
+      },
+      "item1": {
+        "q": "Welche Tattoo-Stile bietet KishaTattoo München an?",
+        "a": "Wir sind spezialisiert auf Japanisches Irezumi (Drachen, Koi, Kitsune, Sakura), Fineline / Fine Line Tattoo und grafische Stile. Alle Motive werden individuell entworfen — kein Flash, keine Vorlagen."
+      },
+      "item2": {
+        "q": "Wie buche ich einen Termin bei Kisha Tattoo München?",
+        "a": "Kontaktiere uns über WhatsApp oder Instagram DM mit deiner Idee, dem gewünschten Körperteil und einem Wunschtermin. Wir melden uns für eine kostenlose Beratung."
+      },
+      "item3": {
+        "q": "Wie lange dauert ein großes Irezumi-Tattoo?",
+        "a": "Großformatige Projekte wie ein Sleeve oder Backpiece erfordern 5–15+ Sitzungen im Abstand von je 4–6 Wochen zur Abheilung. Jede Sitzung dauert 3–6 Stunden."
+      },
+      "item4": {
+        "q": "Wie pflege ich mein neues Tattoo richtig?",
+        "a": "Halte das Tattoo sauber, wasche es sanft mit milder Seife und trage eine dünne Schicht Pflegecreme auf. Sonne, Schwimmen und Einweichen mindestens 2–3 Wochen vermeiden. Alle Details findest du auf unserer Aftercare-Seite."
+      }
+    },
+    "styles": {
+      "heading": "Stile & Preise",
+      "link": "Alle Preise ansehen →",
+      "item0": {
+        "style": "Fineline Tattoo",
+        "price": "ab 150 €",
+        "desc": "Botanische Linework, geometrische Formen, feine Schriften — höchste Präzision auf kleinstem Raum.",
+        "link": "Mehr erfahren →"
+      },
+      "item1": {
+        "style": "Japanisches Irezumi",
+        "price": "ab 200 €",
+        "desc": "Koi, Drachen, Tiger — traditionelle Kompositionen nach klassischer Irezumi-Bildsprache.",
+        "link": "Mehr erfahren →"
+      },
+      "item2": {
+        "style": "Grafik & Blackwork",
+        "price": "ab 150 €",
+        "desc": "Custom Grafik, Blackwork, geometrische Tattoos — starke, zeitlose Bildsprache.",
+        "link": "Mehr erfahren →"
+      }
     }
   },
-
   "works": {
     "meta": {
       "title": "Latest Works — Kisha Irezumi",
@@ -90,7 +184,6 @@
       "button": "Termin anfragen"
     }
   },
-
   "about": {
     "meta": {
       "title": "Tattoo Artist München — Kisha | Irezumi & Fineline",
@@ -139,7 +232,6 @@
       "button": "Termin anfragen"
     }
   },
-
   "booking": {
     "meta": {
       "title": "Termin buchen — Kisha Tattoo München",
@@ -194,7 +286,6 @@
       ]
     }
   },
-
   "contact": {
     "meta": {
       "title": "Kontakt — Kisha Tattoo München",
@@ -202,9 +293,35 @@
     },
     "hero": {
       "h1": "Kontakt"
+    },
+    "form": {
+      "name": "Mein Name ist",
+      "name_ph": "[ Name ]",
+      "email": "Meine E-Mail ist",
+      "email_ph": "[ E-Mail ]",
+      "phone": "Meine Telefonnummer ist",
+      "phone_ph": "[ Nummer ]",
+      "idea": "Meine Tattoo-Idee ist",
+      "idea_ph": "[ Tattoo-Idee ]",
+      "experience": "Haben wir schon zusammengearbeitet?",
+      "yes": "Ja, ich kam gerne wieder",
+      "no": "Nein, ich bin neu",
+      "reference": "Tattoo Referenz",
+      "reference_note": "*Bitte sende die Tattoo-Referenzen und Inspirationsbilder, die du mit dem Artist teilen möchtest",
+      "file_size": "[ max. Dateigröße 100 MB ]",
+      "upload": "Dateien wählen",
+      "submit": "Absenden",
+      "submitting": "Wird gesendet…",
+      "success": "Danke — jede Idee ist ein einzigartiges Phänomen. Ich werde deine bald prüfen und mich bei dir melden.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+    },
+    "links": {
+      "label": "Oder direkt →",
+      "booking": "Termin buchen",
+      "prices": "Preise ansehen",
+      "faq": "FAQ"
     }
   },
-
   "blog": {
     "meta": {
       "title": "Blog — Kisha Irezumi München",
@@ -218,7 +335,6 @@
     "related": "Related articles",
     "readMore": "Read more"
   },
-
   "faq": {
     "meta": {
       "title": "FAQ — Kisha Tattoo München",
@@ -228,24 +344,133 @@
       "h1": "FAQ"
     }
   },
-
   "aftercare": {
     "meta": {
       "title": "Tattoo Aftercare — Kisha Tattoo München",
       "description": "Pflegehinweise für dein neues Tattoo von Kisha. So bleibt dein Irezumi lange schön."
     }
   },
-
   "awards": {
     "meta": {
       "title": "Awards — Kisha Tattoo München",
       "description": "5 Convention Awards 2025 — Kisha Tattoo München ausgezeichnet auf der Munich Tattoo Convention."
     }
   },
-
   "common": {
     "bookButton": "Termin anfragen",
     "viewWorks": "Arbeiten ansehen",
     "backToTop": "Nach oben"
+  },
+  "fineline": {
+    "meta": {
+      "title": "Fineline Tattoo München — Fine Line & Linework",
+      "description": "Fineline Tattoo München — botanische Motive, Single-Needle, Linework. KishaTattoo: Expertin für präzise Fine Line Tattoos. Jetzt Termin buchen."
+    },
+    "hero": {
+      "h1": "Fineline Tattoo\nMünchen",
+      "sub": "Fine Line, präzise Technik. Fineline und Linework Tattoo — buchbar in München und Umgebung."
+    },
+    "cta": {
+      "heading": "Bereit für dein Fineline Tattoo in München?",
+      "button": "Termin anfragen"
+    }
+  },
+  "grafik": {
+    "meta": {
+      "title": "Grafik Tattoo München — Blackwork | KishaTattoo",
+      "description": "Grafik Tattoo München — Blackwork, Geometrie & Illustration. KishaTattoo: individuelle Custom-Designs, präzise Linienführung. Jetzt Termin buchen."
+    },
+    "hero": {
+      "h1": "Tattoo Munich —\nGrafik & Blackwork",
+      "sub": "Custom Tattoo München — präzise Linien, starke Kontraste, individuelle Komposition. Grafik & Blackwork Tattoo — buchbar in München."
+    },
+    "cta": {
+      "heading": "Bereit für dein Grafik Tattoo in München?",
+      "button": "Termin anfragen"
+    }
+  },
+  "japanisch": {
+    "meta": {
+      "title": "Japanisches Tattoo München — Irezumi | KishaTattoo",
+      "description": "Japanischer Tätowierer München — Traditional Irezumi, Koi, Drachen, Oni, Sleeve, Backpiece. KishaTattoo: Custom-Design, Tebori-Technik. Termin buchen."
+    },
+    "hero": {
+      "h1": "Japanischer Tätowierer\nMünchen",
+      "sub": "Traditional Japanese Tattoo Artist in München — Irezumi, Horimono und Tebori. Großformatige Arbeiten nach klassischer Kompositionslehre."
+    },
+    "cta": {
+      "heading": "Bereit für dein japanisches Tattoo in München?",
+      "button": "Termin anfragen"
+    }
+  },
+  "motive": {
+    "meta": {
+      "title": "Japanische Tattoo Motive — Irezumi Symbolik",
+      "description": "Drachen, Koi, Kitsune, Sakura, Tiger — Symbolik und Bedeutung der wichtigsten Irezumi-Motive. Erklärt von KishaTattoo München."
+    },
+    "hero": {
+      "h1": "Japanische Tattoo\nMotive",
+      "sub": "Symbolik und Bedeutung der wichtigsten Irezumi-Motive"
+    }
+  },
+  "preise": {
+    "meta": {
+      "title": "Tattoo Preise München 2026 — Was kostet ein Tattoo?",
+      "description": "Tattoo Preise München: kleine Tattoos ab 150 €, Oberarm ab 400 €, Sleeve ab 800 € pro Sitzung. Transparente Kosten. KishaTattoo München."
+    },
+    "hero": {
+      "h1": "Tattoo Preise\nMünchen",
+      "sub": "Transparente Preisübersicht — von Mini-Tattoo bis Full Sleeve"
+    },
+    "cta": {
+      "heading": "Bereit für dein Tattoo? Jetzt anfragen.",
+      "button": "Termin anfragen"
+    }
+  },
+  "walkin": {
+    "meta": {
+      "title": "Walk In Tattoo München — Spontan & ohne Termin",
+      "description": "Walk In Tattoo München — spontan stechen ohne langen Vorlauf. KishaTattoo: Walk-In für ausgewählte Motive. Jetzt anfragen."
+    },
+    "hero": {
+      "h1": "Walk In Tattoo\nMünchen",
+      "sub": "Spontan & ohne langen Vorlauf — Walk-In für ausgewählte Motive"
+    },
+    "cta": {
+      "heading": "Walk-In Slot anfragen",
+      "button": "Jetzt anfragen"
+    }
+  },
+  "locations": {
+    "neufahrn": {
+      "meta": {
+        "title": "Tattoo Neufahrn — KishaTattoo München & Umgebung",
+        "description": "Tattoo in Neufahrn bei Freising? KishaTattoo München — 25 Minuten Fahrtzeit. Japanisches Irezumi, Grafik Tattoo, Linework. Custom-Design. Termin buchen."
+      }
+    },
+    "freising": {
+      "meta": {
+        "title": "Tattoo Freising — KishaTattoo München & Umgebung",
+        "description": "Tattoo in Freising? KishaTattoo München — 20 Minuten Fahrtzeit. Japanisches Irezumi, Grafik Tattoo, Linework. Custom-Design. Termin buchen."
+      }
+    },
+    "dachau": {
+      "meta": {
+        "title": "Tattoo Dachau — KishaTattoo München & Umgebung",
+        "description": "Tattoo in Dachau? KishaTattoo München — 30 Minuten Fahrtzeit. Japanisches Irezumi, Grafik Tattoo, Linework. Custom-Design. Termin buchen."
+      }
+    },
+    "eching": {
+      "meta": {
+        "title": "Tattoo Eching — KishaTattoo München & Umgebung",
+        "description": "Tattoo in Eching? KishaTattoo München — 20 Minuten Fahrtzeit. Japanisches Irezumi, Grafik Tattoo, Linework. Custom-Design. Termin buchen."
+      }
+    },
+    "ottobrunn": {
+      "meta": {
+        "title": "Tattoo Ottobrunn — KishaTattoo München & Umgebung",
+        "description": "Tattoo in Ottobrunn? KishaTattoo München — 25 Minuten Fahrtzeit. Japanisches Irezumi, Grafik Tattoo, Linework. Custom-Design. Termin buchen."
+      }
+    }
   }
 }

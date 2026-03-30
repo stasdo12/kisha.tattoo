@@ -1,4 +1,7 @@
 import type { NextConfig } from 'next'
+import createNextIntlPlugin from 'next-intl/plugin'
+
+const withNextIntl = createNextIntlPlugin('./i18n/request.ts')
 
 const nextConfig: NextConfig = {
   // Remove X-Powered-By: Next.js header — minor security + payload
@@ -28,6 +31,20 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      { source: '/linework-tattoo-muenchen',     destination: '/fineline-tattoo-muenchen',     permanent: true },
+      { source: '/en/linework-tattoo-muenchen', destination: '/en/fineline-tattoo-muenchen', permanent: true },
+      { source: '/uk/linework-tattoo-muenchen', destination: '/uk/fineline-tattoo-muenchen', permanent: true },
+      // Location pages are DE-only — redirect EN/UK to DE canonical
+      { source: '/en/tattoo-neufahrn',  destination: '/tattoo-neufahrn',  permanent: true },
+      { source: '/en/tattoo-freising',  destination: '/tattoo-freising',  permanent: true },
+      { source: '/en/tattoo-dachau',    destination: '/tattoo-dachau',    permanent: true },
+      { source: '/en/tattoo-eching',    destination: '/tattoo-eching',    permanent: true },
+      { source: '/en/tattoo-ottobrunn', destination: '/tattoo-ottobrunn', permanent: true },
+      { source: '/uk/tattoo-neufahrn',  destination: '/tattoo-neufahrn',  permanent: true },
+      { source: '/uk/tattoo-freising',  destination: '/tattoo-freising',  permanent: true },
+      { source: '/uk/tattoo-dachau',    destination: '/tattoo-dachau',    permanent: true },
+      { source: '/uk/tattoo-eching',    destination: '/tattoo-eching',    permanent: true },
+      { source: '/uk/tattoo-ottobrunn', destination: '/tattoo-ottobrunn', permanent: true },
       { source: '/graphic',         destination: '/',       permanent: true },
       { source: '/graphic/:path*',  destination: '/:path*', permanent: true },
       { source: '/graphics',        destination: '/',       permanent: true },
@@ -59,4 +76,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+export default withNextIntl(nextConfig)

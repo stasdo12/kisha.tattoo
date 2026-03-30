@@ -2,36 +2,37 @@ import type { MetadataRoute } from 'next'
 import { SITE } from '@/content/site'
 import { STORIES } from '@/content/stories'
 
+// Pages available in all 3 locales (DE = no prefix, EN = /en/, UK = /uk/)
+const I18N_PAGES = [
+  { path: '',                                  freq: 'monthly' as const, pri: 1.0  },
+  { path: '/works',                            freq: 'weekly'  as const, pri: 0.9  },
+  { path: '/booking',                          freq: 'monthly' as const, pri: 0.9  },
+  { path: '/contact',                          freq: 'monthly' as const, pri: 0.8  },
+  { path: '/about',                            freq: 'monthly' as const, pri: 0.7  },
+  { path: '/blog',                             freq: 'weekly'  as const, pri: 0.7  },
+  { path: '/faq',                              freq: 'monthly' as const, pri: 0.65 },
+  { path: '/aftercare',                        freq: 'yearly'  as const, pri: 0.5  },
+  { path: '/awards',                           freq: 'yearly'  as const, pri: 0.6  },
+  { path: '/tattoo-preise-muenchen',           freq: 'monthly' as const, pri: 0.9  },
+  { path: '/japanisches-tattoo-muenchen',      freq: 'monthly' as const, pri: 0.85 },
+  { path: '/grafik-tattoo-muenchen',           freq: 'monthly' as const, pri: 0.85 },
+  { path: '/fineline-tattoo-muenchen',         freq: 'monthly' as const, pri: 0.85 },
+  { path: '/motive',                           freq: 'monthly' as const, pri: 0.8  },
+  { path: '/walk-in-tattoo-muenchen',          freq: 'monthly' as const, pri: 0.8  },
+]
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString()
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    // ── Core pages ──────────────────────────────────────────────────────────
-    { url: SITE.url,                   lastModified: now, changeFrequency: 'monthly', priority: 1.0 },
-    { url: `${SITE.url}/works`,        lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
-    { url: `${SITE.url}/booking`,      lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE.url}/contact`,      lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE.url}/about`,        lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE.url}/blog`,         lastModified: now, changeFrequency: 'weekly',  priority: 0.7 },
-    { url: `${SITE.url}/faq`,          lastModified: now, changeFrequency: 'monthly', priority: 0.65 },
-    { url: `${SITE.url}/aftercare`,    lastModified: now, changeFrequency: 'yearly',  priority: 0.5 },
-    { url: `${SITE.url}/awards`,       lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
+  // Expand each i18n page into DE + EN + UK entries
+  const i18nRoutes: MetadataRoute.Sitemap = I18N_PAGES.flatMap(({ path, freq, pri }) => [
+    { url: `${SITE.url}${path}`,        lastModified: now, changeFrequency: freq, priority: pri   },
+    { url: `${SITE.url}/en${path}`,     lastModified: now, changeFrequency: freq, priority: pri * 0.9 },
+    { url: `${SITE.url}/uk${path}`,     lastModified: now, changeFrequency: freq, priority: pri * 0.9 },
+  ])
 
-    // ── Pricing page — 7000+/mo keyword cluster ──────────────────────────────
-    { url: `${SITE.url}/tattoo-preise-muenchen`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-
-    // ── Style pages — keyword landing pages ──────────────────────────────────
-    { url: `${SITE.url}/japanisches-tattoo-muenchen`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${SITE.url}/grafik-tattoo-muenchen`,      lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${SITE.url}/linework-tattoo-muenchen`,    lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
-
-    // ── Motive hub — all 5 motifs on one pillar page ─────────────────────────
-    { url: `${SITE.url}/motive`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-
-    // ── Walk-in page ─────────────────────────────────────────────────────────
-    { url: `${SITE.url}/walk-in-tattoo-muenchen`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-
-    // ── Location pages — near-zero competition suburbs ───────────────────────
+  // Location pages — DE-only geo-targeting, no EN/UK versions
+  const locationRoutes: MetadataRoute.Sitemap = [
     { url: `${SITE.url}/tattoo-eching`,    lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     { url: `${SITE.url}/tattoo-freising`,  lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     { url: `${SITE.url}/tattoo-neufahrn`,  lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
@@ -46,5 +47,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }))
 
-  return [...staticRoutes, ...blogRoutes]
+  return [...i18nRoutes, ...locationRoutes, ...blogRoutes]
 }

@@ -5,6 +5,9 @@ type SeoInput = {
   title: string
   description: string
   path: string
+  locale?: string
+  /** Pass false for location pages that should only index in DE */
+  hreflang?: boolean
   ogImage?: string
   ogType?: 'website' | 'article'
   noIndex?: boolean
@@ -21,18 +24,32 @@ export function buildMetadata(input: SeoInput): Metadata {
     title,
     description,
     path,
-    ogImage = `${SITE.url}/og/default.jpg`, // TODO: create a real OG default
+    locale = 'de',
+    hreflang = true,
+    ogImage = `${SITE.url}/og/default.jpg`,
     ogType = 'website',
     noIndex = false,
     publishedTime,
     keywords = [],
   } = input
 
-  const canonical = `${SITE.url}${path}`
+  // Canonical: DE has no prefix, EN/UK have /en/ /uk/
+  const canonical = locale === 'de'
+    ? `${SITE.url}${path}`
+    : `${SITE.url}/${locale}${path}`
+
   const fullTitle = `${title} | ${SITE.name}`
 
+  // hreflang alternates — only for pages that exist in all locales
+  const languages = hreflang ? {
+    'de':        `${SITE.url}${path}`,
+    'en':        `${SITE.url}/en${path}`,
+    'uk':        `${SITE.url}/uk${path}`,
+    'x-default': `${SITE.url}${path}`,
+  } : undefined
+
   return {
-    title,  // layout template adds '| Kisha Tattoo' automatically
+    title,
     description,
     keywords: keywords.join(', '),
     authors: [{ name: SITE.name, url: SITE.url }],
@@ -41,6 +58,7 @@ export function buildMetadata(input: SeoInput): Metadata {
     metadataBase: new URL(SITE.url),
     alternates: {
       canonical,
+      ...(languages ? { languages } : {}),
     },
     robots: noIndex
       ? { index: false, follow: false }

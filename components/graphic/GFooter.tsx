@@ -97,7 +97,7 @@ export function GFooter() {
             {[
               { href: '/japanisches-tattoo-muenchen', label: 'Japanisches Tattoo München' },
               { href: '/grafik-tattoo-muenchen',      label: 'Grafik Tattoo München' },
-              { href: '/linework-tattoo-muenchen',    label: 'Linework Tattoo München' },
+              { href: '/fineline-tattoo-muenchen',    label: 'Fineline Tattoo München' },
             ].map((l) => (
               <Link key={l.href} href={l.href} style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.65)', textDecoration: 'none' }}>
                 {l.label}

@@ -6,7 +6,6 @@
     "blog": "Blog",
     "contact": "Contact"
   },
-
   "footer": {
     "cta": "Discuss your vision",
     "heading": "Relax and book your seat right now",
@@ -22,7 +21,7 @@
     "links": {
       "japanese": "Japanese Tattoo Munich",
       "graphic": "Graphic Tattoo Munich",
-      "linework": "Linework Tattoo Munich",
+      "fineline": "Fineline Tattoo Munich",
       "allMotifs": "All Motifs",
       "dragon": "Dragon (Ryū)",
       "koi": "Koi",
@@ -44,7 +43,6 @@
     },
     "rights": "All Rights Reserved."
   },
-
   "home": {
     "meta": {
       "title": "Kisha Tattoo Munich — Japanese Irezumi & Graphic Tattoo",
@@ -52,14 +50,17 @@
     },
     "hero": {
       "tag": "Tattoo Artist Munich",
-      "h1": "Kisha Tattoo —\nIrezumi Munich",
+      "h1": "Tattoo Munich\nKisha Irezumi",
       "cta": "Book appointment",
-      "scroll": "Scroll"
+      "scroll": "[ Scroll for more info ]",
+      "location": "[ Munich, Germany ]",
+      "sub": "Tattoo artist Munich — five years devoted to the art of Irezumi: large-scale, meaningful projects that become your personal story",
+      "kanji_caption": "The kanji means, at its core, \"Path\" or \"Way\""
     },
     "works": {
-      "tag": "Portfolio",
-      "heading": "Selected works",
-      "link": "View all works"
+      "tag": "[ Art that becomes history ]",
+      "heading": "Tattoo Munich — the image is more than just an image",
+      "link": "[ View all works ]"
     },
     "about": {
       "tag": "About Kisha",
@@ -70,9 +71,102 @@
     "cta": {
       "heading": "Ready for your custom tattoo?",
       "button": "Book appointment"
+    },
+    "philosophy": {
+      "heading": "The passion\nfor the craft",
+      "kanji_caption": "The kanji represents deep love and affection for someone or something",
+      "p1": "Not fleeting trends, but deep respect for the metaphor and the core idea. Your unique vision becomes a lasting masterpiece — precisely etched with skill and passion",
+      "p2": "In Irezumi, every line is drawn with intent — driven by deep love for the tradition and devotion to the client's vision. For over five years I have lived this passion in large-scale, traditional Japanese tattoo projects in the heart of Munich"
+    },
+    "steps": {
+      "heading": "Your path to a tattoo in Munich:\nthree steps to a masterpiece",
+      "item0": {
+        "title": "Consultation",
+        "body": "We discuss your idea, the metaphors and the philosophy behind the future tattoo. In this phase, your story becomes our starting point"
+      },
+      "item1": {
+        "title": "Design",
+        "body": "I create a custom design that respects the traditional Irezumi canons and reflects your unique goal. The sketch is only approved once we are both convinced of its perfection"
+      },
+      "item2": {
+        "title": "Session",
+        "body": "We begin the work. Each session is a focused ritual dedicated to bringing the project to life"
+      }
+    },
+    "motifs": {
+      "heading": "Japanese tattoo motifs in Munich",
+      "body": "Japanese tattoo speaks the language of symbols. Here are the meanings of the most popular motifs Kisha works with in Munich",
+      "kanji_caption": "A symbol of inner strength and discipline",
+      "overlay": "Read symbolism →",
+      "dragon": {
+        "name": "Dragon",
+        "desc": "Wisdom, strength, protection and supernatural powers. Symbol of water and generosity."
+      },
+      "carp": {
+        "name": "Koi Tattoo Munich",
+        "desc": "Endurance, courage and strength. The Koi tattoo in the Japanese Irezumi style — one of the most powerful motifs for a large-scale tattoo in Munich."
+      },
+      "fox": {
+        "name": "Fox",
+        "desc": "Cunning, intellect, longevity and magical powers. Regarded as a protector against evil."
+      },
+      "cherry": {
+        "name": "Cherry Blossom",
+        "desc": "The transience and beauty of life — the philosophy of Memento Mori."
+      },
+      "tiger": {
+        "name": "Tiger Tattoo Munich",
+        "desc": "Strength, bravery and protection from illness. A Tiger tattoo in the Irezumi style — symbol of the wind and a classic of Japanese tattooing in Munich."
+      }
+    },
+    "faq": {
+      "heading": "Frequently asked questions about the tattoo artist Munich",
+      "label": "FAQ",
+      "question": "Question №",
+      "item0": {
+        "q": "How much does a tattoo cost in Munich?",
+        "a": "Tattoo costs in Munich depend on size, style and complexity. Small tattoos from €150, a sleeve from €2,500 in total. A detailed overview can be found on the Tattoo Prices Munich page."
+      },
+      "item1": {
+        "q": "Which tattoo styles does KishaTattoo Munich offer?",
+        "a": "We specialise in Japanese Irezumi (dragons, koi, kitsune, sakura), Fineline / Fine Line tattoo and graphic styles. All motifs are designed individually — no flash, no templates."
+      },
+      "item2": {
+        "q": "How do I book an appointment at Kisha Tattoo Munich?",
+        "a": "Contact us via WhatsApp or Instagram DM with your idea, the desired body part and a preferred date. We will get back to you for a free consultation."
+      },
+      "item3": {
+        "q": "How long does a large Irezumi tattoo take?",
+        "a": "Large-scale projects such as a sleeve or backpiece require 5–15+ sessions spaced 4–6 weeks apart for healing. Each session lasts 3–6 hours."
+      },
+      "item4": {
+        "q": "How do I care for my new tattoo?",
+        "a": "Keep the tattoo clean, wash it gently with mild soap and apply a thin layer of moisturiser. Avoid sun, swimming and soaking for at least 2–3 weeks. All details can be found on our Aftercare page."
+      }
+    },
+    "styles": {
+      "heading": "Styles & Prices",
+      "link": "View all prices →",
+      "item0": {
+        "style": "Fineline Tattoo",
+        "price": "from €150",
+        "desc": "Botanical linework, geometric shapes, fine scripts — highest precision in the smallest space.",
+        "link": "Learn more →"
+      },
+      "item1": {
+        "style": "Japanese Irezumi",
+        "price": "from €200",
+        "desc": "Koi, dragons, tigers — traditional compositions in the classic Irezumi visual language.",
+        "link": "Learn more →"
+      },
+      "item2": {
+        "style": "Graphic & Blackwork",
+        "price": "from €150",
+        "desc": "Custom graphic, blackwork, geometric tattoos — bold, timeless visual language.",
+        "link": "Learn more →"
+      }
     }
   },
-
   "works": {
     "meta": {
       "title": "Latest Works — Kisha Irezumi Munich",
@@ -90,7 +184,6 @@
       "button": "Book appointment"
     }
   },
-
   "about": {
     "meta": {
       "title": "Tattoo Artist Munich — Kisha | Irezumi & Fine Line",
@@ -139,7 +232,6 @@
       "button": "Book appointment"
     }
   },
-
   "booking": {
     "meta": {
       "title": "Book Appointment — Kisha Tattoo Munich",
@@ -194,7 +286,6 @@
       ]
     }
   },
-
   "contact": {
     "meta": {
       "title": "Contact — Kisha Tattoo Munich",
@@ -202,9 +293,35 @@
     },
     "hero": {
       "h1": "Contact"
+    },
+    "form": {
+      "name": "My name is",
+      "name_ph": "[ Name ]",
+      "email": "My email is",
+      "email_ph": "[ Email ]",
+      "phone": "My phone number is",
+      "phone_ph": "[ Number ]",
+      "idea": "My tattoo idea is",
+      "idea_ph": "[ Tattoo idea ]",
+      "experience": "Did we work together before?",
+      "yes": "Yes, I liked it",
+      "no": "No, I'm new",
+      "reference": "Tattoo reference",
+      "reference_note": "*Please send the tattoo references and inspiration images you'd like to share with the artist",
+      "file_size": "[ max file size 100 mb ]",
+      "upload": "Choose files",
+      "submit": "Submit",
+      "submitting": "Sending…",
+      "success": "Thank you — every idea is a unique phenomenon. I will review yours shortly and get back to you.",
+      "error": "Something went wrong. Please try again."
+    },
+    "links": {
+      "label": "Or directly →",
+      "booking": "Book appointment",
+      "prices": "View prices",
+      "faq": "FAQ"
     }
   },
-
   "blog": {
     "meta": {
       "title": "Blog — Kisha Irezumi Munich",
@@ -218,7 +335,6 @@
     "related": "Related articles",
     "readMore": "Read more"
   },
-
   "faq": {
     "meta": {
       "title": "FAQ — Kisha Tattoo Munich",
@@ -228,24 +344,133 @@
       "h1": "FAQ"
     }
   },
-
   "aftercare": {
     "meta": {
       "title": "Tattoo Aftercare — Kisha Tattoo Munich",
       "description": "Aftercare instructions for your new tattoo from Kisha. Keep your Irezumi looking great for years."
     }
   },
-
   "awards": {
     "meta": {
       "title": "Awards — Kisha Tattoo Munich",
       "description": "5 Convention Awards 2025 — Kisha Tattoo Munich recognised at the Munich Tattoo Convention."
     }
   },
-
   "common": {
     "bookButton": "Book appointment",
     "viewWorks": "View works",
     "backToTop": "Back to top"
+  },
+  "fineline": {
+    "meta": {
+      "title": "Fineline Tattoo Munich — Fine Line & Linework",
+      "description": "Fineline tattoo in Munich — botanical motifs, single needle, linework. KishaTattoo: specialist in precise fine line tattoos. Book your appointment now."
+    },
+    "hero": {
+      "h1": "Fineline Tattoo\nMunich",
+      "sub": "Fine line, precise technique. Fineline and linework tattoo — available in Munich and the surrounding area."
+    },
+    "cta": {
+      "heading": "Ready for your fineline tattoo in Munich?",
+      "button": "Book appointment"
+    }
+  },
+  "grafik": {
+    "meta": {
+      "title": "Graphic Tattoo Munich — Blackwork | KishaTattoo",
+      "description": "Graphic tattoo Munich — blackwork, geometry & illustration. KishaTattoo: individual custom designs, precise linework. Book your appointment now."
+    },
+    "hero": {
+      "h1": "Tattoo Munich —\nGraphic & Blackwork",
+      "sub": "Custom tattoo Munich — precise lines, strong contrast, individual composition. Graphic & blackwork tattoo available in Munich."
+    },
+    "cta": {
+      "heading": "Ready for your graphic tattoo in Munich?",
+      "button": "Book appointment"
+    }
+  },
+  "japanisch": {
+    "meta": {
+      "title": "Japanese Tattoo Munich — Irezumi | KishaTattoo",
+      "description": "Japanese tattoo artist Munich — traditional Irezumi, koi, dragon, oni, sleeve, backpiece. KishaTattoo: custom design, tebori technique. Book now."
+    },
+    "hero": {
+      "h1": "Japanese Tattoo\nArtist Munich",
+      "sub": "Traditional Japanese tattoo artist in Munich — Irezumi, Horimono and Tebori. Large-scale work following classical composition principles."
+    },
+    "cta": {
+      "heading": "Ready for your Japanese tattoo in Munich?",
+      "button": "Book appointment"
+    }
+  },
+  "motive": {
+    "meta": {
+      "title": "Japanese Tattoo Motifs — Irezumi Symbolism",
+      "description": "Dragon, koi, kitsune, sakura, tiger — symbolism and meaning of the most important Irezumi motifs. Explained by KishaTattoo Munich."
+    },
+    "hero": {
+      "h1": "Japanese Tattoo\nMotifs",
+      "sub": "Symbolism and meaning of the most important Irezumi motifs"
+    }
+  },
+  "preise": {
+    "meta": {
+      "title": "Tattoo Prices Munich 2026 — How Much Does a Tattoo Cost?",
+      "description": "Tattoo prices Munich: small tattoos from €150, upper arm from €400, sleeve from €800 per session. Transparent pricing. KishaTattoo Munich."
+    },
+    "hero": {
+      "h1": "Tattoo Prices\nMunich",
+      "sub": "Transparent pricing — from mini tattoo to full sleeve"
+    },
+    "cta": {
+      "heading": "Ready for your tattoo? Get in touch.",
+      "button": "Book appointment"
+    }
+  },
+  "walkin": {
+    "meta": {
+      "title": "Walk In Tattoo Munich — Spontaneous & Without Appointment",
+      "description": "Walk in tattoo Munich — get tattooed spontaneously without long lead times. KishaTattoo: walk-in available for selected motifs. Enquire now."
+    },
+    "hero": {
+      "h1": "Walk In Tattoo\nMunich",
+      "sub": "Spontaneous & without long lead times — walk-in available for selected motifs"
+    },
+    "cta": {
+      "heading": "Request a walk-in slot",
+      "button": "Enquire now"
+    }
+  },
+  "locations": {
+    "neufahrn": {
+      "meta": {
+        "title": "Tattoo Neufahrn — KishaTattoo Munich",
+        "description": "Tattoo near Neufahrn bei Freising? KishaTattoo Munich — 25 minutes away. Japanese Irezumi, graphic tattoo, linework. Custom design. Book now."
+      }
+    },
+    "freising": {
+      "meta": {
+        "title": "Tattoo Freising — KishaTattoo Munich",
+        "description": "Tattoo near Freising? KishaTattoo Munich — 20 minutes away. Japanese Irezumi, graphic tattoo, linework. Custom design. Book now."
+      }
+    },
+    "dachau": {
+      "meta": {
+        "title": "Tattoo Dachau — KishaTattoo Munich",
+        "description": "Tattoo near Dachau? KishaTattoo Munich — 30 minutes away. Japanese Irezumi, graphic tattoo, linework. Custom design. Book now."
+      }
+    },
+    "eching": {
+      "meta": {
+        "title": "Tattoo Eching — KishaTattoo Munich",
+        "description": "Tattoo near Eching? KishaTattoo Munich — 20 minutes away. Japanese Irezumi, graphic tattoo, linework. Custom design. Book now."
+      }
+    },
+    "ottobrunn": {
+      "meta": {
+        "title": "Tattoo Ottobrunn — KishaTattoo Munich",
+        "description": "Tattoo near Ottobrunn? KishaTattoo Munich — 25 minutes away. Japanese Irezumi, graphic tattoo, linework. Custom design. Book now."
+      }
+    }
   }
 }
