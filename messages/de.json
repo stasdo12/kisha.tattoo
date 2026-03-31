@@ -165,7 +165,8 @@
         "desc": "Custom Grafik, Blackwork, geometrische Tattoos — starke, zeitlose Bildsprache.",
         "link": "Mehr erfahren →"
       }
-    }
+    },
+    "ctaStrip": "Termin anfragen"
   },
   "works": {
     "meta": {
@@ -1124,7 +1125,13 @@
           }
         ]
       }
-    }
+    },
+    "intro": {
+      "heading": "Irezumi — die Sprache der Körperkunst",
+      "body1": "Im japanischen Irezumi ist jedes Motiv eine Geschichte — keine Dekoration. Drachen schützen, Koi kämpfen, Kitsune betrügen und beschützen zugleich, Sakura erinnert an die Vergänglichkeit, Tiger tragen Wind in sich. Jede Linie trägt Bedeutung.",
+      "body2": "KishaTattoo in München spezialisiert sich auf authentisches Irezumi — klassische Motivsprache, individuelle Komposition, keine Standardmotive. Auf dieser Seite findest du die Bedeutung der wichtigsten Irezumi-Motive."
+    },
+    "motifHeadingSuffix": "Tattoo — Bedeutung & Symbolik"
   },
   "preise": {
     "meta": {
@@ -1656,5 +1663,20 @@
         "prices_href": "/tattoo-preise-muenchen"
       }
     }
+  },
+  "formPopup": {
+    "tag": "[ Hey, das ist Kisha Tattoo ]",
+    "heading": "Schreib mir einfach oder erzähl mir von deiner Tattoo-Idee",
+    "close": "Schließen",
+    "success": "Danke — jede Idee ist ein einzigartiges Phänomen. Ich schaue mir deine bald an und melde mich bei dir.",
+    "nameLbl": "Mein Name ist",
+    "phoneLbl": "Meine Telefonnummer ist",
+    "ideaLbl": "Meine Tattoo-Idee ist",
+    "namePlh": "[ Name ]",
+    "phonePlh": "[ Telefon ]",
+    "ideaPlh": "[ Tattoo-Idee ]",
+    "error": "Fehler beim Senden. Bitte versuche es erneut.",
+    "submitting": "Wird gesendet…",
+    "submit": "Anfrage senden"
   }
 }

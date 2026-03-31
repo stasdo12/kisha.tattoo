@@ -165,7 +165,8 @@
         "desc": "Custom graphic, blackwork, geometric tattoos — bold, timeless visual language.",
         "link": "Learn more →"
       }
-    }
+    },
+    "ctaStrip": "Start your consultation"
   },
   "works": {
     "meta": {
@@ -1124,7 +1125,13 @@
           }
         ]
       }
-    }
+    },
+    "intro": {
+      "heading": "Irezumi — the Language of Body Art",
+      "body1": "In Japanese Irezumi, every motif tells a story — not just decoration. Dragons protect, koi fight, kitsune both deceive and protect, sakura reminds us of impermanence, tigers carry the wind within them. Every line carries meaning.",
+      "body2": "KishaTattoo in Munich specialises in authentic Irezumi — classic motif language, individual composition, no standard designs. On this page you will find the meaning of the most important Irezumi motifs."
+    },
+    "motifHeadingSuffix": "Tattoo — Meaning & Symbolism"
   },
   "preise": {
     "meta": {
@@ -1656,5 +1663,20 @@
         "prices_href": "/tattoo-preise-muenchen"
       }
     }
+  },
+  "formPopup": {
+    "tag": "[ Hey, it's Kisha Tattoo ]",
+    "heading": "Drop me a message below or tell me about your tattoo idea",
+    "close": "Close",
+    "success": "Thank you — every idea is a unique phenomenon. I will review yours shortly and get back to you.",
+    "nameLbl": "My name is",
+    "phoneLbl": "My phone is",
+    "ideaLbl": "My tattoo idea is",
+    "namePlh": "[ Name ]",
+    "phonePlh": "[ Phone ]",
+    "ideaPlh": "[ Tattoo idea ]",
+    "error": "Sending error. Please try again.",
+    "submitting": "Sending…",
+    "submit": "Send request"
   }
 }

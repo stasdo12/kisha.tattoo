@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 
 export function FormPopup() {
+  const t = useTranslations('formPopup')
   const [isOpen, setIsOpen] = useState(false)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -64,12 +66,12 @@ export function FormPopup() {
         <div className="fp-top">
           <div className="fp-content">
             <div className="fp-heading-block">
-              <span className="fp-tag">[ Hey, it&apos;s Kisha Tattoo ]</span>
+              <span className="fp-tag">{t('tag')}</span>
               <h2 id="fp-heading" className="fp-heading">
-                Drop me a message below or tell me about your tattoo idea
+                {t('heading')}
               </h2>
             </div>
-            <button ref={closeButtonRef} className="fp-close" onClick={close} aria-label="Close">✕</button>
+            <button ref={closeButtonRef} className="fp-close" onClick={close} aria-label={t('close')}>✕</button>
           </div>
           <span className="fp-kanji" aria-hidden="true">想</span>
         </div>
@@ -77,7 +79,7 @@ export function FormPopup() {
         {status === 'success' ? (
           <div className="fp-form" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '120px' }}>
             <p style={{ color: '#F2F2F2', fontSize: 'var(--g-bm)', textAlign: 'center', lineHeight: 'var(--g-lh-bm)', maxWidth: '28rem' }}>
-              Thank you — every idea is a unique phenomenon. I will review yours shortly and get back to you.
+              {t('success')}
             </p>
           </div>
         ) : (
@@ -85,32 +87,32 @@ export function FormPopup() {
             <div className="fp-fields">
               <div className="fp-row">
                 <div className="fp-field">
-                  <span className="fp-label">My name is</span>
+                  <span className="fp-label">{t('nameLbl')}</span>
                   <div className="fp-input">
-                    <input type="text" name="name" placeholder="[ Name ]" autoComplete="name" required />
+                    <input type="text" name="name" placeholder={t('namePlh')} autoComplete="name" required />
                   </div>
                 </div>
                 <div className="fp-field">
-                  <span className="fp-label">My phone is</span>
+                  <span className="fp-label">{t('phoneLbl')}</span>
                   <div className="fp-input">
-                    <input type="tel" name="phone" placeholder="[ Phone ]" autoComplete="tel" required />
+                    <input type="tel" name="phone" placeholder={t('phonePlh')} autoComplete="tel" required />
                   </div>
                 </div>
               </div>
               <div className="fp-field fp-field--idea">
-                <span className="fp-label">My tattoo idea is</span>
+                <span className="fp-label">{t('ideaLbl')}</span>
                 <div className="fp-input">
-                  <input type="text" name="idea" placeholder="[ Tattoo idea ]" />
+                  <input type="text" name="idea" placeholder={t('ideaPlh')} />
                 </div>
               </div>
             </div>
             {status === 'error' && (
               <p style={{ color: '#ff6b6b', fontSize: 'var(--g-bxs)', marginBottom: '0.5rem' }}>
-                Ошибка отправки. Попробуйте ещё раз.
+                {t('error')}
               </p>
             )}
             <button type="submit" className="fp-submit" disabled={status === 'submitting'}>
-              {status === 'submitting' ? 'Sending…' : 'Send request'}
+              {status === 'submitting' ? t('submitting') : t('submit')}
             </button>
           </form>
         )}
