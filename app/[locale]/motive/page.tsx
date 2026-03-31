@@ -21,122 +21,15 @@ export async function generateMetadata(
   return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/motive', locale })
 }
 
-/* ── Motif data ──────────────────────────────────────────────────────────── */
+/* ── Static motif structure (locale-independent) ─────────────────────────── */
 
-const MOTIFS = [
-  {
-    id:      'drachen',
-    kanji:   '龍',
-    label:   'Drachen',
-    reading: 'Ryū',
-    imgSrc:  '/images/home/motif-dragon.jpg',
-    imgAlt:  'Drachen Tattoo München — japanischer Ryū Irezumi',
-    tagline: 'Weisheit · Stärke · Schutz',
-    intro1:  'Der Ryū (龍) ist das bedeutendste Symbol der japanischen Mythologie. Im Gegensatz zum westlichen Drachen gilt der japanische Ryū als wohlwollendes Wesen — Hüter des Wassers, Beschützer der Unschuldigen, Verkörperung göttlicher Weisheit und Stärke. In der Irezumi-Tradition ist er ein Motiv, das den gesamten Körper füllen kann.',
-    intro2:  'KishaTattoo spezialisiert sich auf großformatige Drachen-Kompositionen nach klassischer Irezumi-Lehre. Der Ryū schlingt sich um Arme, überspannt Rücken- oder Bruststücke — seine Bewegung folgt dem natürlichen Fluss der Muskulatur.',
-    cols: [
-      { title: 'Weisheit & Stärke',  body: 'Der japanische Ryū steht für Weisheit, Stärke und übernatürliche Kräfte. Als Symbol des Wassers verkörpert er Großzügigkeit — ein Beschützer der Natur und der Menschen, der Kraft ohne Grausamkeit trägt.' },
-      { title: 'Komposition',        body: 'Im klassischen Irezumi schlingt sich der Drache organisch um den Körper — Sleeve, Rückenstück, Brustplatten. Seine Komposition folgt der Muskulatur des Trägers und macht den Körper zur Leinwand.' },
-      { title: 'Varianten',          body: 'Ryū (Wasserdrache), Tatsu (Himmlischer Drache), Kinryū (Goldener Drache) — jede Variante trägt andere Symbolik. Kombinationen mit Wellen, Kirschblüten und Wolken sind klassisch in der Irezumi-Tradition.' },
-    ],
-    faq: [
-      { question: 'Was bedeutet ein japanisches Drachen-Tattoo?',  answer: 'Der Ryū steht für Weisheit, Stärke und Schutz. Im Gegensatz zum westlichen Drachen gilt er als wohlwollendes Wesen — Hüter des Wassers und Beschützer der Unschuldigen. Ein Drachen-Tattoo ist ein Bekenntnis zu Stärke mit Würde.' },
-      { question: 'Wie groß muss ein Drachen-Tattoo sein?',        answer: 'Drachen entfalten ihre volle Wirkung in großformatigen Kompositionen — Sleeve, Rückenstück oder Brustplatten. Kleinere Drachen sind möglich, verlieren aber die dynamische Komposition der klassischen Irezumi-Tradition.' },
-      { question: 'Was kombiniert man mit einem Drachen Tattoo?',  answer: 'Klassische Kombinationen: Wellen (Nami), Kirschblüten (Sakura), Wolken, Donnerblitze, Koi-Fische. KishaTattoo entwirft jede Komposition individuell nach Irezumi-Prinzipien und dem Wunsch des Kunden.' },
-    ],
-    slug: 'drachen-tattoo-muenchen',
-  },
-  {
-    id:      'koi',
-    kanji:   '鯉',
-    label:   'Koi',
-    reading: 'Koi',
-    imgSrc:  '/images/home/motif-koi.jpg',
-    imgAlt:  'Koi Tattoo München — japanischer Karpfen Irezumi',
-    tagline: 'Ausdauer · Transformation · Mut',
-    intro1:  'Der Koi (鯉) gehört zu den ältesten und bedeutungsreichsten Motiven der japanischen Irezumi-Tradition. Die Legende beschreibt den Koi, der gegen den Strom schwimmt und sich am Wasserfall in einen Drachen verwandelt — ein Bild für Ausdauer, Transformation und die Kraft, Hindernisse zu überwinden.',
-    intro2:  'KishaTattoo setzt Koi-Tattoos in München nach klassischer Irezumi-Kompositionslehre um. Der Koi schwimmt gegen den Strom der Muskulatur, umgeben von Wellen, Kirschblüten oder Lotusblüten — jede Linie, jede Schuppe mit Präzision und Respekt für die Tradition gesetzt.',
-    cols: [
-      { title: 'Ausdauer & Mut',    body: 'Der Koi schwimmt gegen den Strom — er symbolisiert Beharrlichkeit, Mut und den Willen, Schwierigkeiten zu überwinden. Ein Tattoo für Menschen, die ihren eigenen Weg gehen, unabhängig vom Widerstand.' },
-      { title: 'Transformation',    body: 'Die Legende des Drachentor-Karpfens: Koi, die den Wasserfall am Drachentor erklimmen, verwandeln sich in Drachen. Ein Motiv für Transformation, Aufstieg und die Überwindung des eigenen Limits.' },
-      { title: 'Komposition',       body: 'Koi harmonieren perfekt mit Wellen (Nami), Kirschblüten, Lotusblüten und Pfingstrosenblüten. Als Sleeve-Motiv oder Teil eines Rückenstücks einsetzbar — immer in Bewegung, immer gegen den Strom.' },
-    ],
-    faq: [
-      { question: 'Was bedeutet ein Koi Tattoo im japanischen Kontext?',  answer: 'Der Koi steht für Ausdauer, Mut und Transformation. Die Legende des Drachentor-Karpfens beschreibt, wie Koi den Wasserfall erklimmen und sich in Drachen verwandeln — ein Symbol für persönlichen Aufstieg durch Beharrlichkeit.' },
-      { question: 'Schwimmt der Koi beim Tattoo nach oben oder unten?',   answer: 'Im traditionellen Irezumi hat die Richtung Bedeutung: stromaufwärts symbolisiert aktiven Kampf und Überwindung. Stromabwärts kann Akzeptanz oder Vollendung bedeuten. KishaTattoo bespricht die Komposition individuell mit jedem Kunden.' },
-      { question: 'Wie groß sollte ein Koi-Tattoo sein?',                 answer: 'Koi-Tattoos wirken besonders stark in mittleren bis großen Kompositionen — halber Sleeve, Oberschenkel, oder als Teil eines größeren Irezumi-Projekts. Auch kleinere Motive auf Unterarm oder Wade sind möglich und effektiv.' },
-    ],
-    slug: 'koi-tattoo-muenchen',
-  },
-  {
-    id:      'kitsune',
-    kanji:   '狐',
-    label:   'Kitsune',
-    reading: 'Kitsune',
-    imgSrc:  '/images/home/motif-fox.jpg',
-    imgAlt:  'Kitsune Tattoo München — japanischer Fuchs Irezumi',
-    tagline: 'Intelligenz · Magie · Schutz',
-    intro1:  'Der Kitsune (狐) — der japanische Fuchs — ist eines der faszinierendsten Wesen der japanischen Folklore. Kitsune gelten als intelligente, langlebige Tiere mit magischen Fähigkeiten, die mit dem Alter wachsen. Je mehr Schwänze (bis zu neun), desto mächtiger und weiser das Wesen.',
-    intro2:  'Im Irezumi ist der Kitsune ein Motiv mit zwei Seiten: als Schutzgeist (Inari-Bote) steht er für Glück, Schutz und Weisheit. Als listiger Trickster verkörpert er Cleverness und die Fähigkeit, die eigene Realität zu gestalten.',
-    cols: [
-      { title: 'Intelligenz & List',     body: 'Kitsune gelten als die klügsten Tiere der japanischen Folklore. Sie symbolisieren Cleverness, Anpassungsfähigkeit und die Fähigkeit, Dinge aus verschiedenen Perspektiven zu sehen — Eigenschaften, die Träger eines Kitsune-Tattoos in sich erkennen.' },
-      { title: 'Langlebigkeit & Magie', body: 'Mit jedem Jahrhundert wächst die Zahl der Schwänze — von einem bis zu neun. Neun Schwänze bedeuten göttliche Weisheit und übernatürliche Kräfte. Ein Kitsune mit mehreren Schwänzen ist ein Zeichen von Alter und tiefer spiritueller Stärke.' },
-      { title: 'Schutz & Wächter',      body: 'Als Boten des Shintō-Gottes Inari gelten Kitsune als Beschützer gegen böse Geister. Kitsune-Tattoos tragen sowohl Schutz-Symbolik als auch den Aspekt des Tricksters — KishaTattoo gestaltet die Geschichte individuell.' },
-    ],
-    faq: [
-      { question: 'Was symbolisiert ein Kitsune Tattoo?',                               answer: 'Der Kitsune steht für Intelligenz, Listigkeit, Langlebigkeit und magische Fähigkeiten. Als Inari-Bote symbolisiert er Schutz und Glück. Als Trickster steht er für Cleverness und die Fähigkeit, die eigene Realität zu gestalten.' },
-      { question: 'Was ist der Unterschied zwischen Kitsune und einem normalen Fuchs?', answer: 'Ein Kitsune ist ein mythisches Wesen mit übernatürlichen Kräften — erkennbar an mehreren Schwänzen, oft umgeben von Flammen oder Mondlicht. Ein normaler Fuchs ist naturalistisch. Im Irezumi ist fast immer der Kitsune gemeint.' },
-      { question: 'Wie viele Schwänze sollte mein Kitsune haben?',                     answer: 'Das hat symbolische Bedeutung: ein Schwanz — jung, kraftvoll. Drei bis fünf Schwänze — erfahren, magisch. Neun Schwänze — höchste göttliche Weisheit. KishaTattoo hilft dir, die richtige Anzahl für deine persönliche Geschichte zu wählen.' },
-    ],
-    slug: 'kitsune-tattoo-muenchen',
-  },
-  {
-    id:      'sakura',
-    kanji:   '桜',
-    label:   'Sakura',
-    reading: 'Sakura',
-    imgSrc:  '/images/home/motif-sakura.jpg',
-    imgAlt:  'Sakura Tattoo München — Kirschblüten Irezumi',
-    tagline: 'Vergänglichkeit · mono no aware · Schönheit',
-    intro1:  'Die Sakura (桜) — Kirschblüte — ist das nationalste Symbol Japans. Ihre Blütezeit dauert nur wenige Tage, bevor die Blüten im Wind verwehen. Eben diese Vergänglichkeit macht sie so tiefgründig: sie erinnert uns daran, jeden Augenblick voll zu leben — die japanische Philosophie des „mono no aware".',
-    intro2:  'Im Irezumi ist Sakura eines der vielseitigsten Motive: als eigenständiges Stück oder als Füllmotiv, das großformatige Kompositionen aus Drachen, Koi oder Tiger umschließt und in den Körper einbettet. KishaTattoo setzt Kirschblüten in München mit der Präzision und Sensibilität um, die dieses stille Motiv verdient.',
-    cols: [
-      { title: 'Vergänglichkeit',        body: 'Die Kirschblüte blüht nur wenige Tage — „mono no aware" (物の哀れ) ist das japanische Konzept der Vergänglichkeit, die durch Schönheit rührt. Ein Sakura-Tattoo erinnert seinen Träger daran, den gegenwärtigen Moment zu schätzen.' },
-      { title: 'Memento Mori',           body: 'In der Irezumi-Tradition trägt Sakura auch eine tiefere philosophische Dimension: die Akzeptanz der eigenen Endlichkeit. Wie die Blüten im Wind fallen, fällt auch der Mensch — und genau das macht das Leben kostbar.' },
-      { title: 'Kompositorische Rolle', body: 'Sakura ist in der Irezumi-Tradition oft das Verbindungselement — es füllt Räume zwischen Drachen, Koi und Tiger, schafft Tiefe und Bewegung. Gleichzeitig ist es stark genug, allein zu stehen: als Sleeve, Rückenstück oder Einzelmotiv.' },
-    ],
-    faq: [
-      { question: 'Was bedeutet ein Sakura Tattoo im japanischen Sinne?', answer: 'Sakura steht für die Vergänglichkeit des Lebens und seine Schönheit — das japanische Konzept „mono no aware". Gleichzeitig ist es ein Memento Mori: die Akzeptanz, dass alles endet, macht jeden Augenblick wertvoller.' },
-      { question: 'Kann Sakura als alleiniges Motiv bestehen?',           answer: 'Ja. Kirschblüten können ein eigenständiges Tattoo-Konzept tragen — als Sleeve, Brustplatte oder Einzelmotiv. KishaTattoo komponiert Sakura sowohl als Hauptmotiv als auch als Begleitelement in größeren Irezumi-Projekten.' },
-      { question: 'Mit welchen Motiven kombiniert man Sakura?',           answer: 'Klassische Kombinationen: Drachen (Ryū), Koi, Tiger, Phönix, Oni-Masken. Sakura umhüllt diese Motive mit einer Atmosphäre von Vergänglichkeit und Schönheit. Auch mit Schriftzeichen oder Mondmotiven sehr wirkungsvoll.' },
-    ],
-    slug: 'sakura-tattoo-muenchen',
-  },
-  {
-    id:      'tiger',
-    kanji:   '虎',
-    label:   'Tiger',
-    reading: 'Tora',
-    imgSrc:  '/images/home/motif-tiger.jpg',
-    imgAlt:  'Tiger Tattoo München — japanischer Tora Irezumi',
-    tagline: 'Kraft · Schutz · Langlebigkeit',
-    intro1:  'Der Tora (虎) — Tiger — ist im japanischen Irezumi einer der vier Himmelsrichtungs-Könige: Er herrscht über den Norden und das Wind-Element. Als Gegenstück zum Drachen (Süden und Wasser) bildet er eine der kraftvollsten kompositorischen Spannungen in der Irezumi-Tradition.',
-    intro2:  'Tiger-Tattoos strahlen unmittelbare Kraft aus. KishaTattoo setzt den Tora in München nach klassischer Irezumi-Komposition um — mit starken schwarzen Linien, kräftigen Schattierungen und der dynamischen Körperspannung, die ein Tiger-Motiv verlangt.',
-    cols: [
-      { title: 'Kraft & Mut',     body: 'Der Tiger steht für physische Kraft, Mut und die Fähigkeit, böse Geister und Krankheiten zu vertreiben. Er ist ein mächtiger Schutzgeist — ein Tattoo, das seinen Träger mit Stärke und Tapferkeit verbindet.' },
-      { title: 'Wind & Norden',   body: 'Als Himmelsrichtungs-König herrscht der Tora über den Norden und das Wind-Element. In einer Tiger-Drachen-Komposition stehen die mächtigsten Gegenpole des Irezumi gegenüber — Wind und Wasser, Norden und Süden.' },
-      { title: 'Langlebigkeit',   body: 'In der japanischen Mythologie wird dem Tiger eine Lebensspanne von tausend Jahren zugeschrieben. Als Tattoo-Motiv trägt er daher auch die Bedeutung von Langlebigkeit, Ausdauer und spiritueller Stärke über die Zeit.' },
-    ],
-    faq: [
-      { question: 'Was bedeutet ein japanisches Tiger-Tattoo?',                answer: 'Der Tora steht für Kraft, Mut, Langlebigkeit und Schutz vor dem Bösen. Er ist der Herrscher des Nordens und des Wind-Elements — ein Symbol roher Stärke, aber auch spirituellen Schutzes. Eines der kraftvollsten Motive im Irezumi.' },
-      { question: 'Tiger oder Drachen — welches Tattoo ist stärker?',          answer: 'Tiger (Norden, Wind) und Drache (Süden, Wasser) sind im Irezumi gleichwertige Gegensätze — das mächtigste Spannungspaar der japanischen Mythologie. Eine Tiger-Drachen-Komposition ist deshalb eines der bedeutungsstärksten Tattoos überhaupt.' },
-      { question: 'Wie wird ein Tiger im Irezumi typischerweise dargestellt?', answer: 'Klassisch: der Tiger in Bewegung, mit geöffnetem Maul, umgeben von Bambus oder Kiefern im Wind. Starke schwarze Konturen, kräftige Schattierungen, dynamische Komposition. KishaTattoo entwirft jeden Tiger individuell nach Körperbau und Bildsprache des Kunden.' },
-    ],
-    slug: 'tiger-tattoo-muenchen',
-  },
+const MOTIF_STRUCTURE = [
+  { id: 'drachen', kanji: '龍', reading: 'Ryū',    imgSrc: '/images/home/motif-dragon.jpg', slug: 'drachen-tattoo-muenchen' },
+  { id: 'koi',     kanji: '鯉', reading: 'Koi',    imgSrc: '/images/home/motif-koi.jpg',    slug: 'koi-tattoo-muenchen'     },
+  { id: 'kitsune', kanji: '狐', reading: 'Kitsune', imgSrc: '/images/home/motif-fox.jpg',   slug: 'kitsune-tattoo-muenchen' },
+  { id: 'sakura',  kanji: '桜', reading: 'Sakura', imgSrc: '/images/home/motif-sakura.jpg', slug: 'sakura-tattoo-muenchen'  },
+  { id: 'tiger',   kanji: '虎', reading: 'Tora',   imgSrc: '/images/home/motif-tiger.jpg',  slug: 'tiger-tattoo-muenchen'  },
 ]
-
-const ALL_FAQ = MOTIFS.flatMap((m) => m.faq)
 
 /* ── Page ────────────────────────────────────────────────────────────────── */
 
@@ -147,6 +40,12 @@ export default async function MotiveHub({
 }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'motive' })
+
+  type MotifTx = { label: string; imgAlt: string; tagline: string; intro1: string; intro2: string; cols: Array<{ title: string; body: string }>; faq: Array<{ q: string; a: string }> }
+  const motifsTx = t.raw('motifs') as Record<string, MotifTx>
+  const MOTIFS = MOTIF_STRUCTURE.map((m) => ({ ...m, ...motifsTx[m.id] }))
+  const ALL_FAQ = MOTIFS.flatMap((m) => m.faq)
+
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -156,7 +55,7 @@ export default async function MotiveHub({
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Japanische Tattoo Motive', url: '/motive' }])
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        faqSchema(ALL_FAQ.map((f) => ({ question: f.question, answer: f.answer })))
+        faqSchema(ALL_FAQ.map((f) => ({ question: f.q, answer: f.a })))
       )}} />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
@@ -220,8 +119,7 @@ export default async function MotiveHub({
             color: '#0D0D0D',
           }}
         >
-          Drachen · Koi · Kitsune · Sakura · Tiger —
-          die bedeutendsten Symbole des japanischen Irezumi erklärt.
+          {t('hero.sub')}
         </p>
 
         <GNav activePath="/motive" theme="light" />
@@ -232,21 +130,16 @@ export default async function MotiveHub({
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              Irezumi — die Sprache der Körperkunst
+              {t('intro.heading')}
             </h2>
           </div>
 
           <div className="g-text-cols" style={{ display: 'flex', justifyContent: 'flex-end', gap: 'clamp(2rem, 4.2vw, 5rem)' }}>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Im japanischen Irezumi ist jedes Motiv eine Geschichte — keine Dekoration.
-              Drachen schützen, Koi kämpfen, Kitsune betrügen und beschützen zugleich,
-              Sakura erinnert an die Vergänglichkeit, Tiger tragen Wind in sich.
-              Jede Linie trägt Bedeutung.
+              {t('intro.body1')}
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              KishaTattoo in München spezialisiert sich auf authentisches Irezumi —
-              klassische Motivsprache, individuelle Komposition, keine Standardmotive.
-              Auf dieser Seite findest du die Bedeutung der wichtigsten Irezumi-Motive.
+              {t('intro.body2')}
             </p>
           </div>
 
@@ -305,7 +198,7 @@ export default async function MotiveHub({
               <div>
                 <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)', display: 'block', marginBottom: '0.5rem' }}>{m.reading} — {m.tagline}</span>
                 <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-                  {m.label} Tattoo — Bedeutung & Symbolik
+                  {m.label} {t('motifHeadingSuffix')}
                 </h2>
               </div>
               <div
@@ -377,8 +270,8 @@ export default async function MotiveHub({
             <div style={{ marginBottom: 'clamp(1.5rem, 2.5vw, 2rem)' }}>
               {m.faq.map((item, i) => (
                 <div key={i} className="g-motive-faq-item" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 5rem)', padding: 'clamp(1rem, 1.8vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.2)' }}>
-                  <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
-                  <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
+                  <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
+                  <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
                 </div>
               ))}
             </div>

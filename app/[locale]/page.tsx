@@ -219,7 +219,7 @@ export default async function GraphicHomePage() {
 
           {/* CTA strip — 20px inset each side */}
           <div className="g-hero-cta" style={{ position: 'absolute', bottom: 0, left: 'var(--g-pad)', right: 'var(--g-pad)' }}>
-            <CtaStrip />
+            <CtaStrip label={t('ctaStrip')} />
           </div>
         </section>
 
@@ -659,7 +659,7 @@ export default async function GraphicHomePage() {
 
           {/* CTA strip — 20px inset each side */}
           <div style={{ marginTop: 'clamp(2rem, 4.2vw, 5rem)', marginLeft: 'var(--g-pad)', marginRight: 'var(--g-pad)' }}>
-            <CtaStrip />
+            <CtaStrip label={t('ctaStrip')} />
           </div>
         </section>
 

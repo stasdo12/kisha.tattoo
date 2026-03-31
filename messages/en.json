@@ -230,6 +230,30 @@
     "cta": {
       "heading": "Ready for your tattoo with Kisha in Munich?",
       "button": "Book appointment"
+    },
+    "passion": {
+      "slides": [
+        {
+          "alt": "Graphic Tattoo Munich — Naruto and Sasuke motif — Kisha",
+          "heading": "Large-format Tattoos in Munich — your body as a canvas",
+          "body": "From the first line to the finished masterpiece, I guide you through every phase of your large-format tattoo project in Munich. Back pieces, sleeves and bodysuits — every work is created individually, without templates, with deep respect for your story."
+        },
+        {
+          "alt": "Japanese Tattoo Munich — Kitsune fox motif — Kisha",
+          "heading": "Japanese Tattoo in Munich — symbols with meaning",
+          "body": "Every Japanese symbol carries its own story: the dragon stands for protection, the koi for perseverance, the cherry blossom for the impermanence of life. As a tattoo artist in Munich I translate these meanings into a precise, powerful composition on your skin."
+        },
+        {
+          "alt": "Getting tattooed Munich — Kisha Tattoo Artist at work",
+          "heading": "Getting tattooed in Munich — craft and precision",
+          "body": "As an experienced tattoo artist in Munich I work exclusively with professional equipment and the highest hygiene standards. Every session is a focused ritual — from preparing the skin to the last line."
+        },
+        {
+          "alt": "Graphic Tattoo Munich — Medusa motif — Kisha Tattoo",
+          "heading": "Graphic and Blackwork Tattoo in Munich — clean lines, strong impact",
+          "body": "Alongside the Japanese style I specialise in graphic and blackwork tattoos in Munich: precise geometry, strong contrasts and timeless compositions. Every motif is designed individually for you — from the first sketch to the finished tattoo."
+        }
+      ]
     }
   },
   "booking": {
@@ -923,7 +947,184 @@
       "booking": "Book appointment"
     },
     "motifCta": "Book {label} Tattoo →",
-    "motifLink": "Japanese Tattoo Munich"
+    "motifLink": "Japanese Tattoo Munich",
+    "motifs": {
+      "drachen": {
+        "label": "Dragon",
+        "imgAlt": "Dragon Tattoo Munich — Japanese Ryū Irezumi",
+        "tagline": "Wisdom · Strength · Protection",
+        "intro1": "The Ryū (龍) is the most significant symbol of Japanese mythology. Unlike the Western dragon, the Japanese Ryū is a benevolent creature — guardian of the waters, protector of the innocent, embodiment of divine wisdom and strength. In the Irezumi tradition it is a motif that can fill the entire body.",
+        "intro2": "KishaTattoo specialises in large-format dragon compositions following classical Irezumi teaching. The Ryū coils around arms, spans back pieces or chest pieces — its movement follows the natural flow of the musculature.",
+        "cols": [
+          {
+            "title": "Wisdom & Strength",
+            "body": "The Japanese Ryū stands for wisdom, strength and supernatural powers. As a symbol of water it embodies generosity — a protector of nature and humanity, carrying power without cruelty."
+          },
+          {
+            "title": "Composition",
+            "body": "In classical Irezumi the dragon winds organically around the body — sleeve, back piece, chest panels. Its composition follows the wearer's musculature and turns the body into a canvas."
+          },
+          {
+            "title": "Variants",
+            "body": "Ryū (water dragon), Tatsu (heavenly dragon), Kinryū (golden dragon) — each variant carries different symbolism. Combinations with waves, cherry blossoms and clouds are classic in the Irezumi tradition."
+          }
+        ],
+        "faq": [
+          {
+            "q": "What does a Japanese dragon tattoo mean?",
+            "a": "The Ryū stands for wisdom, strength and protection. Unlike the Western dragon it is considered a benevolent creature — guardian of the waters and protector of the innocent. A dragon tattoo is a commitment to strength with dignity."
+          },
+          {
+            "q": "How large does a dragon tattoo need to be?",
+            "a": "Dragons unfold their full impact in large-format compositions — sleeve, back piece or chest panels. Smaller dragons are possible but lose the dynamic composition of the classical Irezumi tradition."
+          },
+          {
+            "q": "What pairs well with a dragon tattoo?",
+            "a": "Classic combinations: waves (Nami), cherry blossoms (Sakura), clouds, lightning bolts, koi fish. KishaTattoo designs every composition individually according to Irezumi principles and the client's wishes."
+          }
+        ]
+      },
+      "koi": {
+        "label": "Koi",
+        "imgAlt": "Koi Tattoo Munich — Japanese carp Irezumi",
+        "tagline": "Perseverance · Transformation · Courage",
+        "intro1": "The Koi (鯉) is one of the oldest and most meaningful motifs in the Japanese Irezumi tradition. Legend describes the koi swimming against the current and transforming into a dragon at the waterfall — an image of perseverance, transformation and the power to overcome obstacles.",
+        "intro2": "KishaTattoo realises koi tattoos in Munich following classical Irezumi composition principles. The koi swims against the current of the musculature, surrounded by waves, cherry blossoms or lotus flowers — every line, every scale placed with precision and respect for the tradition.",
+        "cols": [
+          {
+            "title": "Perseverance & Courage",
+            "body": "The koi swims against the current — it symbolises steadfastness, courage and the will to overcome difficulties. A tattoo for people who go their own way, regardless of resistance."
+          },
+          {
+            "title": "Transformation",
+            "body": "The legend of the Dragon Gate carp: koi that climb the waterfall at the Dragon Gate transform into dragons. A motif for transformation, ascent and overcoming one's own limits."
+          },
+          {
+            "title": "Composition",
+            "body": "Koi harmonise perfectly with waves (Nami), cherry blossoms, lotus flowers and peony blossoms. Suitable as a sleeve motif or part of a back piece — always in motion, always against the current."
+          }
+        ],
+        "faq": [
+          {
+            "q": "What does a koi tattoo mean in the Japanese context?",
+            "a": "The koi stands for perseverance, courage and transformation. The legend of the Dragon Gate carp describes how koi climb the waterfall and transform into dragons — a symbol of personal ascent through steadfastness."
+          },
+          {
+            "q": "Does the koi swim upwards or downwards in the tattoo?",
+            "a": "In traditional Irezumi the direction carries meaning: upstream symbolises active struggle and overcoming. Downstream can mean acceptance or completion. KishaTattoo discusses the composition individually with each client."
+          },
+          {
+            "q": "How large should a koi tattoo be?",
+            "a": "Koi tattoos work particularly well in medium to large compositions — half sleeve, thigh, or as part of a larger Irezumi project. Smaller pieces on the forearm or calf are also possible and effective."
+          }
+        ]
+      },
+      "kitsune": {
+        "label": "Kitsune",
+        "imgAlt": "Kitsune Tattoo Munich — Japanese fox Irezumi",
+        "tagline": "Intelligence · Magic · Protection",
+        "intro1": "The Kitsune (狐) — the Japanese fox — is one of the most fascinating creatures in Japanese folklore. Kitsune are considered intelligent, long-lived animals with magical abilities that grow with age. The more tails (up to nine), the more powerful and wise the being.",
+        "intro2": "In Irezumi the kitsune is a motif with two sides: as a guardian spirit (Inari messenger) it stands for luck, protection and wisdom. As a cunning trickster it embodies cleverness and the ability to shape one's own reality.",
+        "cols": [
+          {
+            "title": "Intelligence & Cunning",
+            "body": "Kitsune are considered the most intelligent animals in Japanese folklore. They symbolise cleverness, adaptability and the ability to see things from different perspectives — qualities that wearers of a kitsune tattoo recognise in themselves."
+          },
+          {
+            "title": "Longevity & Magic",
+            "body": "With each century the number of tails grows — from one to nine. Nine tails mean divine wisdom and supernatural powers. A kitsune with multiple tails is a sign of age and deep spiritual strength."
+          },
+          {
+            "title": "Protection & Guardian",
+            "body": "As messengers of the Shinto god Inari, kitsune are considered protectors against evil spirits. Kitsune tattoos carry both protective symbolism and the trickster aspect — KishaTattoo shapes the story individually."
+          }
+        ],
+        "faq": [
+          {
+            "q": "What does a kitsune tattoo symbolise?",
+            "a": "The kitsune stands for intelligence, cunning, longevity and magical abilities. As an Inari messenger it symbolises protection and luck. As a trickster it stands for cleverness and the ability to shape one's own reality."
+          },
+          {
+            "q": "What is the difference between a kitsune and a normal fox?",
+            "a": "A kitsune is a mythical being with supernatural powers — recognisable by multiple tails, often surrounded by flames or moonlight. A normal fox is naturalistic. In Irezumi the kitsune is almost always meant."
+          },
+          {
+            "q": "How many tails should my kitsune have?",
+            "a": "This has symbolic significance: one tail — young, powerful. Three to five tails — experienced, magical. Nine tails — supreme divine wisdom. KishaTattoo helps you choose the right number for your personal story."
+          }
+        ]
+      },
+      "sakura": {
+        "label": "Sakura",
+        "imgAlt": "Sakura Tattoo Munich — cherry blossom Irezumi",
+        "tagline": "Impermanence · mono no aware · Beauty",
+        "intro1": "The Sakura (桜) — cherry blossom — is Japan's most iconic national symbol. Its blooming season lasts only a few days before the blossoms drift away in the wind. It is precisely this impermanence that makes it so profound: it reminds us to live each moment fully — the Japanese philosophy of mono no aware.",
+        "intro2": "In Irezumi, sakura is one of the most versatile motifs: as a standalone piece or as a fill motif that envelops large-format compositions of dragons, koi or tigers and embeds them in the body. KishaTattoo realises cherry blossoms in Munich with the precision and sensitivity that this quiet motif deserves.",
+        "cols": [
+          {
+            "title": "Impermanence",
+            "body": "The cherry blossom blooms for only a few days — mono no aware is the Japanese concept of impermanence that moves through beauty. A sakura tattoo reminds its wearer to appreciate the present moment."
+          },
+          {
+            "title": "Memento Mori",
+            "body": "In the Irezumi tradition, sakura also carries a deeper philosophical dimension: the acceptance of one's own finitude. As the blossoms fall in the wind, so does the human being — and that is precisely what makes life precious."
+          },
+          {
+            "title": "Compositional Role",
+            "body": "Sakura is often the connecting element in the Irezumi tradition — it fills spaces between dragons, koi and tigers, creates depth and movement. At the same time it is strong enough to stand alone: as a sleeve, back piece or individual motif."
+          }
+        ],
+        "faq": [
+          {
+            "q": "What does a sakura tattoo mean in the Japanese sense?",
+            "a": "Sakura stands for the impermanence of life and its beauty — the Japanese concept of mono no aware. At the same time it is a memento mori: the acceptance that everything ends makes every moment more valuable."
+          },
+          {
+            "q": "Can sakura stand as the sole motif?",
+            "a": "Yes. Cherry blossoms can carry a standalone tattoo concept — as a sleeve, chest panel or individual motif. KishaTattoo composes sakura both as a main motif and as an accompanying element in larger Irezumi projects."
+          },
+          {
+            "q": "Which motifs combine well with sakura?",
+            "a": "Classic combinations: dragon (Ryū), koi, tiger, phoenix, oni masks. Sakura wraps these motifs in an atmosphere of impermanence and beauty. Also very effective with characters or moon motifs."
+          }
+        ]
+      },
+      "tiger": {
+        "label": "Tiger",
+        "imgAlt": "Tiger Tattoo Munich — Japanese Tora Irezumi",
+        "tagline": "Strength · Protection · Longevity",
+        "intro1": "The Tora (虎) — tiger — is one of the four Cardinal Kings in Japanese Irezumi: he rules the north and the wind element. As the counterpart to the dragon (south and water) he forms one of the most powerful compositional tensions in the Irezumi tradition.",
+        "intro2": "Tiger tattoos radiate immediate strength. KishaTattoo realises the Tora in Munich following classical Irezumi composition — with strong black lines, powerful shading and the dynamic body tension that a tiger motif demands.",
+        "cols": [
+          {
+            "title": "Strength & Courage",
+            "body": "The tiger stands for physical strength, courage and the ability to drive away evil spirits and illness. He is a powerful guardian spirit — a tattoo that connects its wearer with strength and bravery."
+          },
+          {
+            "title": "Wind & North",
+            "body": "As Cardinal King the Tora rules the north and the wind element. In a tiger-dragon composition the most powerful opposites of Irezumi face each other — wind and water, north and south."
+          },
+          {
+            "title": "Longevity",
+            "body": "In Japanese mythology the tiger is attributed a lifespan of a thousand years. As a tattoo motif it therefore also carries the meaning of longevity, endurance and spiritual strength over time."
+          }
+        ],
+        "faq": [
+          {
+            "q": "What does a Japanese tiger tattoo mean?",
+            "a": "The Tora stands for strength, courage, longevity and protection from evil. He is the ruler of the north and the wind element — a symbol of raw strength but also spiritual protection. One of the most powerful motifs in Irezumi."
+          },
+          {
+            "q": "Tiger or dragon — which tattoo is stronger?",
+            "a": "Tiger (north, wind) and dragon (south, water) are equal opposites in Irezumi — the most powerful tension pair in Japanese mythology. A tiger-dragon composition is therefore one of the most meaning-rich tattoos of all."
+          },
+          {
+            "q": "How is a tiger typically depicted in Irezumi?",
+            "a": "Classic: the tiger in motion, with open mouth, surrounded by bamboo or pine trees in the wind. Strong black outlines, powerful shading, dynamic composition. KishaTattoo designs every tiger individually according to the client's build and imagery."
+          }
+        ]
+      }
+    }
   },
   "preise": {
     "meta": {

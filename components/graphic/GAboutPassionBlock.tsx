@@ -2,41 +2,20 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 
-const SLIDES = [
-  {
-    thumb: '/images/about/passion-thumb-1.jpg',
-    large: '/images/about/passion-large-1.jpg',
-    alt: 'Grafik Tattoo München — Naruto und Sasuke Motiv — Kisha',
-    heading: 'Großformatige Tattoos in München — dein Körper als Leinwand',
-    body: 'Von der ersten Linie bis zum fertigen Meisterwerk begleite ich dich durch jede Phase deines großformatigen Tattoo-Projekts in München. Backpieces, Sleeves und Bodysuits — jede Arbeit entsteht individuell, ohne Vorlagen, mit tiefem Respekt vor deiner Geschichte.',
-  },
-  {
-    thumb: '/images/about/passion-thumb-2.jpg',
-    large: '/images/about/passion-large-2.jpg',
-    alt: 'Japanisches Tattoo München — Kitsune Fuchs Motiv — Kisha',
-    heading: 'Japanisches Tattoo in München — Symbole mit Bedeutung',
-    body: 'Jedes japanische Symbol trägt eine eigene Geschichte: der Drachen steht für Schutz, der Koi für Ausdauer, die Kirschblüte für die Vergänglichkeit des Lebens. Als Tattoo Artist in München übersetze ich diese Bedeutungen in eine präzise, kraftvolle Komposition auf deiner Haut.',
-  },
-  {
-    thumb: '/images/about/passion-thumb-3.jpg',
-    large: '/images/about/passion-large-3.jpg',
-    alt: 'Tattoo stechen München — Kisha Tattoo Artist bei der Arbeit',
-    heading: 'Tattoo stechen in München — Handwerk und Präzision',
-    body: 'Als erfahrener Tätowierer in München arbeite ich ausschließlich mit professionellem Equipment und höchsten Hygienestandards. Jede Sitzung ist ein konzentriertes Ritual — von der Vorbereitung der Haut bis zum letzten Strich.',
-  },
-  {
-    thumb: '/images/about/passion-thumb-4.jpg',
-    large: '/images/about/passion-large-4.jpg',
-    alt: 'Grafik Tattoo München — Medusa Motiv — Kisha Tattoo',
-    heading: 'Grafik und Blackwork Tattoo in München — klare Linien, starke Wirkung',
-    body: 'Neben dem japanischen Stil spezialisiere ich mich auf grafische und Blackwork-Tattoos in München: präzise Geometrie, starke Kontraste und zeitlose Kompositionen. Jedes Motiv wird individuell für dich entworfen — von der ersten Skizze bis zum fertigen Tattoo.',
-  },
+const SLIDE_IMAGES = [
+  { thumb: '/images/about/passion-thumb-1.jpg', large: '/images/about/passion-large-1.jpg' },
+  { thumb: '/images/about/passion-thumb-2.jpg', large: '/images/about/passion-large-2.jpg' },
+  { thumb: '/images/about/passion-thumb-3.jpg', large: '/images/about/passion-large-3.jpg' },
+  { thumb: '/images/about/passion-thumb-4.jpg', large: '/images/about/passion-large-4.jpg' },
 ]
 
 export function GAboutPassionBlock() {
+  const t = useTranslations('about')
+  const slides = (t.raw('passion.slides') as Array<{ alt: string; heading: string; body: string }>)
   const [active, setActive] = useState(0)
-  const slide = SLIDES[active]
+  const slide = { ...slides[active], ...SLIDE_IMAGES[active] }
 
   return (
     <div
@@ -95,11 +74,11 @@ export function GAboutPassionBlock() {
             paddingTop: '1rem',
           }}
         >
-          {SLIDES.map((item, i) => (
+          {SLIDE_IMAGES.map((item, i) => (
             <button
               key={i}
               onClick={() => setActive(i)}
-              aria-label={item.alt}
+              aria-label={slides[i]?.alt ?? ''}
               style={{
                 flex: '1 1 0',
                 position: 'relative',
@@ -117,7 +96,7 @@ export function GAboutPassionBlock() {
             >
               <Image
                 src={item.thumb}
-                alt={item.alt}
+                alt={slides[i]?.alt ?? ''}
                 fill
                 style={{ objectFit: 'cover' }}
                 sizes="8vw"
