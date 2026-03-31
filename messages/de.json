@@ -341,19 +341,295 @@
       "description": "Häufig gestellte Fragen zu Tattoo-Termin, Preisen, Pflege und Stilen bei Kisha Tattoo München."
     },
     "hero": {
-      "h1": "FAQ"
+      "h1": "Frequently\nAsked Questions",
+      "sub": "Buchung · Preise · Vorbereitung · Aftercare · Stile"
+    },
+    "sections": {
+      "booking": "Buchung & Termin",
+      "pricing": "Preise & Zahlung",
+      "preparation": "Vorbereitung",
+      "aftercare": "Aftercare & Heilung",
+      "style": "Stile & Design"
+    },
+    "booking": [
+      {
+        "q": "Wie läuft die Buchung bei KishaTattoo ab?",
+        "a": "Sende eine Anfrage über das Buchungsformular oder per Instagram DM mit deiner Idee, dem gewünschten Stil und der Körperstelle. Kisha meldet sich innerhalb von 48 Stunden für eine erste Konsultation."
+      },
+      {
+        "q": "Wie weit im Voraus muss ich buchen?",
+        "a": "Für kleinere Projekte ist oft ein Termin innerhalb von 2–4 Wochen möglich. Große Projekte wie Backpieces oder Sleeves werden meist 1–3 Monate im Voraus geplant. Schreib uns einfach an — wir finden eine Lösung."
+      },
+      {
+        "q": "Gibt es eine Anzahlung?",
+        "a": "Ja, für alle Projekte wird eine Anzahlung fällig, die beim finalen Termin vom Gesamtpreis abgezogen wird. Die Höhe wird individuell beim Beratungsgespräch festgelegt."
+      },
+      {
+        "q": "Kann ich meinen Termin verschieben?",
+        "a": "Terminverschiebungen sind mit mindestens 72 Stunden Vorlaufzeit möglich. Kurzfristige Absagen unter 48 Stunden können zum Verlust der Anzahlung führen. Wir bitten um frühzeitige Kommunikation."
+      }
+    ],
+    "pricing": [
+      {
+        "q": "Was kostet ein Tattoo bei KishaTattoo?",
+        "a": "Alle Projekte werden nach Stunden abgerechnet. Kleinere Motive starten ab ca. 150–200 € (Stundensatz + Mindestgebühr), große Projekte wie Sleeves oder Backpieces ab 800–1200 € pro Sitzung. Ein genaues Angebot erhältst du nach der Konsultation."
+      },
+      {
+        "q": "Warum kostet ein gutes Tattoo so viel?",
+        "a": "Ein Tattoo ist für das Leben. Custom-Design, präzise Technik und hochwertige Materialien erfordern Zeit und Expertise. Billige Tattoos kosten am Ende mehr — in Abdeckungen, Korrekturen und Nacharbeit."
+      },
+      {
+        "q": "Welche Zahlungsmethoden werden akzeptiert?",
+        "a": "Bar, Überweisung und Kartenzahlung. Die Anzahlung wird nach der Konsultation per Überweisung geleistet. Bargeldzahlung am Sitzungstag ist möglich."
+      }
+    ],
+    "preparation": [
+      {
+        "q": "Wie bereite ich mich auf eine Tattoo-Sitzung vor?",
+        "a": "Sei ausgeschlafen, hydratisiert und gegessen. Vermeide Alkohol und blutverdünnende Medikamente (Aspirin, Ibuprofen) 24 Stunden vorher. Trage lockere, bequeme Kleidung, die die Tätowierstelle gut zugänglich macht."
+      },
+      {
+        "q": "Kann ich bei der Sitzung essen oder trinken?",
+        "a": "Unbedingt! Bring Snacks und Getränke mit — besonders bei langen Sitzungen ist das wichtig, um den Blutzucker stabil zu halten und Kreislaufprobleme zu vermeiden."
+      },
+      {
+        "q": "Darf ich jemanden mitbringen?",
+        "a": "Eine Begleitperson zur Unterstützung ist willkommen. Aus Platzgründen bitten wir jedoch, die Begleitung auf eine Person zu begrenzen."
+      },
+      {
+        "q": "Ich bin krank — soll ich trotzdem kommen?",
+        "a": "Nein. Bei Erkältung, Fieber oder anderen Infektionen verschieben wir den Termin. Dein Immunsystem braucht alle Ressourcen für die Heilung — tattowieren wir nicht."
+      }
+    ],
+    "aftercare": [
+      {
+        "q": "Wie pflege ich ein frisches Tattoo?",
+        "a": "Die ersten 3–5 Tage: Abdeckung nach Anweisung, sanft reinigen mit mildem Seifenwasser, dünn eincremen mit empfohlener Salbe. Keine Sonne, kein Schwimmen, kein Kratzen. Detaillierte Pflegeanleitung: /aftercare"
+      },
+      {
+        "q": "Wann ist ein Tattoo vollständig geheilt?",
+        "a": "Die Oberflächenheilung dauert 2–3 Wochen. Die vollständige Tiefenheilung (Dermalschicht) 3–6 Monate. Erst dann kann beurteilt werden, ob Nacharbeit nötig ist."
+      },
+      {
+        "q": "Kann ich nach dem Tattoo Sport treiben?",
+        "a": "Leichte Aktivitäten nach 2–3 Tagen möglich. Intensiver Sport, Schwimmbad, Sauna und direktes Sonnenbaden erst nach vollständiger Abheilung (2–3 Wochen minimum)."
+      }
+    ],
+    "style": [
+      {
+        "q": "Was ist der Unterschied zwischen Irezumi und Japanese Style?",
+        "a": "Traditionelles Irezumi folgt jahrhundertealten Kompositionsregeln: Motive wie Koi, Drachen, Oni werden nach der Körpermuskulatur ausgerichtet, Übergänge zwischen Motiven sind klar definiert. \"Japanese Style\" ist oft eine freiere, modernere Interpretation."
+      },
+      {
+        "q": "Wie lange dauert ein großes Irezumi-Projekt?",
+        "a": "Ein vollständiger Rücken: 40–80 Stunden, aufgeteilt auf 10–20 Sitzungen über 1–3 Jahre. Ein Full Sleeve: 20–40 Stunden über 6–18 Monate. Die Heilungspausen zwischen den Sitzungen sind fester Teil des Prozesses."
+      },
+      {
+        "q": "Arbeitet KishaTattoo auch mit eigenen Design-Ideen?",
+        "a": "Absolut — Custom-Design ist der Standard, kein Sonderservice. Kisha entwickelt jedes Motiv individuell für deine Körperform, Hautton und persönliche Geschichte. Referenzbilder helfen dabei, deine Vision zu präzisieren."
+      },
+      {
+        "q": "Kann man ein Cover-up Tattoo machen?",
+        "a": "Ja, Cover-ups sind möglich. Die Machbarkeit hängt von Größe, Dunkelheit und Alter des bestehenden Tattoos ab. Schicke ein Foto deines alten Tattoos bei der Anfrage mit — Kisha bewertet die Optionen."
+      }
+    ],
+    "cta": {
+      "heading": "Noch Fragen? Schreib uns einfach.",
+      "booking": "Termin buchen",
+      "contact": "Kontakt"
     }
   },
   "aftercare": {
     "meta": {
       "title": "Tattoo Aftercare — Kisha Tattoo München",
       "description": "Pflegehinweise für dein neues Tattoo von Kisha. So bleibt dein Irezumi lange schön."
+    },
+    "hero": {
+      "h1": "Tattoo\nAftercare",
+      "sub": "Ein Tattoo ist für das Leben — die Pflege entscheidet über die Qualität. Halte dich an diese Anleitung für optimale Heilung."
+    },
+    "guide": {
+      "heading": "Schritt-für-Schritt Pflegeanleitung",
+      "days": [
+        {
+          "period": "Tag 1",
+          "title": "Direkt nach der Sitzung",
+          "steps": [
+            "Abdeckung (Folie oder Verband) 2–4 Stunden belassen, wie von Kisha angewiesen",
+            "Danach sanft mit lauwarmem Wasser und mildem, parfümfreiem Seifenwasser waschen",
+            "Vorsichtig trockentupfen — niemals reiben",
+            "Dünne Schicht empfohlener Wundsalbe auftragen (z.B. Bepanthen, Tattoo Goo)"
+          ]
+        },
+        {
+          "period": "Tage 2–7",
+          "title": "Erste Woche",
+          "steps": [
+            "2–3 × täglich sanft waschen und dünn eincremen",
+            "Das Tattoo muss atmen können — keine dicken Crème-Schichten",
+            "Keine Plastikfolie dauerhaft drüber — Feuchtigkeit verursacht Mazerationen",
+            "Lockere, weiche Kleidung über dem Tattoo tragen — kein Reiben",
+            "Nicht am Schorf kratzen oder ihn abziehen — Farbe geht verloren"
+          ]
+        },
+        {
+          "period": "Woche 2–3",
+          "title": "Schuppung & Heilung",
+          "steps": [
+            "Das Tattoo beginnt zu schuppen — das ist normal und Teil der Heilung",
+            "Weiter eincremen bei Trockenheitsgefühl",
+            "UV-Schutz noch immer meiden — kein direktes Sonnenbad",
+            "Schwimmbad, Sauna und Baden weiterhin vermeiden"
+          ]
+        }
+      ]
+    },
+    "avoid": {
+      "heading": "Was du vermeiden musst",
+      "items": [
+        {
+          "icon": "日",
+          "label": "Direkte Sonne",
+          "note": "Mind. 3–4 Wochen, danach immer LSF 50+"
+        },
+        {
+          "icon": "水",
+          "label": "Schwimmen / Baden",
+          "note": "Pool, Meer, Badewanne — mind. 3 Wochen"
+        },
+        {
+          "icon": "熱",
+          "label": "Sauna & Dampfbad",
+          "note": "Ausdehnung der Haut stört die Heilung"
+        },
+        {
+          "icon": "禁",
+          "label": "Kratzen & Reiben",
+          "note": "Schorf entfernt Pigment — Geduld!"
+        },
+        {
+          "icon": "力",
+          "label": "Intensiver Sport",
+          "note": "Schweiß und Dehnung der Haut: mind. 1 Woche Pause"
+        },
+        {
+          "icon": "酒",
+          "label": "Alkohol",
+          "note": "24h vor und nach der Sitzung — verdünnt das Blut"
+        }
+      ]
+    },
+    "products": {
+      "heading": "Empfohlene Pflegeprodukte",
+      "items": [
+        {
+          "name": "Bepanthen Wund- & Heilsalbe",
+          "note": "Klassiker — günstig, wirksam, überall erhältlich"
+        },
+        {
+          "name": "Tattoo Goo Original Salbe",
+          "note": "Speziell für Tattoos, keine Parfumstoffe"
+        },
+        {
+          "name": "Hustle Butter Deluxe",
+          "note": "Vegan, ideal für die ersten Tage und Langzeitpflege"
+        },
+        {
+          "name": "Lubriderm Unscented",
+          "note": "Leichte Feuchtigkeitspflege für Woche 2+"
+        }
+      ],
+      "disclaimer": "* Kisha empfiehlt spezifische Produkte nach der Sitzung — halte dich an die persönliche Anweisung."
+    },
+    "cta": {
+      "heading": "Fragen zur Pflege? Schreib Kisha direkt.",
+      "faq": "FAQ ansehen",
+      "contact": "Kontakt"
     }
   },
   "awards": {
     "meta": {
       "title": "Awards — Kisha Tattoo München",
       "description": "5 Convention Awards 2025 — Kisha Tattoo München ausgezeichnet auf der Munich Tattoo Convention."
+    },
+    "hero": {
+      "h1": "Awards &\nRecognition",
+      "sub": "Auszeichnungen auf Tattooconventions 2025 und über 10 ausgebildete Tattoo Artists — Kisha setzt Maßstäbe in München."
+    },
+    "awards_section": {
+      "heading": "Tattoo Convention Awards"
+    },
+    "school": {
+      "heading": "Tattoo-Ausbildung München —\neine Schule, die Meister formt",
+      "intro": "Kisha ist nicht nur Tattoo Artist — sie ist Ausbilderin. Über Jahre hat sie in ihrer Tattoo-Schule in München mehr als 10 professionelle Tätowierer ausgebildet, die heute selbst etablierte Karrieren in Deutschland und Europa führen. Ihre Ausbildung vereint die Disziplin des japanischen Irezumi mit modernem Handwerk.",
+      "stats": [
+        {
+          "number": "10+",
+          "label": "Ausgebildete Tattoo Artists",
+          "body": "Absolventinnen und Absolventen der Schule sind heute selbst erfolgreiche Tätowierer in Deutschland und Europa."
+        },
+        {
+          "number": "5+",
+          "label": "Jahre Ausbildungserfahrung",
+          "body": "Kisha gibt ihr Wissen in Einzelcoachings und intensiven Ausbildungsprogrammen in München weiter."
+        },
+        {
+          "number": "100%",
+          "label": "Praxisbasiert",
+          "body": "Anatomie, Komposition, Maschinenkunde, Hygiene, Irezumi-Tradition — eine vollständige Ausbildung."
+        }
+      ]
+    },
+    "mentions": {
+      "heading": "Erwähnt in der Community",
+      "items": [
+        {
+          "source": "Reddit · r/tattoo",
+          "title": "Tattoo by @kisha.tattoo at BavariaTattoo Studio",
+          "note": "Mehrere Beiträge im größten Tattoo-Subreddit — Kishas Arbeiten begeistern die internationale Community mit hunderten Upvotes und Kommentaren."
+        },
+        {
+          "source": "Facebook · Bavaria Tattoo",
+          "title": "Fineline Tattoo by @kisha.tattoo",
+          "note": "Die Studio-Seite BavariaTattoo präsentiert Kishas Fineline-Arbeit — feiner, präziser Stil, internationale Sichtbarkeit."
+        },
+        {
+          "source": "Facebook · Skindreams Tattoo",
+          "title": "Großformatiger Sleeve by @kisha.tattoo",
+          "note": "Skindreams Tattoo Kharkiv zeigt Kishas Sleeve-Arbeit — Beleg für ihre Expertise bei komplexen Großprojekten."
+        }
+      ]
+    },
+    "timeline": {
+      "heading": "7 Jahre Handwerk —\nder dokumentierte Weg",
+      "items": [
+        {
+          "tag": "Frühe Arbeiten",
+          "period": "2017 — 2018",
+          "title": "Die ersten Linien",
+          "description": "Kisha beginnt ihre Karriere als Tattoo Artist — erste dokumentierte Arbeiten, Grundlagen des Handwerks, Aufbau eines eigenen Stils."
+        },
+        {
+          "tag": "Stilentwicklung",
+          "period": "2021 — 2022",
+          "title": "Reife des Stils",
+          "description": "Komplexere Kompositionen, präziseres Linework, erste großformatige Projekte. Die Handschrift wird unverwechselbar — Fineline trifft auf japanische Einflüsse."
+        },
+        {
+          "tag": "Convention-Gewinnerin",
+          "period": "2025",
+          "title": "Ausgezeichnete Meisterschaft",
+          "description": "München, Tattooconventions, fünf Auszeichnungen in einem Jahr — Best of Show, Best of Day, Black & Grey."
+        }
+      ]
+    },
+    "community": {
+      "heading": "Was die Community sagt",
+      "subtitle": "[ r/tattoo · 1 017 000 Mitglieder ]"
+    },
+    "cta": {
+      "heading": "Werde Teil einer ausgezeichneten Geschichte",
+      "button": "Termin buchen"
     }
   },
   "common": {

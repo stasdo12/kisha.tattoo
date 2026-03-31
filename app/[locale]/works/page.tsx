@@ -62,7 +62,13 @@ const H_LARGE = 'clamp(720px, 50vw, 820px)'
 const H_SMALL = 'clamp(356px, calc(8px + 24.17vw), 472px)'
 
 /* ── Page ───────────────────────────────────────────────────────────────────── */
-export default function GraphicWorksPage() {
+export default async function GraphicWorksPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'works' })
   return (
     <main id="main-content">
 
@@ -115,7 +121,7 @@ export default function GraphicWorksPage() {
             zIndex: 2,
           }}
         >
-          Latest works
+          {t('hero.h1')}
         </h1>
 
         {/* ── Subtitle ── */}
@@ -132,8 +138,7 @@ export default function GraphicWorksPage() {
             zIndex: 2,
           }}
         >
-          Dive into the collection and witness the result of deep devotion,
-          precise technique, and unwavering standards
+          {t('hero.sub')}
         </p>
 
         {/* ── Vertical nav ── */}
@@ -158,7 +163,7 @@ export default function GraphicWorksPage() {
             術
           </span>
           <span style={{ fontSize: 'var(--g-tag)', lineHeight: 1.4, color: 'rgba(242,242,242,0.6)' }}>
-            In the context of large-scale Irezumi, underscores the professionalism of the master
+            {t('hero.kanjiCaption')}
           </span>
         </div>
       </section>
@@ -251,14 +256,14 @@ export default function GraphicWorksPage() {
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
-              Dein Custom Tattoo — bereit für den nächsten Schritt?
+              {t('cta.heading')}
             </p>
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
               <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: 'rgba(242,242,242,0.55)', textDecoration: 'none', borderBottom: '1px solid rgba(242,242,242,0.3)', paddingBottom: '2px' }}>
-                Preise ansehen
+                {t('cta.prices')}
               </Link>
               <Link href="/about" style={{ fontSize: 'var(--g-bm)', color: 'rgba(242,242,242,0.55)', textDecoration: 'none', borderBottom: '1px solid rgba(242,242,242,0.3)', paddingBottom: '2px' }}>
-                Über Kisha
+                {t('cta.about')}
               </Link>
             </div>
           </div>
@@ -274,7 +279,7 @@ export default function GraphicWorksPage() {
               whiteSpace: 'nowrap',
             }}
           >
-            Termin anfragen
+            {t('cta.button')}
           </Link>
         </div>
       </section>

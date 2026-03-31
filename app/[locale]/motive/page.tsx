@@ -140,7 +140,13 @@ const ALL_FAQ = MOTIFS.flatMap((m) => m.faq)
 
 /* ── Page ────────────────────────────────────────────────────────────────── */
 
-export default function MotiveHub() {
+export default async function MotiveHub({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'motive' })
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -174,9 +180,10 @@ export default function MotiveHub() {
             fontSize: 'var(--g-xl)',
             lineHeight: 'var(--g-lh-xl)',
             color: '#0D0D0D',
+            whiteSpace: 'pre-line',
           }}
         >
-          Japanische<br />Tattoo Motive
+          {t('hero.h1')}
         </h1>
 
         {/* Floating kanji cluster */}

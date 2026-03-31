@@ -1,7 +1,5 @@
 /**
  * AFTERCARE — Tattoo Pflege Guide
- * Target keyword: "tattoo aftercare münchen" / "tattoo pflege münchen"
- * Design: Graphic design system
  */
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -20,57 +18,22 @@ export async function generateMetadata(
   return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/aftercare', locale })
 }
 
-const DAYS = [
-  {
-    period: 'Tag 1',
-    title: 'Direkt nach der Sitzung',
-    steps: [
-      'Abdeckung (Folie oder Verband) 2–4 Stunden belassen, wie von Kisha angewiesen',
-      'Danach sanft mit lauwarmem Wasser und mildem, parfümfreiem Seifenwasser waschen',
-      'Vorsichtig trockentupfen — niemals reiben',
-      'Dünne Schicht empfohlener Wundsalbe auftragen (z.B. Bepanthen, Tattoo Goo)',
-    ],
-  },
-  {
-    period: 'Tage 2–7',
-    title: 'Erste Woche',
-    steps: [
-      '2–3 × täglich sanft waschen und dünn eincremen',
-      'Das Tattoo muss atmen können — keine dicken Crème-Schichten',
-      'Keine Plastikfolie dauerhaft drüber — Feuchtigkeit verursacht Mazerationen',
-      'Lockere, weiche Kleidung über dem Tattoo tragen — kein Reiben',
-      'Nicht am Schorf kratzen oder ihn abziehen — Farbe geht verloren',
-    ],
-  },
-  {
-    period: 'Woche 2–3',
-    title: 'Schuppung & Heilung',
-    steps: [
-      'Das Tattoo beginnt zu schuppen — das ist normal und Teil der Heilung',
-      'Weiter eincremen bei Trockenheitsgefühl',
-      'UV-Schutz noch immer meiden — kein direktes Sonnenbad',
-      'Schwimmbad, Sauna und Baden weiterhin vermeiden',
-    ],
-  },
-]
+export default async function AftercarePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'aftercare' })
 
-const AVOID = [
-  { icon: '日', label: 'Direkte Sonne', note: 'Mind. 3–4 Wochen, danach immer LSF 50+' },
-  { icon: '水', label: 'Schwimmen / Baden', note: 'Pool, Meer, Badewanne — mind. 3 Wochen' },
-  { icon: '熱', label: 'Sauna & Dampfbad', note: 'Ausdehnung der Haut stört die Heilung' },
-  { icon: '禁', label: 'Kratzen & Reiben', note: 'Schorf entfernt Pigment — Geduld!' },
-  { icon: '力', label: 'Intensiver Sport', note: 'Schweiß und Dehnung der Haut: mind. 1 Woche Pause' },
-  { icon: '酒', label: 'Alkohol', note: '24h vor und nach der Sitzung — verdünnt das Blut' },
-]
+  type DayItem = { period: string; title: string; steps: string[] }
+  type AvoidItem = { icon: string; label: string; note: string }
+  type ProductItem = { name: string; note: string }
 
-const PRODUCTS = [
-  { name: 'Bepanthen Wund- & Heilsalbe', note: 'Klassiker — günstig, wirksam, überall erhältlich' },
-  { name: 'Tattoo Goo Original Salbe', note: 'Speziell für Tattoos, keine Parfumstoffe' },
-  { name: 'Hustle Butter Deluxe', note: 'Vegan, ideal für die ersten Tage und Langzeitpflege' },
-  { name: 'Lubriderm Unscented', note: 'Leichte Feuchtigkeitspflege für Woche 2+' },
-]
+  const days    = t.raw('guide.days')    as DayItem[]
+  const avoid   = t.raw('avoid.items')  as AvoidItem[]
+  const products = t.raw('products.items') as ProductItem[]
 
-export default function AftercarePage() {
   return (
     <main id="main-content">
       <script
@@ -82,7 +45,7 @@ export default function AftercarePage() {
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
-        aria-label="Tattoo Aftercare — KishaTattoo München"
+        aria-label="Tattoo Aftercare — KishaTattoo"
         style={{
           position: 'relative',
           height: 'clamp(680px, 90vh, 900px)',
@@ -101,12 +64,12 @@ export default function AftercarePage() {
             fontSize: 'var(--g-xl)',
             lineHeight: 'var(--g-lh-xl)',
             color: '#0D0D0D',
+            whiteSpace: 'pre-line',
           }}
         >
-          Tattoo<br />Aftercare
+          {t('hero.h1')}
         </h1>
 
-        {/* Kanji 癒 — healing */}
         <div
           aria-hidden="true"
           style={{
@@ -136,8 +99,7 @@ export default function AftercarePage() {
             color: '#0D0D0D',
           }}
         >
-          Ein Tattoo ist für das Leben — die Pflege entscheidet über die Qualität.
-          Halte dich an diese Anleitung für optimale Heilung.
+          {t('hero.sub')}
         </p>
 
         <GNav activePath="/" theme="light" />
@@ -149,24 +111,14 @@ export default function AftercarePage() {
         style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
       >
         <div className="g-container">
-
-          <div
-            style={{
-              paddingBottom: '1.25rem',
-              borderBottom: '2px solid #0D0D0D',
-              marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
-            }}
-          >
-            <h2
-              id="aftercare-guide-heading"
-              style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}
-            >
-              Schritt-für-Schritt Pflegeanleitung
+          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
+            <h2 id="aftercare-guide-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
+              {t('guide.heading')}
             </h2>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {DAYS.map((day, i) => (
+            {days.map((day, i) => (
               <div
                 key={i}
                 style={{
@@ -183,16 +135,7 @@ export default function AftercarePage() {
                 </div>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                   {day.steps.map((step, j) => (
-                    <li
-                      key={j}
-                      style={{
-                        fontSize: 'var(--g-bm)',
-                        lineHeight: 'var(--g-lh-bm)',
-                        color: '#0D0D0D',
-                        paddingLeft: '1.2rem',
-                        position: 'relative',
-                      }}
-                    >
+                    <li key={j} style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', paddingLeft: '1.2rem', position: 'relative' }}>
                       <span aria-hidden="true" style={{ position: 'absolute', left: 0, color: 'rgba(13,13,13,0.35)' }}>–</span>
                       {step}
                     </li>
@@ -201,39 +144,23 @@ export default function AftercarePage() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
       {/* ── WHAT TO AVOID ─────────────────────────────────────────────────── */}
-      <section
-        aria-labelledby="avoid-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
-      >
+      <section aria-labelledby="avoid-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 id="avoid-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              Was du vermeiden musst
+              {t('avoid.heading')}
             </h2>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: 'clamp(1rem, 1.5vw, 1.5rem)',
-            }}
-          >
-            {AVOID.map((item) => (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 1.5vw, 1.5rem)' }}>
+            {avoid.map((item) => (
               <div
                 key={item.label}
-                style={{
-                  padding: 'clamp(1rem, 1.5vw, 1.5rem)',
-                  border: '1px solid rgba(13,13,13,0.15)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.5rem',
-                }}
+                style={{ padding: 'clamp(1rem, 1.5vw, 1.5rem)', border: '1px solid rgba(13,13,13,0.15)', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
               >
                 <span style={{ fontSize: 'var(--g-l)', lineHeight: 1, color: 'rgba(13,13,13,0.15)', fontWeight: 500 }} aria-hidden="true">{item.icon}</span>
                 <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{item.label}</span>
@@ -245,29 +172,19 @@ export default function AftercarePage() {
       </section>
 
       {/* ── PRODUCTS ──────────────────────────────────────────────────────── */}
-      <section
-        aria-labelledby="products-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
-      >
+      <section aria-labelledby="products-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 id="products-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              Empfohlene Pflegeprodukte
+              {t('products.heading')}
             </h2>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {PRODUCTS.map((p, i) => (
+            {products.map((p, i) => (
               <div
                 key={i}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: 'clamp(2rem, 4vw, 5rem)',
-                  padding: 'clamp(0.75rem, 1.2vw, 1.25rem) 0',
-                  borderBottom: '1px solid rgba(13,13,13,0.15)',
-                  alignItems: 'center',
-                }}
+                style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 5rem)', padding: 'clamp(0.75rem, 1.2vw, 1.25rem) 0', borderBottom: '1px solid rgba(13,13,13,0.15)', alignItems: 'center' }}
               >
                 <span style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D' }}>{p.name}</span>
                 <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.6)' }}>{p.note}</span>
@@ -276,7 +193,7 @@ export default function AftercarePage() {
           </div>
 
           <p style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)', marginTop: '1.5rem' }}>
-            * Kisha empfiehlt spezifische Produkte nach der Sitzung — halte dich an die persönliche Anweisung.
+            {t('products.disclaimer')}
           </p>
         </div>
       </section>
@@ -285,14 +202,14 @@ export default function AftercarePage() {
       <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', maxWidth: '28rem' }}>
-            Fragen zur Pflege? Schreib Kisha direkt.
+            {t('cta.heading')}
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/faq" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', border: '1px solid #0D0D0D', color: '#0D0D0D', fontSize: 'var(--g-bm)', textDecoration: 'none' }}>
-              FAQ ansehen
+              {t('cta.faq')}
             </Link>
             <Link href="/contact" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', background: '#0D0D0D', color: '#F2F2F2', fontSize: 'var(--g-bm)', textDecoration: 'none' }}>
-              Kontakt
+              {t('cta.contact')}
             </Link>
           </div>
         </div>

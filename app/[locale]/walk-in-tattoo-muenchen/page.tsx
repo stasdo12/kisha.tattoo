@@ -43,7 +43,13 @@ const FAQ = [
   },
 ]
 
-export default function WalkInTattooMuenchen() {
+export default async function WalkInTattooMuenchen({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'walkin' })
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -77,9 +83,10 @@ export default function WalkInTattooMuenchen() {
             fontSize: 'var(--g-xl)',
             lineHeight: 'var(--g-lh-xl)',
             color: '#0D0D0D',
+            whiteSpace: 'pre-line',
           }}
         >
-          Walk In Tattoo<br />München
+          {t('hero.h1')}
         </h1>
 
         {/* Decorative kanji 今 — now / the present moment */}
@@ -112,8 +119,7 @@ export default function WalkInTattooMuenchen() {
             color: '#0D0D0D',
           }}
         >
-          Spontan stechen lassen in München —
-          kurzfristige Walk-In Termine bei KishaTattoo verfügbar.
+          {t('hero.sub')}
         </p>
 
         <GNav activePath="/" theme="light" />
@@ -296,7 +302,7 @@ export default function WalkInTattooMuenchen() {
       >
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
-            Walk In Tattoo München — jetzt kurzfristig anfragen
+            {t('cta.heading')}
           </p>
           <Link
             href="/booking"
@@ -310,7 +316,7 @@ export default function WalkInTattooMuenchen() {
               whiteSpace: 'nowrap',
             }}
           >
-            Termin anfragen
+            {t('cta.button')}
           </Link>
         </div>
       </section>

@@ -18,20 +18,22 @@ import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
 
 export function generateStaticParams() {
-  return STORIES.map((s) => ({ slug: s.slug }))
+  const locales = ['de', 'en', 'uk']
+  return locales.flatMap((locale) => STORIES.map((s) => ({ locale, slug: s.slug })))
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
-  const { slug } = await params
+  const { locale, slug } = await params
   const story = getStoryBySlug(slug)
   return buildMetadata({
     title: story ? `${story.title} — Kisha Irezumi` : 'Article — Kisha Irezumi',
     description: story?.excerpt ?? '',
     path: `/blog/${slug}`,
+    locale,
   })
 }
 
@@ -44,7 +46,7 @@ const RELATED = [
 export default async function ArticleDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }) {
   const { slug } = await params
   const story = getStoryBySlug(slug)

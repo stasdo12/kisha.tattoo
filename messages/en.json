@@ -341,19 +341,295 @@
       "description": "Frequently asked questions about appointments, prices, aftercare and tattoo styles at Kisha Tattoo Munich."
     },
     "hero": {
-      "h1": "FAQ"
+      "h1": "Frequently\nAsked Questions",
+      "sub": "Booking · Prices · Preparation · Aftercare · Styles"
+    },
+    "sections": {
+      "booking": "Booking & Appointment",
+      "pricing": "Prices & Payment",
+      "preparation": "Preparation",
+      "aftercare": "Aftercare & Healing",
+      "style": "Styles & Design"
+    },
+    "booking": [
+      {
+        "q": "How does booking at KishaTattoo work?",
+        "a": "Send a request via the booking form or Instagram DM with your idea, desired style, and placement. Kisha will get back to you within 48 hours for an initial consultation."
+      },
+      {
+        "q": "How far in advance should I book?",
+        "a": "For smaller projects, appointments within 2–4 weeks are often available. Large projects like backpieces or sleeves are usually planned 1–3 months in advance. Just reach out — we'll find a solution."
+      },
+      {
+        "q": "Is there a deposit?",
+        "a": "Yes, a deposit is required for all projects. It will be deducted from the final price at your appointment. The amount is agreed individually during the consultation."
+      },
+      {
+        "q": "Can I reschedule my appointment?",
+        "a": "Rescheduling is possible with at least 72 hours notice. Cancellations under 48 hours may result in loss of deposit. We appreciate early communication."
+      }
+    ],
+    "pricing": [
+      {
+        "q": "What does a tattoo cost at KishaTattoo?",
+        "a": "All projects are billed by the hour. Smaller designs start from approx. €150–200 (hourly rate + minimum fee), large projects like sleeves or backpieces from €800–1200 per session. You'll receive an exact quote after the consultation."
+      },
+      {
+        "q": "Why does a good tattoo cost so much?",
+        "a": "A tattoo is for life. Custom design, precise technique, and quality materials take time and expertise. Cheap tattoos cost more in the end — in cover-ups, corrections, and rework."
+      },
+      {
+        "q": "What payment methods are accepted?",
+        "a": "Cash, bank transfer, and card payment. The deposit is made by bank transfer after the consultation. Cash payment on the day of the session is also accepted."
+      }
+    ],
+    "preparation": [
+      {
+        "q": "How do I prepare for a tattoo session?",
+        "a": "Be well-rested, hydrated, and fed. Avoid alcohol and blood-thinning medications (aspirin, ibuprofen) 24 hours beforehand. Wear loose, comfortable clothing that provides easy access to the tattoo area."
+      },
+      {
+        "q": "Can I eat or drink during the session?",
+        "a": "Absolutely! Bring snacks and drinks — especially during long sessions it's important to keep blood sugar stable and avoid circulation issues."
+      },
+      {
+        "q": "Can I bring someone with me?",
+        "a": "One support person is welcome. For space reasons, please limit companions to one person."
+      },
+      {
+        "q": "I'm sick — should I still come?",
+        "a": "No. If you have a cold, fever, or other infection, we'll reschedule. Your immune system needs all its resources for healing — we won't tattoo you."
+      }
+    ],
+    "aftercare": [
+      {
+        "q": "How do I care for a fresh tattoo?",
+        "a": "First 3–5 days: keep covered as instructed, gently clean with mild soapy water, apply a thin layer of recommended ointment (e.g. Bepanthen, Tattoo Goo). No sun, no swimming, no scratching. Full aftercare guide: /aftercare"
+      },
+      {
+        "q": "When is a tattoo fully healed?",
+        "a": "Surface healing takes 2–3 weeks. Full deep healing (dermal layer) takes 3–6 months. Only then can it be assessed whether touch-up work is needed."
+      },
+      {
+        "q": "Can I exercise after getting a tattoo?",
+        "a": "Light activity is possible after 2–3 days. Intense sport, swimming pools, sauna, and direct sun only after full healing (minimum 2–3 weeks)."
+      }
+    ],
+    "style": [
+      {
+        "q": "What's the difference between Irezumi and Japanese Style?",
+        "a": "Traditional Irezumi follows centuries-old composition rules: motifs like koi, dragons, and oni are aligned to the body's musculature, with clearly defined transitions. 'Japanese Style' is often a freer, more modern interpretation."
+      },
+      {
+        "q": "How long does a large Irezumi project take?",
+        "a": "A full back: 40–80 hours over 10–20 sessions spanning 1–3 years. A full sleeve: 20–40 hours over 6–18 months. Healing breaks between sessions are a fixed part of the process."
+      },
+      {
+        "q": "Does KishaTattoo work with client design ideas?",
+        "a": "Absolutely — custom design is the standard, not a special service. Kisha develops each motif individually for your body shape, skin tone, and personal story. Reference images help to refine your vision."
+      },
+      {
+        "q": "Is a cover-up tattoo possible?",
+        "a": "Yes, cover-ups are possible. Feasibility depends on the size, darkness, and age of the existing tattoo. Send a photo with your enquiry — Kisha will assess the options."
+      }
+    ],
+    "cta": {
+      "heading": "Still have questions? Just reach out.",
+      "booking": "Book appointment",
+      "contact": "Contact"
     }
   },
   "aftercare": {
     "meta": {
       "title": "Tattoo Aftercare — Kisha Tattoo Munich",
       "description": "Aftercare instructions for your new tattoo from Kisha. Keep your Irezumi looking great for years."
+    },
+    "hero": {
+      "h1": "Tattoo\nAftercare",
+      "sub": "A tattoo is for life — proper care determines the quality. Follow these instructions for optimal healing."
+    },
+    "guide": {
+      "heading": "Step-by-Step Care Guide",
+      "days": [
+        {
+          "period": "Day 1",
+          "title": "Right After the Session",
+          "steps": [
+            "Keep the covering (film or bandage) on for 2–4 hours, as instructed by Kisha",
+            "Then gently wash with lukewarm water and mild, fragrance-free soap",
+            "Pat dry carefully — never rub",
+            "Apply a thin layer of recommended ointment (e.g. Bepanthen, Tattoo Goo)"
+          ]
+        },
+        {
+          "period": "Days 2–7",
+          "title": "First Week",
+          "steps": [
+            "Gently wash and apply a thin layer of ointment 2–3 times daily",
+            "The tattoo needs to breathe — no thick cream layers",
+            "No permanent plastic wrap — moisture causes maceration",
+            "Wear loose, soft clothing over the tattoo — no rubbing",
+            "Don't scratch or pick the scab — colour will be lost"
+          ]
+        },
+        {
+          "period": "Week 2–3",
+          "title": "Peeling & Healing",
+          "steps": [
+            "The tattoo begins to peel — this is normal and part of healing",
+            "Continue moisturising when it feels dry",
+            "Still avoid UV exposure — no direct sun bathing",
+            "Continue to avoid swimming pools, saunas, and baths"
+          ]
+        }
+      ]
+    },
+    "avoid": {
+      "heading": "What to Avoid",
+      "items": [
+        {
+          "icon": "日",
+          "label": "Direct Sun",
+          "note": "At least 3–4 weeks, then always SPF 50+"
+        },
+        {
+          "icon": "水",
+          "label": "Swimming / Bathing",
+          "note": "Pool, sea, bathtub — at least 3 weeks"
+        },
+        {
+          "icon": "熱",
+          "label": "Sauna & Steam Room",
+          "note": "Skin expansion disrupts healing"
+        },
+        {
+          "icon": "禁",
+          "label": "Scratching & Rubbing",
+          "note": "Removing scab removes pigment — be patient!"
+        },
+        {
+          "icon": "力",
+          "label": "Intense Sport",
+          "note": "Sweat and skin stretching: at least 1 week rest"
+        },
+        {
+          "icon": "酒",
+          "label": "Alcohol",
+          "note": "24h before and after the session — thins the blood"
+        }
+      ]
+    },
+    "products": {
+      "heading": "Recommended Care Products",
+      "items": [
+        {
+          "name": "Bepanthen Wound & Healing Ointment",
+          "note": "Classic — affordable, effective, widely available"
+        },
+        {
+          "name": "Tattoo Goo Original Salve",
+          "note": "Made for tattoos, no fragrance additives"
+        },
+        {
+          "name": "Hustle Butter Deluxe",
+          "note": "Vegan, ideal for the first days and long-term care"
+        },
+        {
+          "name": "Lubriderm Unscented",
+          "note": "Light moisturiser for week 2+"
+        }
+      ],
+      "disclaimer": "* Kisha recommends specific products after the session — follow the personal instructions given."
+    },
+    "cta": {
+      "heading": "Questions about aftercare? Write to Kisha directly.",
+      "faq": "View FAQ",
+      "contact": "Contact"
     }
   },
   "awards": {
     "meta": {
       "title": "Awards — Kisha Tattoo Munich",
       "description": "5 Convention Awards 2025 — Kisha Tattoo Munich recognised at the Munich Tattoo Convention."
+    },
+    "hero": {
+      "h1": "Awards &\nRecognition",
+      "sub": "Convention awards in 2025 and over 10 trained tattoo artists — Kisha sets standards in Munich."
+    },
+    "awards_section": {
+      "heading": "Tattoo Convention Awards"
+    },
+    "school": {
+      "heading": "Tattoo Training Munich —\na school that shapes masters",
+      "intro": "Kisha is not just a tattoo artist — she is a trainer. Over the years she has trained more than 10 professional tattoo artists at her school in Munich, who now have established careers in Germany and Europe. Her training combines the discipline of Japanese Irezumi with modern craftsmanship.",
+      "stats": [
+        {
+          "number": "10+",
+          "label": "Trained Tattoo Artists",
+          "body": "Graduates of the school are now successful tattoo artists themselves in Germany and Europe."
+        },
+        {
+          "number": "5+",
+          "label": "Years of Teaching Experience",
+          "body": "Kisha shares her knowledge in individual coaching and intensive training programmes in Munich."
+        },
+        {
+          "number": "100%",
+          "label": "Practice-Based",
+          "body": "Anatomy, composition, machine knowledge, hygiene, Irezumi tradition — a complete education in tattooing."
+        }
+      ]
+    },
+    "mentions": {
+      "heading": "Mentioned in the Community",
+      "items": [
+        {
+          "source": "Reddit · r/tattoo",
+          "title": "Tattoo by @kisha.tattoo at BavariaTattoo Studio",
+          "note": "Several posts in the largest tattoo subreddit — Kisha's work impresses the international community with hundreds of upvotes and comments."
+        },
+        {
+          "source": "Facebook · Bavaria Tattoo",
+          "title": "Fineline Tattoo by @kisha.tattoo",
+          "note": "The studio page BavariaTattoo presents Kisha's fine line work — delicate, precise style, international visibility."
+        },
+        {
+          "source": "Facebook · Skindreams Tattoo",
+          "title": "Large Sleeve by @kisha.tattoo",
+          "note": "Skindreams Tattoo Kharkiv features Kisha's sleeve work — proof of her expertise in complex large-scale projects."
+        }
+      ]
+    },
+    "timeline": {
+      "heading": "7 Years of Craft —\nthe documented journey",
+      "items": [
+        {
+          "tag": "Early Work",
+          "period": "2017 — 2018",
+          "title": "The First Lines",
+          "description": "Kisha begins her career as a tattoo artist — first documented work, craft fundamentals, building her own style."
+        },
+        {
+          "tag": "Style Development",
+          "period": "2021 — 2022",
+          "title": "Maturity of Style",
+          "description": "More complex compositions, more precise linework, first large-scale projects. The signature becomes unmistakable — fine line meets Japanese influences."
+        },
+        {
+          "tag": "Convention Winner",
+          "period": "2025",
+          "title": "Award-Winning Mastery",
+          "description": "Munich, tattoo conventions, five awards in one year — Best of Show, Best of Day, Black & Grey."
+        }
+      ]
+    },
+    "community": {
+      "heading": "What the Community Says",
+      "subtitle": "[ r/tattoo · 1,017,000 Members ]"
+    },
+    "cta": {
+      "heading": "Become part of an award-winning story",
+      "button": "Book appointment"
     }
   },
   "common": {

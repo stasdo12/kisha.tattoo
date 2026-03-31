@@ -97,7 +97,13 @@ const FAQ = [
   },
 ]
 
-export default function TattooPreiseMuenchen() {
+export default async function TattooPreiseMuenchen({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'preise' })
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -133,7 +139,7 @@ export default function TattooPreiseMuenchen() {
             color: '#F2F2F2',
           }}
         >
-          Tattoo Preise<br />München
+          {t('hero.h1')}
         </h1>
 
         <p
@@ -148,8 +154,7 @@ export default function TattooPreiseMuenchen() {
             textAlign: 'right',
           }}
         >
-          Transparente Tattoo Kosten in München — von kleinen Fineline-Motiven
-          bis zum großformatigen Irezumi-Backpiece.
+          {t('hero.sub')}
         </p>
 
         <GNav activePath="/" theme="dark" />
@@ -449,10 +454,10 @@ export default function TattooPreiseMuenchen() {
       <section data-nav-dark style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
-            Individuelles Angebot für dein Tattoo in München
+            {t('cta.heading')}
           </p>
           <Link href="/booking" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', background: '#F2F2F2', color: '#0D0D0D', fontSize: 'var(--g-bm)', textDecoration: 'none', whiteSpace: 'nowrap' }}>
-            Termin & Angebot anfragen
+            {t('cta.button')}
           </Link>
         </div>
       </section>

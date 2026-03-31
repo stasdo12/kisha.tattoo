@@ -40,7 +40,13 @@ const FAQ = [
   },
 ]
 
-export default function JapanischesTattooMuenchen() {
+export default async function JapanischesTattooMuenchen({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'japanisch' })
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -74,9 +80,10 @@ export default function JapanischesTattooMuenchen() {
             fontSize: 'var(--g-xl)',
             lineHeight: 'var(--g-lh-xl)',
             color: '#0D0D0D',
+            whiteSpace: 'pre-line',
           }}
         >
-          Japanischer Tätowierer<br />München
+          {t('hero.h1')}
         </h1>
 
         {/* Decorative kanji 刺青 — Irezumi */}
@@ -109,8 +116,7 @@ export default function JapanischesTattooMuenchen() {
             color: '#0D0D0D',
           }}
         >
-          Traditional Japanese Tattoo Artist in München — Irezumi, Horimono und Tebori.
-          Großformatige Arbeiten nach klassischer Kompositionslehre.
+          {t('hero.sub')}
         </p>
 
         <GNav activePath="/" theme="light" />
@@ -345,7 +351,7 @@ export default function JapanischesTattooMuenchen() {
       <section data-nav-dark style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
-            Dein japanisches Tattoo in München
+            {t('cta.heading')}
           </p>
           <Link
             href="/booking"
@@ -359,7 +365,7 @@ export default function JapanischesTattooMuenchen() {
               whiteSpace: 'nowrap',
             }}
           >
-            Termin buchen
+            {t('cta.button')}
           </Link>
         </div>
       </section>

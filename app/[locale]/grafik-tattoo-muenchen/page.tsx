@@ -36,7 +36,13 @@ const FAQ_GRAFIK = [
   },
 ]
 
-export default function GrafikTattooMuenchen() {
+export default async function GrafikTattooMuenchen({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'grafik' })
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -70,9 +76,10 @@ export default function GrafikTattooMuenchen() {
             fontSize: 'var(--g-xl)',
             lineHeight: 'var(--g-lh-xl)',
             color: '#0D0D0D',
+            whiteSpace: 'pre-line',
           }}
         >
-          Tattoo Munich —<br />Grafik & Blackwork
+          {t('hero.h1')}
         </h1>
 
         {/* Decorative kanji 墨 — ink */}
@@ -105,8 +112,7 @@ export default function GrafikTattooMuenchen() {
             color: '#0D0D0D',
           }}
         >
-          Custom tattoo Munich — präzise Linien, starke Kontraste, individuelle Komposition.
-          Grafik & Blackwork Tattoo nach Maß — buchbar in München und Umgebung.
+          {t('hero.sub')}
         </p>
 
         <GNav activePath="/" theme="light" />
@@ -344,10 +350,10 @@ export default function GrafikTattooMuenchen() {
       <section data-nav-dark style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
-            Dein Grafik Tattoo in München
+            {t('cta.heading')}
           </p>
           <Link href="/booking" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', background: '#F2F2F2', color: '#0D0D0D', fontSize: 'var(--g-bm)', textDecoration: 'none', whiteSpace: 'nowrap' }}>
-            Termin buchen
+            {t('cta.button')}
           </Link>
         </div>
       </section>

@@ -1,18 +1,14 @@
 'use client'
 import type React from 'react'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { GLogoBar } from '@/components/graphic/GLogoBar'
 import { GNav } from '@/components/graphic/GNav'
 import { GFooter } from '@/components/graphic/GFooter'
 import s from './booking.module.css'
 
-const STEPS = [
-  { num: '01', title: 'Anfrage senden', body: 'Fülle das Formular aus — beschreibe deine Idee, das gewünschte Motiv, Stil und Platzierung. Füge Referenzbilder bei, falls vorhanden.' },
-  { num: '02', title: 'Konsultation', body: 'Kisha meldet sich innerhalb von 48 Stunden. Gemeinsam besprechen wir dein Projekt, die Machbarkeit und den ungefähren Zeitaufwand.' },
-  { num: '03', title: 'Design & Termin', body: 'Nach der Anzahlung wird das Custom-Design erstellt. Der finale Termin wird gemeinsam festgelegt — erste Sitzung startet mit dem Stencil-Check.' },
-]
-
 export default function BookingPage() {
+  const t = useTranslations('booking')
   const [experience, setExperience] = useState<'yes' | 'no' | null>(null)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
@@ -38,60 +34,60 @@ export default function BookingPage() {
     <main id="main-content">
 
       {/* ── HERO / FORM ──────────────────────────────────────────────── */}
-      <section aria-label="Termin buchen — KishaTattoo" className={s.hero}>
+      <section aria-label={t('hero.h1')} className={s.hero}>
         <GLogoBar theme="light" />
 
-        <h1 className={s.h1}>Termin buchen</h1>
+        <h1 className={s.h1}>{t('hero.h1')}</h1>
 
         <form className={s.form} onSubmit={handleSubmit}>
 
           <div className={s.row}>
-            <label htmlFor="b-name" className={s.label}>My name is</label>
+            <label htmlFor="b-name" className={s.label}>{t('form.nameLabel')}</label>
             <div className={s.underline}>
-              <input id="b-name" name="name" type="text" placeholder="[ Name ]" required className={s.input} />
+              <input id="b-name" name="name" type="text" placeholder={t('form.namePlaceholder')} required className={s.input} />
               <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>*</span>
             </div>
           </div>
 
           <div className={s.row}>
-            <label htmlFor="b-email" className={s.label}>My email is</label>
+            <label htmlFor="b-email" className={s.label}>{t('form.emailLabel')}</label>
             <div className={s.underline}>
-              <input id="b-email" name="email" type="email" placeholder="[ Email ]" required className={s.input} />
+              <input id="b-email" name="email" type="email" placeholder={t('form.emailPlaceholder')} required className={s.input} />
               <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>*</span>
             </div>
           </div>
 
           <div className={s.row}>
-            <label htmlFor="b-phone" className={s.label}>My phone number is</label>
+            <label htmlFor="b-phone" className={s.label}>{t('form.phoneLabel')}</label>
             <div className={s.underline}>
-              <input id="b-phone" name="phone" type="tel" placeholder="[ Number ]" required className={s.input} />
+              <input id="b-phone" name="phone" type="tel" placeholder={t('form.phonePlaceholder')} required className={s.input} />
               <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>*</span>
             </div>
           </div>
 
           <div className={s.row}>
-            <label htmlFor="b-style" className={s.label}>Tattoo style</label>
+            <label htmlFor="b-style" className={s.label}>{t('form.styleLabel')}</label>
             <div className={s.underline}>
-              <input id="b-style" name="style" type="text" placeholder="[ Japanese · Graphic · Linework ]" className={s.input} />
+              <input id="b-style" name="style" type="text" placeholder={t('form.stylePlaceholder')} className={s.input} />
             </div>
           </div>
 
           <div className={s.row}>
-            <label htmlFor="b-placement" className={s.label}>Placement / body part</label>
+            <label htmlFor="b-placement" className={s.label}>{t('form.placementLabel')}</label>
             <div className={s.underline}>
-              <input id="b-placement" name="placement" type="text" placeholder="[ Back · Sleeve · Ribs · etc. ]" className={s.input} />
+              <input id="b-placement" name="placement" type="text" placeholder={t('form.placementPlaceholder')} className={s.input} />
             </div>
           </div>
 
           <div className={s.row}>
-            <label htmlFor="b-idea" className={s.label}>My tattoo idea is</label>
+            <label htmlFor="b-idea" className={s.label}>{t('form.ideaLabel')}</label>
             <div className={s.underline}>
-              <input id="b-idea" name="idea" type="text" placeholder="[ Describe your vision ]" className={s.input} />
+              <input id="b-idea" name="idea" type="text" placeholder={t('form.ideaPlaceholder')} className={s.input} />
             </div>
           </div>
 
           <div className={s.stacked}>
-            <span className={s.label}>Did we work together before?</span>
+            <span className={s.label}>{t('form.togetherLabel')}</span>
             <div className={s.toggles}>
               {(['yes', 'no'] as const).map((val) => (
                 <button
@@ -101,33 +97,31 @@ export default function BookingPage() {
                   onClick={() => setExperience(val)}
                   className={s.toggle}
                 >
-                  {val === 'yes' ? 'Yes, I liked it' : "No, I'm new"}
+                  {val === 'yes' ? t('form.yes') : t('form.no')}
                 </button>
               ))}
             </div>
           </div>
 
           <div className={s.stacked}>
-            <span className={s.label}>Reference images</span>
+            <span className={s.label}>{t('form.filesLabel')}</span>
             <div className={s.fileHint}>
               <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.4, color: '#0D0D0D', maxWidth: '26rem' }}>
-                *Send reference images and inspiration — the more context, the better the custom design
+                {t('form.filesHint')}
               </p>
-              <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF', whiteSpace: 'nowrap' }}>[ max 100 mb ]</span>
+              <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF', whiteSpace: 'nowrap' }}>{t('form.filesMax')}</span>
             </div>
-            <label htmlFor="b-files" className={s.fileBtn}>Choose files</label>
+            <label htmlFor="b-files" className={s.fileBtn}>{t('form.filesButton')}</label>
             <input id="b-files" name="files" type="file" multiple style={{ display: 'none' }} />
           </div>
 
-          {status === 'error' && <p className={s.error}>Something went wrong. Please try again.</p>}
+          {status === 'error' && <p className={s.error}>{t('form.error')}</p>}
 
           {status === 'success' ? (
-            <p className={s.success}>
-              Thank you — your vision has been received. Kisha will review it and get back to you within 48 hours.
-            </p>
+            <p className={s.success}>{t('form.success')}</p>
           ) : (
             <button type="submit" disabled={status === 'submitting'} className={s.submit}>
-              {status === 'submitting' ? 'Sending…' : 'Send booking request'}
+              {status === 'submitting' ? t('form.submitting') : t('form.submit')}
             </button>
           )}
 
@@ -141,12 +135,12 @@ export default function BookingPage() {
         <div className="g-container">
           <div className={s.stepsHeadingWrap}>
             <h2 id="booking-steps-heading" className={s.stepsHeading}>
-              Wie funktioniert die Buchung?
+              {t('steps.heading')}
             </h2>
           </div>
 
           <div className={s.stepsCols}>
-            {STEPS.map((step, i) => (
+            {(t.raw('steps.list') as Array<{ num: string; title: string; body: string }>).map((step, i) => (
               <div
                 key={step.num}
                 className={s.stepCol}
