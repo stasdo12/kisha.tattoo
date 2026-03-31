@@ -18,23 +18,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'grafik' })
-  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/grafik-tattoo-muenchen', locale })
+  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/grafik-tattoo-muenchen', locale, hreflang: false })
 }
-
-const FAQ_GRAFIK = [
-  {
-    question: 'What tattoo styles does KishaTattoo Munich offer?',
-    answer: 'KishaTattoo Munich (KishaTattoo München) specializes in Japanese Irezumi, Fineline, and Graphic/Blackwork tattoos. Every design is custom — no flash, no templates. Book a free consultation to discuss your vision.',
-  },
-  {
-    question: 'Wie buche ich einen Termin bei KishaTattoo München?',
-    answer: 'Kontaktiere uns per WhatsApp oder Instagram mit deiner Idee und dem gewünschten Körperteil. Wir melden uns innerhalb von 24 Stunden für eine kostenlose Beratung.',
-  },
-  {
-    question: 'Was kostet ein Grafik Tattoo in München?',
-    answer: 'Custom Grafik Tattoos werden nach Stunden abgerechnet. Kleine Motive ab ca. 80–150 €, große Blackwork-Stücke ab 600 € pro Sitzung. Alle Details zu Tattoo Preisen München findest du auf unserer Preisseite.',
-  },
-]
 
 export default async function GrafikTattooMuenchen({
   params,
@@ -43,6 +28,7 @@ export default async function GrafikTattooMuenchen({
 }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'grafik' })
+  const faqItems = t.raw('faq.items') as Array<{ q: string; a: string }>
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -52,7 +38,7 @@ export default async function GrafikTattooMuenchen({
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Munich — Grafik & Blackwork', url: '/grafik-tattoo-muenchen' }])
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        faqSchema(FAQ_GRAFIK.map((f) => ({ question: f.question, answer: f.answer })))
+        faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
@@ -127,7 +113,7 @@ export default async function GrafikTattooMuenchen({
 
           <div className="g-section-header" style={{ alignItems: 'center' }}>
             <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              [ Blackwork · Geometrie · Illustration ]
+              {t('intro.tag')}
             </span>
             <h2
               id="gr-intro-heading"
@@ -140,13 +126,13 @@ export default async function GrafikTattooMuenchen({
                 flexShrink: 0,
               }}
             >
-              Tattoo Munich — Custom Design auf der Haut
+              {t('intro.heading')}
             </h2>
             <Link
               href="/works"
               style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}
             >
-              [ Portfolio ansehen ]
+              {t('intro.portfolioLink')}
             </Link>
           </div>
 
@@ -160,16 +146,10 @@ export default async function GrafikTattooMuenchen({
             }}
           >
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Looking for a tattoo in Munich (Tattoo Munich / Munich Tattoo)? KishaTattoo is a
-              custom tattoo studio in München combining illustrative precision with Blackwork impact.
-              Clear lines, bold black fills, thoughtful composition — from a small detail to a
-              full-scale Blackwork sleeve.
+              {t('intro.body1')}
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Jedes Tattoo beginnt mit einem Custom-Design — kein Template, kein Katalog.
-              Die Komposition wird auf deinen Körper und deine Geschichte zugeschnitten.
-              Geometrie, Botanik, Illustration oder freies Blackwork: als bestes Tattoo
-              Studio München folgt KishaTattoo stets deiner Vision.
+              {t('intro.body2')}
             </p>
           </div>
 
@@ -220,7 +200,7 @@ export default async function GrafikTattooMuenchen({
         </div>
         <div style={{ textAlign: 'center', marginTop: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}>
           <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
-            Alle Arbeiten ansehen →
+            {t('gallery.viewAll')}
           </Link>
         </div>
       </section>
@@ -241,15 +221,11 @@ export default async function GrafikTattooMuenchen({
             }}
           >
             <h2 id="gr-substyle-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}>
-              Grafik-Stile im Überblick
+              {t('substyles.heading')}
             </h2>
           </div>
           <div className="g-about-steps" style={{ display: 'flex' }}>
-            {[
-              { title: 'Blackwork', body: 'Kraftvolle Schwarzflächen, harte Kontraste, null Grau. Blackwork ist die direkteste Form des grafischen Tattoos — maximale Wirkung, minimale Kompromisse.' },
-              { title: 'Geometrie', body: 'Präzise Formen, symmetrische Kompositionen, mathematische Schönheit. Geometrische Tattoos sind zeitlos — und durch KishaTattoos präzise Linienführung besonders langlebig.' },
-              { title: 'Illustration', body: 'Freies illustratives Design: von botanischen Motiven bis zu figurativen Darstellungen. Jedes Motiv wird als eigenständiges Kunstwerk konzipiert und für deinen Körper adaptiert.' },
-            ].map((col, i) => (
+            {(t.raw('substyles.items') as Array<{ title: string; body: string }>).map((col, i) => (
               <div
                 key={col.title}
                 className="g-about-step-col"
@@ -275,15 +251,11 @@ export default async function GrafikTattooMuenchen({
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              Was kostet ein Grafik Tattoo?
+              {t('price.heading')}
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 2vw, 2rem)' }}>
-            {[
-              { size: 'Mini (bis 5 cm)', price: 'ab 150 €', time: '1–2 Std.' },
-              { size: 'Mittel (10–20 cm)', price: 'ab 400 €', time: '3–5 Std.' },
-              { size: 'Custom Komposition', price: 'ab 800 € / Sitzung', time: '5–7 Std.' },
-            ].map((row) => (
+            {(t.raw('price.rows') as Array<{ size: string; price: string; time: string }>).map((row) => (
               <div key={row.size} style={{ padding: 'clamp(1rem, 1.5vw, 1.5rem)', borderBottom: '1px solid rgba(13,13,13,0.15)' }}>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{row.size}</p>
                 <p style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', marginTop: '0.5rem' }}>{row.price}</p>
@@ -293,7 +265,7 @@ export default async function GrafikTattooMuenchen({
           </div>
           <div style={{ marginTop: '1.5rem' }}>
             <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
-              Vollständige Preisübersicht ansehen →
+              {t('price.link')}
             </Link>
           </div>
         </div>
@@ -316,10 +288,10 @@ export default async function GrafikTattooMuenchen({
               borderBottom: '2px solid #0D0D0D',
             }}
           >
-            FAQ — Tattoo Munich / München
+            {t('faq.heading')}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {FAQ_GRAFIK.map((item, i) => (
+            {faqItems.map((item, i) => (
               <div
                 key={i}
                 style={{
@@ -330,8 +302,8 @@ export default async function GrafikTattooMuenchen({
                   borderBottom: '1px solid rgba(13,13,13,0.2)',
                 }}
               >
-                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
               </div>
             ))}
           </div>
@@ -341,9 +313,9 @@ export default async function GrafikTattooMuenchen({
       {/* ── RELATED + CTA ─────────────────────────────────────────────────── */}
       <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>Weitere Stile →</span>
-          <Link href="/japanisches-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Japanisches Tattoo München</Link>
-          <Link href="/fineline-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Linework Tattoo München</Link>
+          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{t('related.label')}</span>
+          <Link href="/japanisches-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.japanese')}</Link>
+          <Link href="/fineline-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.fineline')}</Link>
         </div>
       </section>
 

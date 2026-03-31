@@ -19,31 +19,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'fineline' })
-  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/fineline-tattoo-muenchen', locale })
+  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/fineline-tattoo-muenchen', locale, hreflang: false })
 }
-
-const FAQ = [
-  {
-    question: 'Was ist ein Fineline Tattoo?',
-    answer: 'Ein Fineline Tattoo (auch Fine Line oder Single Needle Tattoo) wird mit einer einzelnen, sehr dünnen Nadel gestochen. Das Ergebnis sind präzise, zarte Linien ohne breite Konturen — ideal für botanische Motive, Minimalismus, Portraits und Schriften.',
-  },
-  {
-    question: 'Was kostet ein Fineline Tattoo in München?',
-    answer: 'Fineline Tattoos bei KishaTattoo München starten ab ca. 150–200 € für kleine Motive (5–8 cm). Mittlere Designs (10–15 cm) liegen bei 300–500 €, größere Linework-Projekte werden nach Stunden abgerechnet. Schreib uns für ein individuelles Angebot.',
-  },
-  {
-    question: 'Wie lange hält ein Fineline Tattoo?',
-    answer: 'Fineline Tattoos halten bei guter Pflege viele Jahre. Dünnere Linien können mit der Zeit etwas weicher werden — deshalb ist es wichtig, einen erfahrenen Künstler zu wählen, der die richtige Tiefe und Technik beherrscht. KishaTattoo hat jahrelange Erfahrung in präziser Linienführung.',
-  },
-  {
-    question: 'Tut ein Fineline Tattoo mehr weh?',
-    answer: 'Fineline Tattoos werden mit weniger Nadeln gestochen, was oft als weniger intensiv empfunden wird als breitere Styles. Allerdings arbeitet die Nadel präzise und konzentriert — die Schmerzintensität hängt stark von der Körperstelle ab.',
-  },
-  {
-    question: 'Wo bekomme ich das beste Fineline Tattoo in München?',
-    answer: 'KishaTattoo ist eine auf Fineline, Fine Line und Linework spezialisierte Tattoo-Künstlerin in München. Mit jahrelanger Erfahrung in präziser Linienführung — trainiert durch Irezumi-Technik — entstehen klare, dauerhafte Fineline-Tattoos, die auch nach Jahren scharf bleiben.',
-  },
-]
 
 export default async function FinelineTattooMuenchen({
   params,
@@ -52,6 +29,7 @@ export default async function FinelineTattooMuenchen({
 }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'fineline' })
+  const faqItems = t.raw('faq.items') as Array<{ q: string; a: string }>
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -61,7 +39,7 @@ export default async function FinelineTattooMuenchen({
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Fineline Tattoo München', url: '/fineline-tattoo-muenchen' }])
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        faqSchema(FAQ)
+        faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
@@ -136,7 +114,7 @@ export default async function FinelineTattooMuenchen({
 
           <div className="g-section-header" style={{ alignItems: 'center' }}>
             <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              [ Fineline · Fine Line · Linework · München ]
+              {t('intro.tag')}
             </span>
             <h2
               id="lw-intro-heading"
@@ -149,10 +127,10 @@ export default async function FinelineTattooMuenchen({
                 flexShrink: 0,
               }}
             >
-              Fineline Tattoo München — präzise bis zur letzten Linie
+              {t('intro.heading')}
             </h2>
             <Link href="/works" style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              [ Portfolio ansehen ]
+              {t('intro.portfolioLink')}
             </Link>
           </div>
 
@@ -166,16 +144,10 @@ export default async function FinelineTattooMuenchen({
             }}
           >
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Fineline Tattoos stehen für Präzision und Zurückhaltung. Eine einzige, perfekt gesetzte
-              feine Linie sagt mehr als ein ganzer Komplex aus Flächen und Füllung. KishaTattoo
-              ist spezialisiert auf Fine Line und Fineline Tattoos in München — vom minimalistischen
-              Einzelmotiv bis zum botanischen Linework-Sleeve.
+              {t('intro.body1')}
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Die Grundlage für außergewöhnliche Fineline-Qualität liegt in der Irezumi-Technik: Wo
-              jede Linie zählt und nichts korrigiert werden kann. Diese Disziplin fließt in jedes
-              Fine Line Tattoo ein. Das Ergebnis: klare, dauerhafte Linien, die auch nach Jahren
-              scharf bleiben — das Markenzeichen eines guten Fineline-Tattoos in München.
+              {t('intro.body2')}
             </p>
           </div>
 
@@ -211,7 +183,7 @@ export default async function FinelineTattooMuenchen({
         </div>
         <div style={{ textAlign: 'center', marginTop: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}>
           <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
-            Alle Fineline-Arbeiten ansehen →
+            {t('gallery.viewAll')}
           </Link>
         </div>
       </section>
@@ -232,24 +204,11 @@ export default async function FinelineTattooMuenchen({
             }}
           >
             <h2 id="lw-substyle-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}>
-              Fine Line Tattoo München — drei Varianten
+              {t('substyles.heading')}
             </h2>
           </div>
           <div className="g-about-steps" style={{ display: 'flex' }}>
-            {[
-              {
-                title: 'Botanisches Fineline',
-                body: 'Blumen, Farne, Zweige, Blätter — ausgeführt in einzelnen, präzisen Linien ohne Füllung. Botanische Fineline-Tattoos sind in München besonders gefragt: zeitlos elegant, körperschonend und langlebig.',
-              },
-              {
-                title: 'Single Needle / Fine Line',
-                body: 'Die dünnstmögliche Linie, gesetzt mit Single-Needle-Technik. Ideal für Schriften, Portraits, feine Details und minimalistische Motive. Fine Line Tattoos in München — das Spezialgebiet von KishaTattoo.',
-              },
-              {
-                title: 'Minimalistisches Linework',
-                body: 'Ein Kreis, ein Strich, eine Form. KishaTattoo findet die Essenz deiner Idee und setzt sie mit maximalem Effekt bei minimalem Mitteleinsatz um — Linework-Tattoos aus München, die durch Reduktion überzeugen.',
-              },
-            ].map((col, i) => (
+            {(t.raw('substyles.items') as Array<{ title: string; body: string }>).map((col, i) => (
               <div
                 key={col.title}
                 className="g-about-step-col"
@@ -275,15 +234,11 @@ export default async function FinelineTattooMuenchen({
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              Was kostet ein Fineline Tattoo?
+              {t('price.heading')}
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 2vw, 2rem)' }}>
-            {[
-              { size: 'Mini (bis 5 cm)', price: 'ab 150 €', time: '1–2 Std.' },
-              { size: 'Klein (5–15 cm)', price: 'ab 250 €', time: '2–4 Std.' },
-              { size: 'Sleeve / Komposition', price: 'ab 800 € / Sitzung', time: '5–7 Std.' },
-            ].map((row) => (
+            {(t.raw('price.rows') as Array<{ size: string; price: string; time: string }>).map((row) => (
               <div key={row.size} style={{ padding: 'clamp(1rem, 1.5vw, 1.5rem)', borderBottom: '1px solid rgba(13,13,13,0.15)' }}>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{row.size}</p>
                 <p style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', marginTop: '0.5rem' }}>{row.price}</p>
@@ -293,7 +248,7 @@ export default async function FinelineTattooMuenchen({
           </div>
           <div style={{ marginTop: '1.5rem' }}>
             <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
-              Vollständige Preisübersicht ansehen →
+              {t('price.link')}
             </Link>
           </div>
         </div>
@@ -316,10 +271,10 @@ export default async function FinelineTattooMuenchen({
               borderBottom: '2px solid #0D0D0D',
             }}
           >
-            Häufige Fragen zum Fineline Tattoo
+            {t('faq.heading')}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {FAQ.map((item, i) => (
+            {faqItems.map((item, i) => (
               <div
                 key={i}
                 style={{
@@ -330,8 +285,8 @@ export default async function FinelineTattooMuenchen({
                   borderBottom: '1px solid rgba(13,13,13,0.2)',
                 }}
               >
-                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
               </div>
             ))}
           </div>
@@ -341,9 +296,9 @@ export default async function FinelineTattooMuenchen({
       {/* ── RELATED STYLES ────────────────────────────────────────────────── */}
       <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>Weitere Stile →</span>
-          <Link href="/japanisches-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Japanisches Tattoo München</Link>
-          <Link href="/grafik-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Grafik Tattoo München</Link>
+          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{t('related.label')}</span>
+          <Link href="/japanisches-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.japanese')}</Link>
+          <Link href="/grafik-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.grafik')}</Link>
         </div>
       </section>
 

@@ -17,31 +17,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'walkin' })
-  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/walk-in-tattoo-muenchen', locale })
+  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/walk-in-tattoo-muenchen', locale, hreflang: false })
 }
-
-const FAQ = [
-  {
-    question: 'Was ist ein Walk-In Tattoo?',
-    answer: 'Ein Walk-In Tattoo bedeutet: du kommst ohne lange Vorlauf-Planung, ohne monatelange Wartezeit — und lässt dich spontan stechen. Bei KishaTattoo München ist Walk-In für ausgewählte Motive und freie Slots möglich. Schreib uns einfach kurz an.',
-  },
-  {
-    question: 'Kann ich bei KishaTattoo München ohne Termin vorbeikommen?',
-    answer: 'Direkt ohne Anmeldung ist es nicht möglich — aber kurzfristige Walk-In Termine sind regelmäßig verfügbar. Schreib uns per WhatsApp oder Instagram, nenn dein Motiv und Wunschdatum, und wir melden uns meist noch am selben Tag.',
-  },
-  {
-    question: 'Welche Motive eignen sich für ein Walk-In Tattoo?',
-    answer: 'Für Walk-In Slots eignen sich kleinere bis mittelgroße Motive: Fineline-Designs, einfache Japanische Symbole, kleine Schriften oder geometrische Formen. Für großformatige Irezumi-Projekte planen wir gemeinsam mehrere Sitzungen.',
-  },
-  {
-    question: 'Was kostet ein Walk-In Tattoo in München?',
-    answer: 'Die Preise sind identisch mit regulären Terminen: kleine Motive ab ca. 80–150 €, je nach Größe und Komplexität. Eine genaue Einschätzung bekommst du nach kurzem Austausch über dein Motiv. Alle Preise auf unserer Preisseite.',
-  },
-  {
-    question: 'Wie bereite ich mich auf ein spontanes Tattoo vor?',
-    answer: 'Auch für Walk-In Tattoos gilt: gut schlafen, gegessen haben, keinen Alkohol. Trag bequeme Kleidung, die die Körperstelle gut zugänglich macht. Mehr Details findest du auf unserer Aftercare-Seite.',
-  },
-]
 
 export default async function WalkInTattooMuenchen({
   params,
@@ -50,6 +27,7 @@ export default async function WalkInTattooMuenchen({
 }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'walkin' })
+  const faqItems = t.raw('faq.items') as Array<{ q: string; a: string }>
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -59,7 +37,7 @@ export default async function WalkInTattooMuenchen({
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Walk In Tattoo München', url: '/walk-in-tattoo-muenchen' }])
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        faqSchema(FAQ.map((f) => ({ question: f.question, answer: f.answer })))
+        faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
@@ -134,7 +112,7 @@ export default async function WalkInTattooMuenchen({
 
           <div className="g-section-header" style={{ alignItems: 'center' }}>
             <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              [ Spontan · Kurzfristig · Individuell ]
+              {t('intro.tag')}
             </span>
             <h2
               id="walkin-intro-heading"
@@ -147,13 +125,13 @@ export default async function WalkInTattooMuenchen({
                 flexShrink: 0,
               }}
             >
-              Walk In Tattoo München — wie es funktioniert
+              {t('intro.heading')}
             </h2>
             <Link
               href="/booking"
               style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}
             >
-              [ Termin anfragen ]
+              {t('intro.requestLink')}
             </Link>
           </div>
 
@@ -167,16 +145,10 @@ export default async function WalkInTattooMuenchen({
             }}
           >
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Walk In Tattoo in München bedeutet bei KishaTattoo: kein monatelanger Vorlauf,
-              kein komplizierter Prozess. Du schreibst uns mit deiner Idee — Motiv, Größe,
-              Körperstelle — und wir prüfen, ob ein kurzfristiger Slot für dich möglich ist.
-              Spontane Entscheidungen sind willkommen.
+              {t('intro.body1')}
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Walk-In Slots eignen sich für kleinere und mittlere Motive: Fineline-Designs,
-              einfache japanische Symbole, Schriften, geometrische Formen. Auch für
-              Ergänzungen bestehender Tattoos. Großformatige Irezumi-Projekte planen wir
-              gemeinsam in einem regulären Beratungsgespräch.
+              {t('intro.body2')}
             </p>
           </div>
 
@@ -202,28 +174,12 @@ export default async function WalkInTattooMuenchen({
               id="walkin-steps-heading"
               style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}
             >
-              In drei Schritten zum spontanen Tattoo
+              {t('steps.heading')}
             </h2>
           </div>
 
           <div className="g-about-steps" style={{ display: 'flex' }}>
-            {[
-              {
-                num: '一',
-                title: 'Kurz anfragen',
-                body: 'Schreib uns per WhatsApp oder Instagram: Motiv, Größe, Körperstelle und Wunschdatum. Keine langen Formulare, kein Wartezimmer.',
-              },
-              {
-                num: '二',
-                title: 'Slot bestätigen',
-                body: 'Wir melden uns meist noch am selben Tag. Wenn ein passender Walk-In Slot frei ist, bestätigen wir Termin und besprechen kurz das Design.',
-              },
-              {
-                num: '三',
-                title: 'Stechen lassen',
-                body: 'Gut ausgeschlafen, gegessen, bequeme Kleidung — und du bist bereit. Das Tattoo wird frisch und präzise umgesetzt. Kein Kompromiss bei der Qualität.',
-              },
-            ].map((step, i) => (
+            {(t.raw('steps.items') as Array<{ num: string; title: string; body: string }>).map((step, i) => (
               <div
                 key={step.title}
                 className="g-about-step-col"
@@ -262,10 +218,10 @@ export default async function WalkInTattooMuenchen({
               borderBottom: '2px solid #0D0D0D',
             }}
           >
-            FAQ — Walk In Tattoo München
+            {t('faq.heading')}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {FAQ.map((item, i) => (
+            {faqItems.map((item, i) => (
               <div
                 key={i}
                 style={{
@@ -276,8 +232,8 @@ export default async function WalkInTattooMuenchen({
                   borderBottom: '1px solid rgba(13,13,13,0.2)',
                 }}
               >
-                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
               </div>
             ))}
           </div>
@@ -287,11 +243,11 @@ export default async function WalkInTattooMuenchen({
       {/* ── RELATED ───────────────────────────────────────────────────────── */}
       <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>Weitere Seiten →</span>
-          <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Preise München</Link>
-          <Link href="/fineline-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Fineline Tattoo München</Link>
-          <Link href="/grafik-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Munich</Link>
-          <Link href="/booking" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Termin buchen</Link>
+          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{t('related.label')}</span>
+          <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.prices')}</Link>
+          <Link href="/fineline-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.fineline')}</Link>
+          <Link href="/grafik-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.grafik')}</Link>
+          <Link href="/booking" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.booking')}</Link>
         </div>
       </section>
 

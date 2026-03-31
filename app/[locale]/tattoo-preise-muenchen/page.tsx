@@ -18,84 +18,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'preise' })
-  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/tattoo-preise-muenchen', locale })
+  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/tattoo-preise-muenchen', locale, hreflang: false })
 }
-
-const PRICE_TABLE = [
-  {
-    size: 'Mini (bis 5 cm)',
-    style: 'Fineline / Schrift / Symbol',
-    price: 'ab 150 €',
-    time: '1–2 Std.',
-    desc: 'Kleine, präzise Motive — ideal für Handgelenk, Finger, Knöchel',
-  },
-  {
-    size: 'Klein (5–10 cm)',
-    style: 'Fineline · Grafik · Japanisch',
-    price: 'ab 250 €',
-    time: '2–3 Std.',
-    desc: 'Einzelne Motive mit Details — Unterarm, Schlüsselbein, Rippen',
-  },
-  {
-    size: 'Mittel (10–20 cm)',
-    style: 'Alle Stile',
-    price: 'ab 400 €',
-    time: '3–5 Std.',
-    desc: 'Komplexe Einzelmotive oder kleinere Kompositionen',
-  },
-  {
-    size: 'Oberarm / Halbärmel',
-    style: 'Irezumi · Grafik · Linework',
-    price: 'ab 800 € / Sitzung',
-    time: '5–7 Std.',
-    desc: 'Typischerweise 2–4 Sitzungen für ein vollständiges Halfset',
-  },
-  {
-    size: 'Full Sleeve',
-    style: 'Irezumi · Grafik',
-    price: 'ab 2.500 € gesamt',
-    time: '15–30 Std. total',
-    desc: 'Mehrere Sitzungen über 6–18 Monate — individuell kalkuliert',
-  },
-  {
-    size: 'Rückenstück / Backpiece',
-    style: 'Japanisches Irezumi',
-    price: 'ab 3.500 € gesamt',
-    time: '20–40 Std. total',
-    desc: 'Großformatige Projekte nach traditioneller Irezumi-Kompositionslehre',
-  },
-]
-
-const FAQ = [
-  {
-    question: 'Was kostet ein kleines Tattoo in München?',
-    answer: 'Kleine Tattoos (bis 5 cm) kosten bei KishaTattoo München ab 150 €. Der genaue Preis hängt vom Motiv, der Detailgenauigkeit und der Körperstelle ab. Fineline- und Schriftzug-Tattoos in dieser Größe starten meist zwischen 150–250 €.',
-  },
-  {
-    question: 'Was kostet ein Oberarm Tattoo in München?',
-    answer: 'Ein Oberarm-Tattoo (Halbärmel) kostet bei KishaTattoo ab 800 € pro Sitzung. Für ein vollständiges Halfset sind typischerweise 2–4 Sitzungen nötig, also ca. 1.600–3.200 € gesamt. Große japanische Kompositionen können mehr kosten — individuell kalkuliert.',
-  },
-  {
-    question: 'Was kostet ein Full Sleeve Tattoo?',
-    answer: 'Ein vollständiger Sleeve (ganzer Arm) kostet bei KishaTattoo München ab 2.500 € gesamt, verteilt auf mehrere Sitzungen über 6–18 Monate. Japanische Irezumi-Sleeves mit komplexer Komposition können bis zu 5.000–8.000 € kosten.',
-  },
-  {
-    question: 'Was kostet ein Rückentattoo (Backpiece)?',
-    answer: 'Großformatige Rückentattoos im Irezumi-Stil starten ab 3.500 € und können je nach Komplexität und Stundenzahl bis zu 10.000 € und mehr kosten. Diese Projekte sind mehrjährige Vorhaben — pro Sitzung werden 5–7 Stunden gearbeitet.',
-  },
-  {
-    question: 'Wie werden Tattoos in München abgerechnet?',
-    answer: 'Bei KishaTattoo wird nach Motiv und Aufwand kalkuliert: kleine Motive haben Festpreise, größere Projekte werden nach Stunden abgerechnet. Der Stundensatz liegt zwischen 150–200 €. Jedes Projekt bekommt ein individuelles Angebot nach persönlicher Konsultation.',
-  },
-  {
-    question: 'Was kostet ein Fineline Tattoo in München?',
-    answer: 'Fineline Tattoos bei KishaTattoo München starten ab 150 € für mini Motive. Mittelgroße Fineline-Designs (10–15 cm) kosten ca. 300–500 €. Botanische Linework-Sleeves werden nach Stunden berechnet. Fineline erfordert hohe Präzision — günstiger Preis bedeutet oft schlechte Qualität.',
-  },
-  {
-    question: 'Wieviel kostet ein japanisches Tattoo in München?',
-    answer: 'Japanische Irezumi-Tattoos starten bei KishaTattoo bei ca. 200–300 € für kleine Motive. Klassische Irezumi-Projekte (Sleeve, Backpiece) werden nach Stunden abgerechnet — typisch 150–200 €/Stunde. Große japanische Kompositionen sind mehrjährige Projekte mit einem Gesamtbudget ab 2.500 €.',
-  },
-]
 
 export default async function TattooPreiseMuenchen({
   params,
@@ -104,6 +28,10 @@ export default async function TattooPreiseMuenchen({
 }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'preise' })
+  const faqItems = t.raw('faq.items') as Array<{ q: string; a: string }>
+  const tableRows = t.raw('table.rows') as Array<{ size: string; style: string; price: string; time: string; desc: string }>
+  const factorItems = t.raw('factors.items') as Array<{ title: string; body: string }>
+  const styleCards = t.raw('styles.cards') as Array<{ href: string; style: string; price: string; desc: string; link: string }>
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -113,7 +41,7 @@ export default async function TattooPreiseMuenchen({
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Preise München', url: '/tattoo-preise-muenchen' }])
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        faqSchema(FAQ)
+        faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
@@ -173,7 +101,7 @@ export default async function TattooPreiseMuenchen({
         >
           <span style={{ fontSize: 'clamp(48px, 4.44vw, 64px)', lineHeight: 1, color: '#F2F2F2' }}>円</span>
           <span style={{ fontSize: 'var(--g-tag)', lineHeight: 1.4, color: 'rgba(242,242,242,0.55)' }}>
-            Faire Preise für außergewöhnliche Qualität
+            {t('intro.kanjiCaption')}
           </span>
         </div>
       </section>
@@ -186,7 +114,7 @@ export default async function TattooPreiseMuenchen({
         <div className="g-container">
           <div className="g-section-header" style={{ alignItems: 'center' }}>
             <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              [ Tattoo Kosten · München · 2026 ]
+              {t('intro.tag')}
             </span>
             <h2
               id="preise-intro-heading"
@@ -199,10 +127,10 @@ export default async function TattooPreiseMuenchen({
                 flexShrink: 0,
               }}
             >
-              Was kostet ein Tattoo in München?
+              {t('intro.heading')}
             </h2>
             <Link href="/booking" style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              [ Angebot anfragen ]
+              {t('intro.requestLink')}
             </Link>
           </div>
 
@@ -216,15 +144,10 @@ export default async function TattooPreiseMuenchen({
             }}
           >
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Tattoo Preise in München variieren stark — je nach Studio, Künstler, Stil und Größe.
-              Bei KishaTattoo werden kleine Motive mit Festpreisen angeboten, größere Projekte nach
-              Stunden kalkuliert. Der Stundensatz beträgt 150–200 €. Qualität hat ihren Preis —
-              ein gutes Tattoo bleibt ein Leben lang.
+              {t('intro.body1')}
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Jedes Tattoo-Projekt beginnt mit einer persönlichen Konsultation. Danach erhältst du
-              ein individuelles Angebot, das Motiv, Größe, Stil und Zeitaufwand berücksichtigt.
-              Keine versteckten Kosten — nur transparente Tattoo Preise für München und Umgebung.
+              {t('intro.body2')}
             </p>
           </div>
         </div>
@@ -247,12 +170,12 @@ export default async function TattooPreiseMuenchen({
               id="preise-table-heading"
               style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}
             >
-              Tattoo Preisübersicht München 2026
+              {t('table.heading')}
             </h2>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            {PRICE_TABLE.map((row, i) => (
+            {tableRows.map((row, i) => (
               <div
                 key={row.size}
                 style={{
@@ -280,8 +203,7 @@ export default async function TattooPreiseMuenchen({
           </div>
 
           <p style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.55)', marginTop: '1.5rem' }}>
-            * Alle Preise sind Richtwerte. Das endgültige Angebot wird nach persönlicher Konsultation erstellt.
-            Anzahlung bei Buchung erforderlich. Preise inkl. MwSt.
+            {t('table.disclaimer')}
           </p>
         </div>
       </section>
@@ -305,25 +227,12 @@ export default async function TattooPreiseMuenchen({
               id="preise-factors-heading"
               style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}
             >
-              Was beeinflusst die Tattoo Kosten?
+              {t('factors.heading')}
             </h2>
           </div>
 
           <div className="g-about-steps" style={{ display: 'flex' }}>
-            {[
-              {
-                title: 'Größe & Komplexität',
-                body: 'Größe ist der wichtigste Kostenfaktor — ein 5 cm Motiv braucht 1 Stunde, ein Full Sleeve 20–30 Stunden. Komplexe Designs mit feinen Details, vielen Flächen oder schwierigen Körperstellen kosten mehr als einfache Motive.',
-              },
-              {
-                title: 'Stil des Tattoos',
-                body: 'Japanisches Irezumi und Fineline erfordern besondere Expertise und mehr Sorgfalt als einfachere Stile. Traditionelles Irezumi mit Farbflächen benötigt mehr Sitzungen. Fineline braucht extreme Präzision — das schlägt sich im Preis nieder.',
-              },
-              {
-                title: 'Erfahrung des Künstlers',
-                body: 'Ein erfahrener Tätowierer kostet mehr — und das zu Recht. KishaTattoo hat jahrelange Spezialisierung in Irezumi und Fineline. Ein günstiges Tattoo sitzt ein Leben lang — Qualität spart langfristig Kosten für Korrekturen.',
-              },
-            ].map((col, i) => (
+            {factorItems.map((col, i) => (
               <div
                 key={col.title}
                 className="g-about-step-col"
@@ -361,10 +270,10 @@ export default async function TattooPreiseMuenchen({
               borderBottom: '2px solid #0D0D0D',
             }}
           >
-            Häufige Fragen zu Tattoo Preisen in München
+            {t('faq.heading')}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {FAQ.map((item, i) => (
+            {faqItems.map((item, i) => (
               <div
                 key={i}
                 style={{
@@ -375,8 +284,8 @@ export default async function TattooPreiseMuenchen({
                   borderBottom: '1px solid rgba(13,13,13,0.2)',
                 }}
               >
-                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
               </div>
             ))}
           </div>
@@ -400,31 +309,12 @@ export default async function TattooPreiseMuenchen({
               id="preise-styles-heading"
               style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}
             >
-              Was entsteht für dein Budget?
+              {t('styles.heading')}
             </h2>
           </div>
 
           <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 2rem)', flexWrap: 'wrap' }}>
-            {[
-              {
-                href: '/fineline-tattoo-muenchen',
-                style: 'Fineline Tattoo',
-                price: 'ab 150 €',
-                desc: 'Botanische Linework, geometrische Formen, feine Schriften — höchste Präzision auf kleinstem Raum.',
-              },
-              {
-                href: '/japanisches-tattoo-muenchen',
-                style: 'Japanisches Irezumi',
-                price: 'ab 200 €',
-                desc: 'Koi, Drachen, Tiger — traditionelle Kompositionen nach klassischer Irezumi-Bildsprache.',
-              },
-              {
-                href: '/grafik-tattoo-muenchen',
-                style: 'Grafik & Blackwork',
-                price: 'ab 150 €',
-                desc: 'Custom Grafik, Blackwork, geometrische Tattoos — starke, zeitlose Bildsprache.',
-              },
-            ].map((card) => (
+            {styleCards.map((card) => (
               <Link
                 key={card.href}
                 href={card.href}
@@ -443,7 +333,7 @@ export default async function TattooPreiseMuenchen({
                   <span style={{ fontSize: 'var(--g-bm)', color: 'rgba(13,13,13,0.55)', whiteSpace: 'nowrap' }}>{card.price}</span>
                 </div>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{card.desc}</p>
-                <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', marginTop: 'auto' }}>Mehr erfahren →</span>
+                <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', marginTop: 'auto' }}>{card.link}</span>
               </Link>
             ))}
           </div>

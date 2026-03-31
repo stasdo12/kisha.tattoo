@@ -17,31 +17,26 @@ export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
 ): Promise<Metadata> {
   const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'locations' })
   return buildMetadata({
-    title: 'Tattoo Eching — KishaTattoo München & Umgebung',
-    description: 'Tattoo in Eching? KishaTattoo ist in München erreichbar — 20 Minuten von Eching. Japanisches Irezumi, Grafik Tattoo, Linework. Termin jetzt buchen.',
+    title: t('eching.meta.title'),
+    description: t('eching.meta.description'),
     path: '/tattoo-eching',
     locale,
     hreflang: false,
   })
 }
 
-const FAQ_ECHING = [
-  {
-    question: 'Gibt es ein Tattoo Studio in Eching?',
-    answer: 'In Eching selbst gibt es kein spezialisiertes Tattoo-Studio. Das nächste hochwertige Tattoo-Studio mit japanischem Irezumi, Fineline und Grafik-Stil ist KishaTattoo in München — ca. 20 Minuten mit dem Auto oder der S-Bahn.',
-  },
-  {
-    question: 'Wie komme ich von Eching nach KishaTattoo München?',
-    answer: 'Von Eching nach München fährst du entweder mit der S1 in ca. 25 Minuten oder mit dem Auto über die A9 in ca. 20 Minuten. Das Atelier liegt zentral und ist gut mit dem ÖPNV erreichbar.',
-  },
-  {
-    question: 'Welche Tattoo-Stile bietet KishaTattoo für Kunden aus Eching?',
-    answer: 'Für Kunden aus Eching bieten wir alle unsere Stile an: Japanisches Irezumi, Fineline Tattoo und Grafik/Blackwork. Alle Designs sind Custom — keine Standardmotive. Kostenlose Beratung per WhatsApp oder Instagram.',
-  },
-]
+export default async function TattooEching({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'locations' })
+  const faqItems = t.raw('eching.faq.items') as Array<{ q: string; a: string }>
+  const buttons = t.raw('eching.content.buttons') as Array<{ label: string; href: string }>
 
-export default function TattooEching() {
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -51,7 +46,7 @@ export default function TattooEching() {
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Eching', url: '/tattoo-eching' }])
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        faqSchema(FAQ_ECHING.map((f) => ({ question: f.question, answer: f.answer })))
+        faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
@@ -75,9 +70,10 @@ export default function TattooEching() {
             fontSize: 'var(--g-xl)',
             lineHeight: 'var(--g-lh-xl)',
             color: '#0D0D0D',
+            whiteSpace: 'pre-line',
           }}
         >
-          Tattoo Eching —<br />KishaTattoo München
+          {t('eching.hero.h1')}
         </h1>
 
         <div
@@ -109,8 +105,7 @@ export default function TattooEching() {
             color: '#0D0D0D',
           }}
         >
-          Aus Eching in ca. 20 Minuten nach München —
-          zu KishaTattoo für Irezumi, Grafik und Linework.
+          {t('eching.hero.sub')}
         </p>
 
         <GNav activePath="/" theme="light" />
@@ -130,20 +125,16 @@ export default function TattooEching() {
             }}
           >
             <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              Tattoo in der Nähe von Eching
+              {t('eching.content.heading')}
             </h2>
           </div>
 
           <div className="g-text-cols" style={{ display: 'flex', justifyContent: 'flex-end', gap: 'clamp(2rem, 4.2vw, 5rem)' }}>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Viele Kunden aus Eching, Neufahrn und dem Münchner Norden kommen regelmäßig
-              zu KishaTattoo — der Weg nach München dauert keine 20 Minuten und lohnt sich
-              für ein Tattoo, das ein Leben lang hält.
+              {t('eching.content.body1')}
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Spezialisiert auf japanisches Irezumi, Grafik-Tattoo und Linework —
-              mit dem Anspruch auf handwerkliche Exzellenz, die in der Region ihresgleichen sucht.
-              Buchung online, Atelier in München.
+              {t('eching.content.body2')}
             </p>
           </div>
 
@@ -155,12 +146,7 @@ export default function TattooEching() {
               flexWrap: 'wrap',
             }}
           >
-            {[
-              { href: '/japanisches-tattoo-muenchen', label: 'Japanisches Tattoo' },
-              { href: '/grafik-tattoo-muenchen',      label: 'Grafik Tattoo' },
-              { href: '/fineline-tattoo-muenchen',    label: 'Linework Tattoo' },
-              { href: '/booking',                     label: 'Termin buchen' },
-            ].map((link) => (
+            {buttons.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -180,7 +166,6 @@ export default function TattooEching() {
 
           {/* Gallery preview */}
           <div style={{ marginTop: 'clamp(2rem, 3.5vw, 4rem)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {/* Row 1: left large + right 2×2 */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
               <GWorkImage
                 src="/images/work/middle-graphic-body-flower-tattoo.jpg"
@@ -196,29 +181,29 @@ export default function TattooEching() {
               </div>
             </div>
             <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
-              Alle Arbeiten ansehen →
+              {t('eching.gallery.link')}
             </Link>
           </div>
 
           {/* FAQ */}
           <div style={{ marginTop: 'clamp(2rem, 3.5vw, 4rem)' }}>
             <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', marginBottom: '1.5rem', paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D' }}>
-              FAQ — Tattoo Eching
+              {t('eching.faq.heading')}
             </h2>
-            {FAQ_ECHING.map((item, i) => (
+            {faqItems.map((item, i) => (
               <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 5rem)', padding: 'clamp(1rem, 1.8vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.2)' }}>
-                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
               </div>
             ))}
           </div>
 
-          {/* Related location pages */}
+          {/* Related */}
           <div style={{ marginTop: 'clamp(1.5rem, 2.5vw, 3rem)', display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
-            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>Weitere Seiten →</span>
-            <Link href="/tattoo-freising" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Freising</Link>
-            <Link href="/tattoo-neufahrn" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Neufahrn</Link>
-            <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Preise München</Link>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{t('eching.related.label')}</span>
+            <Link href={t('eching.related.link1_href')} style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('eching.related.link1')}</Link>
+            <Link href={t('eching.related.link2_href')} style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('eching.related.link2')}</Link>
+            <Link href={t('eching.related.prices_href')} style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('eching.related.prices')}</Link>
           </div>
 
         </div>

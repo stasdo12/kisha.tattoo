@@ -27,7 +27,13 @@ export async function generateMetadata(
 
 const heroStory = STORIES[0]
 
-export default function GraphicBlogPage() {
+export default async function GraphicBlogPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'blog' })
 
   return (
     <main id="main-content">
@@ -215,10 +221,10 @@ export default function GraphicBlogPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '28rem' }}>
             <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>[ KishaTattoo München ]</span>
             <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              Japanisches Irezumi, Fineline & Grafik — individuell für dich.
+              {t('teaser.heading')}
             </p>
             <Link href="/about" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
-              Über Kisha →
+              {t('cta.about')}
             </Link>
           </div>
           <Link
@@ -233,7 +239,7 @@ export default function GraphicBlogPage() {
               whiteSpace: 'nowrap',
             }}
           >
-            Termin anfragen
+            {t('cta.booking')}
           </Link>
         </div>
       </section>

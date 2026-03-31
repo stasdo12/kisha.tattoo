@@ -1,7 +1,6 @@
 /**
  * TATTOO NEUFAHRN — Location landing page
  * Target keyword: "tattoo neufahrn" + "tattoo neufahrn bei freising"
- * Design: Graphic design system — matches existing pages
  */
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -17,31 +16,26 @@ export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
 ): Promise<Metadata> {
   const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'locations' })
   return buildMetadata({
-    title: 'Tattoo Neufahrn — KishaTattoo München & Umgebung',
-    description: 'Tattoo in Neufahrn bei Freising? KishaTattoo München — 25 Minuten Fahrtzeit. Japanisches Irezumi, Grafik Tattoo, Linework. Individuelles Custom-Design. Termin buchen.',
+    title: t('neufahrn.meta.title'),
+    description: t('neufahrn.meta.description'),
     path: '/tattoo-neufahrn',
     locale,
     hreflang: false,
   })
 }
 
-const FAQ_NEUFAHRN = [
-  {
-    question: 'Gibt es ein gutes Tattoo Studio in Neufahrn?',
-    answer: 'In Neufahrn bei Freising gibt es kein spezialisiertes Tattoo-Studio für hochwertige Custom-Arbeiten. Das nächste empfehlenswerte Atelier ist KishaTattoo in München — ca. 25 Minuten mit dem Auto oder der S1-Bahn.',
-  },
-  {
-    question: 'Wie komme ich von Neufahrn nach KishaTattoo München?',
-    answer: 'Von Neufahrn bei Freising nach München fährst du mit der S1 Richtung München in ca. 25–30 Minuten oder mit dem Auto über die A92/A9. Über die Autobahn Anschluss A9/Neufahrn sind es ca. 25 Minuten.',
-  },
-  {
-    question: 'Welche Tattoo-Stile bietet KishaTattoo für Kunden aus Neufahrn?',
-    answer: 'Alle unsere Stile stehen für Kunden aus Neufahrn zur Verfügung: Japanisches Irezumi, Fineline Tattoo und Grafik/Blackwork. Jedes Motiv ist ein Custom-Design. Kostenlose Erstberatung per WhatsApp oder Instagram.',
-  },
-]
+export default async function TattooNeufahrn({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'locations' })
+  const faqItems = t.raw('neufahrn.faq.items') as Array<{ q: string; a: string }>
+  const buttons = t.raw('neufahrn.content.buttons') as Array<{ label: string; href: string }>
 
-export default function TattooNeufahrn() {
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -51,99 +45,39 @@ export default function TattooNeufahrn() {
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Neufahrn', url: '/tattoo-neufahrn' }])
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        faqSchema(FAQ_NEUFAHRN.map((f) => ({ question: f.question, answer: f.answer })))
+        faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))
       )}} />
 
+      {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
         aria-label="Tattoo Neufahrn — KishaTattoo München"
-        style={{
-          position: 'relative',
-          height: 'clamp(680px, 90vh, 900px)',
-          background: '#F2F2F2',
-          overflow: 'hidden',
-        }}
+        style={{ position: 'relative', height: 'clamp(680px, 90vh, 900px)', background: '#F2F2F2', overflow: 'hidden' }}
       >
         <GLogoBar theme="light" />
-
-        <h1
-          style={{
-            position: 'absolute',
-            top: '72px',
-            left: 'var(--g-pad)',
-            width: 'clamp(18rem, 42.6vw, 817px)',
-            fontSize: 'var(--g-xl)',
-            lineHeight: 'var(--g-lh-xl)',
-            color: '#0D0D0D',
-          }}
-        >
-          Tattoo Neufahrn —<br />KishaTattoo München
+        <h1 style={{ position: 'absolute', top: '72px', left: 'var(--g-pad)', width: 'clamp(18rem, 42.6vw, 817px)', fontSize: 'var(--g-xl)', lineHeight: 'var(--g-lh-xl)', color: '#0D0D0D', whiteSpace: 'pre-line' }}>
+          {t('neufahrn.hero.h1')}
         </h1>
-
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            left: '50%',
-            top: '48%',
-            transform: 'translate(-50%, -50%)',
-            fontSize: 'clamp(4rem, 10vw, 12rem)',
-            lineHeight: 0.9,
-            color: '#0D0D0D',
-            opacity: 0.07,
-            userSelect: 'none',
-            pointerEvents: 'none',
-          }}
-        >
+        <div aria-hidden="true" style={{ position: 'absolute', left: '50%', top: '48%', transform: 'translate(-50%, -50%)', fontSize: 'clamp(4rem, 10vw, 12rem)', lineHeight: 0.9, color: '#0D0D0D', opacity: 0.07, userSelect: 'none', pointerEvents: 'none' }}>
           彫
         </div>
-
-        <p
-          style={{
-            position: 'absolute',
-            left: 'var(--g-pad)',
-            bottom: '24px',
-            width: 'clamp(18rem, 28vw, 480px)',
-            fontSize: 'var(--g-bm)',
-            lineHeight: 'var(--g-lh-bm)',
-            color: '#0D0D0D',
-          }}
-        >
-          Aus Neufahrn bei Freising in ca. 25 Minuten nach München —
-          zu KishaTattoo für Irezumi, Grafik und Linework.
+        <p style={{ position: 'absolute', left: 'var(--g-pad)', bottom: '24px', width: 'clamp(18rem, 28vw, 480px)', fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
+          {t('neufahrn.hero.sub')}
         </p>
-
         <GNav activePath="/" theme="light" />
       </section>
 
+      {/* ── CONTENT ───────────────────────────────────────────────────────── */}
       <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
         <div className="g-container">
-
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-            <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              Tattoo in der Nähe von Neufahrn
-            </h2>
+            <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>{t('neufahrn.content.heading')}</h2>
           </div>
-
           <div className="g-text-cols" style={{ display: 'flex', justifyContent: 'flex-end', gap: 'clamp(2rem, 4.2vw, 5rem)' }}>
-            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Neufahrn bei Freising liegt direkt an der Verbindungsachse zwischen
-              Flughafen München und der Stadtmitte. KishaTattoo in München ist ideal
-              erreichbar — für Kunden aus Neufahrn, die kein Kompromiss beim Tattoo-Handwerk eingehen.
-            </p>
-            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Japanisches Tattoo, Grafik und Linework — alle Stile buchbar.
-              Custom-Design für jedes Projekt, keine Standardmotive.
-              25 Minuten von Neufahrn nach München zu KishaTattoo.
-            </p>
+            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>{t('neufahrn.content.body1')}</p>
+            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>{t('neufahrn.content.body2')}</p>
           </div>
-
           <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 2rem)', marginTop: 'clamp(2rem, 3.5vw, 4rem)', flexWrap: 'wrap' }}>
-            {[
-              { href: '/japanisches-tattoo-muenchen', label: 'Japanisches Tattoo' },
-              { href: '/grafik-tattoo-muenchen',      label: 'Grafik Tattoo' },
-              { href: '/fineline-tattoo-muenchen',    label: 'Linework Tattoo' },
-              { href: '/booking',                     label: 'Termin buchen' },
-            ].map((link) => (
+            {buttons.map((link) => (
               <Link key={link.href} href={link.href} style={{ display: 'inline-block', padding: '0.6rem 1.5rem', border: '1px solid #0D0D0D', color: '#0D0D0D', fontSize: 'var(--g-bm)', textDecoration: 'none' }}>
                 {link.label}
               </Link>
@@ -152,47 +86,40 @@ export default function TattooNeufahrn() {
 
           {/* Gallery preview */}
           <div style={{ marginTop: 'clamp(2rem, 3.5vw, 4rem)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {/* Row 1: left large + right 2×2 */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-              <GWorkImage
-                src="/images/work/middle-graphic-body-flower-tattoo.jpg"
-                alt="Grafik Blumen Körper Tattoo München — Kisha"
-                sizes="50vw"
-                style={{ height: 'clamp(720px, 50vw, 820px)' }}
-              />
+              <GWorkImage src="/images/work/middle-graphic-body-flower-tattoo.jpg" alt="Grafik Blumen Körper Tattoo München — Kisha" sizes="50vw" style={{ height: 'clamp(720px, 50vw, 820px)' }} />
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '12px', height: 'clamp(720px, 50vw, 820px)' }}>
-                <GWorkImage src="/images/work/4x4-japan-fox-tattoo-graphic.jpg" alt="Japanisches Fuchs Tattoo München — Kisha"  sizes="25vw" />
-                <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg"    alt="Grafik Hase Tattoo München — Kisha"         sizes="25vw" />
-                <GWorkImage src="/images/work/4x4-sakura-tattoo.jpg"            alt="Sakura Tattoo München — Kisha"              sizes="25vw" />
-                <GWorkImage src="/images/work/4x4-birds-tattoo-graphic.jpg"     alt="Grafik Vögel Tattoo München — Kisha"        sizes="25vw" />
+                <GWorkImage src="/images/work/4x4-japan-fox-tattoo-graphic.jpg" alt="Japanisches Fuchs Tattoo München" sizes="25vw" />
+                <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg"    alt="Grafik Hase Tattoo München"       sizes="25vw" />
+                <GWorkImage src="/images/work/4x4-sakura-tattoo.jpg"            alt="Sakura Tattoo München"            sizes="25vw" />
+                <GWorkImage src="/images/work/4x4-birds-tattoo-graphic.jpg"     alt="Grafik Vögel Tattoo München"      sizes="25vw" />
               </div>
             </div>
             <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
-              Alle Arbeiten ansehen →
+              {t('neufahrn.gallery.link')}
             </Link>
           </div>
 
           {/* FAQ */}
           <div style={{ marginTop: 'clamp(2rem, 3.5vw, 4rem)' }}>
             <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', marginBottom: '1.5rem', paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D' }}>
-              FAQ — Tattoo Neufahrn
+              {t('neufahrn.faq.heading')}
             </h2>
-            {FAQ_NEUFAHRN.map((item, i) => (
+            {faqItems.map((item, i) => (
               <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 5rem)', padding: 'clamp(1rem, 1.8vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.2)' }}>
-                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
               </div>
             ))}
           </div>
 
-          {/* Related location pages */}
+          {/* Related */}
           <div style={{ marginTop: 'clamp(1.5rem, 2.5vw, 3rem)', display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
-            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>Weitere Seiten →</span>
-            <Link href="/tattoo-freising" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Freising</Link>
-            <Link href="/tattoo-eching" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Eching</Link>
-            <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Tattoo Preise München</Link>
+            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{t('neufahrn.related.label')}</span>
+            <Link href={t('neufahrn.related.link1_href')} style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('neufahrn.related.link1')}</Link>
+            <Link href={t('neufahrn.related.link2_href')} style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('neufahrn.related.link2')}</Link>
+            <Link href={t('neufahrn.related.prices_href')} style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('neufahrn.related.prices')}</Link>
           </div>
-
         </div>
       </section>
 

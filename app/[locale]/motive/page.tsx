@@ -396,7 +396,7 @@ export default async function MotiveHub({
                   textDecoration: 'none',
                 }}
               >
-                {m.label} Tattoo buchen →
+                {t('motifCta').replace('{label}', m.label)}
               </Link>
               <Link
                 href="/japanisches-tattoo-muenchen"
@@ -409,7 +409,7 @@ export default async function MotiveHub({
                   textDecoration: 'none',
                 }}
               >
-                Japanisches Tattoo München
+                {t('motifLink')}
               </Link>
             </div>
 
@@ -422,14 +422,14 @@ export default async function MotiveHub({
         <div className="g-container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem' }}>
             <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', maxWidth: '30rem' }}>
-              Alle Motive im Kontext — echte Arbeiten ansehen
+              {t('works.heading')}
             </h2>
             <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 2rem)', flexWrap: 'wrap' }}>
               <Link href="/works" style={{ display: 'inline-block', padding: '0.6rem 1.5rem', background: '#0D0D0D', color: '#F2F2F2', fontSize: 'var(--g-bm)', textDecoration: 'none' }}>
-                Portfolio ansehen →
+                {t('works.portfolio')}
               </Link>
               <Link href="/booking" style={{ display: 'inline-block', padding: '0.6rem 1.5rem', border: '1px solid #0D0D0D', color: '#0D0D0D', fontSize: 'var(--g-bm)', textDecoration: 'none' }}>
-                Termin buchen
+                {t('works.booking')}
               </Link>
             </div>
           </div>

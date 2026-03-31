@@ -18,27 +18,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'japanisch' })
-  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/japanisches-tattoo-muenchen', locale })
+  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/japanisches-tattoo-muenchen', locale, hreflang: false })
 }
-
-const FAQ = [
-  {
-    question: 'Wie finde ich einen japanischen Tätowierer in München?',
-    answer: 'Einen echten japanischen Tätowierer in München zu finden, erfordert Recherche: achte auf Erfahrung mit Traditional Japanese Tattoo, Kenntnis der Kompositionslehre und ein Portfolio mit großformatigen Irezumi-Arbeiten. KishaTattoo spezialisiert sich seit 5+ Jahren ausschließlich auf diesen Stil.',
-  },
-  {
-    question: 'Was kostet ein japanisches Tattoo in München?',
-    answer: 'Japanische Irezumi-Arbeiten werden nach Stunden abgerechnet. Kleine Motive starten bei ca. 200–300 €, große Backpieces oder Sleeves ab 800 € pro Sitzung. Details zu Tattoo Preisen München findest du auf unserer Preisseite.',
-  },
-  {
-    question: 'Was bedeutet Traditional Tattoo München?',
-    answer: 'Traditional Tattoo München bezieht sich auf klassische Tattoo-Stile mit klaren Umrissen und satten Farben — darunter japanisches Irezumi. Bei KishaTattoo steht "traditional" für die Treue zur japanischen Kompositionslehre: Motive werden an der natürlichen Muskulatur ausgerichtet.',
-  },
-  {
-    question: 'Was ist der Unterschied zwischen Irezumi und modernem Japanese Style?',
-    answer: 'Traditionelles Irezumi folgt einer jahrhundertealten Kompositionslehre: Motive wie Koi, Drachen oder Oni werden nach den Muskeln des Körpers ausgerichtet und in klare Flächen und Übergänge gegliedert. Modernes "Japanese Style" ist oft freier interpretiert.',
-  },
-]
 
 export default async function JapanischesTattooMuenchen({
   params,
@@ -47,6 +28,7 @@ export default async function JapanischesTattooMuenchen({
 }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'japanisch' })
+  const faqItems = t.raw('faq.items') as Array<{ q: string; a: string }>
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -56,7 +38,7 @@ export default async function JapanischesTattooMuenchen({
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Japanisches Tattoo München', url: '/japanisches-tattoo-muenchen' }])
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        faqSchema(FAQ)
+        faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
@@ -131,7 +113,7 @@ export default async function JapanischesTattooMuenchen({
 
           <div className="g-section-header" style={{ alignItems: 'center' }}>
             <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              [ Irezumi · Horimono · Tebori ]
+              {t('intro.tag')}
             </span>
             <h2
               id="jp-intro-heading"
@@ -144,13 +126,13 @@ export default async function JapanischesTattooMuenchen({
                 flexShrink: 0,
               }}
             >
-              Japanische Tattoos München — Traditional Style
+              {t('intro.heading')}
             </h2>
             <Link
               href="/works"
               style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}
             >
-              [ Portfolio ansehen ]
+              {t('intro.portfolioLink')}
             </Link>
           </div>
 
@@ -164,16 +146,10 @@ export default async function JapanischesTattooMuenchen({
             }}
           >
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Als japanischer Tätowierer in München bietet KishaTattoo authentisches Irezumi (刺青) und
-              Horimono (彫り物) nach klassischer Kompositionslehre. Traditional Tattoo München bedeutet
-              hier: Motive wie Koi, Drachen, Oni-Masken und Kirschblüten, ausgerichtet an der natürlichen
-              Muskulatur des Körpers — keine Schablonen, kein Flash.
+              {t('intro.body1')}
             </p>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              Als Japanese Tattoo Artist in Germany spezialisiert sich Kisha auf großformatige
-              Irezumi-Projekte: vollständige Backpieces, Sleeves und Bodysuits. Japanische Tattoos
-              München von KishaTattoo — jede Linie mit der Geduld und Präzision, die diese
-              Jahrhunderte alte Kunstform verlangt.
+              {t('intro.body2')}
             </p>
           </div>
 
@@ -216,7 +192,7 @@ export default async function JapanischesTattooMuenchen({
         </div>
         <div style={{ textAlign: 'center', marginTop: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}>
           <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
-            Alle Arbeiten ansehen →
+            {t('gallery.viewAll')}
           </Link>
         </div>
       </section>
@@ -240,16 +216,12 @@ export default async function JapanischesTattooMuenchen({
               id="jp-motive-heading"
               style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}
             >
-              Klassische japanische Motive
+              {t('motives.heading')}
             </h2>
           </div>
 
           <div className="g-about-steps" style={{ display: 'flex' }}>
-            {[
-              { title: 'Koi & Drachen', body: 'Koi symbolisiert Ausdauer und Transformation. Der Drachen (Ryū) steht für Stärke und Weisheit. Beide sind Kernmotive des klassischen Irezumi — in München von KishaTattoo authentisch umgesetzt.' },
-              { title: 'Oni & Hannya', body: 'Oni-Masken und Hannya stehen für die duale Natur des Menschen — Stärke, Furcht, verlorene Liebe. Charakterstarke Motive, die auf dem Körper leben und Geschichten erzählen.' },
-              { title: 'Natur & Jahreszeiten', body: 'Kirschblüten (Sakura), Chrysanthemen, Pfingstrosen, Wellen (Nami) und Blitze (Raijin) bilden den kompositorischen Rahmen, der ein Irezumi zu einem Gesamtkunstwerk macht.' },
-            ].map((col, i) => (
+            {(t.raw('motives.items') as Array<{ title: string; body: string }>).map((col, i) => (
               <div
                 key={col.title}
                 className="g-about-step-col"
@@ -275,15 +247,11 @@ export default async function JapanischesTattooMuenchen({
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              Was kostet ein japanisches Tattoo?
+              {t('price.heading')}
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 2vw, 2rem)' }}>
-            {[
-              { size: 'Kleines Motiv (bis 10 cm)', price: 'ab 200 €', time: '2–3 Std.' },
-              { size: 'Halbärmel / Oberarm', price: 'ab 800 € / Sitzung', time: '5–7 Std.' },
-              { size: 'Full Sleeve / Backpiece', price: 'ab 2.500 € gesamt', time: '15–40 Std. total' },
-            ].map((row) => (
+            {(t.raw('price.rows') as Array<{ size: string; price: string; time: string }>).map((row) => (
               <div key={row.size} style={{ padding: 'clamp(1rem, 1.5vw, 1.5rem)', borderBottom: '1px solid rgba(13,13,13,0.15)' }}>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{row.size}</p>
                 <p style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', marginTop: '0.5rem' }}>{row.price}</p>
@@ -293,7 +261,7 @@ export default async function JapanischesTattooMuenchen({
           </div>
           <div style={{ marginTop: '1.5rem' }}>
             <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
-              Vollständige Preisübersicht ansehen →
+              {t('price.link')}
             </Link>
           </div>
         </div>
@@ -316,10 +284,10 @@ export default async function JapanischesTattooMuenchen({
               borderBottom: '2px solid #0D0D0D',
             }}
           >
-            Häufige Fragen
+            {t('faq.heading')}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {FAQ.map((item, i) => (
+            {faqItems.map((item, i) => (
               <div
                 key={i}
                 style={{
@@ -330,8 +298,8 @@ export default async function JapanischesTattooMuenchen({
                   borderBottom: '1px solid rgba(13,13,13,0.2)',
                 }}
               >
-                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.question}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.answer}</p>
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
               </div>
             ))}
           </div>
@@ -341,9 +309,9 @@ export default async function JapanischesTattooMuenchen({
       {/* ── RELATED STYLES ────────────────────────────────────────────────── */}
       <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>Weitere Stile →</span>
-          <Link href="/grafik-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Grafik Tattoo München</Link>
-          <Link href="/fineline-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>Linework Tattoo München</Link>
+          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{t('related.label')}</span>
+          <Link href="/grafik-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.grafik')}</Link>
+          <Link href="/fineline-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.fineline')}</Link>
         </div>
       </section>
 

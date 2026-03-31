@@ -333,7 +333,14 @@
     },
     "backToList": "Back to blog",
     "related": "Related articles",
-    "readMore": "Read more"
+    "readMore": "Read more",
+    "teaser": {
+      "heading": "Japanese Irezumi, Fineline & Graphic — individual for you."
+    },
+    "cta": {
+      "about": "About Kisha →",
+      "booking": "Request appointment"
+    }
   },
   "faq": {
     "meta": {
@@ -649,6 +656,84 @@
     "cta": {
       "heading": "Ready for your fineline tattoo in Munich?",
       "button": "Book appointment"
+    },
+    "intro": {
+      "tag": "[ Fineline · Fine Line · Linework · Munich ]",
+      "heading": "Fineline Tattoo Munich — precise to the last line",
+      "portfolioLink": "[ View Portfolio ]",
+      "body1": "Fineline tattoos stand for precision and restraint. A single, perfectly placed fine line says more than a whole complex of fills and shading. KishaTattoo specializes in Fine Line and Fineline Tattoos in Munich — from a minimalist single motif to a botanical linework sleeve.",
+      "body2": "The foundation for exceptional fineline quality lies in the Irezumi technique: where every line counts and nothing can be corrected. This discipline flows into every Fine Line Tattoo. The result: clear, lasting lines that stay sharp even after years — the hallmark of a good fineline tattoo in Munich."
+    },
+    "substyles": {
+      "heading": "Fine Line Tattoo Munich — three variants",
+      "items": [
+        {
+          "title": "Botanical Fineline",
+          "body": "Flowers, ferns, branches, leaves — rendered in single, precise lines without fill. Botanical fineline tattoos are particularly popular in Munich: timelessly elegant, body-friendly and long-lasting."
+        },
+        {
+          "title": "Single Needle / Fine Line",
+          "body": "The thinnest possible line, set with single-needle technique. Ideal for scripts, portraits, fine details and minimalist motifs. Fine Line Tattoos in Munich — KishaTattoo's specialty."
+        },
+        {
+          "title": "Minimalist Linework",
+          "body": "A circle, a stroke, a form. KishaTattoo finds the essence of your idea and executes it with maximum effect using minimal means — linework tattoos from Munich that convince through reduction."
+        }
+      ]
+    },
+    "price": {
+      "heading": "What does a Fineline Tattoo cost?",
+      "rows": [
+        {
+          "size": "Mini (up to 5 cm)",
+          "price": "from €150",
+          "time": "1–2 hrs"
+        },
+        {
+          "size": "Small (5–15 cm)",
+          "price": "from €250",
+          "time": "2–4 hrs"
+        },
+        {
+          "size": "Sleeve / composition",
+          "price": "from €800 / session",
+          "time": "5–7 hrs"
+        }
+      ],
+      "link": "View full pricing →"
+    },
+    "faq": {
+      "heading": "FAQ — Fineline Tattoo",
+      "items": [
+        {
+          "q": "What is a Fineline Tattoo?",
+          "a": "A Fineline Tattoo is done with a single very thin needle. The result is precise, delicate lines without broad outlines — ideal for botanical motifs, minimalism, portraits and scripts."
+        },
+        {
+          "q": "What does a Fineline Tattoo in Munich cost?",
+          "a": "Fineline Tattoos at KishaTattoo Munich start from around €150–200 for small motifs (5–8 cm). Medium designs (10–15 cm) are €300–500, larger linework projects charged by the hour."
+        },
+        {
+          "q": "How long does a Fineline Tattoo last?",
+          "a": "Fineline tattoos last many years with proper care. Thinner lines may soften slightly over time — that's why it's important to choose an experienced artist. KishaTattoo has years of experience in precise line work."
+        },
+        {
+          "q": "Does a Fineline Tattoo hurt more?",
+          "a": "Fineline tattoos are done with fewer needles, which is often felt as less intense than broader styles. Pain intensity depends strongly on the body area."
+        },
+        {
+          "q": "Where do I get the best Fineline Tattoo in Munich?",
+          "a": "KishaTattoo specializes in Fineline, Fine Line and Linework in Munich. With years of experience in precise line work — trained through Irezumi technique — clean, lasting fineline tattoos that stay sharp even after years."
+        }
+      ]
+    },
+    "related": {
+      "label": "More styles →",
+      "japanese": "Japanese Tattoo Munich",
+      "grafik": "Graphic Tattoo Munich"
+    },
+    "gallery": {
+      "viewAll": "View all fineline works →"
     }
   },
   "grafik": {
@@ -663,6 +748,76 @@
     "cta": {
       "heading": "Ready for your graphic tattoo in Munich?",
       "button": "Book appointment"
+    },
+    "intro": {
+      "tag": "[ Blackwork · Geometry · Illustration ]",
+      "heading": "Tattoo Munich — Custom Design on Skin",
+      "portfolioLink": "[ View Portfolio ]",
+      "body1": "Looking for a tattoo in Munich? KishaTattoo is a custom tattoo studio in München combining illustrative precision with Blackwork impact. Clear lines, bold black fills, thoughtful composition — from a small detail to a full-scale Blackwork sleeve.",
+      "body2": "Every tattoo starts with a custom design — no templates, no catalog. The composition is tailored to your body and your story. Geometry, botanics, illustration or free Blackwork: as the best tattoo studio Munich, KishaTattoo always follows your vision."
+    },
+    "substyles": {
+      "heading": "Graphic Styles Overview",
+      "items": [
+        {
+          "title": "Blackwork",
+          "body": "Bold black fills, hard contrasts, zero grey. Blackwork is the most direct form of graphic tattooing — maximum impact, minimum compromise."
+        },
+        {
+          "title": "Geometry",
+          "body": "Precise forms, symmetrical compositions, mathematical beauty. Geometric tattoos are timeless — and particularly long-lasting thanks to KishaTattoo's precise line work."
+        },
+        {
+          "title": "Illustration",
+          "body": "Free illustrative design: from botanical motifs to figurative representations. Each motif is conceived as a standalone work of art and adapted for your body."
+        }
+      ]
+    },
+    "price": {
+      "heading": "What does a Graphic Tattoo cost?",
+      "rows": [
+        {
+          "size": "Mini (up to 5 cm)",
+          "price": "from €150",
+          "time": "1–2 hrs"
+        },
+        {
+          "size": "Medium (10–20 cm)",
+          "price": "from €400",
+          "time": "3–5 hrs"
+        },
+        {
+          "size": "Custom composition",
+          "price": "from €800 / session",
+          "time": "5–7 hrs"
+        }
+      ],
+      "link": "View full pricing →"
+    },
+    "faq": {
+      "heading": "FAQ — Tattoo Munich",
+      "items": [
+        {
+          "q": "What tattoo styles does KishaTattoo Munich offer?",
+          "a": "KishaTattoo Munich specializes in Japanese Irezumi, Fineline, and Graphic/Blackwork tattoos. Every design is custom — no flash, no templates. Book a free consultation to discuss your vision."
+        },
+        {
+          "q": "How do I book an appointment at KishaTattoo Munich?",
+          "a": "Contact us via WhatsApp or Instagram with your idea and the desired body area. We get back to you within 24 hours for a free consultation."
+        },
+        {
+          "q": "What does a Graphic Tattoo in Munich cost?",
+          "a": "Custom Graphic tattoos are charged by the hour. Small motifs from around €80–150, large Blackwork pieces from €600 per session. All pricing details on our prices page."
+        }
+      ]
+    },
+    "related": {
+      "label": "More styles →",
+      "japanese": "Japanese Tattoo Munich",
+      "fineline": "Linework Tattoo Munich"
+    },
+    "gallery": {
+      "viewAll": "View all works →"
     }
   },
   "japanisch": {
@@ -677,6 +832,80 @@
     "cta": {
       "heading": "Ready for your Japanese tattoo in Munich?",
       "button": "Book appointment"
+    },
+    "intro": {
+      "tag": "[ Irezumi · Horimono · Tebori ]",
+      "heading": "Japanese Tattoos Munich — Traditional Style",
+      "portfolioLink": "[ View Portfolio ]",
+      "body1": "As a Japanese tattoo artist in Munich, KishaTattoo offers authentic Irezumi (刺青) and Horimono (彫り物) following classical composition principles. Traditional Tattoo Munich means motifs like Koi, dragons, Oni masks and cherry blossoms — aligned to the natural musculature of the body. No stencils, no flash.",
+      "body2": "As a Japanese Tattoo Artist in Germany, Kisha specializes in large-scale Irezumi projects: full backpieces, sleeves and bodysuits. Japanese Tattoos Munich by KishaTattoo — every line executed with the patience and precision this centuries-old art form demands."
+    },
+    "motives": {
+      "heading": "Classic Japanese Motifs",
+      "items": [
+        {
+          "title": "Koi & Dragon",
+          "body": "Koi symbolizes perseverance and transformation. The Dragon (Ryū) represents strength and wisdom. Both are core motifs of classic Irezumi — authentically executed in Munich by KishaTattoo."
+        },
+        {
+          "title": "Oni & Hannya",
+          "body": "Oni masks and Hannya represent the dual nature of humanity — strength, fear, lost love. Powerful motifs that live on the body and tell stories."
+        },
+        {
+          "title": "Nature & Seasons",
+          "body": "Cherry blossoms (Sakura), chrysanthemums, peonies, waves (Nami) and lightning (Raijin) form the compositional framework that makes an Irezumi a complete work of art."
+        }
+      ]
+    },
+    "price": {
+      "heading": "What does a Japanese Tattoo cost?",
+      "rows": [
+        {
+          "size": "Small motif (up to 10 cm)",
+          "price": "from €200",
+          "time": "2–3 hrs"
+        },
+        {
+          "size": "Half sleeve / upper arm",
+          "price": "from €800 / session",
+          "time": "5–7 hrs"
+        },
+        {
+          "size": "Full sleeve / backpiece",
+          "price": "from €2,500 total",
+          "time": "15–40 hrs total"
+        }
+      ],
+      "link": "View full pricing →"
+    },
+    "faq": {
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "How do I find a Japanese tattoo artist in Munich?",
+          "a": "Finding a genuine Japanese tattoo artist in Munich requires research: look for experience with Traditional Japanese Tattoo, knowledge of composition principles and a portfolio of large-scale Irezumi work. KishaTattoo has specialized exclusively in this style for 5+ years."
+        },
+        {
+          "q": "What does a Japanese tattoo cost in Munich?",
+          "a": "Japanese Irezumi work is charged by the hour. Small motifs start at around €200–300, large backpieces or sleeves from €800 per session. See our pricing page for details."
+        },
+        {
+          "q": "What does Traditional Tattoo Munich mean?",
+          "a": "Traditional Tattoo Munich refers to classic tattoo styles with clear outlines and rich colors — including Japanese Irezumi. At KishaTattoo, \"traditional\" means fidelity to Japanese composition principles: motifs aligned to the natural musculature."
+        },
+        {
+          "q": "What is the difference between Irezumi and modern Japanese Style?",
+          "a": "Traditional Irezumi follows centuries-old composition principles: motifs like Koi, dragons or Oni are aligned to the muscles of the body and organized into clear areas and transitions. Modern \"Japanese Style\" is often more freely interpreted."
+        }
+      ]
+    },
+    "related": {
+      "label": "More styles →",
+      "grafik": "Graphic Tattoo Munich",
+      "fineline": "Linework Tattoo Munich"
+    },
+    "gallery": {
+      "viewAll": "View all works →"
     }
   },
   "motive": {
@@ -687,7 +916,14 @@
     "hero": {
       "h1": "Japanese Tattoo\nMotifs",
       "sub": "Symbolism and meaning of the most important Irezumi motifs"
-    }
+    },
+    "works": {
+      "heading": "All motifs in context — view real work",
+      "portfolio": "View portfolio →",
+      "booking": "Book appointment"
+    },
+    "motifCta": "Book {label} Tattoo →",
+    "motifLink": "Japanese Tattoo Munich"
   },
   "preise": {
     "meta": {
@@ -701,6 +937,138 @@
     "cta": {
       "heading": "Ready for your tattoo? Get in touch.",
       "button": "Book appointment"
+    },
+    "intro": {
+      "tag": "[ Tattoo Costs · Munich · 2026 ]",
+      "heading": "What does a Tattoo in Munich cost?",
+      "requestLink": "[ Request quote ]",
+      "kanjiCaption": "Fair prices for exceptional quality",
+      "body1": "Tattoo prices in Munich vary greatly — depending on studio, artist, style and size. At KishaTattoo, small motifs are offered at fixed prices, larger projects calculated by the hour at €150–200/hr. Quality has its price — a good tattoo lasts a lifetime.",
+      "body2": "Every tattoo project starts with a personal consultation. You then receive an individual quote considering motif, size, style and time required. No hidden costs — transparent tattoo prices for Munich and the surrounding area."
+    },
+    "table": {
+      "heading": "Tattoo Price Overview Munich 2026",
+      "rows": [
+        {
+          "size": "Mini (up to 5 cm)",
+          "style": "Fineline / Script / Symbol",
+          "price": "from €150",
+          "time": "1–2 hrs",
+          "desc": "Small, precise motifs — ideal for wrist, finger, ankle"
+        },
+        {
+          "size": "Small (5–10 cm)",
+          "style": "Fineline · Graphic · Japanese",
+          "price": "from €250",
+          "time": "2–3 hrs",
+          "desc": "Individual motifs with detail — forearm, collarbone, ribs"
+        },
+        {
+          "size": "Medium (10–20 cm)",
+          "style": "All styles",
+          "price": "from €400",
+          "time": "3–5 hrs",
+          "desc": "Complex individual motifs or smaller compositions"
+        },
+        {
+          "size": "Upper arm / half sleeve",
+          "style": "Irezumi · Graphic · Linework",
+          "price": "from €800 / session",
+          "time": "5–7 hrs",
+          "desc": "Typically 2–4 sessions for a complete half set"
+        },
+        {
+          "size": "Full Sleeve",
+          "style": "Irezumi · Graphic",
+          "price": "from €2,500 total",
+          "time": "15–30 hrs total",
+          "desc": "Multiple sessions over 6–18 months — individually calculated"
+        },
+        {
+          "size": "Backpiece",
+          "style": "Japanese Irezumi",
+          "price": "from €3,500 total",
+          "time": "20–40 hrs total",
+          "desc": "Large-scale projects following traditional Irezumi composition principles"
+        }
+      ],
+      "disclaimer": "* All prices are approximate. The final quote is prepared after personal consultation. Deposit required on booking. Prices include VAT."
+    },
+    "factors": {
+      "heading": "What affects the tattoo cost?",
+      "items": [
+        {
+          "title": "Size & Complexity",
+          "body": "Size is the biggest cost factor — a 5 cm motif takes 1 hour, a full sleeve 20–30 hours. Complex designs with fine details cost more than simple motifs."
+        },
+        {
+          "title": "Tattoo Style",
+          "body": "Japanese Irezumi and Fineline require special expertise. Traditional Irezumi needs more sessions. Fineline demands extreme precision — reflected in the price."
+        },
+        {
+          "title": "Artist Experience",
+          "body": "An experienced tattoo artist costs more — and rightly so. KishaTattoo has years of specialization in Irezumi and Fineline. Quality saves long-term costs on corrections."
+        }
+      ]
+    },
+    "faq": {
+      "heading": "FAQ — Tattoo Prices Munich",
+      "items": [
+        {
+          "q": "What does a small tattoo in Munich cost?",
+          "a": "Small tattoos (up to 5 cm) at KishaTattoo Munich start from €150. Fineline and script tattoos in this size typically start between €150–250."
+        },
+        {
+          "q": "What does an upper arm tattoo in Munich cost?",
+          "a": "An upper arm tattoo (half sleeve) costs from €800 per session. For a complete half set, typically 2–4 sessions are needed, so around €1,600–3,200 total."
+        },
+        {
+          "q": "What does a full sleeve tattoo cost?",
+          "a": "A complete sleeve costs from €2,500 total, spread across multiple sessions over 6–18 months. Japanese Irezumi sleeves with complex compositions can cost €5,000–8,000."
+        },
+        {
+          "q": "What does a backpiece cost?",
+          "a": "Large-scale back tattoos in Irezumi style start from €3,500 and can cost up to €10,000+ depending on complexity. These are multi-year projects."
+        },
+        {
+          "q": "How are tattoos in Munich priced?",
+          "a": "Small motifs have fixed prices, larger projects are charged by the hour at €150–200. Each project gets an individual quote after personal consultation."
+        },
+        {
+          "q": "What does a Fineline Tattoo in Munich cost?",
+          "a": "Fineline Tattoos start from €150 for mini motifs. Medium designs (10–15 cm) cost around €300–500. Fineline requires high precision."
+        },
+        {
+          "q": "How much does a Japanese Tattoo in Munich cost?",
+          "a": "Japanese Irezumi tattoos start at around €200–300 for small motifs. Classic projects (sleeve, backpiece) are charged by the hour — typically €150–200/hr."
+        }
+      ]
+    },
+    "styles": {
+      "heading": "What can your budget create?",
+      "cards": [
+        {
+          "href": "/fineline-tattoo-muenchen",
+          "style": "Fineline Tattoo",
+          "price": "from €150",
+          "desc": "Botanical linework, geometric forms, fine scripts — highest precision in the smallest space.",
+          "link": "Learn more →"
+        },
+        {
+          "href": "/japanisches-tattoo-muenchen",
+          "style": "Japanese Irezumi",
+          "price": "from €200",
+          "desc": "Koi, dragons, tigers — traditional compositions following classic Irezumi visual language.",
+          "link": "Learn more →"
+        },
+        {
+          "href": "/grafik-tattoo-muenchen",
+          "style": "Graphic & Blackwork",
+          "price": "from €150",
+          "desc": "Custom graphic, blackwork, geometric tattoos — strong, timeless visual language.",
+          "link": "Learn more →"
+        }
+      ]
     }
   },
   "walkin": {
@@ -715,6 +1083,65 @@
     "cta": {
       "heading": "Request a walk-in slot",
       "button": "Enquire now"
+    },
+    "intro": {
+      "tag": "[ Spontaneous · Short-notice · Individual ]",
+      "heading": "Walk In Tattoo Munich — how it works",
+      "requestLink": "[ Request appointment ]",
+      "body1": "Walk In Tattoo in Munich at KishaTattoo means: no months of lead time, no complicated process. You write to us with your idea — motif, size, body area — and we check if a short-notice slot is possible for you. Spontaneous decisions are welcome.",
+      "body2": "Walk-In slots suit smaller and medium motifs: fineline designs, simple Japanese symbols, scripts, geometric forms. Also for additions to existing tattoos. Large-scale Irezumi projects are planned together in a regular consultation."
+    },
+    "steps": {
+      "heading": "Three steps to your spontaneous tattoo",
+      "items": [
+        {
+          "num": "一",
+          "title": "Quick inquiry",
+          "body": "Write to us via WhatsApp or Instagram: motif, size, body area and desired date. No long forms, no waiting room."
+        },
+        {
+          "num": "二",
+          "title": "Confirm slot",
+          "body": "We usually get back to you the same day. If a suitable walk-in slot is available, we confirm the appointment and briefly discuss the design."
+        },
+        {
+          "num": "三",
+          "title": "Get tattooed",
+          "body": "Well rested, fed, comfortable clothing — and you're ready. The tattoo is executed fresh and precise. No compromise on quality."
+        }
+      ]
+    },
+    "faq": {
+      "heading": "FAQ — Walk In Tattoo Munich",
+      "items": [
+        {
+          "q": "What is a Walk-In Tattoo?",
+          "a": "A Walk-In Tattoo means: you come without lengthy advance planning, without months of waiting — and get tattooed spontaneously. At KishaTattoo Munich, walk-in is possible for selected motifs and free slots."
+        },
+        {
+          "q": "Can I come to KishaTattoo Munich without an appointment?",
+          "a": "Walking in without any registration isn't possible — but short-notice walk-in appointments are regularly available. Write to us via WhatsApp or Instagram with your motif and desired date."
+        },
+        {
+          "q": "What motifs work for a Walk-In Tattoo?",
+          "a": "Walk-In slots suit smaller to medium motifs: fineline designs, simple Japanese symbols, small scripts or geometric forms."
+        },
+        {
+          "q": "What does a Walk-In Tattoo in Munich cost?",
+          "a": "Prices are identical to regular appointments: small motifs from around €80–150, depending on size and complexity."
+        },
+        {
+          "q": "How do I prepare for a spontaneous tattoo?",
+          "a": "Even for walk-in tattoos: sleep well, eat something, no alcohol. Wear comfortable clothing that gives easy access to the body area."
+        }
+      ]
+    },
+    "related": {
+      "label": "More pages →",
+      "prices": "Tattoo Prices Munich",
+      "fineline": "Fineline Tattoo Munich",
+      "grafik": "Tattoo Munich",
+      "booking": "Book appointment"
     }
   },
   "locations": {
@@ -722,30 +1149,310 @@
       "meta": {
         "title": "Tattoo Neufahrn — KishaTattoo Munich",
         "description": "Tattoo near Neufahrn bei Freising? KishaTattoo Munich — 25 minutes away. Japanese Irezumi, graphic tattoo, linework. Custom design. Book now."
+      },
+      "hero": {
+        "h1": "Tattoo Neufahrn —\nKishaTattoo Munich",
+        "sub": "From Neufahrn in approx. 25 minutes to Munich — KishaTattoo for Irezumi, Graphic and Linework."
+      },
+      "content": {
+        "heading": "Tattoo near Neufahrn",
+        "body1": "Many clients from Neufahrn regularly visit KishaTattoo — the journey to Munich takes less than 25 minutes and is worth it for a tattoo that lasts a lifetime.",
+        "body2": "Specialized in Japanese Irezumi, Graphic Tattoo and Linework — with a commitment to craftsmanship excellence. Book online, studio in Munich.",
+        "buttons": [
+          {
+            "label": "Japanese Tattoo",
+            "href": "/japanisches-tattoo-muenchen"
+          },
+          {
+            "label": "Graphic Tattoo",
+            "href": "/grafik-tattoo-muenchen"
+          },
+          {
+            "label": "Linework Tattoo",
+            "href": "/fineline-tattoo-muenchen"
+          },
+          {
+            "label": "Book appointment",
+            "href": "/booking"
+          }
+        ]
+      },
+      "gallery": {
+        "link": "View all works →"
+      },
+      "faq": {
+        "heading": "FAQ — Tattoo Neufahrn",
+        "items": [
+          {
+            "q": "Is there a tattoo studio in Neufahrn?",
+            "a": "There's no specialized tattoo studio in Neufahrn itself. The nearest quality studio is KishaTattoo in Munich — about 25 minutes away."
+          },
+          {
+            "q": "How do I get from Neufahrn to KishaTattoo Munich?",
+            "a": "From Neufahrn to Munich you can take S1 or drive in about 25 minutes."
+          },
+          {
+            "q": "What tattoo styles does KishaTattoo offer for clients from Neufahrn?",
+            "a": "We offer all our styles: Japanese Irezumi, Fineline and Graphic/Blackwork. All designs are custom."
+          }
+        ]
+      },
+      "related": {
+        "label": "More pages →",
+        "link1": "Tattoo Eching",
+        "link1_href": "/tattoo-eching",
+        "link2": "Tattoo Freising",
+        "link2_href": "/tattoo-freising",
+        "prices": "Tattoo Prices Munich",
+        "prices_href": "/tattoo-preise-muenchen"
       }
     },
     "freising": {
       "meta": {
         "title": "Tattoo Freising — KishaTattoo Munich",
         "description": "Tattoo near Freising? KishaTattoo Munich — 20 minutes away. Japanese Irezumi, graphic tattoo, linework. Custom design. Book now."
+      },
+      "hero": {
+        "h1": "Tattoo Freising —\nKishaTattoo Munich",
+        "sub": "From Freising in approx. 20 minutes to Munich — KishaTattoo for Irezumi, Graphic and Linework."
+      },
+      "content": {
+        "heading": "Tattoo near Freising",
+        "body1": "Many clients from Freising regularly visit KishaTattoo — the journey to Munich takes less than 20 minutes and is worth it for a tattoo that lasts a lifetime.",
+        "body2": "Specialized in Japanese Irezumi, Graphic Tattoo and Linework — with a commitment to craftsmanship excellence. Book online, studio in Munich.",
+        "buttons": [
+          {
+            "label": "Japanese Tattoo",
+            "href": "/japanisches-tattoo-muenchen"
+          },
+          {
+            "label": "Graphic Tattoo",
+            "href": "/grafik-tattoo-muenchen"
+          },
+          {
+            "label": "Linework Tattoo",
+            "href": "/fineline-tattoo-muenchen"
+          },
+          {
+            "label": "Book appointment",
+            "href": "/booking"
+          }
+        ]
+      },
+      "gallery": {
+        "link": "View all works →"
+      },
+      "faq": {
+        "heading": "FAQ — Tattoo Freising",
+        "items": [
+          {
+            "q": "Is there a tattoo studio in Freising?",
+            "a": "There's no specialized tattoo studio in Freising itself. The nearest quality studio is KishaTattoo in Munich — about 20 minutes away."
+          },
+          {
+            "q": "How do I get from Freising to KishaTattoo Munich?",
+            "a": "From Freising to Munich you can take S-Bahn S1 or drive in about 20 minutes."
+          },
+          {
+            "q": "What tattoo styles does KishaTattoo offer for clients from Freising?",
+            "a": "We offer all our styles: Japanese Irezumi, Fineline and Graphic/Blackwork. All designs are custom."
+          }
+        ]
+      },
+      "related": {
+        "label": "More pages →",
+        "link1": "Tattoo Eching",
+        "link1_href": "/tattoo-eching",
+        "link2": "Tattoo Neufahrn",
+        "link2_href": "/tattoo-neufahrn",
+        "prices": "Tattoo Prices Munich",
+        "prices_href": "/tattoo-preise-muenchen"
       }
     },
     "dachau": {
       "meta": {
         "title": "Tattoo Dachau — KishaTattoo Munich",
         "description": "Tattoo near Dachau? KishaTattoo Munich — 30 minutes away. Japanese Irezumi, graphic tattoo, linework. Custom design. Book now."
+      },
+      "hero": {
+        "h1": "Tattoo Dachau —\nKishaTattoo Munich",
+        "sub": "From Dachau in approx. 25 minutes to Munich — KishaTattoo for Irezumi, Graphic and Linework."
+      },
+      "content": {
+        "heading": "Tattoo near Dachau",
+        "body1": "Many clients from Dachau regularly visit KishaTattoo — the journey to Munich takes less than 25 minutes and is worth it for a tattoo that lasts a lifetime.",
+        "body2": "Specialized in Japanese Irezumi, Graphic Tattoo and Linework — with a commitment to craftsmanship excellence. Book online, studio in Munich.",
+        "buttons": [
+          {
+            "label": "Japanese Tattoo",
+            "href": "/japanisches-tattoo-muenchen"
+          },
+          {
+            "label": "Graphic Tattoo",
+            "href": "/grafik-tattoo-muenchen"
+          },
+          {
+            "label": "Linework Tattoo",
+            "href": "/fineline-tattoo-muenchen"
+          },
+          {
+            "label": "Book appointment",
+            "href": "/booking"
+          }
+        ]
+      },
+      "gallery": {
+        "link": "View all works →"
+      },
+      "faq": {
+        "heading": "FAQ — Tattoo Dachau",
+        "items": [
+          {
+            "q": "Is there a tattoo studio in Dachau?",
+            "a": "There's no specialized tattoo studio in Dachau itself. The nearest quality studio is KishaTattoo in Munich — about 25 minutes away."
+          },
+          {
+            "q": "How do I get from Dachau to KishaTattoo Munich?",
+            "a": "From Dachau to Munich you can take S2 or drive in about 25 minutes."
+          },
+          {
+            "q": "What tattoo styles does KishaTattoo offer for clients from Dachau?",
+            "a": "We offer all our styles: Japanese Irezumi, Fineline and Graphic/Blackwork. All designs are custom."
+          }
+        ]
+      },
+      "related": {
+        "label": "More pages →",
+        "link1": "Tattoo Eching",
+        "link1_href": "/tattoo-eching",
+        "link2": "Tattoo Ottobrunn",
+        "link2_href": "/tattoo-ottobrunn",
+        "prices": "Tattoo Prices Munich",
+        "prices_href": "/tattoo-preise-muenchen"
       }
     },
     "eching": {
       "meta": {
         "title": "Tattoo Eching — KishaTattoo Munich",
         "description": "Tattoo near Eching? KishaTattoo Munich — 20 minutes away. Japanese Irezumi, graphic tattoo, linework. Custom design. Book now."
+      },
+      "hero": {
+        "h1": "Tattoo Eching —\nKishaTattoo Munich",
+        "sub": "From Eching in approx. 20 minutes to Munich — KishaTattoo for Irezumi, Graphic and Linework."
+      },
+      "content": {
+        "heading": "Tattoo near Eching",
+        "body1": "Many clients from Eching, Neufahrn and Munich's north regularly visit KishaTattoo — the journey to Munich takes less than 20 minutes and is worth it for a tattoo that lasts a lifetime.",
+        "body2": "Specialized in Japanese Irezumi, Graphic Tattoo and Linework — with a commitment to craftsmanship excellence unmatched in the region. Book online, studio in Munich.",
+        "buttons": [
+          {
+            "label": "Japanese Tattoo",
+            "href": "/japanisches-tattoo-muenchen"
+          },
+          {
+            "label": "Graphic Tattoo",
+            "href": "/grafik-tattoo-muenchen"
+          },
+          {
+            "label": "Linework Tattoo",
+            "href": "/fineline-tattoo-muenchen"
+          },
+          {
+            "label": "Book appointment",
+            "href": "/booking"
+          }
+        ]
+      },
+      "gallery": {
+        "link": "View all works →"
+      },
+      "faq": {
+        "heading": "FAQ — Tattoo Eching",
+        "items": [
+          {
+            "q": "Is there a tattoo studio in Eching?",
+            "a": "There's no specialized tattoo studio in Eching itself. The nearest high-quality studio is KishaTattoo in Munich — about 20 minutes by car or S-Bahn."
+          },
+          {
+            "q": "How do I get from Eching to KishaTattoo Munich?",
+            "a": "From Eching to Munich you can take the S1 in about 25 minutes or drive via the A9 in about 20 minutes."
+          },
+          {
+            "q": "What tattoo styles does KishaTattoo offer for clients from Eching?",
+            "a": "For clients from Eching we offer all our styles: Japanese Irezumi, Fineline Tattoo and Graphic/Blackwork. All designs are custom — no standard motifs."
+          }
+        ]
+      },
+      "related": {
+        "label": "More pages →",
+        "link1": "Tattoo Freising",
+        "link1_href": "/tattoo-freising",
+        "link2": "Tattoo Neufahrn",
+        "link2_href": "/tattoo-neufahrn",
+        "prices": "Tattoo Prices Munich",
+        "prices_href": "/tattoo-preise-muenchen"
       }
     },
     "ottobrunn": {
       "meta": {
         "title": "Tattoo Ottobrunn — KishaTattoo Munich",
         "description": "Tattoo near Ottobrunn? KishaTattoo Munich — 25 minutes away. Japanese Irezumi, graphic tattoo, linework. Custom design. Book now."
+      },
+      "hero": {
+        "h1": "Tattoo Ottobrunn —\nKishaTattoo Munich",
+        "sub": "From Ottobrunn in approx. 20 minutes to Munich — KishaTattoo for Irezumi, Graphic and Linework."
+      },
+      "content": {
+        "heading": "Tattoo near Ottobrunn",
+        "body1": "Many clients from Ottobrunn regularly visit KishaTattoo — the journey to Munich takes less than 20 minutes and is worth it for a tattoo that lasts a lifetime.",
+        "body2": "Specialized in Japanese Irezumi, Graphic Tattoo and Linework — with a commitment to craftsmanship excellence. Book online, studio in Munich.",
+        "buttons": [
+          {
+            "label": "Japanese Tattoo",
+            "href": "/japanisches-tattoo-muenchen"
+          },
+          {
+            "label": "Graphic Tattoo",
+            "href": "/grafik-tattoo-muenchen"
+          },
+          {
+            "label": "Linework Tattoo",
+            "href": "/fineline-tattoo-muenchen"
+          },
+          {
+            "label": "Book appointment",
+            "href": "/booking"
+          }
+        ]
+      },
+      "gallery": {
+        "link": "View all works →"
+      },
+      "faq": {
+        "heading": "FAQ — Tattoo Ottobrunn",
+        "items": [
+          {
+            "q": "Is there a tattoo studio in Ottobrunn?",
+            "a": "There's no specialized tattoo studio in Ottobrunn itself. The nearest quality studio is KishaTattoo in Munich — about 20 minutes away."
+          },
+          {
+            "q": "How do I get from Ottobrunn to KishaTattoo Munich?",
+            "a": "From Ottobrunn to Munich you can take S-Bahn or drive in about 20 minutes."
+          },
+          {
+            "q": "What tattoo styles does KishaTattoo offer for clients from Ottobrunn?",
+            "a": "We offer all our styles: Japanese Irezumi, Fineline and Graphic/Blackwork. All designs are custom."
+          }
+        ]
+      },
+      "related": {
+        "label": "More pages →",
+        "link1": "Tattoo Dachau",
+        "link1_href": "/tattoo-dachau",
+        "link2": "Tattoo Neufahrn",
+        "link2_href": "/tattoo-neufahrn",
+        "prices": "Tattoo Prices Munich",
+        "prices_href": "/tattoo-preise-muenchen"
       }
     }
   }
