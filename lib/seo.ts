@@ -42,10 +42,12 @@ export function buildMetadata(input: SeoInput): Metadata {
   const fullTitle = `${title} | ${SITE.name}`
 
   // hreflang alternates — only for pages that exist in all locales
+  // Strip trailing slash for EN/UK locale roots (/en/ → /en, /uk/ → /uk)
+  const p = path === '/' ? '' : path
   const languages = hreflang ? {
     'de':        `${SITE.url}${path}`,
-    'en':        `${SITE.url}/en${path}`,
-    'uk':        `${SITE.url}/uk${path}`,
+    'en':        `${SITE.url}/en${p}`,
+    'uk':        `${SITE.url}/uk${p}`,
     'x-default': `${SITE.url}${path}`,
   } : undefined
 

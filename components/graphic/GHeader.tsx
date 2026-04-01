@@ -13,7 +13,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
-import { useRouter, usePathname } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 import { SITE } from '@/content/site'
 
 const NAV_HREFS = [
@@ -38,7 +38,6 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
   const locale   = useLocale()
   const pathname = usePathname()
-  const router   = useRouter()
   const t        = useTranslations('menu')
 
   /* ── Header bar colors ───────────────────────────────────────── */
@@ -51,11 +50,6 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
   /* ── Handlers ────────────────────────────────────────────────── */
   const open  = useCallback(() => setIsOpen(true), [])
   const close = useCallback(() => setIsOpen(false), [])
-
-  const switchLocale = useCallback((newLocale: typeof LOCALES[number]['code']) => {
-    router.replace(pathname, { locale: newLocale })
-    close()
-  }, [router, pathname, close])
 
   // ESC closes
   useEffect(() => {
@@ -93,13 +87,13 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
           zIndex: 100,
         }}
       >
-        <button
-          onClick={() => { router.push('/'); close() }}
+        <Link
+          href="/"
           aria-label="Kisha Tattoo — home"
-          style={{ fontSize: 'var(--g-bs)', color, background: 'none', border: 'none', cursor: 'pointer', padding: 0, lineHeight: 1 }}
+          style={{ fontSize: 'var(--g-bs)', color, textDecoration: 'none', lineHeight: 1 }}
         >
           ● Kisha
-        </button>
+        </Link>
 
         <button
           onClick={open}
@@ -140,29 +134,33 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
         {/* Body: nav + lang top, footer bottom */}
         <div className="g-menu-body">
           <div className="g-menu-body-top">
-            {/* Nav links */}
+            {/* Nav links — real <a> tags via next-intl Link (crawlable by Google) */}
             <nav className="g-menu-nav" aria-label="Main navigation">
               {NAV_HREFS.map(item => (
-                <button
+                <Link
                   key={item.href}
-                  onClick={() => { router.push(item.href); close() }}
+                  href={item.href}
+                  onClick={close}
                   className="g-menu-nav-link"
                 >
                   {t(`nav.${item.key}`)}
-                </button>
+                </Link>
               ))}
             </nav>
 
-            {/* Language switcher */}
+            {/* Language switcher — uses next-intl Link with locale prop:
+                produces real <a> tags (crawlable) + sets NEXT_LOCALE cookie */}
             <div className="g-menu-lang" role="navigation" aria-label="Language">
               {LOCALES.map(l => (
-                <button
+                <Link
                   key={l.code}
-                  onClick={() => switchLocale(l.code)}
+                  href={pathname}
+                  locale={l.code}
+                  onClick={close}
                   className={`g-menu-lang-btn${locale === l.code ? ' is-active' : ''}`}
                 >
                   {l.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
