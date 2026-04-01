@@ -47,6 +47,19 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
     ? '2px solid #0D0D0D'
     : '1px solid rgba(242,242,242,0.2)'
 
+  /* ── Locale switcher helpers ─────────────────────────────────── */
+  // Build href manually: DE has no prefix (localePrefix: 'as-needed')
+  const localeSwitcherHref = useCallback((targetLocale: string): string => {
+    const base = pathname === '/' ? '' : pathname
+    if (targetLocale === 'de') return base || '/'
+    return `/${targetLocale}${base}`
+  }, [pathname])
+
+  const handleLocaleClick = useCallback((targetLocale: string) => {
+    document.cookie = `NEXT_LOCALE=${targetLocale}; path=/; max-age=31536000; SameSite=Lax`
+    setIsOpen(false)
+  }, [])
+
   /* ── Handlers ────────────────────────────────────────────────── */
   const open  = useCallback(() => setIsOpen(true), [])
   const close = useCallback(() => setIsOpen(false), [])
@@ -148,19 +161,19 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
               ))}
             </nav>
 
-            {/* Language switcher — uses next-intl Link with locale prop:
-                produces real <a> tags (crawlable) + sets NEXT_LOCALE cookie */}
+            {/* Language switcher — plain <a> tags with manually computed href.
+                next-intl <Link locale> generates /de/booking → 307 for DE default.
+                Cookie is set onClick so middleware remembers the choice. */}
             <div className="g-menu-lang" role="navigation" aria-label="Language">
               {LOCALES.map(l => (
-                <Link
+                <a
                   key={l.code}
-                  href={pathname}
-                  locale={l.code}
-                  onClick={close}
+                  href={localeSwitcherHref(l.code)}
+                  onClick={() => handleLocaleClick(l.code)}
                   className={`g-menu-lang-btn${locale === l.code ? ' is-active' : ''}`}
                 >
                   {l.label}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -193,11 +206,11 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
           </div>
         </div>
 
-        {/* Background image */}
+        {/* Background image — decorative, so aria-hidden on wrapper is sufficient */}
         <div className="g-menu-img" aria-hidden="true">
           <Image
             src="/images/home/works-01-blackwork-fullbody.jpg"
-            alt=""
+            alt="Full-body blackwork tattoo by Kisha"
             fill
             style={{ objectFit: 'cover', objectPosition: 'center top' }}
             sizes="100vw"
