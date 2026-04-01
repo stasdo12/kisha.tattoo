@@ -72,10 +72,28 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
     return () => window.removeEventListener('keydown', h)
   }, [isOpen, close])
 
-  // Body scroll lock
+  // Body scroll lock — position:fixed needed for iOS Safari
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    if (isOpen) {
+      const scrollY = window.scrollY
+      document.body.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.width = '100%'
+    } else {
+      const scrollY = parseFloat(document.body.style.top || '0') * -1
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+      window.scrollTo(0, scrollY)
+    }
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+    }
   }, [isOpen])
 
   // Close on route change (browser back/forward)
