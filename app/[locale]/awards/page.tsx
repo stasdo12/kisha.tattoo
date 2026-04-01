@@ -5,8 +5,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
-import { GLogoBar } from '@/components/graphic/GLogoBar'
-import { GNav } from '@/components/graphic/GNav'
+import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export async function generateMetadata(
@@ -80,7 +79,7 @@ export default async function AwardsPage({
         aria-label="Awards & Recognition — KishaTattoo"
         style={{ position: 'relative', height: 'clamp(680px, 90vh, 900px)', background: '#F2F2F2', overflow: 'hidden' }}
       >
-        <GLogoBar theme="light" />
+        <GHeader theme="light" />
 
         <h1
           className="g-about-h1"
@@ -111,7 +110,6 @@ export default async function AwardsPage({
           {t('hero.sub')}
         </p>
 
-        <GNav activePath="/about" theme="light" />
       </section>
 
       {/* ── AWARDS LIST ───────────────────────────────────────────────────── */}

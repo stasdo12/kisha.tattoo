@@ -12,8 +12,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { STORIES, getStoryBySlug } from '@/content/stories'
 import { buildMetadata } from '@/lib/seo'
-import { GLogoBar } from '@/components/graphic/GLogoBar'
-import { GNav } from '@/components/graphic/GNav'
+import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
 
@@ -82,7 +81,7 @@ export default async function ArticleDetailPage({
         />
 
         {/* ── Logo bar — 3-column ── */}
-        <GLogoBar theme="dark" />
+        <GHeader theme="dark" />
 
         {/* ── Back to blog ── */}
         <Link
@@ -150,7 +149,6 @@ export default async function ArticleDetailPage({
         </div>
 
         {/* ── Vertical nav ── */}
-        <GNav activePath="/blog" theme="dark" />
       </section>
 
       {/* ── ARTICLE CONTENT ──────────────────────────────────────────────── */}

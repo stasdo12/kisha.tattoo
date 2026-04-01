@@ -1678,5 +1678,18 @@
     "error": "Sending error. Please try again.",
     "submitting": "Sending…",
     "submit": "Send request"
+  },
+  "menu": {
+    "nav": {
+      "home": "Home",
+      "works": "Works",
+      "about": "About",
+      "stories": "Stories",
+      "contact": "Contact"
+    },
+    "footer": {
+      "cooperation": "Available for cooperation",
+      "location": "Munich, Germany"
+    }
   }
 }

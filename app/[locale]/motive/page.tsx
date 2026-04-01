@@ -9,8 +9,7 @@ import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
 import { faqSchema, breadcrumbSchema, serviceSchema } from '@/lib/structured-data'
-import { GLogoBar } from '@/components/graphic/GLogoBar'
-import { GNav } from '@/components/graphic/GNav'
+import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export async function generateMetadata(
@@ -68,7 +67,7 @@ export default async function MotiveHub({
           overflow: 'hidden',
         }}
       >
-        <GLogoBar theme="light" />
+        <GHeader theme="light" />
 
         <h1
           style={{
@@ -122,7 +121,6 @@ export default async function MotiveHub({
           {t('hero.sub')}
         </p>
 
-        <GNav activePath="/motive" theme="light" />
       </section>
 
       {/* ── INTRO ────────────────────────────────────────────────────────── */}

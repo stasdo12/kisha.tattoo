@@ -12,8 +12,7 @@ import Link from 'next/link'
 import { STORIES } from '@/content/stories'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
-import { GLogoBar } from '@/components/graphic/GLogoBar'
-import { GNav } from '@/components/graphic/GNav'
+import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { BlogFilter } from '@/components/graphic/BlogFilter'
 
@@ -51,7 +50,7 @@ export default async function GraphicBlogPage({
       >
 
         {/* ── Logo bar — 3-column ── */}
-        <GLogoBar theme="light" />
+        <GHeader theme="light" />
 
         {/* ── H1 — centred ── */}
         <h1
@@ -165,7 +164,6 @@ export default async function GraphicBlogPage({
         </div>
 
         {/* ── Vertical nav ── */}
-        <GNav activePath="/blog" theme="light" top="360px" />
 
       </section>
 

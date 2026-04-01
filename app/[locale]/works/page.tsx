@@ -14,8 +14,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
-import { GLogoBar } from '@/components/graphic/GLogoBar'
-import { GNav } from '@/components/graphic/GNav'
+import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
 
@@ -106,7 +105,7 @@ export default async function GraphicWorksPage({
         />
 
         {/* ── Logo bar ── */}
-        <GLogoBar theme="dark" />
+        <GHeader theme="dark" />
 
         {/* ── H1 ── */}
         <h1
@@ -142,7 +141,6 @@ export default async function GraphicWorksPage({
         </p>
 
         {/* ── Vertical nav ── */}
-        <GNav activePath="/works" theme="dark" />
 
         {/* ── Kanji 術 + caption ── */}
         <div

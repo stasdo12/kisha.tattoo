@@ -11,8 +11,7 @@ import { getTranslations } from 'next-intl/server'
 import { buildMetadata } from '@/lib/seo'
 import { serviceSchema, faqSchema } from '@/lib/structured-data'
 import { CtaStrip } from '@/components/graphic/CtaStrip'
-import { GLogoBar } from '@/components/graphic/GLogoBar'
-import { GNav } from '@/components/graphic/GNav'
+import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export async function generateMetadata(
@@ -121,7 +120,7 @@ export default async function GraphicHomePage() {
             />
           </div>
 
-          <GLogoBar theme="light" />
+          <GHeader theme="light" />
 
           {/* Mobile-only: location / status tags below photo (top: 451px) */}
           <div className="g-hero-tags" aria-hidden="true">
@@ -199,7 +198,6 @@ export default async function GraphicHomePage() {
             </span>
           </div>
 
-          <GNav activePath="/" theme="light" />
 
           {/* Scroll hint — hidden on mobile */}
           <div

@@ -2,8 +2,7 @@
 import type React from 'react'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { GLogoBar } from '@/components/graphic/GLogoBar'
-import { GNav } from '@/components/graphic/GNav'
+import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import s from './booking.module.css'
 
@@ -35,7 +34,7 @@ export default function BookingPage() {
 
       {/* ── HERO / FORM ──────────────────────────────────────────────── */}
       <section aria-label={t('hero.h1')} className={s.hero}>
-        <GLogoBar theme="light" />
+        <GHeader theme="light" />
 
         <h1 className={s.h1}>{t('hero.h1')}</h1>
 
@@ -127,7 +126,6 @@ export default function BookingPage() {
 
         </form>
 
-        <GNav activePath="/contact" theme="light" />
       </section>
 
       {/* ── STEPS ────────────────────────────────────────────────────── */}

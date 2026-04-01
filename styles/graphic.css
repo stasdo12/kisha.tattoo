@@ -9,19 +9,198 @@ body:has([data-theme='graphic']) {
   background-color: #F2F2F2;
 }
 
-/* === MOBILE BOTTOM NAV === */
-.g-mobile-bottom-nav {
-  display: none;
+/* === HEADER BAR TOGGLE BUTTON === */
+.g-header-toggle {
+  font-family: var(--g-font, 'DM Sans', system-ui, sans-serif);
+  font-weight: 500;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-@media (max-width: 767px) {
-  .g-mobile-bottom-nav {
-    display: flex;
+.g-header-toggle--dark {
+  color: #0D0D0D;
+}
+
+/* === MENU OVERLAY — flex column layout === */
+.g-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  overflow: hidden;
+}
+
+.g-menu-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Header bar inside overlay */
+.g-menu-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 20px 40px 12px;
+  border-bottom: 2px solid #0D0D0D;
+}
+
+.g-menu-bar-logo,
+.g-menu-bar-tattoo {
+  font-size: 1rem;
+  color: #0D0D0D;
+  line-height: 1;
+}
+
+/* Body: fills space between header and image */
+.g-menu-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 40px 24px;
+  overflow: hidden;
+}
+
+/* Top row: nav (left) + lang (right) */
+.g-menu-body-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Nav links */
+.g-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.g-menu-nav-link {
+  font-family: var(--g-font, 'DM Sans', system-ui, sans-serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 4.8dvh, 52px); /* adapts to screen height */
+  line-height: 90%;
+  letter-spacing: -0.02em;
+  color: #0D0D0D;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: opacity 0.15s;
+}
+
+.g-menu-nav-link:hover {
+  opacity: 0.5;
+}
+
+/* Language switcher */
+.g-menu-lang {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.g-menu-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  font-family: var(--g-font, 'DM Sans', system-ui, sans-serif);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #0D0D0D;
+  background: none;
+  border: 1px solid #0D0D0D;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.g-menu-lang-btn.is-active {
+  background: #0D0D0D;
+  color: #FFFFFF;
+}
+
+.g-menu-lang-btn:not(.is-active):hover {
+  background: rgba(13,13,13,0.06);
+}
+
+/* Footer links row */
+.g-menu-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-family: var(--g-font, 'DM Sans', system-ui, sans-serif);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.g-menu-footer-link {
+  font-size: 1rem;
+  color: #0D0D0D;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+
+.g-menu-footer-link:hover {
+  opacity: 0.6;
+}
+
+/* Background image — fixed height at bottom */
+.g-menu-img {
+  flex-shrink: 0;
+  position: relative;
+  height: clamp(200px, 44dvh, 480px); /* 480px @ 1080, scales on shorter screens */
+}
+
+/* === MOBILE 430px === */
+@media (max-width: 430px) {
+  .g-menu-overlay {
+    background: #F2F2F2;
   }
 
-  /* push page content above the bottom nav (~48px bar) */
-  [data-theme='graphic'] {
-    padding-bottom: calc(48px + env(safe-area-inset-bottom));
+  .g-menu-bar {
+    padding: 20px 15px 12px;
+  }
+
+  .g-menu-body {
+    padding: 16px 15px 20px;
+  }
+
+  /* Stack nav + lang vertically on mobile */
+  .g-menu-body-top {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .g-menu-nav-link {
+    font-size: clamp(1.75rem, 3.8dvh, 32px);
+  }
+
+  .g-menu-footer {
+    gap: 8px 16px;
+  }
+
+  .g-menu-img {
+    height: clamp(160px, 26dvh, 220px);
   }
 }
 

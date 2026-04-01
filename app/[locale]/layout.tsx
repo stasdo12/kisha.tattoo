@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation'
 import { SITE } from '@/content/site'
 import { localBusinessSchema, websiteSchema } from '@/lib/structured-data'
 import { FormPopupLoader } from '@/components/graphic/FormPopupLoader'
-import { GMobileBottomNav } from '@/components/graphic/GMobileBottomNav'
 import { GScrollTop } from '@/components/graphic/GScrollTop'
 import { routing } from '@/i18n/routing'
 import '@/styles/globals.css'
@@ -115,7 +114,6 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <div data-theme="graphic">
             {children}
-            <GMobileBottomNav />
             <GScrollTop />
             <FormPopupLoader />
           </div>

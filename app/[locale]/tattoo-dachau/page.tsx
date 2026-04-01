@@ -8,8 +8,7 @@ import { GWorkImage } from '@/components/graphic/GWorkImage'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
 import { locationServiceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
-import { GLogoBar } from '@/components/graphic/GLogoBar'
-import { GNav } from '@/components/graphic/GNav'
+import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 
 export async function generateMetadata(
@@ -53,7 +52,7 @@ export default async function TattooDachau({
         aria-label="Tattoo Dachau — KishaTattoo München"
         style={{ position: 'relative', height: 'clamp(680px, 90vh, 900px)', background: '#F2F2F2', overflow: 'hidden' }}
       >
-        <GLogoBar theme="light" />
+        <GHeader theme="light" />
         <h1 style={{ position: 'absolute', top: '72px', left: 'var(--g-pad)', width: 'clamp(18rem, 42.6vw, 817px)', fontSize: 'var(--g-xl)', lineHeight: 'var(--g-lh-xl)', color: '#0D0D0D', whiteSpace: 'pre-line' }}>
           {t('dachau.hero.h1')}
         </h1>
@@ -63,7 +62,6 @@ export default async function TattooDachau({
         <p style={{ position: 'absolute', left: 'var(--g-pad)', bottom: '24px', width: 'clamp(18rem, 28vw, 480px)', fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
           {t('dachau.hero.sub')}
         </p>
-        <GNav activePath="/" theme="light" />
       </section>
 
       {/* ── CONTENT ───────────────────────────────────────────────────────── */}
