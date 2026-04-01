@@ -68,7 +68,7 @@ export default async function GraphicBlogPage({
             whiteSpace: 'nowrap',
           }}
         >
-          The artisan&apos;s dô:<br />insights on the craft
+          {t('hero.h1')}
         </h1>
 
         {/* ── hero-info: left-tag | card | right-tag ── */}
