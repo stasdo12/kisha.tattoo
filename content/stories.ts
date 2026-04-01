@@ -24,8 +24,8 @@ export const STORIES: Story[] = [
     publishedAt: '2024-11-15',
     readingTime: '8 min read',
     category: 'Culture',
-    coverImage: 'https://picsum.photos/seed/story1/1200/630',
-    coverAlt: 'Traditional Japanese Irezumi tattoo art — history and culture',
+    coverImage: '/images/home/works-04-god-japanese.jpg',
+    coverAlt: 'Traditional Japanese Irezumi tattoo by Kisha — deity motif',
     body: `
 Japanese tattooing — known as Irezumi (入れ墨) or Horimono (彫り物) — carries one of the richest histories in the world of body art. Archaeological evidence suggests tattooing in Japan dates back to at least 300 BCE, with clay figurines bearing facial markings discovered from the Jōmon period.
 
@@ -44,8 +44,8 @@ Today, Irezumi stands as a globally celebrated art form, with collectors from Mu
     publishedAt: '2024-10-02',
     readingTime: '6 min read',
     category: 'Guide',
-    coverImage: 'https://picsum.photos/seed/story2/1200/630',
-    coverAlt: 'Guide to choosing a Japanese tattoo design and placement',
+    coverImage: '/images/home/works-02-fox-japanese.jpg',
+    coverAlt: 'Japanese fox tattoo by Kisha — Irezumi style',
     body: `
 Choosing a first Japanese tattoo is not simply about picking a picture you like. Traditional Irezumi is a compositional art — motifs are selected for their symbolism, placed to flow with the body's musculature, and designed as part of a larger visual language.
 
@@ -64,8 +64,8 @@ Choosing a first Japanese tattoo is not simply about picking a picture you like.
     publishedAt: '2024-09-18',
     readingTime: '5 min read',
     category: 'Style Guide',
-    coverImage: 'https://picsum.photos/seed/story3/1200/630',
-    coverAlt: 'Blackwork tattoo style guide — bold graphic tattooing',
+    coverImage: '/images/home/works-05-flowers-graphic.jpg',
+    coverAlt: 'Blackwork graphic tattoo by Kisha — bold floral design',
     body: `
 Blackwork tattooing uses solid black ink — no colour, no grey wash — to create bold graphic imagery. The style encompasses geometric patterns, tribal-inspired work, illustrative designs, and large solid-fill compositions.
 
