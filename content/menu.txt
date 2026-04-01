@@ -1,0 +1,344 @@
+Повна специфікація з Figma — menu та menu-open
+Всі дані зняті безпосередньо з твого Figma-файлу kisha-tattoo. Нижче — повна pixel-perfect специфікація для Claude Code.
+
+КОЛЬОРИ / ТОКЕНИ
+text
+--color-black:    #0D0D0D   (Black-Main)
+--color-white:    #FFFFFF   (menu background)
+--color-bg-open:  #F2F2F2   (menu-open background)
+--color-border:   #0D0D0D   (border bottom header)
+ФРЕЙМ menu — Desktop (1920×1080)
+Структура layout
+text
+menu frame: 1920 × 1080px
+background: #FFFFFF
+logo-wrapper-1920 — Header
+text
+width:          1840px (fixed)
+height:         hug (24px)
+top:            20px
+left:           40px
+flow:           horizontal
+justify:        space-between
+border-bottom:  2px solid #0D0D0D
+padding-bottom: 12px
+Дочірні елементи header:
+
+Vector (Kisha SVG логотип) — зліва
+
+[ Close] — по центру
+
+Tattoo — праворуч
+
+[ Close ] button:
+
+text
+width:          48px
+height:         10px
+font-family:    PP Neue Montreal
+font-weight:    500 (Medium)
+font-size:      14px
+line-height:    100%
+letter-spacing: -2%
+color:          #0D0D0D
+text-align:     center
+Важливо: у фреймі menu кнопка вже показує [ Close ] — це menu-open стан. В закритому стані показувати [ Menu ] з аналогічними стилями.
+
+Frame 2087325371 — Nav links block
+text
+flow:     vertical
+width:    hug (175px)
+height:   hug (315px)
+top:      72px
+left:     40px
+gap:      20px
+Nav link typogpaphy (Home / Works / About / Stories / Contact):
+
+text
+font-family:    PP Neue Montreal
+font-weight:    500 (Medium)
+font-size:      52px
+line-height:    90%
+letter-spacing: -2%
+color:          #0D0D0D
+style-name:     Heading L
+img — Зображення
+text
+width:        1920px
+height:       480px
+top:          600px
+left:         0px
+object-fit:   crop (cover)
+Зображення займає нижні 480px із 1080px — рівно 44.4% висоти екрану.
+
+Footer links row
+Позиція:
+
+text
+top:  569px
+left: 40px
+Лінки: [ Instagram ] / [ What's App ] / [ Available for cooperation ] / [ Munich, Germany ]
+
+Typography footer:
+
+text
+font-family:    PP Neue Montreal
+font-weight:    500 (Medium)
+font-size:      16px
+line-height:    100%
+letter-spacing: -2%
+color:          #0D0D0D
+vertical-trim:  cap height
+ФРЕЙМ menu-open — Mobile (390×840)
+Це мобільний стан відкритого меню.
+
+text
+frame:      390 × 840px
+background: #F2F2F2
+logo-wrapper-390 — Header mobile
+text
+width:          360px (fixed)
+height:         hug (24px)
+top:            20px
+left:           15px
+flow:           horizontal
+justify:        space-between
+border-bottom:  2px solid #0D0D0D
+padding-bottom: 12px
+Елементи: • Kisha | [ Close ] | Tattoo
+
+form-heading — Nav links block mobile
+text
+flow:     vertical
+width:    hug (108px)
+height:   hug (225px)
+top:      72px
+left:     15px
+gap:      20px
+Nav link typography mobile:
+
+text
+font-family:    PP Neue Montreal
+font-weight:    500 (Medium)
+font-size:      32px
+line-height:    90%
+letter-spacing: -2%
+color:          #0D0D0D
+style-name:     Heading S
+Language switcher (En / De / Ua)
+text
+top:  ~340px (після nav блоку)
+left: 15px
+Активний (En) має border/box виділення.
+
+Footer links mobile
+text
+top:  554px
+left: 15px
+Лінки: [ Instagram ] / [ What's App ] / [ Available for cooperation ] / [ Munich, Germany ]
+
+Typography footer mobile:
+
+text
+font-family:    PP Neue Montreal
+font-weight:    500 (Medium)
+font-size:      16px
+line-height:    100%
+letter-spacing: -2%
+color:          #0D0D0D
+vertical-trim:  cap height
+Розташовані в 2 рядки:
+
+Рядок 1: [ Instagram ] [ What's App ]
+
+Рядок 2: [ Available for cooperation ] [ Munich, Germany ]
+
+img — Зображення mobile
+text
+width:        390px
+height:       220px
+top:          620px
+left:         0px
+object-fit:   crop (cover)
+Зображення займає нижні 220px із 840px — 26% висоти екрану.
+
+ЛОГІКА ПОВЕДІНКИ (для Claude Code)
+text
+STATE: menu (закрито)
+- overlay:    display: none / opacity: 0 / visibility: hidden
+- button:     показує [ Menu ]
+- body:       scroll — нормальний
+
+STATE: menu-open (відкрито)
+- overlay:    display: block / opacity: 1 / visibility: visible
+- button:     показує [ Close ]
+- body:       overflow: hidden (заблокований скрол)
+- overlay:    позиціонується від top = висота хедера (56px total = 20px top + 24px height + 12px padding)
+РОЗМІРИ ХЕДЕРА (точні)
+text
+DESKTOP:
+  header внутрішній контейнер top: 20px
+  logo-wrapper height: 24px
+  padding-bottom: 12px
+  = загальна висота header зони: ~56px від верху до контенту нижче
+
+MOBILE:
+  header внутрішній контейнер top: 20px
+  logo-wrapper height: 24px
+  padding-bottom: 12px
+  left: 15px (замість 40px на desktop)
+PROMPT для Claude Code (готово до копіювання)
+text
+Implement menu / menu-open states for kisha-tattoo project.
+Pixel-perfect from Figma.
+
+=== DESIGN TOKENS ===
+--color-black: #0D0D0D
+--color-white: #FFFFFF
+--color-bg-menu-open: #F2F2F2
+--font-family: "PP Neue Montreal", sans-serif
+
+=== HEADER (logo-wrapper) ===
+DESKTOP:
+  position: absolute or sticky
+  top: 20px
+  left: 40px
+  width: calc(100% - 80px)  [1840px on 1920]
+  height: 24px
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  border-bottom: 2px solid #0D0D0D
+  padding-bottom: 12px
+
+MOBILE (≤390px):
+  top: 20px
+  left: 15px
+  width: calc(100% - 30px)  [360px on 390]
+  same flex rules
+
+Header contains: [Logo SVG left] [Toggle button center] [Tattoo text right]
+
+Toggle button styles:
+  font: PP Neue Montreal 500 14px
+  line-height: 100%
+  letter-spacing: -2%
+  color: #0D0D0D
+  background: none
+  border: none
+  cursor: pointer
+  States: "[ Menu ]" closed → "[ Close ]" open
+
+=== MENU OVERLAY ===
+  position: fixed
+  top: 56px  (20 + 24 + 12 = header bottom)
+  left: 0
+  width: 100vw
+  height: calc(100dvh - 56px)
+  background: #FFFFFF (desktop) / #F2F2F2 (mobile)
+  z-index: 90
+  overflow: hidden
+
+Closed state:
+  opacity: 0
+  visibility: hidden
+  pointer-events: none
+
+Open state:
+  opacity: 1
+  visibility: visible
+  pointer-events: auto
+
+=== NAV LINKS ===
+DESKTOP:
+  position: absolute
+  top: 72px
+  left: 40px
+  display: flex
+  flex-direction: column
+  gap: 20px
+
+  Link typography:
+    font: PP Neue Montreal 500 Medium
+    font-size: 52px
+    line-height: 90%
+    letter-spacing: -2%
+    color: #0D0D0D
+
+MOBILE:
+  position: absolute
+  top: 72px
+  left: 15px
+  display: flex
+  flex-direction: column
+  gap: 20px
+
+  Link typography:
+    font-size: 32px  (Heading S)
+    line-height: 90%
+    letter-spacing: -2%
+    color: #0D0D0D
+
+=== IMAGE ===
+DESKTOP:
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 1920px / 100%
+  height: 480px  (44.4% of 1080px)
+  object-fit: cover
+
+MOBILE:
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 390px / 100%
+  height: 220px
+  object-fit: cover
+
+=== FOOTER LINKS ===
+DESKTOP:
+  position: absolute
+  top: 569px
+  left: 40px
+  display: flex
+  gap: 24px
+  font: PP Neue Montreal 500 16px
+  line-height: 100%
+  letter-spacing: -2%
+  color: #0D0D0D
+
+MOBILE:
+  position: absolute
+  top: 554px
+  left: 15px
+  display: flex
+  flex-wrap: wrap
+  gap: 8px 16px
+  font: PP Neue Montreal 500 16px
+  line-height: 100%
+  letter-spacing: -2%
+  color: #0D0D0D
+  Links in 2 rows:
+    Row 1: [ Instagram ] [ What's App ]
+    Row 2: [ Available for cooperation ] [ Munich, Germany ]
+
+=== LANGUAGE SWITCHER ===
+  Position: after nav block ~340px top on mobile, 15px left
+  Items: En / De / Ua
+  Active (En): has border/outline
+  Font: same 14px PP Neue Montreal
+
+=== BEHAVIOR ===
+On toggle click:
+  1. Toggle class "menu-open" on <body> or overlay
+  2. Change button label Menu ↔ Close
+  3. Toggle overlay visibility
+  4. Lock/unlock body scroll (overflow: hidden)
+
+Keyboard:
+  Esc key → close menu
+  button aria-expanded="true/false"
+  button aria-controls="menu-overlay"
+  overlay id="menu-overlay" role="dialog"
+  Focus trap inside overlay when open
