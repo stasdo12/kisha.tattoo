@@ -37,9 +37,9 @@ export async function generateMetadata({
 }
 
 const RELATED = [
-  { id: 1, slug: 'history-of-japanese-irezumi',    title: 'The History of Japanese Irezumi',          category: 'Culture',     date: 'November 2024' },
-  { id: 2, slug: 'choosing-your-first-japanese-tattoo', title: 'Choosing Your First Japanese Tattoo', category: 'Guide',       date: 'October 2024'  },
-  { id: 3, slug: 'blackwork-tattoo-explained',      title: 'Blackwork Tattooing: Bold & Built to Last', category: 'Style Guide', date: 'September 2024' },
+  { id: 1, slug: 'history-of-japanese-irezumi',         title: 'The History of Japanese Irezumi',          category: 'Culture',     date: 'November 2024',  coverImage: '/images/home/works-04-god-japanese.jpg'   },
+  { id: 2, slug: 'choosing-your-first-japanese-tattoo', title: 'Choosing Your First Japanese Tattoo',      category: 'Guide',       date: 'October 2024',   coverImage: '/images/home/works-02-fox-japanese.jpg'   },
+  { id: 3, slug: 'blackwork-tattoo-explained',          title: 'Blackwork Tattooing: Bold & Built to Last', category: 'Style Guide', date: 'September 2024', coverImage: '/images/home/works-05-flowers-graphic.jpg' },
 ]
 
 export default async function ArticleDetailPage({
@@ -218,6 +218,7 @@ export default async function ArticleDetailPage({
               category={article.category}
               date={article.date}
               href={`/blog/${article.slug}`}
+              imageSrc={article.coverImage}
             />
           ))}
         </div>
