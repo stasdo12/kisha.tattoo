@@ -209,10 +209,10 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
         {/* Background image — decorative, so aria-hidden on wrapper is sufficient */}
         <div className="g-menu-img" aria-hidden="true">
           <Image
-            src="/images/home/works-01-blackwork-fullbody.jpg"
+            src="/images/menu/menu-bg.jpg"
             alt="Full-body blackwork tattoo by Kisha"
             fill
-            style={{ objectFit: 'cover', objectPosition: 'center top' }}
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
             sizes="100vw"
           />
         </div>
