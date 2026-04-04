@@ -2,12 +2,19 @@
 
 import { useState } from 'react'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
-import type { Story } from '@/content/stories'
 
 const FILTER_TABS = ['All', 'Culture', 'Guide', 'Style Guide']
 
+export type StoryCard = {
+  slug: string
+  title: string
+  category: string
+  publishedAt: string
+  coverImage: string
+}
+
 interface Props {
-  articles: Story[]
+  articles: StoryCard[]
 }
 
 export function BlogFilter({ articles }: Props) {

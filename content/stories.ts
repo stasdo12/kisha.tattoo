@@ -1,83 +1,66 @@
 /**
- * Stories / blog content for the Graphic section.
- * In production, replace with a CMS or MDX files for ISR-driven content.
+ * Stories / blog article metadata.
+ * Text content (title, excerpt, body) lives in messages/[locale].json → blog.stories.[slug]
  */
 
-export type Story = {
+export type StoryMeta = {
   slug: string
-  title: string
-  excerpt: string
   publishedAt: string
   readingTime: string
   category: string
   coverImage: string
+  coverImageBig: string
   coverAlt: string
-  body: string
 }
 
-export const STORIES: Story[] = [
+export const STORIES: StoryMeta[] = [
   {
-    slug: 'history-of-japanese-irezumi',
-    title: 'The History of Japanese Irezumi: From Ritual to Art Form',
-    excerpt:
-      'Irezumi has marked the human body for over 5,000 years in Japan. Explore how criminal branding evolved into the most revered tattoo tradition on earth.',
-    publishedAt: '2024-11-15',
-    readingTime: '8 min read',
-    category: 'Culture',
-    coverImage: '/images/home/works-04-god-japanese.jpg',
-    coverAlt: 'Traditional Japanese Irezumi tattoo by Kisha — deity motif',
-    body: `
-Japanese tattooing — known as Irezumi (入れ墨) or Horimono (彫り物) — carries one of the richest histories in the world of body art. Archaeological evidence suggests tattooing in Japan dates back to at least 300 BCE, with clay figurines bearing facial markings discovered from the Jōmon period.
-
-For centuries, tattooing oscillated between sacred ritual and criminal punishment. The Edo period (1603–1868) saw both extremes: merchants and artisans adopted decorative tattoos as fashion statements, while courts used them to brand criminals — a practice that cast a shadow over tattooing in mainstream Japanese society for generations.
-
-It was the Meiji Restoration of 1868 that made tattooing illegal in Japan, aimed at modernising the nation's image for Western eyes. This ban remained until 1948, yet paradoxically drove the art underground, where it flourished in the hands of master horishi who preserved classical techniques and iconography.
-
-Today, Irezumi stands as a globally celebrated art form, with collectors from Munich to Tokyo seeking authentic traditional work.
-    `.trim(),
-  },
-  {
-    slug: 'choosing-your-first-japanese-tattoo',
-    title: 'Choosing Your First Japanese Tattoo: A Complete Guide',
-    excerpt:
-      'Placement, motif, size — everything you need to know before committing to your first Irezumi piece. A practical guide from first consultation to healed tattoo.',
-    publishedAt: '2024-10-02',
-    readingTime: '6 min read',
-    category: 'Guide',
-    coverImage: '/images/home/works-02-fox-japanese.jpg',
-    coverAlt: 'Japanese fox tattoo by Kisha — Irezumi style',
-    body: `
-Choosing a first Japanese tattoo is not simply about picking a picture you like. Traditional Irezumi is a compositional art — motifs are selected for their symbolism, placed to flow with the body's musculature, and designed as part of a larger visual language.
-
-**Start with meaning.** Japanese tattoo iconography is dense with symbolism. A Koi fish swimming upstream symbolises perseverance through adversity. A Hannya mask captures the duality of love and rage. Understand what you want to carry on your skin.
-
-**Consider placement early.** Japanese compositions are designed around specific body parts — the back, chest, sleeve, and thigh each have traditional compositional templates. Where your tattoo lives determines much of its design.
-
-**Think about growth.** Many collectors begin with a single motif and build outward over years. A forearm piece can anchor a future half-sleeve. Thinking ahead allows your collection to grow cohesively.
-    `.trim(),
-  },
-  {
-    slug: 'blackwork-tattoo-explained',
-    title: 'Blackwork Tattooing: Bold, Graphic, and Built to Last',
-    excerpt:
-      'Blackwork is one of the fastest-growing tattoo styles. Here\'s what defines it, why it ages so well, and whether it\'s right for you.',
-    publishedAt: '2024-09-18',
-    readingTime: '5 min read',
+    slug: 'fineline-tattoo-ideen-muenchen',
+    publishedAt: '2025-01-15',
+    readingTime: '3 min',
     category: 'Style Guide',
-    coverImage: '/images/home/works-05-flowers-graphic.jpg',
-    coverAlt: 'Blackwork graphic tattoo by Kisha — bold floral design',
-    body: `
-Blackwork tattooing uses solid black ink — no colour, no grey wash — to create bold graphic imagery. The style encompasses geometric patterns, tribal-inspired work, illustrative designs, and large solid-fill compositions.
-
-**Why blackwork ages so well.** Colour tattoos fade. Grey wash blurs. But solid black, applied correctly, holds its shape and contrast for decades. This makes blackwork one of the most durable tattoo styles available.
-
-**The graphic connection.** Blackwork draws heavily from graphic design — the same principles of contrast, weight, and negative space that define great visual communication apply directly to blackwork tattooing.
-
-**Is it right for you?** If you prefer bold, high-contrast aesthetics over delicate detail, and you want a tattoo that reads clearly from a distance, blackwork is an excellent choice.
-    `.trim(),
+    coverImage: '/images/blog/finelineBlog1.png',
+    coverImageBig: '/images/blog/fineLineBlog1(big).png',
+    coverAlt: 'Fineline Tattoo München — zarte Linien von Kisha',
+  },
+  {
+    slug: 'japan-tattoo-bedeutung-irezumi-motive',
+    publishedAt: '2025-02-10',
+    readingTime: '4 min',
+    category: 'Culture',
+    coverImage: '/images/blog/japanBlog2.png',
+    coverImageBig: '/images/blog/japanBlog2(Big).png',
+    coverAlt: 'Japanisches Irezumi Tattoo München — Kisha',
+  },
+  {
+    slug: 'blackwork-graphic-tattoo-bedeutung-ideen',
+    publishedAt: '2025-03-05',
+    readingTime: '4 min',
+    category: 'Style Guide',
+    coverImage: '/images/blog/graphicBlog3.png',
+    coverImageBig: '/images/blog/graphicBlog3(Big).png',
+    coverAlt: 'Blackwork Graphic Tattoo München — Kisha',
+  },
+  {
+    slug: 'tattoo-schmerzen-was-du-wirklich-fuehlen-wirst',
+    publishedAt: '2025-03-20',
+    readingTime: '3 min',
+    category: 'Guide',
+    coverImage: '/images/blog/schmerzenTattooBlog4.png',
+    coverImageBig: '/images/blog/schmerzenTattooBlog4(big).png',
+    coverAlt: 'Tattoo Schmerzen — Kisha Tattoo Artistin München',
+  },
+  {
+    slug: 'erste-tattoo-ideen-wie-nicht-bereuen',
+    publishedAt: '2025-04-01',
+    readingTime: '5 min',
+    category: 'Guide',
+    coverImage: '/images/blog/ErsteTattooBlog5.png',
+    coverImageBig: '/images/blog/ErsteTattooBlog5(Big).png',
+    coverAlt: 'Erstes Tattoo München — Ratgeber von Kisha',
   },
 ]
 
-export function getStoryBySlug(slug: string): Story | undefined {
+export function getStoryBySlug(slug: string): StoryMeta | undefined {
   return STORIES.find((s) => s.slug === slug)
 }

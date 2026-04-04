@@ -1,17 +1,13 @@
 /**
  * GRAPHIC BLOG — Article detail page
  * Design: Figma spec 1920 / 1440 / 390px
- *
- * Hero: fullscreen photo + 35% overlay, H1, Back to blog, meta bar, vertical nav
- * Content: centred 692px column — lead, h2 subheadings, body paragraphs
- * Related: 4-col grid of article cards
- * Footer: standard dark footer
  */
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { STORIES, getStoryBySlug } from '@/content/stories'
 import { buildMetadata } from '@/lib/seo'
+import { getTranslations } from 'next-intl/server'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
@@ -27,28 +23,97 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
   const { locale, slug } = await params
-  const story = getStoryBySlug(slug)
+  const meta = getStoryBySlug(slug)
+  const t = await getTranslations({ locale, namespace: 'blog' })
+  const content = meta ? t.raw(`stories.${slug}`) as { title: string; excerpt: string } : null
   return buildMetadata({
-    title: story ? `${story.title} — Kisha Irezumi` : 'Article — Kisha Irezumi',
-    description: story?.excerpt ?? '',
+    title: content ? `${content.title} — Kisha Tattoo München` : 'Article — Kisha Tattoo',
+    description: content?.excerpt ?? '',
     path: `/blog/${slug}`,
     locale,
   })
 }
 
-const RELATED = [
-  { id: 1, slug: 'history-of-japanese-irezumi',         title: 'The History of Japanese Irezumi',          category: 'Culture',     date: 'November 2024',  coverImage: '/images/home/works-04-god-japanese.jpg'   },
-  { id: 2, slug: 'choosing-your-first-japanese-tattoo', title: 'Choosing Your First Japanese Tattoo',      category: 'Guide',       date: 'October 2024',   coverImage: '/images/home/works-02-fox-japanese.jpg'   },
-  { id: 3, slug: 'blackwork-tattoo-explained',          title: 'Blackwork Tattooing: Bold & Built to Last', category: 'Style Guide', date: 'September 2024', coverImage: '/images/home/works-05-flowers-graphic.jpg' },
-]
+/* ── Body renderer: parses ## H2, - lists, paragraphs ── */
+function ArticleBody({ body }: { body: string }) {
+  const blocks = body.split('\n\n')
+  return (
+    <>
+      {blocks.map((block, i) => {
+        // H2 heading
+        if (block.startsWith('## ')) {
+          return (
+            <h2
+              key={i}
+              style={{
+                fontSize: 'var(--g-s)',
+                lineHeight: 'var(--g-lh-s)',
+                color: '#0D0D0D',
+                fontWeight: 500,
+                marginTop: '0.5rem',
+              }}
+            >
+              {block.slice(3)}
+            </h2>
+          )
+        }
+        // Bullet list — block where all lines start with "- "
+        const lines = block.split('\n')
+        if (lines.length > 1 && lines.every((l) => l.startsWith('- '))) {
+          return (
+            <ul
+              key={i}
+              style={{
+                paddingLeft: '1.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '6px',
+                listStyleType: 'disc',
+              }}
+            >
+              {lines.map((line, j) => (
+                <li
+                  key={j}
+                  style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}
+                >
+                  {line.slice(2)}
+                </li>
+              ))}
+            </ul>
+          )
+        }
+        // Regular paragraph
+        return (
+          <p
+            key={i}
+            style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}
+          >
+            {block}
+          </p>
+        )
+      })}
+    </>
+  )
+}
 
 export default async function ArticleDetailPage({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>
 }) {
-  const { slug } = await params
-  const story = getStoryBySlug(slug)
+  const { locale, slug } = await params
+  const meta = getStoryBySlug(slug)
+  const t = await getTranslations({ locale, namespace: 'blog' })
+  const content = meta
+    ? (t.raw(`stories.${slug}`) as { title: string; excerpt: string; body: string })
+    : null
+
+  // Related: other articles except current
+  const related = STORIES.filter((s) => s.slug !== slug).slice(0, 4).map((s) => ({
+    ...s,
+    title: (t.raw(`stories.${s.slug}`) as { title: string }).title,
+  }))
+
   return (
     <main id="main-content">
 
@@ -66,24 +131,23 @@ export default async function ArticleDetailPage({
       >
         {/* Background photo */}
         <Image
-          src={story?.coverImage ?? 'https://picsum.photos/seed/article-hero/1920/1080'}
-          alt={story?.title ?? 'Tattoo Blog — KishaTattoo München'}
+          src={meta?.coverImageBig ?? meta?.coverImage ?? '/images/blog/fineLineBlog1(big).png'}
+          alt={content?.title ?? 'Tattoo Blog — KishaTattoo München'}
           aria-hidden="true"
           fill
           priority
           style={{ objectFit: 'cover', objectPosition: 'center' }}
           sizes="100vw"
         />
-        {/* Overlay 35% */}
+        {/* Overlay */}
         <div
           aria-hidden="true"
           style={{ position: 'absolute', inset: 0, background: 'rgba(13,13,13,0.55)', zIndex: 1 }}
         />
 
-        {/* ── Logo bar — 3-column ── */}
         <GHeader theme="dark" />
 
-        {/* ── Back to blog ── */}
+        {/* Back to blog */}
         <Link
           href="/blog"
           className="g-article-back"
@@ -106,10 +170,10 @@ export default async function ArticleDetailPage({
             whiteSpace: 'nowrap',
           }}
         >
-          Back to blog
+          {t('backToList')}
         </Link>
 
-        {/* ── H1 ── */}
+        {/* H1 */}
         <h1
           className="g-article-h1"
           style={{
@@ -123,10 +187,10 @@ export default async function ArticleDetailPage({
             zIndex: 2,
           }}
         >
-          {story?.title ?? 'Article'}
+          {content?.title ?? ''}
         </h1>
 
-        {/* ── Bottom meta bar ── */}
+        {/* Bottom meta bar */}
         <div
           className="g-article-meta"
           style={{
@@ -141,14 +205,12 @@ export default async function ArticleDetailPage({
           }}
         >
           <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.7)' }}>
-            {story?.category} · {story?.publishedAt}
+            {meta?.category} · {meta?.publishedAt}
           </span>
           <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.7)' }}>
-            {story?.readingTime}
+            {meta?.readingTime}
           </span>
         </div>
-
-        {/* ── Vertical nav ── */}
       </section>
 
       {/* ── ARTICLE CONTENT ──────────────────────────────────────────────── */}
@@ -169,14 +231,10 @@ export default async function ArticleDetailPage({
             width: 'clamp(320px, 48.06vw, 692px)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '32px',
+            gap: '28px',
           }}
         >
-          {story?.body.split('\n\n').map((para, i) => (
-            <p key={i} style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}>
-              {para}
-            </p>
-          ))}
+          {content?.body ? <ArticleBody body={content.body} /> : null}
         </article>
       </section>
 
@@ -191,7 +249,6 @@ export default async function ArticleDetailPage({
           paddingRight: 'var(--g-pad)',
         }}
       >
-        {/* Heading */}
         <div
           className="g-blog-heading-wrapper"
           style={{
@@ -201,22 +258,21 @@ export default async function ArticleDetailPage({
           }}
         >
           <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-            Related articles
+            {t('related')}
           </h2>
         </div>
 
-        {/* 4-col grid */}
         <div
           className="g-blog-articles-grid"
           style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}
         >
-          {RELATED.map((article) => (
+          {related.map((article, i) => (
             <GArticleCard
-              key={article.id}
-              id={article.id}
+              key={article.slug}
+              id={i + 1}
               title={article.title}
               category={article.category}
-              date={article.date}
+              date={article.publishedAt}
               href={`/blog/${article.slug}`}
               imageSrc={article.coverImage}
             />
@@ -224,7 +280,6 @@ export default async function ArticleDetailPage({
         </div>
       </section>
 
-      {/* ── FOOTER ───────────────────────────────────────────────────────── */}
       <GFooter />
 
     </main>

@@ -1,10 +1,6 @@
 /**
  * GRAPHIC BLOG — Kisha Irezumi
  * Design: Figma spec 1920 / 1440 / 390px
- *
- * Hero: light bg, 3-col logo bar, centred H1, featured card + side tags, vertical nav
- * Articles: 4-col grid with filter tabs (client component)
- * Footer: standard dark footer
  */
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -24,8 +20,6 @@ export async function generateMetadata(
   return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/blog', locale })
 }
 
-const heroStory = STORIES[0]
-
 export default async function GraphicBlogPage({
   params,
 }: {
@@ -33,6 +27,21 @@ export default async function GraphicBlogPage({
 }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'blog' })
+
+  // Build localized article list
+  const articles = STORIES.map((meta) => {
+    const content = t.raw(`stories.${meta.slug}`) as { title: string; excerpt: string }
+    return {
+      slug: meta.slug,
+      title: content.title,
+      category: meta.category,
+      publishedAt: meta.publishedAt,
+      coverImage: meta.coverImage,
+    }
+  })
+
+  const heroMeta = STORIES[0]
+  const heroContent = t.raw(`stories.${heroMeta.slug}`) as { title: string; excerpt: string }
 
   return (
     <main id="main-content">
@@ -48,11 +57,9 @@ export default async function GraphicBlogPage({
           overflow: 'hidden',
         }}
       >
-
-        {/* ── Logo bar — 3-column ── */}
         <GHeader theme="light" />
 
-        {/* ── H1 — centred ── */}
+        {/* H1 — centred */}
         <h1
           className="g-blog-h1"
           style={{
@@ -71,7 +78,7 @@ export default async function GraphicBlogPage({
           {t('hero.h1')}
         </h1>
 
-        {/* ── hero-info: left-tag | card | right-tag ── */}
+        {/* hero-info: left-tag | card | right-tag */}
         <div
           className="g-blog-hero-info"
           style={{
@@ -106,11 +113,10 @@ export default async function GraphicBlogPage({
               gap: '20px',
             }}
           >
-            {/* Image */}
             <div style={{ position: 'relative', width: '100%', height: '220px', flexShrink: 0 }}>
               <Image
-                src={heroStory.coverImage}
-                alt={heroStory.coverAlt}
+                src={heroMeta.coverImage}
+                alt={heroMeta.coverAlt}
                 fill
                 priority
                 style={{ objectFit: 'cover' }}
@@ -118,7 +124,6 @@ export default async function GraphicBlogPage({
               />
             </div>
 
-            {/* Body */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <h2
                 style={{
@@ -128,13 +133,13 @@ export default async function GraphicBlogPage({
                   fontWeight: 500,
                 }}
               >
-                {heroStory.title}
+                {heroContent.title}
               </h2>
               <span style={{ fontSize: '12px', color: '#F2F2F2' }}>
-                {heroStory.category} · {heroStory.publishedAt}
+                {heroMeta.category} · {heroMeta.publishedAt}
               </span>
               <Link
-                href={`/blog/${heroStory.slug}`}
+                href={`/blog/${heroMeta.slug}`}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -149,7 +154,7 @@ export default async function GraphicBlogPage({
                   textDecoration: 'none',
                 }}
               >
-                Read this article
+                {t('readMore')}
               </Link>
             </div>
           </article>
@@ -162,9 +167,6 @@ export default async function GraphicBlogPage({
             [ Key insights from my work ]
           </span>
         </div>
-
-        {/* ── Vertical nav ── */}
-
       </section>
 
       {/* ── ARTICLES SECTION ─────────────────────────────────────────────── */}
@@ -179,8 +181,6 @@ export default async function GraphicBlogPage({
           paddingRight: 'var(--g-pad)',
         }}
       >
-
-        {/* Heading */}
         <div
           className="g-blog-heading-wrapper"
           style={{
@@ -197,9 +197,7 @@ export default async function GraphicBlogPage({
           </h2>
         </div>
 
-        {/* Filter tabs + articles grid — client component for interactivity */}
-        <BlogFilter articles={STORIES} />
-
+        <BlogFilter articles={articles} />
       </section>
 
       {/* ── KISHA TEASER ──────────────────────────────────────────────────── */}
@@ -242,7 +240,6 @@ export default async function GraphicBlogPage({
         </div>
       </section>
 
-      {/* ── FOOTER ───────────────────────────────────────────────────────── */}
       <GFooter />
 
     </main>
