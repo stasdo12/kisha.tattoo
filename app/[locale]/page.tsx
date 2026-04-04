@@ -251,8 +251,7 @@ export default async function GraphicHomePage() {
                   lineHeight: 'var(--g-lh-l)',
                   color: '#0D0D0D',
                   textAlign: 'center',
-                  /* 422px @ 1440 = 29.3vw; no max-width clamp so it scales with viewport */
-                  width: 'clamp(22rem, 29.3vw, 35rem)',
+                  width: 'clamp(22rem, 39.06vw, 750px)',
                 }}
               >
                 {t('works.heading')}
@@ -371,54 +370,56 @@ export default async function GraphicHomePage() {
           className="g-philosophy-section"
           style={{
             background: '#F2F2F2',
-            position: 'relative',
-            height: 'clamp(900px, calc(180px + 50vw), 1100px)',
-            overflow: 'hidden',
+            padding: '0 var(--g-pad)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '46px',
           }}
         >
-          {/* H2 — top-left */}
-          <h2
-            id="philosophy-heading"
-            className="g-philosophy-heading"
+          {/* Text row: fixed 1376px wrapper → h2 left, p2 right at 928px */}
+          <div
+            className="g-philosophy-heading-row"
             style={{
-              position: 'absolute',
-              left: 'var(--g-pad)',
-              top: 0,
-              width: '24rem',
-              fontSize: 'var(--g-l)',
-              lineHeight: 'var(--g-lh-l)',
-              color: '#0D0D0D',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-start',
+              width: 'clamp(700px, 71.67vw, 1376px)',
             }}
           >
-            {t('philosophy.heading').split('\n')[0]}<br />{t('philosophy.heading').split('\n')[1]}
-          </h2>
+            <h2
+              id="philosophy-heading"
+              className="g-philosophy-heading"
+              style={{
+                width: 'clamp(200px, 15.26vw, 293px)',
+                fontSize: 'var(--g-l)',
+                lineHeight: 'var(--g-lh-l)',
+                color: '#0D0D0D',
+              }}
+            >
+              {t('philosophy.heading').split('\n')[0]}<br />{t('philosophy.heading').split('\n')[1]}
+            </h2>
 
-          {/* P2 — top-right, above photo — matches Figma passion-section */}
-          <p
-            className="g-philosophy-p2"
-            style={{
-              position: 'absolute',
-              left: 'calc(48px + 45.83vw)',
-              top: 0,
-              width: '28rem',
-              fontSize: 'var(--g-bm)',
-              lineHeight: 'var(--g-lh-bm)',
-              color: '#0D0D0D',
-            }}
-          >
-            {t('philosophy.p2')}
-          </p>
+            <p
+              className="g-philosophy-p2"
+              style={{
+                width: 'clamp(280px, 23.33vw, 448px)',
+                fontSize: 'var(--g-bm)',
+                lineHeight: 'var(--g-lh-bm)',
+                color: '#0D0D0D',
+              }}
+            >
+              {t('philosophy.p2')}
+            </p>
+          </div>
 
-          {/* Full-width photo — top: 140px (heading ~100px + 40px gap) */}
+          {/* Photo — full width of padded container */}
           <div
             aria-hidden="true"
             className="g-philosophy-photo"
             style={{
-              position: 'absolute',
-              left: 'var(--g-pad)',
-              right: 'var(--g-pad)',
-              top: '140px',
+              position: 'relative',
               height: 'clamp(720px, 50vw, 760px)',
+              flexShrink: 0,
             }}
           >
             <Image
@@ -432,7 +433,7 @@ export default async function GraphicHomePage() {
         </section>
 
         {/* ── STEPS ────────────────────────────────────────────────────────── */}
-        <section aria-labelledby="steps-heading" style={{ background: '#F2F2F2' }}>
+        <section aria-labelledby="steps-heading" style={{ background: '#F2F2F2', paddingTop: '120px' }}>
           {/* Header — light bg */}
           <div className="g-container">
             <div className="g-section-header" style={{ justifyContent: 'center' }}>
@@ -666,25 +667,42 @@ export default async function GraphicHomePage() {
           style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
         >
           <div className="g-container">
-            <span className="g-tag" style={{ display: 'block', marginBottom: '2rem' }}>{t('faq.label')}</span>
 
+            {/* Heading row: mirrors content row widths → perfect alignment */}
+            <div className="g-faq-heading-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'clamp(1.5rem, 7.6vw, 146px)' }}>
+              <span className="g-tag" style={{ width: 'clamp(180px, 18.4vw, 354px)', flexShrink: 0 }}>{t('faq.label')}</span>
+              <h2
+                id="faq-heading"
+                style={{
+                  fontSize: 'var(--g-l)',
+                  lineHeight: 'var(--g-lh-l)',
+                  color: '#0D0D0D',
+                  width: 'clamp(400px, 47.5vw, 912px)',
+                }}
+              >
+                {t('faq.heading')}
+              </h2>
+            </div>
+
+            {/* Content: photo left — questions right, aligned at top */}
             <div
               className="g-faq-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'clamp(180px, 18.4vw, 354px) 1fr 2fr',
-                gap: 'clamp(1rem, 2vw, 2rem)',
-                alignItems: 'start',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
               }}
             >
-              {/* Left: master portrait */}
+              {/* Left: master portrait — aligned with Question №1 */}
               <div
                 className="g-faq-portrait"
                 style={{
                   position: 'relative',
+                  width: 'clamp(180px, 18.4vw, 354px)',
                   aspectRatio: '354 / 384',
                   borderRadius: '2px',
                   overflow: 'hidden',
+                  flexShrink: 0,
                 }}
               >
                 <Image
@@ -696,32 +714,15 @@ export default async function GraphicHomePage() {
                 />
               </div>
 
-              {/* Spacer — column 2 */}
-              <div aria-hidden="true" />
-
-              {/* Right: heading + questions — column 3 */}
-              <div className="g-faq-content" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <h2
-                  id="faq-heading"
-                  style={{
-                    fontSize: 'var(--g-l)',
-                    lineHeight: 'var(--g-lh-l)',
-                    color: '#0D0D0D',
-                    textWrap: 'balance',
-                  }}
-                >
-                  {t('faq.heading')}
-                </h2>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  {FAQ.map((item, i) => (
-                    <div key={i} className="g-faq-item">
-                      <span className="g-faq-item__num g-tag">{t('faq.question')}{i + 1}</span>
-                      <h3 className="g-faq-item__q">{item.q}</h3>
-                      <p className="g-faq-item__a">{item.a}</p>
-                    </div>
-                  ))}
-                </div>
+              {/* Right: questions only */}
+              <div className="g-faq-content" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: 'clamp(400px, 47.5vw, 912px)' }}>
+                {FAQ.map((item, i) => (
+                  <div key={i} className="g-faq-item">
+                    <span className="g-faq-item__num g-tag">{t('faq.question')}{i + 1}</span>
+                    <h3 className="g-faq-item__q">{item.q}</h3>
+                    <p className="g-faq-item__a">{item.a}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

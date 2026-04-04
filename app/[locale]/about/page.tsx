@@ -138,14 +138,14 @@ export default async function GraphicAboutPage() {
       >
         <div className="g-container">
 
-          {/* Heading row: [ tag ] — centered title — [ tag ] */}
-          <div className="g-section-header" style={{ alignItems: 'center' }}>
-            <span style={{
-              fontSize: 'var(--g-tag)', color: '#0D0D0D',
-              whiteSpace: 'nowrap', flexShrink: 0,
-            }}>
-              {t('journey.tag')}
-            </span>
+          {/* Heading row: h2 centered, border-bottom */}
+          <div style={{
+            paddingBottom: '1.25rem',
+            borderBottom: '2px solid #0D0D0D',
+            marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
+            display: 'flex',
+            justifyContent: 'center',
+          }}>
             <h2
               id="about-journey-heading"
               style={{
@@ -153,21 +153,11 @@ export default async function GraphicAboutPage() {
                 lineHeight: 'var(--g-lh-l)',
                 color: '#0D0D0D',
                 textAlign: 'center',
-                width: 'clamp(18rem, 32.6vw, 470px)',
-                flexShrink: 0,
+                width: 'clamp(18rem, 21.25vw, 408px)',
               }}
             >
               {t('journey.heading')}
             </h2>
-            <Link
-              href="/works"
-              style={{
-                fontSize: 'var(--g-tag)', color: '#0D0D0D',
-                textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0,
-              }}
-            >
-              {t('journey.link')}
-            </Link>
           </div>
 
           {/* Full-width image */}
@@ -192,12 +182,12 @@ export default async function GraphicAboutPage() {
             />
           </div>
 
-          {/* Two text columns — right-aligned */}
+          {/* Two text columns — centered */}
           <div
             className="g-about-info"
             style={{
               display: 'flex',
-              justifyContent: 'flex-end',
+              justifyContent: 'center',
               gap: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)',
             }}
           >
@@ -300,7 +290,7 @@ export default async function GraphicAboutPage() {
             {t('mastery.sub')}
           </p>
 
-          {/* Three columns */}
+          {/* Three columns — A / B / C */}
           <div
             className="g-about-steps"
             style={{ display: 'flex' }}
@@ -313,29 +303,41 @@ export default async function GraphicAboutPage() {
                   flex: '1 1 0',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '1.5rem',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  minHeight: 'clamp(260px, 29vw, 418px)',
                   padding: i === 0
-                    ? '0 clamp(1rem, 2vw, 2rem) 0 0'
+                    ? '0 clamp(1rem, 2vw, 2rem) 1.25rem 0'
                     : i === 1
-                    ? '0 clamp(1rem, 2vw, 2rem)'
-                    : '0 0 0 clamp(1rem, 2vw, 2rem)',
-                  borderLeft: i > 0 ? '1px solid #0D0D0D' : 'none',
+                    ? '0 clamp(1rem, 2vw, 2rem) 1.25rem'
+                    : '0 clamp(1rem, 2vw, 2rem) 1.25rem',
+                  borderRight: i < 2 ? '1px solid #0D0D0D' : 'none',
                 }}
               >
-                <h3 style={{
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', alignSelf: 'stretch' }}>
+                  <h3 style={{
+                    fontSize: 'var(--g-s)',
+                    lineHeight: 'var(--g-lh-s)',
+                    color: '#0D0D0D',
+                  }}>
+                    {step.title}
+                  </h3>
+                  <p style={{
+                    fontSize: 'var(--g-bm)',
+                    lineHeight: 'var(--g-lh-bm)',
+                    color: '#0D0D0D',
+                  }}>
+                    {step.body}
+                  </p>
+                </div>
+                <span style={{
                   fontSize: 'var(--g-s)',
                   lineHeight: 'var(--g-lh-s)',
                   color: '#0D0D0D',
+                  alignSelf: 'center',
                 }}>
-                  {step.title}
-                </h3>
-                <p style={{
-                  fontSize: 'var(--g-bm)',
-                  lineHeight: 'var(--g-lh-bm)',
-                  color: '#0D0D0D',
-                }}>
-                  {step.body}
-                </p>
+                  {String.fromCharCode(65 + i)}
+                </span>
               </div>
             ))}
           </div>
@@ -344,65 +346,32 @@ export default async function GraphicAboutPage() {
       </section>
 
       {/* ── 5. AWARDS TEASER ──────────────────────────────────────────────── */}
-      <section
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
-      >
+      <section style={{ background: '#E8E8E8' }}>
         <div
-          className="g-container"
           style={{
             display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '2rem',
-            flexWrap: 'wrap',
-            paddingTop: 'clamp(1.5rem, 2.5vw, 3rem)',
-            borderTop: '2px solid #0D0D0D',
+            flexDirection: 'column',
+            gap: 'clamp(120px, 19.4vw, 280px)',
+            padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) clamp(20px, 2.08vw, 40px)',
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{t('awards.tag')}</span>
-            <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', maxWidth: '28rem' }}>
-              {t('awards.heading')}
-            </p>
+          {/* Top row: heading left + arrow right */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>{t('awards.tag')}</span>
+              <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', maxWidth: 'clamp(20rem, 27.4vw, 527px)' }}>
+                {t('awards.heading')}
+              </p>
+            </div>
+            <span aria-hidden="true" style={{ fontSize: '4rem', lineHeight: 1, color: '#0D0D0D', flexShrink: 0 }}>→</span>
           </div>
+
+          {/* Full-width dark CTA button */}
           <Link
             href="/awards"
-            style={{
-              fontSize: 'var(--g-bm)',
-              color: '#0D0D0D',
-              textDecoration: 'none',
-              borderBottom: '1px solid currentColor',
-              paddingBottom: '2px',
-              whiteSpace: 'nowrap',
-            }}
+            className="g-cta-strip"
           >
-            {t('awards.link')}
-          </Link>
-        </div>
-      </section>
-
-      {/* ── 6. BOOKING CTA ────────────────────────────────────────────────── */}
-      <section
-        data-nav-dark
-        style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
-      >
-        <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-          <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
-            {t('cta.heading')}
-          </p>
-          <Link
-            href="/booking"
-            style={{
-              display: 'inline-block',
-              padding: '0.875rem 2.5rem',
-              background: '#F2F2F2',
-              color: '#0D0D0D',
-              fontSize: 'var(--g-bm)',
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {t('cta.button')}
+            <span>{t('awards.link')}</span>
           </Link>
         </div>
       </section>

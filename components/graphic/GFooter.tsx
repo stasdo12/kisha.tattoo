@@ -160,14 +160,14 @@ export function GFooter() {
         </div>
 
         {/* Separator */}
-        <div style={{ height: '1px', background: 'rgba(242,242,242,0.15)', marginBottom: '0.75rem' }} />
+        <div style={{ height: '2px', background: '#F2F2F2', marginBottom: '0.75rem' }} />
 
         {/* Copyright row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
-          <span suppressHydrationWarning style={{ fontSize: '12px', fontWeight: 500, color: 'rgba(242,242,242,0.45)' }}>
+          <span suppressHydrationWarning style={{ fontSize: '12px', fontWeight: 500, color: '#F2F2F2' }}>
             {`[ ©${new Date().getFullYear()} Kisha Tattoo. All rights reserved ]`}
           </span>
-          <span style={{ fontSize: '12px', fontWeight: 500, color: 'rgba(242,242,242,0.45)' }}>
+          <span style={{ fontSize: '12px', fontWeight: 500, color: '#F2F2F2' }}>
             [ Made by Artem Yavorovskyi ]
           </span>
         </div>
