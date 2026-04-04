@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  # ─── Lint + Type-check + Test + Build ──────────────────────────────────────
+  # ─── Lint + Type-check + Test + Build ─────────────────────────────────────
   ci:
     name: CI
     runs-on: ubuntu-latest
@@ -35,24 +35,27 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          TELEGRAM_BOT_TOKEN: placeholder
-          TELEGRAM_CHAT_ID: placeholder
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
-  # ─── Deploy to Heroku (main branch only) ───────────────────────────────────
+  # ─── Deploy to VPS via SSH (main branch only) ─────────────────────────────
   deploy:
-    name: Deploy → Heroku
+    name: Deploy → VPS
     needs: ci
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          fetch-depth: 0
-
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.13.15
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -e
+            cd ${{ secrets.VPS_PROJECT_PATH }}
+            git pull origin main
+            npm ci --omit=dev=false
+            npm run build
+            pm2 restart kisha-tattoo || pm2 start npm --name kisha-tattoo -- start
