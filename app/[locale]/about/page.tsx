@@ -108,7 +108,7 @@ export default async function GraphicAboutPage() {
             fill
             priority
             style={{ objectFit: 'cover', objectPosition: 'top center' }}
-            sizes="14vw"
+            sizes="(max-width: 767px) 240px, 14vw"
           />
         </div>
 
