@@ -1124,7 +1124,7 @@ body:has([data-theme='graphic']) {
     aspect-ratio: 16 / 9 !important;
     max-height: 240px !important;
   }
-  .g-faq-content { order: 1 !important; }
+  .g-faq-content { order: 1 !important; width: 100% !important; }
   /* FAQ item: pad right so question text doesn't overlap the № label */
   .g-faq-item__q { padding-right: 100px !important; }
   /* FAQ heading row: stack on mobile */
@@ -1229,14 +1229,15 @@ body:has([data-theme='graphic']) {
   .g-about-mini-gallery { flex-wrap: nowrap !important; overflow-x: auto !important; }
 
   /* Mastery: stack 3 cols vertically */
-  .g-about-steps { flex-direction: column !important; gap: 2rem !important; }
+  .g-about-steps { flex-direction: column !important; gap: 0 !important; }
   .g-about-step-col {
-    padding: 0 !important;
+    padding: 1.5rem 0 !important;
     border-left: none !important;
-    padding-bottom: 2rem !important;
+    border-right: none !important;
     border-bottom: 1px solid #0D0D0D;
+    min-height: auto !important;
   }
-  .g-about-step-col:last-child { border-bottom: none !important; padding-bottom: 0 !important; }
+  .g-about-step-col:last-child { border-bottom: none !important; }
 
   /* ── FOOTER ── */
   /* nav columns: 2-col wrap on mobile */
