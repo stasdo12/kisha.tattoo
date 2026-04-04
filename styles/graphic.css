@@ -57,9 +57,14 @@ body:has([data-theme='graphic']) {
   border-bottom: 2px solid #0D0D0D;
 }
 
-.g-menu-bar-logo,
+.g-menu-bar-logo {
+  font-size: var(--g-bs);
+  color: #0D0D0D;
+  line-height: 1;
+}
+
 .g-menu-bar-tattoo {
-  font-size: 1rem;
+  font-size: var(--g-bxs);
   color: #0D0D0D;
   line-height: 1;
 }
