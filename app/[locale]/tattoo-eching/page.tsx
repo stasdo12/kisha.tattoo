@@ -111,7 +111,7 @@ export default async function TattooEching({
 
       {/* ── CONTENT ───────────────────────────────────────────────────────── */}
       <section
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
 
@@ -127,7 +127,7 @@ export default async function TattooEching({
             </h2>
           </div>
 
-          <div className="g-text-cols" style={{ display: 'flex', justifyContent: 'flex-end', gap: 'clamp(2rem, 4.2vw, 5rem)' }}>
+          <div className="g-text-cols" style={{ display: 'flex', justifyContent: 'flex-end', gap: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)' }}>
             <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
               {t('eching.content.body1')}
             </p>

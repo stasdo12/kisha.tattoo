@@ -140,7 +140,7 @@
 /* ── Steps section ──────────────────────────────────────────── */
 .steps {
   background: #F2F2F2;
-  padding: clamp(2rem, 4.2vw, 5rem) 0;
+  padding: clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0;
 }
 
 .stepsHeadingWrap {

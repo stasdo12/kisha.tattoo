@@ -203,7 +203,7 @@ export default async function GraphicBlogPage({
       </section>
 
       {/* ── KISHA TEASER ──────────────────────────────────────────────────── */}
-      <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div
           className="g-container"
           style={{

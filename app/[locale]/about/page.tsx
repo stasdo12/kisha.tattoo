@@ -134,7 +134,7 @@ export default async function GraphicAboutPage() {
       {/* ── 2. ABOUT SECTION ──────────────────────────────────────────────────── */}
       <section
         aria-labelledby="about-journey-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
 
@@ -198,7 +198,7 @@ export default async function GraphicAboutPage() {
             style={{
               display: 'flex',
               justifyContent: 'flex-end',
-              gap: 'clamp(2rem, 4.2vw, 5rem)',
+              gap: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)',
             }}
           >
             <p style={{
@@ -223,7 +223,7 @@ export default async function GraphicAboutPage() {
       {/* ── 3. PASSION SECTION ────────────────────────────────────────────────── */}
       <section
         aria-labelledby="passion-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
 
@@ -263,7 +263,7 @@ export default async function GraphicAboutPage() {
       {/* ── 4. MASTERY SECTION ────────────────────────────────────────────────── */}
       <section
         aria-labelledby="mastery-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
 
@@ -345,7 +345,7 @@ export default async function GraphicAboutPage() {
 
       {/* ── 5. AWARDS TEASER ──────────────────────────────────────────────── */}
       <section
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div
           className="g-container"
@@ -384,7 +384,7 @@ export default async function GraphicAboutPage() {
       {/* ── 6. BOOKING CTA ────────────────────────────────────────────────── */}
       <section
         data-nav-dark
-        style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>

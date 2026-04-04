@@ -78,7 +78,7 @@ export function FormPopup() {
 
         {status === 'success' ? (
           <div className="fp-form" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '120px' }}>
-            <p style={{ color: '#F2F2F2', fontSize: 'var(--g-bm)', textAlign: 'center', lineHeight: 'var(--g-lh-bm)', maxWidth: '28rem' }}>
+            <p style={{ color: '#0D0D0D', fontSize: 'var(--g-bm)', textAlign: 'center', lineHeight: 'var(--g-lh-bm)', maxWidth: '28rem' }}>
               {t('success')}
             </p>
           </div>

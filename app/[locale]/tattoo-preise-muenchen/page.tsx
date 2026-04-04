@@ -107,7 +107,7 @@ export default async function TattooPreiseMuenchen({
       {/* ── INTRO ─────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="preise-intro-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
           <div className="g-section-header" style={{ alignItems: 'center' }}>
@@ -137,7 +137,7 @@ export default async function TattooPreiseMuenchen({
             style={{
               display: 'flex',
               justifyContent: 'flex-end',
-              gap: 'clamp(2rem, 4.2vw, 5rem)',
+              gap: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)',
               marginTop: 'clamp(1.5rem, 2.5vw, 3rem)',
             }}
           >
@@ -154,7 +154,7 @@ export default async function TattooPreiseMuenchen({
       {/* ── PRICE TABLE ───────────────────────────────────────────────────── */}
       <section
         aria-labelledby="preise-table-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
           <div
@@ -209,7 +209,7 @@ export default async function TattooPreiseMuenchen({
       {/* ── WHAT AFFECTS PRICE ────────────────────────────────────────────── */}
       <section
         aria-labelledby="preise-factors-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
           <div
@@ -254,7 +254,7 @@ export default async function TattooPreiseMuenchen({
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="preise-faq-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
           <h2
@@ -293,7 +293,7 @@ export default async function TattooPreiseMuenchen({
       {/* ── STYLE CARDS ───────────────────────────────────────────────────── */}
       <section
         aria-labelledby="preise-styles-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
           <div
@@ -339,7 +339,7 @@ export default async function TattooPreiseMuenchen({
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section data-nav-dark style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section data-nav-dark style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
             {t('cta.heading')}

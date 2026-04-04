@@ -106,7 +106,7 @@ export default async function AftercarePage({
       {/* ── DAY BY DAY ────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="aftercare-guide-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
@@ -146,7 +146,7 @@ export default async function AftercarePage({
       </section>
 
       {/* ── WHAT TO AVOID ─────────────────────────────────────────────────── */}
-      <section aria-labelledby="avoid-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section aria-labelledby="avoid-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 id="avoid-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
@@ -170,7 +170,7 @@ export default async function AftercarePage({
       </section>
 
       {/* ── PRODUCTS ──────────────────────────────────────────────────────── */}
-      <section aria-labelledby="products-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section aria-labelledby="products-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 id="products-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>

@@ -106,7 +106,7 @@ export default async function FinelineTattooMuenchen({
       {/* ── INTRO ─────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="lw-intro-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
 
@@ -137,7 +137,7 @@ export default async function FinelineTattooMuenchen({
             style={{
               display: 'flex',
               justifyContent: 'flex-end',
-              gap: 'clamp(2rem, 4.2vw, 5rem)',
+              gap: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)',
               marginTop: 'clamp(1.5rem, 2.5vw, 3rem)',
             }}
           >
@@ -159,7 +159,7 @@ export default async function FinelineTattooMuenchen({
           background: '#F2F2F2',
           paddingLeft: 'var(--g-pad)',
           paddingRight: 'var(--g-pad)',
-          paddingBottom: 'clamp(2rem, 4.2vw, 5rem)',
+          paddingBottom: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)',
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -189,7 +189,7 @@ export default async function FinelineTattooMuenchen({
       {/* ── SUBSTYLES ─────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="lw-substyle-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
           <div
@@ -228,7 +228,7 @@ export default async function FinelineTattooMuenchen({
       </section>
 
       {/* ── PRICE TEASER ──────────────────────────────────────────────────── */}
-      <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
@@ -255,7 +255,7 @@ export default async function FinelineTattooMuenchen({
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="lw-faq-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
           <h2
@@ -301,7 +301,7 @@ export default async function FinelineTattooMuenchen({
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section data-nav-dark style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section data-nav-dark style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
             {t('cta.heading')}

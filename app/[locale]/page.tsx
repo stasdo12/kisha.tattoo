@@ -224,7 +224,7 @@ export default async function GraphicHomePage() {
         <section
           className="g-works-section"
           aria-labelledby="works-heading"
-          style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+          style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
         >
           <div className="g-container">
             {/* Header */}
@@ -545,7 +545,7 @@ export default async function GraphicHomePage() {
         <section
           aria-labelledby="trad-heading"
           className="g-trad-section"
-          style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+          style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
         >
           <div className="g-container" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(2rem, 3.61vw, 3.25rem)' }}>
 
@@ -578,7 +578,7 @@ export default async function GraphicHomePage() {
                 style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.75rem', flexShrink: 0 }}
               >
                 <span className="g-kanji">忍</span>
-                <span className="g-kanji-caption" style={{ textAlign: 'right' }}>
+                <span className="g-kanji-caption" style={{ textAlign: 'right', maxWidth: '7rem' }}>
                   {t('motifs.kanji_caption')}
                 </span>
               </div>
@@ -655,7 +655,7 @@ export default async function GraphicHomePage() {
           </div>
 
           {/* CTA strip — 20px inset each side */}
-          <div style={{ marginTop: 'clamp(2rem, 4.2vw, 5rem)', marginLeft: 'var(--g-pad)', marginRight: 'var(--g-pad)' }}>
+          <div style={{ marginTop: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)', marginLeft: 'var(--g-pad)', marginRight: 'var(--g-pad)' }}>
             <CtaStrip label={t('ctaStrip')} />
           </div>
         </section>
@@ -663,7 +663,7 @@ export default async function GraphicHomePage() {
         {/* ── FAQ ──────────────────────────────────────────────────────────── */}
         <section
           aria-labelledby="faq-heading"
-          style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+          style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
         >
           <div className="g-container">
             <span className="g-tag" style={{ display: 'block', marginBottom: '2rem' }}>{t('faq.label')}</span>
@@ -728,7 +728,7 @@ export default async function GraphicHomePage() {
         </section>
 
         {/* ── STYLE CARDS ───────────────────────────────────────────────────── */}
-        <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+        <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
           <div className="g-container">
             <div
               style={{

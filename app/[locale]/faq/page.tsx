@@ -110,7 +110,7 @@ export default async function FaqPage({
         <section
           key={section.id}
           aria-labelledby={`faq-${section.id}`}
-          style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+          style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
         >
           <div className="g-container">
             <span className="g-tag" style={{ display: 'block', marginBottom: '2rem' }}>FAQ</span>

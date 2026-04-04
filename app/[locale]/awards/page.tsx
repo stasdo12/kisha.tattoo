@@ -113,7 +113,7 @@ export default async function AwardsPage({
       </section>
 
       {/* ── AWARDS LIST ───────────────────────────────────────────────────── */}
-      <section aria-labelledby="awards-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section aria-labelledby="awards-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 id="awards-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
@@ -141,7 +141,7 @@ export default async function AwardsPage({
       </section>
 
       {/* ── SCHULE & AUSBILDUNG ────────────────────────────────────────────── */}
-      <section aria-labelledby="schule-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section aria-labelledby="schule-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 id="schule-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', whiteSpace: 'pre-line' }}>
@@ -169,7 +169,7 @@ export default async function AwardsPage({
       </section>
 
       {/* ── COMMUNITY MENTIONS ────────────────────────────────────────────── */}
-      <section aria-labelledby="mentions-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section aria-labelledby="mentions-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 id="mentions-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
@@ -192,7 +192,7 @@ export default async function AwardsPage({
       </section>
 
       {/* ── TIMELINE ──────────────────────────────────────────────────────── */}
-      <section aria-labelledby="timeline-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section aria-labelledby="timeline-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 id="timeline-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', whiteSpace: 'pre-line' }}>
@@ -224,7 +224,7 @@ export default async function AwardsPage({
       </section>
 
       {/* ── REDDIT QUOTES ─────────────────────────────────────────────────── */}
-      <section data-nav-dark aria-label="Community" style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section data-nav-dark aria-label="Community" style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', paddingBottom: '1.25rem', borderBottom: '1px solid rgba(242,242,242,0.15)', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2' }}>
@@ -252,7 +252,7 @@ export default async function AwardsPage({
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}>
+      <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', maxWidth: '28rem' }}>
             {t('cta.heading')}

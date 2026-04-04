@@ -249,7 +249,7 @@ export default async function GraphicWorksPage({
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
       <section
         data-nav-dark
-        style={{ background: '#0D0D0D', padding: 'clamp(2rem, 4.2vw, 5rem) 0' }}
+        style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
