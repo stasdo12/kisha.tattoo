@@ -316,22 +316,55 @@ export default async function GraphicHomePage() {
                 </div>
               ))}
             </div>
+
+            {/* works-cta: 愛 kanji + description + "View all works" button — matches Figma works-cta */}
+            <div
+              className="g-works-cta"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '2rem',
+                width: 'clamp(300px, 48.2vw, 694px)',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '3.25rem',
+                  textAlign: 'center',
+                  width: 'clamp(250px, 27.78vw, 400px)',
+                }}
+              >
+                <span
+                  aria-hidden="true"
+                  style={{ fontSize: 'var(--g-xl)', lineHeight: 'var(--g-lh-xl)', color: '#0D0D0D' }}
+                >
+                  愛
+                </span>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
+                  {t('philosophy.p1')}
+                </p>
+              </div>
+              <Link href="/works" className="g-cta-strip" style={{ width: '100%' }}>
+                <span>{t('works.cta')}</span>
+              </Link>
+            </div>
           </div>
         </section>
 
         {/* ── PHILOSOPHY ───────────────────────────────────────────────────── */}
         {/*
-          Figma absolute layout (all positions from section left = viewport left):
-          - H2:           left: var(--g-pad),         top: 0,              width: 254px
-          - Right stack:  left: calc(48px + 45.83vw),  top: 22px,           width: 448px
-                          → 708px@1440 ✓  928px@1920 ✓
-                          contains: 愛 kanji + grey caption only (body is below photo)
-          - Photo:        left: 0,                    top: 278px,           height: 50vw
-                          → 720px@1440 ✓  960px@1920 ✓; photo bottom = 998px/1238px
-          - Bottom texts: left: calc(48px + 45.83vw), top: calc(330px + 50vw)
-                          → 1050px@1440 ✓  1290px@1920 ✓ (52px gap after photo)
-          - Section h:    clamp(1300px, calc(580px + 50vw), 1540px)
-                          → 1300px@1440 ✓  1540px@1920 ✓ (fits 2 bottom paragraphs)
+          Figma passion-section layout (1920px frame):
+          - H2:    left: var(--g-pad), top: 0
+          - P2:    left: calc(48px + 45.83vw) ≈ 928px@1920, top: 0, width: 448px
+          - Photo: top: ~140px (heading ~100px + 40px gap), height: 50vw
+          - Section h: clamp(900px, calc(180px + 50vw), 1100px)
+                       → 900px@1440 ✓  1140px@1920 (photo fills rest)
         */}
         <section
           aria-labelledby="philosophy-heading"
@@ -339,11 +372,11 @@ export default async function GraphicHomePage() {
           style={{
             background: '#F2F2F2',
             position: 'relative',
-            height: 'clamp(1300px, calc(580px + 50vw), 1340px)',
+            height: 'clamp(900px, calc(180px + 50vw), 1100px)',
             overflow: 'hidden',
           }}
         >
-          {/* H2 — top-left, aligns to content padding */}
+          {/* H2 — top-left */}
           <h2
             id="philosophy-heading"
             className="g-philosophy-heading"
@@ -360,36 +393,23 @@ export default async function GraphicHomePage() {
             {t('philosophy.heading').split('\n')[0]}<br />{t('philosophy.heading').split('\n')[1]}
           </h2>
 
-          {/* Right column above photo: kanji 愛 + caption + "My work…" */}
-          {/* gap reduced to 1.25rem so content bottom ~278px stays above photo (top: 320px) */}
-          <div
-            className="g-philosophy-right"
+          {/* P2 — top-right, above photo — matches Figma passion-section */}
+          <p
+            className="g-philosophy-p2"
             style={{
               position: 'absolute',
               left: 'calc(48px + 45.83vw)',
-              top: '22px',
+              top: 0,
               width: '28rem',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.25rem',
+              fontSize: 'var(--g-bm)',
+              lineHeight: 'var(--g-lh-bm)',
+              color: '#0D0D0D',
             }}
           >
-            <span
-              aria-hidden="true"
-              style={{ fontSize: 'var(--g-xl)', lineHeight: 'var(--g-lh-xl)', color: '#0D0D0D' }}
-            >
-              愛
-            </span>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF', width: '9.875rem', lineHeight: 1 }}>
-              {t('philosophy.kanji_caption')}
-            </span>
-            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>
-              {t('philosophy.p1')}
-            </p>
-          </div>
+            {t('philosophy.p2')}
+          </p>
 
-          {/* Full-width photo — top: 320px (moved down 42px to clear right-stack text) */}
-          {/* height: 50vw (720@1440, 960@1920); bottom: 1040@1440, 1280@1920 */}
+          {/* Full-width photo — top: 140px (heading ~100px + 40px gap) */}
           <div
             aria-hidden="true"
             className="g-philosophy-photo"
@@ -397,7 +417,7 @@ export default async function GraphicHomePage() {
               position: 'absolute',
               left: 'var(--g-pad)',
               right: 'var(--g-pad)',
-              top: '320px',
+              top: '140px',
               height: 'clamp(720px, 50vw, 760px)',
             }}
           >
@@ -409,23 +429,6 @@ export default async function GraphicHomePage() {
               sizes="100vw"
             />
           </div>
-
-          {/* "In the world…" — below photo, same column as right stack */}
-          {/* top: calc(372px + 50vw) → 1092px@1440, 1332px@1920 (photo bottom + 52px) */}
-          <p
-            className="g-philosophy-bottom"
-            style={{
-              position: 'absolute',
-              left: 'calc(48px + 45.83vw)',
-              top: 'min(calc(372px + 50vw), 1132px)',
-              width: '28rem',
-              fontSize: 'var(--g-bm)',
-              lineHeight: 'var(--g-lh-bm)',
-              color: '#0D0D0D',
-            }}
-          >
-            {t('philosophy.p2')}
-          </p>
         </section>
 
         {/* ── STEPS ────────────────────────────────────────────────────────── */}

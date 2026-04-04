@@ -9,6 +9,12 @@ body:has([data-theme='graphic']) {
   background-color: #F2F2F2;
 }
 
+/* === HEADER BAR (fixed, sticky) === */
+.g-header-bar {
+  will-change: transform;
+  /* transition is set inline for smooth theme + scroll interaction */
+}
+
 /* === HEADER BAR TOGGLE BUTTON === */
 .g-header-toggle {
   font-family: var(--g-font, 'DM Sans', system-ui, sans-serif);
@@ -438,6 +444,11 @@ body:has([data-theme='graphic']) {
  * Mobile hides 6th item via .g-works-item:nth-child(6) in the 430px block.
  */
 .g-works-item:nth-child(6) { display: block; }
+
+/* Works CTA block (愛 + description + button) — below gallery */
+.g-works-cta {
+  margin-top: clamp(2.5rem, 5.56vw, 5rem); /* ~80px gap from gallery @ 1440px */
+}
 
 /* Works gallery accordion hover — homepage only (.g-works-section), desktop only */
 @media (hover: hover) {
@@ -1025,6 +1036,11 @@ body:has([data-theme='graphic']) {
   }
   /* Always hide 6th item on mobile */
   .g-works-item:nth-child(6) { display: none !important; }
+  /* Works CTA: full width on mobile */
+  .g-works-cta {
+    width: 100% !important;
+    margin-top: 2rem !important;
+  }
 
   /* Hero section: use dvh so it fits any phone screen */
   .g-hero-section { height: 800px !important; } /* 100dvh causes iOS Safari CTA float — fixed height instead */
@@ -1041,7 +1057,7 @@ body:has([data-theme='graphic']) {
   }
 
   /* ── PHILOSOPHY ── */
-  .g-philosophy-section { height: auto !important; min-height: 815px !important; }
+  .g-philosophy-section { height: auto !important; min-height: 640px !important; }
 
   .g-philosophy-heading {
     position: absolute !important;
@@ -1053,31 +1069,19 @@ body:has([data-theme='graphic']) {
     line-height: 0.9 !important;
   }
 
-  /* Right stack: 愛 + caption + "My work…" — stacks below h2 */
-  .g-philosophy-right {
+  /* P2 text: stacks below h2 on mobile */
+  .g-philosophy-p2 {
     position: absolute !important;
     left: 15px !important;
     top: 76px !important;
     right: 15px !important;
     width: auto !important;
-    gap: 12px !important;
   }
 
-  /* Photo: full width, fixed height, starts at 315px */
+  /* Photo: full width, fixed height, starts after heading + p2 */
   .g-philosophy-photo {
-    top: 315px !important;
+    top: 220px !important;
     height: 380px !important;
-  }
-
-  /* Bottom paragraph below photo */
-  .g-philosophy-bottom {
-    position: absolute !important;
-    left: 15px !important;
-    top: 735px !important;
-    right: 15px !important;
-    width: auto !important;
-    font-size: 0.75rem !important;
-    line-height: 1.4 !important;
   }
 
   /* ── STEPS ── */

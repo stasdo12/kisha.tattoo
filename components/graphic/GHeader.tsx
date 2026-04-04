@@ -10,7 +10,7 @@
  * theme="dark"  — white text on transparent bg (works, blog/slug, preise)
  */
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
@@ -35,17 +35,36 @@ interface GHeaderProps {
 }
 
 export function GHeader({ theme = 'light' }: GHeaderProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen]   = useState(false)
+  const [hidden, setHidden]   = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const lastScrollY             = useRef(0)
   const locale   = useLocale()
   const pathname = usePathname()
   const t        = useTranslations('menu')
 
+  /* ── Hide on scroll-down, show on scroll-up ─────────────────── */
+  useEffect(() => {
+    const onScroll = () => {
+      const current = window.scrollY
+      setScrolled(current > 20)
+      if (current > lastScrollY.current && current > 80) {
+        setHidden(true)   // scrolling down
+      } else {
+        setHidden(false)  // scrolling up
+      }
+      lastScrollY.current = current
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   /* ── Header bar colors ───────────────────────────────────────── */
   const color  = theme === 'light' ? '#0D0D0D' : '#F2F2F2'
-  const bg     = theme === 'light' ? '#F2F2F2' : 'transparent'
+  const bg     = theme === 'light' ? '#F2F2F2' : (scrolled ? '#0D0D0D' : 'transparent')
   const border = theme === 'light'
     ? '2px solid #0D0D0D'
-    : '1px solid rgba(242,242,242,0.2)'
+    : scrolled ? '1px solid rgba(242,242,242,0.15)' : 'none'
 
   /* ── Locale switcher helpers ─────────────────────────────────── */
   // Build href manually: DE has no prefix (localePrefix: 'as-needed')
@@ -107,7 +126,7 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
       <div
         className="g-header-bar"
         style={{
-          position: 'absolute',
+          position: 'fixed',
           top: 0, left: 0, right: 0,
           display: 'flex',
           alignItems: 'flex-end',
@@ -116,6 +135,8 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
           background: bg,
           borderBottom: border,
           zIndex: 100,
+          transform: hidden && !isOpen ? 'translateY(-100%)' : 'translateY(0)',
+          transition: 'transform 0.3s ease, background 0.2s ease',
         }}
       >
         <Link
