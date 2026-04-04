@@ -324,7 +324,7 @@
       "description": "Schreib Kisha an — Tattoo-Künstlerin in Neufahrn bei München. Instagram, WhatsApp oder Kontaktformular."
     },
     "hero": {
-      "h1": "Kontakt"
+      "h1": "Erlebnis buchen"
     },
     "form": {
       "name": "Mein Name ist",
@@ -352,6 +352,18 @@
       "booking": "Termin buchen",
       "prices": "Preise ansehen",
       "faq": "FAQ"
+    },
+    "hours": {
+      "label": "[ Öffnungszeiten ]",
+      "weekdays": "Mo–Fr: 11:00–19:00",
+      "saturday": "Sa: 11:00–18:00",
+      "sunday": "So: Geschlossen"
+    },
+    "location": {
+      "label": "[ Standort ]",
+      "address": "Bahnhofstraße 1, 85375 Neufahrn\nbei Freising, Deutschland",
+      "copy": "Adresse kopieren",
+      "copied": "Kopiert ✓"
     }
   },
   "blog": {

@@ -324,7 +324,7 @@
       "description": "Get in touch with Kisha — tattoo artist near Munich. Instagram, WhatsApp or contact form."
     },
     "hero": {
-      "h1": "Contact"
+      "h1": "Book experience"
     },
     "form": {
       "name": "My name is",
@@ -352,6 +352,18 @@
       "booking": "Book appointment",
       "prices": "View prices",
       "faq": "FAQ"
+    },
+    "hours": {
+      "label": "[ Working Hours ]",
+      "weekdays": "Mn-Fr: 11:00–19:00",
+      "saturday": "Sat: 11:00–18:00",
+      "sunday": "Sun: Closed"
+    },
+    "location": {
+      "label": "[ Location ]",
+      "address": "Bahnhofstraße 1, 85375 Neufahrn\nbei Freising, Deutschland",
+      "copy": "Copy address",
+      "copied": "Copied ✓"
     }
   },
   "blog": {

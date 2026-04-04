@@ -324,7 +324,7 @@
       "description": "Напиши Кіші — тату майстер поруч з Мюнхеном. Instagram, WhatsApp або контактна форма."
     },
     "hero": {
-      "h1": "Контакт"
+      "h1": "Забронювати тату"
     },
     "form": {
       "name": "Моє ім'я",
@@ -352,6 +352,18 @@
       "booking": "Записатися",
       "prices": "Переглянути ціни",
       "faq": "FAQ"
+    },
+    "hours": {
+      "label": "[ Графік роботи ]",
+      "weekdays": "Пн–Пт: 11:00–19:00",
+      "saturday": "Сб: 11:00–18:00",
+      "sunday": "Нд: Зачинено"
+    },
+    "location": {
+      "label": "[ Локація ]",
+      "address": "Bahnhofstraße 1, 85375 Neufahrn\nbei Freising, Deutschland",
+      "copy": "Скопіювати адресу",
+      "copied": "Скопійовано ✓"
     }
   },
   "blog": {

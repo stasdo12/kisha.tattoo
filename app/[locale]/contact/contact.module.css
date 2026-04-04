@@ -1,0 +1,328 @@
+/* ── Hero ───────────────────────────────────────────────────────────────── */
+.hero {
+  background: #F2F2F2;
+  padding: 0 var(--g-pad) 120px;
+}
+
+.heroBody {
+  padding-top: 72px; /* GHeader is fixed — push content below it */
+  display: grid;
+  grid-template-columns: 1fr clamp(520px, 47.5vw, 912px);
+  align-items: stretch;
+  min-height: clamp(460px, 27.6vw, 530px);
+}
+
+/* ── Left column: h1 + working hours ──────────────────────────────────── */
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 2rem;
+}
+
+.h1 {
+  font-size: var(--g-xl);
+  line-height: var(--g-lh-xl);
+  color: #0D0D0D;
+}
+
+.hours {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.hoursLabel {
+  font-size: var(--g-bs);
+  line-height: 1;
+  color: #0D0D0D;
+  margin-bottom: 7px;
+}
+
+.hoursLine {
+  font-size: var(--g-s);
+  line-height: 0.9;
+  color: #0D0D0D;
+}
+
+/* ── Right column: form ────────────────────────────────────────────────── */
+.heroRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Form rows (label + underline input) ───────────────────────────────── */
+.row {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.label {
+  font-size: var(--g-s);
+  line-height: var(--g-lh-s);
+  color: #0D0D0D;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.underline {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid #0D0D0D;
+  padding-bottom: 4px;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--g-font);
+  font-size: var(--g-bs);
+  font-weight: 500;
+  color: #0D0D0D;
+  width: 100%;
+  letter-spacing: var(--g-ls);
+}
+
+.asterisk {
+  font-size: var(--g-tag);
+  color: #0D0D0D;
+  flex-shrink: 0;
+}
+
+/* ── Experience toggle ─────────────────────────────────────────────────── */
+.stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.toggleRow {
+  display: flex;
+  gap: 16px;
+}
+
+.toggle {
+  flex: 1;
+  height: 52px;
+  border: 1px solid #0D0D0D;
+  background: transparent;
+  color: #0D0D0D;
+  font-family: var(--g-font);
+  font-size: var(--g-tag);
+  font-weight: 500;
+  letter-spacing: var(--g-ls);
+  cursor: pointer;
+}
+
+.toggle[aria-pressed='true'] {
+  background: #0D0D0D;
+  color: #F2F2F2;
+}
+
+/* ── File upload ───────────────────────────────────────────────────────── */
+.fileHint {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.fileNote {
+  font-size: var(--g-tag);
+  line-height: 1.4;
+  color: #0D0D0D;
+  max-width: 26rem;
+}
+
+.fileSize {
+  font-size: var(--g-tag);
+  color: #BFBFBF;
+  white-space: nowrap;
+}
+
+.fileBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  border: 1px solid #0D0D0D;
+  font-size: var(--g-tag);
+  font-weight: 500;
+  color: #0D0D0D;
+  cursor: pointer;
+  letter-spacing: var(--g-ls);
+  font-family: var(--g-font);
+}
+
+.fileInput {
+  display: none;
+}
+
+/* ── Submit area ───────────────────────────────────────────────────────── */
+.submitArea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.submit {
+  width: 100%;
+  height: 52px;
+  background: #0D0D0D;
+  color: #F2F2F2;
+  border: none;
+  font-family: var(--g-font);
+  font-size: var(--g-s);
+  line-height: var(--g-lh-s);
+  font-weight: 500;
+  letter-spacing: var(--g-ls);
+  cursor: pointer;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.success {
+  font-size: var(--g-bm);
+  line-height: var(--g-lh-bm);
+  color: #0D0D0D;
+}
+
+.error {
+  font-size: var(--g-tag);
+  color: red;
+}
+
+/* ── Map section ───────────────────────────────────────────────────────── */
+.mapSection {
+  background: #F2F2F2;
+  padding: 0 var(--g-pad);
+}
+
+.mapWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1840 / 780;
+  overflow: hidden;
+}
+
+.mapImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Location section ──────────────────────────────────────────────────── */
+.locationSection {
+  background: #F2F2F2;
+  padding: 32px var(--g-pad) 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.locationInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 52px;
+}
+
+.locationLabel {
+  font-size: var(--g-bs);
+  line-height: 1;
+  color: #0D0D0D;
+}
+
+.locationAddress {
+  font-size: var(--g-s);
+  line-height: 0.9;
+  color: #0D0D0D;
+  font-style: normal;
+  white-space: pre-line; /* respects \n from translation */
+}
+
+.copyBtn {
+  width: 100%;
+  height: 52px;
+  background: #0D0D0D;
+  border: none;
+  font-family: var(--g-font);
+  font-size: var(--g-bm);
+  font-weight: 500;
+  letter-spacing: var(--g-ls);
+  color: #F2F2F2;
+  cursor: pointer;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .hero {
+    padding-bottom: 60px;
+  }
+
+  .heroBody {
+    display: flex;
+    flex-direction: column;
+    min-height: unset;
+    gap: 40px;
+  }
+
+  .heroLeft {
+    padding-right: 0;
+    gap: 32px;
+    justify-content: flex-start;
+  }
+
+  .heroRight {
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .underline {
+    width: 100%;
+  }
+
+  /* prevent iOS zoom */
+  .input {
+    font-size: 16px;
+  }
+
+  .mapWrap {
+    aspect-ratio: 4 / 3;
+  }
+
+  .locationSection {
+    padding-bottom: 60px;
+  }
+
+  .locationInfo {
+    margin-bottom: 32px;
+  }
+}
