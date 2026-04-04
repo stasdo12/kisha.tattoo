@@ -16,18 +16,20 @@
       "styles": "Stile",
       "motifs": "Motive",
       "pages": "Pages",
-      "area": "Einzugsgebiet"
+      "area": "Einzugsgebiet",
+      "navigation": "Navigation",
+      "social": "Social media"
     },
     "links": {
       "japanese": "Japanisches Tattoo München",
       "graphic": "Grafik Tattoo München",
       "fineline": "Fineline Tattoo München",
       "allMotifs": "Alle Motive",
-      "dragon": "Drachen (Ryū)",
-      "koi": "Koi",
-      "kitsune": "Kitsune",
-      "sakura": "Sakura",
-      "tiger": "Tiger (Tora)",
+      "dragon": "Dragon (Ryū)",
+      "koi": "Koi (Carp)",
+      "kitsune": "Kitsune (Fox)",
+      "sakura": "Sakura (Cherry Blossom)",
+      "tiger": "Tora (Tiger)",
       "booking": "Termin buchen",
       "prices": "Preise",
       "walkin": "Walk-in Tattoo",
@@ -39,7 +41,11 @@
       "freising": "Tattoo Freising",
       "neufahrn": "Tattoo Neufahrn",
       "dachau": "Tattoo Dachau",
-      "ottobrunn": "Tattoo Ottobrunn"
+      "ottobrunn": "Tattoo Ottobrunn",
+      "works": "Works",
+      "stories": "Stories",
+      "contact": "Kontakt",
+      "linework": "Linework Tattoo"
     },
     "rights": "All Rights Reserved."
   },
@@ -146,24 +152,24 @@
     },
     "styles": {
       "heading": "Stile & Preise",
-      "link": "Alle Preise ansehen →",
+      "link": "Alle Preise ansehen",
       "item0": {
         "style": "Fineline Tattoo",
         "price": "ab 150 €",
         "desc": "Botanische Linework, geometrische Formen, feine Schriften — höchste Präzision auf kleinstem Raum.",
-        "link": "Mehr erfahren →"
+        "link": "Mehr erfahren"
       },
       "item1": {
         "style": "Japanisches Irezumi",
         "price": "ab 200 €",
         "desc": "Koi, Drachen, Tiger — traditionelle Kompositionen nach klassischer Irezumi-Bildsprache.",
-        "link": "Mehr erfahren →"
+        "link": "Mehr erfahren"
       },
       "item2": {
         "style": "Grafik & Blackwork",
         "price": "ab 150 €",
         "desc": "Custom Grafik, Blackwork, geometrische Tattoos — starke, zeitlose Bildsprache.",
-        "link": "Mehr erfahren →"
+        "link": "Mehr erfahren"
       }
     },
     "ctaStrip": "Termin anfragen"
@@ -1261,21 +1267,21 @@
           "style": "Fineline Tattoo",
           "price": "ab 150 €",
           "desc": "Botanische Linework, geometrische Formen, feine Schriften — höchste Präzision auf kleinstem Raum.",
-          "link": "Mehr erfahren →"
+          "link": "Mehr erfahren"
         },
         {
           "href": "/japanisches-tattoo-muenchen",
           "style": "Japanisches Irezumi",
           "price": "ab 200 €",
           "desc": "Koi, Drachen, Tiger — traditionelle Kompositionen nach klassischer Irezumi-Bildsprache.",
-          "link": "Mehr erfahren →"
+          "link": "Mehr erfahren"
         },
         {
           "href": "/grafik-tattoo-muenchen",
           "style": "Grafik & Blackwork",
           "price": "ab 150 €",
           "desc": "Custom Grafik, Blackwork, geometrische Tattoos — starke, zeitlose Bildsprache.",
-          "link": "Mehr erfahren →"
+          "link": "Mehr erfahren"
         }
       ]
     }

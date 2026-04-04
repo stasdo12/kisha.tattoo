@@ -16,18 +16,20 @@
       "styles": "Стилі",
       "motifs": "Мотиви",
       "pages": "Сторінки",
-      "area": "Регіон"
+      "area": "Регіон",
+      "navigation": "Navigation",
+      "social": "Social media"
     },
     "links": {
       "japanese": "Японське тату Мюнхен",
       "graphic": "Графік тату Мюнхен",
       "fineline": "Файнлайн тату Мюнхен",
       "allMotifs": "Всі мотиви",
-      "dragon": "Дракон (Ryū)",
-      "koi": "Кої",
-      "kitsune": "Кіцуне",
-      "sakura": "Сакура",
-      "tiger": "Тигр (Tora)",
+      "dragon": "Dragon (Ryū)",
+      "koi": "Koi (Carp)",
+      "kitsune": "Kitsune (Fox)",
+      "sakura": "Sakura (Cherry Blossom)",
+      "tiger": "Tora (Tiger)",
       "booking": "Записатись",
       "prices": "Ціни",
       "walkin": "Walk-in тату",
@@ -39,7 +41,11 @@
       "freising": "Тату Freising",
       "neufahrn": "Тату Neufahrn",
       "dachau": "Тату Dachau",
-      "ottobrunn": "Тату Ottobrunn"
+      "ottobrunn": "Тату Ottobrunn",
+      "works": "Works",
+      "stories": "Stories",
+      "contact": "Контакт",
+      "linework": "Linework Tattoo"
     },
     "rights": "Всі права захищені."
   },
@@ -146,24 +152,24 @@
     },
     "styles": {
       "heading": "Стилі & Ціни",
-      "link": "Переглянути всі ціни →",
+      "link": "Переглянути всі ціни",
       "item0": {
         "style": "Fineline Tattoo",
         "price": "від 150 €",
         "desc": "Ботанічний лайнворк, геометричні форми, тонкі написи — найвища точність на найменшому просторі.",
-        "link": "Дізнатись більше →"
+        "link": "Дізнатись більше"
       },
       "item1": {
         "style": "Японський Irezumi",
         "price": "від 200 €",
         "desc": "Коі, дракони, тигри — традиційні композиції у класичній мові образів Irezumi.",
-        "link": "Дізнатись більше →"
+        "link": "Дізнатись більше"
       },
       "item2": {
         "style": "Графіка & Blackwork",
         "price": "від 150 €",
         "desc": "Кастомна графіка, блекворк, геометричні тату — виразна, позачасова мова образів.",
-        "link": "Дізнатись більше →"
+        "link": "Дізнатись більше"
       }
     },
     "ctaStrip": "Розпочати консультацію"
@@ -1261,21 +1267,21 @@
           "style": "Файнлайн тату",
           "price": "від 150 €",
           "desc": "Ботанічний лайнворк, геометричні форми, тонкі написи — найвища точність на найменшому просторі.",
-          "link": "Дізнатись більше →"
+          "link": "Дізнатись більше"
         },
         {
           "href": "/japanisches-tattoo-muenchen",
           "style": "Японське Іредзумі",
           "price": "від 200 €",
           "desc": "Кої, дракони, тигри — традиційні композиції за класичною мовою образів Іредзумі.",
-          "link": "Дізнатись більше →"
+          "link": "Дізнатись більше"
         },
         {
           "href": "/grafik-tattoo-muenchen",
           "style": "Графік & Blackwork",
           "price": "від 150 €",
           "desc": "Custom графік, Blackwork, геометричні тату — потужна, вічна образна мова.",
-          "link": "Дізнатись більше →"
+          "link": "Дізнатись більше"
         }
       ]
     }

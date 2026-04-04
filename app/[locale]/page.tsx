@@ -727,54 +727,76 @@ export default async function GraphicHomePage() {
         {/* ── STYLE CARDS ───────────────────────────────────────────────────── */}
         <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
           <div className="g-container">
+
+            {/* Heading */}
             <div
               style={{
                 paddingBottom: '1.25rem',
                 borderBottom: '2px solid #0D0D0D',
                 marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'baseline',
-                gap: '2rem',
-                flexWrap: 'wrap',
               }}
             >
               <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
                 {t('styles.heading')}
               </h2>
-              <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: 'rgba(13,13,13,0.55)', textDecoration: 'none', borderBottom: '1px solid rgba(13,13,13,0.3)', paddingBottom: '2px', whiteSpace: 'nowrap' }}>
-                {t('styles.link')}
-              </Link>
             </div>
 
-            <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 2rem)', flexWrap: 'wrap' }}>
+            {/* Cards */}
+            <div className="g-styles-cards" style={{ display: 'flex', gap: '16px' }}>
               {[
-                { href: '/fineline-tattoo-muenchen',        style: t('styles.item0.style'), price: t('styles.item0.price'), desc: t('styles.item0.desc'), link: t('styles.item0.link') },
-                { href: '/japanisches-tattoo-muenchen',     style: t('styles.item1.style'), price: t('styles.item1.price'), desc: t('styles.item1.desc'), link: t('styles.item1.link') },
-                { href: '/grafik-tattoo-muenchen',          style: t('styles.item2.style'), price: t('styles.item2.price'), desc: t('styles.item2.desc'), link: t('styles.item2.link') },
+                { href: '/fineline-tattoo-muenchen',    style: t('styles.item0.style'), price: t('styles.item0.price'), desc: t('styles.item0.desc'), link: t('styles.item0.link') },
+                { href: '/japanisches-tattoo-muenchen', style: t('styles.item1.style'), price: t('styles.item1.price'), desc: t('styles.item1.desc'), link: t('styles.item1.link') },
+                { href: '/grafik-tattoo-muenchen',      style: t('styles.item2.style'), price: t('styles.item2.price'), desc: t('styles.item2.desc'), link: t('styles.item2.link') },
               ].map((card) => (
                 <Link
                   key={card.href}
                   href={card.href}
+                  className="g-styles-card"
                   style={{
-                    flex: '1 1 clamp(14rem, 28vw, 380px)',
+                    flex: '1 1 0',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '1rem',
-                    padding: 'clamp(1.25rem, 2vw, 2rem)',
-                    border: '1px solid rgba(13,13,13,0.6)',
+                    justifyContent: 'space-between',
+                    minHeight: 'clamp(380px, 31.35vw, 602px)',
+                    padding: 'clamp(1.5rem, 2.08vw, 2.5rem)',
+                    outline: '1px solid #0D0D0D',
                     textDecoration: 'none',
                   }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '1rem' }}>
+                  {/* Top: name + desc */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                     <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{card.style}</span>
-                    <span style={{ fontSize: 'var(--g-bm)', color: 'rgba(13,13,13,0.55)', whiteSpace: 'nowrap' }}>{card.price}</span>
+                    <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', maxWidth: '20rem' }}>{card.desc}</p>
                   </div>
-                  <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{card.desc}</p>
-                  <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', marginTop: 'auto' }}>{card.link}</span>
+                  {/* Bottom: price + button */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{card.price}</span>
+                    <div style={{ background: '#0D0D0D', padding: '16px 12px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                      <span style={{ fontSize: 'var(--g-bm)', lineHeight: 1, color: '#F2F2F2', fontWeight: 500 }}>{card.link}</span>
+                    </div>
+                  </div>
                 </Link>
               ))}
             </div>
+
+            {/* View all prices — dark strip */}
+            <Link
+              href="/tattoo-preise-muenchen"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                background: '#0D0D0D',
+                padding: '16px 12px',
+                marginTop: 'clamp(1rem, 2.71vw, 52px)',
+                textDecoration: 'none',
+              }}
+            >
+              <span style={{ fontSize: 'var(--g-bm)', lineHeight: 1, color: '#F2F2F2', fontWeight: 500 }}>
+                {t('styles.link')}
+              </span>
+            </Link>
+
           </div>
         </section>
 

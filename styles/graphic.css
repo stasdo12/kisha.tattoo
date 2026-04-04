@@ -486,6 +486,21 @@ body:has([data-theme='graphic']) {
   z-index: 5;
 }
 
+/* === STYLE CARDS === */
+@media (max-width: 767px) {
+  .g-styles-cards {
+    flex-direction: column;
+    gap: 12px !important;
+  }
+  .g-styles-card {
+    flex: none !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    justify-content: flex-start !important;
+    gap: 2rem;
+  }
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
   [data-theme='graphic'] {
@@ -1225,47 +1240,13 @@ body:has([data-theme='graphic']) {
   .g-about-step-col:last-child { border-bottom: none !important; padding-bottom: 0 !important; }
 
   /* ── FOOTER ── */
-  .g-footer-section { padding: 20px 0 0 !important; }
-  /* Remove horizontal padding so content is full-bleed */
-  .g-footer-section > .g-container {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  .g-footer-top {
-    padding: 0 15px !important;
-    margin-bottom: 100px !important;
+  /* nav columns: 2-col wrap on mobile */
+  .g-footer-bottom-nav {
     flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 1.5rem !important;
+    gap: 52px !important;
   }
-  /* 2 lines: "Relax and book your seat / right now" at 390px */
-  .g-footer-heading {
-    font-size: 2rem !important;   /* 32px — fits in 2 lines at 330px container */
-    width: 100% !important;
-    max-width: none !important;
-  }
-  .g-footer-bottom {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.5rem !important;
-    padding: 0 15px 20px !important;
-  }
-  .g-footer-links {
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-    padding: 0 15px !important;
-    margin-bottom: 0 !important;
-  }
-  /* Hide text logo, show white rectangles */
-  .g-footer-logo-text   { display: none !important; }
-  .g-footer-logo-rects  { display: flex !important; justify-content: space-between; align-items: flex-end; }
-  .g-footer-logo-rects span:nth-child(1) { display: block; width: 64px; height: 16px; background: #F2F2F2; }
-  .g-footer-logo-rects span:nth-child(2) { display: block; width: 64px; height: 18px; background: #F2F2F2; }
-  /* Copyright stacked */
-  .g-footer-copyright {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.5rem !important;
+  .g-footer-links-group {
+    gap: 52px !important;
   }
   .g-scroll-top { display: none !important; }
 

@@ -16,7 +16,9 @@
       "styles": "Styles",
       "motifs": "Motifs",
       "pages": "Pages",
-      "area": "Service area"
+      "area": "Service area",
+      "navigation": "Navigation",
+      "social": "Social media"
     },
     "links": {
       "japanese": "Japanese Tattoo Munich",
@@ -24,10 +26,10 @@
       "fineline": "Fineline Tattoo Munich",
       "allMotifs": "All Motifs",
       "dragon": "Dragon (Ryū)",
-      "koi": "Koi",
-      "kitsune": "Kitsune",
-      "sakura": "Sakura",
-      "tiger": "Tiger (Tora)",
+      "koi": "Koi (Carp)",
+      "kitsune": "Kitsune (Fox)",
+      "sakura": "Sakura (Cherry Blossom)",
+      "tiger": "Tora (Tiger)",
       "booking": "Book appointment",
       "prices": "Prices",
       "walkin": "Walk-in Tattoo",
@@ -39,7 +41,11 @@
       "freising": "Tattoo Freising",
       "neufahrn": "Tattoo Neufahrn",
       "dachau": "Tattoo Dachau",
-      "ottobrunn": "Tattoo Ottobrunn"
+      "ottobrunn": "Tattoo Ottobrunn",
+      "works": "Works",
+      "stories": "Stories",
+      "contact": "Contact",
+      "linework": "Linework Tattoo"
     },
     "rights": "All Rights Reserved."
   },
@@ -146,24 +152,24 @@
     },
     "styles": {
       "heading": "Styles & Prices",
-      "link": "View all prices →",
+      "link": "View all prices",
       "item0": {
         "style": "Fineline Tattoo",
         "price": "from €150",
         "desc": "Botanical linework, geometric shapes, fine scripts — highest precision in the smallest space.",
-        "link": "Learn more →"
+        "link": "Learn more"
       },
       "item1": {
         "style": "Japanese Irezumi",
         "price": "from €200",
         "desc": "Koi, dragons, tigers — traditional compositions in the classic Irezumi visual language.",
-        "link": "Learn more →"
+        "link": "Learn more"
       },
       "item2": {
         "style": "Graphic & Blackwork",
         "price": "from €150",
         "desc": "Custom graphic, blackwork, geometric tattoos — bold, timeless visual language.",
-        "link": "Learn more →"
+        "link": "Learn more"
       }
     },
     "ctaStrip": "Start your consultation"
@@ -1261,21 +1267,21 @@
           "style": "Fineline Tattoo",
           "price": "from €150",
           "desc": "Botanical linework, geometric forms, fine scripts — highest precision in the smallest space.",
-          "link": "Learn more →"
+          "link": "Learn more"
         },
         {
           "href": "/japanisches-tattoo-muenchen",
           "style": "Japanese Irezumi",
           "price": "from €200",
           "desc": "Koi, dragons, tigers — traditional compositions following classic Irezumi visual language.",
-          "link": "Learn more →"
+          "link": "Learn more"
         },
         {
           "href": "/grafik-tattoo-muenchen",
           "style": "Graphic & Blackwork",
           "price": "from €150",
           "desc": "Custom graphic, blackwork, geometric tattoos — strong, timeless visual language.",
-          "link": "Learn more →"
+          "link": "Learn more"
         }
       ]
     }
