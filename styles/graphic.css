@@ -415,6 +415,7 @@ body:has([data-theme='graphic']) {
   line-height: var(--g-lh-s);
   color: var(--g-black);
   max-width: 32rem;
+  text-wrap: balance;
 }
 
 .g-faq-item__a {

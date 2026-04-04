@@ -704,7 +704,7 @@ export default async function GraphicHomePage() {
                     fontSize: 'var(--g-l)',
                     lineHeight: 'var(--g-lh-l)',
                     color: '#0D0D0D',
-                    maxWidth: '30rem',
+                    textWrap: 'balance',
                   }}
                 >
                   {t('faq.heading')}
