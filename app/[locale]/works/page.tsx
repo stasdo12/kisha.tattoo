@@ -1,7 +1,6 @@
 /**
  * GRAPHIC WORKS — Kisha Irezumi portfolio
  * Design: Figma spec 1920 / 1440 / 390px
- * Font: DM Sans weight 500  ·  Colors: #0D0D0D · #BFBFBF · #F2F2F2
  *
  * Gallery layout:
  *  ROW 1 — Left large (1fr) + Right 2×2 grid (1fr)  each 50vw tall
@@ -28,35 +27,33 @@ export async function generateMetadata(
 
 /* ── Data ──────────────────────────────────────────────────────────────────── */
 
-/* Gallery images — replace src with real photos */
 const ROW1_LEFT = {
   src: '/images/work/middle-graphic-body-flower-tattoo.jpg',
   alt: 'Grafik Blumen Körper Tattoo München — Kisha',
+  tags: ['Grafik', 'Körper', 'München'],
 }
 const ROW1_RIGHT = [
-  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Japanisches Fuchs Tattoo München — Kisha' },
-  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',    alt: 'Grafik Hasen Tattoo München — Kisha'     },
-  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',    alt: 'Grafik Vögel Tattoo München — Kisha'     },
-  { src: '/images/work/4x4-bugs-tattoo-graphic.jpg',     alt: 'Grafik Insekten Tattoo München — Kisha'  },
+  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Japanisches Fuchs Tattoo München — Kisha',  tags: ['Japanisch', 'Fuchs', 'München']    },
+  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',    alt: 'Grafik Hasen Tattoo München — Kisha',       tags: ['Grafik', 'Hase', 'München']        },
+  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',     alt: 'Grafik Vögel Tattoo München — Kisha',       tags: ['Grafik', 'Vögel', 'München']       },
+  { src: '/images/work/4x4-bugs-tattoo-graphic.jpg',      alt: 'Grafik Insekten Tattoo München — Kisha',    tags: ['Grafik', 'Insekten', 'München']    },
 ]
 const ROW2 = {
   src: '/images/work/row2-snake-knie-tattoo.jpg',
   alt: 'Grafik Schlangen Knie Tattoo München — Kisha',
+  tags: ['Grafik', 'Schlange', 'München'],
 }
 const ROW3 = [
-  { src: '/images/work/middle-graphic-hand-with-flower-tattoo.jpg', alt: 'Grafik Blumen Hand Tattoo München — Kisha' },
-  { src: '/images/work/middle-graphic-legs-tattoo.jpg',             alt: 'Grafik Bein Tattoo München — Kisha'        },
+  { src: '/images/work/middle-graphic-hand-with-flower-tattoo.jpg', alt: 'Grafik Blumen Hand Tattoo München — Kisha', tags: ['Grafik', 'Hand', 'München']  },
+  { src: '/images/work/middle-graphic-legs-tattoo.jpg',             alt: 'Grafik Bein Tattoo München — Kisha',        tags: ['Grafik', 'Bein', 'München']  },
 ]
 const ROW4 = [
-  { src: '/images/work/4x4-dog-tattoo-fineline.jpg',     alt: 'Fineline Hund Tattoo München — Kisha'   },
-  { src: '/images/work/4x4-fogel-tattoo-graphic.jpg',    alt: 'Grafik Vogel Tattoo München — Kisha'    },
-  { src: '/images/work/4x4-owl-tattoo-fineline.jpg',     alt: 'Fineline Eule Tattoo München — Kisha'   },
-  { src: '/images/work/4x4-sakura-tattoo.jpg',           alt: 'Sakura Tattoo München — Kisha'          },
+  { src: '/images/work/4x4-dog-tattoo-fineline.jpg',  alt: 'Fineline Hund Tattoo München — Kisha',  tags: ['Fineline', 'Hund', 'München']  },
+  { src: '/images/work/4x4-fogel-tattoo-graphic.jpg', alt: 'Grafik Vogel Tattoo München — Kisha',   tags: ['Grafik', 'Vogel', 'München']   },
+  { src: '/images/work/4x4-owl-tattoo-fineline.jpg',  alt: 'Fineline Eule Tattoo München — Kisha',  tags: ['Fineline', 'Eule', 'München']  },
+  { src: '/images/work/4x4-sakura-tattoo.jpg',        alt: 'Sakura Tattoo München — Kisha',         tags: ['Sakura', 'Grafik', 'München']  },
 ]
 
-/* Shared image height tokens (fluid, anchored 1440→1920) */
-// Large: 720px@1440 → 960px@1920  = 50vw
-// Small: 356px@1440 → 472px@1920  ≈ calc(8px + 24.17vw)
 const H_LARGE = 'clamp(720px, 50vw, 820px)'
 const H_SMALL = 'clamp(356px, calc(8px + 24.17vw), 472px)'
 
@@ -94,7 +91,7 @@ export default async function GraphicWorksPage({
           style={{ objectFit: 'cover', objectPosition: 'center center' }}
           sizes="100vw"
         />
-        {/* Dark overlay rgba(13,13,13,0.35) */}
+        {/* Dark overlay */}
         <div
           aria-hidden="true"
           style={{
@@ -104,10 +101,9 @@ export default async function GraphicWorksPage({
           }}
         />
 
-        {/* ── Logo bar ── */}
         <GHeader theme="dark" />
 
-        {/* ── H1 ── */}
+        {/* H1 */}
         <h1
           className="g-works-hero-h1"
           style={{
@@ -123,7 +119,7 @@ export default async function GraphicWorksPage({
           {t('hero.h1')}
         </h1>
 
-        {/* ── Subtitle ── */}
+        {/* Subtitle */}
         <p
           className="g-works-hero-sub"
           style={{
@@ -140,15 +136,13 @@ export default async function GraphicWorksPage({
           {t('hero.sub')}
         </p>
 
-        {/* ── Vertical nav ── */}
-
-        {/* ── Kanji 術 + caption ── */}
+        {/* Kanji 術 + caption */}
         <div
           className="g-works-kanji"
           aria-hidden="true"
           style={{
             position: 'absolute',
-            bottom: 'clamp(30px, 4.6vw, 60px)',
+            bottom: 'clamp(72px, 7.5vw, 92px)',
             left: 'var(--g-pad)',
             display: 'flex',
             flexDirection: 'column',
@@ -157,21 +151,40 @@ export default async function GraphicWorksPage({
             zIndex: 2,
           }}
         >
-          <span style={{ fontSize: 'clamp(48px, 4.44vw, 64px)', lineHeight: 1, color: '#F2F2F2' }}>
+          <span style={{ fontSize: 'var(--g-xl)', lineHeight: 0.9, color: '#F2F2F2' }}>
             術
           </span>
-          <span style={{ fontSize: 'var(--g-tag)', lineHeight: 1.4, color: 'rgba(242,242,242,0.6)' }}>
+          <span style={{ fontSize: 'var(--g-bxs)', lineHeight: 1.4, color: '#BFBFBF' }}>
             {t('hero.kanjiCaption')}
           </span>
         </div>
+
+        {/* CTA button — bottom of hero */}
+        <Link
+          href="/booking"
+          style={{
+            position: 'absolute',
+            bottom: '20px',
+            left: 'var(--g-pad)',
+            right: 'var(--g-pad)',
+            height: '52px',
+            background: '#F2F2F2',
+            color: '#0D0D0D',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 'var(--g-bm)',
+            fontWeight: 500,
+            letterSpacing: 'var(--g-ls)',
+            textDecoration: 'none',
+            zIndex: 2,
+          }}
+        >
+          {t('hero.cta')}
+        </Link>
       </section>
 
       {/* ── GALLERY ────────────────────────────────────────────────────────── */}
-      {/*
-        Container uses var(--g-pad) on both sides.
-        100px gap between hero bottom and first row.
-        All rows gap: 16px.
-      */}
       <section
         aria-label="Works gallery"
         className="g-works-gallery-section"
@@ -188,20 +201,18 @@ export default async function GraphicWorksPage({
           style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
         >
 
-          {/* ROW 1 — Left large + Right 2×2 grid ─────────────────────── */}
+          {/* ROW 1 — Left large + Right 2×2 grid */}
           <div
             className="g-works-row1"
             style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}
           >
-            {/* Left: single tall image */}
             <GWorkImage
               src={ROW1_LEFT.src}
               alt={ROW1_LEFT.alt}
+              tags={ROW1_LEFT.tags}
               sizes="50vw"
               style={{ height: H_LARGE }}
             />
-
-            {/* Right: 2×2 grid */}
             <div
               className="g-works-row1-right"
               style={{
@@ -213,72 +224,37 @@ export default async function GraphicWorksPage({
               }}
             >
               {ROW1_RIGHT.map((img) => (
-                <GWorkImage key={img.src} src={img.src} alt={img.alt} sizes="25vw" />
+                <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} sizes="25vw" />
               ))}
             </div>
           </div>
 
-          {/* ROW 2 — Full-width ─────────────────────────────────────────── */}
+          {/* ROW 2 — Full-width */}
           <GWorkImage
             src={ROW2.src}
             alt={ROW2.alt}
+            tags={ROW2.tags}
             sizes="100vw"
             style={{ height: 'clamp(432px, 39.6vw, 672px)' }}
           />
 
-          {/* ROW 3 — 2 equal columns ────────────────────────────────────── */}
+          {/* ROW 3 — 2 equal columns */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             {ROW3.map((img) => (
-              <GWorkImage key={img.src} src={img.src} alt={img.alt} sizes="50vw" style={{ height: H_LARGE }} />
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} sizes="50vw" style={{ height: H_LARGE }} />
             ))}
           </div>
 
-          {/* ROW 4 — 4 equal small columns ──────────────────────────────── */}
+          {/* ROW 4 — 4 equal small columns */}
           <div
             className="g-works-row4"
             style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}
           >
             {ROW4.map((img) => (
-              <GWorkImage key={img.src} src={img.src} alt={img.alt} sizes="25vw" style={{ height: H_SMALL }} />
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} sizes="25vw" style={{ height: H_SMALL }} />
             ))}
           </div>
 
-        </div>
-      </section>
-
-      {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section
-        data-nav-dark
-        style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
-      >
-        <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
-              {t('cta.heading')}
-            </p>
-            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-              <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: 'rgba(242,242,242,0.55)', textDecoration: 'none', borderBottom: '1px solid rgba(242,242,242,0.3)', paddingBottom: '2px' }}>
-                {t('cta.prices')}
-              </Link>
-              <Link href="/about" style={{ fontSize: 'var(--g-bm)', color: 'rgba(242,242,242,0.55)', textDecoration: 'none', borderBottom: '1px solid rgba(242,242,242,0.3)', paddingBottom: '2px' }}>
-                {t('cta.about')}
-              </Link>
-            </div>
-          </div>
-          <Link
-            href="/booking"
-            style={{
-              display: 'inline-block',
-              padding: '0.875rem 2.5rem',
-              background: '#F2F2F2',
-              color: '#0D0D0D',
-              fontSize: 'var(--g-bm)',
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {t('cta.button')}
-          </Link>
         </div>
       </section>
 

@@ -1,32 +1,18 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, useRef } from 'react'
 
 interface Props {
   src: string
   alt: string
   sizes: string
   style?: React.CSSProperties
+  tags?: string[]
 }
 
-export function GWorkImage({ src, alt, sizes, style }: Props) {
-  const [visible, setVisible] = useState(false)
-  const isTouch = useRef(false)
-
+export function GWorkImage({ src, alt, sizes, style, tags }: Props) {
   return (
-    <div
-      style={{ position: 'relative', overflow: 'hidden', ...style }}
-      onTouchStart={() => { isTouch.current = true }}
-      onMouseEnter={() => { if (!isTouch.current) setVisible(true) }}
-      onMouseLeave={() => { if (!isTouch.current) setVisible(false) }}
-      onClick={() => {
-        if (isTouch.current) {
-          setVisible(v => !v)
-          isTouch.current = false
-        }
-      }}
-    >
+    <div style={{ position: 'relative', overflow: 'hidden', ...style }}>
       <Image
         src={src}
         alt={alt}
@@ -34,34 +20,38 @@ export function GWorkImage({ src, alt, sizes, style }: Props) {
         style={{ objectFit: 'cover' }}
         sizes={sizes}
       />
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'rgba(13,13,13,0.6)',
-          display: 'flex',
-          alignItems: 'flex-end',
-          justifyContent: 'flex-start',
-          padding: 'clamp(0.75rem, 1.25vw, 1.25rem)',
-          opacity: visible ? 1 : 0,
-          transition: 'opacity 0.3s ease',
-          pointerEvents: 'none',
-        }}
-      >
-        <span style={{
-          color: '#F2F2F2',
-          fontSize: 'var(--g-tag)',
-          lineHeight: 1.4,
-          textAlign: 'left',
-          display: '-webkit-box',
-          WebkitLineClamp: 2,
-          WebkitBoxOrient: 'vertical',
-          overflow: 'hidden',
-        }}>
-          {alt}
-        </span>
-      </div>
+      {tags && tags.length > 0 && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            top: '16px',
+            left: '16px',
+            display: 'flex',
+            gap: '8px',
+            flexWrap: 'wrap',
+            zIndex: 1,
+          }}
+        >
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              style={{
+                background: '#F2F2F2',
+                color: '#0D0D0D',
+                fontSize: '12px',
+                fontWeight: 500,
+                lineHeight: 1,
+                letterSpacing: '-0.24px',
+                padding: '8px 12px',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
