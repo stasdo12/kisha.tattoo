@@ -710,7 +710,7 @@ export default async function GraphicHomePage() {
                   alt="Kisha — Tattoo Master München"
                   fill
                   style={{ objectFit: 'cover' }}
-                  sizes="20vw"
+                  sizes="(max-width: 767px) 100vw, 20vw"
                 />
               </div>
 
