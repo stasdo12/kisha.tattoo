@@ -602,13 +602,13 @@ export default async function GraphicHomePage() {
                 Dragon  0        Koi    928px   Kitsune 1392px (right edge 1840px ✓)
                 Sakura  464px    Tiger  928px
 
-              Row 2 top: clamp(580px, calc(301px + 19.38vw), 673px) — matches Figma 673px@1920
-              Wrapper height: clamp(1130px, calc(602px + 36.7vw), 1306px)
+              Row 2 top: clamp(640px, calc(400px + 16.67vw), 720px) — safe clearance for card text
+              Wrapper height: clamp(1210px, calc(620px + 38.5vw), 1380px)
               Mobile (≤430px): CSS overrides to flex-column stack.
             */}
             <div
               className="g-trad-cards-wrapper"
-              style={{ position: 'relative', height: 'clamp(1130px, calc(602px + 36.7vw), 1306px)' }}
+              style={{ position: 'relative', height: 'clamp(1210px, calc(620px + 38.5vw), 1380px)' }}
             >
               {MOTIFS.map((motif, i) => {
                 const isRow2 = i >= 3
@@ -628,7 +628,7 @@ export default async function GraphicHomePage() {
                       position: 'absolute',
                       width: 'calc(25% - 12px)',
                       left: leftMap[i],
-                      top: isRow2 ? 'clamp(580px, calc(301px + 19.38vw), 673px)' : '0',
+                      top: isRow2 ? 'clamp(640px, calc(400px + 16.67vw), 720px)' : '0',
                       display: 'flex',
                       flexDirection: 'column',
                       gap: '1.5rem',

@@ -97,25 +97,25 @@
       "heading": "Japanische Tattoo-Motive in München",
       "body": "Das japanische Tattoo spricht die Sprache der Symbole. Hier sind die Bedeutungen der beliebtesten Motive, mit denen Kisha in München arbeitet",
       "kanji_caption": "Ein Symbol für innere Stärke und Disziplin",
-      "overlay": "Symbolik lesen →",
+      "overlay": "Symbolik lesen",
       "dragon": {
-        "name": "Dragon",
+        "name": "Dragon (Ryū)",
         "desc": "Weisheit, Stärke, Schutz und übernatürliche Kräfte. Symbol des Wassers und der Großzügigkeit."
       },
       "carp": {
-        "name": "Koi Tattoo München",
+        "name": "Koi (Carp)",
         "desc": "Ausdauer, Mut und Stärke. Das Koi Tattoo im japanischen Irezumi-Stil — eines der kraftvollsten Motive für ein großformatiges Tattoo in München."
       },
       "fox": {
-        "name": "Fuchs",
+        "name": "Kitsune (Fox)",
         "desc": "Schlauheit, Intellekt, Langlebigkeit und magische Kräfte. Gilt als Beschützer vor dem Bösen."
       },
       "cherry": {
-        "name": "Kirschblüte",
+        "name": "Sakura (Cherry Blossom)",
         "desc": "Die Vergänglichkeit und Schönheit des Lebens — die Philosophie des Memento Mori."
       },
       "tiger": {
-        "name": "Tiger Tattoo München",
+        "name": "Tora (Tiger)",
         "desc": "Kraft, Tapferkeit und Schutz vor Krankheit. Ein Tiger Tattoo im Irezumi-Stil — Symbol des Windes und ein Klassiker des japanischen Tattoos in München."
       }
     },
