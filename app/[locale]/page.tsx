@@ -134,7 +134,7 @@ export default async function GraphicHomePage() {
             style={{
               position: 'absolute',
               left: 'calc(var(--g-pad) + clamp(160px, 16.67vw, 320px) + 2rem)',
-              top: '96px',
+              top: 'clamp(130px, 13.65vw, 262px)',
               maxWidth: 'clamp(20rem, 38.5vw, 44rem)',
             }}
           >
@@ -155,7 +155,6 @@ export default async function GraphicHomePage() {
                 fontSize: 'var(--g-bm)',
                 lineHeight: 'var(--g-lh-bm)',
                 color: '#0D0D0D',
-                maxWidth: '17.5rem',
               }}
             >
               {t('hero.sub')}
