@@ -981,25 +981,67 @@ body:has([data-theme='graphic']) {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
+  /* ROW1: outer → single column */
   .g-works-row1 {
     grid-template-columns: 1fr !important;
     height: auto !important;
   }
-  .g-works-row1 > div:first-child {
-    height: 480px !important;
-  }
+  .g-works-row1 > *:first-child { height: 387px !important; }
+  /* ROW1 right 2×2 → single column */
   .g-works-row1-right {
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: 1fr !important;
     height: auto !important;
   }
-  .g-works-row1-right > div {
-    height: 200px !important;
+  .g-works-row1-right > * { height: 387px !important; }
+  /* ROW2 full-width → fixed height */
+  .g-works-row2 { height: 387px !important; }
+  /* ROW3 2-col → single column */
+  .g-works-row3 {
+    grid-template-columns: 1fr !important;
   }
+  .g-works-row3 > * { height: 387px !important; }
+  /* ROW4 4-col → single column */
   .g-works-row4 {
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: 1fr !important;
   }
-  .g-works-row4 > div {
-    height: 200px !important;
+  .g-works-row4 > * { height: 387px !important; }
+
+  /* ── SHARED GALLERY CLASSES (location & style pages) ── */
+
+  /* loc-row: left-large + right-2×2 → single column */
+  .g-gallery-loc-row {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+  .g-gallery-loc-row > *:first-child { height: 387px !important; }
+  /* inner 2×2 right grid → single column */
+  .g-gallery-loc-right {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+  .g-gallery-loc-right > * { height: 387px !important; }
+
+  /* 2 equal large columns → single column */
+  .g-gallery-2col {
+    grid-template-columns: 1fr !important;
+  }
+  .g-gallery-2col > * { height: 387px !important; }
+
+  /* 4 equal columns → single column */
+  .g-gallery-4col {
+    grid-template-columns: 1fr !important;
+  }
+  .g-gallery-4col > * { height: 387px !important; }
+
+  /* 3-column feature/price grid → single column */
+  .g-feature-3col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* FAQ 2-col rows → single column */
+  .g-faq-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
   }
 
   /* ── HOMEPAGE WORKS SECTION (homepage gallery strip) ── */

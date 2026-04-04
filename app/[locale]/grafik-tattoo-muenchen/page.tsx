@@ -166,32 +166,32 @@ export default async function GrafikTattooMuenchen({
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {/* Row 1: 2 equal large columns — exact same as works ROW3 */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             <GWorkImage
               src="/images/work/middle-graphic-body-flower-tattoo.jpg"
               alt="Grafik Blumen Körper Tattoo München — KishaTattoo"
-              sizes="50vw"
+              sizes="(max-width: 767px) 100vw, 50vw"
               style={{ height: 'clamp(720px, 50vw, 820px)' }}
             />
             <GWorkImage
               src="/images/work/middle-graphic-hand-with-flower-tattoo.jpg"
               alt="Grafik Hand mit Blumen Tattoo München — KishaTattoo"
-              sizes="50vw"
+              sizes="(max-width: 767px) 100vw, 50vw"
               style={{ height: 'clamp(720px, 50vw, 820px)' }}
             />
           </div>
           {/* Row 2: 4-column grid — same as works ROW4, each item 25vw × H_SMALL = square */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
+          <div className="g-gallery-4col" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
             <GWorkImage
               src="/images/work/4x4-bugs-tattoo-graphic.jpg"
               alt="Grafik Insekten Tattoo München — KishaTattoo Blackwork"
-              sizes="25vw"
+              sizes="(max-width: 767px) 100vw, 25vw"
               style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }}
             />
             <GWorkImage
               src="/images/work/4x4-fogel-tattoo-graphic.jpg"
               alt="Grafik Vogel Tattoo München — KishaTattoo"
-              sizes="25vw"
+              sizes="(max-width: 767px) 100vw, 25vw"
               style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }}
             />
           </div>
@@ -252,7 +252,7 @@ export default async function GrafikTattooMuenchen({
               {t('price.heading')}
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 2vw, 2rem)' }}>
+          <div className="g-feature-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 2vw, 2rem)' }}>
             {(t.raw('price.rows') as Array<{ size: string; price: string; time: string }>).map((row) => (
               <div key={row.size} style={{ padding: 'clamp(1rem, 1.5vw, 1.5rem)', borderBottom: '1px solid rgba(13,13,13,0.15)' }}>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{row.size}</p>
@@ -292,6 +292,7 @@ export default async function GrafikTattooMuenchen({
             {faqItems.map((item, i) => (
               <div
                 key={i}
+                className="g-faq-row"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '1fr 1fr',

@@ -234,14 +234,15 @@ export default async function GraphicWorksPage({
             src={ROW2.src}
             alt={ROW2.alt}
             tags={ROW2.tags}
-            sizes="100vw"
+            sizes="(max-width: 767px) 100vw, 100vw"
+            className="g-works-row2"
             style={{ height: 'clamp(432px, 39.6vw, 672px)' }}
           />
 
           {/* ROW 3 — 2 equal columns */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             {ROW3.map((img) => (
-              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} sizes="50vw" style={{ height: H_LARGE }} />
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
             ))}
           </div>
 

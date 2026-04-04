@@ -166,14 +166,14 @@ export default async function JapanischesTattooMuenchen({
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {/* Row 1: exact same as works ROW1 — left large + right 2×2 grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="g-gallery-loc-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             <GWorkImage
               src="/images/work/4x4-japan-fox-tattoo-graphic.jpg"
               alt="Japanisches Fuchs Tattoo München — Irezumi KishaTattoo"
-              sizes="50vw"
+              sizes="(max-width: 767px) 100vw, 50vw"
               style={{ height: 'clamp(720px, 50vw, 820px)' }}
             />
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '16px', height: 'clamp(720px, 50vw, 820px)' }}>
+            <div className="g-gallery-loc-right" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '16px', height: 'clamp(720px, 50vw, 820px)' }}>
               <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg"    alt="Japanisches Hase Tattoo München — KishaTattoo"    sizes="25vw" />
               <GWorkImage src="/images/work/4x4-birds-tattoo-graphic.jpg"     alt="Japanisches Vögel Tattoo München — KishaTattoo"   sizes="25vw" />
               <GWorkImage src="/images/work/4x4-bugs-tattoo-graphic.jpg"      alt="Japanisches Insekten Tattoo München — KishaTattoo" sizes="25vw" />
@@ -184,7 +184,8 @@ export default async function JapanischesTattooMuenchen({
           <GWorkImage
             src="/images/work/row2-snake-knie-tattoo.jpg"
             alt="Japanische Schlange Knie Tattoo München — KishaTattoo"
-            sizes="100vw"
+            sizes="(max-width: 767px) 100vw, 100vw"
+            className="g-works-row2"
             style={{ height: 'clamp(432px, 39.6vw, 672px)' }}
           />
         </div>
@@ -248,7 +249,7 @@ export default async function JapanischesTattooMuenchen({
               {t('price.heading')}
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 2vw, 2rem)' }}>
+          <div className="g-feature-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 2vw, 2rem)' }}>
             {(t.raw('price.rows') as Array<{ size: string; price: string; time: string }>).map((row) => (
               <div key={row.size} style={{ padding: 'clamp(1rem, 1.5vw, 1.5rem)', borderBottom: '1px solid rgba(13,13,13,0.15)' }}>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{row.size}</p>
@@ -288,6 +289,7 @@ export default async function JapanischesTattooMuenchen({
             {faqItems.map((item, i) => (
               <div
                 key={i}
+                className="g-faq-row"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '1fr 1fr',

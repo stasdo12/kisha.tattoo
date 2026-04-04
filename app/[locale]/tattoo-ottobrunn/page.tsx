@@ -84,13 +84,13 @@ export default async function TattooOttobrunn({
 
           {/* Gallery preview */}
           <div style={{ marginTop: 'clamp(2rem, 3.5vw, 4rem)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div className="g-gallery-loc-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
               <GWorkImage src="/images/work/middle-graphic-body-flower-tattoo.jpg" alt="Grafik Blumen Körper Tattoo München — Kisha" sizes="50vw" style={{ height: 'clamp(720px, 50vw, 820px)' }} />
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '12px', height: 'clamp(720px, 50vw, 820px)' }}>
-                <GWorkImage src="/images/work/4x4-japan-fox-tattoo-graphic.jpg" alt="Japanisches Fuchs Tattoo München" sizes="25vw" />
-                <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg"    alt="Grafik Hase Tattoo München"       sizes="25vw" />
-                <GWorkImage src="/images/work/4x4-sakura-tattoo.jpg"            alt="Sakura Tattoo München"            sizes="25vw" />
-                <GWorkImage src="/images/work/4x4-birds-tattoo-graphic.jpg"     alt="Grafik Vögel Tattoo München"      sizes="25vw" />
+              <div className="g-gallery-loc-right" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '12px', height: 'clamp(720px, 50vw, 820px)' }}>
+                <GWorkImage src="/images/work/4x4-japan-fox-tattoo-graphic.jpg" alt="Japanisches Fuchs Tattoo München" sizes="(max-width: 767px) 100vw, 25vw" />
+                <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg"    alt="Grafik Hase Tattoo München"       sizes="(max-width: 767px) 100vw, 25vw" />
+                <GWorkImage src="/images/work/4x4-sakura-tattoo.jpg"            alt="Sakura Tattoo München"            sizes="(max-width: 767px) 100vw, 25vw" />
+                <GWorkImage src="/images/work/4x4-birds-tattoo-graphic.jpg"     alt="Grafik Vögel Tattoo München"      sizes="(max-width: 767px) 100vw, 25vw" />
               </div>
             </div>
             <Link href="/works" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>
@@ -104,7 +104,7 @@ export default async function TattooOttobrunn({
               {t('ottobrunn.faq.heading')}
             </h2>
             {faqItems.map((item, i) => (
-              <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 5rem)', padding: 'clamp(1rem, 1.8vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.2)' }}>
+              <div key={i} className="g-faq-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 5rem)', padding: 'clamp(1rem, 1.8vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.2)' }}>
                 <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
               </div>

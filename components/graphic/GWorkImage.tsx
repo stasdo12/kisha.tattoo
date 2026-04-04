@@ -8,11 +8,12 @@ interface Props {
   sizes: string
   style?: React.CSSProperties
   tags?: string[]
+  className?: string
 }
 
-export function GWorkImage({ src, alt, sizes, style, tags }: Props) {
+export function GWorkImage({ src, alt, sizes, style, tags, className }: Props) {
   return (
-    <div style={{ position: 'relative', overflow: 'hidden', ...style }}>
+    <div className={className} style={{ position: 'relative', overflow: 'hidden', ...style }}>
       <Image
         src={src}
         alt={alt}
