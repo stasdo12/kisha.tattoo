@@ -585,43 +585,40 @@ export default async function GraphicHomePage() {
             </div>
 
             {/*
-              4-slot staggered layout (slot 2 intentionally empty):
-              Row 1: Dragon[0] | Carp[1] | [empty 2] | Fox[3]
-              Row 2:           Cherry[1.5]  Tiger[2.5]
+              4-slot staggered layout (slot 1 intentionally empty in row 1):
+              Row 1: Dragon[0] | [empty 1] | Koi[2] | Kitsune[3]
+              Row 2:            Sakura[1]   Tiger[2]
 
               Card width: calc(25% - 12px)  → 338px @ 1440 ✓  448px @ 1920 ✓
-              4 cards + 3×16px gaps = 100% exactly.
+              4 slots, 16px gaps between slots.
 
               Slot left edges (n = slot index):
                 left = calc(n * 25% + n * 4px)  →  0 | 25%+4px | 50%+8px | 75%+12px
-              Half-slot (n=1.5, 2.5):
-                left = calc(1.5 * (25% + 4px)) = calc(37.5% + 6px)
-                left = calc(2.5 * (25% + 4px)) = calc(62.5% + 10px)
 
               Verified @ 1440px (container=1400):
-                Dragon  0        Carp   354px   Fox    1062px (right edge 1400px ✓)
-                Cherry  531px    Tiger  885px
+                Dragon  0        Koi    708px   Kitsune 1062px (right edge 1400px ✓)
+                Sakura  354px    Tiger  708px
               Verified @ 1920px (container=1840):
-                Dragon  0        Carp   464px   Fox    1392px (right edge 1840px ✓)
-                Cherry  696px    Tiger  1160px
+                Dragon  0        Koi    928px   Kitsune 1392px (right edge 1840px ✓)
+                Sakura  464px    Tiger  928px
 
-              Row 2 top: clamp(600px, 360px+16.67vw, 680px) — 180px room for text
-              Wrapper height: clamp(1200px, 800px+27.78vw, 1380px)
+              Row 2 top: clamp(580px, calc(301px + 19.38vw), 673px) — matches Figma 673px@1920
+              Wrapper height: clamp(1130px, calc(602px + 36.7vw), 1306px)
               Mobile (≤430px): CSS overrides to flex-column stack.
             */}
             <div
               className="g-trad-cards-wrapper"
-              style={{ position: 'relative', height: 'clamp(1200px, calc(800px + 27.78vw), 1380px)' }}
+              style={{ position: 'relative', height: 'clamp(1130px, calc(602px + 36.7vw), 1306px)' }}
             >
               {MOTIFS.map((motif, i) => {
                 const isRow2 = i >= 3
-                // Slot index: Dragon=0, Carp=1, Fox=3, Cherry=1.5, Tiger=2.5
+                // Slot: Dragon=0, Koi=2, Kitsune=3, Sakura=1, Tiger=2
                 const leftMap = [
                   '0',                      // Dragon  — slot 0
-                  'calc(25% + 4px)',         // Carp    — slot 1
-                  'calc(75% + 12px)',        // Fox     — slot 3 (slot 2 left empty)
-                  'calc(37.5% + 6px)',       // Cherry  — slot 1.5
-                  'calc(62.5% + 10px)',      // Tiger   — slot 2.5
+                  'calc(50% + 8px)',         // Koi     — slot 2
+                  'calc(75% + 12px)',        // Kitsune — slot 3
+                  'calc(25% + 4px)',         // Sakura  — slot 1
+                  'calc(50% + 8px)',         // Tiger   — slot 2
                 ]
                 return (
                   <article
@@ -631,7 +628,7 @@ export default async function GraphicHomePage() {
                       position: 'absolute',
                       width: 'calc(25% - 12px)',
                       left: leftMap[i],
-                      top: isRow2 ? 'clamp(600px, calc(360px + 16.67vw), 680px)' : '0',
+                      top: isRow2 ? 'clamp(580px, calc(301px + 19.38vw), 673px)' : '0',
                       display: 'flex',
                       flexDirection: 'column',
                       gap: '1.5rem',
