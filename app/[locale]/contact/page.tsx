@@ -159,18 +159,26 @@ export default function GraphicContactPage() {
       </section>
 
       {/* ── MAP ───────────────────────────────────────────────────────────── */}
-      <section className={s.mapSection} aria-hidden="true">
-        <div className={s.mapWrap}>
-          <Image
-            src="/images/contact/map.jpg"
-            alt="Studio location map — Bahnhofstraße 1, Neufahrn bei Freising"
-            className={s.mapImg}
-            width={7360}
-            height={3120}
-            sizes="(max-width: 767px) 100vw, calc(100vw - 80px)"
-            priority
-          />
-        </div>
+      <section className={s.mapSection}>
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Bahnhofstra%C3%9Fe+1%2C+85375+Neufahrn+bei+Freising%2C+Deutschland"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={s.mapLink}
+          aria-label="Open studio location in Google Maps"
+        >
+          <div className={s.mapWrap}>
+            <Image
+              src="/images/contact/map.jpg"
+              alt="Studio location map — Bahnhofstraße 1, Neufahrn bei Freising"
+              className={s.mapImg}
+              width={7360}
+              height={3120}
+              sizes="(max-width: 767px) 100vw, calc(100vw - 80px)"
+              priority
+            />
+          </div>
+        </a>
       </section>
 
       {/* ── LOCATION + COPY ───────────────────────────────────────────────── */}

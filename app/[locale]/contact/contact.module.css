@@ -219,6 +219,11 @@
   padding: 0 var(--g-pad);
 }
 
+.mapLink {
+  display: block;
+  cursor: pointer;
+}
+
 .mapWrap {
   position: relative;
   width: 100%;
