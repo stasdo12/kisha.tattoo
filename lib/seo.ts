@@ -34,8 +34,7 @@ export function buildMetadata(input: SeoInput): Metadata {
   } = input
 
   // Canonical: DE has no prefix, EN/UK have /en/ /uk/
-  // hreflang=false pages (location pages) always use DE canonical
-  const canonical = (!hreflang || locale === 'de')
+  const canonical = locale === 'de'
     ? `${SITE.url}${path}`
     : `${SITE.url}/${locale}${path}`
 
