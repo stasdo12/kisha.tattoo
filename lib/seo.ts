@@ -40,15 +40,10 @@ export function buildMetadata(input: SeoInput): Metadata {
 
   const fullTitle = `${title} | ${SITE.name}`
 
-  // hreflang alternates — only for pages that exist in all locales
-  // Strip trailing slash for EN/UK locale roots (/en/ → /en, /uk/ → /uk)
-  const p = path === '/' ? '' : path
-  const languages = hreflang ? {
-    'de':        `${SITE.url}${path}`,
-    'en':        `${SITE.url}/en${p}`,
-    'uk':        `${SITE.url}/uk${p}`,
-    'x-default': `${SITE.url}${path}`,
-  } : undefined
+  // hreflang is handled globally by HreflangTags Server Component in layout.tsx
+  // Do NOT generate alternates.languages here — it would create duplicate tags
+  // with inconsistent trailing slashes, causing canonical/hreflang mismatch warnings.
+  void hreflang
 
   return {
     title,
@@ -60,7 +55,6 @@ export function buildMetadata(input: SeoInput): Metadata {
     metadataBase: new URL(SITE.url),
     alternates: {
       canonical,
-      ...(languages ? { languages } : {}),
     },
     robots: noIndex
       ? { index: false, follow: false }
