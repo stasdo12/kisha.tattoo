@@ -17,11 +17,12 @@ import { Link, usePathname } from '@/i18n/navigation'
 import { SITE } from '@/content/site'
 
 const NAV_HREFS = [
-  { href: '/' as const,        key: 'home'    },
-  { href: '/works' as const,   key: 'works'   },
-  { href: '/about' as const,   key: 'about'   },
-  { href: '/blog' as const,    key: 'stories' },
-  { href: '/contact' as const, key: 'contact' },
+  { href: '/works' as const,                  key: 'works'   },
+  { href: '/about' as const,                  key: 'about'   },
+  { href: '/blog' as const,                   key: 'stories' },
+  { href: '/tattoo-preise-muenchen' as const, key: 'preise'  },
+  { href: '/faq' as const,                    key: 'faq'     },
+  { href: '/contact' as const,                key: 'contact' },
 ] as const
 
 const LOCALES = [
@@ -219,6 +220,13 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
 
           {/* Footer links */}
           <div className="g-menu-footer" aria-label="Social links">
+            <Link
+              href="/booking"
+              onClick={close}
+              className="g-menu-footer-link g-menu-footer-cta"
+            >
+              [ {t('footer.booking')} ]
+            </Link>
             <a
               href={SITE.social.instagram}
               target="_blank"

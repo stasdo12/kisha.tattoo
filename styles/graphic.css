@@ -175,6 +175,17 @@ body:has([data-theme='graphic']) {
   opacity: 0.6;
 }
 
+.g-menu-footer-cta {
+  background: #0D0D0D;
+  color: #F2F2F2;
+  padding: 3px 8px;
+}
+
+.g-menu-footer-cta:hover {
+  opacity: 1;
+  background: rgba(13,13,13,0.75);
+}
+
 /* Background image — fixed height at bottom */
 .g-menu-img {
   flex-shrink: 0;

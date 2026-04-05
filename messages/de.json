@@ -1729,15 +1729,17 @@
   },
   "menu": {
     "nav": {
-      "home": "Startseite",
       "works": "Arbeiten",
       "about": "Über mich",
       "stories": "Stories",
+      "preise": "Preise",
+      "faq": "FAQ",
       "contact": "Kontakt"
     },
     "footer": {
       "cooperation": "Offen für Zusammenarbeit",
-      "location": "München, Deutschland"
+      "location": "München, Deutschland",
+      "booking": "Termin buchen"
     }
   }
 }

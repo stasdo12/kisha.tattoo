@@ -1729,15 +1729,17 @@
   },
   "menu": {
     "nav": {
-      "home": "Home",
       "works": "Works",
       "about": "About",
       "stories": "Stories",
+      "preise": "Prices",
+      "faq": "FAQ",
       "contact": "Contact"
     },
     "footer": {
       "cooperation": "Available for cooperation",
-      "location": "Munich, Germany"
+      "location": "Munich, Germany",
+      "booking": "Book now"
     }
   }
 }
