@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { STORIES, getStoryBySlug } from '@/content/stories'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
+import { articleSchema } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
@@ -114,8 +115,24 @@ export default async function ArticleDetailPage({
     title: (t.raw(`stories.${s.slug}`) as { title: string }).title,
   }))
 
+  const schema = meta && content
+    ? articleSchema({
+        title: content.title,
+        excerpt: content.excerpt,
+        publishedAt: meta.publishedAt,
+        slug: meta.slug,
+        coverImage: meta.coverImageBig ?? meta.coverImage,
+      })
+    : null
+
   return (
     <main id="main-content">
+      {schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      )}
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section

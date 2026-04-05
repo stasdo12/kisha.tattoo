@@ -72,7 +72,7 @@ export function websiteSchema() {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${SITE.url}/gallery?q={search_term_string}`,
+        urlTemplate: `${SITE.url}/works?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
@@ -156,7 +156,7 @@ export function articleSchema({
 }) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: title,
     description: excerpt,
     datePublished: publishedAt,
