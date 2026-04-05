@@ -88,6 +88,18 @@ export default async function GraphicHomePage() {
           - Nav links: 94.9% from left (right: 5.1%), 43.9% from top
           - CTA strip: bottom: 0, full width
         */}
+        {/* Preload LCP image with high priority — Next.js 15 SSG doesn't add fetchpriority to fill images */}
+        <link
+          rel="preload"
+          as="image"
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore — fetchPriority is valid but TS types lag behind
+          fetchPriority="high"
+          href="/_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=256&q=75"
+          imageSrcSet="/_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=128&q=75 128w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=256&q=75 256w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=384&q=75 384w"
+          imageSizes="(max-width: 767px) 160px, (max-width: 1919px) 17vw, 320px"
+        />
+
         <section
           aria-label="Kisha — Irezumi Mastery"
           className="g-hero-section"

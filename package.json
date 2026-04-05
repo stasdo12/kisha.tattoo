@@ -23,6 +23,12 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
+  "browserslist": [
+    "chrome >= 89",
+    "firefox >= 88",
+    "safari >= 15",
+    "edge >= 89"
+  ],
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
