@@ -3,6 +3,7 @@ import { Cinzel, Inter, Noto_Sans_JP, DM_Sans } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import { headers } from 'next/headers'
 import { SITE } from '@/content/site'
 import { localBusinessSchema, websiteSchema } from '@/lib/structured-data'
 import { FormPopupLoader } from '@/components/graphic/FormPopupLoader'
@@ -45,24 +46,42 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }
 
-/* ── Root metadata ──────────────────────────────────────────────────────── */
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
-  title: {
-    default: `${SITE.name} — ${SITE.tagline}`,
-    template: `%s | ${SITE.name}`,
-  },
-  description: SITE.description,
-  authors: [{ name: SITE.name, url: SITE.url }],
-  creator: SITE.name,
-  publisher: SITE.name,
-  openGraph: {
-    siteName: SITE.name,
-    locale: SITE.locale,
-    type: 'website',
-    images: [{ url: '/og/default.jpg', width: 1200, height: 630, alt: SITE.tagline }],
-  },
-  twitter: { card: 'summary_large_image' },
+/* ── Root metadata with hreflang alternates ─────────────────────────────── */
+export async function generateMetadata(): Promise<Metadata> {
+  const h = await headers()
+  const pathname = h.get('x-pathname') ?? '/'
+
+  // Strip locale prefix → canonical path (DE has no prefix)
+  const cleanPath = pathname.replace(/^\/(en|uk)/, '') || '/'
+  const base = SITE.url.replace(/\/$/, '')
+  const dePath = cleanPath === '/' ? '' : cleanPath
+
+  return {
+    metadataBase: new URL(base),
+    title: {
+      default: `${SITE.name} — ${SITE.tagline}`,
+      template: `%s | ${SITE.name}`,
+    },
+    description: SITE.description,
+    authors: [{ name: SITE.name, url: SITE.url }],
+    creator: SITE.name,
+    publisher: SITE.name,
+    openGraph: {
+      siteName: SITE.name,
+      locale: SITE.locale,
+      type: 'website',
+      images: [{ url: '/og/default.jpg', width: 1200, height: 630, alt: SITE.tagline }],
+    },
+    twitter: { card: 'summary_large_image' },
+    alternates: {
+      languages: {
+        'de':        `${base}${dePath}`,
+        'en':        `${base}/en${cleanPath}`,
+        'uk':        `${base}/uk${cleanPath}`,
+        'x-default': `${base}${dePath}`,
+      },
+    },
+  }
 }
 
 export const viewport: Viewport = {

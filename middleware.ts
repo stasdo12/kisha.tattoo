@@ -1,6 +1,5 @@
 import createMiddleware from 'next-intl/middleware'
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 import { routing } from './i18n/routing'
 
 const intlMiddleware = createMiddleware(routing)
@@ -18,6 +17,11 @@ setInterval(() => {
 }, WINDOW_MS)
 
 export function middleware(req: NextRequest) {
+  // Inject pathname so layout's generateMetadata can build hreflang alternates
+  const reqHeaders = new Headers(req.headers)
+  reqHeaders.set('x-pathname', req.nextUrl.pathname)
+  const reqWithPathname = new NextRequest(req, { headers: reqHeaders })
+
   // Rate limiting for /api/* routes
   if (req.nextUrl.pathname.startsWith('/api/')) {
     const ip  = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown'
@@ -42,7 +46,7 @@ export function middleware(req: NextRequest) {
   }
 
   // i18n locale routing for all other routes
-  return intlMiddleware(req)
+  return intlMiddleware(reqWithPathname)
 }
 
 export const config = {
