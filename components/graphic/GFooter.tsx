@@ -3,7 +3,7 @@
  * GFooter — Figma-spec footer (desktop 1920 + mobile 390)
  * Structure: top CTA → nav columns → bottom bar
  */
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { SITE } from '@/content/site'
 import { useTranslations } from 'next-intl'
 
