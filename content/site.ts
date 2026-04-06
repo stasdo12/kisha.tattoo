@@ -16,7 +16,9 @@ export const SITE = {
   social: {
     instagram: 'https://www.instagram.com/kisha.tattoo/',
     facebook: 'https://www.facebook.com/bavariatattoo1',
-    reddit: 'https://www.reddit.com/r/tattoo/search/?q=kisha.tattoo',
+    reddit: 'https://www.reddit.com/user/Ready_Advice_8848/',
+    tattoodo: 'https://www.tattoodo.com/artists/kisha0808sk',
+    gbp: 'https://share.google/TBRe5tzUCkyMEaUPJ',
   },
 
   // Contact & Location — required for LocalBusiness structured data

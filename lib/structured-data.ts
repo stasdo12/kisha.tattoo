@@ -54,6 +54,8 @@ export function localBusinessSchema() {
       SITE.social.instagram,
       SITE.social.facebook,
       SITE.social.reddit,
+      SITE.social.tattoodo,
+      SITE.social.gbp,
     ],
     hasMap: SITE.location.mapsUrl,
     image: `${SITE.url}/og/default.jpg`, // TODO: real studio photo
@@ -195,7 +197,7 @@ export function personSchema() {
     description: 'Tattoo-Künstlerin in München — Japanisches Irezumi, Grafik-Tattoo, Linework.',
     url: SITE.url,
     image: `${SITE.url}/og/default.jpg`,
-    sameAs: [SITE.social.instagram, SITE.social.facebook],
+    sameAs: [SITE.social.instagram, SITE.social.facebook, SITE.social.reddit, SITE.social.tattoodo, SITE.social.gbp],
     knowsLanguage: ['de', 'en', 'uk'],
     worksFor: { '@type': 'LocalBusiness', '@id': `${SITE.url}/#business`, name: SITE.name },
     hasOccupation: {
