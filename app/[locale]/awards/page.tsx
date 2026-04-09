@@ -7,6 +7,7 @@ import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
+import { videoObjectSchema } from '@/lib/structured-data'
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
@@ -264,6 +265,18 @@ export default async function AwardsPage({
       </section>
 
       <GFooter />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(videoObjectSchema([
+            { youtubeId: 'keNnl1Y62ao', name: 'Kisha Tattoo bei der Arbeit — Tattooprozess München 2017', description: 'Kisha, Tattoo-Künstlerin in München, beim Tätowieren im BavariaTattoo Studio. Japanisches Irezumi und Grafik-Tattoo.', uploadDate: '2017-04-01' },
+            { youtubeId: '9DboBeBOjXE', name: 'Blumen-Armband Tattoo by Kisha — München', description: 'Blumen-Armband Tattoo im Fineline-Stil von Kisha Tattoo, München. Custom Design, BavariaTattoo Studio.', uploadDate: '2019-06-01' },
+            { youtubeId: 'h6W9WYK7D1M', name: 'Traumfänger-Tattoo by Kisha Tattoo München', description: 'Traumfänger (Dreamcatcher) Tattoo von Kisha — Fineline und Grafik-Stil, München, BavariaTattoo Studio.', uploadDate: '2021-03-01' },
+            { youtubeId: 'kEAnk157u30', name: 'Chrysantheme-Tattoo by Kisha Tattoo München', description: 'Chrysantheme Tattoo im japanischen Irezumi-Stil von Kisha — Custom Design, München.', uploadDate: '2021-05-01' },
+          ]))
+        }}
+      />
     </main>
   )
 }

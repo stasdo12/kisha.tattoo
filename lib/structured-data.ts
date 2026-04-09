@@ -217,6 +217,35 @@ export function personSchema() {
 }
 
 /**
+ * VideoObject schema — for YouTube videos embedded or linked on page.
+ * Enables video rich results in Google Search.
+ */
+export function videoObjectSchema(videos: Array<{
+  name: string
+  description: string
+  youtubeId: string
+  uploadDate: string   // ISO 8601 e.g. '2017-04-01'
+  duration?: string    // ISO 8601 e.g. 'PT2M30S'
+}>) {
+  return videos.map((v) => ({
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: v.name,
+    description: v.description,
+    thumbnailUrl: `https://img.youtube.com/vi/${v.youtubeId}/maxresdefault.jpg`,
+    uploadDate: v.uploadDate,
+    ...(v.duration ? { duration: v.duration } : {}),
+    contentUrl: `https://www.youtube.com/watch?v=${v.youtubeId}`,
+    embedUrl: `https://www.youtube.com/embed/${v.youtubeId}`,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+      url: SITE.url,
+    },
+  }))
+}
+
+/**
  * Location-specific service schema — for suburb landing pages.
  */
 export function locationServiceSchema({
