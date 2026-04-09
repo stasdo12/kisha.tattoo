@@ -60,10 +60,14 @@ const nextConfig: NextConfig = {
           { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload'         },
           // Disable unused browser features
           { key: 'Permissions-Policy',        value: 'camera=(), microphone=(), geolocation=(self), payment=()' },
-          // Prevent Cloudflare from caching RSC payloads (text/x-component) as HTML.
-          // Cloudflare ignores Vary: rsc — CDN-Cache-Control overrides without affecting
-          // browser Cache-Control behaviour.
+          // Prevent Cloudflare from caching RSC payloads as HTML.
+          // CDN-Cache-Control: no-store — tells Cloudflare not to cache.
+          // Surrogate-Control: no-store — fallback for other CDNs.
+          // Vary: RSC, Next-Router-State-Tree — forces Cloudflare to cache
+          // RSC requests separately from full-page requests.
           { key: 'CDN-Cache-Control',         value: 'no-store'                                             },
+          { key: 'Surrogate-Control',         value: 'no-store'                                             },
+          { key: 'Vary',                      value: 'RSC, Next-Router-State-Tree, Next-Router-Prefetch'    },
         ],
       },
       // Next.js sets Cache-Control: immutable automatically for /_next/static in production.
