@@ -73,7 +73,7 @@ const nextConfig: NextConfig = {
             "default-src 'self'",
             "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://ssl.google-analytics.com",
             "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://ssl.google-analytics.com",
-            "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
+            "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
             "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://img.youtube.com https://i.ytimg.com",
             "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
             "style-src 'self' 'unsafe-inline'",
