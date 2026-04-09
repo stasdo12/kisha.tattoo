@@ -17,13 +17,21 @@ setInterval(() => {
 }, WINDOW_MS)
 
 export function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl
+
+  // Pass static files in /public through — path-to-regexp matcher doesn't reliably
+  // exclude all file extensions, so guard explicitly here too.
+  if (/\.(xml|txt|json|webmanifest|ico|png|jpg|jpeg|svg|webp|avif|woff2?)$/.test(pathname)) {
+    return NextResponse.next()
+  }
+
   // Inject pathname so layout's generateMetadata can build hreflang alternates
   const reqHeaders = new Headers(req.headers)
-  reqHeaders.set('x-pathname', req.nextUrl.pathname)
+  reqHeaders.set('x-pathname', pathname)
   const reqWithPathname = new NextRequest(req, { headers: reqHeaders })
 
   // Rate limiting for /api/* routes
-  if (req.nextUrl.pathname.startsWith('/api/')) {
+  if (pathname.startsWith('/api/')) {
     const ip  = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown'
     const now = Date.now()
     const rec = store.get(ip)
@@ -47,6 +55,7 @@ export function middleware(req: NextRequest) {
 
   // i18n locale routing for all other routes
   return intlMiddleware(reqWithPathname)
+
 }
 
 export const config = {
