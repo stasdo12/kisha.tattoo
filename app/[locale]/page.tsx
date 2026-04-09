@@ -88,6 +88,15 @@ export default async function GraphicHomePage() {
           - Nav links: 94.9% from left (right: 5.1%), 43.9% from top
           - CTA strip: bottom: 0, full width
         */}
+        {/* LCP preload — hero portrait. Next.js fill+priority doesn't reliably emit
+            fetchpriority=high so we hint the browser explicitly via <link imageSrcSet>. */}
+        <link
+          rel="preload"
+          as="image"
+          imageSrcSet="/_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=256&q=75 256w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=384&q=75 384w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=512&q=75 512w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=640&q=75 640w"
+          imageSizes="(max-width: 767px) 160px, (max-width: 1919px) 17vw, 320px"
+          fetchPriority="high"
+        />
 
         <section
           aria-label="Kisha — Irezumi Mastery"
