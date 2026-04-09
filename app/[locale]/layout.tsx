@@ -76,8 +76,8 @@ async function HreflangTags() {
   return (
     <>
       <link rel="alternate" hrefLang="de"        href={`${base}${dePath}`} />
-      <link rel="alternate" hrefLang="en"        href={`${base}/en${cleanPath}`} />
-      <link rel="alternate" hrefLang="uk"        href={`${base}/uk${cleanPath}`} />
+      <link rel="alternate" hrefLang="en"        href={`${base}/en${dePath}`} />
+      <link rel="alternate" hrefLang="uk"        href={`${base}/uk${dePath}`} />
       <link rel="alternate" hrefLang="x-default" href={`${base}${dePath}`} />
     </>
   )
