@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { useTranslations } from 'next-intl'
+import { trackFormSubmit } from '@/lib/gtag'
 
 export function FormPopup() {
   const t = useTranslations('formPopup')
@@ -48,7 +49,12 @@ export function FormPopup() {
           idea:  fd.get('idea'),
         }),
       })
-      setStatus(res.ok ? 'success' : 'error')
+      if (res.ok) {
+        trackFormSubmit('contact')
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }
