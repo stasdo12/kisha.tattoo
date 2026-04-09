@@ -52,14 +52,18 @@ const nextConfig: NextConfig = {
       {
         source: '/(.*)',
         headers: [
-          { key: 'X-Content-Type-Options',  value: 'nosniff'                       },
-          { key: 'X-Frame-Options',         value: 'DENY'                          },
-          { key: 'Referrer-Policy',         value: 'strict-origin-when-cross-origin' },
-          { key: 'X-DNS-Prefetch-Control',  value: 'on'                            },
+          { key: 'X-Content-Type-Options',    value: 'nosniff'                                              },
+          { key: 'X-Frame-Options',           value: 'DENY'                                                 },
+          { key: 'Referrer-Policy',           value: 'strict-origin-when-cross-origin'                      },
+          { key: 'X-DNS-Prefetch-Control',    value: 'on'                                                   },
+          // Force HTTPS for 1 year, include subdomains, allow preload list submission
+          { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload'         },
+          // Disable unused browser features
+          { key: 'Permissions-Policy',        value: 'camera=(), microphone=(), geolocation=(self), payment=()' },
           // Prevent Cloudflare from caching RSC payloads (text/x-component) as HTML.
           // Cloudflare ignores Vary: rsc — CDN-Cache-Control overrides without affecting
           // browser Cache-Control behaviour.
-          { key: 'CDN-Cache-Control',       value: 'no-store'                      },
+          { key: 'CDN-Cache-Control',         value: 'no-store'                                             },
         ],
       },
       // Next.js sets Cache-Control: immutable automatically for /_next/static in production.
