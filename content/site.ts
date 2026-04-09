@@ -48,6 +48,14 @@ export const SITE = {
 
   // Price range indicator ($, $$, $$$, $$$$)
   priceRange: '$$$',
+
+  // Google reviews — update manually when count changes
+  reviews: {
+    ratingValue: 5.0,
+    reviewCount: 10,   // ← update this number
+    bestRating: 5,
+    worstRating: 1,
+  },
 } as const
 
 export type SiteConfig = typeof SITE

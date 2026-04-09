@@ -59,6 +59,13 @@ export function localBusinessSchema() {
     ],
     hasMap: SITE.location.mapsUrl,
     image: `${SITE.url}/og/default.jpg`, // TODO: real studio photo
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: SITE.reviews.ratingValue,
+      reviewCount: SITE.reviews.reviewCount,
+      bestRating: SITE.reviews.bestRating,
+      worstRating: SITE.reviews.worstRating,
+    },
   }
 }
 
