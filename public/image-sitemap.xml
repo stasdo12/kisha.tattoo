@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- /works — Tattoo portfolio -->
+  <url>
+    <loc>https://kisha.tattoo/works</loc>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/main-work-tattoo.jpg</image:loc>
+      <image:title>Kisha Tattoo München — Portfolio Overview</image:title>
+      <image:caption>Tattoo portfolio by Kisha — München, Bavaria</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/middle-graphic-body-flower-tattoo.jpg</image:loc>
+      <image:title>Grafik Blumen Körper Tattoo München — Kisha</image:title>
+      <image:caption>Graphic flower body tattoo by Kisha Tattoo München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/4x4-japan-fox-tattoo-graphic.jpg</image:loc>
+      <image:title>Japanisches Fuchs Tattoo München — Kisha</image:title>
+      <image:caption>Japanese fox graphic tattoo by Kisha — München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/4x4-rabbit-tattoo-graphic.jpg</image:loc>
+      <image:title>Grafik Hasen Tattoo München — Kisha</image:title>
+      <image:caption>Graphic rabbit tattoo by Kisha Tattoo München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/4x4-birds-tattoo-graphic.jpg</image:loc>
+      <image:title>Grafik Vögel Tattoo München — Kisha</image:title>
+      <image:caption>Graphic birds tattoo by Kisha — München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/4x4-bugs-tattoo-graphic.jpg</image:loc>
+      <image:title>Grafik Insekten Tattoo München — Kisha</image:title>
+      <image:caption>Graphic insects tattoo by Kisha Tattoo München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/row2-snake-knie-tattoo.jpg</image:loc>
+      <image:title>Grafik Schlangen Knie Tattoo München — Kisha</image:title>
+      <image:caption>Graphic snake knee tattoo by Kisha — München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/big-snake-tattoo-graphic.jpg</image:loc>
+      <image:title>Großes Schlangen Grafik Tattoo München — Kisha</image:title>
+      <image:caption>Large graphic snake tattoo by Kisha Tattoo München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/middle-graphic-hand-with-flower-tattoo.jpg</image:loc>
+      <image:title>Grafik Blumen Hand Tattoo München — Kisha</image:title>
+      <image:caption>Graphic flower hand tattoo by Kisha — München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/middle-graphic-legs-tattoo.jpg</image:loc>
+      <image:title>Grafik Bein Tattoo München — Kisha</image:title>
+      <image:caption>Graphic leg tattoo by Kisha Tattoo München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/4x4-dog-tattoo-fineline.jpg</image:loc>
+      <image:title>Fineline Hund Tattoo München — Kisha</image:title>
+      <image:caption>Fineline dog tattoo by Kisha — München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/4x4-fogel-tattoo-graphic.jpg</image:loc>
+      <image:title>Grafik Vogel Tattoo München — Kisha</image:title>
+      <image:caption>Graphic bird tattoo by Kisha Tattoo München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/4x4-owl-tattoo-fineline.jpg</image:loc>
+      <image:title>Fineline Eule Tattoo München — Kisha</image:title>
+      <image:caption>Fineline owl tattoo by Kisha — München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/work/4x4-sakura-tattoo.jpg</image:loc>
+      <image:title>Sakura Tattoo München — Kisha</image:title>
+      <image:caption>Sakura cherry blossom tattoo by Kisha Tattoo München</image:caption>
+    </image:image>
+  </url>
+
+  <!-- / — Homepage motifs + works preview -->
+  <url>
+    <loc>https://kisha.tattoo/</loc>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/hero-portrait.jpg</image:loc>
+      <image:title>Kisha — Tattoo-Künstlerin München</image:title>
+      <image:caption>Kisha, tattoo artist in München — Irezumi &amp; Graphic Tattoo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/motif-dragon.jpg</image:loc>
+      <image:title>Drachen Tattoo Motiv München — Kisha</image:title>
+      <image:caption>Japanese dragon Irezumi tattoo motif by Kisha München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/motif-fox.jpg</image:loc>
+      <image:title>Fuchs Kitsune Tattoo Motiv München — Kisha</image:title>
+      <image:caption>Kitsune fox tattoo motif by Kisha — Japanese Irezumi München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/motif-koi.jpg</image:loc>
+      <image:title>Koi Tattoo Motiv München — Kisha</image:title>
+      <image:caption>Koi fish Japanese Irezumi tattoo motif by Kisha München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/motif-sakura.jpg</image:loc>
+      <image:title>Sakura Tattoo Motiv München — Kisha</image:title>
+      <image:caption>Sakura cherry blossom tattoo motif by Kisha München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/motif-tiger.jpg</image:loc>
+      <image:title>Tiger Tattoo Motiv München — Kisha</image:title>
+      <image:caption>Japanese tiger Irezumi tattoo motif by Kisha München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/philosophy-snake-graphic.jpg</image:loc>
+      <image:title>Grafik Schlangen Tattoo München — Kisha</image:title>
+      <image:caption>Graphic snake tattoo — Kisha Tattoo München philosophy</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/works-01-blackwork-fullbody.jpg</image:loc>
+      <image:title>Blackwork Fullbody Tattoo München — Kisha</image:title>
+      <image:caption>Blackwork full body tattoo by Kisha — München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/works-02-fox-japanese.jpg</image:loc>
+      <image:title>Japanisches Fuchs Tattoo München — Kisha</image:title>
+      <image:caption>Japanese fox Irezumi tattoo by Kisha München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/works-03-flower-japanese.jpg</image:loc>
+      <image:title>Japanisches Blumen Tattoo München — Kisha</image:title>
+      <image:caption>Japanese flower Irezumi tattoo by Kisha München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/works-04-god-japanese.jpg</image:loc>
+      <image:title>Japanisches Gott Tattoo München — Kisha</image:title>
+      <image:caption>Japanese deity Irezumi tattoo by Kisha München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/works-05-flowers-graphic.jpg</image:loc>
+      <image:title>Grafik Blumen Tattoo München — Kisha</image:title>
+      <image:caption>Graphic flowers tattoo by Kisha — München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/home/works-06-mace-graphic-leg.jpg</image:loc>
+      <image:title>Grafik Bein Tattoo München — Kisha</image:title>
+      <image:caption>Graphic leg tattoo by Kisha München</image:caption>
+    </image:image>
+  </url>
+
+  <!-- /about — Artist + studio photos -->
+  <url>
+    <loc>https://kisha.tattoo/about</loc>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/about/hero-portrait.jpg</image:loc>
+      <image:title>Kisha — Tattoo-Künstlerin München Portrait</image:title>
+      <image:caption>Kisha, award-winning tattoo artist in München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/about/studio-wide.jpg</image:loc>
+      <image:title>BavariaTattoo Studio München — Kisha Atelier</image:title>
+      <image:caption>BavariaTattoo Studio, Neufahrn bei Freising — Kisha Tattoo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/about/passion-large-1.jpg</image:loc>
+      <image:title>Kisha Tattoo München — Arbeit am Tattoo 1</image:title>
+      <image:caption>Kisha tattooing at BavariaTattoo Studio München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/about/passion-large-2.jpg</image:loc>
+      <image:title>Kisha Tattoo München — Arbeit am Tattoo 2</image:title>
+      <image:caption>Kisha at work — tattoo process München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/about/passion-large-3.jpg</image:loc>
+      <image:title>Kisha Tattoo München — Japanisches Irezumi Prozess</image:title>
+      <image:caption>Japanese Irezumi tattooing process — Kisha München</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisha.tattoo/images/about/passion-large-4.jpg</image:loc>
+      <image:title>Kisha Tattoo München — Grafik Tattoo Prozess</image:title>
+      <image:caption>Graphic tattoo process by Kisha — München</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

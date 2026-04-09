@@ -370,7 +370,7 @@ export default async function GraphicHomePage() {
           Figma passion-section layout (1920px frame):
           - H2:    left: var(--g-pad), top: 0
           - P2:    left: calc(48px + 45.83vw) ≈ 928px@1920, top: 0, width: 448px
-          - Photo: top: ~140px (heading ~100px + 40px gap), height: 50vw
+          - Photo: top: ~140px (heading ~100px + 40px gap), height: 50vwhttps://share.google/uPXViqrGbKIfqJ8kp
           - Section h: clamp(900px, calc(180px + 50vw), 1100px)
                        → 900px@1440 ✓  1140px@1920 (photo fills rest)
         */}
