@@ -6,6 +6,7 @@
 import { Link } from '@/i18n/navigation'
 import { SITE } from '@/content/site'
 import { useTranslations } from 'next-intl'
+import { trackWhatsAppClick } from '@/lib/gtag'
 
 export function GFooter() {
   const t = useTranslations('footer')
@@ -47,7 +48,7 @@ export function GFooter() {
 
   const SOCIAL = [
     { href: SITE.social.instagram,                                     label: t('instagram'), external: true },
-    { href: `https://wa.me/${SITE.contact.phone.replace(/\D/g, '')}`, label: t('whatsapp'),  external: true },
+    { href: `https://wa.me/${SITE.contact.phone.replace(/\D/g, '')}`, label: t('whatsapp'),  external: true, onClick: () => trackWhatsAppClick('footer') },
   ]
 
   return (
@@ -180,7 +181,7 @@ export function GFooter() {
 }
 
 /* ── Footer column helper ───────────────────────────────────────────────── */
-type FooterLink = { href: string; label: string; external?: boolean }
+type FooterLink = { href: string; label: string; external?: boolean; onClick?: () => void }
 
 function FooterColumn({
   label,
@@ -212,6 +213,7 @@ function FooterColumn({
               target="_blank"
               rel="noopener noreferrer"
               style={{ fontSize: '16px', fontWeight: 500, lineHeight: 1, color: '#F2F2F2', textDecoration: 'none' }}
+              onClick={l.onClick}
             >
               {l.label}
             </a>

@@ -15,6 +15,7 @@ import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
 import { SITE } from '@/content/site'
+import { trackWhatsAppClick } from '@/lib/gtag'
 
 const NAV_HREFS = [
   { href: '/works' as const,                  key: 'works'   },
@@ -240,6 +241,7 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="g-menu-footer-link"
+              onClick={() => trackWhatsAppClick('header-menu')}
             >
               [ WhatsApp ]
             </a>

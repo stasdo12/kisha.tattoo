@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState, type FormEvent } from 'react'
+import { trackFormSubmit } from '@/lib/gtag'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -23,7 +24,12 @@ export function GraphicContactForm() {
 
     try {
       const res = await fetch('/api/contact', { method: 'POST', body: fd })
-      setStatus(res.ok ? 'success' : 'error')
+      if (res.ok) {
+        trackFormSubmit('contact')
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }

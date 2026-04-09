@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
+import { trackFormSubmit } from '@/lib/gtag'
 import s from './booking.module.css'
 
 export default function BookingPage() {
@@ -23,7 +24,12 @@ export default function BookingPage() {
     if (file && file.size > 0) fd.append('file', file)
     try {
       const res = await fetch('/api/contact', { method: 'POST', body: fd })
-      setStatus(res.ok ? 'success' : 'error')
+      if (res.ok) {
+        trackFormSubmit('booking')
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }
