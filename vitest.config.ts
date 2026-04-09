@@ -7,10 +7,7 @@ export default defineConfig({
   test: {
     globals: true,
     exclude: ['node_modules', 'e2e/**'],
-    environmentMatchGlobs: [
-      ['__tests__/components/**', 'happy-dom'],
-    ],
-    environment: 'node',
+    environment: 'happy-dom',
     setupFiles: ['__tests__/setup.ts'],
     coverage: {
       provider: 'v8',
