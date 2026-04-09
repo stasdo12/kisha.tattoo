@@ -34,9 +34,10 @@ export function buildMetadata(input: SeoInput): Metadata {
   } = input
 
   // Canonical: DE has no prefix, EN/UK have /en/ /uk/
+  const cleanPath = path === '/' ? '' : path
   const canonical = locale === 'de'
-    ? `${SITE.url}${path}`
-    : `${SITE.url}/${locale}${path}`
+    ? `${SITE.url}${cleanPath}`
+    : `${SITE.url}/${locale}${cleanPath}`
 
   const fullTitle = `${title} | ${SITE.name}`
 
