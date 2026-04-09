@@ -88,14 +88,6 @@ export default async function GraphicHomePage() {
           - Nav links: 94.9% from left (right: 5.1%), 43.9% from top
           - CTA strip: bottom: 0, full width
         */}
-        {/* fetchpriority=high hint for LCP — without href so browser picks correct size from srcset */}
-        <link
-          rel="preload"
-          as="image"
-          fetchPriority="high"
-          imageSrcSet="/_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=128&q=75 128w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=256&q=75 256w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=384&q=75 384w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=512&q=75 512w"
-          imageSizes="(max-width: 767px) 160px, (max-width: 1919px) 17vw, 320px"
-        />
 
         <section
           aria-label="Kisha — Irezumi Mastery"
