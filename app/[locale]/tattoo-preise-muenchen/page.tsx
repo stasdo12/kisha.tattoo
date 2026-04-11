@@ -310,6 +310,7 @@ export default async function TattooPreiseMuenchen({
                     fontSize: 'var(--g-s)',
                     lineHeight: 'var(--g-lh-s)',
                     color: '#0D0D0D',
+                    alignSelf: 'center',
                   }}
                 >
                   {String.fromCharCode(65 + i)}
@@ -370,42 +371,36 @@ export default async function TattooPreiseMuenchen({
                     position: 'relative',
                   }}
                 >
-                  <div
+                  {/* Label — absolute top-right of each item, matching Figma */}
+                  <span
                     style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      justifyContent: 'space-between',
-                      gap: '1rem',
+                      position: 'absolute',
+                      top: 0,
+                      right: 0,
+                      fontSize: 'var(--g-tag)',
+                      lineHeight: 'normal',
+                      color: '#0D0D0D',
+                      whiteSpace: 'nowrap',
                     }}
                   >
-                    <h3
-                      style={{
-                        fontSize: 'var(--g-s)',
-                        lineHeight: 'var(--g-lh-s)',
-                        color: '#0D0D0D',
-                        maxWidth: 'clamp(18rem, 30vw, 36rem)',
-                      }}
-                    >
-                      {item.q}
-                    </h3>
-                    <span
-                      style={{
-                        fontSize: 'var(--g-tag)',
-                        color: '#0D0D0D',
-                        whiteSpace: 'nowrap',
-                        flexShrink: 0,
-                        paddingTop: '0.25rem',
-                      }}
-                    >
-                      [ Question №{i + 1} ]
-                    </span>
-                  </div>
+                    [ Question №{i + 1} ]
+                  </span>
+                  <h3
+                    style={{
+                      fontSize: 'var(--g-s)',
+                      lineHeight: 'var(--g-lh-s)',
+                      color: '#0D0D0D',
+                      maxWidth: 'clamp(18rem, 30vw, 27rem)',
+                    }}
+                  >
+                    {item.q}
+                  </h3>
                   <p
                     style={{
                       fontSize: 'var(--g-bm)',
                       lineHeight: 1,
                       color: '#0D0D0D',
-                      maxWidth: 'clamp(18rem, 29.17vw, 35rem)',
+                      maxWidth: 'clamp(16rem, 29.17vw, 26.25rem)',
                     }}
                   >
                     {item.a}
