@@ -778,49 +778,55 @@ body:has([data-theme='graphic']) {
 
   /* ── MOTIVE HUB PAGE ── */
 
-  /* Nav grid: 5 col → flex wrap so no orphan black cell */
-  .g-motive-nav-grid {
-    display: flex !important;
+  /* Hero nav tabs: 5 col → 2-col grid on small screens */
+  .g-motive-tabs {
     flex-wrap: wrap !important;
   }
-  .g-motive-nav-grid > a {
-    flex: 1 1 33.33% !important;
+  .g-motive-tab {
+    flex: 1 1 50% !important;
     box-sizing: border-box !important;
+    border-left: 1px solid #0D0D0D !important;
   }
 
-  /* Section header: hide the big kanji on mobile (saves space) */
-  .g-motive-section-header {
-    grid-template-columns: 1fr !important;
+  /* Motif card top: image + content → stack vertically */
+  .g-motive-card-top {
+    flex-direction: column !important;
+    gap: 2rem !important;
   }
-  .g-motive-section-header > [aria-hidden="true"] {
+  .g-motive-card-img {
+    width: 100% !important;
+    min-height: 280px !important;
+    max-height: 360px !important;
+  }
+  .g-motive-card-content {
+    width: 100% !important;
+  }
+
+  /* FAQ section: label hidden on mobile, FAQ items full width */
+  .g-motive-card-faq > span:first-child {
     display: none !important;
   }
-
-  /* Symbolism: 3 col → 1 col */
-  .g-motive-sym-grid {
-    grid-template-columns: 1fr !important;
+  .g-motive-card-faq > div {
+    max-width: 100% !important;
   }
 
-  /* FAQ: 2 col → 1 col */
-  .g-motive-faq-item {
-    grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
+  /* Buttons: stack vertically on mobile */
+  .g-motive-card-btns {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  .g-motive-card-btns > a {
+    width: 100% !important;
+    height: 48px !important;
   }
 
-  /* Hero kanji cluster: smaller on mobile, stay centered */
-  .g-motive-hero-kanji {
-    font-size: 2rem !important;
-    gap: 0.4rem !important;
-    letter-spacing: 0.05em !important;
-    opacity: 0.55 !important;
+  /* Intro columns: stack vertically */
+  .g-motive-intro-cols {
+    flex-direction: column !important;
+    gap: 1rem !important;
   }
-
-  /* Intro: photo + text → stack, photo fixed height */
-  .g-motive-intro {
-    grid-template-columns: 1fr !important;
-  }
-  .g-motive-intro > div:first-child {
-    height: 280px !important;
+  .g-motive-intro-cols > p {
+    width: 100% !important;
   }
 
   /* ── ARTICLE DETAIL PAGE ── */

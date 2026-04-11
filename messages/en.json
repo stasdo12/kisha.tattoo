@@ -988,11 +988,12 @@
     },
     "hero": {
       "h1": "Japanese Tattoo\nMotifs",
-      "sub": "Symbolism and meaning of the most important Irezumi motifs"
+      "sub": "Symbolism and meaning of the most important Irezumi motifs",
+      "label": "[ All traditional motifs ]"
     },
     "works": {
       "heading": "All motifs in context — view real work",
-      "portfolio": "View portfolio →",
+      "portfolio": "View all works",
       "booking": "Book appointment"
     },
     "motifCta": "Book {label} Tattoo →",
@@ -1177,7 +1178,8 @@
     "intro": {
       "heading": "Irezumi — the Language of Body Art",
       "body1": "In Japanese Irezumi, every motif tells a story — not just decoration. Dragons protect, koi fight, kitsune both deceive and protect, sakura reminds us of impermanence, tigers carry the wind within them. Every line carries meaning.",
-      "body2": "KishaTattoo in Munich specialises in authentic Irezumi — classic motif language, individual composition, no standard designs. On this page you will find the meaning of the most important Irezumi motifs."
+      "body2": "KishaTattoo in Munich specialises in authentic Irezumi — classic motif language, individual composition, no standard designs. On this page you will find the meaning of the most important Irezumi motifs.",
+      "cta": "Start your consultation"
     },
     "motifHeadingSuffix": "Tattoo — Meaning & Symbolism"
   },
