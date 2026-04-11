@@ -246,7 +246,7 @@ export default async function AwardsPage({
         {/* 3 stat cards */}
         <div
           className="g-awards-stats"
-          style={{ display: 'flex' }}
+          style={{ display: 'flex', gap: '1rem' }}
         >
           {schoolStats.map((s, i) => (
             <div
@@ -255,20 +255,24 @@ export default async function AwardsPage({
                 flex: '1 1 0',
                 display: 'flex',
                 flexDirection: 'column',
+                alignItems: 'center',
                 justifyContent: 'space-between',
                 minHeight: 'clamp(240px, 19.69vw, 378px)',
-                padding: i < 2 ? '0 clamp(1rem, 1.67vw, 2rem) clamp(1rem, 1.04vw, 1.25rem) 0' : '0 0 clamp(1rem, 1.04vw, 1.25rem) 0',
+                paddingRight: i < 2 ? '2rem' : 0,
+                paddingBottom: '1.25rem',
                 borderRight: i < 2 ? '1px solid #0D0D0D' : 'none',
               }}
             >
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', textAlign: 'center' }}>
+              {/* content: items-start так текст идёт от левого края */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', width: '100%', alignItems: 'flex-start' }}>
+                <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)' }}>
                   {s.label}
                 </span>
                 <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', maxWidth: 'clamp(16rem, 19.8vw, 23.75rem)' }}>
                   {s.body}
                 </p>
               </div>
+              {/* буква по центру (alignItems:center на родителе) */}
               <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)' }}>
                 {['A', 'B', 'C'][i]}
               </span>
@@ -290,7 +294,7 @@ export default async function AwardsPage({
               lineHeight: 'var(--g-lh-l)',
               color: '#0D0D0D',
               letterSpacing: 'var(--g-ls)',
-              width: 'clamp(16rem, 18.3vw, 21.9rem)',
+              width: 'clamp(22rem, 24vw, 28rem)',
             }}
           >
             {t('mentions.heading')}
