@@ -54,7 +54,17 @@ export function middleware(req: NextRequest) {
   }
 
   // i18n locale routing for all other routes
-  return intlMiddleware(reqWithPathname)
+  const res = intlMiddleware(reqWithPathname)
+
+  // Cloudflare ignores Vary on custom headers, so RSC payloads can be cached
+  // and served as HTML to the next visitor. Force no-store on RSC requests.
+  const isRsc = req.headers.get('RSC') === '1'
+  if (isRsc) {
+    res.headers.set('Cache-Control', 'no-store')
+    res.headers.set('CDN-Cache-Control', 'no-store')
+  }
+
+  return res
 
 }
 
