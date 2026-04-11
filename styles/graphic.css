@@ -1318,4 +1318,44 @@ body:has([data-theme='graphic']) {
     width: 100% !important;
     flex-shrink: 1 !important;
   }
+
+  /* ── PREISE PAGE ── */
+
+  /* Price card: stack left/right vertically */
+  .g-price-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Info section: two text cols → single col */
+  .g-preise-info-cols {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* Factors: 3 cols → single col, remove borders */
+  .g-preise-factors {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  .g-preise-factors > div {
+    border-right: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    gap: 1.5rem !important;
+    border-bottom: 1px solid #0D0D0D !important;
+    padding-bottom: 2rem !important;
+  }
+  .g-preise-factors > div:last-child {
+    border-bottom: none !important;
+  }
+
+  /* FAQ layout: side-by-side → stacked */
+  .g-preise-faq-layout {
+    flex-direction: column !important;
+  }
+  .g-preise-faq-layout > h2 {
+    width: 100% !important;
+  }
 }

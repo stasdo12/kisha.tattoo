@@ -342,7 +342,7 @@ export default async function MotiveHub({
                           textDecoration: 'none',
                         }}
                       >
-                        {t('motifCta').replace('{label}', m.label)}
+                        {t('motifCta', { label: m.label })}
                       </Link>
                       <Link
                         href="/japanisches-tattoo-muenchen"

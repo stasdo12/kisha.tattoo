@@ -27,10 +27,10 @@ export default async function TattooPreiseMuenchen({
 }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'preise' })
-  const faqItems = t.raw('faq.items') as Array<{ q: string; a: string }>
-  const tableRows = t.raw('table.rows') as Array<{ size: string; style: string; price: string; time: string; desc: string }>
+  const faqItems    = t.raw('faq.items')    as Array<{ q: string; a: string }>
+  const tableRows   = t.raw('table.rows')   as Array<{ size: string; style: string; price: string; time: string; desc: string }>
   const factorItems = t.raw('factors.items') as Array<{ title: string; body: string }>
-  const styleCards = t.raw('styles.cards') as Array<{ href: string; style: string; price: string; desc: string; link: string }>
+
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -43,208 +43,277 @@ export default async function TattooPreiseMuenchen({
         faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))
       )}} />
 
-      {/* ── HERO ──────────────────────────────────────────────────────────── */}
+      {/* ── HERO — H1 ─────────────────────────────────────────────────────── */}
       <section
         aria-label="Tattoo Preise München — KishaTattoo"
-        style={{
-          position: 'relative',
-          height: 'clamp(680px, 90vh, 900px)',
-          background: '#0D0D0D',
-          overflow: 'hidden',
-        }}
+        style={{ background: '#F2F2F2', paddingBottom: 'clamp(2.5rem, 5.56vw, 5rem)' }}
       >
-        <GHeader theme="dark" />
-
-        <h1
-          style={{
-            position: 'absolute',
-            top: '72px',
-            left: 'var(--g-pad)',
-            width: 'clamp(18rem, 52vw, 900px)',
-            fontSize: 'var(--g-xl)',
-            lineHeight: 'var(--g-lh-xl)',
-            color: '#F2F2F2',
-          }}
-        >
-          {t('hero.h1')}
-        </h1>
-
-        <p
-          style={{
-            position: 'absolute',
-            bottom: '24px',
-            right: 'var(--g-pad)',
-            width: 'clamp(16rem, 28vw, 420px)',
-            fontSize: 'var(--g-bm)',
-            lineHeight: 1.5,
-            color: 'rgba(242,242,242,0.8)',
-            textAlign: 'right',
-          }}
-        >
-          {t('hero.sub')}
-        </p>
-
-
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            bottom: 'clamp(30px, 4.6vw, 60px)',
-            left: 'var(--g-pad)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            width: '170px',
-          }}
-        >
-          <span style={{ fontSize: 'clamp(48px, 4.44vw, 64px)', lineHeight: 1, color: '#F2F2F2' }}>円</span>
-          <span style={{ fontSize: 'var(--g-tag)', lineHeight: 1.4, color: 'rgba(242,242,242,0.55)' }}>
-            {t('intro.kanjiCaption')}
-          </span>
+        <GHeader theme="light" />
+        <div className="g-container" style={{ paddingTop: 'clamp(3.5rem, 5vw, 4.5rem)' }}>
+          <h1
+            style={{
+              fontSize: 'var(--g-xl)',
+              lineHeight: 'var(--g-lh-xl)',
+              color: '#0D0D0D',
+              width: 'clamp(18rem, 33.5vw, 30.2rem)',
+            }}
+          >
+            {t('hero.h1')}
+          </h1>
         </div>
       </section>
 
-      {/* ── INTRO ─────────────────────────────────────────────────────────── */}
+      {/* ── PRICE CARDS ───────────────────────────────────────────────────── */}
       <section
-        aria-labelledby="preise-intro-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
+        aria-label={t('table.heading')}
+        style={{ background: '#F2F2F2', paddingBottom: 'clamp(1.25rem, 2.08vw, 2.5rem)' }}
       >
         <div className="g-container">
-          <div className="g-section-header" style={{ alignItems: 'center' }}>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              {t('intro.tag')}
-            </span>
-            <h2
-              id="preise-intro-heading"
-              style={{
-                fontSize: 'var(--g-l)',
-                lineHeight: 'var(--g-lh-l)',
-                color: '#0D0D0D',
-                textAlign: 'center',
-                width: 'clamp(18rem, 32.6vw, 470px)',
-                flexShrink: 0,
-              }}
-            >
-              {t('intro.heading')}
-            </h2>
-            <Link href="/booking" style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              {t('intro.requestLink')}
-            </Link>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.75rem, 1.39vw, 1.25rem)' }}>
+            {tableRows.map((row) => {
+              const styleTags = row.style.replace(/\s[·/]\s/g, '|').split('|')
+              return (
+                <div
+                  key={row.size}
+                  className="g-price-card"
+                  style={{
+                    background: '#E8E8E8',
+                    padding: 'clamp(1.25rem, 2.08vw, 2.5rem)',
+                    display: 'flex',
+                    alignItems: 'flex-end',
+                    justifyContent: 'space-between',
+                    gap: '1rem',
+                  }}
+                >
+                  {/* Left */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 1.94vw, 1.75rem)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.625rem, 1.11vw, 1rem)' }}>
+                      <p
+                        style={{
+                          fontSize: 'var(--g-s)',
+                          lineHeight: 'var(--g-lh-s)',
+                          color: '#0D0D0D',
+                        }}
+                      >
+                        {row.size}
+                      </p>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center' }}>
+                        {styleTags.map((tag) => (
+                          <span
+                            key={tag}
+                            style={{ fontSize: 'var(--g-bs)', lineHeight: 1, color: '#0D0D0D' }}
+                          >
+                            [ {tag} ]
+                          </span>
+                        ))}
+                        <span style={{ fontSize: 'var(--g-bs)', lineHeight: 1, color: '#0D0D0D' }}>
+                          [ {row.time} ]
+                        </span>
+                      </div>
+                    </div>
+                    <p
+                      style={{
+                        fontSize: 'var(--g-bm)',
+                        lineHeight: 1,
+                        color: '#0D0D0D',
+                        maxWidth: 'clamp(12rem, 16.3vw, 14.7rem)',
+                      }}
+                    >
+                      {row.desc}
+                    </p>
+                  </div>
+                  {/* Right — price */}
+                  <p
+                    style={{
+                      fontSize: 'var(--g-s)',
+                      lineHeight: 'var(--g-lh-s)',
+                      color: '#0D0D0D',
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {row.price}
+                  </p>
+                </div>
+              )
+            })}
           </div>
 
-          <div
-            className="g-text-cols"
+          {/* Disclaimer */}
+          <p
             style={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              gap: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)',
-              marginTop: 'clamp(1.5rem, 2.5vw, 3rem)',
+              fontSize: 'var(--g-bm)',
+              lineHeight: 'var(--g-lh-bm)',
+              color: '#0D0D0D',
+              marginTop: 'clamp(1.5rem, 2.08vw, 2.5rem)',
+              maxWidth: 'clamp(20rem, 26.5vw, 31.8rem)',
             }}
           >
-            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              {t('intro.body1')}
-            </p>
-            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              {t('intro.body2')}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── PRICE TABLE ───────────────────────────────────────────────────── */}
-      <section
-        aria-labelledby="preise-table-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
-      >
-        <div className="g-container">
-          <div
-            style={{
-              paddingBottom: '1.25rem',
-              borderBottom: '2px solid #0D0D0D',
-              marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
-            }}
-          >
-            <h2
-              id="preise-table-heading"
-              style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}
-            >
-              {t('table.heading')}
-            </h2>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            {tableRows.map((row, i) => (
-              <div
-                key={row.size}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr 1fr',
-                  gap: 'clamp(1rem, 2vw, 2.5rem)',
-                  padding: 'clamp(1rem, 1.8vw, 1.75rem) 0',
-                  borderBottom: '1px solid rgba(13,13,13,0.15)',
-                  background: i % 2 === 0 ? 'transparent' : 'rgba(13,13,13,0.02)',
-                }}
-              >
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', fontWeight: 500 }}>{row.size}</span>
-                  <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.55)' }}>{row.style}</span>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  <span style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{row.desc}</span>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-end' }}>
-                  <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{row.price}</span>
-                  <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.55)' }}>{row.time}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.55)', marginTop: '1.5rem' }}>
             {t('table.disclaimer')}
           </p>
         </div>
       </section>
 
-      {/* ── WHAT AFFECTS PRICE ────────────────────────────────────────────── */}
+      {/* ── WHAT DOES A TATTOO COST — info + CTA ─────────────────────────── */}
       <section
-        aria-labelledby="preise-factors-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
+        aria-labelledby="preise-info-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2.5rem, 5.56vw, 5rem) 0' }}
       >
         <div className="g-container">
+          {/* Heading */}
+          <div
+            style={{
+              paddingBottom: '1.25rem',
+              borderBottom: '2px solid #0D0D0D',
+              marginBottom: 'clamp(2rem, 3.47vw, 3.25rem)',
+            }}
+          >
+            <h2
+              id="preise-info-heading"
+              style={{
+                fontSize: 'var(--g-l)',
+                lineHeight: 'var(--g-lh-l)',
+                color: '#0D0D0D',
+                maxWidth: 'clamp(22rem, 33.7vw, 40.4rem)',
+              }}
+            >
+              {t('intro.heading')}
+            </h2>
+          </div>
+
+          {/* Two text columns */}
+          <div
+            className="g-preise-info-cols"
+            style={{
+              display: 'flex',
+              gap: 'clamp(1.25rem, 1.39vw, 1.25rem)',
+              marginBottom: 'clamp(2rem, 3.47vw, 3.25rem)',
+            }}
+          >
+            <p
+              style={{
+                fontSize: 'var(--g-bm)',
+                lineHeight: 1,
+                color: '#0D0D0D',
+                flex: '1 1 0',
+              }}
+            >
+              {t('intro.body1')}
+            </p>
+            <p
+              style={{
+                fontSize: 'var(--g-bm)',
+                lineHeight: 1,
+                color: '#0D0D0D',
+                flex: '1 1 0',
+              }}
+            >
+              {t('intro.body2')}
+            </p>
+          </div>
+
+          {/* CTA button */}
+          <Link
+            href="/booking"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '1rem 0.75rem',
+              background: '#0D0D0D',
+              color: '#F2F2F2',
+              fontSize: 'var(--g-bm)',
+              lineHeight: 1,
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {t('intro.ctaButton')}
+          </Link>
+        </div>
+      </section>
+
+      {/* ── WHAT AFFECTS THE COST — factors ──────────────────────────────── */}
+      <section
+        aria-labelledby="preise-factors-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2.5rem, 5.56vw, 5rem) 0' }}
+      >
+        <div className="g-container">
+          {/* Heading centered */}
           <div
             style={{
               paddingBottom: '1.25rem',
               borderBottom: '2px solid #0D0D0D',
               display: 'flex',
               justifyContent: 'center',
-              marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
+              marginBottom: 'clamp(2rem, 3.61vw, 3.25rem)',
             }}
           >
             <h2
               id="preise-factors-heading"
-              style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}
+              style={{
+                fontSize: 'var(--g-l)',
+                lineHeight: 'var(--g-lh-l)',
+                color: '#0D0D0D',
+                textAlign: 'center',
+                maxWidth: 'clamp(20rem, 31.25vw, 37.5rem)',
+              }}
             >
               {t('factors.heading')}
             </h2>
           </div>
 
-          <div className="g-about-steps" style={{ display: 'flex' }}>
+          {/* 3 factor cards */}
+          <div
+            className="g-preise-factors"
+            style={{ display: 'flex', gap: 0 }}
+          >
             {factorItems.map((col, i) => (
               <div
                 key={col.title}
-                className="g-about-step-col"
                 style={{
                   flex: '1 1 0',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '1.5rem',
-                  padding: i === 0 ? '0 clamp(1rem, 2vw, 2rem) 0 0' : i === 1 ? '0 clamp(1rem, 2vw, 2rem)' : '0 0 0 clamp(1rem, 2vw, 2rem)',
-                  borderLeft: i > 0 ? '1px solid #0D0D0D' : 'none',
+                  justifyContent: 'space-between',
+                  gap: 'clamp(8rem, 15.28vw, 13.75rem)',
+                  paddingRight: i < factorItems.length - 1 ? 'clamp(1rem, 2.22vw, 2rem)' : 0,
+                  paddingLeft: i > 0 ? 'clamp(1rem, 2.22vw, 2rem)' : 0,
+                  paddingBottom: '1.25rem',
+                  borderRight: i < factorItems.length - 1 ? '1px solid #0D0D0D' : 'none',
                 }}
               >
-                <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{col.title}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{col.body}</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  <h3
+                    style={{
+                      fontSize: 'var(--g-s)',
+                      lineHeight: 'var(--g-lh-s)',
+                      color: '#0D0D0D',
+                    }}
+                  >
+                    {col.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: 'var(--g-bm)',
+                      lineHeight: 1,
+                      color: '#0D0D0D',
+                      maxWidth: 'clamp(14rem, 26.39vw, 31.7rem)',
+                    }}
+                  >
+                    {col.body}
+                  </p>
+                </div>
+                <span
+                  aria-hidden="true"
+                  style={{
+                    fontSize: 'var(--g-s)',
+                    lineHeight: 'var(--g-lh-s)',
+                    color: '#0D0D0D',
+                  }}
+                >
+                  {String.fromCharCode(65 + i)}
+                </span>
               </div>
             ))}
           </div>
@@ -254,99 +323,97 @@ export default async function TattooPreiseMuenchen({
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="preise-faq-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
-      >
-        <div className="g-container">
-          <h2
-            id="preise-faq-heading"
-            style={{
-              fontSize: 'var(--g-l)',
-              lineHeight: 'var(--g-lh-l)',
-              color: '#0D0D0D',
-              marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
-              paddingBottom: '1.25rem',
-              borderBottom: '2px solid #0D0D0D',
-            }}
-          >
-            {t('faq.heading')}
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {faqItems.map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: 'clamp(2rem, 4vw, 5rem)',
-                  padding: 'clamp(1rem, 1.8vw, 1.75rem) 0',
-                  borderBottom: '1px solid rgba(13,13,13,0.2)',
-                }}
-              >
-                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── STYLE CARDS ───────────────────────────────────────────────────── */}
-      <section
-        aria-labelledby="preise-styles-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2.5rem, 5.56vw, 5rem) 0' }}
       >
         <div className="g-container">
           <div
+            className="g-preise-faq-layout"
             style={{
-              paddingBottom: '1.25rem',
-              borderBottom: '2px solid #0D0D0D',
-              marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'space-between',
+              gap: 'clamp(2rem, 4.17vw, 4rem)',
+              borderTop: '2px solid #0D0D0D',
+              paddingTop: '1.25rem',
             }}
           >
+            {/* Left — heading */}
             <h2
-              id="preise-styles-heading"
-              style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}
+              id="preise-faq-heading"
+              style={{
+                fontSize: 'var(--g-l)',
+                lineHeight: 'var(--g-lh-l)',
+                color: '#0D0D0D',
+                flexShrink: 0,
+                width: 'clamp(16rem, 25.69vw, 30.9rem)',
+              }}
             >
-              {t('styles.heading')}
+              {t('faq.heading')}
             </h2>
-          </div>
 
-          <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 2rem)', flexWrap: 'wrap' }}>
-            {styleCards.map((card) => (
-              <Link
-                key={card.href}
-                href={card.href}
-                style={{
-                  flex: '1 1 clamp(14rem, 28vw, 380px)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1rem',
-                  padding: 'clamp(1.25rem, 2vw, 2rem)',
-                  border: '1px solid rgba(13,13,13,0.2)',
-                  textDecoration: 'none',
-                }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '1rem' }}>
-                  <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{card.style}</span>
-                  <span style={{ fontSize: 'var(--g-bm)', color: 'rgba(13,13,13,0.55)', whiteSpace: 'nowrap' }}>{card.price}</span>
+            {/* Right — FAQ items */}
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+                flex: 1,
+              }}
+            >
+              {faqItems.map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1.25rem',
+                    position: 'relative',
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      justifyContent: 'space-between',
+                      gap: '1rem',
+                    }}
+                  >
+                    <h3
+                      style={{
+                        fontSize: 'var(--g-s)',
+                        lineHeight: 'var(--g-lh-s)',
+                        color: '#0D0D0D',
+                        maxWidth: 'clamp(18rem, 30vw, 36rem)',
+                      }}
+                    >
+                      {item.q}
+                    </h3>
+                    <span
+                      style={{
+                        fontSize: 'var(--g-tag)',
+                        color: '#0D0D0D',
+                        whiteSpace: 'nowrap',
+                        flexShrink: 0,
+                        paddingTop: '0.25rem',
+                      }}
+                    >
+                      [ Question №{i + 1} ]
+                    </span>
+                  </div>
+                  <p
+                    style={{
+                      fontSize: 'var(--g-bm)',
+                      lineHeight: 1,
+                      color: '#0D0D0D',
+                      maxWidth: 'clamp(18rem, 29.17vw, 35rem)',
+                    }}
+                  >
+                    {item.a}
+                  </p>
                 </div>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{card.desc}</p>
-                <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', marginTop: 'auto' }}>{card.link}</span>
-              </Link>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section data-nav-dark style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
-        <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-          <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
-            {t('cta.heading')}
-          </p>
-          <Link href="/booking" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', background: '#F2F2F2', color: '#0D0D0D', fontSize: 'var(--g-bm)', textDecoration: 'none', whiteSpace: 'nowrap' }}>
-            {t('cta.button')}
-          </Link>
         </div>
       </section>
 
