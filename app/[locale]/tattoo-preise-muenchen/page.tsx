@@ -333,12 +333,11 @@ export default async function TattooPreiseMuenchen({
               display: 'flex',
               alignItems: 'flex-start',
               justifyContent: 'space-between',
-              gap: 'clamp(2rem, 4.17vw, 4rem)',
               borderTop: '2px solid #0D0D0D',
               paddingTop: '1.25rem',
             }}
           >
-            {/* Left — heading */}
+            {/* Left — heading — 370px at 1920px (19.27vw) */}
             <h2
               id="preise-faq-heading"
               style={{
@@ -346,19 +345,20 @@ export default async function TattooPreiseMuenchen({
                 lineHeight: 'var(--g-lh-l)',
                 color: '#0D0D0D',
                 flexShrink: 0,
-                width: 'clamp(16rem, 25.69vw, 30.9rem)',
+                width: 'clamp(16rem, 19.27vw, 23.125rem)',
               }}
             >
               {t('faq.heading')}
             </h2>
 
-            {/* Right — FAQ items */}
+            {/* Right — FAQ items — 912px at 1920px (47.5vw) */}
             <div
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '1rem',
-                flex: 1,
+                width: 'clamp(30rem, 47.5vw, 57rem)',
+                flexShrink: 0,
               }}
             >
               {faqItems.map((item, i) => (
@@ -390,7 +390,7 @@ export default async function TattooPreiseMuenchen({
                       fontSize: 'var(--g-s)',
                       lineHeight: 'var(--g-lh-s)',
                       color: '#0D0D0D',
-                      maxWidth: 'clamp(18rem, 30vw, 27rem)',
+                      maxWidth: 'clamp(16rem, 22.5vw, 27rem)',
                     }}
                   >
                     {item.q}
@@ -400,7 +400,7 @@ export default async function TattooPreiseMuenchen({
                       fontSize: 'var(--g-bm)',
                       lineHeight: 1,
                       color: '#0D0D0D',
-                      maxWidth: 'clamp(16rem, 29.17vw, 26.25rem)',
+                      maxWidth: 'clamp(14rem, 21.875vw, 26.25rem)',
                     }}
                   >
                     {item.a}
