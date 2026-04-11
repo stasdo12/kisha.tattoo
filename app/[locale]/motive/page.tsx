@@ -80,10 +80,10 @@ export default async function MotiveHub({
       >
         <GHeader theme="light" />
 
-        {/* Top-right decorative label */}
+        {/* Top-right decorative label — same top as H1 (72px in Figma) */}
         <p style={{
           position: 'absolute',
-          top: 24,
+          top: 72,
           right: 'var(--g-pad)',
           fontSize: 'var(--g-tag)',
           color: '#BFBFBF',
@@ -93,7 +93,7 @@ export default async function MotiveHub({
           {t('hero.label')}
         </p>
 
-        {/* H1 */}
+        {/* H1 — top: 72px per Figma */}
         <h1
           style={{
             position: 'absolute',
@@ -109,11 +109,12 @@ export default async function MotiveHub({
           {t('hero.h1')}
         </h1>
 
-        {/* Subtitle — below H1 */}
+        {/* Subtitle — Figma: top 236px = H1 top(72) + 2 lines × font × lh + 20px gap
+            Using calc so it never overlaps H1 regardless of viewport size */}
         <p
           style={{
             position: 'absolute',
-            top: 'clamp(160px, 21.85vh, 236px)',
+            top: 'calc(72px + var(--g-xl) * var(--g-lh-xl) * 2 + 20px)',
             left: 'var(--g-pad)',
             width: 'clamp(12rem, 13.8vw, 16.5rem)',
             fontSize: 'var(--g-bm)',
