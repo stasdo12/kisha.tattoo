@@ -2,7 +2,6 @@
  * FAQ — Full FAQ page
  */
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
@@ -38,7 +37,7 @@ export default async function FaqPage({
   const allFaq = sections.flatMap((s) => s.items.map((item) => ({ question: item.q, answer: item.a })))
 
   return (
-    <main id="main-content">
+    <main id="main-content" style={{ background: '#F2F2F2' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(allFaq)) }}
@@ -47,143 +46,236 @@ export default async function FaqPage({
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
         aria-label="FAQ — KishaTattoo München"
-        style={{
-          position: 'relative',
-          height: 'clamp(680px, 90vh, 900px)',
-          background: '#F2F2F2',
-          overflow: 'hidden',
-        }}
+        style={{ background: '#F2F2F2', position: 'relative' }}
       >
         <GHeader theme="light" />
 
-        <h1
-          style={{
-            position: 'absolute',
-            top: '72px',
-            left: 'var(--g-pad)',
-            width: 'clamp(18rem, 42.6vw, 817px)',
-            fontSize: 'var(--g-xl)',
-            lineHeight: 'var(--g-lh-xl)',
-            color: '#0D0D0D',
-            whiteSpace: 'pre-line',
-          }}
-        >
-          {t('hero.h1')}
-        </h1>
-
+        {/* Tags + Title row */}
         <div
-          aria-hidden="true"
           style={{
-            position: 'absolute',
-            left: '50%',
-            top: '48%',
-            transform: 'translate(-50%, -50%)',
-            fontSize: 'clamp(4rem, 10vw, 12rem)',
-            lineHeight: 0.9,
-            color: '#0D0D0D',
-            opacity: 0.07,
-            userSelect: 'none',
-            pointerEvents: 'none',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            padding: '72px var(--g-pad) clamp(3rem, 8vw, 9rem)',
           }}
         >
-          問
+          {/* Left: category tags */}
+          <div
+            style={{
+              display: 'flex',
+              gap: '8px',
+              alignItems: 'center',
+              fontSize: 'var(--g-bs)',
+              lineHeight: 1,
+              color: '#0D0D0D',
+              flexShrink: 0,
+            }}
+          >
+            <span>[ {t('sections.booking')} ]</span>
+            <span>[ {t('sections.pricing')} ]</span>
+            <span>[ {t('sections.preparation')} ]</span>
+            <span>[ {t('sections.style')} ]</span>
+          </div>
+
+          {/* Right: main title */}
+          <h1
+            style={{
+              fontSize: 'var(--g-xl)',
+              lineHeight: 'var(--g-lh-xl)',
+              color: '#0D0D0D',
+              width: 'clamp(18rem, 32vw, 36rem)',
+              letterSpacing: 'var(--g-ls)',
+            }}
+          >
+            {t('hero.h1')}
+          </h1>
         </div>
-
-        <p
-          style={{
-            position: 'absolute',
-            left: 'var(--g-pad)',
-            bottom: '24px',
-            width: 'clamp(18rem, 28vw, 480px)',
-            fontSize: 'var(--g-bm)',
-            lineHeight: 'var(--g-lh-bm)',
-            color: '#0D0D0D',
-          }}
-        >
-          {t('hero.sub')}
-        </p>
-
       </section>
 
       {/* ── FAQ SECTIONS ──────────────────────────────────────────────────── */}
-      {sections.map((section, si) => (
-        <section
-          key={section.id}
-          aria-labelledby={`faq-${section.id}`}
-          style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
+      <section
+        aria-label="FAQ sections"
+        style={{
+          background: '#F2F2F2',
+          padding: '0 var(--g-pad) clamp(3rem, 6vw, 7.5rem)',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'clamp(1.5rem, 2.78vw, 2.5rem)',
+          }}
         >
-          <div className="g-container">
-            <span className="g-tag" style={{ display: 'block', marginBottom: '2rem' }}>FAQ</span>
-
+          {sections.map((section) => (
             <div
-              className="g-faq-grid"
+              key={section.id}
+              className="g-faq-row"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'clamp(180px, 18.4vw, 354px) 1fr 2fr',
-                gap: 'clamp(1rem, 2vw, 2rem)',
-                alignItems: 'start',
+                borderTop: '2px solid #0D0D0D',
+                paddingTop: 'clamp(1rem, 1.39vw, 1.25rem)',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+                gap: '2rem',
               }}
             >
-              {si === 0 ? (
-                <div
-                  className="g-faq-portrait"
-                  style={{ position: 'relative', aspectRatio: '354 / 384', borderRadius: '2px', overflow: 'hidden' }}
-                >
-                  <Image
-                    src="https://picsum.photos/seed/kisha-portrait-faq/354/384"
-                    alt="Kisha — tattoo master München"
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="20vw"
-                  />
-                </div>
-              ) : (
-                <div style={{ display: 'flex', alignItems: 'flex-end', height: '100%', paddingBottom: '0.5rem' }}>
-                  <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.35)', writingMode: 'vertical-rl', transform: 'rotate(180deg)', letterSpacing: '0.1em' }}>
-                    {String(si + 1).padStart(2, '0')}
-                  </span>
-                </div>
-              )}
+              {/* Category title */}
+              <h2
+                id={`faq-${section.id}`}
+                style={{
+                  fontSize: 'var(--g-l)',
+                  lineHeight: 'var(--g-lh-l)',
+                  color: '#0D0D0D',
+                  letterSpacing: 'var(--g-ls)',
+                  flexShrink: 0,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {section.label}
+              </h2>
 
-              <div aria-hidden="true" />
+              {/* FAQ items */}
+              <div
+                className="g-faq-items"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 'clamp(1rem, 1.11vw, 1rem)',
+                  width: 'clamp(20rem, 47.5vw, 57rem)',
+                  flexShrink: 0,
+                }}
+              >
+                {section.items.map((item, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      position: 'relative',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 'clamp(0.75rem, 1.39vw, 1.25rem)',
+                    }}
+                  >
+                    <span
+                      style={{
+                        position: 'absolute',
+                        right: 0,
+                        top: 0,
+                        fontSize: 'var(--g-tag)',
+                        color: '#0D0D0D',
+                        letterSpacing: 'var(--g-ls)',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      [ Question №{i + 1} ]
+                    </span>
 
-              <div className="g-faq-content" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <h2
-                  id={`faq-${section.id}`}
-                  style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', maxWidth: '30rem' }}
-                >
-                  {section.label}
-                </h2>
+                    <h3
+                      style={{
+                        fontSize: 'var(--g-s)',
+                        lineHeight: 'var(--g-lh-s)',
+                        color: '#0D0D0D',
+                        letterSpacing: 'var(--g-ls)',
+                        maxWidth: 'clamp(18rem, 22.5vw, 27rem)',
+                        paddingRight: '9rem',
+                      }}
+                    >
+                      {item.q}
+                    </h3>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  {section.items.map((item, i) => (
-                    <div key={i} className="g-faq-item">
-                      <span className="g-faq-item__num g-tag">Question №{i + 1}</span>
-                      <h3 className="g-faq-item__q">{item.q}</h3>
-                      <p className="g-faq-item__a">{item.a}</p>
-                    </div>
-                  ))}
-                </div>
+                    <p
+                      style={{
+                        fontSize: 'var(--g-bm)',
+                        lineHeight: 'var(--g-lh-bm)',
+                        color: '#0D0D0D',
+                        letterSpacing: 'var(--g-ls)',
+                        maxWidth: 'clamp(18rem, 21.875vw, 26.25rem)',
+                      }}
+                    >
+                      {item.a}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        </section>
-      ))}
+          ))}
+        </div>
+      </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
-        <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-          <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', maxWidth: '28rem' }}>
-            {t('cta.heading')}
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <Link href="/booking" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', background: '#0D0D0D', color: '#F2F2F2', fontSize: 'var(--g-bm)', textDecoration: 'none' }}>
-              {t('cta.booking')}
-            </Link>
-            <Link href="/contact" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', border: '1px solid #0D0D0D', color: '#0D0D0D', fontSize: 'var(--g-bm)', textDecoration: 'none' }}>
-              {t('cta.contact')}
-            </Link>
+      <section style={{ background: '#E8E8E8' }}>
+        <div
+          style={{
+            padding: 'clamp(2rem, 4.167vw, 5rem) var(--g-pad)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'clamp(3rem, 14.583vw, 17.5rem)',
+          }}
+        >
+          {/* Heading + arrow */}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-start',
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <span
+                style={{
+                  fontSize: 'var(--g-tag)',
+                  color: '#0D0D0D',
+                  letterSpacing: 'var(--g-ls)',
+                }}
+              >
+                [ Contact ]
+              </span>
+              <p
+                style={{
+                  fontSize: 'var(--g-l)',
+                  lineHeight: 'var(--g-lh-l)',
+                  color: '#0D0D0D',
+                  letterSpacing: 'var(--g-ls)',
+                  width: 'clamp(20rem, 33vw, 30rem)',
+                }}
+              >
+                {t('cta.heading')}
+              </p>
+            </div>
+
+            {/* Arrow → rotated */}
+            <div
+              aria-hidden="true"
+              style={{
+                fontSize: 'clamp(2.5rem, 4.167vw, 5rem)',
+                color: '#0D0D0D',
+                lineHeight: 1,
+                flexShrink: 0,
+              }}
+            >
+              →
+            </div>
           </div>
+
+          {/* Book button */}
+          <Link
+            href="/booking"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '100%',
+              padding: '1rem 0.75rem',
+              background: '#0D0D0D',
+              color: '#F2F2F2',
+              fontSize: 'var(--g-bm)',
+              lineHeight: 1,
+              letterSpacing: 'var(--g-ls)',
+              textDecoration: 'none',
+            }}
+          >
+            {t('cta.booking')}
+          </Link>
         </div>
       </section>
 
