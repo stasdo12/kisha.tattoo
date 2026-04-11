@@ -124,7 +124,7 @@ export default async function AwardsPage({
             position: 'absolute',
             top: 'clamp(180px, 12.3vw, 236px)',
             left: 'var(--g-pad)',
-            width: 'clamp(16rem, 16.1vw, 19.375rem)',
+            width: 'clamp(13rem, 19vw, 24rem)',
             fontSize: 'var(--g-bm)',
             lineHeight: 'var(--g-lh-bm)',
             color: '#F2F2F2',
@@ -147,7 +147,7 @@ export default async function AwardsPage({
             lineHeight: 'var(--g-lh-l)',
             color: '#0D0D0D',
             letterSpacing: 'var(--g-ls)',
-            width: 'clamp(16rem, 20.7vw, 24.875rem)',
+            width: 'clamp(22rem, 34vw, 32rem)',
             marginBottom: 'clamp(1.5rem, 2.78vw, 3.25rem)',
           }}
         >
@@ -198,10 +198,10 @@ export default async function AwardsPage({
         aria-labelledby="school-heading"
         style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.167vw, 5rem) var(--g-pad)' }}
       >
-        {/* Top row: H2 left | intro text + button right */}
+        {/* Top row: H2 left | intro text right */}
         <div
           className="g-awards-school-top"
-          style={{ display: 'flex', gap: 'clamp(2rem, 4vw, 5rem)', marginBottom: 'clamp(2rem, 2.71vw, 3.25rem)', alignItems: 'flex-start' }}
+          style={{ display: 'flex', gap: 'clamp(2rem, 4vw, 5rem)', marginBottom: 'clamp(1.25rem, 1.39vw, 1.5rem)', alignItems: 'flex-start' }}
         >
           <h2
             id="school-heading"
@@ -217,31 +217,33 @@ export default async function AwardsPage({
             {t('school.heading')}
           </h2>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 1.39vw, 2rem)', flex: 1 }}>
-            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', maxWidth: 'clamp(20rem, 26.5vw, 31.75rem)' }}>
-              {t('school.intro')}
-            </p>
-            <a
-              href="https://www.instagram.com/kisha.tattoo/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '1rem 0.75rem',
-                background: '#0D0D0D',
-                color: '#F2F2F2',
-                fontSize: 'var(--g-bm)',
-                lineHeight: 1,
-                letterSpacing: 'var(--g-ls)',
-                textDecoration: 'none',
-              }}
-            >
-              Follow Kisha
-            </a>
-          </div>
+          <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', maxWidth: 'clamp(20rem, 26.5vw, 31.75rem)' }}>
+            {t('school.intro')}
+          </p>
         </div>
+
+        {/* Full-width Follow Kisha button */}
+        <a
+          href="https://www.instagram.com/kisha.tattoo/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            padding: '1rem 0.75rem',
+            background: '#0D0D0D',
+            color: '#F2F2F2',
+            fontSize: 'var(--g-bm)',
+            lineHeight: 1,
+            letterSpacing: 'var(--g-ls)',
+            textDecoration: 'none',
+            marginBottom: 'clamp(2rem, 2.71vw, 3.25rem)',
+          }}
+        >
+          Follow Kisha
+        </a>
 
         {/* 3 stat cards */}
         <div

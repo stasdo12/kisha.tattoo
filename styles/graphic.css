@@ -1058,6 +1058,11 @@ body:has([data-theme='graphic']) {
   /* Awards page */
   .g-awards-school-top {
     flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .g-awards-school-top > div {
+    align-items: center !important;
   }
   .g-awards-stats {
     flex-direction: column !important;
@@ -1075,6 +1080,9 @@ body:has([data-theme='graphic']) {
   .g-awards-stats > * > div {
     align-items: center !important;
     text-align: center !important;
+  }
+  .g-awards-stats > * > span {
+    margin-top: 2rem !important;
   }
   .g-awards-quotes {
     grid-template-columns: 1fr !important;
