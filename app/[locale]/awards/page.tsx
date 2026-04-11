@@ -2,6 +2,7 @@
  * AWARDS — KishaTattoo München
  */
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
@@ -18,18 +19,39 @@ export async function generateMetadata(
 }
 
 const AWARDS_DATA = [
-  { year: '2025', event: 'Tattooconvention Burgkirchen', eventUrl: 'https://www.instagram.com/tattoo_art.ist.ink/p/DLS7qH2N0hO/', category: 'Best of Show', description: 'Höchste Auszeichnung der Convention — vergeben für das beste Tattoo des gesamten Wettbewerbs.', placement: 'Best of Show' },
-  { year: '2025', event: 'Tattooconvention Burgkirchen', eventUrl: 'https://www.instagram.com/tattoo_art.ist.ink/p/DLS7qH2N0hO/', category: 'Best of Day', description: 'Tagespreis für das herausragendste Tattoo des Wettkampftages.', placement: 'Best of Day' },
-  { year: '2025', event: 'Tattooconvention Burgkirchen', eventUrl: 'https://www.instagram.com/tattoo_art.ist.ink/p/DLS7qH2N0hO/', category: 'Black & Grey', description: 'Auszeichnung in der Kategorie Black & Grey für präzise Schattierung und Komposition.', placement: 'Auszeichnung' },
-  { year: '2025', event: 'Tattooconvention Eggenfelden', eventUrl: 'https://www.instagram.com/p/DOS9-6rjaaM/?img_index=2', category: 'Black & Grey', description: 'Preis in der Kategorie Black & Grey auf der Tattooconvention Eggenfelden.', placement: 'Auszeichnung' },
-  { year: '2025', event: 'Tattooconvention Eggenfelden', eventUrl: 'https://www.instagram.com/p/DOQdGJ2DdCc/?img_index=1', category: 'Fineline / Dotwork', description: 'Auszeichnung für präzises Fineline- und Dotwork-Tattoo in München.', placement: 'Auszeichnung' },
+  { year: '2025', event: 'Tattoo Convention Burgkirchen', eventUrl: 'https://www.instagram.com/tattoo_art.ist.ink/p/DLS7qH2N0hO/', category: 'Best of Show', description: 'Highest Convention Award — presented for the best tattoo of the entire competition' },
+  { year: '2025', event: 'Tattoo Convention Burgkirchen', eventUrl: 'https://www.instagram.com/tattoo_art.ist.ink/p/DLS7qH2N0hO/', category: 'Best of Day', description: '1st Place: Best of Day — awarded for the most outstanding tattoo of the competition day' },
+  { year: '2025', event: 'Tattoo Convention Burgkirchen', eventUrl: 'https://www.instagram.com/tattoo_art.ist.ink/p/DLS7qH2N0hO/', category: 'Black & Grey', description: 'Award in the Black & Grey Category — for exceptional shading precision and composition' },
+  { year: '2025', event: 'Tattoo Convention Eggenfelden', eventUrl: 'https://www.instagram.com/p/DOS9-6rjaaM/?img_index=2', category: 'Black & Grey', description: 'Award in the Black & Grey Category at the Eggenfelden Tattoo Convention' },
+  { year: '2025', event: 'Tattoo Convention Eggenfelden', eventUrl: 'https://www.instagram.com/p/DOQdGJ2DdCc/?img_index=1', category: 'Fineline / Dotwork', description: 'Award for excellence in Fineline and Dotwork tattooing – Munich' },
 ]
 
 const REDDIT_QUOTES = [
   { quote: 'Holy smokes that is beautiful work!', user: 'u/Spooky-Cat-666', upvotes: 13, url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/' },
   { quote: 'Absolutely love the composition of this! The symmetrical tiger and dragon! So cool', user: 'u/No-Explanation-1008', upvotes: 2, url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/' },
   { quote: "That's top notch work. If I ever make it to Germany I'll look you up", user: 'u/WreckedRalph_NoLefty', upvotes: 2, url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/' },
-  { quote: 'Omg this is gorgeous', user: 'u/Katyamuffin', upvotes: 3, url: 'https://www.reddit.com/r/tattoo/comments/1s2bpk7/tattoo_by_kishatattoo_at_bavariatattoo_studio/' },
+  { quote: 'Omg this is gorgeous', user: 'u/Katyamuffin', upvotes: 6, url: 'https://www.reddit.com/r/tattoo/comments/1s2bpk7/tattoo_by_kishatattoo_at_bavariatattoo_studio/' },
+]
+
+const MENTION_ITEMS = [
+  {
+    title: 'Tattoo by @kisha.tattoo at BavariaTattoo Studio',
+    source: 'Reddit · r/tattoo',
+    note: "Several posts in the largest tattoo subreddit — Kisha's work impresses the international community with hundreds of upvotes and comments",
+    url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/',
+  },
+  {
+    title: 'Fineline Tattoo by @kisha.tattoo',
+    source: 'Facebook · Bavaria Tattoo',
+    note: 'The studio page BavariaTattoo presents Kisha\'s fine line work — delicate, precise style, international visibility',
+    url: 'https://www.facebook.com/bavariatattoo1/photos/little-fineline-tattoo-made-by-kishatattoo-tattoo-tattooed-tattooedpeople-ink-in/1313688046870963/',
+  },
+  {
+    title: 'Large Sleeve by @kisha.tattoo',
+    source: 'Facebook · Skindreams Tattoo',
+    note: "Skindreams Tattoo Kharkiv features Kisha's sleeve work — proof of her expertise in complex large-scale projects",
+    url: 'https://www.facebook.com/permalink.php?id=168171823911465&story_fbid=684290145632961',
+  },
 ]
 
 const TIMELINE_LINKS = [
@@ -56,21 +78,10 @@ export default async function AwardsPage({
   const t = await getTranslations({ locale, namespace: 'awards' })
 
   type StatItem     = { number: string; label: string; body: string }
-  type MentionItem  = { source: string; title: string; note: string; url?: string }
   type TimelineItem = { tag: string; period: string; title: string; description: string }
 
   const schoolStats   = t.raw('school.stats')   as StatItem[]
-  const mentionItems  = t.raw('mentions.items') as MentionItem[]
   const timelineItems = t.raw('timeline.items') as TimelineItem[]
-
-  const mentionsWithUrls = mentionItems.map((m, i) => ({
-    ...m,
-    url: [
-      'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/',
-      'https://www.facebook.com/bavariatattoo1/photos/little-fineline-tattoo-made-by-kishatattoo-tattoo-tattooed-tattooedpeople-ink-in/1313688046870963/',
-      'https://www.facebook.com/permalink.php?id=168171823911465&story_fbid=684290145632961',
-    ][i],
-  }))
 
   return (
     <main id="main-content">
@@ -78,187 +89,449 @@ export default async function AwardsPage({
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
         aria-label="Awards & Recognition — KishaTattoo"
-        style={{ position: 'relative', height: 'clamp(680px, 90vh, 900px)', background: '#F2F2F2', overflow: 'hidden' }}
+        style={{ position: 'relative', height: 'clamp(600px, 56.25vw, 1080px)', overflow: 'hidden', background: '#0D0D0D' }}
       >
-        <GHeader theme="light" />
+        <Image
+          src="/images/awards/awardHero1.jpg"
+          alt="Kisha Tattoo at convention — München"
+          fill
+          priority
+          style={{ objectFit: 'cover', objectPosition: 'center top', filter: 'grayscale(100%)' }}
+          sizes="100vw"
+        />
+        {/* dark overlay for text legibility */}
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.35)' }} aria-hidden="true" />
+
+        <GHeader theme="dark" />
 
         <h1
-          className="g-about-h1"
           style={{
             position: 'absolute',
             top: '72px',
             left: 'var(--g-pad)',
-            width: 'clamp(18rem, 42.6vw, 817px)',
+            width: 'clamp(18rem, 25.2vw, 30rem)',
             fontSize: 'var(--g-xl)',
             lineHeight: 'var(--g-lh-xl)',
-            color: '#0D0D0D',
-            whiteSpace: 'pre-line',
+            color: '#F2F2F2',
+            letterSpacing: 'var(--g-ls)',
           }}
         >
           {t('hero.h1')}
         </h1>
 
-        <div
-          aria-hidden="true"
-          style={{ position: 'absolute', left: '50%', top: '48%', transform: 'translate(-50%, -50%)', fontSize: 'clamp(4rem, 10vw, 12rem)', lineHeight: 0.9, color: '#0D0D0D', opacity: 0.12, userSelect: 'none', pointerEvents: 'none' }}
-        >
-          賞
-        </div>
-
         <p
-          style={{ position: 'absolute', left: 'var(--g-pad)', bottom: '24px', width: 'clamp(18rem, 28vw, 480px)', fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}
+          style={{
+            position: 'absolute',
+            top: 'clamp(180px, 12.3vw, 236px)',
+            left: 'var(--g-pad)',
+            width: 'clamp(16rem, 16.1vw, 19.375rem)',
+            fontSize: 'var(--g-bm)',
+            lineHeight: 'var(--g-lh-bm)',
+            color: '#F2F2F2',
+            letterSpacing: 'var(--g-ls)',
+          }}
         >
           {t('hero.sub')}
         </p>
-
       </section>
 
-      {/* ── AWARDS LIST ───────────────────────────────────────────────────── */}
-      <section aria-labelledby="awards-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
-        <div className="g-container">
-          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-            <h2 id="awards-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              {t('awards_section.heading')}
-            </h2>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>[ 2025 ]</span>
-          </div>
+      {/* ── TATTOO CONVENTION AWARDS ──────────────────────────────────────── */}
+      <section
+        aria-labelledby="awards-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.167vw, 5rem) var(--g-pad)' }}
+      >
+        <h2
+          id="awards-heading"
+          style={{
+            fontSize: 'var(--g-l)',
+            lineHeight: 'var(--g-lh-l)',
+            color: '#0D0D0D',
+            letterSpacing: 'var(--g-ls)',
+            width: 'clamp(16rem, 20.7vw, 24.875rem)',
+            marginBottom: 'clamp(1.5rem, 2.78vw, 3.25rem)',
+          }}
+        >
+          {t('awards_section.heading')}
+        </h2>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-            {AWARDS_DATA.map((award, i) => (
-              <div key={i} style={{ display: 'grid', gridTemplateColumns: 'clamp(3rem, 5vw, 5rem) 1fr clamp(6rem, 12vw, 14rem)', gap: '1.5rem', alignItems: 'start', padding: 'clamp(1rem, 1.8vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.2)' }}>
-                <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)', paddingTop: '0.15rem' }}>{award.year}</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  <a href={award.eventUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid rgba(13,13,13,0.3)' }}>
-                    {award.event}
-                  </a>
-                  <span style={{ fontSize: 'var(--g-bm)', color: 'rgba(13,13,13,0.7)' }}>{award.category}</span>
-                  <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.5, color: 'rgba(13,13,13,0.6)', marginTop: '0.2rem' }}>{award.description}</p>
-                </div>
-                <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textAlign: 'right', paddingTop: '0.15rem', whiteSpace: 'nowrap' }}>{award.placement}</span>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          {AWARDS_DATA.map((award, i) => (
+            <a
+              key={i}
+              href={award.eventUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.75rem',
+                padding: 'clamp(1.25rem, 2.08vw, 2.5rem)',
+                background: '#E8E8E8',
+                textDecoration: 'none',
+              }}
+            >
+              {/* Row 1: event name + year */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)' }}>
+                  {award.event}
+                </span>
+                <span style={{ fontSize: 'var(--g-bs)', lineHeight: 1, color: '#0D0D0D', letterSpacing: 'var(--g-ls)', whiteSpace: 'nowrap' }}>
+                  [ {award.year} ]
+                </span>
               </div>
-            ))}
-          </div>
+              {/* Row 2: description + category */}
+              <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '2rem' }}>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', maxWidth: 'clamp(14rem, 15.3vw, 18.3rem)' }}>
+                  {award.description}
+                </p>
+                <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', whiteSpace: 'nowrap', textAlign: 'right' }}>
+                  {award.category}
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 
-      {/* ── SCHULE & AUSBILDUNG ────────────────────────────────────────────── */}
-      <section aria-labelledby="schule-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
-        <div className="g-container">
-          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-            <h2 id="schule-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', whiteSpace: 'pre-line' }}>
-              {t('school.heading')}
-            </h2>
-            <a href="https://www.instagram.com/kisha.tattoo/" target="_blank" rel="noopener noreferrer" style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap', borderBottom: '1px solid rgba(13,13,13,0.4)' }}>
-              [ @kisha.tattoo ]
+      {/* ── TATTOO TRAINING / SCHOOL ──────────────────────────────────────── */}
+      <section
+        aria-labelledby="school-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.167vw, 5rem) var(--g-pad)' }}
+      >
+        {/* Top row: H2 left | intro text + button right */}
+        <div
+          className="g-awards-school-top"
+          style={{ display: 'flex', gap: 'clamp(2rem, 4vw, 5rem)', marginBottom: 'clamp(2rem, 2.71vw, 3.25rem)', alignItems: 'flex-start' }}
+        >
+          <h2
+            id="school-heading"
+            style={{
+              fontSize: 'var(--g-l)',
+              lineHeight: 'var(--g-lh-l)',
+              color: '#0D0D0D',
+              letterSpacing: 'var(--g-ls)',
+              width: 'clamp(18rem, 33.1vw, 39.7rem)',
+              flexShrink: 0,
+            }}
+          >
+            {t('school.heading')}
+          </h2>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 1.39vw, 2rem)', flex: 1 }}>
+            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', maxWidth: 'clamp(20rem, 26.5vw, 31.75rem)' }}>
+              {t('school.intro')}
+            </p>
+            <a
+              href="https://www.instagram.com/kisha.tattoo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '1rem 0.75rem',
+                background: '#0D0D0D',
+                color: '#F2F2F2',
+                fontSize: 'var(--g-bm)',
+                lineHeight: 1,
+                letterSpacing: 'var(--g-ls)',
+                textDecoration: 'none',
+              }}
+            >
+              Follow Kisha
             </a>
           </div>
+        </div>
 
-          <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', maxWidth: 'clamp(24rem, 55vw, 820px)', marginBottom: 'clamp(2rem, 3.5vw, 4rem)' }}>
-            {t('school.intro')}
-          </p>
-
-          <div style={{ display: 'flex' }}>
-            {schoolStats.map((s, i) => (
-              <div key={i} style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '1rem', padding: i === 0 ? '0 clamp(1rem, 2vw, 2rem) 0 0' : i === 1 ? '0 clamp(1rem, 2vw, 2rem)' : '0 0 0 clamp(1rem, 2vw, 2rem)', borderLeft: i > 0 ? '1px solid #0D0D0D' : 'none' }}>
-                <span style={{ fontSize: 'clamp(2rem, 3.5vw, 3.5rem)', lineHeight: 1, color: '#0D0D0D' }}>{s.number}</span>
-                <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{s.label}</span>
-                <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.5, color: 'rgba(13,13,13,0.65)' }}>{s.body}</p>
+        {/* 3 stat cards */}
+        <div
+          className="g-awards-stats"
+          style={{ display: 'flex' }}
+        >
+          {schoolStats.map((s, i) => (
+            <div
+              key={i}
+              style={{
+                flex: '1 1 0',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: 'clamp(240px, 19.69vw, 378px)',
+                padding: i < 2 ? '0 clamp(1rem, 1.67vw, 2rem) clamp(1rem, 1.04vw, 1.25rem) 0' : '0 0 clamp(1rem, 1.04vw, 1.25rem) 0',
+                borderRight: i < 2 ? '1px solid #0D0D0D' : 'none',
+              }}
+            >
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', textAlign: 'center' }}>
+                  {s.label}
+                </span>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', maxWidth: 'clamp(16rem, 19.8vw, 23.75rem)' }}>
+                  {s.body}
+                </p>
               </div>
-            ))}
-          </div>
+              <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)' }}>
+                {['A', 'B', 'C'][i]}
+              </span>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ── COMMUNITY MENTIONS ────────────────────────────────────────────── */}
-      <section aria-labelledby="mentions-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
-        <div className="g-container">
-          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-            <h2 id="mentions-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
-              {t('mentions.heading')}
-            </h2>
-          </div>
+      {/* ── MENTIONED IN THE COMMUNITY ────────────────────────────────────── */}
+      <section
+        aria-labelledby="mentions-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.167vw, 5rem) var(--g-pad)' }}
+      >
+        <div style={{ borderTop: '2px solid #0D0D0D', paddingTop: 'clamp(1rem, 1.04vw, 1.25rem)', marginBottom: 'clamp(1.5rem, 2.71vw, 3.25rem)' }}>
+          <h2
+            id="mentions-heading"
+            style={{
+              fontSize: 'var(--g-l)',
+              lineHeight: 'var(--g-lh-l)',
+              color: '#0D0D0D',
+              letterSpacing: 'var(--g-ls)',
+              width: 'clamp(16rem, 18.3vw, 21.9rem)',
+            }}
+          >
+            {t('mentions.heading')}
+          </h2>
+        </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-            {mentionsWithUrls.map((m, i) => (
-              <a key={i} href={m.url} target="_blank" rel="noopener noreferrer" style={{ display: 'grid', gridTemplateColumns: 'clamp(10rem, 18vw, 22rem) 1fr', gap: '1.5rem', alignItems: 'start', padding: 'clamp(1rem, 1.8vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.2)', textDecoration: 'none', color: 'inherit' }}>
-                <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)', paddingTop: '0.2rem' }}>{m.source}</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{m.title} ↗</span>
-                  <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.5, color: 'rgba(13,13,13,0.6)' }}>{m.note}</p>
-                </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          {MENTION_ITEMS.map((m, i) => (
+            <div
+              key={i}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.75rem',
+                paddingBottom: '1.25rem',
+                borderBottom: '1px solid #E8E8E8',
+              }}
+            >
+              {/* Title + source */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
+                <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)' }}>
+                  {m.title}
+                </span>
+                <span style={{ fontSize: 'var(--g-bs)', lineHeight: 1, color: '#0D0D0D', letterSpacing: 'var(--g-ls)', whiteSpace: 'nowrap' }}>
+                  [ {m.source} ]
+                </span>
+              </div>
+              {/* Note */}
+              <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', maxWidth: 'clamp(18rem, 22.5vw, 27rem)' }}>
+                {m.note}
+              </p>
+              {/* Button */}
+              <a
+                href={m.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '1rem 0.75rem',
+                  background: '#0D0D0D',
+                  color: '#F2F2F2',
+                  fontSize: 'var(--g-bm)',
+                  lineHeight: 1,
+                  letterSpacing: 'var(--g-ls)',
+                  textDecoration: 'none',
+                }}
+              >
+                Learn more
               </a>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ── TIMELINE ──────────────────────────────────────────────────────── */}
-      <section aria-labelledby="timeline-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
-        <div className="g-container">
-          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-            <h2 id="timeline-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', whiteSpace: 'pre-line' }}>
-              {t('timeline.heading')}
-            </h2>
-            <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)', whiteSpace: 'nowrap' }}>[ 2017 — 2025 ]</span>
-          </div>
+      {/* ── 7 YEARS JOURNEY ───────────────────────────────────────────────── */}
+      <section
+        aria-labelledby="timeline-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.167vw, 5rem) var(--g-pad)' }}
+      >
+        <h2
+          id="timeline-heading"
+          style={{
+            fontSize: 'var(--g-l)',
+            lineHeight: 'var(--g-lh-l)',
+            color: '#0D0D0D',
+            letterSpacing: 'var(--g-ls)',
+            textAlign: 'center',
+            width: 'clamp(18rem, 26.9vw, 32.3rem)',
+            margin: '0 auto clamp(2rem, 2.71vw, 3.25rem)',
+          }}
+        >
+          {t('timeline.heading')}
+        </h2>
 
-          <div style={{ display: 'flex' }}>
-            {timelineItems.map((era, i) => (
-              <div key={i} style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '1.25rem', padding: i === 0 ? '0 clamp(1rem, 2vw, 2.5rem) 0 0' : i === 1 ? '0 clamp(1rem, 2vw, 2.5rem)' : '0 0 0 clamp(1rem, 2vw, 2.5rem)', borderLeft: i > 0 ? '1px solid #0D0D0D' : 'none' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{era.tag}</span>
-                  <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{era.period}</span>
-                  <span style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', fontWeight: 500 }}>{era.title}</span>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          {timelineItems.map((era, i) => (
+            <div
+              key={i}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'clamp(2rem, 2.71vw, 3.25rem)',
+                padding: 'clamp(1.25rem, 2.08vw, 2.5rem)',
+                background: '#E8E8E8',
+              }}
+            >
+              {/* Top: period + title | number */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '2rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <span style={{ fontSize: 'var(--g-bs)', lineHeight: 1, color: '#0D0D0D', letterSpacing: 'var(--g-ls)' }}>
+                      [ {era.tag} ]
+                    </span>
+                    <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', maxWidth: 'clamp(16rem, 22.5vw, 27rem)' }}>
+                      {era.title}
+                    </span>
+                  </div>
+                  <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', maxWidth: 'clamp(18rem, 25.6vw, 30.75rem)' }}>
+                    {era.description}
+                  </p>
                 </div>
-                <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.6, color: 'rgba(13,13,13,0.65)' }}>{era.description}</p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: 'auto' }}>
-                  {TIMELINE_LINKS[i].map((link, j) => (
-                    <a key={j} href={link.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid rgba(13,13,13,0.3)', paddingBottom: '2px', width: 'fit-content' }}>
-                      {link.label} ↗
-                    </a>
-                  ))}
-                </div>
+                <span style={{ fontSize: 'var(--g-bs)', lineHeight: 1, color: '#0D0D0D', letterSpacing: 'var(--g-ls)', flexShrink: 0 }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
               </div>
-            ))}
-          </div>
+
+              {/* Video link buttons */}
+              <div
+                className="g-awards-journey-btns"
+                style={{ display: 'flex', gap: '1rem' }}
+              >
+                {TIMELINE_LINKS[i].map((link, j) => (
+                  <a
+                    key={j}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      flex: 1,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '1rem',
+                      border: '1px solid #0D0D0D',
+                      color: '#0D0D0D',
+                      fontSize: 'var(--g-bm)',
+                      lineHeight: 1,
+                      letterSpacing: 'var(--g-ls)',
+                      textDecoration: 'none',
+                      textAlign: 'center',
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ── REDDIT QUOTES ─────────────────────────────────────────────────── */}
-      <section data-nav-dark aria-label="Community" style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
-        <div className="g-container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', paddingBottom: '1.25rem', borderBottom: '1px solid rgba(242,242,242,0.15)', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-            <h2 style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2' }}>
-              {t('community.heading')}
-            </h2>
-            <a href="https://www.reddit.com/r/tattoo/search/?q=kisha.tattoo" target="_blank" rel="noopener noreferrer" style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.5)', textDecoration: 'none', whiteSpace: 'nowrap' }}>
-              {t('community.subtitle')}
-            </a>
-          </div>
+      {/* ── WHAT THE COMMUNITY SAYS ───────────────────────────────────────── */}
+      <section
+        aria-labelledby="community-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, 4.167vw, 5rem) var(--g-pad)' }}
+      >
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.71vw, 3.25rem)', gap: '2rem' }}>
+          <h2
+            id="community-heading"
+            style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)' }}
+          >
+            {t('community.heading')}
+          </h2>
+          <a
+            href="https://www.reddit.com/r/tattoo/search/?q=kisha.tattoo"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: 'var(--g-bs)', lineHeight: 1, color: '#0D0D0D', letterSpacing: 'var(--g-ls)', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}
+          >
+            [ r/tattoo · 1,017,000 Members ]
+          </a>
+        </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'clamp(1rem, 1.5vw, 1.5rem)' }}>
-            {REDDIT_QUOTES.map((q, i) => (
-              <a key={i} href={q.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: 'clamp(1rem, 1.5vw, 1.5rem)', border: '1px solid rgba(242,242,242,0.12)', textDecoration: 'none' }}>
-                <p style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#F2F2F2', flex: 1 }}>
+        <div
+          className="g-awards-quotes"
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}
+        >
+          {REDDIT_QUOTES.map((q, i) => (
+            <a
+              key={i}
+              href={q.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                gap: '1rem',
+                minHeight: 'clamp(280px, 25.3vw, 485px)',
+                padding: 'clamp(1.25rem, 2.08vw, 2.5rem)',
+                border: '1px solid #0D0D0D',
+                textDecoration: 'none',
+              }}
+            >
+              <span style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)' }}>
+                ↑ {q.upvotes}
+              </span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: 'auto' }}>
+                <p style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)' }}>
                   &ldquo;{q.quote}&rdquo;
                 </p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.45)' }}>{q.user} · r/tattoo</span>
-                  <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.3)' }}>↑ {q.upvotes}</span>
-                </div>
-              </a>
-            ))}
-          </div>
+                <span style={{ fontSize: 'var(--g-bm)', lineHeight: 1, color: '#0D0D0D', letterSpacing: 'var(--g-ls)', whiteSpace: 'nowrap' }}>
+                  {q.user} · r/tattoo
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
-        <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-          <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', maxWidth: '28rem' }}>
-            {t('cta.heading')}
-          </p>
-          <Link href="/booking" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', background: '#0D0D0D', color: '#F2F2F2', fontSize: 'var(--g-bm)', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+      <section style={{ background: '#E8E8E8' }}>
+        <div
+          style={{
+            padding: 'clamp(2rem, 4.167vw, 5rem) var(--g-pad)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'clamp(3rem, 14.583vw, 17.5rem)',
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)' }}>
+                [ Contact ]
+              </span>
+              <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', letterSpacing: 'var(--g-ls)', width: 'clamp(20rem, 33vw, 30rem)' }}>
+                {t('cta.heading')}
+              </p>
+            </div>
+            <span aria-hidden="true" style={{ fontSize: 'clamp(2.5rem, 4.167vw, 5rem)', color: '#0D0D0D', lineHeight: 1, flexShrink: 0 }}>
+              →
+            </span>
+          </div>
+
+          <Link
+            href="/booking"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '1rem 0.75rem',
+              background: '#0D0D0D',
+              color: '#F2F2F2',
+              fontSize: 'var(--g-bm)',
+              lineHeight: 1,
+              letterSpacing: 'var(--g-ls)',
+              textDecoration: 'none',
+            }}
+          >
             {t('cta.button')}
           </Link>
         </div>

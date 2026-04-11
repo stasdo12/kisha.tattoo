@@ -1055,6 +1055,27 @@ body:has([data-theme='graphic']) {
     grid-template-columns: 1fr !important;
   }
 
+  /* Awards page */
+  .g-awards-school-top {
+    flex-direction: column !important;
+  }
+  .g-awards-stats {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  .g-awards-stats > * {
+    border-right: none !important;
+    border-bottom: 1px solid #0D0D0D !important;
+    padding: 0 0 1.5rem 0 !important;
+    min-height: unset !important;
+  }
+  .g-awards-quotes {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .g-awards-journey-btns {
+    flex-direction: column !important;
+  }
+
   /* FAQ 2-col rows → single column */
   .g-faq-row {
     flex-direction: column !important;
