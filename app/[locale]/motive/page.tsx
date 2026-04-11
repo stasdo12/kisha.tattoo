@@ -93,37 +93,38 @@ export default async function MotiveHub({
           {t('hero.label')}
         </p>
 
-        {/* H1 — top: 72px per Figma */}
-        <h1
-          style={{
-            position: 'absolute',
-            top: 72,
-            left: 'var(--g-pad)',
-            width: 'clamp(16rem, 26.8vw, 32.2rem)',
-            fontSize: 'var(--g-xl)',
-            lineHeight: 'var(--g-lh-xl)',
-            color: '#0D0D0D',
-            whiteSpace: 'pre-line',
-          }}
-        >
-          {t('hero.h1')}
-        </h1>
-
-        {/* Subtitle — Figma: top 236px = H1 top(72) + 2 lines × font × lh + 20px gap
-            Using calc so it never overlaps H1 regardless of viewport size */}
-        <p
-          style={{
-            position: 'absolute',
-            top: 'calc(72px + var(--g-xl) * var(--g-lh-xl) * 2 + 20px)',
-            left: 'var(--g-pad)',
-            width: 'clamp(12rem, 13.8vw, 16.5rem)',
-            fontSize: 'var(--g-bm)',
-            lineHeight: 'var(--g-lh-bm)',
-            color: '#0D0D0D',
-          }}
-        >
-          {t('hero.sub')}
-        </p>
+        {/* H1 + subtitle stacked — flex-col so subtitle always sits 20px below H1
+            regardless of how many lines H1 takes. Width wide enough for 2-line wrap
+            on DE/EN/UK at all viewport sizes (Figma: 515px @ 1920px). */}
+        <div style={{
+          position: 'absolute',
+          top: 72,
+          left: 'var(--g-pad)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 20,
+        }}>
+          <h1
+            style={{
+              width: 'clamp(30rem, 26.8vw, 32.2rem)',
+              fontSize: 'var(--g-xl)',
+              lineHeight: 'var(--g-lh-xl)',
+              color: '#0D0D0D',
+            }}
+          >
+            {t('hero.h1')}
+          </h1>
+          <p
+            style={{
+              width: 'clamp(12rem, 13.8vw, 16.5rem)',
+              fontSize: 'var(--g-bm)',
+              lineHeight: 'var(--g-lh-bm)',
+              color: '#0D0D0D',
+            }}
+          >
+            {t('hero.sub')}
+          </p>
+        </div>
 
         {/* Central kanji 柄 */}
         <p
