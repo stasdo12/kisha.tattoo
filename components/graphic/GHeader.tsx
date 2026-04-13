@@ -174,7 +174,14 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
       >
         {/* Overlay header bar — always dark text */}
         <div className="g-menu-bar">
-          <span className="g-menu-bar-logo">● Kisha</span>
+          <Link
+            href="/"
+            onClick={close}
+            aria-label="Kisha Tattoo — home"
+            className="g-menu-bar-logo"
+          >
+            ● Kisha
+          </Link>
           <button
             onClick={close}
             aria-label="Close menu"
@@ -219,15 +226,28 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
             </div>
           </div>
 
-          {/* Footer links */}
+          {/* CTA button — full-width, above footer */}
+          <Link
+            href="/booking"
+            onClick={close}
+            className="g-menu-cta"
+          >
+            {t('footer.booking')}
+          </Link>
+
+        </div>
+
+        {/* Background image + footer links overlaid at bottom */}
+        <div className="g-menu-img">
+          <Image
+            src="/images/menu/menu-bg.jpg"
+            alt="Full-body blackwork tattoo by Kisha"
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            sizes="100vw"
+          />
+          {/* Social links — pinned to bottom of photo */}
           <div className="g-menu-footer" aria-label="Social links">
-            <Link
-              href="/booking"
-              onClick={close}
-              className="g-menu-footer-link g-menu-footer-cta"
-            >
-              [ {t('footer.booking')} ]
-            </Link>
             <a
               href={SITE.social.instagram}
               target="_blank"
@@ -253,17 +273,6 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
             </a>
             <span className="g-menu-footer-link">[ {t('footer.location')} ]</span>
           </div>
-        </div>
-
-        {/* Background image — decorative, so aria-hidden on wrapper is sufficient */}
-        <div className="g-menu-img" aria-hidden="true">
-          <Image
-            src="/images/menu/menu-bg.jpg"
-            alt="Full-body blackwork tattoo by Kisha"
-            fill
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-            sizes="100vw"
-          />
         </div>
       </div>
     </>

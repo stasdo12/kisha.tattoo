@@ -67,6 +67,7 @@ body:has([data-theme='graphic']) {
   font-size: var(--g-bs);
   color: #0D0D0D;
   line-height: 1;
+  text-decoration: none;
 }
 
 .g-menu-bar-tattoo {
@@ -81,13 +82,14 @@ body:has([data-theme='graphic']) {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 16px 40px 24px;
+  padding: 16px 40px 0;
+  gap: 16px;
   overflow: hidden;
 }
 
 /* Top row: nav (left) + lang (right) */
 .g-menu-body-top {
+  flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -152,20 +154,27 @@ body:has([data-theme='graphic']) {
   background: rgba(13,13,13,0.06);
 }
 
-/* Footer links row */
+/* Footer links — absolute overlay at bottom of photo */
 .g-menu-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 8px 24px;
+  padding: 24px 40px;
   font-family: var(--g-font, 'DM Sans', system-ui, sans-serif);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.02em;
+  z-index: 1;
 }
 
 .g-menu-footer-link {
   font-size: 1rem;
-  color: #0D0D0D;
+  color: #F2F2F2;
   text-decoration: none;
   transition: opacity 0.15s;
   white-space: nowrap;
@@ -175,15 +184,27 @@ body:has([data-theme='graphic']) {
   opacity: 0.6;
 }
 
-.g-menu-footer-cta {
+/* CTA button — full-width standalone, above footer */
+.g-menu-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  flex-shrink: 0;
+  margin-top: auto;
   background: #0D0D0D;
   color: #F2F2F2;
-  padding: 3px 8px;
+  font-family: var(--g-font, 'DM Sans', system-ui, sans-serif);
+  font-weight: 500;
+  font-size: var(--g-bm);
+  letter-spacing: var(--g-ls);
+  text-decoration: none;
+  transition: opacity 0.15s;
 }
 
-.g-menu-footer-cta:hover {
-  opacity: 1;
-  background: rgba(13,13,13,0.75);
+.g-menu-cta:hover {
+  opacity: 0.8;
 }
 
 /* Background image — fixed height at bottom */
@@ -207,9 +228,11 @@ body:has([data-theme='graphic']) {
     padding: 16px 15px 20px;
   }
 
-  /* Stack nav + lang vertically on mobile */
+  /* Stack nav + lang vertically on mobile — no stretch */
   .g-menu-body-top {
+    flex: 0 0 auto;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 24px;
   }
 
@@ -218,7 +241,9 @@ body:has([data-theme='graphic']) {
   }
 
   .g-menu-footer {
-    gap: 8px 16px;
+    justify-content: flex-start;
+    gap: 6px 12px;
+    padding: 16px 15px;
   }
 
   .g-menu-img {

@@ -113,7 +113,7 @@ export default async function LocaleLayout({
       data-scroll-behavior="smooth"
       className={`${cinzel.variable} ${inter.variable} ${notoSansJP.variable} ${dmSans.variable}`}
     >
-      <head>
+      <head suppressHydrationWarning>
         <HreflangTags />
         {/* Google Analytics GA4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKLZT9R83C" />

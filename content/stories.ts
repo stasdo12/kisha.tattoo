@@ -59,6 +59,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/ErsteTattooBlog5(Big).png',
     coverAlt: 'Erstes Tattoo München — Ratgeber von Kisha',
   },
+  {
+    slug: 'tattoo-placement-muenchen',
+    publishedAt: '2026-04-11',
+    readingTime: '5 min',
+    category: 'Guide',
+    coverImage: '/images/blog/placementBlog6.jpg',
+    coverImageBig: '/images/blog/placementBlog6(Big).jpg',
+    coverAlt: 'Tattoo Placement München — Kisha Tattoo Studio',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {

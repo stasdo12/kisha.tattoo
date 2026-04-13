@@ -176,8 +176,8 @@ export default async function FaqPage({
                         lineHeight: 'var(--g-lh-s)',
                         color: '#0D0D0D',
                         letterSpacing: 'var(--g-ls)',
-                        maxWidth: 'clamp(18rem, 22.5vw, 27rem)',
-                        paddingRight: '9rem',
+                        maxWidth: 'clamp(20rem, 22.5vw, 27rem)',
+                        paddingRight: '5rem',
                       }}
                     >
                       {item.q}
@@ -189,7 +189,7 @@ export default async function FaqPage({
                         lineHeight: 'var(--g-lh-bm)',
                         color: '#0D0D0D',
                         letterSpacing: 'var(--g-ls)',
-                        maxWidth: 'clamp(18rem, 21.875vw, 26.25rem)',
+                        maxWidth: 'clamp(20rem, 21.875vw, 26.25rem)',
                       }}
                     >
                       {item.a}

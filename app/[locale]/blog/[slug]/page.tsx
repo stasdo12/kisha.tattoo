@@ -35,6 +35,25 @@ export async function generateMetadata({
   })
 }
 
+/* ── Inline renderer: handles [text](url) links within text ── */
+function renderInline(text: string): React.ReactNode {
+  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
+  const parts: React.ReactNode[] = []
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+  while ((match = linkRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index))
+    parts.push(
+      <Link key={match.index} href={match[2]} style={{ color: '#0D0D0D', textDecoration: 'underline' }}>
+        {match[1]}
+      </Link>
+    )
+    lastIndex = match.index + match[0].length
+  }
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex))
+  return parts.length > 1 ? parts : text
+}
+
 /* ── Body renderer: parses ## H2, - lists, paragraphs ── */
 function ArticleBody({ body }: { body: string }) {
   const blocks = body.split('\n\n')
@@ -77,7 +96,7 @@ function ArticleBody({ body }: { body: string }) {
                   key={j}
                   style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}
                 >
-                  {line.slice(2)}
+                  {renderInline(line.slice(2))}
                 </li>
               ))}
             </ul>
@@ -89,7 +108,7 @@ function ArticleBody({ body }: { body: string }) {
             key={i}
             style={{ fontSize: 'var(--g-bm)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}
           >
-            {block}
+            {renderInline(block)}
           </p>
         )
       })}
@@ -116,6 +135,7 @@ export default async function ArticleDetailPage({
     'blackwork-graphic-tattoo-bedeutung-ideen': { href: '/grafik-tattoo-muenchen',      de: 'Grafik Tattoo München buchen →',         en: 'Book Graphic Tattoo Munich →',         uk: 'Записатись на графік тату →' },
     'tattoo-schmerzen-was-du-wirklich-fuehlen-wirst': { href: '/booking',               de: 'Termin anfragen →',                      en: 'Book your appointment →',              uk: 'Записатись →' },
     'erste-tattoo-ideen-wie-nicht-bereuen':     { href: '/booking',                     de: 'Erstes Tattoo — Termin anfragen →',      en: 'First tattoo — Book now →',            uk: 'Перше тату — Записатись →' },
+    'tattoo-placement-muenchen':                { href: '/booking',                     de: 'Termin für dein Tattoo anfragen →',      en: 'Get in touch for your tattoo idea →',  uk: 'Обговорити ідею татуювання →' },
   }
   const cta = SLUG_TO_CTA[slug]
   const ctaLabel = cta ? (locale === 'en' ? cta.en : locale === 'uk' ? cta.uk : cta.de) : null
