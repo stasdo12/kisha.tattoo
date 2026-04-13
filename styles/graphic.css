@@ -193,6 +193,7 @@ body:has([data-theme='graphic']) {
   height: 52px;
   flex-shrink: 0;
   margin-top: auto;
+  margin-bottom: 28px;
   background: #0D0D0D;
   color: #F2F2F2;
   font-family: var(--g-font, 'DM Sans', system-ui, sans-serif);
@@ -211,7 +212,7 @@ body:has([data-theme='graphic']) {
 .g-menu-img {
   flex-shrink: 0;
   position: relative;
-  height: clamp(200px, 44dvh, 480px); /* 480px @ 1080, scales on shorter screens */
+  height: clamp(160px, 35dvh, 384px); /* −20% from 44dvh/480px */
 }
 
 /* === MOBILE 430px === */
@@ -225,15 +226,22 @@ body:has([data-theme='graphic']) {
   }
 
   .g-menu-body {
-    padding: 16px 15px 20px;
+    flex: 0 0 auto;          /* shrink to content — image fills remaining space */
+    padding: 28px 15px 32px; /* 28 top = bar-to-nav, 32 bottom = CTA-to-image */
+    gap: 0;
   }
 
-  /* Stack nav + lang vertically on mobile — no stretch */
+  /* Stack nav + lang vertically, nav-to-lang gap from Figma */
   .g-menu-body-top {
     flex: 0 0 auto;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 24px;
+    gap: 99px;
+  }
+
+  .g-menu-cta {
+    margin-top: 56px; /* lang-to-CTA from Figma */
+    margin-bottom: 0;
   }
 
   .g-menu-nav-link {
@@ -247,7 +255,9 @@ body:has([data-theme='graphic']) {
   }
 
   .g-menu-img {
-    height: clamp(160px, 26dvh, 220px);
+    flex: 1;          /* takes remaining viewport height */
+    height: auto;     /* override fixed height */
+    min-height: 128px;
   }
 }
 

@@ -104,35 +104,40 @@ export default async function AwardsPage({
 
         <GHeader theme="dark" />
 
-        <h1
+        <div
           style={{
             position: 'absolute',
             top: '72px',
             left: 'var(--g-pad)',
-            width: 'clamp(18rem, 25.2vw, 30rem)',
-            fontSize: 'var(--g-xl)',
-            lineHeight: 'var(--g-lh-xl)',
-            color: '#F2F2F2',
-            letterSpacing: 'var(--g-ls)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
           }}
         >
-          {t('hero.h1')}
-        </h1>
+          <h1
+            style={{
+              width: 'clamp(20rem, 32vw, 38rem)',
+              fontSize: 'var(--g-xl)',
+              lineHeight: 'var(--g-lh-xl)',
+              color: '#F2F2F2',
+              letterSpacing: 'var(--g-ls)',
+            }}
+          >
+            {t('hero.h1')}
+          </h1>
 
-        <p
-          style={{
-            position: 'absolute',
-            top: 'clamp(180px, 12.3vw, 236px)',
-            left: 'var(--g-pad)',
-            width: 'clamp(13rem, 19vw, 24rem)',
-            fontSize: 'var(--g-bm)',
-            lineHeight: 'var(--g-lh-bm)',
-            color: '#F2F2F2',
-            letterSpacing: 'var(--g-ls)',
-          }}
-        >
-          {t('hero.sub')}
-        </p>
+          <p
+            style={{
+              width: 'clamp(16rem, 22vw, 28rem)',
+              fontSize: 'var(--g-bm)',
+              lineHeight: 'var(--g-lh-bm)',
+              color: '#F2F2F2',
+              letterSpacing: 'var(--g-ls)',
+            }}
+          >
+            {t('hero.sub')}
+          </p>
+        </div>
       </section>
 
       {/* ── TATTOO CONVENTION AWARDS ──────────────────────────────────────── */}

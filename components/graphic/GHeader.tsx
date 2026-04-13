@@ -240,7 +240,7 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
         {/* Background image + footer links overlaid at bottom */}
         <div className="g-menu-img">
           <Image
-            src="/images/menu/menu-bg.jpg"
+            src="/images/menu/menu-img.jpg"
             alt="Full-body blackwork tattoo by Kisha"
             fill
             style={{ objectFit: 'cover', objectPosition: 'center' }}
