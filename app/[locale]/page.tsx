@@ -13,6 +13,7 @@ import { serviceSchema, faqSchema } from '@/lib/structured-data'
 import { CtaStrip } from '@/components/graphic/CtaStrip'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
+import { WhipshadeTrail } from '@/components/graphic/WhipshadeTrail'
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
@@ -75,6 +76,7 @@ export default async function GraphicHomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
+      <WhipshadeTrail />
 
       <main id="main-content">
 

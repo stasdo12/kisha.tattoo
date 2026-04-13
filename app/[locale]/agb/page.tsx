@@ -168,6 +168,7 @@ export default function AgbPage() {
         <GHeader theme="light" />
 
         <div
+          className="g-agb-hero"
           style={{
             display: 'flex',
             justifyContent: 'space-between',
@@ -177,8 +178,10 @@ export default function AgbPage() {
         >
           {/* Left: tags */}
           <div
+            className="g-agb-tags"
             style={{
               display: 'flex',
+              flexWrap: 'wrap',
               gap: '8px',
               alignItems: 'center',
               fontSize: 'var(--g-bs)',
@@ -276,7 +279,7 @@ export default function AgbPage() {
                         lineHeight: 'var(--g-lh-s)',
                         color: '#0D0D0D',
                         letterSpacing: 'var(--g-ls)',
-                        maxWidth: 'clamp(20rem, 22.5vw, 27rem)',
+                        maxWidth: 'min(100%, clamp(20rem, 22.5vw, 27rem))',
                       }}
                     >
                       {item.heading}
@@ -287,7 +290,7 @@ export default function AgbPage() {
                         lineHeight: 'var(--g-lh-bm)',
                         color: '#0D0D0D',
                         letterSpacing: 'var(--g-ls)',
-                        maxWidth: 'clamp(20rem, 21.875vw, 26.25rem)',
+                        maxWidth: 'min(100%, clamp(20rem, 21.875vw, 26.25rem))',
                       }}
                     >
                       {item.body}
@@ -303,6 +306,7 @@ export default function AgbPage() {
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
       <section style={{ background: '#E8E8E8' }}>
         <div
+          className="g-agb-cta"
           style={{
             padding: 'clamp(2rem, 4.167vw, 5rem) var(--g-pad)',
             display: 'flex',

@@ -1126,6 +1126,25 @@ body:has([data-theme='graphic']) {
     flex-direction: column !important;
   }
 
+  /* AGB hero: stack tags above H1 */
+  .g-agb-hero {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  .g-agb-hero h1 {
+    width: 100% !important;
+  }
+  /* AGB CTA: stack text + button vertically */
+  .g-agb-cta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2rem !important;
+  }
+  .g-agb-cta a {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
   /* FAQ 2-col rows → single column */
   .g-faq-row {
     flex-direction: column !important;
