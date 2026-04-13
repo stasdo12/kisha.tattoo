@@ -1381,6 +1381,12 @@ body:has([data-theme='graphic']) {
   .g-footer-links-group {
     gap: 52px !important;
   }
+  .g-footer-social-col > div {
+    align-items: flex-start !important;
+  }
+  .g-footer-social-col > div > div {
+    align-items: flex-start !important;
+  }
   .g-scroll-top { display: none !important; }
 
   /* Two-column intro text → single column on mobile */

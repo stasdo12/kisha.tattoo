@@ -46,6 +46,10 @@ export function GFooter() {
     { href: '/motive#tiger',    label: t('links.tiger')   },
   ]
 
+  const POLICIES = [
+    { href: '/agb', label: "AGB's" },
+  ]
+
   const SOCIAL = [
     { href: SITE.social.instagram,                                     label: t('instagram'), external: true },
     { href: `https://wa.me/${SITE.contact.phone.replace(/\D/g, '')}`, label: t('whatsapp'),  external: true, onClick: () => trackWhatsAppClick('footer') },
@@ -135,10 +139,13 @@ export function GFooter() {
             <FooterColumn label={t('sections.styles')}     links={STYLES} />
             <FooterColumn label={t('sections.area')}       links={AREA} />
             <FooterColumn label={t('sections.motifs')}     links={MOTIFS} />
+            <FooterColumn label="Policies"                 links={POLICIES} />
           </div>
 
           {/* Right: Social media */}
-          <FooterColumn label={t('sections.social')} links={SOCIAL} align="end" />
+          <div className="g-footer-social-col">
+            <FooterColumn label={t('sections.social')} links={SOCIAL} align="end" />
+          </div>
         </div>
 
         {/* ── BOTTOM BAR ────────────────────────────────────────────────────── */}

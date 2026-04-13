@@ -238,7 +238,7 @@ export default async function MotiveHub({
         <div className="g-container">
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(2rem, 2.5vw, 2.5rem)' }}>
 
-            {MOTIFS.map((m) => {
+            {MOTIFS.map((m, motifIdx) => {
               const tags = m.tagline.split(' · ')
               const displayName = `${m.label}${m.reading !== m.label ? ` (${m.reading})` : ''}`
               const sectionTitle = `${displayName} Tattoo — ${t('motifHeadingSuffix')}`
@@ -302,7 +302,7 @@ export default async function MotiveHub({
                       </div>
 
                       {/* Accordion */}
-                      <MotiveAccordion items={m.cols} />
+                      <MotiveAccordion items={m.cols} defaultOpenIdx={motifIdx === 0 ? 0 : -1} />
                     </div>
 
                   </div>

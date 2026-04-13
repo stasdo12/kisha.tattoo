@@ -4,8 +4,8 @@ import { useState } from 'react'
 
 type AccordionItem = { title: string; body: string }
 
-export function MotiveAccordion({ items }: { items: AccordionItem[] }) {
-  const [openIdx, setOpenIdx] = useState<number>(0)
+export function MotiveAccordion({ items, defaultOpenIdx = -1 }: { items: AccordionItem[]; defaultOpenIdx?: number }) {
+  const [openIdx, setOpenIdx] = useState<number>(defaultOpenIdx)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
