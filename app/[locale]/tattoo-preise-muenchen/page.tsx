@@ -55,7 +55,8 @@ export default async function TattooPreiseMuenchen({
               fontSize: 'var(--g-xl)',
               lineHeight: 'var(--g-lh-xl)',
               color: '#0D0D0D',
-              width: 'clamp(18rem, 33.5vw, 30.2rem)',
+              width: 'clamp(22rem, 42vw, 40rem)',
+              whiteSpace: 'pre-line',
             }}
           >
             {t('hero.h1')}
@@ -65,10 +66,21 @@ export default async function TattooPreiseMuenchen({
 
       {/* ── PRICE CARDS ───────────────────────────────────────────────────── */}
       <section
-        aria-label={t('table.heading')}
+        aria-labelledby="preise-table-heading"
         style={{ background: '#F2F2F2', paddingBottom: 'clamp(1.25rem, 2.08vw, 2.5rem)' }}
       >
         <div className="g-container">
+          <h2
+            id="preise-table-heading"
+            style={{
+              fontSize: 'var(--g-s)',
+              lineHeight: 'var(--g-lh-s)',
+              color: '#0D0D0D',
+              marginBottom: 'clamp(1.25rem, 2.08vw, 2rem)',
+            }}
+          >
+            {t('table.heading')}
+          </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.75rem, 1.39vw, 1.25rem)' }}>
             {tableRows.map((row) => {
               const styleTags = row.style.replace(/\s[·/]\s/g, '|').split('|')

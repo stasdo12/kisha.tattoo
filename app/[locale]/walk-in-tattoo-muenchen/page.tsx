@@ -4,7 +4,6 @@
  * Cluster: walk in tattoo, spontan tattoo münchen, tattoo ohne termin münchen
  */
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
 import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
@@ -26,7 +25,9 @@ export default async function WalkInTattooMuenchen({
 }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'walkin' })
-  const faqItems = t.raw('faq.items') as Array<{ q: string; a: string }>
+  const faqItems  = t.raw('faq.items')   as Array<{ q: string; a: string }>
+  const stepItems = t.raw('steps.items') as Array<{ num: string; title: string; body: string }>
+
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
@@ -42,21 +43,24 @@ export default async function WalkInTattooMuenchen({
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
         aria-label="Walk In Tattoo München — KishaTattoo"
+        className="g-walkin-hero"
         style={{
           position: 'relative',
-          height: 'clamp(680px, 90vh, 900px)',
+          height: 'clamp(560px, 46.875vw, 900px)',
           background: '#F2F2F2',
           overflow: 'hidden',
         }}
       >
         <GHeader theme="light" />
 
+        {/* H1 — top left */}
         <h1
+          className="g-walkin-hero-h1"
           style={{
             position: 'absolute',
-            top: '72px',
+            top: 'clamp(3.5rem, 3.75vw, 72px)',
             left: 'var(--g-pad)',
-            width: 'clamp(18rem, 42.6vw, 817px)',
+            width: 'clamp(18rem, 35vw, 670px)',
             fontSize: 'var(--g-xl)',
             lineHeight: 'var(--g-lh-xl)',
             color: '#0D0D0D',
@@ -66,97 +70,101 @@ export default async function WalkInTattooMuenchen({
           {t('hero.h1')}
         </h1>
 
-        {/* Decorative kanji 今 — now / the present moment */}
+        {/* Subtitle — top right */}
+        <p
+          className="g-walkin-hero-sub"
+          style={{
+            position: 'absolute',
+            top: 'clamp(3.5rem, 3.75vw, 72px)',
+            right: 'var(--g-pad)',
+            width: 'clamp(10rem, 13.64vw, 262px)',
+            fontSize: 'var(--g-bm)',
+            lineHeight: 'var(--g-lh-bm)',
+            color: '#0D0D0D',
+            textAlign: 'right',
+          }}
+        >
+          {t('hero.sub')}
+        </p>
+
+        {/* Kanji 今 — centered */}
         <div
           aria-hidden="true"
+          className="g-walkin-hero-kanji"
           style={{
             position: 'absolute',
             left: '50%',
-            top: '48%',
+            top: '50%',
             transform: 'translate(-50%, -50%)',
-            fontSize: 'clamp(4rem, 10vw, 12rem)',
-            lineHeight: 0.9,
+            fontSize: 'clamp(5rem, 8.23vw, 158px)',
+            lineHeight: 1,
             color: '#0D0D0D',
-            opacity: 0.07,
+            textAlign: 'center',
             userSelect: 'none',
             pointerEvents: 'none',
           }}
         >
           今
         </div>
-
-        <p
-          style={{
-            position: 'absolute',
-            left: 'var(--g-pad)',
-            bottom: '24px',
-            width: 'clamp(18rem, 28vw, 480px)',
-            fontSize: 'var(--g-bm)',
-            lineHeight: 'var(--g-lh-bm)',
-            color: '#0D0D0D',
-          }}
-        >
-          {t('hero.sub')}
-        </p>
-
       </section>
 
-      {/* ── INTRO ─────────────────────────────────────────────────────────── */}
+      {/* ── INFO — how it works ───────────────────────────────────────────── */}
       <section
         aria-labelledby="walkin-intro-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2.5rem, 5.56vw, 5rem) 0' }}
       >
         <div className="g-container">
-
-          <div className="g-section-header" style={{ alignItems: 'center' }}>
-            <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', whiteSpace: 'nowrap', flexShrink: 0 }}>
-              {t('intro.tag')}
-            </span>
+          <div
+            className="g-walkin-info"
+            style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', width: 'clamp(30rem, 47.7vw, 916px)' }}
+          >
             <h2
               id="walkin-intro-heading"
               style={{
-                fontSize: 'var(--g-l)',
-                lineHeight: 'var(--g-lh-l)',
+                fontSize: 'var(--g-s)',
+                lineHeight: 'var(--g-lh-s)',
                 color: '#0D0D0D',
-                textAlign: 'center',
-                width: 'clamp(18rem, 32.6vw, 470px)',
-                flexShrink: 0,
+                width: 'clamp(14rem, 15.99vw, 307px)',
               }}
             >
               {t('intro.heading')}
             </h2>
-            <Link
-              href="/booking"
-              style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}
+
+            <div
+              className="g-walkin-info-cols"
+              style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '1.25rem' }}
             >
-              {t('intro.requestLink')}
-            </Link>
+              <p
+                style={{
+                  fontSize: 'var(--g-bm)',
+                  lineHeight: 'var(--g-lh-bm)',
+                  color: '#0D0D0D',
+                  flex: '1 1 0',
+                  minWidth: 0,
+                }}
+              >
+                {t('intro.body1')}
+              </p>
+              <p
+                style={{
+                  fontSize: 'var(--g-bm)',
+                  lineHeight: 'var(--g-lh-bm)',
+                  color: '#0D0D0D',
+                  flex: '1 1 0',
+                  minWidth: 0,
+                }}
+              >
+                {t('intro.body2')}
+              </p>
+            </div>
           </div>
-
-          <div
-            className="g-text-cols"
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              gap: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)',
-              marginTop: 'clamp(1.5rem, 2.5vw, 3rem)',
-            }}
-          >
-            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              {t('intro.body1')}
-            </p>
-            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 23.3vw, 448px)', flexShrink: 0 }}>
-              {t('intro.body2')}
-            </p>
-          </div>
-
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ──────────────────────────────────────────────────── */}
+      {/* ── STEPS ─────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="walkin-steps-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2.5rem, 5.56vw, 5rem) 0' }}
       >
         <div className="g-container">
           <div
@@ -165,34 +173,80 @@ export default async function WalkInTattooMuenchen({
               borderBottom: '2px solid #0D0D0D',
               display: 'flex',
               justifyContent: 'center',
-              marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
+              marginBottom: 'clamp(1.5rem, 2.08vw, 2rem)',
             }}
           >
             <h2
               id="walkin-steps-heading"
-              style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}
+              style={{
+                fontSize: 'var(--g-l)',
+                lineHeight: 'var(--g-lh-l)',
+                color: '#0D0D0D',
+                textAlign: 'center',
+                width: 'clamp(20rem, 35.1vw, 674px)',
+              }}
             >
               {t('steps.heading')}
             </h2>
           </div>
 
-          <div className="g-about-steps" style={{ display: 'flex' }}>
-            {(t.raw('steps.items') as Array<{ num: string; title: string; body: string }>).map((step, i) => (
+          {/* Dark steps card */}
+          <div
+            className="g-walkin-steps"
+            style={{
+              background: '#0D0D0D',
+              padding: 'clamp(1.5rem, 2.08vw, 2.5rem)',
+              display: 'flex',
+            }}
+          >
+            {stepItems.map((step, i) => (
               <div
                 key={step.title}
-                className="g-about-step-col"
+                className="g-walkin-step-col"
                 style={{
                   flex: '1 1 0',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '1.5rem',
-                  padding: i === 0 ? '0 clamp(1rem, 2vw, 2rem) 0 0' : i === 1 ? '0 clamp(1rem, 2vw, 2rem)' : '0 0 0 clamp(1rem, 2vw, 2rem)',
-                  borderLeft: i > 0 ? '1px solid #0D0D0D' : 'none',
+                  justifyContent: 'space-between',
+                  gap: 'clamp(6rem, 11.46vw, 13.75rem)',
+                  paddingRight: i < stepItems.length - 1 ? 'clamp(1rem, 1.67vw, 2rem)' : 0,
+                  paddingLeft: i > 0 ? 'clamp(1rem, 1.67vw, 2rem)' : 0,
+                  borderRight: i < stepItems.length - 1 ? '1px solid rgba(242,242,242,0.3)' : 'none',
                 }}
               >
-                <span style={{ fontSize: 'var(--g-l)', lineHeight: 1, color: 'rgba(13,13,13,0.15)' }} aria-hidden="true">{step.num}</span>
-                <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{step.title}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{step.body}</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  <h3
+                    style={{
+                      fontSize: 'var(--g-s)',
+                      lineHeight: 'var(--g-lh-s)',
+                      color: '#F2F2F2',
+                    }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: 'var(--g-bm)',
+                      lineHeight: 'var(--g-lh-bm)',
+                      color: '#F2F2F2',
+                      maxWidth: 'clamp(14rem, 18.75vw, 360px)',
+                    }}
+                  >
+                    {step.body}
+                  </p>
+                </div>
+
+                <span
+                  aria-hidden="true"
+                  style={{
+                    fontSize: 'var(--g-s)',
+                    lineHeight: 'var(--g-lh-s)',
+                    color: '#F2F2F2',
+                    alignSelf: 'center',
+                  }}
+                >
+                  {step.num}
+                </span>
               </div>
             ))}
           </div>
@@ -202,76 +256,51 @@ export default async function WalkInTattooMuenchen({
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="walkin-faq-heading"
-        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
+        style={{ background: '#F2F2F2', padding: 'clamp(2.5rem, 5.56vw, 5rem) 0' }}
       >
         <div className="g-container">
-          <h2
-            id="walkin-faq-heading"
+          <div
+            className="g-preise-faq-layout"
             style={{
-              fontSize: 'var(--g-l)',
-              lineHeight: 'var(--g-lh-l)',
-              color: '#0D0D0D',
-              marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',
-              paddingBottom: '1.25rem',
-              borderBottom: '2px solid #0D0D0D',
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'space-between',
+              borderTop: '2px solid #0D0D0D',
+              paddingTop: '1.25rem',
             }}
           >
-            {t('faq.heading')}
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {faqItems.map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: 'clamp(2rem, 4vw, 5rem)',
-                  padding: 'clamp(1rem, 1.8vw, 1.75rem) 0',
-                  borderBottom: '1px solid rgba(13,13,13,0.2)',
-                }}
-              >
-                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{item.q}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.75)' }}>{item.a}</p>
-              </div>
-            ))}
+            <h2
+              id="walkin-faq-heading"
+              style={{
+                fontSize: 'var(--g-l)',
+                lineHeight: 'var(--g-lh-l)',
+                color: '#0D0D0D',
+                flexShrink: 0,
+                width: 'clamp(16rem, 19.27vw, 370px)',
+              }}
+            >
+              {t('faq.heading')}
+            </h2>
+
+            <div
+              className="g-faq-content g-walkin-faq-items"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+                width: 'clamp(30rem, 47.5vw, 912px)',
+                flexShrink: 0,
+              }}
+            >
+              {faqItems.map((item, i) => (
+                <div key={i} className="g-faq-item">
+                  <span className="g-faq-item__num g-tag">[ Question №{i + 1} ]</span>
+                  <h3 className="g-faq-item__q">{item.q}</h3>
+                  <p className="g-faq-item__a">{item.a}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── RELATED ───────────────────────────────────────────────────────── */}
-      <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
-        <div className="g-container" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{t('related.label')}</span>
-          <Link href="/tattoo-preise-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.prices')}</Link>
-          <Link href="/fineline-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.fineline')}</Link>
-          <Link href="/grafik-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.grafik')}</Link>
-          <Link href="/booking" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.booking')}</Link>
-        </div>
-      </section>
-
-      {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section
-        data-nav-dark
-        style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
-      >
-        <div className="g-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-          <p style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', maxWidth: '28rem' }}>
-            {t('cta.heading')}
-          </p>
-          <Link
-            href="/booking"
-            style={{
-              display: 'inline-block',
-              padding: '0.875rem 2.5rem',
-              background: '#F2F2F2',
-              color: '#0D0D0D',
-              fontSize: 'var(--g-bm)',
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {t('cta.button')}
-          </Link>
         </div>
       </section>
 

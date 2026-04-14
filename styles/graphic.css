@@ -1457,4 +1457,61 @@ body:has([data-theme='graphic']) {
   .g-preise-faq-layout > h2 {
     width: 100% !important;
   }
+
+  /* ── WALK IN PAGE ── */
+
+  /* Hero: fixed-height absolute → auto-height flow */
+  .g-walkin-hero {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 var(--g-pad) 3rem !important;
+  }
+  .g-walkin-hero-h1 {
+    position: static !important;
+    display: block !important;
+    margin-top: 3.5rem !important; /* clears fixed GHeader (~56px) */
+    width: 100% !important;
+  }
+  .g-walkin-hero-sub {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    margin-top: 0.75rem !important;
+  }
+  .g-walkin-hero-kanji { display: none !important; }
+
+  /* Info: full width, stack columns */
+  .g-walkin-info {
+    width: 100% !important;
+  }
+  .g-walkin-info-cols {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* Steps: stack vertically */
+  .g-walkin-steps { flex-direction: column !important; }
+  .g-walkin-step-col {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(242,242,242,0.3) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    gap: 1.5rem !important;
+    justify-content: flex-start !important;
+  }
+  .g-walkin-step-col:first-child { padding-top: 0 !important; }
+  .g-walkin-step-col:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* FAQ items: full width */
+  .g-walkin-faq-items {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex-shrink: 1 !important;
+  }
 }

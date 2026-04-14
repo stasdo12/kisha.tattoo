@@ -30,28 +30,30 @@ export async function generateMetadata(
 const ROW1_LEFT = {
   src: '/images/work/middle-graphic-body-flower-tattoo.jpg',
   alt: 'Grafik Blumen Körper Tattoo München — Kisha',
-  tags: ['Grafik', 'Körper', 'München'],
+  tags: ['München'],
+  name: 'Blumen Körper — Grafik',
 }
 const ROW1_RIGHT = [
-  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Japanisches Fuchs Tattoo München — Kisha',  tags: ['Japanisch', 'Fuchs', 'München']    },
-  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',    alt: 'Grafik Hasen Tattoo München — Kisha',       tags: ['Grafik', 'Hase', 'München']        },
-  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',     alt: 'Grafik Vögel Tattoo München — Kisha',       tags: ['Grafik', 'Vögel', 'München']       },
-  { src: '/images/work/4x4-bugs-tattoo-graphic.jpg',      alt: 'Grafik Insekten Tattoo München — Kisha',    tags: ['Grafik', 'Insekten', 'München']    },
+  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Japanisches Fuchs Tattoo München — Kisha',  tags: ['München'], name: 'Fuchs — Japanisch'  },
+  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',    alt: 'Grafik Hasen Tattoo München — Kisha',       tags: ['München'], name: 'Hase — Grafik'      },
+  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',     alt: 'Grafik Vögel Tattoo München — Kisha',       tags: ['München'], name: 'Vögel — Grafik'     },
+  { src: '/images/work/4x4-bugs-tattoo-graphic.jpg',      alt: 'Grafik Insekten Tattoo München — Kisha',    tags: ['München'], name: 'Insekten — Grafik'  },
 ]
 const ROW2 = {
   src: '/images/work/row2-snake-knie-tattoo.jpg',
   alt: 'Grafik Schlangen Knie Tattoo München — Kisha',
-  tags: ['Grafik', 'Schlange', 'München'],
+  tags: ['München'],
+  name: 'Schlange Knie — Grafik',
 }
 const ROW3 = [
-  { src: '/images/work/middle-graphic-hand-with-flower-tattoo.jpg', alt: 'Grafik Blumen Hand Tattoo München — Kisha', tags: ['Grafik', 'Hand', 'München']  },
-  { src: '/images/work/middle-graphic-legs-tattoo.jpg',             alt: 'Grafik Bein Tattoo München — Kisha',        tags: ['Grafik', 'Bein', 'München']  },
+  { src: '/images/work/middle-graphic-hand-with-flower-tattoo.jpg', alt: 'Grafik Blumen Hand Tattoo München — Kisha', tags: ['München'], name: 'Blumen Hand — Grafik'  },
+  { src: '/images/work/middle-graphic-legs-tattoo.jpg',             alt: 'Grafik Bein Tattoo München — Kisha',        tags: ['München'], name: 'Bein — Grafik'          },
 ]
 const ROW4 = [
-  { src: '/images/work/4x4-dog-tattoo-fineline.jpg',  alt: 'Fineline Hund Tattoo München — Kisha',  tags: ['Fineline', 'Hund', 'München']  },
-  { src: '/images/work/4x4-fogel-tattoo-graphic.jpg', alt: 'Grafik Vogel Tattoo München — Kisha',   tags: ['Grafik', 'Vogel', 'München']   },
-  { src: '/images/work/4x4-owl-tattoo-fineline.jpg',  alt: 'Fineline Eule Tattoo München — Kisha',  tags: ['Fineline', 'Eule', 'München']  },
-  { src: '/images/work/4x4-sakura-tattoo.jpg',        alt: 'Sakura Tattoo München — Kisha',         tags: ['Sakura', 'Grafik', 'München']  },
+  { src: '/images/work/4x4-dog-tattoo-fineline.jpg',  alt: 'Fineline Hund Tattoo München — Kisha',  tags: ['München'], name: 'Hund — Fineline'  },
+  { src: '/images/work/4x4-fogel-tattoo-graphic.jpg', alt: 'Grafik Vogel Tattoo München — Kisha',   tags: ['München'], name: 'Vogel — Grafik'   },
+  { src: '/images/work/4x4-owl-tattoo-fineline.jpg',  alt: 'Fineline Eule Tattoo München — Kisha',  tags: ['München'], name: 'Eule — Fineline'  },
+  { src: '/images/work/4x4-sakura-tattoo.jpg',        alt: 'Sakura Tattoo München — Kisha',         tags: ['München'], name: 'Sakura — Grafik'  },
 ]
 
 const H_LARGE = 'clamp(720px, 50vw, 820px)'
@@ -210,6 +212,7 @@ export default async function GraphicWorksPage({
               src={ROW1_LEFT.src}
               alt={ROW1_LEFT.alt}
               tags={ROW1_LEFT.tags}
+              name={ROW1_LEFT.name}
               sizes="50vw"
               style={{ height: H_LARGE }}
             />
@@ -224,7 +227,7 @@ export default async function GraphicWorksPage({
               }}
             >
               {ROW1_RIGHT.map((img) => (
-                <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} sizes="25vw" />
+                <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="25vw" />
               ))}
             </div>
           </div>
@@ -234,6 +237,7 @@ export default async function GraphicWorksPage({
             src={ROW2.src}
             alt={ROW2.alt}
             tags={ROW2.tags}
+            name={ROW2.name}
             sizes="(max-width: 767px) 100vw, 100vw"
             className="g-works-row2"
             style={{ height: 'clamp(432px, 39.6vw, 672px)' }}
@@ -242,7 +246,7 @@ export default async function GraphicWorksPage({
           {/* ROW 3 — 2 equal columns */}
           <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             {ROW3.map((img) => (
-              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
             ))}
           </div>
 
@@ -252,7 +256,7 @@ export default async function GraphicWorksPage({
             style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}
           >
             {ROW4.map((img) => (
-              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} sizes="25vw" style={{ height: H_SMALL }} />
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="25vw" style={{ height: H_SMALL }} />
             ))}
           </div>
 

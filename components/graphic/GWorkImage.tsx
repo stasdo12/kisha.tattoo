@@ -8,10 +8,11 @@ interface Props {
   sizes: string
   style?: React.CSSProperties
   tags?: string[]
+  name?: string
   className?: string
 }
 
-export function GWorkImage({ src, alt, sizes, style, tags, className }: Props) {
+export function GWorkImage({ src, alt, sizes, style, tags, name, className }: Props) {
   return (
     <div className={className} style={{ position: 'relative', overflow: 'hidden', ...style }}>
       <Image
@@ -21,7 +22,8 @@ export function GWorkImage({ src, alt, sizes, style, tags, className }: Props) {
         style={{ objectFit: 'cover' }}
         sizes={sizes}
       />
-      {tags && tags.length > 0 && (
+      {/* Badges — top left: name first, then remaining tags */}
+      {(name || (tags && tags.length > 0)) && (
         <div
           aria-hidden="true"
           style={{
@@ -34,7 +36,23 @@ export function GWorkImage({ src, alt, sizes, style, tags, className }: Props) {
             zIndex: 1,
           }}
         >
-          {tags.map((tag) => (
+          {name && (
+            <span
+              style={{
+                background: '#F2F2F2',
+                color: '#0D0D0D',
+                fontSize: '12px',
+                fontWeight: 500,
+                lineHeight: 1,
+                letterSpacing: '-0.24px',
+                padding: '8px 12px',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {name}
+            </span>
+          )}
+          {tags && tags.map((tag) => (
             <span
               key={tag}
               style={{
