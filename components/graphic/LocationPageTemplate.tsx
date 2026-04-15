@@ -132,7 +132,7 @@ export async function LocationPageTemplate({
         {/* CTA booking button — bottom of hero */}
         <CtaStrip
           label={t('ctaBooking')}
-          style={{ position: 'absolute', bottom: 0, left: 'var(--g-pad)', right: 'var(--g-pad)' }}
+          style={{ position: 'absolute', bottom: 0, left: 'var(--g-pad)', right: 'var(--g-pad)', width: 'auto' }}
         />
       </section>
 
@@ -199,8 +199,6 @@ export async function LocationPageTemplate({
             justifyContent: 'center',
             background: '#0D0D0D',
             padding: '16px 12px',
-            marginLeft: 'calc(-1 * var(--g-pad))',
-            marginRight: 'calc(-1 * var(--g-pad))',
             textDecoration: 'none',
             marginTop: '32px',
           }}
