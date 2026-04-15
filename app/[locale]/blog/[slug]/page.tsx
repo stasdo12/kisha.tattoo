@@ -128,19 +128,6 @@ export default async function ArticleDetailPage({
     ? (t.raw(`stories.${slug}`) as { title: string; excerpt: string; body: string })
     : null
 
-  // CTA link to relevant landing page — prevents keyword cannibalization blog vs landing page
-  const SLUG_TO_CTA: Record<string, { href: string; de: string; en: string; uk: string }> = {
-    'fineline-tattoo-ideen-muenchen':           { href: '/fineline-tattoo-muenchen',    de: 'Fineline Tattoo München buchen →',       en: 'Book Fineline Tattoo Munich →',        uk: 'Записатись на Fineline тату →' },
-    'japan-tattoo-bedeutung-irezumi-motive':    { href: '/japanisches-tattoo-muenchen', de: 'Japanisches Tattoo München anfragen →',  en: 'Book Japanese Tattoo Munich →',        uk: 'Записатись на японське тату →' },
-    'blackwork-graphic-tattoo-bedeutung-ideen': { href: '/grafik-tattoo-muenchen',      de: 'Grafik Tattoo München buchen →',         en: 'Book Graphic Tattoo Munich →',         uk: 'Записатись на графік тату →' },
-    'tattoo-schmerzen-was-du-wirklich-fuehlen-wirst': { href: '/booking',               de: 'Termin anfragen →',                      en: 'Book your appointment →',              uk: 'Записатись →' },
-    'erste-tattoo-ideen-wie-nicht-bereuen':     { href: '/booking',                     de: 'Erstes Tattoo — Termin anfragen →',      en: 'First tattoo — Book now →',            uk: 'Перше тату — Записатись →' },
-    'tattoo-placement-muenchen':                { href: '/booking',                     de: 'Termin für dein Tattoo anfragen →',      en: 'Get in touch for your tattoo idea →',  uk: 'Обговорити ідею татуювання →' },
-    'wie-du-deinen-tattoo-stil-findest':        { href: '/booking',                     de: 'Beratungstermin anfragen →',             en: 'Book a free consultation →',           uk: 'Записатись на консультацію →' },
-  }
-  const cta = SLUG_TO_CTA[slug]
-  const ctaLabel = cta ? (locale === 'en' ? cta.en : locale === 'uk' ? cta.uk : cta.de) : null
-
   // Related: other articles except current
   const related = STORIES.filter((s) => s.slug !== slug).slice(0, 4).map((s) => ({
     ...s,
@@ -284,24 +271,6 @@ export default async function ArticleDetailPage({
           }}
         >
           {content?.body ? <ArticleBody body={content.body} /> : null}
-          {cta && ctaLabel && (
-            <Link
-              href={cta.href}
-              style={{
-                display: 'inline-block',
-                marginTop: '12px',
-                padding: '12px 20px',
-                background: '#0D0D0D',
-                color: '#F2F2F2',
-                fontSize: 'var(--g-bm)',
-                fontFamily: 'var(--g-font)',
-                fontWeight: 500,
-                textDecoration: 'none',
-              }}
-            >
-              {ctaLabel}
-            </Link>
-          )}
         </article>
       </section>
 
