@@ -900,7 +900,7 @@
       "fineline": "Лайнворк тату Мюнхен"
     },
     "gallery": {
-      "viewAll": "Всі роботи →"
+      "viewAll": "Всі роботи"
     }
   },
   "japanisch": {
@@ -988,7 +988,7 @@
       "fineline": "Лайнворк тату Мюнхен"
     },
     "gallery": {
-      "viewAll": "Всі роботи →"
+      "viewAll": "Всі роботи"
     }
   },
   "motive": {
@@ -1447,7 +1447,7 @@
         ]
       },
       "gallery": {
-        "link": "Всі роботи →"
+        "link": "Всі роботи"
       },
       "faq": {
         "heading": "FAQ — Тату Neufahrn",
@@ -1509,7 +1509,7 @@
         ]
       },
       "gallery": {
-        "link": "Всі роботи →"
+        "link": "Всі роботи"
       },
       "faq": {
         "heading": "FAQ — Тату Freising",
@@ -1571,7 +1571,7 @@
         ]
       },
       "gallery": {
-        "link": "Всі роботи →"
+        "link": "Всі роботи"
       },
       "faq": {
         "heading": "FAQ — Тату Dachau",
@@ -1633,7 +1633,7 @@
         ]
       },
       "gallery": {
-        "link": "Всі роботи →"
+        "link": "Всі роботи"
       },
       "faq": {
         "heading": "FAQ — Тату Eching",
@@ -1695,7 +1695,7 @@
         ]
       },
       "gallery": {
-        "link": "Всі роботи →"
+        "link": "Всі роботи"
       },
       "faq": {
         "heading": "FAQ — Тату Ottobrunn",
@@ -1723,7 +1723,8 @@
         "prices": "Ціни на тату Мюнхен",
         "prices_href": "/tattoo-preise-muenchen"
       }
-    }
+    },
+    "ctaBooking": "Записатися"
   },
   "formPopup": {
     "tag": "[ Привіт, це Kisha Tattoo ]",

@@ -1447,7 +1447,7 @@
         ]
       },
       "gallery": {
-        "link": "Alle Arbeiten ansehen →"
+        "link": "Alle Arbeiten ansehen"
       },
       "faq": {
         "heading": "FAQ — Tattoo Neufahrn",
@@ -1509,7 +1509,7 @@
         ]
       },
       "gallery": {
-        "link": "Alle Arbeiten ansehen →"
+        "link": "Alle Arbeiten ansehen"
       },
       "faq": {
         "heading": "FAQ — Tattoo Freising",
@@ -1571,7 +1571,7 @@
         ]
       },
       "gallery": {
-        "link": "Alle Arbeiten ansehen →"
+        "link": "Alle Arbeiten ansehen"
       },
       "faq": {
         "heading": "FAQ — Tattoo Dachau",
@@ -1633,7 +1633,7 @@
         ]
       },
       "gallery": {
-        "link": "Alle Arbeiten ansehen →"
+        "link": "Alle Arbeiten ansehen"
       },
       "faq": {
         "heading": "FAQ — Tattoo Eching",
@@ -1695,7 +1695,7 @@
         ]
       },
       "gallery": {
-        "link": "Alle Arbeiten ansehen →"
+        "link": "Alle Arbeiten ansehen"
       },
       "faq": {
         "heading": "FAQ — Tattoo Ottobrunn",
@@ -1723,7 +1723,8 @@
         "prices": "Tattoo Preise München",
         "prices_href": "/tattoo-preise-muenchen"
       }
-    }
+    },
+    "ctaBooking": "Termin anfragen"
   },
   "formPopup": {
     "tag": "[ Hey, das ist Kisha Tattoo ]",

@@ -10,6 +10,7 @@ import { locationServiceSchema, breadcrumbSchema, faqSchema } from '@/lib/struct
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
+import { CtaStrip } from '@/components/graphic/CtaStrip'
 
 export interface LocationPageConfig {
   citySlug: string       // i18n key under 'locations' namespace, e.g. 'eching'
@@ -58,8 +59,6 @@ export async function LocationPageTemplate({
   const { citySlug, cityName, travelMinutes, path } = config
   const t = await getTranslations({ locale, namespace: 'locations' })
   const faqItems = t.raw(`${citySlug}.faq.items`) as Array<{ q: string; a: string }>
-  const buttons = t.raw(`${citySlug}.content.buttons`) as Array<{ label: string; href: string }>
-  const bookingBtn = buttons[0]
 
   return (
     <main id="main-content">
@@ -131,25 +130,10 @@ export async function LocationPageTemplate({
         </div>
 
         {/* CTA booking button — bottom of hero */}
-        <Link
-          href={bookingBtn.href}
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 'var(--g-pad)',
-            right: 'var(--g-pad)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: '#0D0D0D',
-            padding: '16px 12px',
-            textDecoration: 'none',
-          }}
-        >
-          <span style={{ fontSize: 'var(--g-bm)', lineHeight: 1, fontFamily: 'var(--g-font)', fontWeight: 500, color: '#F2F2F2', whiteSpace: 'nowrap' }}>
-            {bookingBtn.label}
-          </span>
-        </Link>
+        <CtaStrip
+          label={t('ctaBooking')}
+          style={{ position: 'absolute', bottom: 0, left: 'var(--g-pad)', right: 'var(--g-pad)' }}
+        />
       </section>
 
       {/* ── NEAR SECTION ─────────────────────────────────────────────────── */}
@@ -218,7 +202,7 @@ export async function LocationPageTemplate({
             marginLeft: 'calc(-1 * var(--g-pad))',
             marginRight: 'calc(-1 * var(--g-pad))',
             textDecoration: 'none',
-            marginTop: '8px',
+            marginTop: '32px',
           }}
         >
           <span style={{ fontSize: 'var(--g-bm)', lineHeight: 1, fontFamily: 'var(--g-font)', fontWeight: 500, color: '#F2F2F2', whiteSpace: 'nowrap' }}>
