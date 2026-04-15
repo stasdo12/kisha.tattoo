@@ -68,6 +68,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/placementBlog6(Big).jpg',
     coverAlt: 'Tattoo Placement München — Kisha Tattoo Studio',
   },
+  {
+    slug: 'wie-du-deinen-tattoo-stil-findest',
+    publishedAt: '2026-04-15',
+    readingTime: '4 min',
+    category: 'Guide',
+    coverImage: '/images/blog/styleBlog7.jpg',
+    coverImageBig: '/images/blog/styleBlog7(Big).jpg',
+    coverAlt: 'Tattoo Studio Kisha München — japanische Prints an der Wand',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {

@@ -136,6 +136,7 @@ export default async function ArticleDetailPage({
     'tattoo-schmerzen-was-du-wirklich-fuehlen-wirst': { href: '/booking',               de: 'Termin anfragen →',                      en: 'Book your appointment →',              uk: 'Записатись →' },
     'erste-tattoo-ideen-wie-nicht-bereuen':     { href: '/booking',                     de: 'Erstes Tattoo — Termin anfragen →',      en: 'First tattoo — Book now →',            uk: 'Перше тату — Записатись →' },
     'tattoo-placement-muenchen':                { href: '/booking',                     de: 'Termin für dein Tattoo anfragen →',      en: 'Get in touch for your tattoo idea →',  uk: 'Обговорити ідею татуювання →' },
+    'wie-du-deinen-tattoo-stil-findest':        { href: '/booking',                     de: 'Beratungstermin anfragen →',             en: 'Book a free consultation →',           uk: 'Записатись на консультацію →' },
   }
   const cta = SLUG_TO_CTA[slug]
   const ctaLabel = cta ? (locale === 'en' ? cta.en : locale === 'uk' ? cta.uk : cta.de) : null
