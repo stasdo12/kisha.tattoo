@@ -33,11 +33,18 @@ export async function buildLocationMetadata(
   })
 }
 
+const GALLERY_BIG = {
+  src: '/images/work/middle-graphic-body-flower-tattoo.jpg',
+  alt: 'Grafik Blumen Körper Tattoo München — Kisha',
+  name: 'Blumen Körper — Grafik',
+  tags: ['München'],
+}
+
 const GALLERY_WORKS = [
-  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg',   alt: 'Japanisches Fuchs Tattoo München — Kisha' },
-  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',      alt: 'Grafik Hase Tattoo München — Kisha' },
-  { src: '/images/work/4x4-sakura-tattoo.jpg',              alt: 'Sakura Tattoo München — Kisha' },
-  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',       alt: 'Grafik Vögel Tattoo München — Kisha' },
+  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg',  alt: 'Japanisches Fuchs Tattoo München — Kisha', name: 'Fuchs — Japanisch', tags: ['München'] },
+  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',     alt: 'Grafik Hase Tattoo München — Kisha',       name: 'Hase — Grafik',     tags: ['München'] },
+  { src: '/images/work/4x4-sakura-tattoo.jpg',             alt: 'Sakura Tattoo München — Kisha',            name: 'Sakura — Grafik',   tags: ['München'] },
+  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',      alt: 'Grafik Vögel Tattoo München — Kisha',      name: 'Vögel — Grafik',    tags: ['München'] },
 ]
 
 /* ── Page component ─────────────────────────────────────────────────────── */
@@ -182,32 +189,19 @@ export async function LocationPageTemplate({
           style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}
         >
           {/* Big image */}
-          <div style={{ position: 'relative' }}>
-            <GWorkImage
-              src="/images/work/middle-graphic-body-flower-tattoo.jpg"
-              alt={`Grafik Körper Tattoo München — Kisha`}
-              sizes="(max-width: 767px) 100vw, 50vw"
-              style={{ height: 'clamp(400px, 50vw, 960px)' }}
-            />
-            <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-              {['Grafik', 'Tattoo', 'München', 'Kisha'].map((tag) => (
-                <span key={tag} style={{ background: '#F2F2F2', padding: '8px 12px', fontSize: 'var(--g-tag)', lineHeight: 1, color: '#0D0D0D', whiteSpace: 'nowrap' }}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
+          <GWorkImage
+            src={GALLERY_BIG.src}
+            alt={GALLERY_BIG.alt}
+            name={GALLERY_BIG.name}
+            tags={GALLERY_BIG.tags}
+            sizes="(max-width: 767px) 100vw, 50vw"
+            style={{ height: 'clamp(400px, 50vw, 960px)' }}
+          />
 
           {/* 2×2 grid */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '8px', height: 'clamp(400px, 50vw, 960px)' }}>
-            {GALLERY_WORKS.map(({ src, alt }) => (
-              <div key={src} style={{ position: 'relative' }}>
-                <GWorkImage src={src} alt={alt} sizes="(max-width: 767px) 100vw, 25vw" style={{ height: '100%' }} />
-                <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', gap: '8px' }}>
-                  <span style={{ background: '#F2F2F2', padding: '8px 12px', fontSize: 'var(--g-tag)', lineHeight: 1, color: '#0D0D0D', whiteSpace: 'nowrap' }}>Tattoo</span>
-                  <span style={{ background: '#F2F2F2', padding: '8px 12px', fontSize: 'var(--g-tag)', lineHeight: 1, color: '#0D0D0D', whiteSpace: 'nowrap' }}>München</span>
-                </div>
-              </div>
+            {GALLERY_WORKS.map(({ src, alt, name, tags }) => (
+              <GWorkImage key={src} src={src} alt={alt} name={name} tags={tags} sizes="(max-width: 767px) 100vw, 25vw" style={{ height: '100%' }} />
             ))}
           </div>
         </div>
