@@ -23,7 +23,7 @@ export const SITE = {
 
   // Contact & Location — required for LocalBusiness structured data
   contact: {
-    email: 'hello@kisha.tattoo',
+    email: 'svitlanadonec1@gmail.com',
     phone: '+491701893395',
     bookingUrl: '/booking',
   },
