@@ -77,6 +77,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/styleBlog7(Big).jpg',
     coverAlt: 'Tattoo Studio Kisha München — japanische Prints an der Wand',
   },
+  {
+    slug: 'warum-ich-manchmal-von-einem-tattoo-abrate',
+    publishedAt: '2026-04-20',
+    readingTime: '5 min',
+    category: 'Studio',
+    coverImage: '/images/blog/studioBlog8.jpg',
+    coverImageBig: '/images/blog/studioBlog8(Big).jpg',
+    coverAlt: 'Tattoo Beratung München — Kisha Tattoo Studio',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
