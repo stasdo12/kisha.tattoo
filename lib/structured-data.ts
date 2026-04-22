@@ -233,7 +233,7 @@ export function videoObjectSchema(videos: Array<{
     name: v.name,
     description: v.description,
     thumbnailUrl: `https://img.youtube.com/vi/${v.youtubeId}/maxresdefault.jpg`,
-    uploadDate: v.uploadDate,
+    uploadDate: v.uploadDate.includes('T') ? v.uploadDate : `${v.uploadDate}T00:00:00Z`,
     ...(v.duration ? { duration: v.duration } : {}),
     contentUrl: `https://www.youtube.com/watch?v=${v.youtubeId}`,
     embedUrl: `https://www.youtube.com/embed/${v.youtubeId}`,
