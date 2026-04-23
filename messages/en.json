@@ -158,19 +158,19 @@
         "style": "Fineline Tattoo",
         "price": "from €150",
         "desc": "Botanical linework, geometric shapes, fine scripts — highest precision in the smallest space.",
-        "link": "Fineline Tattoo Munich →"
+        "link": "Fineline Tattoo Munich"
       },
       "item1": {
         "style": "Japanese Irezumi",
         "price": "from €200",
         "desc": "Koi, dragons, tigers — traditional compositions in the classic Irezumi visual language.",
-        "link": "Japanese Tattoo Munich →"
+        "link": "Japanese Tattoo Munich"
       },
       "item2": {
         "style": "Graphic & Blackwork",
         "price": "from €150",
         "desc": "Custom graphic, blackwork, geometric tattoos — bold, timeless visual language.",
-        "link": "Graphic Tattoo Munich →"
+        "link": "Graphic Tattoo Munich"
       }
     },
     "ctaStrip": "Start your consultation"
@@ -349,7 +349,7 @@
       "error": "Something went wrong. Please try again."
     },
     "links": {
-      "label": "Or directly →",
+      "label": "Or directly",
       "booking": "Book appointment",
       "prices": "View prices",
       "faq": "FAQ"
@@ -793,7 +793,7 @@
           "time": "5–7 hrs"
         }
       ],
-      "link": "View full pricing →"
+      "link": "View full pricing"
     },
     "faq": {
       "heading": "FAQ — Fineline Tattoo",
@@ -821,12 +821,12 @@
       ]
     },
     "related": {
-      "label": "More styles →",
+      "label": "More styles",
       "japanese": "Japanese Tattoo Munich",
       "grafik": "Graphic Tattoo Munich"
     },
     "gallery": {
-      "viewAll": "View all fineline works →"
+      "viewAll": "View all fineline works"
     }
   },
   "grafik": {
@@ -885,7 +885,7 @@
           "time": "5–7 hrs"
         }
       ],
-      "link": "View full pricing →"
+      "link": "View full pricing"
     },
     "faq": {
       "heading": "FAQ — Tattoo Munich",
@@ -905,12 +905,12 @@
       ]
     },
     "related": {
-      "label": "More styles →",
+      "label": "More styles",
       "japanese": "Japanese Tattoo Munich",
       "fineline": "Linework Tattoo Munich"
     },
     "gallery": {
-      "viewAll": "View all works →"
+      "viewAll": "View all works"
     }
   },
   "japanisch": {
@@ -969,7 +969,7 @@
           "time": "15–40 hrs total"
         }
       ],
-      "link": "View full pricing →"
+      "link": "View full pricing"
     },
     "faq": {
       "heading": "Frequently Asked Questions",
@@ -993,12 +993,12 @@
       ]
     },
     "related": {
-      "label": "More styles →",
+      "label": "More styles",
       "grafik": "Graphic Tattoo Munich",
       "fineline": "Linework Tattoo Munich"
     },
     "gallery": {
-      "viewAll": "View all works →"
+      "viewAll": "View all works"
     }
   },
   "motive": {
@@ -1416,7 +1416,7 @@
       ]
     },
     "related": {
-      "label": "More pages →",
+      "label": "More pages",
       "prices": "Tattoo Prices Munich",
       "fineline": "Fineline Tattoo Munich",
       "grafik": "Tattoo Munich",
@@ -1477,7 +1477,7 @@
         ]
       },
       "related": {
-        "label": "More pages →",
+        "label": "More pages",
         "link1": "Tattoo Eching",
         "link1_href": "/tattoo-eching",
         "link2": "Tattoo Freising",
@@ -1539,7 +1539,7 @@
         ]
       },
       "related": {
-        "label": "More pages →",
+        "label": "More pages",
         "link1": "Tattoo Eching",
         "link1_href": "/tattoo-eching",
         "link2": "Tattoo Neufahrn",
@@ -1601,7 +1601,7 @@
         ]
       },
       "related": {
-        "label": "More pages →",
+        "label": "More pages",
         "link1": "Tattoo Eching",
         "link1_href": "/tattoo-eching",
         "link2": "Tattoo Ottobrunn",
@@ -1663,7 +1663,7 @@
         ]
       },
       "related": {
-        "label": "More pages →",
+        "label": "More pages",
         "link1": "Tattoo Freising",
         "link1_href": "/tattoo-freising",
         "link2": "Tattoo Neufahrn",
@@ -1725,7 +1725,7 @@
         ]
       },
       "related": {
-        "label": "More pages →",
+        "label": "More pages",
         "link1": "Tattoo Dachau",
         "link1_href": "/tattoo-dachau",
         "link2": "Tattoo Neufahrn",

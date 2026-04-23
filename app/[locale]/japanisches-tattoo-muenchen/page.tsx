@@ -70,7 +70,7 @@ export default async function JapanischesTattooMuenchen({
 
         <p style={{
           position: 'absolute', left: 'var(--g-pad)',
-          bottom: 'clamp(72px, 14vh, 140px)',
+          bottom: 'clamp(90px, 13.3vh, 145px)',
           width: 'clamp(18rem, 28vw, 480px)',
           fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)',
           color: '#F2F2F2', zIndex: 2,
@@ -79,7 +79,7 @@ export default async function JapanischesTattooMuenchen({
         </p>
 
         <Link href="/booking" style={{
-          position: 'absolute', bottom: 0,
+          position: 'absolute', bottom: 'clamp(12px, 1.85vh, 20px)',
           left: 'var(--g-pad)', right: 'var(--g-pad)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           padding: '16px 12px',
@@ -132,10 +132,21 @@ export default async function JapanischesTattooMuenchen({
               </div>
             </div>
             <div className="g-gallery-loc-right" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '16px', height: 'clamp(720px, 50vw, 960px)' }}>
-              <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg" alt="Japanisches Hase Tattoo München — KishaTattoo" sizes="25vw" />
-              <GWorkImage src="/images/work/4x4-birds-tattoo-graphic.jpg" alt="Japanisches Vögel Tattoo München — KishaTattoo" sizes="25vw" />
-              <GWorkImage src="/images/work/4x4-bugs-tattoo-graphic.jpg" alt="Japanisches Insekten Tattoo München — KishaTattoo" sizes="25vw" />
-              <GWorkImage src="/images/work/4x4-sakura-tattoo.jpg" alt="Sakura Kirschblüten Tattoo München — KishaTattoo" sizes="25vw" />
+              {[
+                { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg', alt: 'Japanisches Hase Tattoo München — KishaTattoo' },
+                { src: '/images/work/4x4-birds-tattoo-graphic.jpg', alt: 'Japanisches Vögel Tattoo München — KishaTattoo' },
+                { src: '/images/work/4x4-bugs-tattoo-graphic.jpg', alt: 'Japanisches Insekten Tattoo München — KishaTattoo' },
+                { src: '/images/work/4x4-sakura-tattoo.jpg', alt: 'Sakura Kirschblüten Tattoo München — KishaTattoo' },
+              ].map(img => (
+                <div key={img.src} style={{ position: 'relative' }}>
+                  <GWorkImage src={img.src} alt={img.alt} sizes="25vw" />
+                  <div style={{ position: 'absolute', top: '12px', left: '12px', display: 'flex', gap: '6px' }}>
+                    {['München', 'Kisha'].map(tag => (
+                      <span key={tag} style={{ background: '#F2F2F2', padding: '5px 8px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

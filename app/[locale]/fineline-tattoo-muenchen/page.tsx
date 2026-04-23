@@ -70,7 +70,7 @@ export default async function FinelineTattooMuenchen({
 
         <p style={{
           position: 'absolute', left: 'var(--g-pad)',
-          bottom: 'clamp(72px, 14vh, 140px)',
+          bottom: 'clamp(90px, 13.3vh, 145px)',
           width: 'clamp(18rem, 28vw, 480px)',
           fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)',
           color: '#F2F2F2', zIndex: 2,
@@ -79,7 +79,7 @@ export default async function FinelineTattooMuenchen({
         </p>
 
         <Link href="/booking" style={{
-          position: 'absolute', bottom: 0,
+          position: 'absolute', bottom: 'clamp(12px, 1.85vh, 20px)',
           left: 'var(--g-pad)', right: 'var(--g-pad)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           padding: '16px 12px',
@@ -131,12 +131,19 @@ export default async function FinelineTattooMuenchen({
                 ))}
               </div>
             </div>
-            <GWorkImage
-              src="/images/work/4x4-owl-tattoo-fineline.jpg"
-              alt="Fineline Eule Tattoo München — KishaTattoo Linework"
-              sizes="(max-width: 767px) 100vw, 50vw"
-              style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
-            />
+            <div style={{ position: 'relative' }}>
+              <GWorkImage
+                src="/images/work/4x4-owl-tattoo-fineline.jpg"
+                alt="Fineline Eule Tattoo München — KishaTattoo Linework"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
+              />
+              <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', gap: '8px' }}>
+                {['Fineline', 'München', 'Kisha'].map(tag => (
+                  <span key={tag} style={{ background: '#F2F2F2', padding: '6px 10px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 

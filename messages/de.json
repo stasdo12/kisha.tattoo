@@ -158,19 +158,19 @@
         "style": "Fineline Tattoo",
         "price": "ab 150 €",
         "desc": "Botanische Linework, geometrische Formen, feine Schriften — höchste Präzision auf kleinstem Raum.",
-        "link": "Fineline Tattoo München →"
+        "link": "Fineline Tattoo München"
       },
       "item1": {
         "style": "Japanisches Irezumi",
         "price": "ab 200 €",
         "desc": "Koi, Drachen, Tiger — traditionelle Kompositionen nach klassischer Irezumi-Bildsprache.",
-        "link": "Japanisches Tattoo München →"
+        "link": "Japanisches Tattoo München"
       },
       "item2": {
         "style": "Grafik & Blackwork",
         "price": "ab 150 €",
         "desc": "Custom Grafik, Blackwork, geometrische Tattoos — starke, zeitlose Bildsprache.",
-        "link": "Grafik Tattoo München →"
+        "link": "Grafik Tattoo München"
       }
     },
     "ctaStrip": "Termin anfragen"
@@ -349,7 +349,7 @@
       "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     },
     "links": {
-      "label": "Oder direkt →",
+      "label": "Oder direkt",
       "booking": "Termin buchen",
       "prices": "Preise ansehen",
       "faq": "FAQ"
@@ -793,7 +793,7 @@
           "time": "5–7 Std."
         }
       ],
-      "link": "Vollständige Preisübersicht ansehen →"
+      "link": "Vollständige Preisübersicht ansehen"
     },
     "faq": {
       "heading": "Häufige Fragen zum Fineline Tattoo",
@@ -821,12 +821,12 @@
       ]
     },
     "related": {
-      "label": "Weitere Stile →",
+      "label": "Weitere Stile",
       "japanese": "Japanisches Tattoo München",
       "grafik": "Grafik Tattoo München"
     },
     "gallery": {
-      "viewAll": "Alle Fineline-Arbeiten ansehen →"
+      "viewAll": "Alle Fineline-Arbeiten ansehen"
     }
   },
   "grafik": {
@@ -885,7 +885,7 @@
           "time": "5–7 Std."
         }
       ],
-      "link": "Vollständige Preisübersicht ansehen →"
+      "link": "Vollständige Preisübersicht ansehen"
     },
     "faq": {
       "heading": "FAQ — Tattoo Munich / München",
@@ -905,12 +905,12 @@
       ]
     },
     "related": {
-      "label": "Weitere Stile →",
+      "label": "Weitere Stile",
       "japanese": "Japanisches Tattoo München",
       "fineline": "Linework Tattoo München"
     },
     "gallery": {
-      "viewAll": "Alle Arbeiten ansehen →"
+      "viewAll": "Alle Arbeiten ansehen"
     }
   },
   "japanisch": {
@@ -969,7 +969,7 @@
           "time": "15–40 Std. total"
         }
       ],
-      "link": "Vollständige Preisübersicht ansehen →"
+      "link": "Vollständige Preisübersicht ansehen"
     },
     "faq": {
       "heading": "Häufige Fragen",
@@ -993,12 +993,12 @@
       ]
     },
     "related": {
-      "label": "Weitere Stile →",
+      "label": "Weitere Stile",
       "grafik": "Grafik Tattoo München",
       "fineline": "Linework Tattoo München"
     },
     "gallery": {
-      "viewAll": "Alle Arbeiten ansehen →"
+      "viewAll": "Alle Arbeiten ansehen"
     }
   },
   "motive": {
@@ -1424,7 +1424,7 @@
       ]
     },
     "related": {
-      "label": "Weitere Seiten →",
+      "label": "Weitere Seiten",
       "prices": "Tattoo Preise München",
       "fineline": "Fineline Tattoo München",
       "grafik": "Tattoo Munich",
@@ -1493,7 +1493,7 @@
         ]
       },
       "related": {
-        "label": "Weitere Seiten →",
+        "label": "Weitere Seiten",
         "link1": "Tattoo Eching",
         "link1_href": "/tattoo-eching",
         "link2": "Tattoo Freising",
@@ -1555,7 +1555,7 @@
         ]
       },
       "related": {
-        "label": "Weitere Seiten →",
+        "label": "Weitere Seiten",
         "link1": "Tattoo Eching",
         "link1_href": "/tattoo-eching",
         "link2": "Tattoo Neufahrn",
@@ -1617,7 +1617,7 @@
         ]
       },
       "related": {
-        "label": "Weitere Seiten →",
+        "label": "Weitere Seiten",
         "link1": "Tattoo Eching",
         "link1_href": "/tattoo-eching",
         "link2": "Tattoo Ottobrunn",
@@ -1679,7 +1679,7 @@
         ]
       },
       "related": {
-        "label": "Weitere Seiten →",
+        "label": "Weitere Seiten",
         "link1": "Tattoo Freising",
         "link1_href": "/tattoo-freising",
         "link2": "Tattoo Neufahrn",
@@ -1741,7 +1741,7 @@
         ]
       },
       "related": {
-        "label": "Weitere Seiten →",
+        "label": "Weitere Seiten",
         "link1": "Tattoo Dachau",
         "link1_href": "/tattoo-dachau",
         "link2": "Tattoo Neufahrn",

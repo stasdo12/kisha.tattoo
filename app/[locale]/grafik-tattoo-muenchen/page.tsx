@@ -70,7 +70,7 @@ export default async function GrafikTattooMuenchen({
 
         <p style={{
           position: 'absolute', left: 'var(--g-pad)',
-          bottom: 'clamp(72px, 14vh, 140px)',
+          bottom: 'clamp(90px, 13.3vh, 145px)',
           width: 'clamp(18rem, 28vw, 480px)',
           fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)',
           color: '#F2F2F2', zIndex: 2,
@@ -79,7 +79,7 @@ export default async function GrafikTattooMuenchen({
         </p>
 
         <Link href="/booking" style={{
-          position: 'absolute', bottom: 0,
+          position: 'absolute', bottom: 'clamp(12px, 1.85vh, 20px)',
           left: 'var(--g-pad)', right: 'var(--g-pad)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           padding: '16px 12px',
@@ -132,18 +132,36 @@ export default async function GrafikTattooMuenchen({
                   ))}
                 </div>
               </div>
-              <GWorkImage
-                src="/images/work/middle-graphic-hand-with-flower-tattoo.jpg"
-                alt="Grafik Hand mit Blumen Tattoo München — KishaTattoo"
-                sizes="(max-width: 767px) 100vw, 50vw"
-                style={{ height: 'clamp(720px, 50vw, 820px)' }}
-              />
+              <div style={{ position: 'relative' }}>
+                <GWorkImage
+                  src="/images/work/middle-graphic-hand-with-flower-tattoo.jpg"
+                  alt="Grafik Hand mit Blumen Tattoo München — KishaTattoo"
+                  sizes="(max-width: 767px) 100vw, 50vw"
+                  style={{ height: 'clamp(720px, 50vw, 820px)' }}
+                />
+                <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', gap: '8px' }}>
+                  {['Blackwork', 'München', 'Kisha'].map(tag => (
+                    <span key={tag} style={{ background: '#F2F2F2', padding: '6px 10px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
+                  ))}
+                </div>
+              </div>
             </div>
             <div className="g-gallery-4col" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
-              <GWorkImage src="/images/work/4x4-bugs-tattoo-graphic.jpg" alt="Grafik Insekten Tattoo München — KishaTattoo Blackwork" sizes="25vw" style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }} />
-              <GWorkImage src="/images/work/4x4-fogel-tattoo-graphic.jpg" alt="Grafik Vogel Tattoo München — KishaTattoo" sizes="25vw" style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }} />
-              <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg" alt="Grafik Hase Tattoo München — KishaTattoo" sizes="25vw" style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }} />
-              <GWorkImage src="/images/work/middle-graphic-legs-tattoo.jpg" alt="Grafik Beine Tattoo München — KishaTattoo" sizes="25vw" style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }} />
+              {[
+                { src: '/images/work/4x4-bugs-tattoo-graphic.jpg', alt: 'Grafik Insekten Tattoo München — KishaTattoo Blackwork' },
+                { src: '/images/work/4x4-fogel-tattoo-graphic.jpg', alt: 'Grafik Vogel Tattoo München — KishaTattoo' },
+                { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg', alt: 'Grafik Hase Tattoo München — KishaTattoo' },
+                { src: '/images/work/middle-graphic-legs-tattoo.jpg', alt: 'Grafik Beine Tattoo München — KishaTattoo' },
+              ].map(img => (
+                <div key={img.src} style={{ position: 'relative' }}>
+                  <GWorkImage src={img.src} alt={img.alt} sizes="25vw" style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }} />
+                  <div style={{ position: 'absolute', top: '12px', left: '12px', display: 'flex', gap: '6px' }}>
+                    {['München', 'Kisha'].map(tag => (
+                      <span key={tag} style={{ background: '#F2F2F2', padding: '5px 8px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
