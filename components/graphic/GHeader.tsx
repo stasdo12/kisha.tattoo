@@ -66,7 +66,7 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
   const bg     = theme === 'light' ? '#F2F2F2' : (scrolled ? '#0D0D0D' : 'transparent')
   const border = theme === 'light'
     ? '2px solid #0D0D0D'
-    : scrolled ? '1px solid rgba(242,242,242,0.15)' : 'none'
+    : '2px solid rgba(242,242,242,0.5)'
 
   /* ── Locale switcher helpers ─────────────────────────────────── */
   // Build href manually: DE has no prefix (localePrefix: 'as-needed')
