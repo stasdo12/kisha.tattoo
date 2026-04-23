@@ -127,7 +127,7 @@ export default async function FinelineTattooMuenchen({
               />
               <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', gap: '8px' }}>
                 {['Fineline', 'München', 'Kisha'].map(tag => (
-                  <span key={tag} style={{ background: '#F2F2F2', padding: '6px 10px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
+                  <span key={tag} style={{ background: '#F2F2F2', color: '#0D0D0D', padding: '6px 10px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
                 ))}
               </div>
             </div>
@@ -140,7 +140,7 @@ export default async function FinelineTattooMuenchen({
               />
               <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', gap: '8px' }}>
                 {['Fineline', 'München', 'Kisha'].map(tag => (
-                  <span key={tag} style={{ background: '#F2F2F2', padding: '6px 10px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
+                  <span key={tag} style={{ background: '#F2F2F2', color: '#0D0D0D', padding: '6px 10px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
                 ))}
               </div>
             </div>
