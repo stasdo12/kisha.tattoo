@@ -86,6 +86,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/studioBlog8(Big).jpg',
     coverAlt: 'Tattoo Beratung München — Kisha Tattoo Studio',
   },
+  {
+    slug: 'wie-tattoos-altern',
+    publishedAt: '2026-04-23',
+    readingTime: '6 min',
+    category: 'Guide',
+    coverImage: '/images/blog/agingBlog9.jpg',
+    coverImageBig: '/images/blog/agingBlog9(Big).jpg',
+    coverAlt: 'Tattoo aging — Kisha Tattoo München',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
