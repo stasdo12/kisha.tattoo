@@ -130,36 +130,40 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
         style={{
           position: 'fixed',
           top: 0, left: 0, right: 0,
-          display: 'flex',
-          alignItems: 'flex-end',
-          justifyContent: 'space-between',
-          padding: '20px var(--g-pad) 12px',
+          padding: '20px var(--g-pad) 0',
           background: bg,
-          borderBottom: border,
           zIndex: 100,
           transform: hidden && !isOpen ? 'translateY(-100%)' : 'translateY(0)',
           transition: 'transform 0.3s ease, background 0.2s ease',
         }}
       >
-        <Link
-          href="/"
-          aria-label="Kisha Tattoo — home"
-          style={{ fontSize: 'var(--g-bs)', color, textDecoration: 'none', lineHeight: 1 }}
-        >
-          ● Kisha
-        </Link>
+        <div style={{
+          display: 'flex',
+          alignItems: 'flex-end',
+          justifyContent: 'space-between',
+          paddingBottom: '12px',
+          borderBottom: border,
+        }}>
+          <Link
+            href="/"
+            aria-label="Kisha Tattoo — home"
+            style={{ fontSize: 'var(--g-bs)', color, textDecoration: 'none', lineHeight: 1 }}
+          >
+            ● Kisha
+          </Link>
 
-        <button
-          onClick={open}
-          aria-expanded={isOpen}
-          aria-controls="menu-overlay"
-          className="g-header-toggle"
-          style={{ color }}
-        >
-          [ Menu ]
-        </button>
+          <button
+            onClick={open}
+            aria-expanded={isOpen}
+            aria-controls="menu-overlay"
+            className="g-header-toggle"
+            style={{ color }}
+          >
+            [ Menu ]
+          </button>
 
-        <span style={{ fontSize: 'var(--g-bxs)', color, lineHeight: 1 }}>Tattoo</span>
+          <span style={{ fontSize: 'var(--g-bxs)', color, lineHeight: 1 }}>Tattoo</span>
+        </div>
       </div>
 
       {/* ── Full-screen overlay ───────────────────────────────────── */}
