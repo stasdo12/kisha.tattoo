@@ -48,7 +48,7 @@ export default async function JapanischesTattooMuenchen({
         style={{ position: 'relative', height: '100svh', minHeight: '680px', background: '#0D0D0D', overflow: 'hidden' }}
       >
         <Image
-          src="/images/home/works-04-god-japanese.jpg"
+          src="/images/style_page/hero-section-japan-page.jpg"
           alt="Japanisches Tattoo München — Irezumi KishaTattoo"
           fill
           priority
