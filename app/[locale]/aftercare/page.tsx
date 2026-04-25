@@ -154,7 +154,7 @@ export default async function AftercarePage({
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 1.5vw, 1.5rem)' }}>
+          <div className="g-aftercare-avoid-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 1.5vw, 1.5rem)' }}>
             {avoid.map((item) => (
               <div
                 key={item.label}

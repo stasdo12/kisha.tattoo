@@ -1032,6 +1032,13 @@ body:has([data-theme='graphic']) {
   /* Load more: full width on mobile */
   .g-blog-load-more { font-size: 16px !important; }
 
+  /* ── AFTERCARE PAGE ── */
+
+  /* Avoid grid: 2 columns on mobile instead of 3 */
+  .g-aftercare-avoid-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
   /* ── CONTACT PAGE ── */
 
   /* Hero: padding-top prevents margin-collapse from form leaking out */
