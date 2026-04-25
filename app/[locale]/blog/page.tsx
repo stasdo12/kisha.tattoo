@@ -47,7 +47,7 @@ export default async function GraphicBlogPage({
         className="g-blog-hero"
         style={{
           position: 'relative',
-          minHeight: 'clamp(700px, 56.25vw, 1080px)',
+          minHeight: 'clamp(900px, 56.25vw, 1080px)',
           overflow: 'hidden',
           background: '#0D0D0D',
         }}
