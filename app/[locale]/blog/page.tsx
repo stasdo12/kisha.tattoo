@@ -7,6 +7,7 @@ import { getTranslations } from 'next-intl/server'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { BlogFilter } from '@/components/graphic/BlogFilter'
+import { BlogHeroVideo } from '@/components/graphic/BlogHeroVideo'
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
@@ -52,15 +53,8 @@ export default async function GraphicBlogPage({
           background: '#0D0D0D',
         }}
       >
-        {/* Background image */}
-        <Image
-          src="/images/home/works-01-blackwork-fullbody.jpg"
-          alt=""
-          fill
-          priority
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
-          sizes="100vw"
-        />
+        {/* Background video — desktop/mobile auto-switch */}
+        <BlogHeroVideo />
         {/* Dark overlay */}
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(13,13,13,0.35)', zIndex: 1 }} />
 
