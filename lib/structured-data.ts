@@ -246,6 +246,85 @@ export function videoObjectSchema(videos: Array<{
 }
 
 /**
+ * Tattoo pricing schema — Service with Offer/PriceSpecification for rich results.
+ * Shows prices directly in Google Search (price range snippets).
+ */
+export function tattooServicePricesSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${SITE.url}/tattoo-preise-muenchen#service`,
+    name: 'Tattoo Preise München — KishaTattoo',
+    description: 'Tattoo Kosten und Preise in München. Kleine Tattoos ab 150 €, Sleeve ab 2.500 €. Transparente Preisübersicht.',
+    url: `${SITE.url}/tattoo-preise-muenchen`,
+    provider: {
+      '@type': 'LocalBusiness',
+      '@id': `${SITE.url}/#business`,
+      name: SITE.name,
+    },
+    areaServed: { '@type': 'City', name: 'München', addressCountry: 'DE' },
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Mini Tattoo bis 5 cm',
+        description: 'Fineline, Schrift, Symbol — Handgelenk, Finger, Knöchel. Ca. 1–2 Stunden.',
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          minPrice: '150',
+          priceCurrency: 'EUR',
+        },
+      },
+      {
+        '@type': 'Offer',
+        name: 'Kleines Tattoo 5–10 cm',
+        description: 'Fineline, Grafik, Japanisch — Unterarm, Schlüsselbein, Rippen. Ca. 2–3 Stunden.',
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          minPrice: '250',
+          priceCurrency: 'EUR',
+        },
+      },
+      {
+        '@type': 'Offer',
+        name: 'Mittleres Tattoo 10–20 cm',
+        description: 'Alle Stile — komplexe Einzelmotive oder kleinere Kompositionen. Ca. 3–5 Stunden.',
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          minPrice: '400',
+          priceCurrency: 'EUR',
+        },
+      },
+      {
+        '@type': 'Offer',
+        name: 'Oberarm / Halbärmel Tattoo',
+        description: 'Irezumi, Grafik, Linework — typischerweise 2–4 Sitzungen. Ca. 5–7 Stunden pro Sitzung.',
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          minPrice: '800',
+          priceCurrency: 'EUR',
+          referenceQuantity: {
+            '@type': 'QuantitativeValue',
+            value: '1',
+            unitCode: 'E49',
+            unitText: 'Sitzung',
+          },
+        },
+      },
+      {
+        '@type': 'Offer',
+        name: 'Full Sleeve Tattoo',
+        description: 'Irezumi, Grafik — mehrere Sitzungen über 6–18 Monate, individuell kalkuliert. 15–30 Stunden gesamt.',
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          minPrice: '2500',
+          priceCurrency: 'EUR',
+        },
+      },
+    ],
+  }
+}
+
+/**
  * Location-specific service schema — for suburb landing pages.
  */
 export function locationServiceSchema({

@@ -126,11 +126,29 @@ export default async function JapanischesTattooMuenchen({
                 style={{ height: 'clamp(720px, 50vw, 960px)' }}
               />
             <div className="g-gallery-loc-right" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '16px', height: 'clamp(720px, 50vw, 960px)' }}>
-              <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg" alt="Japanisches Hase Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: '100%' }} />
-              <GWorkImage src="/images/work/4x4-birds-tattoo-graphic.jpg" alt="Japanisches Vögel Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: '100%' }} />
-              <GWorkImage src="/images/work/4x4-bugs-tattoo-graphic.jpg" alt="Japanisches Insekten Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: '100%' }} />
-              <GWorkImage src="/images/work/4x4-sakura-tattoo.jpg" alt="Sakura Kirschblüten Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: '100%' }} />
+              <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg" alt="Japanisches Hase Tattoo München — KishaTattoo" sizes="25vw" tags={['Irezumi', 'Kisha']} style={{ height: '100%' }} />
+              <GWorkImage src="/images/home/works-01-blackwork-fullbody.jpg" alt="Japanisches Irezumi Fullbody Tattoo München — KishaTattoo" sizes="25vw" tags={['Irezumi', 'Kisha']} style={{ height: '100%', objectPosition: 'center 30%' }} />
+              <GWorkImage src="/images/work/4x4-bugs-tattoo-graphic.jpg" alt="Japanisches Insekten Tattoo München — KishaTattoo" sizes="25vw" tags={['Irezumi', 'Kisha']} style={{ height: '100%' }} />
+              <GWorkImage src="/images/work/4x4-sakura-tattoo.jpg" alt="Sakura Kirschblüten Tattoo München — KishaTattoo" sizes="25vw" tags={['Irezumi', 'Kisha']} style={{ height: '100%' }} />
             </div>
+          </div>
+
+          {/* Additional Japanese works — 2 col */}
+          <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '16px' }}>
+            <GWorkImage
+              src="/images/home/works-04-god-japanese.jpg"
+              alt="Japanisches Foo Dog Sleeve Tattoo München — KishaTattoo Irezumi"
+              sizes="(max-width: 767px) 100vw, 50vw"
+              tags={['Irezumi', 'München', 'Kisha']}
+              style={{ height: 'clamp(480px, calc(8px + 32vw), 720px)', objectPosition: 'center 20%' }}
+            />
+            <GWorkImage
+              src="/images/home/works-02-fox-japanese.jpg"
+              alt="Japanisches Kitsune Sleeve Tattoo München — KishaTattoo Irezumi"
+              sizes="(max-width: 767px) 100vw, 50vw"
+              tags={['Irezumi', 'München', 'Kisha']}
+              style={{ height: 'clamp(480px, calc(8px + 32vw), 720px)', objectPosition: 'center 25%' }}
+            />
           </div>
         </div>
 

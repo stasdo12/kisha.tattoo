@@ -81,7 +81,7 @@ export default async function MotiveHub({
         <GHeader theme="light" />
 
         {/* Top-right decorative label — same top as H1 (72px in Figma) */}
-        <p style={{
+        <p className="g-motive-hero-label" style={{
           position: 'absolute',
           top: 72,
           right: 'var(--g-pad)',
@@ -96,7 +96,7 @@ export default async function MotiveHub({
         {/* H1 + subtitle stacked — flex-col so subtitle always sits 20px below H1
             regardless of how many lines H1 takes. Width wide enough for 2-line wrap
             on DE/EN/UK at all viewport sizes (Figma: 515px @ 1920px). */}
-        <div style={{
+        <div className="g-motive-hero-heading" style={{
           position: 'absolute',
           top: 72,
           left: 'var(--g-pad)',
@@ -105,6 +105,7 @@ export default async function MotiveHub({
           gap: 20,
         }}>
           <h1
+            className="g-motive-hero-h1"
             style={{
               width: 'clamp(30rem, 26.8vw, 32.2rem)',
               fontSize: 'var(--g-xl)',

@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
-import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
+import { tattooServicePricesSchema, breadcrumbSchema } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 
@@ -34,13 +34,10 @@ export default async function TattooPreiseMuenchen({
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        serviceSchema({ name: 'Tattoo Preise München', description: 'Tattoo Kosten und Preise in München — KishaTattoo. Kleine Tattoos ab 150 €, Sleeve ab 2.500 €. Transparente Preisübersicht.', url: '/tattoo-preise-muenchen' })
+        tattooServicePricesSchema()
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Preise München', url: '/tattoo-preise-muenchen' }])
-      )}} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))
       )}} />
 
       {/* ── HERO — H1 ─────────────────────────────────────────────────────── */}

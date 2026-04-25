@@ -52,6 +52,7 @@ export default async function FaqPage({
 
         {/* Tags + Title row */}
         <div
+          className="g-faq-hero-row"
           style={{
             display: 'flex',
             justifyContent: 'space-between',
@@ -61,6 +62,7 @@ export default async function FaqPage({
         >
           {/* Left: category tags */}
           <div
+            className="g-faq-hero-tags"
             style={{
               display: 'flex',
               gap: '8px',

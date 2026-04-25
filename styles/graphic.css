@@ -577,6 +577,11 @@ body:has([data-theme='graphic']) {
   .g-contact-form {
     position: absolute !important;
   }
+
+  /* Fineline hero: portrait image in landscape hero — zoom out by shifting to show arm + background context */
+  .g-fineline-hero-img {
+    object-position: 35% 18% !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -811,7 +816,62 @@ body:has([data-theme='graphic']) {
     max-width: 100% !important;
   }
 
+  /* ── LOCATION PAGES (Eching, Freising, Neufahrn, Dachau, Ottobrunn) ── */
+
+  /* Mobile: H1 top, sub text below */
+  .g-loc-hero-h1 {
+    top: 68px !important;
+    width: calc(100vw - 2 * var(--g-pad)) !important;
+  }
+  .g-loc-hero-sub {
+    right: auto !important;
+    left: var(--g-pad) !important;
+    top: auto !important;
+    bottom: 80px !important;
+    text-align: left !important;
+    width: calc(100vw - 2 * var(--g-pad)) !important;
+  }
+
+  /* Gallery: all photos stacked vertically one after another */
+  .g-loc-gallery {
+    grid-template-columns: 1fr !important;
+  }
+  .g-loc-gallery-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: unset !important;
+    height: auto !important;
+    gap: 8px !important;
+  }
+  .g-loc-gallery-grid > * {
+    height: 280px !important;
+  }
+  .g-loc-gallery-extra {
+    grid-template-columns: 1fr !important;
+  }
+  .g-loc-gallery-extra > * {
+    height: 280px !important;
+  }
+
+  /* Text columns: stack vertically */
+  .g-loc-text-cols > p {
+    width: 100% !important;
+  }
+
   /* ── MOTIVE HUB PAGE ── */
+
+  /* Hero: label moves above H1 on mobile instead of overlapping from the right */
+  .g-motive-hero-label {
+    right: auto !important;
+    left: var(--g-pad) !important;
+    top: 68px !important;
+    white-space: normal !important;
+  }
+  .g-motive-hero-heading {
+    top: 96px !important;
+  }
+  .g-motive-hero-h1 {
+    width: calc(100vw - 2 * var(--g-pad)) !important;
+  }
 
   /* Hero nav tabs: 5 col → 2-col grid on small screens */
   .g-motive-tabs {
@@ -862,6 +922,18 @@ body:has([data-theme='graphic']) {
   }
   .g-motive-intro-cols > p {
     width: 100% !important;
+  }
+
+  /* ── FAQ PAGE ── */
+
+  /* Hero row: tags + H1 side-by-side → stack vertically on mobile */
+  .g-faq-hero-row {
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+  .g-faq-hero-tags {
+    flex-wrap: wrap !important;
+    flex-shrink: unset !important;
   }
 
   /* ── ARTICLE DETAIL PAGE ── */
@@ -1057,6 +1129,11 @@ body:has([data-theme='graphic']) {
     grid-template-columns: 1fr !important;
   }
   .g-works-row4 > * { height: 387px !important; }
+  /* ROW9 3-col → single column */
+  .g-works-row9 {
+    grid-template-columns: 1fr !important;
+  }
+  .g-works-row9 > * { height: 387px !important; }
 
   /* ── SHARED GALLERY CLASSES (location & style pages) ── */
 

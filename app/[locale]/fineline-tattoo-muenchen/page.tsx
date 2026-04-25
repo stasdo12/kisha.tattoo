@@ -48,11 +48,11 @@ export default async function FinelineTattooMuenchen({
         style={{ position: 'relative', height: '100svh', minHeight: '680px', background: '#0D0D0D', overflow: 'hidden' }}
       >
         <Image
-          src="/images/home/works-05-flowers-graphic.jpg"
-          alt="Fineline Tattoo München — KishaTattoo Linework"
+          src="/images/work/spiegel-tattoo-graphic.jpg"
+          alt="Fineline Tattoo München — Spiegel Blumen Tattoo KishaTattoo"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center top' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
           sizes="100vw"
         />
         <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'rgba(13,13,13,0.45)', zIndex: 1 }} />
@@ -117,7 +117,8 @@ export default async function FinelineTattooMuenchen({
         </div>
 
         <div style={{ paddingLeft: 'var(--g-pad)', paddingRight: 'var(--g-pad)' }}>
-          <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <GWorkImage
                 src="/images/work/4x4-dog-tattoo-fineline.jpg"
                 alt="Fineline Hund Tattoo München — KishaTattoo Fine Line"
@@ -132,6 +133,23 @@ export default async function FinelineTattooMuenchen({
                 tags={['Fineline', 'München', 'Kisha']}
                 style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
               />
+            </div>
+            <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <GWorkImage
+                src="/images/work/tattoo-lego-fineline-work.jpg"
+                alt="Fineline Lego Tattoo München — KishaTattoo Fine Line"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Fineline', 'München', 'Kisha']}
+                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)', objectPosition: 'center 45%' }}
+              />
+              <GWorkImage
+                src="/images/work/spiegel-tattoo-graphic.jpg"
+                alt="Fineline Spiegel Blumen Tattoo München — KishaTattoo"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Fineline', 'München', 'Kisha']}
+                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)', objectPosition: 'center 35%' }}
+              />
+            </div>
           </div>
         </div>
 

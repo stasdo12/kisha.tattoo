@@ -41,11 +41,19 @@ const GALLERY_BIG = {
   tags: ['München'],
 }
 
+// First 4 go in the 2×2 grid beside GALLERY_BIG (original layout preserved)
 const GALLERY_WORKS = [
-  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg',  alt: 'Japanisches Fuchs Tattoo München — Kisha', name: 'Fuchs — Japanisch', tags: ['München'] },
-  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',     alt: 'Grafik Hase Tattoo München — Kisha',       name: 'Hase — Grafik',     tags: ['München'] },
-  { src: '/images/work/4x4-sakura-tattoo.jpg',             alt: 'Sakura Tattoo München — Kisha',            name: 'Sakura — Grafik',   tags: ['München'] },
-  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',      alt: 'Grafik Vögel Tattoo München — Kisha',      name: 'Vögel — Grafik',    tags: ['München'] },
+  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg',     alt: 'Japanisches Fuchs Tattoo München — Kisha',    name: 'Fuchs — Japanisch',      tags: ['München'] },
+  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',        alt: 'Grafik Hase Tattoo München — Kisha',          name: 'Hase — Grafik',          tags: ['München'] },
+  { src: '/images/work/4x4-sakura-tattoo.jpg',                alt: 'Sakura Tattoo München — Kisha',               name: 'Sakura — Grafik',        tags: ['München'] },
+  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',         alt: 'Grafik Vögel Tattoo München — Kisha',         name: 'Vögel — Grafik',         tags: ['München'] },
+]
+
+// Extra images shown as a 3-col row below the main gallery block
+const GALLERY_EXTRA = [
+  { src: '/images/work/blumen-rucken-tattoo-graphic.jpg',     alt: 'Grafik Blumen Rücken Tattoo München — Kisha', name: 'Blumen Rücken — Grafik', tags: ['München'] },
+  { src: '/images/work/spiegel-tattoo-graphic.jpg',           alt: 'Fineline Spiegel Tattoo München — Kisha',     name: 'Spiegel — Fineline',     tags: ['München'] },
+  { src: '/images/work/tattoo-lego-fineline-work.jpg',        alt: 'Fineline Lego Tattoo München — Kisha',        name: 'Lego — Fineline',        tags: ['München'] },
 ]
 
 /* ── Page component ─────────────────────────────────────────────────────── */
@@ -81,6 +89,7 @@ export async function LocationPageTemplate({
 
         {/* H1 — top left */}
         <h1
+          className="g-loc-hero-h1"
           style={{
             position: 'absolute',
             top: '72px',
@@ -97,6 +106,7 @@ export async function LocationPageTemplate({
 
         {/* Travel info — top right */}
         <p
+          className="g-loc-hero-sub"
           style={{
             position: 'absolute',
             top: '72px',
@@ -182,12 +192,25 @@ export async function LocationPageTemplate({
             style={{ height: 'clamp(400px, 50vw, 960px)' }}
           />
 
-          {/* 2×2 grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '8px', height: 'clamp(400px, 50vw, 960px)' }}>
+          {/* 2×2 grid — same height as big image */}
+          <div
+            className="g-loc-gallery-grid"
+            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '8px', height: 'clamp(400px, 50vw, 960px)' }}
+          >
             {GALLERY_WORKS.map(({ src, alt, name, tags }) => (
               <GWorkImage key={src} src={src} alt={alt} name={name} tags={tags} sizes="(max-width: 767px) 100vw, 25vw" style={{ height: '100%' }} />
             ))}
           </div>
+        </div>
+
+        {/* Extra gallery — 3 new works in equal columns */}
+        <div
+          className="g-loc-gallery-extra"
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', marginTop: '8px' }}
+        >
+          {GALLERY_EXTRA.map(({ src, alt, name, tags }) => (
+            <GWorkImage key={src} src={src} alt={alt} name={name} tags={tags} sizes="(max-width: 767px) 100vw, 33vw" style={{ height: 'clamp(260px, 22vw, 420px)' }} />
+          ))}
         </div>
 
         {/* View all works — dark full-width button */}

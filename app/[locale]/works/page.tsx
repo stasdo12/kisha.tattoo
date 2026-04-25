@@ -16,6 +16,7 @@ import { getTranslations } from 'next-intl/server'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
+import { WorksGalleryMore } from '@/components/graphic/WorksGalleryMore'
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
@@ -55,7 +56,6 @@ const ROW4 = [
   { src: '/images/work/4x4-owl-tattoo-fineline.jpg',  alt: 'Fineline Eule Tattoo München — Kisha',  tags: ['München'], name: 'Eule — Fineline'  },
   { src: '/images/work/4x4-sakura-tattoo.jpg',        alt: 'Sakura Tattoo München — Kisha',         tags: ['München'], name: 'Sakura — Grafik'  },
 ]
-
 const H_LARGE = 'clamp(720px, 50vw, 820px)'
 const H_SMALL = 'clamp(356px, calc(8px + 24.17vw), 472px)'
 
@@ -259,6 +259,8 @@ export default async function GraphicWorksPage({
               <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="25vw" style={{ height: H_SMALL }} />
             ))}
           </div>
+
+          <WorksGalleryMore label={t('gallery.showMore')} />
 
         </div>
       </section>

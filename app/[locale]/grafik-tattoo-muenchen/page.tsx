@@ -48,11 +48,11 @@ export default async function GrafikTattooMuenchen({
         style={{ position: 'relative', height: '100svh', minHeight: '680px', background: '#0D0D0D', overflow: 'hidden' }}
       >
         <Image
-          src="/images/home/works-01-blackwork-fullbody.jpg"
-          alt="Grafik Blackwork Tattoo München — KishaTattoo"
+          src="/images/home/works-06-mace-graphic-leg.jpg"
+          alt="Grafik Tattoo München — Streitkolben Bein Tattoo KishaTattoo"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center top' }}
+          style={{ objectFit: 'cover', objectPosition: 'center center' }}
           sizes="100vw"
         />
         <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'rgba(13,13,13,0.45)', zIndex: 1 }} />
@@ -134,6 +134,13 @@ export default async function GrafikTattooMuenchen({
                 style={{ height: 'clamp(720px, 50vw, 820px)' }}
               />
             </div>
+            <GWorkImage
+              src="/images/work/blumen-rucken-tattoo-graphic.jpg"
+              alt="Grafik Blumen Rücken Tattoo München — KishaTattoo"
+              sizes="(max-width: 767px) 100vw, 100vw"
+              tags={['Grafik', 'München', 'Kisha']}
+              style={{ height: 'clamp(360px, 30vw, 560px)', objectPosition: 'center 30%' }}
+            />
             <div className="g-gallery-4col" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
               <GWorkImage src="/images/work/4x4-bugs-tattoo-graphic.jpg" alt="Grafik Insekten Tattoo München — KishaTattoo Blackwork" sizes="25vw" tags={['München', 'Kisha']} style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }} />
               <GWorkImage src="/images/work/4x4-fogel-tattoo-graphic.jpg" alt="Grafik Vogel Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }} />

@@ -191,6 +191,9 @@
       "prices": "View prices",
       "about": "About Kisha",
       "button": "Book appointment"
+    },
+    "gallery": {
+      "showMore": "Show more works"
     }
   },
   "about": {

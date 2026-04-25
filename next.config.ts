@@ -85,6 +85,11 @@ const nextConfig: NextConfig = {
           ].join('; ') },
         ],
       },
+      // Block indexing of /_next/image URLs — Google finds them via srcset but they're not content pages
+      {
+        source: '/_next/image',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
       // Next.js sets Cache-Control: immutable automatically for /_next/static in production.
       // Do NOT add it manually — in dev mode filenames are NOT content-hashed, so it breaks HMR.
     ]
