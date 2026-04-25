@@ -61,9 +61,9 @@ export default async function FinelineTattooMuenchen({
 
         <h1 style={{
           position: 'absolute', top: '72px', left: 'var(--g-pad)',
-          width: 'clamp(18rem, 39.6vw, 571px)',
+          width: 'clamp(22rem, 50vw, 720px)',
           fontSize: 'var(--g-xl)', lineHeight: 'var(--g-lh-xl)',
-          color: '#F2F2F2', whiteSpace: 'pre-line', zIndex: 2,
+          color: '#F2F2F2', zIndex: 2,
         }}>
           {t('hero.h1')}
         </h1>
@@ -118,32 +118,20 @@ export default async function FinelineTattooMuenchen({
 
         <div style={{ paddingLeft: 'var(--g-pad)', paddingRight: 'var(--g-pad)' }}>
           <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-            <div style={{ position: 'relative' }}>
               <GWorkImage
                 src="/images/work/4x4-dog-tattoo-fineline.jpg"
                 alt="Fineline Hund Tattoo München — KishaTattoo Fine Line"
                 sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Fineline', 'München', 'Kisha']}
                 style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
               />
-              <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', gap: '8px' }}>
-                {['Fineline', 'München', 'Kisha'].map(tag => (
-                  <span key={tag} style={{ background: '#F2F2F2', color: '#0D0D0D', padding: '6px 10px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
-                ))}
-              </div>
-            </div>
-            <div style={{ position: 'relative' }}>
               <GWorkImage
                 src="/images/work/4x4-owl-tattoo-fineline.jpg"
                 alt="Fineline Eule Tattoo München — KishaTattoo Linework"
                 sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Fineline', 'München', 'Kisha']}
                 style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
               />
-              <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', gap: '8px' }}>
-                {['Fineline', 'München', 'Kisha'].map(tag => (
-                  <span key={tag} style={{ background: '#F2F2F2', color: '#0D0D0D', padding: '6px 10px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 

@@ -61,9 +61,9 @@ export default async function JapanischesTattooMuenchen({
 
         <h1 style={{
           position: 'absolute', top: '72px', left: 'var(--g-pad)',
-          width: 'clamp(18rem, 39.6vw, 571px)',
+          width: 'clamp(22rem, 50vw, 720px)',
           fontSize: 'var(--g-xl)', lineHeight: 'var(--g-lh-xl)',
-          color: '#F2F2F2', whiteSpace: 'pre-line', zIndex: 2,
+          color: '#F2F2F2', zIndex: 2,
         }}>
           {t('hero.h1')}
         </h1>
@@ -118,35 +118,18 @@ export default async function JapanischesTattooMuenchen({
 
         <div style={{ paddingLeft: 'var(--g-pad)', paddingRight: 'var(--g-pad)' }}>
           <div className="g-gallery-loc-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-            <div style={{ position: 'relative' }}>
               <GWorkImage
                 src="/images/work/4x4-japan-fox-tattoo-graphic.jpg"
                 alt="Japanisches Fuchs Tattoo München — Irezumi KishaTattoo"
                 sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Irezumi', 'München', 'Kisha']}
                 style={{ height: 'clamp(720px, 50vw, 960px)' }}
               />
-              <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', gap: '8px' }}>
-                {['Irezumi', 'München', 'Kisha'].map(tag => (
-                  <span key={tag} style={{ background: '#F2F2F2', color: '#0D0D0D', padding: '6px 10px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
-                ))}
-              </div>
-            </div>
             <div className="g-gallery-loc-right" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '16px', height: 'clamp(720px, 50vw, 960px)' }}>
-              {[
-                { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg', alt: 'Japanisches Hase Tattoo München — KishaTattoo' },
-                { src: '/images/work/4x4-birds-tattoo-graphic.jpg', alt: 'Japanisches Vögel Tattoo München — KishaTattoo' },
-                { src: '/images/work/4x4-bugs-tattoo-graphic.jpg', alt: 'Japanisches Insekten Tattoo München — KishaTattoo' },
-                { src: '/images/work/4x4-sakura-tattoo.jpg', alt: 'Sakura Kirschblüten Tattoo München — KishaTattoo' },
-              ].map(img => (
-                <div key={img.src} style={{ position: 'relative' }}>
-                  <GWorkImage src={img.src} alt={img.alt} sizes="25vw" />
-                  <div style={{ position: 'absolute', top: '12px', left: '12px', display: 'flex', gap: '6px' }}>
-                    {['München', 'Kisha'].map(tag => (
-                      <span key={tag} style={{ background: '#F2F2F2', color: '#0D0D0D', padding: '5px 8px', fontSize: 'var(--g-tag)', fontWeight: 500, lineHeight: 1 }}>{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+              <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg" alt="Japanisches Hase Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: '100%' }} />
+              <GWorkImage src="/images/work/4x4-birds-tattoo-graphic.jpg" alt="Japanisches Vögel Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: '100%' }} />
+              <GWorkImage src="/images/work/4x4-bugs-tattoo-graphic.jpg" alt="Japanisches Insekten Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: '100%' }} />
+              <GWorkImage src="/images/work/4x4-sakura-tattoo.jpg" alt="Sakura Kirschblüten Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: '100%' }} />
             </div>
           </div>
         </div>
