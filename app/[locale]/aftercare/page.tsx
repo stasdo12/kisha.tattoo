@@ -121,7 +121,7 @@ export default async function AftercarePage({
                 key={i}
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'clamp(5rem, 8vw, 9rem) 1fr',
+                  gridTemplateColumns: 'clamp(9rem, 14vw, 14rem) 1fr',
                   gap: 'clamp(1.5rem, 3vw, 4rem)',
                   padding: 'clamp(1.5rem, 2.5vw, 3rem) 0',
                   borderBottom: '1px solid rgba(13,13,13,0.15)',
@@ -129,7 +129,7 @@ export default async function AftercarePage({
               >
                 <div>
                   <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.45)', display: 'block', marginBottom: '0.4rem' }}>{day.period}</span>
-                  <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{day.title}</h3>
+                  <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 1.2, color: '#0D0D0D' }}>{day.title}</h3>
                 </div>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                   {day.steps.map((step, j) => (
