@@ -36,7 +36,7 @@ export default async function GraphicBlogPage({
     }
   })
 
-  const heroMeta = STORIES[0]
+  const heroMeta = STORIES.find((s) => s.slug === 'wie-tattoos-altern') ?? STORIES[0]
   const heroContent = t.raw(`stories.${heroMeta.slug}`) as { title: string; excerpt: string }
 
   return (
