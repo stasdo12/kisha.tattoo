@@ -91,7 +91,7 @@ export default async function GraphicBlogPage({
           style={{
             position: 'absolute',
             zIndex: 2,
-            top: '50%',
+            top: 'calc(50% + 10px)',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: 'clamp(300px, 28.9vw, 416px)',
