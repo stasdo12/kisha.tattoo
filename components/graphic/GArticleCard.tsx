@@ -22,7 +22,7 @@ export function GArticleCard({ id, title, category, date, href, imageSrc }: GArt
         <div
           style={{
             position: 'relative',
-            aspectRatio: '1/1',
+            aspectRatio: '448 / 420',
             overflow: 'hidden',
             marginBottom: '20px',
             background: '#BFBFBF',

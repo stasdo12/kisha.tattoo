@@ -12,7 +12,7 @@ const ARTICLES = [
 
 describe('BlogFilter', () => {
   it('renders all filter tabs', () => {
-    render(<BlogFilter articles={ARTICLES} />)
+    render(<BlogFilter articles={ARTICLES} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     expect(screen.getByRole('button', { name: 'All' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Culture' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Guide' })).toBeInTheDocument()
@@ -20,19 +20,19 @@ describe('BlogFilter', () => {
   })
 
   it('"All" tab is active by default (aria-pressed=true)', () => {
-    render(<BlogFilter articles={ARTICLES} />)
+    render(<BlogFilter articles={ARTICLES} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     const allBtn = screen.getByRole('button', { name: 'All' })
     expect(allBtn).toHaveAttribute('aria-pressed', 'true')
   })
 
   it('all other tabs are not active by default', () => {
-    render(<BlogFilter articles={ARTICLES} />)
+    render(<BlogFilter articles={ARTICLES} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     const cultureBtn = screen.getByRole('button', { name: 'Culture' })
     expect(cultureBtn).toHaveAttribute('aria-pressed', 'false')
   })
 
   it('shows all articles on initial render', () => {
-    render(<BlogFilter articles={ARTICLES} />)
+    render(<BlogFilter articles={ARTICLES} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     expect(screen.getByText('Fineline Guide')).toBeInTheDocument()
     expect(screen.getByText('Culture of Ink')).toBeInTheDocument()
     expect(screen.getByText('Style Deep Dive')).toBeInTheDocument()
@@ -40,7 +40,7 @@ describe('BlogFilter', () => {
   })
 
   it('filters to Guide articles when Guide tab is clicked', () => {
-    render(<BlogFilter articles={ARTICLES} />)
+    render(<BlogFilter articles={ARTICLES} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     fireEvent.click(screen.getByRole('button', { name: 'Guide' }))
     expect(screen.getByText('Fineline Guide')).toBeInTheDocument()
     expect(screen.getByText('Another Guide')).toBeInTheDocument()
@@ -49,14 +49,14 @@ describe('BlogFilter', () => {
   })
 
   it('filters to Culture articles when Culture tab is clicked', () => {
-    render(<BlogFilter articles={ARTICLES} />)
+    render(<BlogFilter articles={ARTICLES} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     fireEvent.click(screen.getByRole('button', { name: 'Culture' }))
     expect(screen.getByText('Culture of Ink')).toBeInTheDocument()
     expect(screen.queryByText('Fineline Guide')).not.toBeInTheDocument()
   })
 
   it('active tab gets aria-pressed=true after click', () => {
-    render(<BlogFilter articles={ARTICLES} />)
+    render(<BlogFilter articles={ARTICLES} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     const guideBtn = screen.getByRole('button', { name: 'Guide' })
     fireEvent.click(guideBtn)
     expect(guideBtn).toHaveAttribute('aria-pressed', 'true')
@@ -64,7 +64,7 @@ describe('BlogFilter', () => {
   })
 
   it('clicking All after filter shows all articles again', () => {
-    render(<BlogFilter articles={ARTICLES} />)
+    render(<BlogFilter articles={ARTICLES} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     fireEvent.click(screen.getByRole('button', { name: 'Guide' }))
     fireEvent.click(screen.getByRole('button', { name: 'All' }))
     expect(screen.getByText('Culture of Ink')).toBeInTheDocument()
@@ -72,7 +72,7 @@ describe('BlogFilter', () => {
   })
 
   it('shows empty grid when no articles match filter', () => {
-    render(<BlogFilter articles={ARTICLES} />)
+    render(<BlogFilter articles={ARTICLES} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     fireEvent.click(screen.getByRole('button', { name: 'Style Guide' }))
     expect(screen.getByText('Style Deep Dive')).toBeInTheDocument()
     expect(screen.queryByText('Fineline Guide')).not.toBeInTheDocument()
@@ -80,7 +80,7 @@ describe('BlogFilter', () => {
   })
 
   it('renders with empty articles array without crashing', () => {
-    render(<BlogFilter articles={[]} />)
+    render(<BlogFilter articles={[]} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     expect(screen.getByRole('button', { name: 'All' })).toBeInTheDocument()
   })
 })

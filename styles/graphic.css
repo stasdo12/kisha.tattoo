@@ -961,75 +961,53 @@ body:has([data-theme='graphic']) {
 
   /* ── BLOG PAGE ── */
 
-  /* Hero: light bg */
   .g-blog-hero { min-height: 820px !important; }
 
-  /* H1 */
+  /* H1: white on dark hero bg, wraps on mobile */
   .g-blog-h1 {
     width: calc(100% - 30px) !important;
-    font-size: var(--g-xl) !important;
     white-space: normal !important;
-    color: #0D0D0D !important;
+    color: #F2F2F2 !important;
     top: 72px !important;
     left: 15px !important;
     transform: none !important;
   }
 
-  /* hero-info: stack vertically, card full width */
-  .g-blog-hero-info {
-    position: static !important;
-    height: auto !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    margin-top: 220px !important; /* was 160px — H1 is 3 lines on small screens, ends ~180px */
-    padding: 0 15px !important;
-    gap: 1rem !important;
-  }
+  /* Side tags: hidden on mobile */
+  .g-blog-side-tag { display: none !important; }
 
-  /* Side tags: show on mobile, centered */
-  .g-blog-side-tag {
-    display: block !important;
-    width: 100% !important;
-    text-align: center !important;
-    font-size: var(--g-tag) !important;
-    color: #0D0D0D !important;
-  }
-
-  /* Main card: Figma spec 390px */
+  /* Main card: full width, below H1 */
   .g-blog-main-card {
-    width: 100% !important;
-    align-self: auto !important;
+    width: calc(100% - 30px) !important;
+    left: 15px !important;
+    top: 180px !important;
+    transform: none !important;
     padding: 20px !important;
     gap: 20px !important;
-    margin: 12px 0 !important;
-    overflow: visible !important;
   }
-  /* Image container: fixed height */
+  /* Image: shorter on mobile */
   .g-blog-main-card > div:first-child {
-    aspect-ratio: auto !important;
     height: 220px !important;
-    flex-shrink: 0 !important;
   }
-  /* Body: remove padding (card handles it) */
+  /* Text body */
   .g-blog-main-card > div:nth-child(2) {
-    padding: 0 !important;
     gap: 20px !important;
   }
-  /* H2: 24px, 90% line-height, white */
+  /* H2: dark text on white card */
   .g-blog-main-card h2 {
     font-size: 24px !important;
     line-height: 21.6px !important;
-    color: #F2F2F2 !important;
+    color: #0D0D0D !important;
   }
-  /* Meta: 12px, white */
+  /* Meta: dark */
   .g-blog-main-card span {
     font-size: 12px !important;
-    color: #F2F2F2 !important;
-  }
-  /* Button: light bg, dark text, 20px, no border */
-  .g-blog-main-card a {
-    background: #F2F2F2 !important;
     color: #0D0D0D !important;
+  }
+  /* Read button: dark bg, white text */
+  .g-blog-main-card a {
+    background: #0D0D0D !important;
+    color: #F2F2F2 !important;
     font-size: 20px !important;
     line-height: 20px !important;
     padding: 16px 12px !important;
@@ -1045,8 +1023,14 @@ body:has([data-theme='graphic']) {
 
   .g-blog-filter-tabs { gap: 4px !important; }
 
-  /* Cards: 1 column */
-  .g-blog-articles-grid { grid-template-columns: 1fr !important; }
+  /* Cards: 1 column on mobile */
+  .g-blog-articles-grid {
+    grid-template-columns: 1fr !important;
+    row-gap: 24px !important;
+  }
+
+  /* Load more: full width on mobile */
+  .g-blog-load-more { font-size: 16px !important; }
 
   /* ── CONTACT PAGE ── */
 
