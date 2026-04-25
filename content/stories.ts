@@ -95,6 +95,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/agingBlog9(Big).jpg',
     coverAlt: 'Tattoo aging — Kisha Tattoo München',
   },
+  {
+    slug: 'tattoo-coverup-muenchen',
+    publishedAt: '2026-04-25',
+    readingTime: '5 min',
+    category: 'Guide',
+    coverImage: '/images/blog/coverupBlog10.jpg',
+    coverImageBig: '/images/blog/coverupBlog10(Big).jpg',
+    coverAlt: 'Tattoo Coverup München — Kisha Tattoo Studio',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
