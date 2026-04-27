@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
-import { tattooServicePricesSchema, breadcrumbSchema } from '@/lib/structured-data'
+import { tattooServicePricesSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 
@@ -38,6 +38,9 @@ export default async function TattooPreiseMuenchen({
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Preise München', url: '/tattoo-preise-muenchen' }])
+      )}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        faqSchema(faqItems.map(item => ({ question: item.q, answer: item.a })))
       )}} />
 
       {/* ── HERO — H1 ─────────────────────────────────────────────────────── */}
