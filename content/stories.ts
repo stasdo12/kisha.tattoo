@@ -104,6 +104,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/coverupBlog10(Big).jpg',
     coverAlt: 'Tattoo Coverup München — Kisha Tattoo Studio',
   },
+  {
+    slug: 'tattoo-kopieren-referenz-original',
+    publishedAt: '2026-04-29',
+    readingTime: '4 min',
+    category: 'Guide',
+    coverImage: '/images/blog/copyBlog11.jpg',
+    coverImageBig: '/images/blog/copyBlog11(Big).jpg',
+    coverAlt: 'Tattoo Referenz kopieren — Kisha Tattoo München',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
