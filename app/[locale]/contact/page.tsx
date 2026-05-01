@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
+import { breadcrumbSchema } from '@/lib/structured-data'
 import s from './contact.module.css'
 
 export default function GraphicContactPage() {
@@ -71,6 +72,10 @@ export default function GraphicContactPage() {
 
       {/* ── FOOTER ────────────────────────────────────────────────────────── */}
       <GFooter />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Kontakt', url: '/contact' }])
+      ) }} />
 
     </main>
   )

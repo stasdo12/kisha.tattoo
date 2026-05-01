@@ -12,6 +12,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/structured-data'
 import { getTranslations } from 'next-intl/server'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
@@ -267,6 +268,10 @@ export default async function GraphicWorksPage({
 
       {/* ── FOOTER ───────────────────────────────────────────────────────── */}
       <GFooter />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Portfolio', url: '/works' }])
+      ) }} />
 
     </main>
   )

@@ -325,6 +325,20 @@ export function tattooServicePricesSchema() {
 }
 
 /**
+ * Awards page schema — Person with award list for AI entity recognition.
+ */
+export function awardsPageSchema(awards: Array<{ year: string; event: string; category: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${SITE.url}/#person`,
+    name: 'Kisha',
+    award: awards.map((a) => `${a.category} — ${a.event} ${a.year}`),
+    worksFor: { '@type': 'LocalBusiness', '@id': `${SITE.url}/#business`, name: SITE.name },
+  }
+}
+
+/**
  * Location-specific service schema — for suburb landing pages.
  */
 export function locationServiceSchema({

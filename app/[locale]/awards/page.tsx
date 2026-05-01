@@ -8,7 +8,7 @@ import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
-import { videoObjectSchema } from '@/lib/structured-data'
+import { videoObjectSchema, awardsPageSchema, breadcrumbSchema } from '@/lib/structured-data'
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
@@ -561,6 +561,12 @@ export default async function AwardsPage({
           ]))
         }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Awards & Ausbildung', url: '/awards' }])
+      ) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        awardsPageSchema(AWARDS_DATA)
+      ) }} />
     </main>
   )
 }
