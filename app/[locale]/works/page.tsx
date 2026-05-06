@@ -9,7 +9,6 @@
  *  ROW 4 — 4 equal columns                            ~24.5vw tall
  */
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/structured-data'
@@ -18,6 +17,7 @@ import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
 import { WorksGalleryMore } from '@/components/graphic/WorksGalleryMore'
+import { WorksHeroVideo } from '@/components/graphic/WorksHeroVideo'
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
@@ -84,16 +84,8 @@ export default async function GraphicWorksPage({
           background: '#0D0D0D',
         }}
       >
-        {/* Background image */}
-        <Image
-          src="/images/work/main-work-tattoo.jpg"
-          alt="Japanisches Irezumi Tattoo — KishaTattoo München"
-          aria-hidden="true"
-          fill
-          priority
-          style={{ objectFit: 'cover', objectPosition: 'center center' }}
-          sizes="100vw"
-        />
+        {/* Background video — desktop/mobile auto-switch, poster = static fallback */}
+        <WorksHeroVideo />
         {/* Dark overlay */}
         <div
           aria-hidden="true"
