@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
-import { personSchema, localBusinessSchema } from '@/lib/structured-data'
+import { personSchema } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GAboutPassionBlock } from '@/components/graphic/GAboutPassionBlock'
@@ -33,10 +33,6 @@ export default async function GraphicAboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema()) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
       />
 
       {/* ── 1. HERO — light bg, black text, vertical nav right, 命 centered ── */}

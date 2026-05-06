@@ -54,7 +54,6 @@ export const SITE = {
     ratingValue: 5.0,
     reviewCount: 10,   // ← update this number
     bestRating: 5,
-    worstRating: 1,
   },
 } as const
 

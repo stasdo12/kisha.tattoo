@@ -64,7 +64,6 @@ export function localBusinessSchema() {
       ratingValue: SITE.reviews.ratingValue,
       reviewCount: SITE.reviews.reviewCount,
       bestRating: SITE.reviews.bestRating,
-      worstRating: SITE.reviews.worstRating,
     },
   }
 }
