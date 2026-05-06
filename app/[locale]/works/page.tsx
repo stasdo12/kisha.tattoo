@@ -9,6 +9,7 @@
  *  ROW 4 — 4 equal columns                            ~24.5vw tall
  */
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/structured-data'
@@ -17,7 +18,6 @@ import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
 import { WorksGalleryMore } from '@/components/graphic/WorksGalleryMore'
-import { WorksHeroVideo } from '@/components/graphic/WorksHeroVideo'
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
@@ -84,19 +84,25 @@ export default async function GraphicWorksPage({
           background: '#0D0D0D',
         }}
       >
-        {/* Background video — desktop/mobile auto-switch, poster = static fallback */}
-        <WorksHeroVideo />
-        {/* Dark overlay — heavier on mobile to mask compression artifacts */}
+        {/* Background image */}
+        <Image
+          src="/images/work/main-work-tattoo.jpg"
+          alt="Japanisches Irezumi Tattoo — KishaTattoo München"
+          aria-hidden="true"
+          fill
+          priority
+          style={{ objectFit: 'cover', objectPosition: 'center center' }}
+          sizes="100vw"
+        />
+        {/* Dark overlay */}
         <div
           aria-hidden="true"
-          className="g-works-hero-overlay"
           style={{
             position: 'absolute', inset: 0,
             background: 'rgba(13,13,13,0.35)',
             zIndex: 1,
           }}
         />
-        <style>{`@media (max-width: 768px) { .g-works-hero-overlay { background: rgba(13,13,13,0.55) !important; } }`}</style>
 
         <GHeader theme="dark" />
 

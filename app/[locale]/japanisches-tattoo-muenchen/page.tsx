@@ -5,6 +5,7 @@
  */
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { WorksHeroVideo } from '@/components/graphic/WorksHeroVideo'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
@@ -47,15 +48,9 @@ export default async function JapanischesTattooMuenchen({
         aria-label="Japanisches Tattoo München — KishaTattoo"
         style={{ position: 'relative', height: '100svh', minHeight: '680px', background: '#0D0D0D', overflow: 'hidden' }}
       >
-        <Image
-          src="/images/style_page/hero-section-japan-page.jpg"
-          alt="Japanisches Tattoo München — Irezumi KishaTattoo"
-          fill
-          priority
-          style={{ objectFit: 'cover', objectPosition: 'center top' }}
-          sizes="100vw"
-        />
-        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'rgba(13,13,13,0.45)', zIndex: 1 }} />
+        <WorksHeroVideo />
+        <div aria-hidden="true" className="g-japan-hero-overlay" style={{ position: 'absolute', inset: 0, background: 'rgba(13,13,13,0.45)', zIndex: 1 }} />
+        <style>{`@media (max-width: 768px) { .g-japan-hero-overlay { background: rgba(13,13,13,0.6) !important; } }`}</style>
 
         <GHeader theme="dark" />
 
