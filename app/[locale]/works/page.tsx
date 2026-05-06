@@ -86,15 +86,17 @@ export default async function GraphicWorksPage({
       >
         {/* Background video — desktop/mobile auto-switch, poster = static fallback */}
         <WorksHeroVideo />
-        {/* Dark overlay */}
+        {/* Dark overlay — heavier on mobile to mask compression artifacts */}
         <div
           aria-hidden="true"
+          className="g-works-hero-overlay"
           style={{
             position: 'absolute', inset: 0,
             background: 'rgba(13,13,13,0.35)',
             zIndex: 1,
           }}
         />
+        <style>{`@media (max-width: 768px) { .g-works-hero-overlay { background: rgba(13,13,13,0.55) !important; } }`}</style>
 
         <GHeader theme="dark" />
 
