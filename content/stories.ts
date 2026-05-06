@@ -113,6 +113,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/copyBlog11(Big).jpg',
     coverAlt: 'Tattoo Referenz kopieren — Kisha Tattoo München',
   },
+  {
+    slug: 'tattoo-nachsorge-pflege-tipps',
+    publishedAt: '2026-05-06',
+    readingTime: '5 min',
+    category: 'Guide',
+    coverImage: '/images/blog/aftercareBlog12.jpg',
+    coverImageBig: '/images/blog/aftercareBlog12(Big).jpg',
+    coverAlt: 'Tattoo Nachsorge Pflege — Hannya Maske Irezumi von Kisha München',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {

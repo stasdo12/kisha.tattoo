@@ -203,6 +203,9 @@ export default async function AftercarePage({
             {t('cta.heading')}
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <Link href="/blog/tattoo-nachsorge-pflege-tipps" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', border: '1px solid #0D0D0D', color: '#0D0D0D', fontSize: 'var(--g-bm)', textDecoration: 'none' }}>
+              {t('cta.blog')}
+            </Link>
             <Link href="/faq" style={{ display: 'inline-block', padding: '0.875rem 2.5rem', border: '1px solid #0D0D0D', color: '#0D0D0D', fontSize: 'var(--g-bm)', textDecoration: 'none' }}>
               {t('cta.faq')}
             </Link>
