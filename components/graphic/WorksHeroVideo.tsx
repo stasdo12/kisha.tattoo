@@ -6,11 +6,20 @@ export function WorksHeroVideo() {
   const ref = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    if (!ref.current) return
-    ref.current.src = window.innerWidth <= 768
+    const el = ref.current
+    if (!el) return
+
+    const onPlaying = () => {
+      el.style.opacity = '1'
+    }
+
+    el.addEventListener('playing', onPlaying)
+    el.src = window.innerWidth <= 768
       ? '/video/hero_works_mobile.mp4'
       : '/video/hero_works_desktop.mp4'
-    ref.current.play().catch(() => {})
+    el.play().catch(() => {})
+
+    return () => el.removeEventListener('playing', onPlaying)
   }, [])
 
   return (
@@ -29,6 +38,8 @@ export function WorksHeroVideo() {
         objectFit: 'cover',
         objectPosition: 'center',
         zIndex: 0,
+        opacity: 0,
+        transition: 'opacity 0.8s ease',
       }}
     />
   )
