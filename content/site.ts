@@ -52,7 +52,7 @@ export const SITE = {
   // Google reviews — update manually when count changes
   reviews: {
     ratingValue: 5.0,
-    reviewCount: 10,   // ← update this number
+    reviewCount: 15,   // ← update this number
     bestRating: 5,
   },
 } as const
