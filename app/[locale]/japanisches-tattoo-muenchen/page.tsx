@@ -225,14 +225,14 @@ export default async function JapanischesTattooMuenchen({
         style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
-          <div style={{ borderTop: '2px solid #0D0D0D', paddingTop: '1.25rem', display: 'flex', gap: 'clamp(2rem, 4vw, 5rem)', alignItems: 'flex-start' }}>
+          <div className="g-faq-row" style={{ borderTop: '2px solid #0D0D0D', paddingTop: '1.25rem', display: 'flex', gap: 'clamp(2rem, 4vw, 5rem)', alignItems: 'flex-start' }}>
             <h2 id="jp-faq-heading" style={{
               fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D',
               width: 'clamp(14rem, 21.5vw, 414px)', flexShrink: 0,
             }}>
               {t('faq.heading')}
             </h2>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <div className="g-faq-items" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
               {faqItems.map((item, i) => (
                 <div key={i} style={{
                   display: 'flex', flexDirection: 'column', gap: '1rem',
