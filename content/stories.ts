@@ -11,6 +11,7 @@ export type StoryMeta = {
   coverImage: string
   coverImageBig: string
   coverAlt: string
+  canonicalPath?: string
 }
 
 export const STORIES: StoryMeta[] = [
@@ -22,6 +23,7 @@ export const STORIES: StoryMeta[] = [
     coverImage: '/images/work/blumen-rucken-tattoo-graphic.jpg',
     coverImageBig: '/images/work/blumen-rucken-tattoo-graphic.jpg',
     coverAlt: 'Fineline Tattoo München — zarte Linien von Kisha',
+    canonicalPath: '/fineline-tattoo-muenchen',
   },
   {
     slug: 'japan-tattoo-bedeutung-irezumi-motive',

@@ -30,7 +30,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: content ? `${content.title} — Kisha Tattoo München` : 'Article — Kisha Tattoo',
     description: content?.excerpt ?? '',
-    path: `/blog/${slug}`,
+    path: meta?.canonicalPath ?? `/blog/${slug}`,
     locale,
   })
 }
@@ -60,6 +60,23 @@ function ArticleBody({ body }: { body: string }) {
   return (
     <>
       {blocks.map((block, i) => {
+        // H3 heading
+        if (block.startsWith('### ')) {
+          return (
+            <h3
+              key={i}
+              style={{
+                fontSize: 'var(--g-bm)',
+                lineHeight: 'var(--g-lh-s)',
+                color: '#0D0D0D',
+                fontWeight: 600,
+                marginTop: '0.25rem',
+              }}
+            >
+              {block.slice(4)}
+            </h3>
+          )
+        }
         // H2 heading
         if (block.startsWith('## ')) {
           return (
