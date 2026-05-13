@@ -102,7 +102,7 @@ export default async function FinelineTattooMuenchen({
               {t('intro.heading')}
             </h2>
           </div>
-          <div style={{
+          <div className="g-intro-cols" style={{
             display: 'flex', justifyContent: 'flex-end',
             gap: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)',
             marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)',

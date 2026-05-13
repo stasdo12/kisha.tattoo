@@ -1213,6 +1213,14 @@ body:has([data-theme='graphic']) {
     box-sizing: border-box !important;
   }
 
+  /* Intro 2-col paragraphs → single column */
+  .g-intro-cols {
+    flex-direction: column !important;
+  }
+  .g-intro-cols > p {
+    width: 100% !important;
+  }
+
   /* FAQ 2-col rows → single column */
   .g-faq-row {
     flex-direction: column !important;
