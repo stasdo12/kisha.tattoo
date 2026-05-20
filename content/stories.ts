@@ -116,6 +116,15 @@ export const STORIES: StoryMeta[] = [
     coverAlt: 'Tattoo Referenz kopieren — Kisha Tattoo München',
   },
   {
+    slug: 'tattoo-problemzonen-muenchen',
+    publishedAt: '2026-05-20',
+    readingTime: '5 min',
+    category: 'Guide',
+    coverImage: '/images/blog/tattoo-problemzonen.jpg',
+    coverImageBig: '/images/blog/tattoo-problemzonen(Big).jpg',
+    coverAlt: 'Tattoo Problemzonen München — Kisha Tattoo Studio',
+  },
+  {
     slug: 'tattoo-nachsorge-pflege-tipps',
     publishedAt: '2026-05-06',
     readingTime: '5 min',
