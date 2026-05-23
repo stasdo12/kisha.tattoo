@@ -190,6 +190,32 @@ export default async function FinelineTattooMuenchen({
         </div>
       </section>
 
+      {/* ── PLACEMENTS ────────────────────────────────────────────────────── */}
+      <section
+        aria-labelledby="lw-placements-heading"
+        style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
+      >
+        <div className="g-container">
+          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid rgba(242,242,242,0.2)', display: 'flex', justifyContent: 'center', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
+            <h2 id="lw-placements-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', textAlign: 'center' }}>
+              {t('placements.heading')}
+            </h2>
+          </div>
+          <div className="g-about-steps" style={{ display: 'flex' }}>
+            {(t.raw('placements.items') as Array<{ title: string; body: string }>).map((col, i) => (
+              <div key={col.title} className="g-about-step-col" style={{
+                flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '1.5rem',
+                padding: i === 0 ? '0 clamp(1rem, 2vw, 2rem) 0 0' : i === 1 ? '0 clamp(1rem, 2vw, 2rem)' : '0 0 0 clamp(1rem, 2vw, 2rem)',
+                borderLeft: i > 0 ? '1px solid rgba(242,242,242,0.15)' : 'none',
+              }}>
+                <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#F2F2F2' }}>{col.title}</h3>
+                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(242,242,242,0.65)' }}>{col.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── PRICE ─────────────────────────────────────────────────────────── */}
       <section style={{ background: '#F2F2F2', paddingTop: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)' }}>
         <div className="g-container">

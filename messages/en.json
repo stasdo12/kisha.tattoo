@@ -782,7 +782,7 @@
     },
     "hero": {
       "h1": "Fineline Tattoo Munich",
-      "sub": "Fine line, precise technique. Fineline and linework tattoo — available in Munich and the surrounding area."
+      "sub": "Delicate, filigree lines — precise technique. Fineline, single needle and linework at our tattoo studio in Munich."
     },
     "cta": {
       "heading": "Ready for your fineline tattoo in Munich?",
@@ -792,23 +792,40 @@
       "tag": "[ Fineline · Fine Line · Linework · Munich ]",
       "heading": "Fineline Tattoo Munich — precise to the last line",
       "portfolioLink": "[ View Portfolio ]",
-      "body1": "Fineline tattoos stand for precision and restraint. A single, perfectly placed fine line says more than a whole complex of fills and shading. KishaTattoo specializes in Fine Line and Fineline Tattoos in Munich — from a minimalist single motif to a botanical linework sleeve.",
-      "body2": "The foundation for exceptional fineline quality lies in the Irezumi technique: where every line counts and nothing can be corrected. This discipline flows into every Fine Line Tattoo. The result: clear, lasting lines that stay sharp even after years — the hallmark of a good fineline tattoo in Munich."
+      "body1": "Fineline tattoos stand for precision and restraint: delicate, filigree tattoos that impress through reduction. A single, perfectly placed black line says more than a whole complex of fills and shading — whether on the wrist, collarbone or forearm. KishaTattoo specializes in Fine Line and Fineline Tattoos in Munich — from a minimalist single motif to a botanical linework sleeve.",
+      "body2": "The foundation for exceptional fineline quality lies in the Irezumi technique: where every line counts and nothing can be corrected. This discipline flows into every Fine Line Tattoo created in our Munich studio. The result: clear, lasting black lines that stay sharp even after years — the hallmark of a good fineline tattoo."
     },
     "substyles": {
       "heading": "Fine Line Tattoo Munich — three variants",
       "items": [
         {
           "title": "Botanical Fineline",
-          "body": "Flowers, ferns, branches, leaves — rendered in single, precise lines without fill. Botanical fineline tattoos are particularly popular in Munich: timelessly elegant, body-friendly and long-lasting."
+          "body": "Flowers, ferns, branches, leaves — rendered in single, precise lines without fill. Botanical fineline tattoos are particularly popular in Munich: timelessly elegant on the shoulder, back or ribs, body-friendly and long-lasting."
         },
         {
           "title": "Single Needle / Fine Line",
-          "body": "The thinnest possible line, set with single-needle technique. Ideal for scripts, portraits, fine details and minimalist motifs. Fine Line Tattoos in Munich — KishaTattoo's specialty."
+          "body": "The thinnest possible line, set with single-needle technique. Ideal for scripts, portraits, fine details and minimalist motifs on the arm, collarbone or neck. Fine Line Tattoos in Munich — KishaTattoo's specialty."
         },
         {
           "title": "Minimalist Linework",
-          "body": "A circle, a stroke, a form. KishaTattoo finds the essence of your idea and executes it with maximum effect using minimal means — linework tattoos from Munich that convince through reduction."
+          "body": "A circle, a stroke, a form. KishaTattoo finds the essence of your idea and executes it with maximum effect — filigree linework tattoos on the wrist, ankle or forearm that convince through reduction."
+        }
+      ]
+    },
+    "placements": {
+      "heading": "Fineline Tattoo Munich — Motifs & Placements",
+      "items": [
+        {
+          "title": "Collarbone & Décolletage",
+          "body": "Filigree lines along the collarbone are among the most popular fineline tattoos in Munich. The delicate tattoo follows the body's contour — elegantly visible, discreetly coverable."
+        },
+        {
+          "title": "Forearm & Wrist",
+          "body": "The forearm is where linework truly shines: large botanical motifs or single fine lines on the wrist — precise technique meets personal motif. Especially popular for scripts and portraits."
+        },
+        {
+          "title": "Shoulder, Back & Ribs",
+          "body": "For larger compositions, the shoulder, upper back and ribs offer ideal surfaces. This is where botanical fineline sleeves and linework compositions come to life, impressing through finesse and detail."
         }
       ]
     },
@@ -855,6 +872,10 @@
         {
           "q": "Where do I get the best Fineline Tattoo in Munich?",
           "a": "KishaTattoo specializes in Fineline, Fine Line and Linework in Munich. With years of experience in precise line work — trained through Irezumi technique — clean, lasting fineline tattoos that stay sharp even after years."
+        },
+        {
+          "q": "What aftercare does a Fineline Tattoo need?",
+          "a": "Fineline tattoos need careful care in the first two weeks: no direct sunlight, no bathing or sauna, regular moisturizing with fragrance-free cream. Thin lines are particularly sensitive to sun exposure — sunscreen is key long-term for keeping delicate lines sharp."
         }
       ]
     },

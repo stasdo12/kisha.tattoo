@@ -782,7 +782,7 @@
     },
     "hero": {
       "h1": "Fineline Tattoo München",
-      "sub": "Fine Line, präzise Technik. Fineline und Linework Tattoo — buchbar in München und Umgebung."
+      "sub": "Zarte, filigrane Linien — präzise Technik. Fineline, Single Needle und Linework in unserem Tattoo Studio München."
     },
     "cta": {
       "heading": "Bereit für dein Fineline Tattoo in München?",
@@ -792,23 +792,40 @@
       "tag": "[ Fineline · Fine Line · Linework · München ]",
       "heading": "Fineline & Fine Line Tattoo München — präzise bis zur letzten Linie",
       "portfolioLink": "[ Portfolio ansehen ]",
-      "body1": "Fineline Tattoos stehen für Präzision und Zurückhaltung. Eine einzige, perfekt gesetzte feine Linie sagt mehr als ein ganzer Komplex aus Flächen und Füllung. KishaTattoo ist spezialisiert auf Fine Line und Fineline Tattoos in München — vom minimalistischen Einzelmotiv bis zum botanischen Linework-Sleeve.",
-      "body2": "Die Grundlage für außergewöhnliche Fineline-Qualität liegt in der Irezumi-Technik: Wo jede Linie zählt und nichts korrigiert werden kann. Diese Disziplin fließt in jedes Fine Line Tattoo ein. Das Ergebnis: klare, dauerhafte Linien, die auch nach Jahren scharf bleiben — das Markenzeichen eines guten Fineline-Tattoos in München."
+      "body1": "Fineline Tattoos stehen für Präzision und Zurückhaltung: zarte, filigrane Tätowierungen, die durch ihre Reduktion beeindrucken. Eine einzige, perfekt gesetzte schwarze Linie sagt mehr als ein ganzer Komplex aus Flächen und Füllung — ob am Handgelenk, Schlüsselbein oder Unterarm. KishaTattoo ist spezialisiert auf Fine Line und Fineline Tattoos in München — vom minimalistischen Einzelmotiv bis zum botanischen Linework-Sleeve.",
+      "body2": "Die Grundlage für außergewöhnliche Fineline-Qualität liegt in der Irezumi-Technik: Wo jede Linie zählt und nichts korrigiert werden kann. Diese Disziplin fließt in jedes Fine Line Tattoo in unserem Münchner Studio ein. Das Ergebnis: klare, dauerhafte schwarze Linien, die auch nach Jahren scharf bleiben — das Markenzeichen eines guten Fineline-Tattoos."
     },
     "substyles": {
       "heading": "Fineline Tattoo München — Fine Line, Single Needle & Linework",
       "items": [
         {
           "title": "Botanisches Fineline & Fine Line Tattoo",
-          "body": "Blumen, Farne, Zweige, Blätter — ausgeführt in einzelnen, präzisen Linien ohne Füllung. Botanische Fineline-Tattoos sind in München besonders gefragt: zeitlos elegant, körperschonend und langlebig."
+          "body": "Blumen, Farne, Zweige, Blätter — ausgeführt in einzelnen, präzisen Linien ohne Füllung. Botanische Fineline-Tattoos sind in München besonders gefragt: zeitlos elegant auf Schulter, Rücken oder Rippen, körperschonend und langlebig."
         },
         {
           "title": "Single Needle — Fine Line Tattoo München",
-          "body": "Die dünnstmögliche Linie, gesetzt mit Single-Needle-Technik. Ideal für Schriften, Portraits, feine Details und minimalistische Motive. Fine Line Tattoos in München — das Spezialgebiet von KishaTattoo."
+          "body": "Die dünnstmögliche Linie, gesetzt mit Single-Needle-Technik. Ideal für Schriften, Portraits, feine Details und minimalistische Motive am Arm, Schlüsselbein oder Hals. Fine Line Tattoos in München — das Spezialgebiet von KishaTattoo."
         },
         {
           "title": "Minimalistisches Linework & Fine Line München",
-          "body": "Ein Kreis, ein Strich, eine Form. KishaTattoo findet die Essenz deiner Idee und setzt sie mit maximalem Effekt bei minimalem Mitteleinsatz um — Linework-Tattoos aus München, die durch Reduktion überzeugen."
+          "body": "Ein Kreis, ein Strich, eine Form. KishaTattoo findet die Essenz deiner Idee und setzt sie mit maximalem Effekt um — filigrane Linework-Tattoos am Handgelenk, Knöchel oder Unterarm, die durch Reduktion überzeugen."
+        }
+      ]
+    },
+    "placements": {
+      "heading": "Fineline Tattoo München — Motive & Körperstellen",
+      "items": [
+        {
+          "title": "Schlüsselbein & Dekolleté",
+          "body": "Filigrane Linien entlang des Schlüsselbeins gehören zu den beliebtesten Fineline-Tattoos in München. Die zarte Tätowierung schmiegt sich an die Körperform — elegant sichtbar, diskret verdeckbar."
+        },
+        {
+          "title": "Unterarm & Handgelenk",
+          "body": "Am Unterarm entfaltet Linework seine volle Wirkung: botanische Motive oder einzelne feine Linien am Handgelenk — präzise Technik trifft individuelles Motiv. Besonders gefragt für Schriften und Portraits."
+        },
+        {
+          "title": "Schulter, Rücken & Rippen",
+          "body": "Für größere Kompositionen bieten Schulter, oberer Rücken und Rippen ideale Flächen. Hier entstehen botanische Fineline-Sleeves und Linework-Kompositionen, die durch Finesse und Detailreichtum beeindrucken."
         }
       ]
     },
@@ -855,6 +872,10 @@
         {
           "q": "Wo bekomme ich das beste Fineline Tattoo in München?",
           "a": "KishaTattoo ist spezialisiert auf Fineline und Linework in München. Mit jahrelanger Erfahrung — trainiert durch Irezumi-Technik — entstehen klare, dauerhafte Fineline-Tattoos, die auch nach Jahren scharf bleiben."
+        },
+        {
+          "q": "Welche Nachsorge braucht ein Fineline Tattoo?",
+          "a": "Fineline Tattoos brauchen sorgfältige Pflege in den ersten zwei Wochen: kein direktes Sonnenlicht, keine Badewanne oder Sauna, regelmäßiges Eincremen mit parfümfreier Pflegecreme. Dünne Linien reagieren besonders sensibel auf Sonneneinstrahlung — Sonnenschutz ist langfristig entscheidend, damit die zarten Linien scharf bleiben."
         }
       ]
     },
