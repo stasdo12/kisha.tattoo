@@ -133,6 +133,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/aftercareBlog12(Big).jpg',
     coverAlt: 'Tattoo Nachsorge Pflege — Hannya Maske Irezumi von Kisha München',
   },
+  {
+    slug: 'japanese-sleeve-tattoo-muenchen',
+    publishedAt: '2026-05-26',
+    readingTime: '6 min',
+    category: 'Culture',
+    coverImage: '/images/blog/japanese-sleeve-tattoo.jpg',
+    coverImageBig: '/images/blog/japanese-sleeve-tattoo(Big).jpg',
+    coverAlt: 'Japanese Sleeve Tattoo München — Irezumi von Kisha',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
