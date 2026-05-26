@@ -26,7 +26,7 @@ export default async function GraphicBlogPage({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'blog' })
 
-  const articles = STORIES.map((meta) => {
+  const articles = [...STORIES].reverse().map((meta) => {
     const content = t.raw(`stories.${meta.slug}`) as { title: string; excerpt: string }
     return {
       slug: meta.slug,

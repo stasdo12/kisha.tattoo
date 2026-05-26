@@ -116,15 +116,6 @@ export const STORIES: StoryMeta[] = [
     coverAlt: 'Tattoo Referenz kopieren — Kisha Tattoo München',
   },
   {
-    slug: 'tattoo-problemzonen-muenchen',
-    publishedAt: '2026-05-20',
-    readingTime: '5 min',
-    category: 'Guide',
-    coverImage: '/images/blog/tattoo-problemzonen.jpg',
-    coverImageBig: '/images/blog/tattoo-problemzonen(Big).jpg',
-    coverAlt: 'Tattoo Problemzonen München — Kisha Tattoo Studio',
-  },
-  {
     slug: 'tattoo-nachsorge-pflege-tipps',
     publishedAt: '2026-05-06',
     readingTime: '5 min',
@@ -132,6 +123,15 @@ export const STORIES: StoryMeta[] = [
     coverImage: '/images/blog/aftercareBlog12.jpg',
     coverImageBig: '/images/blog/aftercareBlog12(Big).jpg',
     coverAlt: 'Tattoo Nachsorge Pflege — Hannya Maske Irezumi von Kisha München',
+  },
+  {
+    slug: 'tattoo-problemzonen-muenchen',
+    publishedAt: '2026-05-20',
+    readingTime: '5 min',
+    category: 'Guide',
+    coverImage: '/images/blog/tattoo-problemzonen.jpg',
+    coverImageBig: '/images/blog/tattoo-problemzonen(Big).jpg',
+    coverAlt: 'Tattoo Problemzonen München — Kisha Tattoo Studio',
   },
   {
     slug: 'japanese-sleeve-tattoo-muenchen',

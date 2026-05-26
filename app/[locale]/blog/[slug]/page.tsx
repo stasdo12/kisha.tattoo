@@ -146,7 +146,7 @@ export default async function ArticleDetailPage({
     : null
 
   // Related: other articles except current
-  const related = STORIES.filter((s) => s.slug !== slug).slice(0, 4).map((s) => ({
+  const related = [...STORIES].reverse().filter((s) => s.slug !== slug).slice(0, 4).map((s) => ({
     ...s,
     title: (t.raw(`stories.${s.slug}`) as { title: string }).title,
   }))
