@@ -142,6 +142,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/japanese-sleeve-tattoo(Big).jpg',
     coverAlt: 'Japanese Sleeve Tattoo München — Irezumi von Kisha',
   },
+  {
+    slug: 'tattoo-beratung-muenchen',
+    publishedAt: '2026-06-02',
+    readingTime: '4 min',
+    category: 'Guide',
+    coverImage: '/images/blog/DSCF1841.JPG',
+    coverImageBig: '/images/blog/DSCF1841.JPG',
+    coverAlt: 'Tattoo Beratung München — Kisha Tattoo Studio',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
