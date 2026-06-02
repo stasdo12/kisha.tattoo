@@ -147,9 +147,9 @@ export const STORIES: StoryMeta[] = [
     publishedAt: '2026-06-02',
     readingTime: '4 min',
     category: 'Guide',
-    coverImage: '/images/blog/DSCF1841.JPG',
-    coverImageBig: '/images/blog/DSCF1841.JPG',
-    coverAlt: 'Tattoo Beratung München — Kisha Tattoo Studio',
+    coverImage: '/images/blog/tattoo-beratung.jpg',
+    coverImageBig: '/images/blog/tattoo-beratung(Big).jpg',
+    coverAlt: 'Tattoo Beratung München — Olympiapark Kisha Studio',
   },
 ]
 
