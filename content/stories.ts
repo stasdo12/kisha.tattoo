@@ -143,6 +143,15 @@ export const STORIES: StoryMeta[] = [
     coverAlt: 'Japanese Sleeve Tattoo München — Irezumi von Kisha',
   },
   {
+    slug: 'tattoo-im-sommer-muenchen',
+    publishedAt: '2026-06-08',
+    readingTime: '5 min',
+    category: 'Guide',
+    coverImage: '/images/blog/tattoo-im-sommer.jpg',
+    coverImageBig: '/images/blog/tattoo-im-sommer(Big).jpg',
+    coverAlt: 'Tattoo im Sommer München — Kisha Tattoo Studio',
+  },
+  {
     slug: 'tattoo-beratung-muenchen',
     publishedAt: '2026-06-02',
     readingTime: '4 min',
