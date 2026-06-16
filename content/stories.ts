@@ -160,6 +160,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/tattoo-beratung(Big).jpg',
     coverAlt: 'Tattoo Beratung München — Olympiapark Kisha Studio',
   },
+  {
+    slug: 'schriftzug-tattoo-muenchen',
+    publishedAt: '2026-06-16',
+    readingTime: '5 min',
+    category: 'Style Guide',
+    coverImage: '/images/blog/schriftzug-tattoo.jpg',
+    coverImageBig: '/images/blog/schriftzug-tattoo(Big).jpg',
+    coverAlt: 'Schriftzug Tattoo München — Lettering von Kisha',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
