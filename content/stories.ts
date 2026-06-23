@@ -169,6 +169,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/schriftzug-tattoo(Big).jpg',
     coverAlt: 'Schriftzug Tattoo München — Lettering von Kisha',
   },
+  {
+    slug: 'tattoo-job-beruf-muenchen',
+    publishedAt: '2026-06-23',
+    readingTime: '5 min',
+    category: 'Guide',
+    coverImage: '/images/blog/jobBlog18.jpg',
+    coverImageBig: '/images/blog/jobBlog18(Big).jpg',
+    coverAlt: 'Tattoo im Job — Kisha Tattoo Studio München',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
