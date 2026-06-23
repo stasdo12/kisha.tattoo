@@ -1584,6 +1584,19 @@ body:has([data-theme='graphic']) {
     padding-bottom: 0 !important;
   }
 
+  /* Gallery: 2 columns on mobile */
+  .g-walkin-gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* CTA: stack heading + button */
+  .g-walkin-cta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+    padding: 0 var(--g-pad) !important;
+  }
+
   /* FAQ items: full width */
   .g-walkin-faq-items {
     width: 100% !important;

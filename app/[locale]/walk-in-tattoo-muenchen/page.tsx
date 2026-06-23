@@ -9,6 +9,17 @@ import { getTranslations } from 'next-intl/server'
 import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
+import Link from 'next/link'
+import { GWorkImage } from '@/components/graphic/GWorkImage'
+
+const GALLERY_WORKS = [
+  { src: '/images/work/4x4-sakura-tattoo.jpg',            alt: 'Sakura Walk-In Tattoo München — KishaTattoo',        name: 'Sakura' },
+  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Kitsune Walk-In Tattoo München — KishaTattoo',       name: 'Kitsune' },
+  { src: '/images/work/4x4-owl-tattoo-fineline.jpg',      alt: 'Fineline Eule Walk-In Tattoo München — KishaTattoo', name: 'Eule' },
+  { src: '/images/work/4x4-dog-tattoo-fineline.jpg',      alt: 'Fineline Hund Walk-In Tattoo München — KishaTattoo', name: 'Hund' },
+  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',    alt: 'Grafik Hase Walk-In Tattoo München — KishaTattoo',   name: 'Hase' },
+  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',     alt: 'Grafik Vögel Walk-In Tattoo München — KishaTattoo',  name: 'Vögel' },
+]
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
@@ -250,6 +261,91 @@ export default async function WalkInTattooMuenchen({
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── GALLERY ──────────────────────────────────────────────────────── */}
+      <section
+        aria-labelledby="walkin-gallery-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2.5rem, 5.56vw, 5rem) 0' }}
+      >
+        <div className="g-container">
+          <div
+            style={{
+              paddingBottom: '1.25rem',
+              borderBottom: '2px solid #0D0D0D',
+              marginBottom: 'clamp(1.5rem, 2.08vw, 2rem)',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
+            }}
+          >
+            <h2
+              id="walkin-gallery-heading"
+              style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}
+            >
+              {t('gallery.heading')}
+            </h2>
+            <Link
+              href="/works"
+              style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', whiteSpace: 'nowrap' }}
+            >
+              {t('gallery.link')}
+            </Link>
+          </div>
+          <div
+            className="g-walkin-gallery"
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}
+          >
+            {GALLERY_WORKS.map(({ src, alt, name }) => (
+              <GWorkImage
+                key={src}
+                src={src}
+                alt={alt}
+                name={name}
+                tags={['Walk-In']}
+                sizes="(max-width: 767px) 50vw, 33vw"
+                style={{ height: 'clamp(180px, 22vw, 400px)' }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ───────────────────────────────────────────────────────────── */}
+      <section
+        aria-label="Walk-In Slot anfragen"
+        style={{ background: '#0D0D0D', padding: 'clamp(2.5rem, 5.56vw, 5rem) 0' }}
+      >
+        <div
+          className="g-walkin-cta"
+          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 var(--g-pad)' }}
+        >
+          <h2
+            style={{
+              fontSize: 'var(--g-l)',
+              lineHeight: 'var(--g-lh-l)',
+              color: '#F2F2F2',
+              maxWidth: 'clamp(18rem, 40vw, 600px)',
+            }}
+          >
+            {t('cta.heading')}
+          </h2>
+          <Link
+            href="/booking"
+            style={{
+              display: 'inline-block',
+              padding: '0.875rem 2rem',
+              background: '#F2F2F2',
+              color: '#0D0D0D',
+              fontSize: 'var(--g-bm)',
+              lineHeight: 'var(--g-lh-bm)',
+              textDecoration: 'none',
+              flexShrink: 0,
+            }}
+          >
+            {t('cta.button')}
+          </Link>
         </div>
       </section>
 
