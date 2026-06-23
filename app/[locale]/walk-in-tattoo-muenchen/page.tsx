@@ -272,6 +272,7 @@ export default async function WalkInTattooMuenchen({
       >
         <div className="g-container">
           <div
+            className="g-walkin-gallery-header"
             style={{
               paddingBottom: '1.25rem',
               borderBottom: '2px solid #0D0D0D',
@@ -314,7 +315,9 @@ export default async function WalkInTattooMuenchen({
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <CtaStrip label={t('cta.button')} />
+      <div style={{ margin: '0 var(--g-pad)' }}>
+        <CtaStrip label={t('cta.button')} />
+      </div>
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section

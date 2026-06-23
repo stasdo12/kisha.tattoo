@@ -1584,9 +1584,16 @@ body:has([data-theme='graphic']) {
     padding-bottom: 0 !important;
   }
 
-  /* Gallery: 2 columns on mobile */
+  /* Gallery: single column on mobile */
   .g-walkin-gallery {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Gallery header: stack heading + link vertically */
+  .g-walkin-gallery-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
   }
 
   /* FAQ items: full width */
