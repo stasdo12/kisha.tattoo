@@ -11,14 +11,15 @@ import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import Link from 'next/link'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
+import { CtaStrip } from '@/components/graphic/CtaStrip'
 
 const GALLERY_WORKS = [
-  { src: '/images/work/4x4-sakura-tattoo.jpg',            alt: 'Sakura Walk-In Tattoo München — KishaTattoo',        name: 'Sakura' },
-  { src: '/images/work/4x4-japan-fox-tattoo-graphic.jpg', alt: 'Kitsune Walk-In Tattoo München — KishaTattoo',       name: 'Kitsune' },
-  { src: '/images/work/4x4-owl-tattoo-fineline.jpg',      alt: 'Fineline Eule Walk-In Tattoo München — KishaTattoo', name: 'Eule' },
-  { src: '/images/work/4x4-dog-tattoo-fineline.jpg',      alt: 'Fineline Hund Walk-In Tattoo München — KishaTattoo', name: 'Hund' },
-  { src: '/images/work/4x4-rabbit-tattoo-graphic.jpg',    alt: 'Grafik Hase Walk-In Tattoo München — KishaTattoo',   name: 'Hase' },
-  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',     alt: 'Grafik Vögel Walk-In Tattoo München — KishaTattoo',  name: 'Vögel' },
+  { src: '/images/work/4x4-sakura-tattoo.jpg',          alt: 'Sakura Walk-In Tattoo München — KishaTattoo',           name: 'Sakura' },
+  { src: '/images/work/4x4-fogel-tattoo-graphic.jpg',   alt: 'Schwalbe Walk-In Tattoo München — KishaTattoo',         name: 'Schwalbe' },
+  { src: '/images/work/4x4-owl-tattoo-fineline.jpg',    alt: 'Fineline Eule Walk-In Tattoo München — KishaTattoo',    name: 'Eule' },
+  { src: '/images/work/4x4-dog-tattoo-fineline.jpg',    alt: 'Fineline Hund Walk-In Tattoo München — KishaTattoo',    name: 'Hund' },
+  { src: '/images/work/tattoo-lego-fineline-work.jpg',  alt: 'Fineline Lego Walk-In Tattoo München — KishaTattoo',    name: 'Lego' },
+  { src: '/images/work/4x4-birds-tattoo-graphic.jpg',   alt: 'Grafik Vögel Walk-In Tattoo München — KishaTattoo',     name: 'Vögel' },
 ]
 
 export async function generateMetadata(
@@ -313,41 +314,7 @@ export default async function WalkInTattooMuenchen({
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section
-        aria-label="Walk-In Slot anfragen"
-        style={{ background: '#0D0D0D', padding: 'clamp(2.5rem, 5.56vw, 5rem) 0' }}
-      >
-        <div
-          className="g-walkin-cta"
-          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 var(--g-pad)' }}
-        >
-          <h2
-            style={{
-              fontSize: 'var(--g-l)',
-              lineHeight: 'var(--g-lh-l)',
-              color: '#F2F2F2',
-              maxWidth: 'clamp(18rem, 40vw, 600px)',
-            }}
-          >
-            {t('cta.heading')}
-          </h2>
-          <Link
-            href="/booking"
-            style={{
-              display: 'inline-block',
-              padding: '0.875rem 2rem',
-              background: '#F2F2F2',
-              color: '#0D0D0D',
-              fontSize: 'var(--g-bm)',
-              lineHeight: 'var(--g-lh-bm)',
-              textDecoration: 'none',
-              flexShrink: 0,
-            }}
-          >
-            {t('cta.button')}
-          </Link>
-        </div>
-      </section>
+      <CtaStrip label={t('cta.button')} />
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section
