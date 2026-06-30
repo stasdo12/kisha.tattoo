@@ -178,6 +178,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/jobBlog18(Big).jpg',
     coverAlt: 'Tattoo im Job — Kisha Tattoo Studio München',
   },
+  {
+    slug: 'tattoo-convention-muenchen',
+    publishedAt: '2026-06-30',
+    readingTime: '5 min',
+    category: 'Culture',
+    coverImage: '/images/blog/tattoo-convention.jpg',
+    coverImageBig: '/images/blog/tattoo-convention(Big).jpg',
+    coverAlt: 'Tattoo Convention München — Kisha Tattoo Artistin gewinnt auf der Convention',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
