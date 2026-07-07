@@ -41,6 +41,7 @@ Walk-in и Fineline — одинаковый спрос (~1300 vs ~1060 пока
 - [~] **1.3** ПРОПУЩЕНО по той же причине. У motive/preise данные ссылки в JSON есть, но не рендерятся; включение = правка вёрстки.
 - [x] **1.4** Новая FAQ «Wie sieht ein Fineline Tattoo nach 5/10 Jahren aus?» (DE/EN/UK). Чистый контент, ловит long-tail «fineline nach 5/10 jahren» (0 кликов) + свежесть. Без ссылки (FAQ рендерит plain text).
 - [x] **1.5** Задеплоено (push b22cd4a). Билд прошёл локально + webhook.
+- [x] **1.6** Футер-анкор на fineline: `links.linework` → `links.fineline` («Fineline Tattoo München» вместо «Linework Tattoo»). Футер на каждой странице = самый массовый внутренний анкор, теперь усиливает целевой ключ «fineline». Метки уже были готовы в 3 локалях.
 
 **НЕ делаем:** не раздуваем intro/substyles (риск переспама), не трогаем дизайн/вёрстку.
 

@@ -27,7 +27,7 @@ export function GFooter() {
   const STYLES = [
     { href: '/japanisches-tattoo-muenchen', label: 'Japanese Tattoo'  },
     { href: '/grafik-tattoo-muenchen',      label: 'Graphic Tattoo'   },
-    { href: '/fineline-tattoo-muenchen',    label: t('links.linework')},
+    { href: '/fineline-tattoo-muenchen',    label: t('links.fineline')},
   ]
 
   const AREA = [
