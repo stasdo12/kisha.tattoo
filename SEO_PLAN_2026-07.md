@@ -37,9 +37,9 @@ Walk-in и Fineline — одинаковый спрос (~1300 vs ~1060 пока
 Страница-цель: `/fineline-tattoo-muenchen`. Ключ в json: `fineline`.
 
 - [x] **1.1** Статья #20 (botanical) → контекстная ссылка на `/fineline-tattoo-muenchen`. Анкоры: DE «Fineline-Stil», EN «fineline style», UK «стилі fineline». Вставлено в 3 локали, JSON валиден.
-- [ ] **1.2** Страница walk-in (топ-10) → ссылка на fineline там, где упоминается стиль
-- [ ] **1.3** Страница motive и/или цен → контекстная ссылка на fineline
-- [ ] **1.4** Одна новая FAQ «Wie sieht ein Fineline Tattoo nach 5/10 Jahren aus?» + ссылка на статью #9 (wie-tattoos-altern)
+- [~] **1.2** ПРОПУЩЕНО. Walk-in не рендерит related-блок; добавление требует code+подчёркивание. Fineline уже имеет 4 живые ссылки (главная, grafik, japanisches, статья #20) — прирост маргинальный.
+- [~] **1.3** ПРОПУЩЕНО по той же причине. У motive/preise данные ссылки в JSON есть, но не рендерятся; включение = правка вёрстки.
+- [x] **1.4** Новая FAQ «Wie sieht ein Fineline Tattoo nach 5/10 Jahren aus?» (DE/EN/UK). Чистый контент, ловит long-tail «fineline nach 5/10 jahren» (0 кликов) + свежесть. Без ссылки (FAQ рендерит plain text).
 - [ ] **1.5** Деплой + проверка на проде + коммит
 
 **НЕ делаем:** не раздуваем intro/substyles (риск переспама), не трогаем дизайн/вёрстку.
