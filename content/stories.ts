@@ -187,6 +187,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/tattoo-convention(Big).jpg',
     coverAlt: 'Tattoo Convention München — Kisha Tattoo Artistin gewinnt auf der Convention',
   },
+  {
+    slug: 'botanisches-tattoo-muenchen',
+    publishedAt: '2026-07-07',
+    readingTime: '6 min',
+    category: 'Style Guide',
+    coverImage: '/images/blog/botanicBlog20.jpg',
+    coverImageBig: '/images/blog/botanicBlog20(Big).jpg',
+    coverAlt: 'Botanisches Tattoo München — Fineline Sleeve von Kisha',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
