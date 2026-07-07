@@ -27,6 +27,7 @@ export function MotiveAccordion({ items, defaultOpenIdx = -1 }: { items: Accordi
             <button
               onClick={() => setOpenIdx(openIdx === i ? -1 : i)}
               aria-expanded={openIdx === i}
+              aria-label={item.title}
               style={{
                 width: 40, height: 40,
                 borderRadius: '50%',
