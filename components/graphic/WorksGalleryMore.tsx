@@ -30,6 +30,26 @@ const ROW10 = [
   { src: '/images/home/works-05-flowers-graphic.jpg',       alt: 'Fineline Blumen Arm Tattoo München — Kisha',           tags: ['München'], name: 'Blumen Arm — Fineline'        },
   { src: '/images/home/works-01-blackwork-fullbody.jpg',    alt: 'Japanisches Irezumi Fullbody Tattoo München — Kisha',   tags: ['München'], name: 'Irezumi Fullbody — Japanisch' },
 ]
+// Hochformat (portrait, 1500×2000 / 1333×2000) — in 2-col slots, cover crops top/bottom moderately (~40%), not left/right
+const ROW11 = [
+  { src: '/images/work/koi-fisch-tattoo-unterarm.jpg',             alt: 'Koi Fisch Tattoo München — Kisha',           tags: ['München'], name: 'Koi Fisch — Japanisch'    },
+  { src: '/images/work/kanji-schriftzeichen-tattoo-nacken.jpg',     alt: 'Kanji Schriftzeichen Nacken Tattoo München — Kisha', tags: ['München'], name: 'Kanji Nacken — Japanisch' },
+]
+const ROW12 = [
+  { src: '/images/work/feines-linien-tattoo-daten-portraet-unterarm.jpg', alt: 'Fineline Portrait Tattoo München — Kisha',       tags: ['München'], name: 'Portrait Lineart — Fineline'   },
+  { src: '/images/work/schlangen-pfingstrose-tattoo-oberschenkel.jpg',    alt: 'Grafik Schlange Pfingstrose Tattoo München — Kisha', tags: ['München'], name: 'Schlange & Pfingstrose — Grafik' },
+]
+// Querformat (landscape, 2000×1333) — safe for wide slots (2-col + full-width banner)
+const ROW13 = [
+  { src: '/images/work/maigloeckchen-tattoo-unterarm.jpg',          alt: 'Maiglöckchen Fineline Tattoo München — Kisha', tags: ['München'], name: 'Maiglöckchen — Fineline'      },
+  { src: '/images/work/japanisches-blackwork-tattoo-unterarm.jpg',  alt: 'Japanisches Blackwork Tattoo München — Kisha', tags: ['München'], name: 'Blackwork Welle — Japanisch' },
+]
+const ROW14 = {
+  src: '/images/work/hannya-maske-tattoo-unterarm.jpg',
+  alt: 'Hannya Maske Tattoo München — Kisha',
+  tags: ['München'],
+  name: 'Hannya Maske — Japanisch',
+}
 
 export function WorksGalleryMore({ label }: { label: string }) {
   const [expanded, setExpanded] = useState(false)
@@ -95,6 +115,34 @@ export function WorksGalleryMore({ label }: { label: string }) {
               <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE, objectPosition: 'center center' }} />
             ))}
           </div>
+
+          <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {ROW11.map((img) => (
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
+            ))}
+          </div>
+
+          <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {ROW12.map((img) => (
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
+            ))}
+          </div>
+
+          <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {ROW13.map((img) => (
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
+            ))}
+          </div>
+
+          <GWorkImage
+            src={ROW14.src}
+            alt={ROW14.alt}
+            tags={ROW14.tags}
+            name={ROW14.name}
+            sizes="100vw"
+            className="g-works-row2"
+            style={{ height: 'clamp(432px, 39.6vw, 672px)', objectPosition: 'center 40%' }}
+          />
         </div>
       )}
     </>

@@ -145,6 +145,40 @@ export default async function JapanischesTattooMuenchen({
               style={{ height: 'clamp(480px, calc(8px + 32vw), 720px)', objectPosition: 'center 25%' }}
             />
           </div>
+
+          <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '16px' }}>
+            <GWorkImage
+              src="/images/work/koi-fisch-tattoo-unterarm.jpg"
+              alt="Koi Fisch Tattoo München — KishaTattoo Irezumi"
+              sizes="(max-width: 767px) 100vw, 50vw"
+              tags={['Irezumi', 'München', 'Kisha']}
+              style={{ height: 'clamp(480px, calc(8px + 32vw), 720px)' }}
+            />
+            <GWorkImage
+              src="/images/work/hannya-maske-tattoo-unterarm.jpg"
+              alt="Hannya Maske Tattoo München — KishaTattoo Irezumi"
+              sizes="(max-width: 767px) 100vw, 50vw"
+              tags={['Irezumi', 'München', 'Kisha']}
+              style={{ height: 'clamp(480px, calc(8px + 32vw), 720px)' }}
+            />
+          </div>
+
+          <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '16px' }}>
+            <GWorkImage
+              src="/images/work/kanji-schriftzeichen-tattoo-nacken.jpg"
+              alt="Kanji Schriftzeichen Tattoo München — KishaTattoo Irezumi"
+              sizes="(max-width: 767px) 100vw, 50vw"
+              tags={['Irezumi', 'München', 'Kisha']}
+              style={{ height: 'clamp(480px, calc(8px + 32vw), 720px)' }}
+            />
+            <GWorkImage
+              src="/images/work/japanisches-blackwork-tattoo-unterarm.jpg"
+              alt="Japanisches Blackwork Tattoo München — KishaTattoo Irezumi"
+              sizes="(max-width: 767px) 100vw, 50vw"
+              tags={['Irezumi', 'München', 'Kisha']}
+              style={{ height: 'clamp(480px, calc(8px + 32vw), 720px)' }}
+            />
+          </div>
         </div>
 
         <Link href="/works" style={{

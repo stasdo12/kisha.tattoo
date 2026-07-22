@@ -147,6 +147,22 @@ export default async function GrafikTattooMuenchen({
               <GWorkImage src="/images/work/4x4-rabbit-tattoo-graphic.jpg" alt="Grafik Hase Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }} />
               <GWorkImage src="/images/work/middle-graphic-legs-tattoo.jpg" alt="Grafik Beine Tattoo München — KishaTattoo" sizes="25vw" tags={['München', 'Kisha']} style={{ height: 'clamp(356px, calc(8px + 24.17vw), 472px)' }} />
             </div>
+            <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <GWorkImage
+                src="/images/work/schlangen-pfingstrose-tattoo-oberschenkel.jpg"
+                alt="Grafik Schlange Pfingstrose Tattoo München — KishaTattoo"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Grafik', 'München', 'Kisha']}
+                style={{ height: 'clamp(720px, 50vw, 820px)', objectPosition: 'center 40%' }}
+              />
+              <GWorkImage
+                src="/images/work/japanisches-blackwork-tattoo-unterarm.jpg"
+                alt="Japanisches Blackwork Tattoo München — KishaTattoo"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Blackwork', 'München', 'Kisha']}
+                style={{ height: 'clamp(720px, 50vw, 820px)' }}
+              />
+            </div>
           </div>
         </div>
 

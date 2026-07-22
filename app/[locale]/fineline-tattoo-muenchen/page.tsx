@@ -150,6 +150,22 @@ export default async function FinelineTattooMuenchen({
                 style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)', objectPosition: 'center 35%' }}
               />
             </div>
+            <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <GWorkImage
+                src="/images/work/maigloeckchen-tattoo-unterarm.jpg"
+                alt="Fineline Maiglöckchen Tattoo München — KishaTattoo Fine Line"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Fineline', 'München', 'Kisha']}
+                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
+              />
+              <GWorkImage
+                src="/images/work/feines-linien-tattoo-daten-portraet-unterarm.jpg"
+                alt="Fineline Portrait Tattoo München — KishaTattoo Linework"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Fineline', 'München', 'Kisha']}
+                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
+              />
+            </div>
           </div>
         </div>
 
