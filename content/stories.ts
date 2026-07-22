@@ -196,6 +196,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/botanicBlog20(Big).jpg',
     coverAlt: 'Botanisches Tattoo München — Fineline Sleeve von Kisha',
   },
+  {
+    slug: 'tattoo-nachstechen-muenchen',
+    publishedAt: '2026-07-22',
+    readingTime: '5 min',
+    category: 'Studio',
+    coverImage: '/images/blog/nachstechenBlog21.jpg',
+    coverImageBig: '/images/blog/nachstechenBlog21(Big).jpg',
+    coverAlt: 'Tattoo Nachstechen München — feines Kanji-Lettering am Nacken von Kisha',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
