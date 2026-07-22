@@ -11,13 +11,16 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
       // AI crawlers — explicitly allowed for GEO/AEO visibility
-      { userAgent: 'GPTBot',        allow: '/' },
-      { userAgent: 'ClaudeBot',     allow: '/' },
-      { userAgent: 'PerplexityBot', allow: '/' },
-      { userAgent: 'anthropic-ai',  allow: '/' },
-      { userAgent: 'ChatGPT-User',  allow: '/' },
-      { userAgent: 'Google-Extended', allow: '/' },
-      { userAgent: 'Googlebot',     allow: '/' },
+      { userAgent: 'GPTBot',           allow: '/' }, // OpenAI — training
+      { userAgent: 'OAI-SearchBot',    allow: '/' }, // OpenAI — powers ChatGPT search/citations
+      { userAgent: 'ChatGPT-User',     allow: '/' }, // OpenAI — user-triggered fetch
+      { userAgent: 'ClaudeBot',        allow: '/' }, // Anthropic — training
+      { userAgent: 'Claude-User',      allow: '/' }, // Anthropic — user-triggered fetch
+      { userAgent: 'Claude-SearchBot', allow: '/' }, // Anthropic — search relevance
+      { userAgent: 'PerplexityBot',    allow: '/' }, // Perplexity — training/index
+      { userAgent: 'Perplexity-User',  allow: '/' }, // Perplexity — user-triggered fetch
+      { userAgent: 'Google-Extended',  allow: '/' }, // Google — Gemini/AI Overviews training
+      { userAgent: 'Googlebot',        allow: '/' },
     ],
     sitemap: [`${SITE.url}/sitemap.xml`, `${SITE.url}/image-sitemap.xml`],
   }

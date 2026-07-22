@@ -258,7 +258,7 @@ export default async function ArticleDetailPage({
           }}
         >
           <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.7)' }}>
-            {meta?.category} · {meta?.publishedAt}
+            {t('byline')} · {meta?.category} · {meta?.publishedAt}
           </span>
           <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.7)' }}>
             {meta?.readingTime}

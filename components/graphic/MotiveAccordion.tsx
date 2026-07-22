@@ -51,11 +51,18 @@ export function MotiveAccordion({ items, defaultOpenIdx = -1 }: { items: Accordi
               </svg>
             </button>
           </div>
-          {openIdx === i && (
-            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 1, color: '#0D0D0D', maxWidth: 'clamp(18rem, 25vw, 30rem)' }}>
-              {item.body}
-            </p>
-          )}
+          <p
+            aria-hidden={openIdx !== i}
+            style={{
+              fontSize: 'var(--g-bm)',
+              lineHeight: 1,
+              color: '#0D0D0D',
+              maxWidth: 'clamp(18rem, 25vw, 30rem)',
+              display: openIdx === i ? 'block' : 'none',
+            }}
+          >
+            {item.body}
+          </p>
         </div>
       ))}
     </div>
