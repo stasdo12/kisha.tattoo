@@ -8,6 +8,7 @@ import { SITE } from '@/content/site'
 import { localBusinessSchema, websiteSchema } from '@/lib/structured-data'
 import { FormPopupLoader } from '@/components/graphic/FormPopupLoader'
 import { GScrollTop } from '@/components/graphic/GScrollTop'
+import { GCookieConsent } from '@/components/graphic/GCookieConsent'
 import { routing } from '@/i18n/routing'
 import '@/styles/globals.css'
 import '@/styles/graphic.css'
@@ -115,11 +116,17 @@ export default async function LocaleLayout({
     >
       <head suppressHydrationWarning>
         <HreflangTags />
+        {/* Google Consent Mode v2 — must run before gtag('config', ...); denied until GCookieConsent grants it */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});`,
+          }}
+        />
         {/* Google Analytics GA4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKLZT9R83C" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EKLZT9R83C');`,
+            __html: `gtag('js',new Date());gtag('config','G-EKLZT9R83C');`,
           }}
         />
         {/* Root structured data */}
@@ -135,6 +142,7 @@ export default async function LocaleLayout({
             {children}
             <GScrollTop />
             <FormPopupLoader />
+            <GCookieConsent />
           </div>
         </NextIntlClientProvider>
       </body>

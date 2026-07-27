@@ -45,7 +45,8 @@
       "works": "Works",
       "stories": "Stories",
       "contact": "Contact",
-      "linework": "Linework Tattoo"
+      "linework": "Linework Tattoo",
+      "datenschutz": "Privacy Policy"
     },
     "rights": "All Rights Reserved."
   },
@@ -1880,6 +1881,88 @@
       "cooperation": "Available for cooperation",
       "location": "Munich, Germany",
       "booking": "Book now"
+    }
+  },
+  "cookieConsent": {
+    "message": "We use Google Analytics to understand how this site is used. Cookies are only set after you consent.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "privacyLink": "Learn more"
+  },
+  "datenschutz": {
+    "meta": {
+      "title": "Privacy Policy | KishaTattoo Munich",
+      "description": "Privacy policy for KishaTattoo Munich — Google Analytics, cookies, and your rights under GDPR."
+    },
+    "hero": {
+      "tags": ["[ Cookies ]", "[ Google Analytics ]", "[ Your Rights ]"],
+      "h1": "Privacy Policy"
+    },
+    "sections": [
+      {
+        "id": "verantwortlicher",
+        "title": "Controller",
+        "items": [
+          { "heading": "Data controller", "body": "The party responsible for data processing on this website is Kisha (KishaTattoo), Bahnhofstraße 1, 85375 Neufahrn bei Freising, Germany. Email: svitlanadonec1@gmail.com, phone: +49 170 1893395." }
+        ]
+      },
+      {
+        "id": "hosting",
+        "title": "Hosting & server logs",
+        "items": [
+          { "heading": "Server log files", "body": "When you visit this website, technical information (IP address, browser type, date/time, page requested) is automatically stored by the hosting provider in server log files. This data is used for technical security and troubleshooting and is not combined with other data sources. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in secure website operation)." }
+        ]
+      },
+      {
+        "id": "kontakt",
+        "title": "Contact & booking",
+        "items": [
+          { "heading": "Contact form and booking requests", "body": "If you use the contact or booking form, the data you provide (name, contact details, message or tattoo idea) is used solely to process your request and manage appointments, and is not shared with third parties. Legal basis: Art. 6(1)(b) GDPR (pre-contractual measures / performance of a contract)." }
+        ]
+      },
+      {
+        "id": "analytics",
+        "title": "Google Analytics",
+        "items": [
+          { "heading": "Google Analytics 4 (GA4)", "body": "This website uses Google Analytics 4, a web analytics service provided by Google Ireland Limited. Google Analytics uses cookies that enable analysis of website usage. This data is only collected after your explicit consent via the cookie banner (see \"Cookies & consent\" below). Legal basis: Art. 6(1)(a) GDPR (consent)." },
+          { "heading": "Google Signals & cross-device data", "body": "Where enabled, Google Signals links data from this website with information from Google users who are signed in to their Google Account and have consented to personalized advertising. This enables cross-device reporting and remarketing. Users signed in to Google can view and delete this link at any time via their Google Account under \"My Activity\" (myactivity.google.com), and disable personalized advertising via Ad Settings (adssettings.google.com)." },
+          { "heading": "Objection", "body": "You can prevent data collection by Google Analytics by choosing \"Decline\" in the cookie banner, or by withdrawing your consent at any time via the link in the page footer." }
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "Cookies & consent",
+        "items": [
+          { "heading": "Consent banner", "body": "On your first visit to this website, a cookie banner is shown. Non-essential cookies (e.g. for Google Analytics) are only set once you actively consent. Your choice is stored locally in your browser. You can withdraw your consent at any time by clearing this website's browser data — the banner will then appear again." }
+        ]
+      },
+      {
+        "id": "fotos",
+        "title": "Photos & portfolio",
+        "items": [
+          { "heading": "Publishing tattoo photos", "body": "Information on the publication of photos of finished tattoos for portfolio and marketing purposes can be found in the Terms & Conditions (AGB), § 9 Photo rights." }
+        ]
+      },
+      {
+        "id": "rechte",
+        "title": "Your rights",
+        "items": [
+          { "heading": "Rights of the data subject", "body": "You have the right, at any time, to access (Art. 15 GDPR), rectify (Art. 16), erase (Art. 17), restrict processing (Art. 18), data portability (Art. 20), and object (Art. 21) to the processing of your personal data. Please contact the address given above." },
+          { "heading": "Right to lodge a complaint", "body": "You have the right to lodge a complaint with a data protection supervisory authority, e.g. the Bavarian State Office for Data Protection Supervision (BayLDA)." }
+        ]
+      },
+      {
+        "id": "aenderungen",
+        "title": "Currency",
+        "items": [
+          { "heading": "Changes to this policy", "body": "This privacy policy is updated as needed, e.g. when new website features are added. Last updated: July 2026." }
+        ]
+      }
+    ],
+    "cta": {
+      "tag": "[ Questions? ]",
+      "heading": "If you have questions about data protection, feel free to reach out.",
+      "button": "Get in touch"
     }
   }
 }

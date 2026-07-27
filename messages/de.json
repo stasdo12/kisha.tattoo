@@ -45,7 +45,8 @@
       "works": "Works",
       "stories": "Stories",
       "contact": "Kontakt",
-      "linework": "Linework Tattoo"
+      "linework": "Linework Tattoo",
+      "datenschutz": "Datenschutz"
     },
     "rights": "All Rights Reserved."
   },
@@ -1936,6 +1937,88 @@
       "cooperation": "Offen für Zusammenarbeit",
       "location": "München, Deutschland",
       "booking": "Termin buchen"
+    }
+  },
+  "cookieConsent": {
+    "message": "Wir nutzen Google Analytics, um zu verstehen, wie diese Seite genutzt wird. Cookies werden erst nach deiner Zustimmung gesetzt.",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen",
+    "privacyLink": "Mehr erfahren"
+  },
+  "datenschutz": {
+    "meta": {
+      "title": "Datenschutzerklärung | KishaTattoo München",
+      "description": "Datenschutzerklärung von KishaTattoo München — Google Analytics, Cookies und deine Rechte nach DSGVO."
+    },
+    "hero": {
+      "tags": ["[ Cookies ]", "[ Google Analytics ]", "[ Deine Rechte ]"],
+      "h1": "Datenschutzerklärung"
+    },
+    "sections": [
+      {
+        "id": "verantwortlicher",
+        "title": "Verantwortlicher",
+        "items": [
+          { "heading": "Verantwortliche Stelle", "body": "Verantwortlich für die Datenverarbeitung auf dieser Website ist Kisha (KishaTattoo), Bahnhofstraße 1, 85375 Neufahrn bei Freising, Deutschland. E-Mail: svitlanadonec1@gmail.com, Telefon: +49 170 1893395." }
+        ]
+      },
+      {
+        "id": "hosting",
+        "title": "Hosting & Server-Logs",
+        "items": [
+          { "heading": "Server-Logfiles", "body": "Beim Besuch dieser Website werden automatisch technische Informationen (IP-Adresse, Browsertyp, Datum/Uhrzeit, aufgerufene Seite) durch den Hosting-Anbieter in Server-Logfiles gespeichert. Diese Daten dienen der technischen Sicherheit und Fehleranalyse und werden nicht mit anderen Datenquellen zusammengeführt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren Betrieb der Website)." }
+        ]
+      },
+      {
+        "id": "kontakt",
+        "title": "Kontakt & Terminbuchung",
+        "items": [
+          { "heading": "Kontaktformular und Buchungsanfragen", "body": "Wenn du das Kontakt- oder Buchungsformular nutzt, werden die von dir angegebenen Daten (Name, Kontaktdaten, Nachricht bzw. Tattoo-Idee) ausschließlich zur Bearbeitung deiner Anfrage und zur Terminverwaltung verwendet und nicht an Dritte weitergegeben. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen bzw. Vertragserfüllung)." }
+        ]
+      },
+      {
+        "id": "analytics",
+        "title": "Google Analytics",
+        "items": [
+          { "heading": "Google Analytics 4 (GA4)", "body": "Diese Website nutzt Google Analytics 4, einen Webanalysedienst der Google Ireland Limited. Google Analytics verwendet Cookies, die eine Analyse der Websitenutzung ermöglichen. Diese Daten werden erst nach deiner ausdrücklichen Einwilligung über den Cookie-Banner erhoben (siehe Abschnitt „Cookies & Einwilligung“). Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)." },
+          { "heading": "Google Signals & geräteübergreifende Daten", "body": "Sofern aktiviert, verknüpft Google Signals Daten aus dieser Website mit Informationen von Google-Nutzern, die in ihrem Google-Konto angemeldet sind und der personalisierten Werbung zugestimmt haben. Dies ermöglicht geräteübergreifende Berichte und Remarketing. Nutzer, die bei Google angemeldet sind, können diese Verknüpfung jederzeit über ihr Google-Konto unter „Meine Aktivitäten“ (myactivity.google.com) einsehen und löschen sowie personalisierte Werbung in den Anzeigeneinstellungen (adssettings.google.com) deaktivieren." },
+          { "heading": "Widerspruch", "body": "Du kannst die Erfassung durch Google Analytics verhindern, indem du im Cookie-Banner „Ablehnen“ wählst, oder jederzeit über den Link im Seitenfuß deine Einwilligung widerrufen." }
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "Cookies & Einwilligung",
+        "items": [
+          { "heading": "Consent-Banner", "body": "Beim ersten Besuch dieser Website wird dir ein Cookie-Banner angezeigt. Nicht-notwendige Cookies (z. B. für Google Analytics) werden erst gesetzt, wenn du aktiv zustimmst. Deine Auswahl wird lokal in deinem Browser gespeichert. Du kannst deine Einwilligung jederzeit widerrufen, indem du die Browser-Daten dieser Website löschst — der Banner erscheint dann erneut." }
+        ]
+      },
+      {
+        "id": "fotos",
+        "title": "Fotos & Portfolio",
+        "items": [
+          { "heading": "Veröffentlichung von Tattoo-Fotos", "body": "Informationen zur Veröffentlichung von Fotos fertiger Tattoos für Portfolio- und Marketingzwecke findest du in den Allgemeinen Geschäftsbedingungen (AGB), § 9 Fotorechte." }
+        ]
+      },
+      {
+        "id": "rechte",
+        "title": "Deine Rechte",
+        "items": [
+          { "heading": "Rechte der betroffenen Person", "body": "Du hast jederzeit das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch (Art. 21) gegen die Verarbeitung deiner personenbezogenen Daten. Wende dich dafür an die oben genannte Kontaktadresse." },
+          { "heading": "Beschwerderecht", "body": "Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, z. B. beim Bayerischen Landesamt für Datenschutzaufsicht (BayLDA)." }
+        ]
+      },
+      {
+        "id": "aenderungen",
+        "title": "Aktualität",
+        "items": [
+          { "heading": "Änderungen dieser Erklärung", "body": "Diese Datenschutzerklärung wird bei Bedarf angepasst, z. B. bei neuen Funktionen der Website. Stand: Juli 2026." }
+        ]
+      }
+    ],
+    "cta": {
+      "tag": "[ Fragen? ]",
+      "heading": "Bei Fragen zum Datenschutz stehe ich gerne zur Verfügung.",
+      "button": "Kontakt aufnehmen"
     }
   }
 }

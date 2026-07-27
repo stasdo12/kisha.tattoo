@@ -48,6 +48,7 @@ export function GFooter() {
 
   const POLICIES = [
     { href: '/agb', label: "AGB's" },
+    { href: '/datenschutz', label: t('links.datenschutz') },
   ]
 
   const SOCIAL = [
