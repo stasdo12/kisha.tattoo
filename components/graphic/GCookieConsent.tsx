@@ -5,7 +5,7 @@
  * Default consent state is set to 'denied' in app/[locale]/layout.tsx (before GA4 loads).
  * This component is the only place that ever grants it.
  */
-import { useEffect, useState } from 'react'
+import { useEffect, useSyncExternalStore } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 
@@ -21,23 +21,38 @@ function updateConsent(granted: boolean) {
   })
 }
 
+// Tiny external store around localStorage — lets useSyncExternalStore read the
+// stored choice without a hydration mismatch (server has no localStorage) and
+// without setState-in-effect (same-tab writes don't fire the native 'storage' event).
+type Listener = () => void
+let listeners: Listener[] = []
+function subscribe(callback: Listener) {
+  listeners.push(callback)
+  return () => { listeners = listeners.filter((l) => l !== callback) }
+}
+function getSnapshot() {
+  return window.localStorage.getItem(STORAGE_KEY)
+}
+function getServerSnapshot() {
+  return null
+}
+function setConsentChoice(granted: boolean) {
+  window.localStorage.setItem(STORAGE_KEY, granted ? 'granted' : 'denied')
+  listeners.forEach((l) => l())
+}
+
 export function GCookieConsent() {
   const t = useTranslations('cookieConsent')
-  const [visible, setVisible] = useState(false)
+  const stored = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+  const visible = stored !== 'granted' && stored !== 'denied'
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY)
-    if (stored === 'granted') {
-      updateConsent(true)
-    } else if (stored !== 'denied') {
-      setVisible(true)
-    }
-  }, [])
+    if (stored === 'granted') updateConsent(true)
+  }, [stored])
 
   function choose(granted: boolean) {
-    window.localStorage.setItem(STORAGE_KEY, granted ? 'granted' : 'denied')
+    setConsentChoice(granted)
     if (granted) updateConsent(true)
-    setVisible(false)
   }
 
   if (!visible) return null
