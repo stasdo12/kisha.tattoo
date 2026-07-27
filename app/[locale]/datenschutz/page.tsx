@@ -80,6 +80,8 @@ export default async function DatenschutzPage({
               color: '#0D0D0D',
               width: 'clamp(18rem, 32vw, 36rem)',
               letterSpacing: 'var(--g-ls)',
+              overflowWrap: 'break-word',
+              hyphens: 'auto',
             }}
           >
             {t('hero.h1')}
