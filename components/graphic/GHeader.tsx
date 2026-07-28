@@ -20,6 +20,7 @@ import { trackWhatsAppClick } from '@/lib/gtag'
 const NAV_HREFS = [
   { href: '/works' as const,                  key: 'works'   },
   { href: '/about' as const,                  key: 'about'   },
+  { href: '/team' as const,                   key: 'team'    },
   { href: '/blog' as const,                   key: 'stories' },
   { href: '/tattoo-preise-muenchen' as const, key: 'preise'  },
   { href: '/faq' as const,                    key: 'faq'     },

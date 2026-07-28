@@ -130,7 +130,12 @@ export default async function LocaleLayout({
           }}
         />
         {/* Root structured data */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema({
+          employees: [
+            { '@type': 'Person', '@id': `${SITE.url}/#person-kisha`, name: 'Kisha' },
+            { '@type': 'Person', '@id': `${SITE.url}/#person-iren`, name: 'Iren' },
+          ],
+        })) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }} />
       </head>
       <body>

@@ -1,14 +1,23 @@
 /**
- * FINELINE TATTOO MÜNCHEN — Style landing page
- * Primary keyword: "fineline tattoo münchen" (590/mo, KD 10)
- * Design: Figma spec — dark photo hero, merged works section, stacked price cards, 2-col FAQ
+ * REALISMUS TATTOO MÜNCHEN — Style + Master landing page (Iren)
+ * Primary keywords: city-phrases for local relevance (near-zero volume, see PLAN-KOMANDA §5),
+ * body content targets DE-wide demand (realistic tattoo 1900/mo, portrait tattoo 720/mo, black and grey tattoo 590/mo)
+ * plus the Tier-Tattoo cluster (tier tattoos für frauen 260/mo etc.)
+ * Design: same template as fineline-tattoo-muenchen, extended with History + Hygiene blocks
+ * (this single page = style page + full master profile, see PLAN-KOMANDA §2)
+ *
+ * Confirmed by Stas (2026-07-28):
+ * - No price table — price section intentionally links to /tattoo-preise-muenchen only ("ab" pricing lives there)
+ * - Awards: 4x 1st place, Kharkiv — structured list + awardsPageSchema (see AWARDS constant below)
+ * - Color realism work (e.g. the phoenix piece) intentionally excluded from the gallery — main focus stays Black & Grey
  */
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
+import { SITE } from '@/content/site'
 import { getTranslations } from 'next-intl/server'
-import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
+import { serviceSchema, breadcrumbSchema, faqSchema, personSchema, awardsPageSchema } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
@@ -17,42 +26,58 @@ export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
 ): Promise<Metadata> {
   const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'fineline' })
-  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/fineline-tattoo-muenchen', locale, hreflang: false })
+  const t = await getTranslations({ locale, namespace: 'realismus' })
+  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/tattoo-realismus-muenchen', locale, hreflang: false })
 }
 
-export default async function FinelineTattooMuenchen({
+export default async function RealismusTattooMuenchen({
   params,
 }: {
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'fineline' })
+  const t = await getTranslations({ locale, namespace: 'realismus' })
   const faqItems = t.raw('faq.items') as Array<{ q: string; a: string }>
+  const awardItems = t.raw('awards.items') as Array<{ year: string; event: string; category: string }>
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        serviceSchema({ name: 'Fineline Tattoo München', description: 'Fineline und Fine Line Tattoo in München — botanische Motive, Single Needle, Linework. KishaTattoo München.', url: '/fineline-tattoo-muenchen' })
+        serviceSchema({ name: 'Realismus Tattoo München', description: 'Black & Grey Realism Tattoo in München — Portrait-, Tier- und Realismus-Tattoos mit Iren. KishaTattoo München.', url: '/tattoo-realismus-muenchen' })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Fineline Tattoo München', url: '/fineline-tattoo-muenchen' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Realismus Tattoo München', url: '/tattoo-realismus-muenchen' }])
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))
+      )}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        personSchema({
+          slug: 'iren',
+          name: 'Iren',
+          alternateName: 'irene.red.tattoo',
+          jobTitle: 'Tattoo Artist — Black & Grey Realism',
+          description: 'Tattoo-Künstlerin in München — Black & Grey Realism, Portrait- und Tier-Tattoos. Mehrfache Preisträgerin, über 10 Jahre Erfahrung.',
+          image: `${SITE.url}/images/ira/hero-portrait.jpg`,
+          sameAs: ['https://www.instagram.com/irene.red.tattoo'],
+          skills: ['Black & Grey Realism', 'Portrait Tattoo', 'Animal Realism'],
+        })
+      )}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        awardsPageSchema(awardItems.map((a) => ({ year: a.year, event: a.event, category: a.category })), { slug: 'iren', name: 'Iren' })
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
         data-nav-dark
-        aria-label="Fineline Tattoo München — KishaTattoo"
+        aria-label="Realismus Tattoo München — Iren, KishaTattoo"
         style={{ position: 'relative', height: '100svh', minHeight: '680px', background: '#0D0D0D', overflow: 'hidden' }}
       >
         <Image
-          src="/images/work/spiegel-tattoo-graphic.jpg"
-          alt="Fineline Tattoo München — Spiegel Blumen Tattoo KishaTattoo"
+          src="/images/ira/hero-portrait.jpg"
+          alt="Iren — Realismus Tattoo Artist München, KishaTattoo"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
+          style={{ objectFit: 'cover', objectPosition: '65% 30%' }}
           sizes="100vw"
         />
         <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'rgba(13,13,13,0.45)', zIndex: 1 }} />
@@ -93,12 +118,12 @@ export default async function FinelineTattooMuenchen({
 
       {/* ── WORKS SECTION ─────────────────────────────────────────────────── */}
       <section
-        aria-labelledby="lw-works-heading"
+        aria-labelledby="rl-works-heading"
         style={{ background: '#F2F2F2', paddingTop: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)' }}
       >
         <div className="g-container">
           <div style={{ borderBottom: '2px solid #0D0D0D', paddingBottom: '1.25rem', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-            <h2 id="lw-works-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
+            <h2 id="rl-works-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
               {t('intro.heading')}
             </h2>
           </div>
@@ -116,54 +141,94 @@ export default async function FinelineTattooMuenchen({
           </div>
         </div>
 
+        {/*
+          Same rhythm as grafik-tattoo-muenchen: big 2-col pairs alternating with a small
+          4-col cluster, not one repeated shape. Real source ratios (checked with `sips`):
+          ~3:4 (632-620x843, 1500x2000) and ~9:16 (474x843, 1125x2000) — big rows are paired
+          by matching ratio so nothing gets force-cropped into a square.
+        */}
         <div style={{ paddingLeft: 'var(--g-pad)', paddingRight: 'var(--g-pad)' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {/* Row 1 — big, 3:4 pair, LEADS with the two portrait pieces (Stas: put portraits first) */}
             <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <GWorkImage
-                src="/images/work/4x4-dog-tattoo-fineline.jpg"
-                alt="Fineline Hund Tattoo München — KishaTattoo Fine Line"
+                src="/images/work/marilyn-monroe-portrait-tattoo-realismus.jpg"
+                alt="Marilyn Monroe Portrait Tattoo München — Iren Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Fineline', 'München', 'Kisha']}
-                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
+                tags={['Portrait', 'München', 'Iren']}
+                style={{ height: 'clamp(520px, calc(8px + 50vw), 780px)' }}
               />
               <GWorkImage
-                src="/images/work/4x4-owl-tattoo-fineline.jpg"
-                alt="Fineline Eule Tattoo München — KishaTattoo Linework"
+                src="/images/work/braut-frankenstein-portrait-tattoo-realismus.jpg"
+                alt="Braut von Frankenstein Portrait Tattoo München — Iren Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Fineline', 'München', 'Kisha']}
-                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
+                tags={['Portrait', 'München', 'Iren']}
+                style={{ height: 'clamp(520px, calc(8px + 50vw), 780px)' }}
               />
             </div>
+            {/* Row 2 — big, 9:16 pair (the two full-sleeve pieces) */}
             <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <GWorkImage
-                src="/images/work/tattoo-lego-fineline-work.jpg"
-                alt="Fineline Lego Tattoo München — KishaTattoo Fine Line"
+                src="/images/work/zeus-engel-sleeve-tattoo-realismus.jpg"
+                alt="Zeus Engel Sleeve Tattoo München — Iren Black & Grey Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Fineline', 'München', 'Kisha']}
-                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)', objectPosition: 'center 45%' }}
+                tags={['Realismus', 'München', 'Iren']}
+                style={{ height: 'clamp(560px, calc(8px + 58vw), 860px)', objectPosition: 'center 15%' }}
               />
               <GWorkImage
-                src="/images/work/spiegel-tattoo-graphic.jpg"
-                alt="Fineline Spiegel Blumen Tattoo München — KishaTattoo"
+                src="/images/work/poseidon-tattoo-bein-realismus.jpg"
+                alt="Poseidon Tattoo Bein München — Iren Black & Grey Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Fineline', 'München', 'Kisha']}
-                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)', objectPosition: 'center 35%' }}
+                tags={['Realismus', 'München', 'Iren']}
+                style={{ height: 'clamp(560px, calc(8px + 58vw), 860px)' }}
               />
             </div>
-            <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {/* Row 3 — small 4-col cluster, deliberate scale contrast against the big rows above/below */}
+            <div className="g-gallery-4col" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
               <GWorkImage
-                src="/images/work/maigloeckchen-tattoo-unterarm.jpg"
-                alt="Fineline Maiglöckchen Tattoo München — KishaTattoo Fine Line"
-                sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Fineline', 'München', 'Kisha']}
-                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
+                src="/images/work/batman-portrait-tattoo-realismus.jpg"
+                alt="Batman Portrait Tattoo München — Iren Black & Grey Realismus"
+                sizes="25vw"
+                tags={['Iren']}
+                style={{ height: 'clamp(300px, calc(8px + 22vw), 420px)' }}
               />
               <GWorkImage
-                src="/images/work/feines-linien-tattoo-daten-portraet-unterarm.jpg"
-                alt="Fineline Portrait Tattoo München — KishaTattoo Linework"
+                src="/images/work/engel-statue-tattoo-oberschenkel-realismus.jpg"
+                alt="Engel Statue Tattoo Oberschenkel München — Iren Black & Grey Realismus"
+                sizes="25vw"
+                tags={['Iren']}
+                style={{ height: 'clamp(300px, calc(8px + 22vw), 420px)' }}
+              />
+              <GWorkImage
+                src="/images/work/drachen-frau-portrait-tattoo-realismus.jpg"
+                alt="Drachen Portrait Tattoo München — Iren Black & Grey Realismus"
+                sizes="25vw"
+                tags={['Iren']}
+                style={{ height: 'clamp(300px, calc(8px + 22vw), 420px)' }}
+              />
+              <GWorkImage
+                src="/images/work/sphinx-katze-tattoo-realismus.jpg"
+                alt="Sphinx Katze Tattoo München — Iren Tier-Tattoo Realismus"
+                sizes="25vw"
+                tags={['Iren']}
+                style={{ height: 'clamp(300px, calc(8px + 22vw), 420px)' }}
+              />
+            </div>
+            {/* Row 4 — big, mixed leftovers pair */}
+            <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <GWorkImage
+                src="/images/work/loewe-lilie-tattoo-unterarm-realismus.jpg"
+                alt="Löwe Tattoo Unterarm München — Iren Black & Grey Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Fineline', 'München', 'Kisha']}
-                style={{ height: 'clamp(480px, calc(8px + 32vw), 640px)' }}
+                tags={['Realismus', 'München', 'Iren']}
+                style={{ height: 'clamp(520px, calc(8px + 50vw), 780px)' }}
+              />
+              <GWorkImage
+                src="/images/work/baby-yoda-tattoo-realismus.jpg"
+                alt="Baby Yoda Tattoo München — Iren Realismus"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Realismus', 'München', 'Iren']}
+                style={{ height: 'clamp(520px, calc(8px + 50vw), 780px)' }}
               />
             </div>
           </div>
@@ -182,12 +247,12 @@ export default async function FinelineTattooMuenchen({
 
       {/* ── SUBSTYLES ─────────────────────────────────────────────────────── */}
       <section
-        aria-labelledby="lw-substyle-heading"
+        aria-labelledby="rl-substyle-heading"
         style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
           <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', display: 'flex', justifyContent: 'center', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-            <h2 id="lw-substyle-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}>
+            <h2 id="rl-substyle-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}>
               {t('substyles.heading')}
             </h2>
           </div>
@@ -206,28 +271,60 @@ export default async function FinelineTattooMuenchen({
         </div>
       </section>
 
-      {/* ── PLACEMENTS ────────────────────────────────────────────────────── */}
+      {/* ── HISTORY (Über meine Arbeit) ──────────────────────────────────────── */}
       <section
-        aria-labelledby="lw-placements-heading"
+        aria-labelledby="rl-history-heading"
         style={{ background: '#0D0D0D', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
-          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid rgba(242,242,242,0.2)', display: 'flex', justifyContent: 'center', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-            <h2 id="lw-placements-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2', textAlign: 'center' }}>
-              {t('placements.heading')}
+          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid rgba(242,242,242,0.2)', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
+            <h2 id="rl-history-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#F2F2F2' }}>
+              {t('history.heading')}
             </h2>
           </div>
-          <div className="g-about-steps" style={{ display: 'flex' }}>
-            {(t.raw('placements.items') as Array<{ title: string; body: string }>).map((col, i) => (
-              <div key={col.title} className="g-about-step-col" style={{
-                flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '1.5rem',
-                padding: i === 0 ? '0 clamp(1rem, 2vw, 2rem) 0 0' : i === 1 ? '0 clamp(1rem, 2vw, 2rem)' : '0 0 0 clamp(1rem, 2vw, 2rem)',
-                borderLeft: i > 0 ? '1px solid rgba(242,242,242,0.15)' : 'none',
-              }}>
-                <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#F2F2F2' }}>{col.title}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(242,242,242,0.65)' }}>{col.body}</p>
-              </div>
-            ))}
+          <div style={{ display: 'flex', gap: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)', flexWrap: 'wrap' }}>
+            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(242,242,242,0.85)', width: 'clamp(16rem, 40vw, 560px)', flex: '1 1 320px' }}>
+              {t('history.body1')}
+            </p>
+            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(242,242,242,0.85)', width: 'clamp(16rem, 40vw, 560px)', flex: '1 1 320px' }}>
+              {t('history.body2')}
+            </p>
+          </div>
+
+          <div style={{ marginTop: 'clamp(2rem, 3.5vw, 3.5rem)', paddingTop: '1.5rem', borderTop: '1px solid rgba(242,242,242,0.2)' }}>
+            <p style={{ fontSize: 'var(--g-tag)', color: 'rgba(242,242,242,0.6)', marginBottom: '1rem' }}>
+              {t('awards.heading')}
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              {awardItems.map((a, i) => (
+                <div key={i} style={{ display: 'flex', gap: '1rem', fontSize: 'var(--g-bm)', color: 'rgba(242,242,242,0.85)' }}>
+                  <span style={{ opacity: 0.6, flexShrink: 0 }}>{a.year}</span>
+                  <span>{a.event} — {a.category}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HYGIENE & SICHERHEIT ─────────────────────────────────────────────── */}
+      <section
+        aria-labelledby="rl-hygiene-heading"
+        style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
+      >
+        <div className="g-container">
+          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
+            <h2 id="rl-hygiene-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
+              {t('hygiene.heading')}
+            </h2>
+          </div>
+          <div style={{ display: 'flex', gap: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)', flexWrap: 'wrap' }}>
+            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 40vw, 560px)', flex: '1 1 320px' }}>
+              {t('hygiene.body1')}
+            </p>
+            <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', width: 'clamp(16rem, 40vw, 560px)', flex: '1 1 320px' }}>
+              {t('hygiene.body2')}
+            </p>
           </div>
         </div>
       </section>
@@ -240,21 +337,7 @@ export default async function FinelineTattooMuenchen({
               {t('price.heading')}
             </h2>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '16px' }}>
-            {(t.raw('price.rows') as Array<{ size: string; price: string; time: string }>).map(row => (
-              <div key={row.size} style={{
-                background: '#E8E8E8',
-                display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between',
-                padding: 'clamp(1.5rem, 2.5vw, 2.5rem)',
-              }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <p style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{row.size}</p>
-                  <p style={{ fontSize: 'var(--g-bs)', color: '#0D0D0D', opacity: 0.6 }}>{row.time}</p>
-                </div>
-                <p style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{row.price}</p>
-              </div>
-            ))}
-          </div>
+          {/* No price rows yet — waiting on price decision, PLAN-KOMANDA §6. Links straight to the general price page for now. */}
         </div>
         <Link href="/tattoo-preise-muenchen" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -269,12 +352,12 @@ export default async function FinelineTattooMuenchen({
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section
-        aria-labelledby="lw-faq-heading"
+        aria-labelledby="rl-faq-heading"
         style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
           <div className="g-faq-row" style={{ borderTop: '2px solid #0D0D0D', paddingTop: '1.25rem', display: 'flex', gap: 'clamp(2rem, 4vw, 5rem)', alignItems: 'flex-start' }}>
-            <h2 id="lw-faq-heading" style={{
+            <h2 id="rl-faq-heading" style={{
               fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D',
               width: 'clamp(14rem, 21.5vw, 414px)', flexShrink: 0,
             }}>
@@ -300,9 +383,9 @@ export default async function FinelineTattooMuenchen({
       <section style={{ background: '#F2F2F2', padding: 'clamp(1.5rem, 2.5vw, 3rem) 0' }}>
         <div className="g-container" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <span style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)' }}>{t('related.label')}</span>
+          <Link href="/fineline-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.fineline')}</Link>
           <Link href="/japanisches-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.japanese')}</Link>
           <Link href="/grafik-tattoo-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.grafik')}</Link>
-          <Link href="/tattoo-realismus-muenchen" style={{ fontSize: 'var(--g-bm)', color: '#0D0D0D', textDecoration: 'none', borderBottom: '1px solid currentColor', paddingBottom: '2px' }}>{t('related.realismus')}</Link>
         </div>
       </section>
 

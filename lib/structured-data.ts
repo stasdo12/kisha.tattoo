@@ -10,7 +10,9 @@ interface FaqItem {
  * Use in page components: <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
  */
 
-export function localBusinessSchema() {
+export function localBusinessSchema(options?: {
+  employees?: Array<{ '@type': string; '@id': string; name: string }>
+}) {
   return {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'TattooParlor'],
@@ -65,6 +67,7 @@ export function localBusinessSchema() {
       reviewCount: SITE.reviews.reviewCount,
       bestRating: SITE.reviews.bestRating,
     },
+    ...(options?.employees?.length ? { employee: options.employees } : {}),
   }
 }
 
@@ -172,7 +175,7 @@ export function articleSchema({
     image: coverImage,
     author: {
       '@type': 'Person',
-      '@id': `${SITE.url}/#person`,
+      '@id': `${SITE.url}/#person-kisha`,
       name: 'Kisha',
       url: SITE.url,
     },
@@ -189,28 +192,49 @@ export function articleSchema({
 }
 
 /**
- * Person schema — for About page and AI entity recognition (GEO/AEO).
- * Helps Google and AI systems (ChatGPT, Perplexity) understand KishaTattoo as a real entity.
+ * Person schema — for About/Team pages and AI entity recognition (GEO/AEO).
+ * Helps Google and AI systems (ChatGPT, Perplexity) understand each artist as a distinct entity.
+ * Defaults describe Kisha — pass options to describe another artist (unique @id via slug).
  */
-export function personSchema() {
+export function personSchema(options?: {
+  slug?: string
+  name?: string
+  alternateName?: string
+  jobTitle?: string
+  description?: string
+  image?: string
+  sameAs?: string[]
+  skills?: string[]
+}) {
+  const {
+    slug = 'kisha',
+    name = 'Kisha',
+    alternateName = 'KishaTattoo',
+    jobTitle = 'Tattoo Artist',
+    description = 'Tattoo-Künstlerin in München — Japanisches Irezumi, Grafik-Tattoo, Linework.',
+    image = `${SITE.url}/og/default.jpg`,
+    sameAs = [SITE.social.instagram, SITE.social.facebook, SITE.social.reddit, SITE.social.tattoodo, SITE.social.gbp],
+    skills = ['Japanese Irezumi', 'Graphic Tattoo', 'Linework', 'Blackwork', 'Fineline'],
+  } = options ?? {}
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': `${SITE.url}/#person`,
-    name: 'Kisha',
-    alternateName: 'KishaTattoo',
-    jobTitle: 'Tattoo Artist',
-    description: 'Tattoo-Künstlerin in München — Japanisches Irezumi, Grafik-Tattoo, Linework.',
+    '@id': `${SITE.url}/#person-${slug}`,
+    name,
+    alternateName,
+    jobTitle,
+    description,
     url: SITE.url,
-    image: `${SITE.url}/og/default.jpg`,
-    sameAs: [SITE.social.instagram, SITE.social.facebook, SITE.social.reddit, SITE.social.tattoodo, SITE.social.gbp],
+    image,
+    sameAs,
     knowsLanguage: ['de', 'en', 'uk'],
     worksFor: { '@type': 'LocalBusiness', '@id': `${SITE.url}/#business`, name: SITE.name },
     hasOccupation: {
       '@type': 'Occupation',
-      name: 'Tattoo Artist',
+      name: jobTitle,
       occupationLocation: { '@type': 'City', name: 'München', addressCountry: 'DE' },
-      skills: ['Japanese Irezumi', 'Graphic Tattoo', 'Linework', 'Blackwork', 'Fineline'],
+      skills,
     },
   }
 }
@@ -325,13 +349,18 @@ export function tattooServicePricesSchema() {
 
 /**
  * Awards page schema — Person with award list for AI entity recognition.
+ * Defaults describe Kisha — pass slug/name to describe another artist (unique @id).
  */
-export function awardsPageSchema(awards: Array<{ year: string; event: string; category: string }>) {
+export function awardsPageSchema(
+  awards: Array<{ year: string; event: string; category: string }>,
+  options?: { slug?: string; name?: string }
+) {
+  const { slug = 'kisha', name = 'Kisha' } = options ?? {}
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': `${SITE.url}/#person`,
-    name: 'Kisha',
+    '@id': `${SITE.url}/#person-${slug}`,
+    name,
     award: awards.map((a) => `${a.category} — ${a.event} ${a.year}`),
     worksFor: { '@type': 'LocalBusiness', '@id': `${SITE.url}/#business`, name: SITE.name },
   }

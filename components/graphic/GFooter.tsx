@@ -28,6 +28,7 @@ export function GFooter() {
     { href: '/japanisches-tattoo-muenchen', label: 'Japanese Tattoo'  },
     { href: '/grafik-tattoo-muenchen',      label: 'Graphic Tattoo'   },
     { href: '/fineline-tattoo-muenchen',    label: t('links.fineline')},
+    { href: '/tattoo-realismus-muenchen',   label: t('links.realismus')},
   ]
 
   const AREA = [

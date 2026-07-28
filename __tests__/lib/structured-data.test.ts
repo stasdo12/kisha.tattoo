@@ -227,7 +227,7 @@ describe('articleSchema', () => {
 
   it('author links to person @id', () => {
     expect(schema.author['@type']).toBe('Person')
-    expect(schema.author['@id']).toBe(`${SITE.url}/#person`)
+    expect(schema.author['@id']).toBe(`${SITE.url}/#person-kisha`)
   })
 
   it('publisher has Organization type', () => {
@@ -250,7 +250,7 @@ describe('personSchema', () => {
   })
 
   it('@id is the person anchor', () => {
-    expect(schema['@id']).toBe(`${SITE.url}/#person`)
+    expect(schema['@id']).toBe(`${SITE.url}/#person-kisha`)
   })
 
   it('name is Kisha', () => {
@@ -283,6 +283,13 @@ describe('personSchema', () => {
   it('occupation location is München, DE', () => {
     expect(schema.hasOccupation.occupationLocation.name).toBe('München')
     expect(schema.hasOccupation.occupationLocation.addressCountry).toBe('DE')
+  })
+
+  it('accepts options to describe a different artist with a unique @id', () => {
+    const other = personSchema({ slug: 'realismus-artist', name: 'Test Artist', jobTitle: 'Realism Tattoo Artist' })
+    expect(other['@id']).toBe(`${SITE.url}/#person-realismus-artist`)
+    expect(other.name).toBe('Test Artist')
+    expect(other['@id']).not.toBe(schema['@id'])
   })
 })
 

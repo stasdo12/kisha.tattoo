@@ -24,6 +24,7 @@
       "japanese": "Japanese Tattoo Munich",
       "graphic": "Graphic Tattoo Munich",
       "fineline": "Fineline Tattoo Munich",
+      "realismus": "Realism Tattoo Munich",
       "allMotifs": "All Motifs",
       "dragon": "Dragon (Ryū)",
       "koi": "Koi (Carp)",
@@ -269,6 +270,28 @@
       ]
     }
   },
+  "team": {
+    "meta": {
+      "title": "Team — Kisha & Iren, Tattoo Munich",
+      "description": "The KishaTattoo Munich team: Kisha (Japanese Irezumi, fineline, graphic) and Iren (Black & Grey Realism)."
+    },
+    "hero": {
+      "heading": "Our team",
+      "sub": "Two artists, one studio — each with their own style and handwriting."
+    },
+    "cards": {
+      "kisha": {
+        "name": "Kisha",
+        "tag": "Japanese Irezumi · Fineline · Graphic",
+        "cta": "More about Kisha"
+      },
+      "iren": {
+        "name": "Iren",
+        "tag": "Black & Grey Realism",
+        "cta": "More about Iren"
+      }
+    }
+  },
   "booking": {
     "meta": {
       "title": "Book Appointment — Kisha Tattoo Munich",
@@ -496,6 +519,16 @@
         "title": "Tattoo Touch-Ups: When You Actually Need One — And When It's Just Healing",
         "excerpt": "Did a line really fade, or is it just healing? An honest look at when a touch-up at my studio in Munich makes sense — and when it doesn't.",
         "body": "Almost every week, right after a tattoo heals, I get the same message: \"Did something fall out here?\" The honest answer is: usually not. Touch-ups are one of the most misunderstood topics in my job. Sometimes they're genuinely necessary. Often, they're just a normal part of the process — especially with fine line work, where I deliberately push right to the edge of how much pigment skin can hold.\n\nI'll say it straight, the same way I tell my clients in the studio in Munich.\n\n## What a touch-up actually is\n\nA touch-up means refreshing specific spots on an already healthy, finished piece — usually a faded line or a small gap in a densely packed black area. That's completely different from a [cover-up](/blog/tattoo-coverup-muenchen). A cover-up creates a new, larger design over an old tattoo you no longer want. With a touch-up, the design stays exactly the same — we just refresh what the skin didn't fully hold onto.\n\n## Where touch-ups are genuinely normal\n\nSome areas of the body lose pigment faster — and that has nothing to do with the quality of the work, it's just the skin:\n\n- The neck, with very fine lines\n- Ribs\n- Palms\n- Soles of the feet\n- Areas near mucous membranes\n\nSkin is thinner or renews itself faster there. A small correction afterward is normal — not a mistake, nothing to worry about.\n\n## Why the finest lines are affected most\n\nWith fine line work, it's almost always the thinnest line that fades first — not the whip shading around it. That's a deliberate choice in how I work: fine line has to be as thin and delicate as possible, or it loses the exact effect people choose it for. A thicker, \"safer\" line holds up better, but looks completely different — nowhere near as delicate. So on difficult spots, where the skin is especially thin and sensitive, I deliberately work right at the edge of what it can hold. It's a demanding technique — and it's exactly what creates the effect people come to fine line for in the first place.\n\n## A real story from the studio\n\nRecently a client came in a week after getting a neck tattoo — super fine lines — and she was really worried, convinced something had gone wrong. We took a look, touched it up in two minutes, done. That's exactly what I mean: fine lines sometimes drop out a little because I push them as thin as possible — that's the price of the finest possible line, not a mistake. And it's completely normal to be startled if you've never seen it before.\n\n## The biggest myth about touch-ups\n\nThe most common assumption clients have: if something needs touching up, the tattoo was done badly. That's not true. The most important factor is how your body and skin react during the session — not the quality of the work. Everyone's skin is different, everyone's blood pressure is different — and blood pressure has a real effect on how well pigment holds in the finest lines. Even the state you show up in matters: alcohol before your appointment raises blood pressure, and pigment holds worse in fine lines as a result. That's one reason I always ask clients to come in sober and rested — it affects the result more than people think.\n\n## How long should you wait?\n\nTwo weeks for full healing — non-negotiable, before anyone can even judge if something's actually missing. After that, I wait one more week. Only after about three weeks can you really see what's left. If someone wants a touch-up after five days, I tell them: wait a bit longer.\n\n## How to check it yourself before booking\n\nBefore you message me, take a close look:\n\n- the line looks uneven — thinner in one spot, thicker in another\n- pigment has partially disappeared from part of a line\n- on very small, delicate work where every dot matters, even a tiny gap stands out\n\nOn larger pieces it's different — overall contrast is what matters there, and losing one or two dots is often not even visible to the naked eye.\n\n## What a touch-up appointment looks like\n\nIt depends on the size and depth of the area, but it's usually 20 to 30 minutes. It's best to send me a photo beforehand so I can assess what's actually needed — or we look at it in person when you're at the studio.\n\n## Does it cost anything?\n\nWithin the first three weeks after healing, the first touch-up on my own work is free. That's part of the job to me. I also touch up tattoos done by other artists — but those are always paid. Same goes for touch-ups years after the original tattoo, once the skin has seen plenty of sun or sauna.\n\n## How to avoid needing a touch-up in the first place\n\nThe best prevention is proper aftercare right after your session. I wrote a [full guide on this](/blog/tattoo-nachsorge-pflege-tipps) — most unnecessary touch-ups happen in the first two weeks, not years later.\n\nIn the end, the message is simple: I'm a professional, and I stand behind my work. If something's genuinely wrong, I fix it — no discussion needed. Most of the time it's a few minutes in the chair, like with the client and her neck tattoo — not a big deal. If you're not sure whether your tattoo needs a touch-up, [just message me](/booking). We'll take a look together."
+      },
+      "patchwork-tattoo-muenchen": {
+        "title": "Patchwork Tattoo Munich: When Several Small Pieces Actually Work Together — and When They Don't",
+        "excerpt": "Patchwork is everywhere right now — but not every collection of small tattoos ends up looking like a whole. What actually works together on my arms, and what I check before I say yes.",
+        "body": "\"Patchwork tattoo\" is one of the most common words that comes up in consultations right now. The idea sounds tempting: no big plan, no deciding years in advance, just start and let it grow over time.\n\nI'll say it straight: patchwork works — but not automatically. I've seen arms where every single piece was great on its own, and the sum still looked random. And I've seen patchwork sleeves that look like they were planned from day one, even though they never were.\n\nThe difference isn't luck. It comes down to a handful of decisions you — and I — make at the start, even when it doesn't feel like a decision at all.\n\n## What a patchwork tattoo actually is\n\nPatchwork means several standalone pieces on one area, without one continuous image like a classic sleeve. No flow from one scene into the next — more like a collection. Each piece stands on its own; you can start with one and add the next years later.\n\nThat's what separates it from a planned sleeve, where the beginning, middle and end are already decided on day one.\n\n## Why so many people are asking for it right now\n\nI get the appeal completely. You don't have to commit to a single story. You start with one small piece that matters to you right now — and in a year your life might look different, but the next piece still fits.\n\nFor me as an artist, that also means more freedom on every individual piece, without it automatically hurting the overall composition.\n\n## Where it goes wrong — my honest experience\n\nI'm not trying to scare you off, but I'll say it plainly: the arms that end up looking messy almost always have the same problem — the pieces were placed however felt right in the moment, without any thought for size, spacing or which way they face.\n\nA tiny piece right next to a huge one. One looking up, right beside one pointing down. Too much empty space in one spot, none in another. In the end, the skin looks like a pinboard covered in stickers — not like something that belongs together.\n\n## What actually works together on my arms\n\nI work exclusively in black and grey — [fineline](/fineline-tattoo-muenchen), blackwork, [graphic](/grafik-tattoo-muenchen), [Japanese-inspired motifs](/japanisches-tattoo-muenchen). That's already half the battle: if everything stays in the same tonal range, the rest doesn't need to be perfectly planned to read as one whole.\n\nEven so, I check a few things on every new piece:\n\n- Scale relative to what's already there\n- Direction and flow — pieces \"facing off\" against each other read as chaotic\n- Spacing — enough skin to breathe between pieces\n- Line weight — fine fineline detail next to overly heavy blackwork can fight each other\n\n## A little planning still pays off\n\nEven though patchwork doesn't need to be fully mapped out, a short conversation beforehand saves you trouble later. I always ask: where should the first piece sit, if you already know more will come? Do you start in the middle or at the edge?\n\nThat costs you five minutes of consultation and saves you from a piece later being \"in the way\" because there's no room left for the next one.\n\n## When does it become patchwork — instead of just several separate tattoos?\n\nHonestly, there's no fixed line. For me, it starts feeling like patchwork the moment you deliberately leave room for \"the next piece\" — even before you know what that will be. From that point on, I'm already thinking ahead while I work, not just about the one piece in front of me.\n\nIf you're weighing whether your next tattoo works as patchwork with what you already have — [just message me](/booking) and we'll look at it together."
+      },
+      "black-grey-realismus-tattoo-muenchen": {
+        "title": "Why I Brought Iren Onto the Team — and Why I Don't Do Realism Myself",
+        "excerpt": "Portrait and animal tattoos in the realism style aren't my thing — but from now on, they're still part of KishaTattoo. Why I work with Iren, and what she can do that I don't.",
+        "body": "I regularly get requests for motifs that just aren't my style — realistic portraits, animals that are supposed to look like a photo on skin. Honestly: I don't do that. My work is fineline, blackwork, graphic, Japanese-inspired irezumi — lines, not photorealism.\n\nUp until now I've just passed those requests on, to artists I didn't personally know. That never fully sat right with me. Recently, Iren started working alongside me in the studio — and that's exactly her specialty.\n\nHere's an honest look at what changes because of that, and what doesn't.\n\n## Why I don't do realism myself\n\nRealism is technically something completely different from my work. It's about soft transitions, shading, depth — making a face or an animal look like a photograph on skin. My strength is the opposite: reduced, precise linework, often pushed right to the edge of how much detail skin can hold.\n\nBeing genuinely good at both is rare. I've chosen to do what I actually excel at — instead of offering realism half-heartedly just so I have \"everything\" in my portfolio.\n\nIf it took me over ten years to get my linework to where it is today, I have to assume it took Iren just as long to bring her shading to this level. That deserves respect — and that's exactly why I wanted someone on the team who genuinely masters it, instead of just dabbling in it myself.\n\n## Who Iren is\n\nIren is a tattoo artist with over 10 years of experience. Multiple award winner for Black & Grey Realism at the Kharkiv Tattoo Convention (2019, 2020, 2021), plus winner of the Kharkiv Tattoo Battle 2021, with four diplomas. She's trained other artists herself and passed on her knowledge.\n\nBefore bringing her onto the team, I spent a long time looking at her work — portraits, animals, large compositions, all in black and grey, all with the depth I don't do myself.\n\n## What Black & Grey Realism actually is\n\nRealism depicts a motif the way it actually looks — with light, shadow and fine detail, instead of clean outlines like mine. Black and grey means: no color at all, just shading in black and grey tones. That's the technical foundation for almost every realistic tattoo, whether it's a portrait, an animal, or a large composition.\n\nThe difference from my own work comes down to one line: I draw with line. Iren draws with light and shadow.\n\n## Why this matters if you're a client\n\nYou no longer have to look elsewhere if you want a portrait or a realistic animal tattoo, while still getting the standards and hygiene you'd expect from me. Same address, same booking, same standards — just a different style, done by someone who genuinely masters it, instead of me doing it half as well.\n\n## What you get with Iren\n\n- Portrait tattoos — faces, people, with realistic depth and true-to-life detail\n- Black & Grey Realism in general — large-scale compositions as well as fine detail work\n- Animal tattoos in the realism style — from your own pet to a symbolic animal like a lion or a sphynx cat\n\n## How we work together now\n\nWe share the studio, but not the style. I'm staying with fineline, blackwork and irezumi — that doesn't change. Iren does realism. If you contact me and your idea actually fits her better, I'll tell you honestly, the same way I'd tell you if a motif just isn't right for you — and connect you with her directly, no detour and no extra wait.\n\nYou can see all her work and read more about her on [her own page](/tattoo-realismus-muenchen). If you're weighing whether your idea fits better with me or with Iren — [just message us](/booking) and we'll figure it out together."
       }
     },
     "allArticles": "All articles",
@@ -928,10 +961,99 @@
     "related": {
       "label": "More styles",
       "japanese": "Japanese Tattoo Munich",
-      "grafik": "Graphic Tattoo Munich"
+      "grafik": "Graphic Tattoo Munich",
+      "realismus": "Realism Tattoo Munich"
     },
     "gallery": {
       "viewAll": "View all fineline works"
+    }
+  },
+  "realismus": {
+    "meta": {
+      "title": "Realism Tattoo Munich — Iren",
+      "description": "Black & Grey Realism tattoos in Munich with Iren — multiple award winner, 10+ years of experience. Portrait, animal and realism tattoos."
+    },
+    "hero": {
+      "h1": "Realism Tattoo Munich — Black & Grey",
+      "sub": "Individual portraits, animal motifs and large-scale black-and-grey compositions — multiple award winner in Black & Grey Realism, 10+ years of experience."
+    },
+    "cta": {
+      "button": "Request appointment"
+    },
+    "intro": {
+      "heading": "Work by Iren — Black & Grey Realism",
+      "body1": "From portraits to animal motifs: every tattoo is developed individually for you — with a focus on fine detail, strong composition and your body's anatomy.",
+      "body2": "Over 10 years of experience in the realism style — multiple award winner for Black & Grey Realism, holder of four diplomas, with experience training other tattoo artists."
+    },
+    "gallery": {
+      "viewAll": "View all realism works"
+    },
+    "substyles": {
+      "heading": "Realism Tattoo Munich — Portrait, Black & Grey & Animal Tattoo",
+      "items": [
+        {
+          "title": "Portrait Realism",
+          "body": "Faces and portraits of people — rendered with realistic shading, depth and true-to-life detail. Portrait tattoos are among the most demanding motifs there are: any imprecision in needlework stands out immediately, every proportion has to be right."
+        },
+        {
+          "title": "Black & Grey Realism",
+          "body": "Classic black-and-grey shading with no color — light and shadow create the depth. Black & grey is the technical foundation of almost every realism tattoo, suited to both large-scale pieces and fine detail work."
+        },
+        {
+          "title": "Animal Tattoo — Animalistic Realism",
+          "body": "Animals rendered realistically — from a portrait of your own pet to a wild animal as a symbol of strength or character. Animal tattoos are among the most requested motifs in the realism style, with real fur, real eyes, real texture."
+        }
+      ]
+    },
+    "history": {
+      "heading": "About my work",
+      "body1": "I'm a tattoo artist with over 10 years of experience. Multiple award winner in Black & Grey Realism in Kharkiv (1st places) and holder of 4 diplomas. I've also trained other tattoo artists and passed on my knowledge.",
+      "body2": "I put love, precision and respect for your body into every tattoo. Every one of my projects is individual and developed specifically for you. My style is Black & Grey Realism, with a focus on fine detail and strong composition — I always consider the anatomy and how the tattoo will look on your skin long-term."
+    },
+    "awards": {
+      "heading": "Awards",
+      "items": [
+        { "year": "2019", "event": "Kharkiv Tattoo Convention", "category": "Best of Day — Black & Grey" },
+        { "year": "2020", "event": "Kharkiv Tattoo Convention", "category": "Best of Day — Black & Grey" },
+        { "year": "2021", "event": "Kharkiv Tattoo Convention", "category": "Best of Day — Black & Grey" },
+        { "year": "2021", "event": "Kharkiv Tattoo Battle", "category": "1st Place" }
+      ]
+    },
+    "hygiene": {
+      "heading": "Hygiene & safety",
+      "body1": "Cleanliness and hygiene are my top priority. I work strictly according to all applicable hygiene standards and regulations in Germany.",
+      "body2": "I use exclusively sterile materials and single-use products. All work surfaces and instruments are carefully disinfected and prepared after every appointment — your safety and health always come first."
+    },
+    "price": {
+      "heading": "What does a realism tattoo cost?",
+      "link": "View the full price overview"
+    },
+    "faq": {
+      "heading": "Frequently asked questions about realism tattoos in Munich",
+      "items": [
+        {
+          "q": "What is a realism tattoo?",
+          "a": "A realism tattoo depicts a motif the way it looks in reality — with light, shadow, depth and fine detail, rather than outlines or stylized shapes. Typical motifs are portraits, animals and nature scenes, usually in black and grey or with realistic coloring."
+        },
+        {
+          "q": "What's the difference between realism and black & grey tattoos?",
+          "a": "Black & grey is a shading technique — realism is a style that uses this technique to make motifs look as lifelike as possible. Not every black & grey tattoo is realistic, but almost every realistic tattoo is built on black & grey shading."
+        },
+        {
+          "q": "What is an animal tattoo in the realism style?",
+          "a": "An animal tattoo in the realism style shows an animal in enough detail that fur, eyes and expression feel lifelike — often as a portrait of your own pet, or as a symbolic animal representing traits like strength or freedom."
+        },
+        {
+          "q": "How does a realism tattoo age?",
+          "a": "Well-executed realism tattoos hold up for years, because the shading is set with enough depth. Fine details like fur texture or eye highlights can soften slightly over time — consistent sun protection and good aftercare slow that down significantly."
+        }
+      ]
+    },
+    "related": {
+      "label": "More styles",
+      "fineline": "Fineline Tattoo Munich",
+      "japanese": "Japanese Tattoo Munich",
+      "grafik": "Graphic Tattoo Munich"
     }
   },
   "grafik": {
@@ -1012,7 +1134,8 @@
     "related": {
       "label": "More styles",
       "japanese": "Japanese Tattoo Munich",
-      "fineline": "Linework Tattoo Munich"
+      "fineline": "Linework Tattoo Munich",
+      "realismus": "Realism Tattoo Munich"
     },
     "gallery": {
       "viewAll": "View all works"
@@ -1100,7 +1223,8 @@
     "related": {
       "label": "More styles",
       "grafik": "Graphic Tattoo Munich",
-      "fineline": "Linework Tattoo Munich"
+      "fineline": "Linework Tattoo Munich",
+      "realismus": "Realism Tattoo Munich"
     },
     "gallery": {
       "viewAll": "View all works"
@@ -1872,6 +1996,7 @@
     "nav": {
       "works": "Works",
       "about": "About",
+      "team": "Team",
       "stories": "Stories",
       "preise": "Prices",
       "faq": "FAQ",
