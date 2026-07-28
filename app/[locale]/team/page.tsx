@@ -1,7 +1,7 @@
 /**
  * TEAM — hub page, artist cards
  * Design: simple hero + 2-col card grid, reusing the site's dark-overlay hero pattern.
- * Each card links to the artist's full profile page (Kisha → /about, Iren → /tattoo-realismus-muenchen).
+ * Each card links to the artist's full profile page (Kisha → /about, Iren Red → /tattoo-realismus-muenchen).
  * See PLAN-KOMANDA-2026-07-27.md §2 — this page is intentionally just an index, not a duplicate profile.
  */
 import type { Metadata } from 'next'
@@ -35,7 +35,7 @@ export default async function TeamPage() {
       key: 'iren',
       href: '/tattoo-realismus-muenchen',
       photo: '/images/ira/portrait-2.jpg',
-      alt: 'Iren — Tattoo Artist München, Black & Grey Realism',
+      alt: 'Iren Red — Tattoo Artist München, Black & Grey Realism',
     },
   ] as const
 

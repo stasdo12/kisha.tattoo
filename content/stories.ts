@@ -222,7 +222,7 @@ export const STORIES: StoryMeta[] = [
     category: 'Studio',
     coverImage: '/images/ira/portrait-2.jpg',
     coverImageBig: '/images/ira/portrait-2.jpg',
-    coverAlt: 'Iren — neue Tattoo Artistin bei KishaTattoo München, Black & Grey Realismus',
+    coverAlt: 'Iren Red — neue Tattoo Artistin bei KishaTattoo München, Black & Grey Realismus',
   },
 ]
 

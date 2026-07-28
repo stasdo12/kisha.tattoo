@@ -133,7 +133,7 @@ export default async function LocaleLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema({
           employees: [
             { '@type': 'Person', '@id': `${SITE.url}/#person-kisha`, name: 'Kisha' },
-            { '@type': 'Person', '@id': `${SITE.url}/#person-iren`, name: 'Iren' },
+            { '@type': 'Person', '@id': `${SITE.url}/#person-iren`, name: 'Iren Red' },
           ],
         })) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }} />

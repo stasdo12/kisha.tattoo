@@ -1,5 +1,5 @@
 /**
- * REALISMUS TATTOO MÜNCHEN — Style + Master landing page (Iren)
+ * REALISMUS TATTOO MÜNCHEN — Style + Master landing page (Iren Red)
  * Primary keywords: city-phrases for local relevance (near-zero volume, see PLAN-KOMANDA §5),
  * body content targets DE-wide demand (realistic tattoo 1900/mo, portrait tattoo 720/mo, black and grey tattoo 590/mo)
  * plus the Tier-Tattoo cluster (tier tattoos für frauen 260/mo etc.)
@@ -42,7 +42,7 @@ export default async function RealismusTattooMuenchen({
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        serviceSchema({ name: 'Realismus Tattoo München', description: 'Black & Grey Realism Tattoo in München — Portrait-, Tier- und Realismus-Tattoos mit Iren. KishaTattoo München.', url: '/tattoo-realismus-muenchen' })
+        serviceSchema({ name: 'Realismus Tattoo München', description: 'Black & Grey Realism Tattoo in München — Portrait-, Tier- und Realismus-Tattoos mit Iren Red. KishaTattoo München.', url: '/tattoo-realismus-muenchen' })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Realismus Tattoo München', url: '/tattoo-realismus-muenchen' }])
@@ -53,7 +53,7 @@ export default async function RealismusTattooMuenchen({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         personSchema({
           slug: 'iren',
-          name: 'Iren',
+          name: 'Iren Red',
           alternateName: 'irene.red.tattoo',
           jobTitle: 'Tattoo Artist — Black & Grey Realism',
           description: 'Tattoo-Künstlerin in München — Black & Grey Realism, Portrait- und Tier-Tattoos. Mehrfache Preisträgerin, über 10 Jahre Erfahrung.',
@@ -63,18 +63,18 @@ export default async function RealismusTattooMuenchen({
         })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        awardsPageSchema(awardItems.map((a) => ({ year: a.year, event: a.event, category: a.category })), { slug: 'iren', name: 'Iren' })
+        awardsPageSchema(awardItems.map((a) => ({ year: a.year, event: a.event, category: a.category })), { slug: 'iren', name: 'Iren Red' })
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
         data-nav-dark
-        aria-label="Realismus Tattoo München — Iren, KishaTattoo"
+        aria-label="Realismus Tattoo München — Iren Red, KishaTattoo"
         style={{ position: 'relative', height: '100svh', minHeight: '680px', background: '#0D0D0D', overflow: 'hidden' }}
       >
         <Image
           src="/images/ira/hero-portrait.jpg"
-          alt="Iren — Realismus Tattoo Artist München, KishaTattoo"
+          alt="Iren Red — Realismus Tattoo Artist München, KishaTattoo"
           fill
           priority
           style={{ objectFit: 'cover', objectPosition: '65% 30%' }}
@@ -153,16 +153,16 @@ export default async function RealismusTattooMuenchen({
             <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <GWorkImage
                 src="/images/work/marilyn-monroe-portrait-tattoo-realismus.jpg"
-                alt="Marilyn Monroe Portrait Tattoo München — Iren Realismus"
+                alt="Marilyn Monroe Portrait Tattoo München — Iren Red Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Portrait', 'München', 'Iren']}
+                tags={['Portrait', 'München', 'Iren Red']}
                 style={{ height: 'clamp(520px, calc(8px + 50vw), 780px)' }}
               />
               <GWorkImage
                 src="/images/work/braut-frankenstein-portrait-tattoo-realismus.jpg"
-                alt="Braut von Frankenstein Portrait Tattoo München — Iren Realismus"
+                alt="Braut von Frankenstein Portrait Tattoo München — Iren Red Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Portrait', 'München', 'Iren']}
+                tags={['Portrait', 'München', 'Iren Red']}
                 style={{ height: 'clamp(520px, calc(8px + 50vw), 780px)' }}
               />
             </div>
@@ -170,16 +170,16 @@ export default async function RealismusTattooMuenchen({
             <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <GWorkImage
                 src="/images/work/zeus-engel-sleeve-tattoo-realismus.jpg"
-                alt="Zeus Engel Sleeve Tattoo München — Iren Black & Grey Realismus"
+                alt="Zeus Engel Sleeve Tattoo München — Iren Red Black & Grey Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Realismus', 'München', 'Iren']}
+                tags={['Realismus', 'München', 'Iren Red']}
                 style={{ height: 'clamp(560px, calc(8px + 58vw), 860px)', objectPosition: 'center 15%' }}
               />
               <GWorkImage
                 src="/images/work/poseidon-tattoo-bein-realismus.jpg"
-                alt="Poseidon Tattoo Bein München — Iren Black & Grey Realismus"
+                alt="Poseidon Tattoo Bein München — Iren Red Black & Grey Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Realismus', 'München', 'Iren']}
+                tags={['Realismus', 'München', 'Iren Red']}
                 style={{ height: 'clamp(560px, calc(8px + 58vw), 860px)' }}
               />
             </div>
@@ -187,30 +187,30 @@ export default async function RealismusTattooMuenchen({
             <div className="g-gallery-4col" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
               <GWorkImage
                 src="/images/work/batman-portrait-tattoo-realismus.jpg"
-                alt="Batman Portrait Tattoo München — Iren Black & Grey Realismus"
+                alt="Batman Portrait Tattoo München — Iren Red Black & Grey Realismus"
                 sizes="25vw"
-                tags={['Iren']}
+                tags={['Iren Red']}
                 style={{ height: 'clamp(300px, calc(8px + 22vw), 420px)' }}
               />
               <GWorkImage
                 src="/images/work/engel-statue-tattoo-oberschenkel-realismus.jpg"
-                alt="Engel Statue Tattoo Oberschenkel München — Iren Black & Grey Realismus"
+                alt="Engel Statue Tattoo Oberschenkel München — Iren Red Black & Grey Realismus"
                 sizes="25vw"
-                tags={['Iren']}
+                tags={['Iren Red']}
                 style={{ height: 'clamp(300px, calc(8px + 22vw), 420px)' }}
               />
               <GWorkImage
                 src="/images/work/drachen-frau-portrait-tattoo-realismus.jpg"
-                alt="Drachen Portrait Tattoo München — Iren Black & Grey Realismus"
+                alt="Drachen Portrait Tattoo München — Iren Red Black & Grey Realismus"
                 sizes="25vw"
-                tags={['Iren']}
+                tags={['Iren Red']}
                 style={{ height: 'clamp(300px, calc(8px + 22vw), 420px)' }}
               />
               <GWorkImage
                 src="/images/work/sphinx-katze-tattoo-realismus.jpg"
-                alt="Sphinx Katze Tattoo München — Iren Tier-Tattoo Realismus"
+                alt="Sphinx Katze Tattoo München — Iren Red Tier-Tattoo Realismus"
                 sizes="25vw"
-                tags={['Iren']}
+                tags={['Iren Red']}
                 style={{ height: 'clamp(300px, calc(8px + 22vw), 420px)' }}
               />
             </div>
@@ -218,16 +218,16 @@ export default async function RealismusTattooMuenchen({
             <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <GWorkImage
                 src="/images/work/loewe-lilie-tattoo-unterarm-realismus.jpg"
-                alt="Löwe Tattoo Unterarm München — Iren Black & Grey Realismus"
+                alt="Löwe Tattoo Unterarm München — Iren Red Black & Grey Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Realismus', 'München', 'Iren']}
+                tags={['Realismus', 'München', 'Iren Red']}
                 style={{ height: 'clamp(520px, calc(8px + 50vw), 780px)' }}
               />
               <GWorkImage
                 src="/images/work/baby-yoda-tattoo-realismus.jpg"
-                alt="Baby Yoda Tattoo München — Iren Realismus"
+                alt="Baby Yoda Tattoo München — Iren Red Realismus"
                 sizes="(max-width: 767px) 100vw, 50vw"
-                tags={['Realismus', 'München', 'Iren']}
+                tags={['Realismus', 'München', 'Iren Red']}
                 style={{ height: 'clamp(520px, calc(8px + 50vw), 780px)' }}
               />
             </div>
