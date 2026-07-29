@@ -304,6 +304,16 @@ export default async function RealismusTattooMuenchen({
               ))}
             </div>
           </div>
+
+          <Link href="/booking" style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            marginTop: 'clamp(2rem, 3.5vw, 3.5rem)',
+            padding: '16px 12px',
+            background: '#F2F2F2', color: '#0D0D0D',
+            fontSize: 'var(--g-bm)', fontWeight: 500, textDecoration: 'none',
+          }}>
+            {t('cta.button')}
+          </Link>
         </div>
       </section>
 
