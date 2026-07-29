@@ -7,7 +7,7 @@ export const SITE = {
   name: 'Kisha Tattoo',
   tagline: 'Japanisches Irezumi & Grafik Tattoo München',
   description:
-    'Kisha — Tattoo-Künstlerin in München, spezialisiert auf Japanisches Irezumi, Grafik-Tattoo und Linework. Preisgekrönt 2025. Custom-Design, Tebori-Technik. Jetzt Termin buchen.',
+    'Kisha — Tattoo-Künstlerin in München, spezialisiert auf Japanisches Irezumi, Grafik-Tattoo und Linework. Preisgekrönt 2025. Custom-Design, präzise Maschinentechnik. Jetzt Termin buchen.',
   url: 'https://kisha.tattoo',
   locale: 'de_DE',
   language: 'de',
@@ -23,7 +23,7 @@ export const SITE = {
 
   // Contact & Location — required for LocalBusiness structured data
   contact: {
-    email: 'svitlanadonec1@gmail.com',
+    email: 'info@kisha.tattoo',
     phone: '+491701893395',
     bookingUrl: '/booking',
   },
