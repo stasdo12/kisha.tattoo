@@ -156,6 +156,7 @@ export default async function ArticleDetailPage({
         title: content.title,
         excerpt: content.excerpt,
         publishedAt: meta.publishedAt,
+        updatedAt: meta.updatedAt,
         slug: meta.slug,
         coverImage: meta.coverImageBig ?? meta.coverImage,
       })

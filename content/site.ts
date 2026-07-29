@@ -19,6 +19,7 @@ export const SITE = {
     reddit: 'https://www.reddit.com/user/Ready_Advice_8848/',
     tattoodo: 'https://www.tattoodo.com/artists/kisha0808sk',
     gbp: 'https://share.google/TBRe5tzUCkyMEaUPJ',
+    bing: 'https://www.bing.com/forbusiness/singleEntity?bizid=65483b9b-bf49-44e2-b793-73f3efe2eab1',
   },
 
   // Contact & Location — required for LocalBusiness structured data
@@ -42,8 +43,7 @@ export const SITE = {
 
   // Opening hours — for structured data
   openingHours: [
-    'Mo-Fr 11:00-19:00',
-    'Sa 10:00-17:00',
+    'Di-Sa 11:00-19:00',
   ],
 
   // Price range indicator ($, $$, $$$, $$$$)

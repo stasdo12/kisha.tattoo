@@ -383,9 +383,9 @@
     },
     "hours": {
       "label": "[ Working Hours ]",
-      "weekdays": "Mn-Fr: 11:00–19:00",
-      "saturday": "Sat: 11:00–18:00",
-      "sunday": "Sun: Closed"
+      "weekdays": "Tue-Fri: 11:00–19:00",
+      "saturday": "Sat: 11:00–19:00",
+      "sunday": "Mon, Sun: Closed"
     },
     "location": {
       "label": "[ Location ]",

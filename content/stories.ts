@@ -6,6 +6,7 @@
 export type StoryMeta = {
   slug: string
   publishedAt: string
+  updatedAt?: string
   readingTime: string
   category: string
   coverImage: string

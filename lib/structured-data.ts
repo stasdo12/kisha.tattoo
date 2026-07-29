@@ -41,15 +41,9 @@ export function localBusinessSchema(options?: {
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         opens: '11:00',
         closes: '19:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Saturday'],
-        opens: '10:00',
-        closes: '17:00',
       },
     ],
     sameAs: [
@@ -58,6 +52,7 @@ export function localBusinessSchema(options?: {
       SITE.social.reddit,
       SITE.social.tattoodo,
       SITE.social.gbp,
+      SITE.social.bing,
     ],
     hasMap: SITE.location.mapsUrl,
     image: `${SITE.url}/og/default.jpg`, // TODO: real studio photo
@@ -156,12 +151,14 @@ export function articleSchema({
   title,
   excerpt,
   publishedAt,
+  updatedAt,
   slug,
   coverImage,
 }: {
   title: string
   excerpt: string
   publishedAt: string
+  updatedAt?: string
   slug: string
   coverImage: string
 }) {
@@ -171,6 +168,7 @@ export function articleSchema({
     headline: title,
     description: excerpt,
     datePublished: publishedAt,
+    dateModified: updatedAt ?? publishedAt,
     url: `${SITE.url}/blog/${slug}`,
     image: coverImage,
     author: {
@@ -213,7 +211,7 @@ export function personSchema(options?: {
     jobTitle = 'Tattoo Artist',
     description = 'Tattoo-Künstlerin in München — Japanisches Irezumi, Grafik-Tattoo, Linework.',
     image = `${SITE.url}/og/default.jpg`,
-    sameAs = [SITE.social.instagram, SITE.social.facebook, SITE.social.reddit, SITE.social.tattoodo, SITE.social.gbp],
+    sameAs = [SITE.social.instagram, SITE.social.facebook, SITE.social.reddit, SITE.social.tattoodo, SITE.social.gbp, SITE.social.bing],
     skills = ['Japanese Irezumi', 'Graphic Tattoo', 'Linework', 'Blackwork', 'Fineline'],
   } = options ?? {}
 

@@ -44,21 +44,24 @@ describe('localBusinessSchema', () => {
     expect(typeof schema.geo.longitude).toBe('number')
   })
 
-  it('openingHoursSpecification has weekday and saturday entries', () => {
+  it('openingHoursSpecification covers Tuesday-Saturday, closed Mon/Sun', () => {
     expect(Array.isArray(schema.openingHoursSpecification)).toBe(true)
-    expect(schema.openingHoursSpecification.length).toBe(2)
-    const weekday = schema.openingHoursSpecification[0]
-    expect(weekday.dayOfWeek).toContain('Monday')
-    expect(weekday.opens).toBe('11:00')
-    expect(weekday.closes).toBe('19:00')
+    expect(schema.openingHoursSpecification.length).toBe(1)
+    const hours = schema.openingHoursSpecification[0]
+    expect(hours.dayOfWeek).toEqual(['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'])
+    expect(hours.dayOfWeek).not.toContain('Monday')
+    expect(hours.dayOfWeek).not.toContain('Sunday')
+    expect(hours.opens).toBe('11:00')
+    expect(hours.closes).toBe('19:00')
   })
 
-  it('sameAs includes Instagram, Facebook, Reddit, Tattoodo, GBP', () => {
+  it('sameAs includes Instagram, Facebook, Reddit, Tattoodo, GBP, Bing', () => {
     expect(schema.sameAs).toContain(SITE.social.instagram)
     expect(schema.sameAs).toContain(SITE.social.facebook)
     expect(schema.sameAs).toContain(SITE.social.reddit)
     expect(schema.sameAs).toContain(SITE.social.tattoodo)
     expect(schema.sameAs).toContain(SITE.social.gbp)
+    expect(schema.sameAs).toContain(SITE.social.bing)
   })
 
   it('sameAs has at least 5 entries', () => {
@@ -223,6 +226,22 @@ describe('articleSchema', () => {
 
   it('datePublished matches publishedAt', () => {
     expect(schema.datePublished).toBe('2025-03-01')
+  })
+
+  it('dateModified falls back to publishedAt when updatedAt is not given', () => {
+    expect(schema.dateModified).toBe('2025-03-01')
+  })
+
+  it('dateModified uses updatedAt when given', () => {
+    const updated = articleSchema({
+      title: 'Fineline Tattoo Ideen',
+      excerpt: 'Die schönsten Fineline Motive.',
+      publishedAt: '2025-03-01',
+      updatedAt: '2026-01-15',
+      slug: 'fineline-tattoo-ideen-muenchen',
+      coverImage: 'https://kisha.tattoo/og/fineline.jpg',
+    })
+    expect(updated.dateModified).toBe('2026-01-15')
   })
 
   it('author links to person @id', () => {
