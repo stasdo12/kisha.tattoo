@@ -116,17 +116,13 @@ export default async function LocaleLayout({
     >
       <head suppressHydrationWarning>
         <HreflangTags />
-        {/* Google Consent Mode v2 — must run before gtag('config', ...); denied until GCookieConsent grants it */}
+        {/* Google Consent Mode v2 + GA4 — one script block, so consent default and config
+            are queued before the GA4 loader is even requested. Next.js/React hoists a
+            separate <script async src> tag independently and can render it ahead of inline
+            scripts regardless of JSX order, which raced against consent default in prod. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});`,
-          }}
-        />
-        {/* Google Analytics GA4 */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKLZT9R83C" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `gtag('js',new Date());gtag('config','G-EKLZT9R83C');`,
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-EKLZT9R83C');(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-EKLZT9R83C';document.head.appendChild(s);})();`,
           }}
         />
         {/* Root structured data */}
