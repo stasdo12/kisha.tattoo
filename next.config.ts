@@ -44,6 +44,11 @@ const nextConfig: NextConfig = {
       { source: '/motive/kitsune-tattoo-muenchen',  destination: '/motive#kitsune',  permanent: true },
       { source: '/motive/sakura-tattoo-muenchen',   destination: '/motive#sakura',   permanent: true },
       { source: '/motive/tiger-tattoo-muenchen',    destination: '/motive#tiger',    permanent: true },
+      // Realism artist left the studio, no replacement planned near-term —
+      // redirect to /team (shows who's currently working) instead of 404
+      { source: '/tattoo-realismus-muenchen',    destination: '/team',    permanent: true },
+      { source: '/en/tattoo-realismus-muenchen', destination: '/en/team', permanent: true },
+      { source: '/uk/tattoo-realismus-muenchen', destination: '/uk/team', permanent: true },
     ]
   },
 

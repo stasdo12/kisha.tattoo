@@ -215,16 +215,6 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/patchworkBlog22(Big).jpg',
     coverAlt: 'Patchwork Tattoo München — Mandala und Schmetterling am Bein',
   },
-  {
-    // Draft only — do NOT publish/push before the synchronized /team launch (llms.txt currently still says solo artist)
-    slug: 'black-grey-realismus-tattoo-muenchen',
-    publishedAt: '2026-07-28',
-    readingTime: '5 min',
-    category: 'Studio',
-    coverImage: '/images/ira/portrait-2.jpg',
-    coverImageBig: '/images/ira/portrait-2.jpg',
-    coverAlt: 'Iren Red — neue Tattoo Artistin bei KishaTattoo München, Black & Grey Realismus',
-  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {

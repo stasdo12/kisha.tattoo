@@ -1,8 +1,9 @@
 /**
  * TEAM — hub page, artist cards
  * Design: simple hero + 2-col card grid, reusing the site's dark-overlay hero pattern.
- * Each card links to the artist's full profile page (Kisha → /about, Iren Red → /tattoo-realismus-muenchen).
- * See PLAN-KOMANDA-2026-07-27.md §2 — this page is intentionally just an index, not a duplicate profile.
+ * Each card links to the artist's full profile page (Kisha → /about).
+ * Solo again as of 2026-07-31 — Iren Red left the studio, no replacement planned near-term.
+ * Grid adapts to 1 or 2 cards so a future artist can be added back without a layout rewrite.
  */
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -24,18 +25,13 @@ export async function generateMetadata(
 export default async function TeamPage() {
   const t = await getTranslations('team')
 
+  // Solo again for now — no second artist. Card grid below adapts to 1 or 2 entries.
   const CARDS = [
     {
       key: 'kisha',
       href: '/about',
       photo: '/images/about/hero-portrait.jpg',
       alt: 'Kisha — Tattoo Artist München, Japanisches Irezumi, Fineline, Grafik',
-    },
-    {
-      key: 'iren',
-      href: '/tattoo-realismus-muenchen',
-      photo: '/images/ira/portrait-2.jpg',
-      alt: 'Iren Red — Tattoo Artist München, Black & Grey Realism',
     },
   ] as const
 
@@ -71,7 +67,7 @@ export default async function TeamPage() {
       {/* ── TEAM GRID ─────────────────────────────────────────────────────── */}
       <section style={{ background: '#F2F2F2', paddingBottom: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem)' }}>
         <div style={{ paddingLeft: 'var(--g-pad)', paddingRight: 'var(--g-pad)' }}>
-          <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: CARDS.length > 1 ? '1fr 1fr' : 'minmax(0, 480px)', gap: '16px' }}>
             {CARDS.map((card) => (
               <Link
                 key={card.key}

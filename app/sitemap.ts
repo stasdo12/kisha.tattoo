@@ -24,7 +24,6 @@ const DE_ONLY_PAGES = [
   { path: '/japanisches-tattoo-muenchen', freq: 'monthly' as const, pri: 0.85 },
   { path: '/grafik-tattoo-muenchen',      freq: 'monthly' as const, pri: 0.85 },
   { path: '/fineline-tattoo-muenchen',    freq: 'monthly' as const, pri: 0.85 },
-  { path: '/tattoo-realismus-muenchen',   freq: 'monthly' as const, pri: 0.85 },
   { path: '/walk-in-tattoo-muenchen',     freq: 'monthly' as const, pri: 0.8  },
   { path: '/tattoo-eching',               freq: 'yearly'  as const, pri: 0.6  },
   { path: '/tattoo-freising',             freq: 'yearly'  as const, pri: 0.6  },

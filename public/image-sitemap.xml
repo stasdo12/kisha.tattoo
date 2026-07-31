@@ -182,73 +182,13 @@
     </image:image>
   </url>
 
-  <!-- /team — Team overview: Kisha + Iren Red -->
+  <!-- /team — Team overview: Kisha (solo again as of 2026-07-31) -->
   <url>
     <loc>https://kisha.tattoo/team</loc>
     <image:image>
       <image:loc>https://kisha.tattoo/images/about/hero-portrait.jpg</image:loc>
       <image:title>Kisha — Tattoo-Künstlerin München</image:title>
       <image:caption>Kisha, award-winning tattoo artist — Japanisches Irezumi, Fineline, Grafik</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/ira/portrait-2.jpg</image:loc>
-      <image:title>Iren Red — Tattoo-Künstlerin München Realismus</image:title>
-      <image:caption>Iren Red, Black &amp; Grey Realism tattoo artist at KishaTattoo München</image:caption>
-    </image:image>
-  </url>
-
-  <!-- /tattoo-realismus-muenchen — Iren Red's style + profile page -->
-  <url>
-    <loc>https://kisha.tattoo/tattoo-realismus-muenchen</loc>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/ira/hero-portrait.jpg</image:loc>
-      <image:title>Iren Red — Realismus Tattoo Artist München</image:title>
-      <image:caption>Iren Red, Black &amp; Grey Realism tattoo artist — KishaTattoo München</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/work/loewe-lilie-tattoo-unterarm-realismus.jpg</image:loc>
-      <image:title>Löwe Tattoo Unterarm München — Iren Red</image:title>
-      <image:caption>Lion realism tattoo by Iren Red — Black &amp; Grey, München</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/work/zeus-engel-sleeve-tattoo-realismus.jpg</image:loc>
-      <image:title>Zeus Engel Sleeve Tattoo München — Iren Red</image:title>
-      <image:caption>Zeus and angel sleeve realism tattoo by Iren Red — München</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/work/poseidon-tattoo-bein-realismus.jpg</image:loc>
-      <image:title>Poseidon Tattoo Bein München — Iren Red</image:title>
-      <image:caption>Poseidon realism leg tattoo by Iren Red — München</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/work/engel-statue-tattoo-oberschenkel-realismus.jpg</image:loc>
-      <image:title>Engel Statue Tattoo Oberschenkel München — Iren Red</image:title>
-      <image:caption>Angel statue realism thigh tattoo by Iren Red — München</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/work/marilyn-monroe-portrait-tattoo-realismus.jpg</image:loc>
-      <image:title>Marilyn Monroe Portrait Tattoo München — Iren Red</image:title>
-      <image:caption>Marilyn Monroe portrait realism tattoo by Iren Red — München</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/work/braut-frankenstein-portrait-tattoo-realismus.jpg</image:loc>
-      <image:title>Braut von Frankenstein Portrait Tattoo München — Iren Red</image:title>
-      <image:caption>Bride of Frankenstein portrait realism tattoo by Iren Red — München</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/work/drachen-frau-portrait-tattoo-realismus.jpg</image:loc>
-      <image:title>Drachen Portrait Tattoo München — Iren Red</image:title>
-      <image:caption>Dragon-woman portrait realism tattoo by Iren Red — München</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/work/batman-portrait-tattoo-realismus.jpg</image:loc>
-      <image:title>Batman Portrait Tattoo München — Iren Red</image:title>
-      <image:caption>Batman portrait realism tattoo by Iren Red — München</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kisha.tattoo/images/work/sphinx-katze-tattoo-realismus.jpg</image:loc>
-      <image:title>Sphinx Katze Tattoo München — Iren Red</image:title>
-      <image:caption>Sphynx cat realism tattoo by Iren Red — München</image:caption>
     </image:image>
   </url>
 
