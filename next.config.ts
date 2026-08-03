@@ -85,7 +85,11 @@ const nextConfig: NextConfig = {
             // host from region*.google-analytics.com used for denied/consent-mode pings;
             // missing either one silently drops that half of all traffic via CSP.
             "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net",
-            "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://img.youtube.com https://i.ytimg.com",
+            // google.com/google.de cover the Google Ads remarketing-audience pixel
+            // (ga-audiences) — it loads from the visitor's country-TLD Google domain,
+            // so other TLDs (e.g. google.fr) still get silently dropped; fine while
+            // remarketing isn't running, revisit if ads target beyond DE/generic.
+            "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.google.de https://img.youtube.com https://i.ytimg.com",
             "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
             "style-src 'self' 'unsafe-inline'",
             "font-src 'self' https://fonts.gstatic.com",
