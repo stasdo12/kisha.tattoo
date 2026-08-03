@@ -119,10 +119,14 @@ export default async function LocaleLayout({
         {/* Google Consent Mode v2 + GA4 — one script block, so consent default and config
             are queued before the GA4 loader is even requested. Next.js/React hoists a
             separate <script async src> tag independently and can render it ahead of inline
-            scripts regardless of JSX order, which raced against consent default in prod. */}
+            scripts regardless of JSX order, which raced against consent default in prod.
+            Consent default reads localStorage synchronously first — otherwise every page_view,
+            even from a visitor who already granted consent on a prior visit, went out denied
+            (React's grant update in GCookieConsent only runs after hydration, by which point
+            this script's page_view had already been sent). */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-EKLZT9R83C');(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-EKLZT9R83C';document.head.appendChild(s);})();`,
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var __cc;try{__cc=localStorage.getItem('cookie-consent')}catch(e){__cc=null}var __cs=__cc==='granted'?'granted':'denied';gtag('consent','default',{analytics_storage:__cs,ad_storage:__cs,ad_user_data:__cs,ad_personalization:__cs});gtag('js',new Date());gtag('config','G-EKLZT9R83C');(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-EKLZT9R83C';document.head.appendChild(s);})();`,
           }}
         />
         {/* Root structured data */}
