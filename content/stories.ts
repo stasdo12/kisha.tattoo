@@ -215,6 +215,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/patchworkBlog22(Big).jpg',
     coverAlt: 'Patchwork Tattoo München — Mandala und Schmetterling am Bein',
   },
+  {
+    slug: 'geometrische-tattoos-muenchen',
+    publishedAt: '2026-08-04',
+    readingTime: '6 min',
+    category: 'Style Guide',
+    coverImage: '/images/blog/geometricBlog23.jpg',
+    coverImageBig: '/images/blog/geometricBlog23(Big).jpg',
+    coverAlt: 'Geometrisches Tattoo München — Hirsch-Kopf, halb realistisch halb Polygon-Linework, Wade',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
