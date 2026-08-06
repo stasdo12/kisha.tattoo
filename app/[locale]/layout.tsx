@@ -65,6 +65,11 @@ export const metadata: Metadata = {
     images: [{ url: '/og/default.jpg', width: 1200, height: 630, alt: SITE.tagline }],
   },
   twitter: { card: 'summary_large_image' },
+  verification: {
+    other: {
+      'p:domain_verify': '64b21ce81e5918ad2212b8c9450dbe8d',
+    },
+  },
 }
 
 /* ── Hreflang — Server Component reads x-pathname injected by middleware ─── */
