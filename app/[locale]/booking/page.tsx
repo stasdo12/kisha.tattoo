@@ -45,93 +45,95 @@ export default function BookingPage() {
 
         <h1 className={s.h1}>{t('hero.h1')}</h1>
 
-        <form className={s.form} onSubmit={handleSubmit}>
-
-          <div className={s.row}>
-            <label htmlFor="b-name" className={s.label}>{t('form.nameLabel')}</label>
-            <div className={s.underline}>
-              <input id="b-name" name="name" type="text" placeholder={t('form.namePlaceholder')} required className={s.input} />
-              <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>*</span>
-            </div>
-          </div>
-
-          <div className={s.row}>
-            <label htmlFor="b-email" className={s.label}>{t('form.emailLabel')}</label>
-            <div className={s.underline}>
-              <input id="b-email" name="email" type="email" placeholder={t('form.emailPlaceholder')} required className={s.input} />
-              <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>*</span>
-            </div>
-          </div>
-
-          <div className={s.row}>
-            <label htmlFor="b-phone" className={s.label}>{t('form.phoneLabel')}</label>
-            <div className={s.underline}>
-              <input id="b-phone" name="phone" type="tel" placeholder={t('form.phonePlaceholder')} required className={s.input} />
-              <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>*</span>
-            </div>
-          </div>
-
-          <div className={s.row}>
-            <label htmlFor="b-style" className={s.label}>{t('form.styleLabel')}</label>
-            <div className={s.underline}>
-              <input id="b-style" name="style" type="text" placeholder={t('form.stylePlaceholder')} className={s.input} />
-            </div>
-          </div>
-
-          <div className={s.row}>
-            <label htmlFor="b-placement" className={s.label}>{t('form.placementLabel')}</label>
-            <div className={s.underline}>
-              <input id="b-placement" name="placement" type="text" placeholder={t('form.placementPlaceholder')} className={s.input} />
-            </div>
-          </div>
-
-          <div className={s.row}>
-            <label htmlFor="b-idea" className={s.label}>{t('form.ideaLabel')}</label>
-            <div className={s.underline}>
-              <input id="b-idea" name="idea" type="text" placeholder={t('form.ideaPlaceholder')} className={s.input} />
-            </div>
-          </div>
-
-          <div className={s.stacked}>
-            <span className={s.label}>{t('form.togetherLabel')}</span>
-            <div className={s.toggles}>
-              {(['yes', 'no'] as const).map((val) => (
-                <button
-                  key={val}
-                  type="button"
-                  aria-pressed={experience === val}
-                  onClick={() => setExperience(val)}
-                  className={s.toggle}
-                >
-                  {val === 'yes' ? t('form.yes') : t('form.no')}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className={s.stacked}>
-            <span className={s.label}>{t('form.filesLabel')}</span>
-            <div className={s.fileHint}>
-              <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.4, color: '#0D0D0D', maxWidth: '26rem' }}>
-                {t('form.filesHint')}
-              </p>
-              <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF', whiteSpace: 'nowrap' }}>{t('form.filesMax')}</span>
-            </div>
-            <label htmlFor="b-files" className={s.fileBtn}>{t('form.filesButton')}</label>
-            <input id="b-files" name="files" type="file" multiple style={{ display: 'none' }} />
-          </div>
-
-          {status === 'error' && <p className={s.error}>{t('form.error')}</p>}
-
-          {status === 'success' ? (
+        {status === 'success' ? (
+          <div className={s.form}>
             <p className={s.success}>{t('form.success')}</p>
-          ) : (
+          </div>
+        ) : (
+          <form className={s.form} onSubmit={handleSubmit}>
+
+            <div className={s.row}>
+              <label htmlFor="b-name" className={s.label}>{t('form.nameLabel')}</label>
+              <div className={s.underline}>
+                <input id="b-name" name="name" type="text" placeholder={t('form.namePlaceholder')} required className={s.input} />
+                <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>*</span>
+              </div>
+            </div>
+
+            <div className={s.row}>
+              <label htmlFor="b-email" className={s.label}>{t('form.emailLabel')}</label>
+              <div className={s.underline}>
+                <input id="b-email" name="email" type="email" placeholder={t('form.emailPlaceholder')} required className={s.input} />
+                <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>*</span>
+              </div>
+            </div>
+
+            <div className={s.row}>
+              <label htmlFor="b-phone" className={s.label}>{t('form.phoneLabel')}</label>
+              <div className={s.underline}>
+                <input id="b-phone" name="phone" type="tel" placeholder={t('form.phonePlaceholder')} required className={s.input} />
+                <span style={{ fontSize: 'var(--g-tag)', color: '#0D0D0D' }}>*</span>
+              </div>
+            </div>
+
+            <div className={s.row}>
+              <label htmlFor="b-style" className={s.label}>{t('form.styleLabel')}</label>
+              <div className={s.underline}>
+                <input id="b-style" name="style" type="text" placeholder={t('form.stylePlaceholder')} className={s.input} />
+              </div>
+            </div>
+
+            <div className={s.row}>
+              <label htmlFor="b-placement" className={s.label}>{t('form.placementLabel')}</label>
+              <div className={s.underline}>
+                <input id="b-placement" name="placement" type="text" placeholder={t('form.placementPlaceholder')} className={s.input} />
+              </div>
+            </div>
+
+            <div className={s.row}>
+              <label htmlFor="b-idea" className={s.label}>{t('form.ideaLabel')}</label>
+              <div className={s.underline}>
+                <input id="b-idea" name="idea" type="text" placeholder={t('form.ideaPlaceholder')} className={s.input} />
+              </div>
+            </div>
+
+            <div className={s.stacked}>
+              <span className={s.label}>{t('form.togetherLabel')}</span>
+              <div className={s.toggles}>
+                {(['yes', 'no'] as const).map((val) => (
+                  <button
+                    key={val}
+                    type="button"
+                    aria-pressed={experience === val}
+                    onClick={() => setExperience(val)}
+                    className={s.toggle}
+                  >
+                    {val === 'yes' ? t('form.yes') : t('form.no')}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className={s.stacked}>
+              <span className={s.label}>{t('form.filesLabel')}</span>
+              <div className={s.fileHint}>
+                <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.4, color: '#0D0D0D', maxWidth: '26rem' }}>
+                  {t('form.filesHint')}
+                </p>
+                <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF', whiteSpace: 'nowrap' }}>{t('form.filesMax')}</span>
+              </div>
+              <label htmlFor="b-files" className={s.fileBtn}>{t('form.filesButton')}</label>
+              <input id="b-files" name="files" type="file" multiple style={{ display: 'none' }} />
+            </div>
+
+            {status === 'error' && <p className={s.error}>{t('form.error')}</p>}
+
             <button type="submit" disabled={status === 'submitting'} className={s.submit}>
               {status === 'submitting' ? t('form.submitting') : t('form.submit')}
             </button>
-          )}
 
-        </form>
+          </form>
+        )}
 
       </section>
 
