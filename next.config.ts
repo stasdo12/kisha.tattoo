@@ -79,7 +79,7 @@ const nextConfig: NextConfig = {
           { key: 'Content-Security-Policy', value: [
             "default-src 'self'",
             `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://ssl.google-analytics.com https://s.pinimg.com https://static.cloudflareinsights.com`,
-            `script-src-elem 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://ssl.google-analytics.com https://s.pinimg.com https://static.cloudflareinsights.com`,
+            `script-src-elem 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://ssl.google-analytics.com https://s.pinimg.com https://ct.pinterest.com https://static.cloudflareinsights.com`,
             // Wildcards cover regional collect subdomains (region1, region2, ...) —
             // a granted-consent hit goes to region*.analytics.google.com, a distinct
             // host from region*.google-analytics.com used for denied/consent-mode pings;
@@ -89,13 +89,14 @@ const nextConfig: NextConfig = {
             // hits go to the apex, so it's listed explicitly alongside the wildcard.
             // ct.pinterest.com is the Pinterest tag's event-collection endpoint;
             // cloudflareinsights.com is the Cloudflare Web Analytics beacon endpoint.
-            "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://www.google.com https://stats.g.doubleclick.net https://ct.pinterest.com https://cloudflareinsights.com",
+            "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://www.google.com https://stats.g.doubleclick.net https://ct.pinterest.com https://s.pinimg.com https://cloudflareinsights.com",
             // google.com/google.de cover the Google Ads remarketing-audience pixel
             // (ga-audiences) — it loads from the visitor's country-TLD Google domain,
             // so other TLDs (e.g. google.fr) still get silently dropped; fine while
             // remarketing isn't running, revisit if ads target beyond DE/generic.
             "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.google.de https://img.youtube.com https://i.ytimg.com",
-            "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
+            // ct.pinterest.com: Pinterest tag's Enhanced Match iframe (cross-domain ID sync)
+            "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://ct.pinterest.com",
             "style-src 'self' 'unsafe-inline'",
             "font-src 'self' https://fonts.gstatic.com",
             "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com",
