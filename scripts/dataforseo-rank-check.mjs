@@ -1,6 +1,15 @@
 // Checks live Google rankings for the golden keyword list via DataForSEO SERP API.
 // Requires DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD in .env.local (paid calls — see PLAN-DATAFORSEO-2026-07-27.md).
+// Appends every run to scripts/rank-history.csv so trends are visible over time, not just single snapshots.
 // Usage: npm run seo:ranks
+
+import { appendFileSync, existsSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const HISTORY_FILE = join(__dirname, 'rank-history.csv')
+const HISTORY_HEADER = 'date,keyword,rank,top1,top2,top3\n'
 
 const DOMAIN = 'kisha.tattoo'
 const LOCATION_NAME = 'Munich,Bavaria,Germany'
@@ -61,6 +70,12 @@ async function checkKeyword(keyword) {
 let totalCost = 0
 console.log(`Checking ${KEYWORDS.length} keywords for ${DOMAIN} (Munich, mobile)...\n`)
 
+if (!existsSync(HISTORY_FILE)) {
+  appendFileSync(HISTORY_FILE, HISTORY_HEADER)
+}
+const today = new Date().toISOString().slice(0, 10)
+const csvEscape = (s) => (s?.includes(',') ? `"${s}"` : (s ?? ''))
+
 for (const keyword of KEYWORDS) {
   const r = await checkKeyword(keyword)
   totalCost += r.cost ?? 0
@@ -70,6 +85,10 @@ for (const keyword of KEYWORDS) {
   }
   const position = r.rank ? `#${r.rank}` : 'not in top 30'
   console.log(`${r.rank ? '●' : '○'} ${keyword.padEnd(30)} ${position.padEnd(14)} top3: ${r.top3.join(', ')}`)
+  const [top1, top2, top3] = r.top3
+  const row = [today, csvEscape(keyword), r.rank ?? '', csvEscape(top1), csvEscape(top2), csvEscape(top3)].join(',')
+  appendFileSync(HISTORY_FILE, row + '\n')
 }
 
 console.log(`\nTotal cost: $${totalCost.toFixed(4)}`)
+console.log(`History appended to ${HISTORY_FILE}`)
