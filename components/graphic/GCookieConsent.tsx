@@ -12,13 +12,17 @@ import { Link } from '@/i18n/navigation'
 const STORAGE_KEY = 'cookie-consent'
 
 function updateConsent(granted: boolean) {
-  if (typeof window === 'undefined' || !window.gtag) return
-  window.gtag('consent', 'update', {
-    analytics_storage: granted ? 'granted' : 'denied',
-    ad_storage: granted ? 'granted' : 'denied',
-    ad_user_data: granted ? 'granted' : 'denied',
-    ad_personalization: granted ? 'granted' : 'denied',
-  })
+  if (typeof window === 'undefined') return
+  if (window.gtag) {
+    window.gtag('consent', 'update', {
+      analytics_storage: granted ? 'granted' : 'denied',
+      ad_storage: granted ? 'granted' : 'denied',
+      ad_user_data: granted ? 'granted' : 'denied',
+      ad_personalization: granted ? 'granted' : 'denied',
+    })
+  }
+  // Pinterest tag has no consent-mode API — it's only ever loaded once granted.
+  if (granted) window.__ptLoad?.()
 }
 
 // Tiny external store around localStorage — lets useSyncExternalStore read the

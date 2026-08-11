@@ -1,13 +1,16 @@
 /**
- * GA4 event helpers.
- * All conversion events are tracked here — update this file when GA4 goals change.
+ * GA4 + Pinterest tag event helpers.
+ * All conversion events are tracked here — update this file when GA4/Pinterest goals change.
  *
  * GA4 measurement ID: G-EKLZT9R83C
+ * Pinterest tag ID: 2614141589209 (loaded by app/[locale]/layout.tsx, gated on cookie consent)
  */
 
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void
+    pintrk?: (...args: unknown[]) => void
+    __ptLoad?: () => void
   }
 }
 
@@ -22,6 +25,9 @@ export function trackFormSubmit(formLocation: 'booking' | 'contact') {
     event_category: 'conversion',
     form_location: formLocation,
   })
+  if (typeof window !== 'undefined' && window.pintrk) {
+    window.pintrk('track', 'lead')
+  }
 }
 
 /** WhatsApp button clicked */

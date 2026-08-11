@@ -128,10 +128,14 @@ export default async function LocaleLayout({
             Consent default reads localStorage synchronously first — otherwise every page_view,
             even from a visitor who already granted consent on a prior visit, went out denied
             (React's grant update in GCookieConsent only runs after hydration, by which point
-            this script's page_view had already been sent). */}
+            this script's page_view had already been sent).
+            Pinterest tag has no consent-mode API, so it's simply not loaded at all until
+            consent is granted — window.__ptLoad is defined here (idempotent) and invoked
+            either immediately below (returning visitor, consent already stored) or later
+            from GCookieConsent when the visitor clicks Accept. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var __cc;try{__cc=localStorage.getItem('cookie-consent')}catch(e){__cc=null}var __cs=__cc==='granted'?'granted':'denied';gtag('consent','default',{analytics_storage:__cs,ad_storage:__cs,ad_user_data:__cs,ad_personalization:__cs});gtag('js',new Date());gtag('config','G-EKLZT9R83C');(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-EKLZT9R83C';document.head.appendChild(s);})();`,
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var __cc;try{__cc=localStorage.getItem('cookie-consent')}catch(e){__cc=null}var __cs=__cc==='granted'?'granted':'denied';gtag('consent','default',{analytics_storage:__cs,ad_storage:__cs,ad_user_data:__cs,ad_personalization:__cs});gtag('js',new Date());gtag('config','G-EKLZT9R83C');(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-EKLZT9R83C';document.head.appendChild(s);})();window.__ptLoad=function(){if(window.__ptLoaded)return;window.__ptLoaded=true;!function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version="3.0";var t=document.createElement("script");t.async=!0,t.src=e;var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");window.pintrk("load","2614141589209");window.pintrk("page");};if(__cs==="granted"){window.__ptLoad();}`,
           }}
         />
         {/* Root structured data */}
