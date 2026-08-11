@@ -26,7 +26,9 @@ export function trackFormSubmit(formLocation: 'booking' | 'contact') {
     form_location: formLocation,
   })
   if (typeof window !== 'undefined' && window.pintrk) {
-    window.pintrk('track', 'lead')
+    window.pintrk('track', 'lead', {
+      lead_type: formLocation === 'booking' ? 'Booking' : 'Contact',
+    })
   }
 }
 
