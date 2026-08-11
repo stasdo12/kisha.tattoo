@@ -224,6 +224,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/geometricBlog23(Big).jpg',
     coverAlt: 'Geometrisches Tattoo München — Hirsch-Kopf, halb realistisch halb Polygon-Linework, Wade',
   },
+  {
+    slug: 'tattoo-ab-50-muenchen',
+    publishedAt: '2026-08-11',
+    readingTime: '5 min',
+    category: 'Guide',
+    coverImage: '/images/blog/tattoo-ab-50.jpg',
+    coverImageBig: '/images/blog/tattoo-ab-50(Big).jpg',
+    coverAlt: 'Tattoo ab 50 München — Beratung mit reiferem Kunden bei Kisha Tattoo',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
