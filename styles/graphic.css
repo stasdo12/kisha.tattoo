@@ -670,6 +670,27 @@ body:has([data-theme='graphic']) {
     aspect-ratio: 16 / 9 !important;
     max-height: 240px;
   }
+
+  /* Trad cards: reset the desktop 4-column absolute layout to a normal flow.
+     Lives here, not in the ≤480 block, because the absolute coordinates come
+     from inline styles in page.tsx and would otherwise survive the whole
+     481–767px band (foldables, small tablets) as 25%-wide slivers inside a
+     1210px-tall wrapper. ≤480 still gets these — 767 is a superset. */
+  .g-trad-cards-wrapper {
+    position: static !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+
+  .g-trad-card {
+    position: static !important;
+    width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    gap: 1rem !important;
+  }
 }
 
 /* === MOBILE ≤480px (layout tuned at 390px, iPhone 14-size) === */
@@ -782,23 +803,7 @@ body:has([data-theme='graphic']) {
     gap: 2rem !important;
   }
 
-  /* Cards wrapper: absolute → flex column on mobile */
-  .g-trad-cards-wrapper {
-    position: static !important;
-    height: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.25rem !important;
-  }
-
-  /* Each card: reset absolute → normal flow */
-  .g-trad-card {
-    position: static !important;
-    width: 100% !important;
-    top: auto !important;
-    left: auto !important;
-    gap: 1rem !important;
-  }
+  /* Cards wrapper + card reset moved to the 767px block above (applies here too) */
 
   /* Card image: fixed height on mobile */
   .g-trad-card__img-wrap {

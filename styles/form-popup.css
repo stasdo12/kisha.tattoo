@@ -198,6 +198,18 @@
 }
 .fp-submit:hover { background: #2a2a2a; }
 
+/* ── TABLET / FOLDABLE 481–767px ── */
+/* The 172px base gap is tuned for tall desktop viewports; on foldables and small
+   tablets it pushes the form below the fold. Must stay ABOVE the ≤480 block so
+   the phone values there still win the cascade. */
+@media (max-width: 767px) {
+  .fp-popup {
+    gap: 48px;
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+  }
+}
+
 /* ── MOBILE ≤480px ── */
 @media (max-width: 480px) {
   .fp-overlay {
