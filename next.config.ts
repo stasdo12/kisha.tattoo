@@ -16,8 +16,9 @@ const nextConfig: NextConfig = {
     // Serve AVIF first (50% smaller than WebP), WebP fallback
     formats: ['image/avif', 'image/webp'],
 
-    // Tuned for this project's breakpoints (430 mobile → 1440 → 1920 desktop)
-    deviceSizes: [430, 768, 1024, 1280, 1440, 1920],
+    // Tuned for this project's breakpoints (480 mobile → 1440 → 1920 desktop)
+    // 480 (not 430) so iPhone 16/17 Pro Max at 440px CSS width stays on the mobile candidate
+    deviceSizes: [480, 768, 1024, 1280, 1440, 1920],
     imageSizes:  [16, 32, 64, 128, 256, 384, 512],
 
     // Cache optimised images for 30 days (great for static placeholder images)

@@ -269,7 +269,7 @@ export default async function MotiveHub({
                         alt={m.imgAlt}
                         fill
                         style={{ objectFit: 'cover' }}
-                        sizes="(max-width: 430px) 100vw, 50vw"
+                        sizes="(max-width: 480px) 100vw, 50vw"
                       />
                     </div>
 

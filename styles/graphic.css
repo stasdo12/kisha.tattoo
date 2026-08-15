@@ -215,8 +215,9 @@ body:has([data-theme='graphic']) {
   height: clamp(160px, 35dvh, 384px); /* −20% from 44dvh/480px */
 }
 
-/* === MOBILE 430px === */
-@media (max-width: 430px) {
+/* === MOBILE ≤480px === */
+/* 480, not 430: iPhone 16/17 Pro Max report 440px CSS width and would miss a 430 cap */
+@media (max-width: 480px) {
   .g-menu-overlay {
     background: #F2F2F2;
   }
@@ -671,8 +672,10 @@ body:has([data-theme='graphic']) {
   }
 }
 
-/* === MOBILE 390px (iPhone 14-size) === */
-@media (max-width: 430px) {
+/* === MOBILE ≤480px (layout tuned at 390px, iPhone 14-size) === */
+/* Cap is 480, not 430: iPhone 16/17 Pro Max are 440px CSS-wide and a 430 cap
+   dropped this entire block on them, falling back to the 767px partial rules. */
+@media (max-width: 480px) {
   [data-theme='graphic'] {
     --g-pad: 0.9375rem; /* 15px */
   }

@@ -33,7 +33,7 @@ export function GArticleCard({ id, title, category, date, href, imageSrc }: GArt
             alt={title}
             fill
             style={{ objectFit: 'cover' }}
-            sizes="(max-width: 430px) 100vw, 25vw"
+            sizes="(max-width: 480px) 100vw, 25vw"
           />
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>

@@ -104,7 +104,7 @@ export default async function GraphicBlogPage({
               fill
               priority
               style={{ objectFit: 'cover' }}
-              sizes="(max-width: 430px) 100vw, 30vw"
+              sizes="(max-width: 480px) 100vw, 30vw"
             />
           </div>
 
