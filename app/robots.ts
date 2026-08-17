@@ -4,11 +4,15 @@ import { SITE } from '@/content/site'
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      // Standard crawlers
+      // Standard crawlers.
+      // /_next/ stays crawlable on purpose: /_next/static holds the CSS and JS
+      // a renderer needs, and every <img> is served through /_next/image, so
+      // blocking the prefix hides the layout and all images from Bing, Yandex
+      // and social preview fetchers.
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/api/'],
       },
       // AI crawlers — explicitly allowed for GEO/AEO visibility
       { userAgent: 'GPTBot',           allow: '/' }, // OpenAI — training
