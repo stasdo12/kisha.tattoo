@@ -5,6 +5,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import { STORIES, getStoryBySlug } from '@/content/stories'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
@@ -17,6 +18,9 @@ export function generateStaticParams() {
   const locales = ['de', 'en', 'uk']
   return locales.flatMap((locale) => STORIES.map((s) => ({ locale, slug: s.slug })))
 }
+
+// Unknown slugs must 404 instead of rendering an empty article shell with 200
+export const dynamicParams = false
 
 export async function generateMetadata({
   params,
@@ -140,10 +144,9 @@ export default async function ArticleDetailPage({
 }) {
   const { locale, slug } = await params
   const meta = getStoryBySlug(slug)
+  if (!meta) notFound()
   const t = await getTranslations({ locale, namespace: 'blog' })
-  const content = meta
-    ? (t.raw(`stories.${slug}`) as { title: string; excerpt: string; body: string })
-    : null
+  const content = t.raw(`stories.${slug}`) as { title: string; excerpt: string; body: string }
 
   // Related: other articles except current
   const related = [...STORIES].reverse().filter((s) => s.slug !== slug).slice(0, 4).map((s) => ({

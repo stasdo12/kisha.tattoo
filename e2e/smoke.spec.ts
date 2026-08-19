@@ -95,6 +95,13 @@ test('[smoke] Non-existent page returns 404', async ({ page }) => {
   expect(response?.status()).toBe(404)
 })
 
+// Unknown slugs match the dynamic /blog/[slug] route — they must 404, not render
+// an empty article shell with 200 (soft 404 → index bloat)
+test('[smoke] Non-existent blog slug returns 404', async ({ page }) => {
+  const response = await page.goto('/blog/this-article-does-not-exist-xyz')
+  expect(response?.status()).toBe(404)
+})
+
 // ── hreflang ─────────────────────────────────────────────────────────────────
 
 test('[smoke] Home DE has hreflang tags for de, en, uk, x-default', async ({ page }) => {
@@ -164,11 +171,13 @@ test('[smoke] Home canonical matches the served locale', async ({ page }) => {
   expect(href).toMatch(/^https:\/\/kisha\.tattoo(\/en\/|\/uk\/|\/?)/)
 })
 
-test('[smoke] Home EN canonical has /en/ prefix', async ({ page }) => {
+test('[smoke] Home EN canonical points at the EN locale', async ({ page }) => {
+  // /en/ 308-redirects to /en, so the canonical is the trailing-slash-free form.
+  // The old assertion looked for "/en/" and could never pass.
   await page.goto('/en/')
   const canonical = page.locator('link[rel="canonical"]')
   const href = await canonical.getAttribute('href')
-  expect(href).toContain('/en/')
+  expect(href).toBe('https://kisha.tattoo/en')
 })
 
 // ── No console errors on key pages ───────────────────────────────────────────
