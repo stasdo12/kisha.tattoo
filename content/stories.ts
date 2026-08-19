@@ -233,6 +233,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/tattoo-ab-50(Big).jpg',
     coverAlt: 'Tattoo ab 50 München — Beratung mit reiferem Kunden bei Kisha Tattoo',
   },
+  {
+    slug: 'sport-nach-tattoo-muenchen',
+    publishedAt: '2026-08-18',
+    readingTime: '5 min',
+    category: 'Guide',
+    coverImage: '/images/blog/sport-nach-tattoo.jpg',
+    coverImageBig: '/images/blog/sport-nach-tattoo(Big).jpg',
+    coverAlt: 'Sport nach dem Tattoo — Tätowiererin Kisha mit Arm- und Bein-Tattoos in den Bergen',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
