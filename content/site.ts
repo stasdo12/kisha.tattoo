@@ -49,10 +49,12 @@ export const SITE = {
   // Price range indicator ($, $$, $$$, $$$$)
   priceRange: '$$$',
 
-  // Google reviews — update manually when count changes
+  // Google reviews — update manually when count changes.
+  // This number ends up in the LocalBusiness aggregateRating, so a stale value
+  // is a false claim in structured data, not just a cosmetic drift.
   reviews: {
     ratingValue: 5.0,
-    reviewCount: 14,   // ← update this number
+    reviewCount: 15,   // ← update this number (last checked 2026-08-25)
     bestRating: 5,
   },
 } as const
