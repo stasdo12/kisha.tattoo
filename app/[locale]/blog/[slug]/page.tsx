@@ -9,7 +9,7 @@ import { notFound } from 'next/navigation'
 import { STORIES, getStoryBySlug } from '@/content/stories'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
-import { articleSchema } from '@/lib/structured-data'
+import { articleSchema, faqSchema, faqFromArticleBody } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
@@ -165,12 +165,23 @@ export default async function ArticleDetailPage({
       })
     : null
 
+  // Articles that carry a real FAQ section also emit FAQPage — the questions are
+  // already in the body as `### …?` headings, they were just never marked up.
+  const faqItems = content?.body ? faqFromArticleBody(content.body) : []
+  const faq = faqItems.length > 0 ? faqSchema(faqItems) : null
+
   return (
     <main id="main-content">
       {schema && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      )}
+      {faq && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
         />
       )}
 

@@ -117,6 +117,51 @@ export function serviceSchema({
   }
 }
 
+/**
+ * Pulls FAQ pairs out of an article body so blog posts can emit FAQPage
+ * alongside BlogPosting. The bodies already contain the questions as `### `
+ * headings — until now they reached Google as plain headings, which is the one
+ * format AI Overview quotes almost verbatim.
+ *
+ * Deliberately strict, because marking non-questions up as Question is a
+ * structured-data violation:
+ * - only `### ` blocks whose text ends in `?` count. Older articles use `### `
+ *   for ordinary subheadings ("Knie Tattoo Schmerzen", "Zweiter Punkt — Heilung").
+ * - the closing CTA paragraph is skipped. It follows the last question with no
+ *   heading in between, so it would otherwise be swallowed into that answer.
+ */
+export function faqFromArticleBody(body: string): FaqItem[] {
+  const blocks = body.split('\n\n').map((b) => b.trim()).filter(Boolean)
+  const items: FaqItem[] = []
+
+  const toPlainText = (s: string) =>
+    s
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // [text](url) -> text
+      .replace(/^- /gm, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
+    if (!block.startsWith('### ')) continue
+    const question = block.slice(4).trim()
+    if (!question.endsWith('?')) continue
+
+    const answerBlocks: string[] = []
+    for (let j = i + 1; j < blocks.length; j++) {
+      const next = blocks[j]
+      if (next.startsWith('##')) break // next heading of any level ends the answer
+      if (next.includes('](/booking)')) continue // closing CTA, not part of the answer
+      answerBlocks.push(next)
+    }
+
+    const answer = toPlainText(answerBlocks.join(' '))
+    if (answer) items.push({ question, answer })
+  }
+
+  return items
+}
+
 export function faqSchema(items: FaqItem[]) {
   return {
     '@context': 'https://schema.org',

@@ -4,6 +4,7 @@ import {
   websiteSchema,
   serviceSchema,
   faqSchema,
+  faqFromArticleBody,
   breadcrumbSchema,
   articleSchema,
   personSchema,
@@ -160,6 +161,53 @@ describe('faqSchema', () => {
   it('handles empty array', () => {
     const empty = faqSchema([])
     expect(empty.mainEntity).toEqual([])
+  })
+})
+
+describe('faqFromArticleBody', () => {
+  it('extracts a question and its answer', () => {
+    const items = faqFromArticleBody('## Intro\n\ntext\n\n### Was ist ein Blowout?\n\nPigment unter der Dermis.')
+    expect(items).toEqual([{ question: 'Was ist ein Blowout?', answer: 'Pigment unter der Dermis.' }])
+  })
+
+  it('ignores ### subheadings that are not questions', () => {
+    // Older articles use ### for plain subheadings — marking those up as
+    // Question would be a structured-data violation.
+    const items = faqFromArticleBody('### Knie Tattoo Schmerzen\n\nTut weh.\n\n### Tut es weh?\n\nJa.')
+    expect(items).toEqual([{ question: 'Tut es weh?', answer: 'Ja.' }])
+  })
+
+  it('joins a multi-paragraph answer', () => {
+    const items = faqFromArticleBody('### Geht das weg?\n\nNein.\n\nAber es verblasst.')
+    expect(items[0].answer).toBe('Nein. Aber es verblasst.')
+  })
+
+  it('stops the answer at the next heading of any level', () => {
+    const items = faqFromArticleBody('### Geht das weg?\n\nNein.\n\n## Nächster Abschnitt\n\nAnderer Text.')
+    expect(items[0].answer).toBe('Nein.')
+  })
+
+  it('drops the closing CTA paragraph instead of swallowing it into the last answer', () => {
+    const body = '### Wie erkenne ich das?\n\nWarte sechs Wochen.\n\nFrag mich vorher. [Schreib mir einfach](/booking).'
+    expect(faqFromArticleBody(body)[0].answer).toBe('Warte sechs Wochen.')
+  })
+
+  it('reduces markdown links to their text', () => {
+    const items = faqFromArticleBody('### Und dann?\n\nSiehe [Tattoo Placement](/blog/tattoo-placement-muenchen) dazu.')
+    expect(items[0].answer).toBe('Siehe Tattoo Placement dazu.')
+  })
+
+  it('strips bullet markers so the answer stays plain text', () => {
+    const items = faqFromArticleBody('### Welche Stellen?\n\n- Handgelenk\n- Rippen')
+    expect(items[0].answer).toBe('Handgelenk Rippen')
+  })
+
+  it('returns an empty array for a body without questions', () => {
+    expect(faqFromArticleBody('## Nur ein Abschnitt\n\nText ohne Fragen.')).toEqual([])
+  })
+
+  it('skips a question with no answer text', () => {
+    expect(faqFromArticleBody('### Offene Frage?\n\n## Nächster Abschnitt')).toEqual([])
   })
 })
 
