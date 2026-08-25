@@ -19,7 +19,8 @@
     "test:e2e:local": "BASE_URL=http://localhost:3000 playwright test",
     "test:all": "vitest run && playwright test",
     "indexnow": "node scripts/indexnow-submit.mjs",
-    "seo:ranks": "node --env-file=.env.local scripts/dataforseo-rank-check.mjs"
+    "seo:ranks": "node --env-file=.env.local scripts/dataforseo-rank-check.mjs",
+    "seo:slice": "node --env-file=.env.local scripts/dataforseo-serp-slice.mjs"
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.3.5",
