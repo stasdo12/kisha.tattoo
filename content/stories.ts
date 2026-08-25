@@ -242,6 +242,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/sport-nach-tattoo(Big).jpg',
     coverAlt: 'Sport nach dem Tattoo — Tätowiererin Kisha mit Arm- und Bein-Tattoos in den Bergen',
   },
+  {
+    slug: 'tattoo-blowout-linien-verlaufen',
+    publishedAt: '2026-08-25',
+    readingTime: '6 min',
+    category: 'Guide',
+    coverImage: '/images/blog/tattoo-blowout.jpg',
+    coverImageBig: '/images/blog/tattoo-blowout(Big).jpg',
+    coverAlt: 'Fineline-Blumentattoo über den Rücken in Schwarz-Grau — sehr feine Linien, bei denen ein Blowout sichtbar würde',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
