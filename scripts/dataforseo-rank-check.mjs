@@ -3,7 +3,7 @@
 // Appends every run to scripts/rank-history.csv so trends are visible over time, not just single snapshots.
 // Usage: npm run seo:ranks
 
-import { appendFileSync, existsSync } from 'node:fs'
+import { appendFileSync, existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
@@ -72,6 +72,10 @@ console.log(`Checking ${KEYWORDS.length} keywords for ${DOMAIN} (Munich, mobile)
 
 if (!existsSync(HISTORY_FILE)) {
   appendFileSync(HISTORY_FILE, HISTORY_HEADER)
+} else if (!readFileSync(HISTORY_FILE, 'utf8').endsWith('\n')) {
+  // A previous run (or a manual edit) left the file without a trailing newline —
+  // appending straight away would glue today's first row onto the last one.
+  appendFileSync(HISTORY_FILE, '\n')
 }
 const today = new Date().toISOString().slice(0, 10)
 const csvEscape = (s) => (s?.includes(',') ? `"${s}"` : (s ?? ''))
