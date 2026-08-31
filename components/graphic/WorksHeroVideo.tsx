@@ -9,17 +9,10 @@ export function WorksHeroVideo() {
     const el = ref.current
     if (!el) return
 
-    const onPlaying = () => {
-      el.style.opacity = '1'
-    }
-
-    el.addEventListener('playing', onPlaying)
     el.src = window.innerWidth <= 768
       ? '/video/hero_works_mobile.mp4'
       : '/video/hero_works_desktop.mp4'
     el.play().catch(() => {})
-
-    return () => el.removeEventListener('playing', onPlaying)
   }, [])
 
   return (
@@ -29,7 +22,7 @@ export function WorksHeroVideo() {
       muted
       loop
       playsInline
-      poster="/images/work/main-work-tattoo.jpg"
+      poster="/images/work/hero-works-poster.jpg"
       style={{
         position: 'absolute',
         inset: 0,
@@ -38,8 +31,6 @@ export function WorksHeroVideo() {
         objectFit: 'cover',
         objectPosition: 'center',
         zIndex: 0,
-        opacity: 0,
-        transition: 'opacity 0.8s ease',
       }}
     />
   )
