@@ -251,6 +251,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/tattoo-blowout(Big).jpg',
     coverAlt: 'Fineline-Blumentattoo über den Rücken in Schwarz-Grau — sehr feine Linien, bei denen ein Blowout sichtbar würde',
   },
+  {
+    slug: 'kleine-tattoos-muenchen',
+    publishedAt: '2026-09-02',
+    readingTime: '6 min',
+    category: 'Guide',
+    coverImage: '/images/blog/kleine-tattoos.jpg',
+    coverImageBig: '/images/blog/kleine-tattoos(Big).jpg',
+    coverAlt: 'Kleines Fineline-Tattoo am Unterarm in Schwarz-Grau — zwei Figuren aus einer durchgehenden Linie, erkennbar allein am Umriss',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {
