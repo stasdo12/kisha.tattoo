@@ -29,11 +29,12 @@ export const STORIES: StoryMeta[] = [
   {
     slug: 'japan-tattoo-bedeutung-irezumi-motive',
     publishedAt: '2025-02-10',
-    readingTime: '4 min',
+    updatedAt: '2026-09-08',
+    readingTime: '6 min',
     category: 'Culture',
-    coverImage: '/images/work/4x4-sakura-tattoo.jpg',
-    coverImageBig: '/images/work/4x4-sakura-tattoo.jpg',
-    coverAlt: 'Japanisches Irezumi Tattoo München — Kisha',
+    coverImage: '/images/work/japanisches-blackwork-tattoo-unterarm.jpg',
+    coverImageBig: '/images/work/japanisches-blackwork-tattoo-unterarm.jpg',
+    coverAlt: 'Japanisches Blackwork Tattoo am Unterarm in Schwarz-Grau — Kisha',
   },
   {
     slug: 'blackwork-graphic-tattoo-bedeutung-ideen',
