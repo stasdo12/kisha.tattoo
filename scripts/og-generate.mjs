@@ -22,6 +22,15 @@ const root = path.join(__dirname, '..')
 const publicDir = path.join(root, 'public')
 const outDir = path.join(publicDir, 'og', 'blog')
 
+// Landing pages have no cover field to read, so their source is named here.
+// Each photo is picked to represent that page honestly and is not in use as an
+// article cover — otherwise two different links would unfurl with one image.
+const LANDINGS = [
+  { name: 'fineline-tattoo-muenchen', source: '/images/work/maigloeckchen-tattoo-unterarm.jpg' },
+  { name: 'walk-in-tattoo-muenchen', source: '/images/work/4x4-dog-tattoo-fineline.jpg' },
+  { name: 'tattoo-preise-muenchen', source: '/images/work/spiegel-tattoo-graphic.jpg' },
+]
+
 /** Pulls slug + coverImageBig pairs straight out of the TS source. */
 function readStories() {
   const src = readFileSync(path.join(root, 'content', 'stories.ts'), 'utf8')
@@ -31,9 +40,9 @@ function readStories() {
   return stories
 }
 
-async function generate({ slug, cover }) {
+async function generate({ slug, cover, dir = outDir }) {
   const source = path.join(publicDir, cover)
-  const target = path.join(outDir, `${slug}.jpg`)
+  const target = path.join(dir, `${slug}.jpg`)
 
   const meta = await sharp(source).metadata()
 
@@ -52,17 +61,23 @@ async function generate({ slug, cover }) {
 }
 
 async function main() {
+  const landingDir = path.join(publicDir, 'og')
   mkdirSync(outDir, { recursive: true })
-  const stories = readStories()
+  mkdirSync(landingDir, { recursive: true })
+
+  const jobs = [
+    ...readStories().map(({ slug, cover }) => ({ slug, cover })),
+    ...LANDINGS.map(({ name, source }) => ({ slug: name, cover: source, dir: landingDir })),
+  ]
 
   const results = []
   const failures = []
 
-  for (const story of stories) {
+  for (const job of jobs) {
     try {
-      results.push(await generate(story))
+      results.push(await generate(job))
     } catch (err) {
-      failures.push({ slug: story.slug, cover: story.cover, message: err.message })
+      failures.push({ slug: job.slug, cover: job.cover, message: err.message })
     }
   }
 
@@ -72,7 +87,7 @@ async function main() {
   }
 
   const totalKb = results.reduce((sum, r) => sum + r.kb, 0)
-  console.log(`\n${results.length}/${stories.length} images → public/og/blog/ (${totalKb} KB total)`)
+  console.log(`\n${results.length}/${jobs.length} images → public/og/ (${totalKb} KB total)`)
 
   const upscaled = results.filter((r) => r.upscaled)
   if (upscaled.length > 0) {

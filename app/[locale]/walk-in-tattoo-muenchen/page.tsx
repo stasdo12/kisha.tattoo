@@ -4,6 +4,7 @@
  * Cluster: walk in tattoo, spontan tattoo münchen, tattoo ohne termin münchen
  */
 import type { Metadata } from 'next'
+import { SITE } from '@/content/site'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
 import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
@@ -27,7 +28,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'walkin' })
-  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/walk-in-tattoo-muenchen', locale, hreflang: false })
+  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/walk-in-tattoo-muenchen', locale, hreflang: false, ogImage: `${SITE.url}/og/walk-in-tattoo-muenchen.jpg` })
 }
 
 export default async function WalkInTattooMuenchen({
@@ -43,7 +44,7 @@ export default async function WalkInTattooMuenchen({
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        serviceSchema({ name: 'Walk In Tattoo München — KishaTattoo', description: 'Walk-In Tattoo München: spontan und kurzfristig stechen lassen. Fineline, Japanisch, Grafik.', url: '/walk-in-tattoo-muenchen' })
+        serviceSchema({ name: 'Walk In Tattoo München — KishaTattoo', description: 'Walk-In Tattoo München: spontan und kurzfristig stechen lassen. Fineline, Japanisch, Grafik.', url: '/walk-in-tattoo-muenchen', image: `${SITE.url}/og/walk-in-tattoo-muenchen.jpg` })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Walk In Tattoo München', url: '/walk-in-tattoo-muenchen' }])

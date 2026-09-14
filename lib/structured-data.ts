@@ -89,10 +89,14 @@ export function serviceSchema({
   name,
   description,
   url,
+  image,
 }: {
   name: string
   description: string
   url: string
+  /** Absolute URL of a photo representing this service. Omitted rather than
+   *  falling back to the site default — a generic image says nothing here. */
+  image?: string
 }) {
   return {
     '@context': 'https://schema.org',
@@ -100,6 +104,7 @@ export function serviceSchema({
     name,
     description,
     url: `${SITE.url}${url}`,
+    ...(image ? { image } : {}),
     provider: {
       '@type': 'LocalBusiness',
       '@id': `${SITE.url}/#business`,
@@ -323,6 +328,7 @@ export function tattooServicePricesSchema() {
     name: 'Tattoo Preise München — KishaTattoo',
     description: 'Tattoo Kosten und Preise in München. Kleine Tattoos ab 150 €, Sleeve ab 2.500 €. Transparente Preisübersicht.',
     url: `${SITE.url}/tattoo-preise-muenchen`,
+    image: `${SITE.url}/og/tattoo-preise-muenchen.jpg`,
     provider: {
       '@type': 'LocalBusiness',
       '@id': `${SITE.url}/#business`,

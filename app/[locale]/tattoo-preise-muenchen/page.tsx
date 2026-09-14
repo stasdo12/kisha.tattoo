@@ -6,6 +6,7 @@
  */
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { SITE } from '@/content/site'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
 import { tattooServicePricesSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
@@ -17,7 +18,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'preise' })
-  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/tattoo-preise-muenchen', locale, hreflang: false })
+  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/tattoo-preise-muenchen', locale, hreflang: false, ogImage: `${SITE.url}/og/tattoo-preise-muenchen.jpg` })
 }
 
 export default async function TattooPreiseMuenchen({

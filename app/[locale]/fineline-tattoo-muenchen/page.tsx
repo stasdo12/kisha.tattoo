@@ -6,6 +6,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { SITE } from '@/content/site'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
 import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
@@ -18,7 +19,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'fineline' })
-  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/fineline-tattoo-muenchen', locale, hreflang: false })
+  return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/fineline-tattoo-muenchen', locale, hreflang: false, ogImage: `${SITE.url}/og/fineline-tattoo-muenchen.jpg` })
 }
 
 export default async function FinelineTattooMuenchen({
@@ -32,7 +33,7 @@ export default async function FinelineTattooMuenchen({
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        serviceSchema({ name: 'Fineline Tattoo München', description: 'Fineline und Fine Line Tattoo in München — botanische Motive, Single Needle, Linework. KishaTattoo München.', url: '/fineline-tattoo-muenchen' })
+        serviceSchema({ name: 'Fineline Tattoo München', description: 'Fineline und Fine Line Tattoo in München — botanische Motive, Single Needle, Linework. KishaTattoo München.', url: '/fineline-tattoo-muenchen', image: `${SITE.url}/og/fineline-tattoo-muenchen.jpg` })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Fineline Tattoo München', url: '/fineline-tattoo-muenchen' }])
