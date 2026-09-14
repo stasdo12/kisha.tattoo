@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KishaTattoo → Pinterest</title>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --line: #272727;
+    --text: #f2f2f2;
+    --muted: #8d8d8d;
+    --accent: #e60023;
+    --ok: #4ba36b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 48px 24px 80px;
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+  header img { width: 40px; height: 40px; border-radius: 9px; }
+  h1 { font-size: 19px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); font-size: 13.5px; margin: 0 0 32px 54px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 18px;
+  }
+
+  button {
+    font: inherit;
+    font-weight: 500;
+    border: 0;
+    border-radius: 999px;
+    padding: 11px 22px;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  button:hover { opacity: .85; }
+  button:disabled { opacity: .4; cursor: default; }
+  .primary { background: var(--accent); color: #fff; }
+  .ghost { background: #262626; color: var(--text); padding: 8px 16px; font-size: 14px; }
+
+  .account { display: flex; align-items: center; gap: 12px; }
+  .account img { width: 38px; height: 38px; border-radius: 50%; }
+  .account b { font-weight: 600; }
+  .account span { color: var(--muted); font-size: 13px; }
+
+  label { display: block; color: var(--muted); font-size: 12.5px; margin-bottom: 7px; }
+  select {
+    font: inherit;
+    width: 100%;
+    padding: 10px 12px;
+    color: var(--text);
+    background: #1e1e1e;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+  }
+  li:first-child { border-top: 0; }
+  li img { width: 84px; height: 44px; object-fit: cover; border-radius: 5px; flex-shrink: 0; }
+  .meta { flex: 1; min-width: 0; }
+  .title { font-size: 14px; line-height: 1.35; }
+  .date { color: var(--muted); font-size: 12px; margin-top: 3px; }
+  .done { color: var(--ok); font-size: 13px; white-space: nowrap; }
+  .fail { color: #d4574f; font-size: 13px; }
+
+  .note {
+    color: var(--muted);
+    font-size: 12.5px;
+    line-height: 1.5;
+    border-left: 2px solid var(--line);
+    padding-left: 14px;
+    margin-top: 26px;
+  }
+  .note b { color: #b9b9b9; font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="/icon.png" alt="">
+    <h1>KishaTattoo → Pinterest</h1>
+  </header>
+  <p class="sub">Publish an article from kisha.tattoo as a Pin.</p>
+
+  <div id="app"></div>
+
+</div>
+
+<script>
+const app = document.getElementById('app')
+let state = null
+
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
+
+async function load() {
+  state = await (await fetch('/api/state')).json()
+  render()
+}
+
+function render() {
+  if (!state.connected) {
+    app.innerHTML = `
+      <div class="card">
+        <p style="margin:0 0 18px">Connect the Pinterest account to continue.</p>
+        <button class="primary" onclick="location.href='/connect'">Connect Pinterest</button>
+      </div>`
+    return
+  }
+
+  app.innerHTML = `
+    <div class="card">
+      <div class="account">
+        ${state.account.avatar ? `<img src="${esc(state.account.avatar)}" alt="">` : ''}
+        <div>
+          <b>${esc(state.account.name)}</b>
+          <span>· connected</span>
+        </div>
+        <button class="ghost" style="margin-left:auto" onclick="disconnect()">Disconnect</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <label for="board">Board</label>
+      <select id="board">
+        ${state.boards.map((b) => `<option value="${esc(b.id)}">${esc(b.name)}</option>`).join('')}
+      </select>
+    </div>
+
+    <div class="card">
+      <ul>
+        ${state.articles.map((a) => `
+          <li>
+            <img src="${esc(a.image)}" alt="" loading="lazy">
+            <div class="meta">
+              <div class="title">${esc(a.title)}</div>
+              <div class="date">${esc(a.publishedAt)}</div>
+            </div>
+            <span id="s-${esc(a.slug)}"></span>
+            <button class="ghost" id="b-${esc(a.slug)}" onclick="createPin('${esc(a.slug)}')">Pin it</button>
+          </li>`).join('')}
+      </ul>
+    </div>
+
+    ${state.writeEnv === 'sandbox' ? `
+    <p class="note">
+      <b>Trial access.</b> A Pin created here is real and lands on the chosen board of the
+      real account, where you can see it — but nobody else can. Pinterest keeps Trial Pins
+      out of public view, so they draw no impressions and no traffic. Once Standard access
+      is granted, the same button publishes for everyone.
+    </p>` : ''}
+  `
+}
+
+async function createPin(slug) {
+  const btn = document.getElementById('b-' + slug)
+  const status = document.getElementById('s-' + slug)
+  const boardId = document.getElementById('board').value
+
+  btn.disabled = true
+  status.className = ''
+  status.textContent = 'Pinning…'
+
+  try {
+    const res = await fetch('/api/pin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug, board_id: boardId }),
+    })
+    const data = await res.json()
+    if (!res.ok) throw new Error(data.error || 'failed')
+    status.className = 'done'
+    status.textContent = '✓ pinned'
+  } catch (err) {
+    status.className = 'fail'
+    status.textContent = err.message
+    btn.disabled = false
+  }
+}
+
+async function disconnect() {
+  await fetch('/api/disconnect', { method: 'POST' })
+  load()
+}
+
+load()
+</script>
+</body>
+</html>
