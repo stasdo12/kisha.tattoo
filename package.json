@@ -20,6 +20,7 @@
     "test:all": "vitest run && playwright test",
     "indexnow": "node scripts/indexnow-submit.mjs",
     "og": "node scripts/og-generate.mjs",
+    "pinterest": "node --env-file=.env.local scripts/pinterest.mjs",
     "seo:ranks": "node --env-file=.env.local scripts/dataforseo-rank-check.mjs",
     "seo:slice": "node --env-file=.env.local scripts/dataforseo-serp-slice.mjs"
   },
