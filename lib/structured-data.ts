@@ -51,6 +51,7 @@ export function localBusinessSchema(options?: {
       SITE.social.facebook,
       SITE.social.reddit,
       SITE.social.tattoodo,
+      SITE.social.pinterest,
       SITE.social.gbp,
       SITE.social.bing,
     ],
@@ -261,7 +262,7 @@ export function personSchema(options?: {
     jobTitle = 'Tattoo Artist',
     description = 'Tattoo-Künstlerin in München — Japanisches Irezumi, Grafik-Tattoo, Linework.',
     image = `${SITE.url}/og/default.jpg`,
-    sameAs = [SITE.social.instagram, SITE.social.facebook, SITE.social.reddit, SITE.social.tattoodo, SITE.social.gbp, SITE.social.bing],
+    sameAs = [SITE.social.instagram, SITE.social.facebook, SITE.social.reddit, SITE.social.tattoodo, SITE.social.pinterest, SITE.social.gbp, SITE.social.bing],
     skills = ['Japanese Irezumi', 'Graphic Tattoo', 'Linework', 'Blackwork', 'Fineline'],
   } = options ?? {}
 

@@ -18,6 +18,7 @@ export const SITE = {
     facebook: 'https://www.facebook.com/bavariatattoo1',
     reddit: 'https://www.reddit.com/user/Ready_Advice_8848/',
     tattoodo: 'https://www.tattoodo.com/artists/kisha0808sk',
+    pinterest: 'https://de.pinterest.com/KishaTattoo/',
     gbp: 'https://share.google/TBRe5tzUCkyMEaUPJ',
     bing: 'https://www.bing.com/forbusiness/singleEntity?bizid=65483b9b-bf49-44e2-b793-73f3efe2eab1',
   },
@@ -54,7 +55,7 @@ export const SITE = {
   // is a false claim in structured data, not just a cosmetic drift.
   reviews: {
     ratingValue: 5.0,
-    reviewCount: 15,   // ← update this number (last checked 2026-08-25)
+    reviewCount: 16,   // ← update this number (last checked 2026-09-08)
     bestRating: 5,
   },
 } as const
