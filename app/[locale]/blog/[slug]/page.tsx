@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { SITE } from '@/content/site'
 import { STORIES, getStoryBySlug } from '@/content/stories'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
@@ -36,6 +37,11 @@ export async function generateMetadata({
     description: content?.excerpt ?? '',
     path: meta?.canonicalPath ?? `/blog/${slug}`,
     locale,
+    ogType: 'article',
+    // One 1200x630 crop per article, cut from the same cover the hero shows
+    // (scripts/og-generate.mjs). Unknown slugs 404 in the component, but
+    // generateMetadata still runs for them — those fall back to the site default.
+    ...(meta ? { ogImage: `${SITE.url}/og/blog/${slug}.jpg`, publishedTime: meta.publishedAt } : {}),
   })
 }
 
