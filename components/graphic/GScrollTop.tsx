@@ -17,7 +17,8 @@ export function GScrollTop() {
       className="g-scroll-top"
       style={{
         position: 'fixed',
-        bottom: 'clamp(1.5rem, 2.5vw, 2.5rem)',
+        // Stacks above FloatingWhatsApp, which owns the corner (floating-cta.css)
+        bottom: 'var(--fw-stack-bottom, clamp(1.5rem, 2.5vw, 2.5rem))',
         right: 'clamp(1.5rem, 2.5vw, 2.5rem)',
         width: '3rem',
         height: '3rem',

@@ -9,10 +9,12 @@ import { localBusinessSchema, websiteSchema } from '@/lib/structured-data'
 import { FormPopupLoader } from '@/components/graphic/FormPopupLoader'
 import { GScrollTop } from '@/components/graphic/GScrollTop'
 import { GCookieConsent } from '@/components/graphic/GCookieConsent'
+import { FloatingWhatsApp } from '@/components/graphic/FloatingWhatsApp'
 import { routing } from '@/i18n/routing'
 import '@/styles/globals.css'
 import '@/styles/graphic.css'
 import '@/styles/form-popup.css'
+import '@/styles/floating-cta.css'
 
 /* ── Fonts ──────────────────────────────────────────────────────────────── */
 const cinzel = Cinzel({
@@ -153,6 +155,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <div data-theme="graphic">
             {children}
+            <FloatingWhatsApp />
             <GScrollTop />
             <FormPopupLoader />
             <GCookieConsent />

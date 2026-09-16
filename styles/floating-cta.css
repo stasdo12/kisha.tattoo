@@ -1,0 +1,90 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   FLOATING WHATSAPP CTA
+
+   The only persistent contact affordance on the site. WhatsApp and Instagram
+   otherwise live behind the burger menu and at the very bottom of the footer,
+   so a warm visitor has to open something or scroll the whole page before they
+   can write. Deliberately a single button — a second floating CTA next to it
+   would only split the clicks.
+
+   Stacking, against the values actually in use:
+     form popup    9999  (styles/form-popup.css)
+     cookie banner  300  (GCookieConsent — covers this button until dismissed)
+     menu overlay   200  (opaque #FFF, so the button disappears while open)
+     this button     91
+     GScrollTop      90  — stacks directly above via --fw-stack-bottom
+   ───────────────────────────────────────────────────────────────────────────── */
+
+[data-theme='graphic'] {
+  --fw-offset: clamp(1.5rem, 2.5vw, 2.5rem);
+  --fw-size:   3rem;
+  --fw-gap:    0.75rem;
+
+  /* Keep clear of the iOS home indicator. */
+  --fw-edge: calc(var(--fw-offset) + env(safe-area-inset-bottom, 0px));
+
+  /* Bottom edge for anything stacked above the button. */
+  --fw-stack-bottom: calc(var(--fw-edge) + var(--fw-size) + var(--fw-gap));
+}
+
+.fw-cta {
+  position: fixed;
+  right: var(--fw-offset);
+  bottom: var(--fw-edge);
+  z-index: 91;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: var(--fw-size);
+  height: var(--fw-size);
+
+  /* Inverted on purpose: a black fill merges into the black CTA strips
+     ("Termin anfragen") and into the dark-theme photo pages. White with a
+     hard black border is the same recipe as the locale buttons in the menu,
+     and it separates from every background the site actually uses. */
+  background: #F2F2F2;
+  color: #0D0D0D;
+  border: 1px solid #0D0D0D;
+
+  text-decoration: none;
+
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+              opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Set by the component until the visitor has scrolled past the first screen. */
+.fw-cta[data-hidden='true'] {
+  opacity: 0;
+  transform: translateY(0.75rem);
+  pointer-events: none;
+}
+
+.fw-cta-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+@media (hover: hover) {
+  .fw-cta:hover {
+    background: #0D0D0D;
+    color: #F2F2F2;
+  }
+}
+
+.fw-cta:focus-visible {
+  outline: 2px solid #0D0D0D;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-cta {
+    transition: none;
+  }
+
+  .fw-cta[data-hidden='true'] {
+    transform: none;
+  }
+}
