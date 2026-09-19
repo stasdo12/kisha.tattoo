@@ -57,12 +57,14 @@ export function localBusinessSchema(options?: {
     ],
     hasMap: SITE.location.mapsUrl,
     image: `${SITE.url}/og/default.jpg`, // TODO: real studio photo
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: SITE.reviews.ratingValue,
-      reviewCount: SITE.reviews.reviewCount,
-      bestRating: SITE.reviews.bestRating,
-    },
+    // No aggregateRating on purpose. Google's LocalBusiness reference says the
+    // property "is only recommended for sites that capture reviews about other
+    // local businesses" — an agency, not the business itself. Reviews a business
+    // controls about itself are explicitly ineligible for the star feature, so
+    // this markup could never produce stars; meanwhile it rode on all 121 pages
+    // while no rating is visible on any of them, which is what the general
+    // guidelines forbid ("Don't mark up content that is not visible"). The rating
+    // Google actually shows comes from the Business Profile, and that is untouched.
     ...(options?.employees?.length ? { employee: options.employees } : {}),
   }
 }

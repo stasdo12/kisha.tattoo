@@ -50,9 +50,10 @@ export const SITE = {
   // Price range indicator ($, $$, $$$, $$$$)
   priceRange: '$$$',
 
-  // Google reviews — update manually when count changes.
-  // This number ends up in the LocalBusiness aggregateRating, so a stale value
-  // is a false claim in structured data, not just a cosmetic drift.
+  // Google reviews. NOT emitted in structured data any more (see the note in
+  // lib/structured-data.ts): self-hosted ratings can't produce stars and the
+  // markup was riding on pages with no visible rating. Kept here for a future
+  // visible reviews block — until then it feeds nothing and can drift safely.
   reviews: {
     ratingValue: 5.0,
     reviewCount: 16,   // ← update this number (last checked 2026-09-08)
