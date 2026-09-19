@@ -31,10 +31,12 @@ export async function generateMetadata({
   const { locale, slug } = await params
   const meta = getStoryBySlug(slug)
   const t = await getTranslations({ locale, namespace: 'blog' })
-  const content = meta ? t.raw(`stories.${slug}`) as { title: string; excerpt: string } : null
+  const content = meta ? t.raw(`stories.${slug}`) as { title: string; excerpt: string; seoTitle?: string } : null
   return buildMetadata({
     // No brand here: the template in app/[locale]/layout.tsx appends " | Kisha Tattoo".
-    title: content ? content.title : 'Article',
+    // seoTitle is the short version for the SERP, where Google cuts at roughly 60
+    // characters; the long headline stays on the page itself, where it reads better.
+    title: content ? (content.seoTitle ?? content.title) : 'Article',
     description: content?.excerpt ?? '',
     path: meta?.canonicalPath ?? `/blog/${slug}`,
     locale,
