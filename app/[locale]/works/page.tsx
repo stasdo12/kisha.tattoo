@@ -270,7 +270,7 @@ export default async function GraphicWorksPage({
       <GFooter />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Portfolio', url: '/works' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Portfolio', url: '/works' }], locale)
       ) }} />
 
     </main>

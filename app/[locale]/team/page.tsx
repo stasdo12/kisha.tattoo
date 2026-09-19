@@ -22,7 +22,8 @@ export async function generateMetadata(
   return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/team', locale })
 }
 
-export default async function TeamPage() {
+export default async function TeamPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
   const t = await getTranslations('team')
 
   // Solo again for now — no second artist. Card grid below adapts to 1 or 2 entries.
@@ -38,7 +39,7 @@ export default async function TeamPage() {
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Team', url: '/team' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Team', url: '/team' }], locale)
       )}} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}

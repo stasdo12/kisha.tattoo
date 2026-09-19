@@ -1047,15 +1047,9 @@ body:has([data-theme='graphic']) {
     grid-template-columns: 1fr 1fr !important;
   }
 
-  /* Normal vs. see-a-doctor: the two lists stack, side by side is unreadable narrow */
+  /* Below 480 the two healing lists stop being two columns */
   .g-aftercare-healing-grid {
     grid-template-columns: 1fr !important;
-  }
-
-  /* FAQ rows: question above answer instead of two columns */
-  .g-aftercare-faq-row {
-    grid-template-columns: 1fr !important;
-    gap: 0.5rem !important;
   }
 
   /* ── CONTACT PAGE ── */
@@ -1620,5 +1614,51 @@ body:has([data-theme='graphic']) {
     width: 100% !important;
     min-width: 0 !important;
     flex-shrink: 1 !important;
+  }
+}
+
+/* ── FAQ accordion (native <details>) ── */
+/* The marker is replaced by our own circle, and the plus rotates into a minus. */
+.g-faq-summary::-webkit-details-marker { display: none; }
+.g-faq-summary::marker { content: ''; }
+.g-faq-icon svg { transition: transform 0.2s ease; }
+.g-faq-item[open] .g-faq-icon svg { transform: rotate(45deg); }
+
+/* ── AFTERCARE: tablet and below ──
+   The 50/50 photo+text split needs real width. Under 900px it squeezed the
+   photo into a 0.33 ribbon that cropped the tattoo out of frame entirely. */
+@media (max-width: 900px) {
+  .g-aftercare-healing-top,
+  .g-aftercare-products-top {
+    flex-direction: column !important;
+  }
+  .g-aftercare-healing-top > *,
+  .g-aftercare-products-top > * {
+    width: 100% !important;
+  }
+  .g-aftercare-healing-img,
+  .g-aftercare-products-img {
+    aspect-ratio: 4 / 3 !important;
+    min-height: 0 !important;
+  }
+
+  /* The floating WhatsApp and back-to-top buttons overlap running text —
+     keep a gutter so lines never run under them. */
+  .g-aftercare-list,
+  .g-faq-item {
+    padding-right: 64px;
+  }
+}
+
+/* Under 600px the label column leaves the text nothing to work with:
+   at 390 it was 144px of label against 190px of content. Stack instead. */
+@media (max-width: 600px) {
+  .g-aftercare-day-row,
+  .g-aftercare-product-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .g-aftercare-list {
+    padding-right: 56px;
   }
 }

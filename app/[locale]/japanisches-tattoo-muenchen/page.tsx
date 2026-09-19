@@ -36,7 +36,7 @@ export default async function JapanischesTattooMuenchen({
         serviceSchema({ name: 'Japanischer Tätowierer München — KishaTattoo', description: 'Japanischer Tätowierer in München — Traditional Japanese Tattoo, Irezumi, Koi, Drachen, Oni, Sleeve, Backpiece.', url: '/japanisches-tattoo-muenchen' })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Japanisches Tattoo München', url: '/japanisches-tattoo-muenchen' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Japanisches Tattoo München', url: '/japanisches-tattoo-muenchen' }], locale)
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))

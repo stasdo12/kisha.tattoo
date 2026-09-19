@@ -562,7 +562,7 @@ export default async function AwardsPage({
         }}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Awards & Ausbildung', url: '/awards' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Awards & Ausbildung', url: '/awards' }], locale)
       ) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         awardsPageSchema(AWARDS_DATA)

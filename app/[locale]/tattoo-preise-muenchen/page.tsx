@@ -38,7 +38,7 @@ export default async function TattooPreiseMuenchen({
         tattooServicePricesSchema()
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Preise München', url: '/tattoo-preise-muenchen' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Preise München', url: '/tattoo-preise-muenchen' }], locale)
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         faqSchema(faqItems.map(item => ({ question: item.q, answer: item.a })))

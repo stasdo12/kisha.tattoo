@@ -35,7 +35,7 @@ export default async function GrafikTattooMuenchen({
         serviceSchema({ name: 'Tattoo Munich — KishaTattoo', description: 'Tattoo Munich: custom grafik tattoo, blackwork & illustration. Munich tattoo studio specialized in individual designs.', url: '/grafik-tattoo-muenchen' })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Munich — Grafik & Blackwork', url: '/grafik-tattoo-muenchen' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Tattoo Munich — Grafik & Blackwork', url: '/grafik-tattoo-muenchen' }], locale)
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))

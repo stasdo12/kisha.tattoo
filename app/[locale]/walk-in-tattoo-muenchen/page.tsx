@@ -47,7 +47,7 @@ export default async function WalkInTattooMuenchen({
         serviceSchema({ name: 'Walk In Tattoo München — KishaTattoo', description: 'Walk-In Tattoo München: spontan und kurzfristig stechen lassen. Fineline, Japanisch, Grafik.', url: '/walk-in-tattoo-muenchen', image: `${SITE.url}/og/walk-in-tattoo-muenchen.jpg` })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Walk In Tattoo München', url: '/walk-in-tattoo-muenchen' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Walk In Tattoo München', url: '/walk-in-tattoo-muenchen' }], locale)
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))

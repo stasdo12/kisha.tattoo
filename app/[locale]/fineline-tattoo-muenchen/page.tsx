@@ -36,7 +36,7 @@ export default async function FinelineTattooMuenchen({
         serviceSchema({ name: 'Fineline Tattoo München', description: 'Fineline und Fine Line Tattoo in München — botanische Motive, Single Needle, Linework. KishaTattoo München.', url: '/fineline-tattoo-muenchen', image: `${SITE.url}/og/fineline-tattoo-muenchen.jpg` })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Fineline Tattoo München', url: '/fineline-tattoo-muenchen' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Fineline Tattoo München', url: '/fineline-tattoo-muenchen' }], locale)
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))

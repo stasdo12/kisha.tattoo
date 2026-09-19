@@ -168,6 +168,11 @@ export function faqFromArticleBody(body: string): FaqItem[] {
   return items
 }
 
+/** Answers may carry [text](/path) links for the page; schema wants the plain text. */
+function stripLinks(text: string): string {
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')
+}
+
 export function faqSchema(items: FaqItem[]) {
   return {
     '@context': 'https://schema.org',
@@ -177,15 +182,20 @@ export function faqSchema(items: FaqItem[]) {
       name: item.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: item.answer,
+        text: stripLinks(item.answer),
       },
     })),
   }
 }
 
 export function breadcrumbSchema(
-  items: Array<{ name: string; url: string }>
+  items: Array<{ name: string; url: string }>,
+  locale = 'de',
 ) {
+  // Same trap articleSchema already documents: without the locale prefix the
+  // trail on /en/ and /uk/ points at the German URLs, so the breadcrumb
+  // describes a different document than the page it sits on.
+  const prefix = locale === 'de' ? '' : `/${locale}`
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -193,7 +203,8 @@ export function breadcrumbSchema(
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `${SITE.url}${item.url}`,
+      // '/' is the locale root, not a path to append to it
+      item: item.url === '/' ? `${SITE.url}${prefix || '/'}` : `${SITE.url}${prefix}${item.url}`,
     })),
   }
 }

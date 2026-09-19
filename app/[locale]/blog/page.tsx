@@ -195,7 +195,7 @@ export default async function GraphicBlogPage({
       <GFooter />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }], locale)
       ) }} />
 
     </main>
