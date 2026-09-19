@@ -37,8 +37,8 @@ export const SITE = {
     postalCode: '85375',
     country: 'DE',
     countryName: 'Germany',
-    lat: 48.3167,
-    lng: 11.6833,
+    lat: 48.31307,
+    lng: 11.66360,
     mapsUrl: 'https://maps.google.com/?q=Bahnhofstraße+1,+85375+Neufahrn+bei+Freising',
   },
 

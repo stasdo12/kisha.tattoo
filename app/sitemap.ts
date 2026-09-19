@@ -51,14 +51,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // Blog posts — DE + EN + UK versions
-  const blogRoutes: MetadataRoute.Sitemap = STORIES.flatMap((story) => {
-    const published = new Date(story.publishedAt).toISOString()
-    return [
-      { url: `${SITE.url}/blog/${story.slug}`,     lastModified: published, changeFrequency: 'monthly' as const, priority: 0.65 },
-      { url: `${SITE.url}/en/blog/${story.slug}`,  lastModified: published, changeFrequency: 'monthly' as const, priority: 0.60 },
-      { url: `${SITE.url}/uk/blog/${story.slug}`,  lastModified: published, changeFrequency: 'monthly' as const, priority: 0.60 },
-    ]
-  })
+  // Stories with an explicit canonicalPath point elsewhere — listing them here would
+  // tell Google the opposite of what their canonical tag says.
+  const blogRoutes: MetadataRoute.Sitemap = STORIES
+    .filter((story) => !story.canonicalPath)
+    .flatMap((story) => {
+      const published = new Date(story.publishedAt).toISOString()
+      return [
+        { url: `${SITE.url}/blog/${story.slug}`,     lastModified: published, changeFrequency: 'monthly' as const, priority: 0.65 },
+        { url: `${SITE.url}/en/blog/${story.slug}`,  lastModified: published, changeFrequency: 'monthly' as const, priority: 0.60 },
+        { url: `${SITE.url}/uk/blog/${story.slug}`,  lastModified: published, changeFrequency: 'monthly' as const, priority: 0.60 },
+      ]
+    })
 
   return [...i18nRoutes, ...deOnlyRoutes, ...blogRoutes]
 }

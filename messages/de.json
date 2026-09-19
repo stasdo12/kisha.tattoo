@@ -181,7 +181,7 @@
   },
   "works": {
     "meta": {
-      "title": "Neueste Arbeiten — Kisha Irezumi München",
+      "title": "Neueste Arbeiten — Irezumi München",
       "description": "Tauche ein in die Sammlung von Kisha Tattoo München: Japanisches Irezumi, Fineline und Grafik — das Ergebnis aus Hingabe, präziser Technik und hohem Anspruch."
     },
     "hero": {
@@ -202,7 +202,7 @@
   },
   "about": {
     "meta": {
-      "title": "Tattoo Artist München — Kisha | Irezumi & Fineline",
+      "title": "Tattoo Artist München — Irezumi & Fineline",
       "description": "Kisha ist Tattoo Artist in München — Irezumi, Fineline & Grafik. 7+ Jahre Erfahrung, 5 Convention Awards 2025. Jetzt Termin anfragen."
     },
     "hero": {
@@ -274,7 +274,7 @@
   },
   "team": {
     "meta": {
-      "title": "Team — Kisha, Tattoo München",
+      "title": "Team — Tattoo München",
       "description": "Das Team von KishaTattoo München: Kisha, spezialisiert auf Japanisches Irezumi, Fineline und Grafik. Studio in Neufahrn bei Freising, nahe München."
     },
     "hero": {
@@ -291,7 +291,7 @@
   },
   "booking": {
     "meta": {
-      "title": "Termin buchen — Kisha Tattoo München",
+      "title": "Termin buchen — Tattoo München",
       "description": "Termin bei Kisha Tattoo anfragen — japanisches Irezumi, Grafik und Fineline in München. Antwort innerhalb von 48 Stunden."
     },
     "hero": {
@@ -345,7 +345,7 @@
   },
   "contact": {
     "meta": {
-      "title": "Kontakt — Kisha Tattoo München",
+      "title": "Kontakt — Tattoo München",
       "description": "Kontaktiere Kisha — Tätowiererin in der Nähe von München. Studio in Neufahrn bei Freising. Öffnungszeiten, Adresse und Karte."
     },
     "hero": {
@@ -393,7 +393,7 @@
   },
   "blog": {
     "meta": {
-      "title": "Blog — Kisha Irezumi München",
+      "title": "Blog — Irezumi München",
       "description": "Artikel über japanisches Tattoo, Irezumi-Tradition, Pflege, Stilkunde und ehrliche Beratung von Kisha Tattoo München — Einblicke aus dem echten Studio-Alltag."
     },
     "hero": {
@@ -553,7 +553,7 @@
   },
   "faq": {
     "meta": {
-      "title": "FAQ — Kisha Tattoo München",
+      "title": "FAQ — Tattoo München",
       "description": "Häufig gestellte Fragen zu Termin, Preisen, Pflege, Walk-in und Stilen bei Kisha Tattoo München — Studio in Neufahrn bei Freising, Antworten aus erster Hand."
     },
     "hero": {
@@ -658,7 +658,7 @@
   },
   "aftercare": {
     "meta": {
-      "title": "Tattoo Aftercare — Kisha Tattoo München",
+      "title": "Tattoo Aftercare München",
       "description": "Pflegehinweise für dein neues Tattoo von Kisha: Reinigung, Heilungsphasen und was du vermeiden solltest — so bleibt dein Irezumi, Fineline oder Grafik-Tattoo lange schön."
     },
     "hero": {
@@ -779,7 +779,7 @@
   },
   "awards": {
     "meta": {
-      "title": "Awards — Kisha Tattoo München",
+      "title": "Awards — Tattoo München",
       "description": "5 Convention Awards 2025 — Kisha Tattoo München wurde auf der Munich Tattoo Convention für Japanisches Irezumi, Fineline und Grafik ausgezeichnet."
     },
     "hero": {
@@ -1074,7 +1074,7 @@
   },
   "japanisch": {
     "meta": {
-      "title": "Japanisches Tattoo München — Irezumi | KishaTattoo",
+      "title": "Japanisches Tattoo München — Irezumi",
       "description": "Japanischer Tätowierer München — Irezumi mit moderner Maschinentechnik. 5× Convention Award 2025. Sleeve, Backpiece & Custom-Motive. KishaTattoo — Termin buchen."
     },
     "hero": {
@@ -1633,7 +1633,7 @@
   "locations": {
     "neufahrn": {
       "meta": {
-        "title": "Tattoo Neufahrn — Fineline & Irezumi | KishaTattoo",
+        "title": "Tattoo Neufahrn — Fineline & Irezumi",
         "description": "Tattoo in Neufahrn bei Freising? KishaTattoo München — 25 Minuten Fahrtzeit. Japanisches Irezumi, Grafik Tattoo, Linework. Custom-Design. Termin buchen."
       },
       "hero": {
@@ -1777,7 +1777,7 @@
     },
     "dachau": {
       "meta": {
-        "title": "Tattoo Dachau — Fineline & Japanisch | KishaTattoo",
+        "title": "Tattoo Dachau — Fineline & Japanisch",
         "description": "Tattoo in Dachau? KishaTattoo München — 30 Minuten Fahrtzeit. Japanisches Irezumi, Grafik Tattoo, Linework. Custom-Design. Termin buchen."
       },
       "hero": {
@@ -1839,7 +1839,7 @@
     },
     "eching": {
       "meta": {
-        "title": "Tattoo Eching — Fineline & Japanisch | KishaTattoo",
+        "title": "Tattoo Eching — Fineline & Japanisch",
         "description": "Tattoo in Eching? KishaTattoo München — 20 Minuten Fahrtzeit. Japanisches Irezumi, Grafik Tattoo, Linework. Custom-Design. Termin buchen."
       },
       "hero": {

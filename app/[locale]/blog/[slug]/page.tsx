@@ -33,7 +33,8 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'blog' })
   const content = meta ? t.raw(`stories.${slug}`) as { title: string; excerpt: string } : null
   return buildMetadata({
-    title: content ? `${content.title} — Kisha Tattoo München` : 'Article — Kisha Tattoo',
+    // No brand here: the template in app/[locale]/layout.tsx appends " | Kisha Tattoo".
+    title: content ? content.title : 'Article',
     description: content?.excerpt ?? '',
     path: meta?.canonicalPath ?? `/blog/${slug}`,
     locale,
@@ -168,6 +169,8 @@ export default async function ArticleDetailPage({
         updatedAt: meta.updatedAt,
         slug: meta.slug,
         coverImage: meta.coverImageBig ?? meta.coverImage,
+        locale,
+        canonicalPath: meta.canonicalPath,
       })
     : null
 

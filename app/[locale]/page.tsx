@@ -5,7 +5,6 @@
  * SSG — fully static, crawlable
  */
 import type { Metadata } from 'next'
-import ReactDOM from 'react-dom'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
@@ -46,17 +45,6 @@ const WORKS = [
 
 /* ── Page ───────────────────────────────────────────────────────────────────── */
 export default async function GraphicHomePage() {
-  ReactDOM.preload(
-    '/_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=384&q=75',
-    {
-      as: 'image',
-      fetchPriority: 'high',
-      imageSrcSet:
-        '/_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=256&q=75 256w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=384&q=75 384w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=512&q=75 512w, /_next/image?url=%2Fimages%2Fhome%2Fhero-portrait.jpg&w=640&q=75 640w',
-      imageSizes: '(max-width: 767px) 160px, (max-width: 1919px) 17vw, 320px',
-    }
-  )
-
   const t = await getTranslations('home')
 
   const MOTIFS = [

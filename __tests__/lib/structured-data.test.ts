@@ -292,6 +292,69 @@ describe('articleSchema', () => {
     expect(updated.dateModified).toBe('2026-01-15')
   })
 
+  it('defaults to the German URL and tags the language', () => {
+    expect(schema.url).toBe(`${SITE.url}/blog/fineline-tattoo-ideen-muenchen`)
+    expect(schema.inLanguage).toBe('de')
+  })
+
+  it('follows the locale, so EN and UK articles stop claiming the German URL', () => {
+    for (const locale of ['en', 'uk']) {
+      const localized = articleSchema({
+        title: 'Fineline Tattoo Ideas',
+        excerpt: 'The finest fineline motifs.',
+        publishedAt: '2025-03-01',
+        slug: 'fineline-tattoo-ideen-muenchen',
+        coverImage: 'https://kisha.tattoo/og/fineline.jpg',
+        locale,
+      })
+      const expected = `${SITE.url}/${locale}/blog/fineline-tattoo-ideen-muenchen`
+      expect(localized.url).toBe(expected)
+      expect(localized.mainEntityOfPage['@id']).toBe(expected)
+      expect(localized.inLanguage).toBe(locale)
+    }
+  })
+
+  it('follows canonicalPath, so an aliased article does not contradict its own canonical', () => {
+    const aliased = articleSchema({
+      title: 'Fineline Tattoo Ideen',
+      excerpt: 'Die schönsten Fineline Motive.',
+      publishedAt: '2025-03-01',
+      slug: 'fineline-tattoo-ideen-muenchen',
+      coverImage: 'https://kisha.tattoo/og/fineline.jpg',
+      locale: 'en',
+      canonicalPath: '/fineline-tattoo-muenchen',
+    })
+    expect(aliased.url).toBe(`${SITE.url}/en/fineline-tattoo-muenchen`)
+    expect(aliased.mainEntityOfPage['@id']).toBe(`${SITE.url}/en/fineline-tattoo-muenchen`)
+  })
+
+  it('turns a relative cover into an absolute image — Schema.org rejects relative paths', () => {
+    const relative = articleSchema({
+      title: 'Kleine Tattoos',
+      excerpt: 'Klein, aber haltbar.',
+      publishedAt: '2026-09-02',
+      slug: 'kleine-tattoos-muenchen',
+      coverImage: '/images/blog/kleine-tattoos(Big).jpg',
+    })
+    // Parentheses are legal in a URL path and both forms serve 200, so they stay as they are.
+    expect(relative.image).toBe(`${SITE.url}/images/blog/kleine-tattoos(Big).jpg`)
+  })
+
+  it('escapes characters that are not legal in a URL, such as spaces', () => {
+    const spaced = articleSchema({
+      title: 'Kleine Tattoos',
+      excerpt: 'Klein, aber haltbar.',
+      publishedAt: '2026-09-02',
+      slug: 'kleine-tattoos-muenchen',
+      coverImage: '/images/blog/kleine tattoos.jpg',
+    })
+    expect(spaced.image).toBe(`${SITE.url}/images/blog/kleine%20tattoos.jpg`)
+  })
+
+  it('leaves an already absolute image untouched', () => {
+    expect(schema.image).toBe('https://kisha.tattoo/og/fineline.jpg')
+  })
+
   it('author links to person @id', () => {
     expect(schema.author['@type']).toBe('Person')
     expect(schema.author['@id']).toBe(`${SITE.url}/#person-kisha`)

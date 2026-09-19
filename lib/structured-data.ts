@@ -205,6 +205,8 @@ export function articleSchema({
   updatedAt,
   slug,
   coverImage,
+  locale = 'de',
+  canonicalPath,
 }: {
   title: string
   excerpt: string
@@ -212,7 +214,19 @@ export function articleSchema({
   updatedAt?: string
   slug: string
   coverImage: string
+  locale?: string
+  /** Set when the article canonicalises to another page — the schema must follow it. */
+  canonicalPath?: string
 }) {
+  // The schema must describe the page it sits on. Without the locale prefix every
+  // EN and UK article claimed the German URL, contradicting its own canonical tag.
+  const pageUrl = `${SITE.url}${locale === 'de' ? '' : `/${locale}`}${canonicalPath ?? `/blog/${slug}`}`
+  // Schema.org requires an absolute image URL; encodeURI covers filenames with
+  // characters like parentheses, which are legal on disk but not in a raw URL.
+  const imageUrl = coverImage.startsWith('http')
+    ? coverImage
+    : `${SITE.url}${encodeURI(coverImage)}`
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -220,8 +234,9 @@ export function articleSchema({
     description: excerpt,
     datePublished: publishedAt,
     dateModified: updatedAt ?? publishedAt,
-    url: `${SITE.url}/blog/${slug}`,
-    image: coverImage,
+    inLanguage: locale,
+    url: pageUrl,
+    image: imageUrl,
     author: {
       '@type': 'Person',
       '@id': `${SITE.url}/#person-kisha`,
@@ -235,7 +250,7 @@ export function articleSchema({
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE.url}/blog/${slug}`,
+      '@id': pageUrl,
     },
   }
 }

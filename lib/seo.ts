@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { SITE } from '@/content/site'
 
+// og:locale must follow the page's own language, not the site default — a de_DE tag
+// on /en/ and /uk/ tells crawlers and social platforms the wrong language.
+const OG_LOCALE = { de: 'de_DE', en: 'en_US', uk: 'uk_UA' } as const
+
 type SeoInput = {
   title: string
   description: string
@@ -65,7 +69,7 @@ export function buildMetadata(input: SeoInput): Metadata {
       description,
       url: canonical,
       siteName: SITE.name,
-      locale: SITE.locale,
+      locale: OG_LOCALE[locale as keyof typeof OG_LOCALE] ?? SITE.locale,
       type: ogType,
       images: [
         {
