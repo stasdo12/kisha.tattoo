@@ -120,7 +120,10 @@ export const STORIES: StoryMeta[] = [
   {
     slug: 'tattoo-nachsorge-pflege-tipps',
     publishedAt: '2026-05-06',
-    readingTime: '5 min',
+    // Retargeted 2026-09-19: the piece used to duplicate /aftercare and ranked for nothing.
+    // It now covers the wrap on its own — Second Skin, bandage, cling film.
+    updatedAt: '2026-09-19',
+    readingTime: '6 min',
     category: 'Guide',
     coverImage: '/images/blog/aftercareBlog12.jpg',
     coverImageBig: '/images/blog/aftercareBlog12(Big).jpg',

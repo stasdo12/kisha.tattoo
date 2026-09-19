@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
-import { breadcrumbSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 
@@ -28,10 +28,14 @@ export default async function AftercarePage({
   type DayItem = { period: string; title: string; steps: string[] }
   type AvoidItem = { icon: string; label: string; note: string }
   type ProductItem = { name: string; note: string }
+  type FaqItem = { q: string; a: string }
 
   const days    = t.raw('guide.days')    as DayItem[]
   const avoid   = t.raw('avoid.items')  as AvoidItem[]
   const products = t.raw('products.items') as ProductItem[]
+  const faq     = t.raw('faq.items')      as FaqItem[]
+  const normal  = t.raw('healing.normal.items') as string[]
+  const alarm   = t.raw('healing.alarm.items')  as string[]
 
   return (
     <main id="main-content">
@@ -39,6 +43,13 @@ export default async function AftercarePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(
           breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Aftercare', url: '/aftercare' }])
+        )}}
+      />
+      {/* Every question below is rendered on the page, which is what FAQPage requires. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(
+          faqSchema(faq.map((item) => ({ question: item.q, answer: item.a })))
         )}}
       />
 
@@ -145,6 +156,39 @@ export default async function AftercarePage({
         </div>
       </section>
 
+      {/* ── WHAT IS NORMAL / WHEN TO SEE A DOCTOR ─────────────────────────── */}
+      <section aria-labelledby="healing-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
+        <div className="g-container">
+          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
+            <h2 id="healing-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
+              {t('healing.heading')}
+            </h2>
+          </div>
+
+          <div className="g-aftercare-healing-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'clamp(1.5rem, 3vw, 4rem)' }}>
+            {([['normal', normal], ['alarm', alarm]] as const).map(([key, items]) => (
+              <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.75rem, 1.2vw, 1rem)' }}>
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', paddingBottom: '0.75rem', borderBottom: '1px solid #0D0D0D', fontWeight: 'inherit' }}>
+                  {t(`healing.${key}.label`)}
+                </h3>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 'clamp(0.5rem, 0.8vw, 0.75rem)' }}>
+                  {items.map((item, i) => (
+                    <li key={i} style={{ fontSize: 'var(--g-tag)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.7)', paddingLeft: '1.25rem', position: 'relative' }}>
+                      <span aria-hidden="true" style={{ position: 'absolute', left: 0, color: 'rgba(13,13,13,0.35)' }}>—</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <p style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)', marginTop: 'clamp(1.5rem, 2vw, 2rem)', maxWidth: '48rem' }}>
+            {t('healing.note')}
+          </p>
+        </div>
+      </section>
+
       {/* ── WHAT TO AVOID ─────────────────────────────────────────────────── */}
       <section aria-labelledby="avoid-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
         <div className="g-container">
@@ -193,6 +237,34 @@ export default async function AftercarePage({
           <p style={{ fontSize: 'var(--g-tag)', color: 'rgba(13,13,13,0.5)', marginTop: '1.5rem' }}>
             {t('products.disclaimer')}
           </p>
+        </div>
+      </section>
+
+      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
+      <section aria-labelledby="faq-heading" style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}>
+        <div className="g-container">
+          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
+            <h2 id="faq-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D' }}>
+              {t('faq.heading')}
+            </h2>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {faq.map((item, i) => (
+              <div
+                key={i}
+                className="g-aftercare-faq-row"
+                style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 5rem)', padding: 'clamp(1rem, 1.6vw, 1.75rem) 0', borderBottom: '1px solid rgba(13,13,13,0.15)', alignItems: 'start' }}
+              >
+                <h3 style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D', fontWeight: 'inherit' }}>
+                  {item.q}
+                </h3>
+                <p style={{ fontSize: 'var(--g-tag)', lineHeight: 'var(--g-lh-bm)', color: 'rgba(13,13,13,0.7)' }}>
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
