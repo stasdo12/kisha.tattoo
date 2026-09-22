@@ -264,6 +264,15 @@ export const STORIES: StoryMeta[] = [
     coverImageBig: '/images/blog/kleine-tattoos(Big).jpg',
     coverAlt: 'Kleines Fineline-Tattoo am Unterarm in Schwarz-Grau — zwei Figuren aus einer durchgehenden Linie, erkennbar allein am Umriss',
   },
+  {
+    slug: 'alkohol-vor-und-nach-dem-tattoo',
+    publishedAt: '2026-09-22',
+    readingTime: '7 min',
+    category: 'Guide',
+    coverImage: '/images/blog/alkohol-tattoo-beratung.jpg',
+    coverImageBig: '/images/blog/alkohol-tattoo-beratung(Big).jpg',
+    coverAlt: 'Tätowiererin Kisha bespricht vor der Sitzung das Stencil mit einem Kunden im Studio in München',
+  },
 ]
 
 export function getStoryBySlug(slug: string): StoryMeta | undefined {

@@ -28,7 +28,7 @@ const ROW9 = [
 ]
 const ROW10 = [
   { src: '/images/home/works-05-flowers-graphic.jpg',       alt: 'Fineline Blumen Arm Tattoo München — Kisha',           tags: ['München'], name: 'Blumen Arm — Fineline'        },
-  { src: '/images/home/works-01-blackwork-fullbody.jpg',    alt: 'Japanisches Irezumi Fullbody Tattoo München — Kisha',   tags: ['München'], name: 'Irezumi Fullbody — Japanisch' },
+  { src: '/images/work/middle-graphic-legs-tattoo.jpg',      alt: 'Grafik Bein Tattoo München — Kisha',                    tags: ['München'], name: 'Bein — Grafik'               },
 ]
 // Hochformat (portrait, 1500×2000 / 1333×2000) — in 2-col slots, cover crops top/bottom moderately (~40%), not left/right
 const ROW11 = [
@@ -44,6 +44,11 @@ const ROW13 = [
   { src: '/images/work/maigloeckchen-tattoo-unterarm.jpg',          alt: 'Maiglöckchen Fineline Tattoo München — Kisha', tags: ['München'], name: 'Maiglöckchen — Fineline'      },
   { src: '/images/work/japanisches-blackwork-tattoo-unterarm.jpg',  alt: 'Japanisches Blackwork Tattoo München — Kisha', tags: ['München'], name: 'Blackwork Welle — Japanisch' },
 ]
+// Gemischt: Hochformat (1333×2000) + Querformat (2000×1333) — beide sicher im 2-col-Slot
+const ROW15 = [
+  { src: '/images/work/hibiskus-blumen-tattoo-oberschenkel.jpg', alt: 'Blumen Schriftzug Tattoo Oberschenkel München — Kisha', tags: ['München'], name: 'Blumen & Schriftzug — Grafik' },
+  { src: '/images/work/vogel-pfingstrose-tattoo-ruecken.jpg',    alt: 'Grafik Vogel Pfingstrose Rücken Tattoo München — Kisha, laufende Arbeit: Linien stehen, Schattierung folgt', tags: ['München'], name: 'Vogel & Pfingstrose — Grafik', inProgress: true },
+]
 const ROW14 = {
   src: '/images/work/hannya-maske-tattoo-unterarm.jpg',
   alt: 'Hannya Maske Tattoo München — Kisha',
@@ -51,7 +56,7 @@ const ROW14 = {
   name: 'Hannya Maske — Japanisch',
 }
 
-export function WorksGalleryMore({ label }: { label: string }) {
+export function WorksGalleryMore({ label, inProgressLabel }: { label: string; inProgressLabel: string }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
@@ -131,6 +136,20 @@ export function WorksGalleryMore({ label }: { label: string }) {
           <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             {ROW13.map((img) => (
               <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
+            ))}
+          </div>
+
+          <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {ROW15.map((img) => (
+              <GWorkImage
+                key={img.src}
+                src={img.src}
+                alt={img.alt}
+                tags={'inProgress' in img && img.inProgress ? [...img.tags, inProgressLabel] : img.tags}
+                name={img.name}
+                sizes="(max-width: 767px) 100vw, 50vw"
+                style={{ height: H_LARGE }}
+              />
             ))}
           </div>
 

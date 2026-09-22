@@ -49,7 +49,7 @@ const ROW2 = {
 }
 const ROW3 = [
   { src: '/images/work/middle-graphic-hand-with-flower-tattoo.jpg', alt: 'Grafik Blumen Hand Tattoo München — Kisha', tags: ['München'], name: 'Blumen Hand — Grafik'  },
-  { src: '/images/work/middle-graphic-legs-tattoo.jpg',             alt: 'Grafik Bein Tattoo München — Kisha',        tags: ['München'], name: 'Bein — Grafik'          },
+  { src: '/images/home/works-01-blackwork-fullbody.jpg',           alt: 'Japanisches Irezumi Fullbody Tattoo München — Kisha', tags: ['München'], name: 'Irezumi Fullbody — Japanisch' },
 ]
 const ROW4 = [
   { src: '/images/work/4x4-dog-tattoo-fineline.jpg',  alt: 'Fineline Hund Tattoo München — Kisha',  tags: ['München'], name: 'Hund — Fineline'  },
@@ -261,7 +261,7 @@ export default async function GraphicWorksPage({
             ))}
           </div>
 
-          <WorksGalleryMore label={t('gallery.showMore')} />
+          <WorksGalleryMore label={t('gallery.showMore')} inProgressLabel={t('gallery.inProgress')} />
 
         </div>
       </section>
