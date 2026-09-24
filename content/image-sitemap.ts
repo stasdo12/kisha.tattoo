@@ -54,8 +54,8 @@ export const CURATED_IMAGE_PAGES: SitemapImagePage[] = [
     path: "/about",
     images: [
       { loc: "https://kisha.tattoo/images/about/hero-portrait.jpg", title: "Kisha \u2014 Tattoo-K\u00fcnstlerin M\u00fcnchen Portrait", caption: "Kisha, award-winning tattoo artist in M\u00fcnchen" },
-      { loc: "https://kisha.tattoo/images/about/studio-wide.jpg", title: "BavariaTattoo Studio M\u00fcnchen \u2014 Kisha Atelier", caption: "BavariaTattoo Studio, Neufahrn bei Freising \u2014 Kisha Tattoo" },
-      { loc: "https://kisha.tattoo/images/about/passion-large-1.jpg", title: "Kisha Tattoo M\u00fcnchen \u2014 Arbeit am Tattoo 1", caption: "Kisha tattooing at BavariaTattoo Studio M\u00fcnchen" },
+      { loc: "https://kisha.tattoo/images/about/studio-wide.jpg", title: "Kisha Tattoo Atelier \u2014 Neufahrn bei Freising", caption: "Atelier von Kisha Tattoo, Neufahrn bei Freising" },
+      { loc: "https://kisha.tattoo/images/about/passion-large-1.jpg", title: "Kisha Tattoo M\u00fcnchen \u2014 Arbeit am Tattoo 1", caption: "Kisha tattooing in her atelier near Munich" },
       { loc: "https://kisha.tattoo/images/about/passion-large-2.jpg", title: "Kisha Tattoo M\u00fcnchen \u2014 Arbeit am Tattoo 2", caption: "Kisha at work \u2014 tattoo process M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/about/passion-large-3.jpg", title: "Kisha Tattoo M\u00fcnchen \u2014 Japanisches Irezumi Prozess", caption: "Japanese Irezumi tattooing process \u2014 Kisha M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/about/passion-large-4.jpg", title: "Kisha Tattoo M\u00fcnchen \u2014 Grafik Tattoo Prozess", caption: "Graphic tattoo process by Kisha \u2014 M\u00fcnchen" }

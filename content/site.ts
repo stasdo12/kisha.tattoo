@@ -15,7 +15,10 @@ export const SITE = {
   // Social
   social: {
     instagram: 'https://www.instagram.com/kisha.tattoo/',
-    facebook: 'https://www.facebook.com/bavariatattoo1',
+    // Eigene Seite. Voher stand hier bavariatattoo1 — die Seite des Studios, in dem
+    // Kisha nur einen Platz mietet; in sameAs hiess das, beide seien dasselbe
+    // Unternehmen. Diese URL-Form gibt Facebook selbst als og:url aus.
+    facebook: 'https://www.facebook.com/people/Kisha-Tattoo/61572314704309/',
     reddit: 'https://www.reddit.com/user/Ready_Advice_8848/',
     tattoodo: 'https://www.tattoodo.com/artists/kisha0808sk',
     pinterest: 'https://de.pinterest.com/KishaTattoo/',

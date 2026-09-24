@@ -35,16 +35,10 @@ const REDDIT_QUOTES = [
 
 const MENTION_ITEMS = [
   {
-    title: 'Tattoo by @kisha.tattoo at BavariaTattoo Studio',
+    title: 'Tattoo by @kisha.tattoo',
     source: 'Reddit · r/tattoo',
     note: "Several posts in the largest tattoo subreddit — Kisha's work impresses the international community with hundreds of upvotes and comments",
     url: 'https://www.reddit.com/r/tattoo/comments/1p1k1h1/tattoo_by_kishatattoo_at_bavariatattoo_studio/',
-  },
-  {
-    title: 'Fineline Tattoo by @kisha.tattoo',
-    source: 'Facebook · Bavaria Tattoo',
-    note: 'The studio page BavariaTattoo presents Kisha\'s fine line work — delicate, precise style, international visibility',
-    url: 'https://www.facebook.com/bavariatattoo1/photos/little-fineline-tattoo-made-by-kishatattoo-tattoo-tattooed-tattooedpeople-ink-in/1313688046870963/',
   },
   {
     title: 'Large Sleeve by @kisha.tattoo',
@@ -554,9 +548,9 @@ export default async function AwardsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(videoObjectSchema([
-            { youtubeId: 'keNnl1Y62ao', name: 'Kisha Tattoo bei der Arbeit — Tattooprozess München 2017', description: 'Kisha, Tattoo-Künstlerin in München, beim Tätowieren im BavariaTattoo Studio. Japanisches Irezumi und Grafik-Tattoo.', uploadDate: '2017-04-01' },
-            { youtubeId: '9DboBeBOjXE', name: 'Blumen-Armband Tattoo by Kisha — München', description: 'Blumen-Armband Tattoo im Fineline-Stil von Kisha Tattoo, München. Custom Design, BavariaTattoo Studio.', uploadDate: '2019-06-01' },
-            { youtubeId: 'h6W9WYK7D1M', name: 'Traumfänger-Tattoo by Kisha Tattoo München', description: 'Traumfänger (Dreamcatcher) Tattoo von Kisha — Fineline und Grafik-Stil, München, BavariaTattoo Studio.', uploadDate: '2021-03-01' },
+            { youtubeId: 'keNnl1Y62ao', name: 'Kisha Tattoo bei der Arbeit — Tattooprozess München 2017', description: 'Kisha, Tattoo-Künstlerin in München, beim Tätowieren in ihrem Atelier bei München. Japanisches Irezumi und Grafik-Tattoo.', uploadDate: '2017-04-01' },
+            { youtubeId: '9DboBeBOjXE', name: 'Blumen-Armband Tattoo by Kisha — München', description: 'Blumen-Armband Tattoo im Fineline-Stil von Kisha Tattoo, München. Custom Design, Atelier bei München.', uploadDate: '2019-06-01' },
+            { youtubeId: 'h6W9WYK7D1M', name: 'Traumfänger-Tattoo by Kisha Tattoo München', description: 'Traumfänger (Dreamcatcher) Tattoo von Kisha — Fineline und Grafik-Stil, Atelier bei München.', uploadDate: '2021-03-01' },
             { youtubeId: 'kEAnk157u30', name: 'Chrysantheme-Tattoo by Kisha Tattoo München', description: 'Chrysantheme Tattoo im japanischen Irezumi-Stil von Kisha — Custom Design, München.', uploadDate: '2021-05-01' },
           ]))
         }}
