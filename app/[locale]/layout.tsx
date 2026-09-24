@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 }
 
 /* ── Hreflang — Server Component reads x-pathname injected by middleware ─── */
-async function HreflangTags() {
+async function HreflangTags({ locale }: { locale: string }) {
   const h = await headers()
   const pathname = h.get('x-pathname') ?? '/'
   const cleanPath = pathname.replace(/^\/(en|uk)/, '') || '/'
@@ -88,6 +88,13 @@ async function HreflangTags() {
   // that gets the whole cluster ignored.
   const locales = slugPageLocales(cleanPath)
   const offers = (prefix: string) => !locales || locales.includes(prefix)
+
+  // This locale is not one the page is meant to be found in, so it takes no part
+  // in the hreflang cluster at all. Emitting a one-way pointer at the German
+  // page would earn a "no return tags" warning for a page we already noindex.
+  // The locale comes from the route segment, not from x-pathname: the header is
+  // set before next-intl rewrites, so its prefix cannot be trusted here.
+  if (!offers(locale === 'de' ? '' : `/${locale}`)) return null
 
   return (
     <>
@@ -130,7 +137,7 @@ export default async function LocaleLayout({
       className={`${cinzel.variable} ${inter.variable} ${notoSansJP.variable} ${dmSans.variable}`}
     >
       <head suppressHydrationWarning>
-        <HreflangTags />
+        <HreflangTags locale={locale} />
         {/* Google Consent Mode v2 + GA4 — one script block, so consent default and config
             are queued before the GA4 loader is even requested. Next.js/React hoists a
             separate <script async src> tag independently and can render it ahead of inline
