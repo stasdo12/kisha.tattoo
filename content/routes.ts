@@ -29,12 +29,20 @@ export const SLUG_PAGES: readonly SlugPage[] = [
   { path: '/fineline-tattoo-muenchen',    freq: 'monthly', pri: 0.85, locales: ['', '/en', '/uk'] },
   { path: '/walk-in-tattoo-muenchen',     freq: 'monthly', pri: 0.8,  locales: ['', '/en', '/uk'] },
 
-  // Landkreis pages — German only.
+  // Landkreis pages — German only. Nobody looks for a studio in Eching or
+  // Neufahrn in English or Ukrainian; those translations were crawled for
+  // months and never indexed.
   { path: '/tattoo-eching',    freq: 'yearly', pri: 0.6, locales: [''] },
-  { path: '/tattoo-freising',  freq: 'yearly', pri: 0.6, locales: [''] },
   { path: '/tattoo-neufahrn',  freq: 'yearly', pri: 0.6, locales: [''] },
-  { path: '/tattoo-ottobrunn', freq: 'yearly', pri: 0.6, locales: [''] },
   { path: '/tattoo-dachau',    freq: 'yearly', pri: 0.6, locales: [''] },
+
+  // Ottobrunn (#9) and Freising (#10) sit in the top 10, and holding their
+  // translations back would have meant dropping two hreflang tags from the
+  // German pages Google already ranks. Left exactly as indexed — the untidiness
+  // of an EN/UK twin that never gets indexed costs nothing, and these two pages
+  // are not ours to experiment on.
+  { path: '/tattoo-freising',  freq: 'yearly', pri: 0.6, locales: ['', '/en', '/uk'] },
+  { path: '/tattoo-ottobrunn', freq: 'yearly', pri: 0.6, locales: ['', '/en', '/uk'] },
 ]
 
 /** Only the sitemap lists EN/UK for a slug page when the page earns it. */

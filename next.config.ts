@@ -68,13 +68,15 @@ const nextConfig: NextConfig = {
           { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload'         },
           // Disable unused browser features
           { key: 'Permissions-Policy',        value: 'camera=(), microphone=(), geolocation=(self), payment=()' },
-          // Prevent Cloudflare from caching RSC payloads as HTML.
-          // CDN-Cache-Control: no-store — tells Cloudflare not to cache.
-          // Surrogate-Control: no-store — fallback for other CDNs.
-          // Vary: RSC, Next-Router-State-Tree — forces Cloudflare to cache
-          // RSC requests separately from full-page requests.
-          { key: 'CDN-Cache-Control',         value: 'no-store'                                             },
-          { key: 'Surrogate-Control',         value: 'no-store'                                             },
+          // Vary forces Cloudflare to key RSC requests separately from full-page
+          // ones. It is not enough on its own — Cloudflare ignores Vary on custom
+          // headers — so middleware.ts also sends no-store on requests that
+          // actually carry `RSC: 1`. That guard belongs there, on the handful of
+          // requests that need it, not on every response: this block used to
+          // carry a blanket CDN-Cache-Control/Surrogate-Control: no-store, which
+          // stopped Cloudflare caching the content-hashed JS and CSS, every
+          // image, and both hero videos. The 2.8MB blog video was leaving the
+          // origin on every single visit.
           { key: 'Vary',                      value: 'RSC, Next-Router-State-Tree, Next-Router-Prefetch'    },
           // CSP — allow Google Analytics, GTM, YouTube embeds
           { key: 'Content-Security-Policy', value: [
@@ -108,7 +110,23 @@ const nextConfig: NextConfig = {
       // Block indexing of /_next/image URLs — Google finds them via srcset but they're not content pages
       {
         source: '/_next/image',
-        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+        headers: [
+          { key: 'X-Robots-Tag',      value: 'noindex, nofollow'        },
+          { key: 'CDN-Cache-Control', value: 'public, max-age=2592000'  },
+        ],
+      },
+      // Content-hashed by the build, so a changed file always changes its name.
+      // Safe to hold at the edge for as long as the CDN will keep it.
+      {
+        source: '/_next/static/:path*',
+        headers: [{ key: 'CDN-Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      // Media keeps its filename across edits, so this is a month at the edge
+      // rather than a year — and the deploy purges Cloudflare anyway, so a
+      // replaced file goes live with the deploy that replaces it.
+      {
+        source: '/:path(images|video|og|fonts)/:file*',
+        headers: [{ key: 'CDN-Cache-Control', value: 'public, max-age=2592000' }],
       },
       // Next.js sets Cache-Control: immutable automatically for /_next/static in production.
       // Do NOT add it manually — in dev mode filenames are NOT content-hashed, so it breaks HMR.

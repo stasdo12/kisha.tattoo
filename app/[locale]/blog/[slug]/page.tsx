@@ -10,7 +10,7 @@ import { SITE } from '@/content/site'
 import { STORIES, getStoryBySlug } from '@/content/stories'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
-import { articleSchema, faqSchema, faqFromArticleBody } from '@/lib/structured-data'
+import { articleSchema, faqSchema, faqFromArticleBody, breadcrumbSchema } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
@@ -182,6 +182,14 @@ export default async function ArticleDetailPage({
   const faqItems = content?.body ? faqFromArticleBody(content.body) : []
   const faq = faqItems.length > 0 ? faqSchema(faqItems) : null
 
+  // Articles sit three clicks from the homepage and were the only template on
+  // the site emitting no trail at all.
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Blog', url: '/blog' },
+    { name: content.title, url: `/blog/${slug}` },
+  ], locale)
+
   return (
     <main id="main-content">
       {schema && (
@@ -196,6 +204,10 @@ export default async function ArticleDetailPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
         />
       )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section

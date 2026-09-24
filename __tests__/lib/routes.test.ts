@@ -1,13 +1,16 @@
 import { describe, it, expect } from 'vitest'
 import { SLUG_PAGES, slugPageLocales, isNoIndexLocale } from '@/content/routes'
 
+// German-only. Freising and Ottobrunn are deliberately absent: they rank in the
+// top 10, and holding their translations back would change the hreflang on the
+// German pages Google already has.
 const GEO_PAGES = [
   '/tattoo-eching',
-  '/tattoo-freising',
   '/tattoo-neufahrn',
-  '/tattoo-ottobrunn',
   '/tattoo-dachau',
 ]
+
+const GEO_PAGES_IN_TOP_10 = ['/tattoo-freising', '/tattoo-ottobrunn']
 
 describe('slug page locales', () => {
   it('returns null for routes that are not German-slug pages', () => {
@@ -40,6 +43,15 @@ describe('isNoIndexLocale', () => {
       expect(isNoIndexLocale(path, 'en')).toBe(true)
       expect(isNoIndexLocale(path, 'uk')).toBe(true)
       expect(isNoIndexLocale(path, 'de')).toBe(false)
+    }
+  })
+
+  it('leaves the two top-10 Landkreis pages exactly as Google has them', () => {
+    for (const path of GEO_PAGES_IN_TOP_10) {
+      expect(slugPageLocales(path)).toEqual(['', '/en', '/uk'])
+      for (const locale of ['de', 'en', 'uk']) {
+        expect(isNoIndexLocale(path, locale)).toBe(false)
+      }
     }
   })
 

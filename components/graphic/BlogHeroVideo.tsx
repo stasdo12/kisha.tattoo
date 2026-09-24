@@ -16,6 +16,12 @@ export function BlogHeroVideo() {
   return (
     <video
       ref={ref}
+      // The first frame of the video itself, so playback starts without a
+      // visible swap. It sits in the markup on purpose: the src above is
+      // assigned after hydration, which the preload scanner cannot see, so
+      // until this poster existed the hero stayed blank until the 474KB mobile
+      // video arrived — LCP 6.5s on a page whose siblings paint in 2.2s.
+      poster="/images/blog/hero-blog-poster.jpg"
       autoPlay
       muted
       loop
