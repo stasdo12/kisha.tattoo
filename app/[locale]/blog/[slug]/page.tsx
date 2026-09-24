@@ -14,6 +14,7 @@ import { articleSchema, faqSchema, faqFromArticleBody } from '@/lib/structured-d
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
+import { pickRelated } from '@/lib/related'
 
 export function generateStaticParams() {
   const locales = ['de', 'en', 'uk']
@@ -157,8 +158,8 @@ export default async function ArticleDetailPage({
   const t = await getTranslations({ locale, namespace: 'blog' })
   const content = t.raw(`stories.${slug}`) as { title: string; excerpt: string; body: string }
 
-  // Related: other articles except current
-  const related = [...STORIES].reverse().filter((s) => s.slug !== slug).slice(0, 4).map((s) => ({
+  // Same category first, then a rotation through the archive — see pickRelated.
+  const related = pickRelated(STORIES, slug).map((s) => ({
     ...s,
     title: (t.raw(`stories.${s.slug}`) as { title: string }).title,
   }))
