@@ -6,7 +6,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { WorksHeroVideo } from '@/components/graphic/WorksHeroVideo'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'
 import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'

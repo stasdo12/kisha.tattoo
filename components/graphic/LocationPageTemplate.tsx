@@ -3,7 +3,7 @@
  * Redesigned to match Figma spec (2026-04-15): large hero, near-section with gallery, FAQ left/right.
  */
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { isNoIndexLocale } from '@/content/routes'
 import { buildMetadata } from '@/lib/seo'

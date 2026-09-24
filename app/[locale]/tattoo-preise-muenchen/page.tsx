@@ -5,7 +5,7 @@
  * Total cluster: ~7000+/mo, KD 4–34
  */
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { SITE } from '@/content/site'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'

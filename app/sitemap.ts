@@ -26,12 +26,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // missing value is worth more than one that is never true. Blog entries keep
   // theirs: those dates are real.
 
+  // The blog index is the one untracked page whose date we can actually derive:
+  // it changes every time an article ships, and it is the page Google most needs
+  // a recrawl signal for.
+  const newestArticle = STORIES.reduce(
+    (latest, s) => (s.publishedAt > latest ? s.publishedAt : latest),
+    STORIES[0].publishedAt,
+  )
+
   // Expand each i18n page into DE + EN + UK entries
-  const i18nRoutes: MetadataRoute.Sitemap = I18N_PAGES.flatMap(({ path, freq, pri }) => [
-    { url: `${SITE.url}${path || '/'}`,    changeFrequency: freq, priority: pri        },
-    { url: `${SITE.url}/en${path}`,        changeFrequency: freq, priority: pri * 0.9  },
-    { url: `${SITE.url}/uk${path}`,        changeFrequency: freq, priority: pri * 0.9  },
-  ])
+  const i18nRoutes: MetadataRoute.Sitemap = I18N_PAGES.flatMap(({ path, freq, pri }) => {
+    const lastModified = path === '/blog' ? new Date(newestArticle).toISOString() : undefined
+    return [
+      { url: `${SITE.url}${path || '/'}`, lastModified, changeFrequency: freq, priority: pri       },
+      { url: `${SITE.url}/en${path}`,     lastModified, changeFrequency: freq, priority: pri * 0.9 },
+      { url: `${SITE.url}/uk${path}`,     lastModified, changeFrequency: freq, priority: pri * 0.9 },
+    ]
+  })
 
   // German-slug routes, each in the locales that earn a listing
   const slugRoutes: MetadataRoute.Sitemap = SLUG_PAGES.flatMap(({ path, freq, pri, locales }) =>

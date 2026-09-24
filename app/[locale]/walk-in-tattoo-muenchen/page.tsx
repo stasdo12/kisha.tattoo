@@ -10,7 +10,7 @@ import { getTranslations } from 'next-intl/server'
 import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
 import { CtaStrip } from '@/components/graphic/CtaStrip'
 

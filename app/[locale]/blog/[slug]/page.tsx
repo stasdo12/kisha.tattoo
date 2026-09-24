@@ -4,7 +4,7 @@
  */
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { SITE } from '@/content/site'
 import { STORIES, getStoryBySlug } from '@/content/stories'

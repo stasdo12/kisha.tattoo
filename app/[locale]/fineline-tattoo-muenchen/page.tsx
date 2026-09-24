@@ -5,7 +5,7 @@
  */
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { SITE } from '@/content/site'
 import { buildMetadata } from '@/lib/seo'
 import { getTranslations } from 'next-intl/server'

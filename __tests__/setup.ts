@@ -34,3 +34,18 @@ vi.mock('next/navigation', () => ({
   usePathname: () => '/',
   useSearchParams: () => new URLSearchParams(),
 }))
+
+// Mock the locale-aware Link. next-intl's navigation module resolves `next/navigation`
+// through an ESM path vitest cannot follow, and the prefixing it adds is verified
+// end-to-end against a real build rather than here — these tests care about hrefs.
+vi.mock('@/i18n/navigation', () => {
+  const React = require('react')
+  return {
+    Link: ({ href, children, style, ...props }: {
+      href: string; children: React.ReactNode; style?: React.CSSProperties; [key: string]: unknown
+    }) => React.createElement('a', { href, style, ...props }, children),
+    usePathname: () => '/',
+    useRouter: () => ({ push: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }),
+    redirect: vi.fn(),
+  }
+})
