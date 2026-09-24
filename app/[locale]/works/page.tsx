@@ -86,7 +86,7 @@ export default async function GraphicWorksPage({
       >
         {/* Background image */}
         <Image
-          src="/images/work/main-work-tattoo.jpg"
+          src="/images/work/main-work-tattoo.JPG"
           alt="Japanisches Irezumi Tattoo — KishaTattoo München"
           aria-hidden="true"
           fill

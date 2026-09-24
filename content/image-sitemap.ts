@@ -1,6 +1,11 @@
 /**
  * Hand-picked images for the image sitemap, carried over from the static
- * public/image-sitemap.xml this replaced. Blog covers are not listed here —
+ * public/image-sitemap.xml this replaced.
+ *
+ * main-work-tattoo.JPG is upper-case on purpose: that is the name git tracks,
+ * and the VPS also carries an untracked lower-case copy left behind by an old
+ * rsync. Asking for .jpg there serves the 19MB original that no deploy can
+ * replace, because git does not know the file exists. Blog covers are not listed here —
  * app/image-sitemap.xml/route.ts derives those from STORIES so a new article
  * cannot ship without its cover.
  */
@@ -11,7 +16,7 @@ export const CURATED_IMAGE_PAGES: SitemapImagePage[] = [
   {
     path: "/works",
     images: [
-      { loc: "https://kisha.tattoo/images/work/main-work-tattoo.jpg", title: "Kisha Tattoo M\u00fcnchen \u2014 Portfolio Overview", caption: "Tattoo portfolio by Kisha \u2014 M\u00fcnchen, Bavaria" },
+      { loc: "https://kisha.tattoo/images/work/main-work-tattoo.JPG", title: "Kisha Tattoo M\u00fcnchen \u2014 Portfolio Overview", caption: "Tattoo portfolio by Kisha \u2014 M\u00fcnchen, Bavaria" },
       { loc: "https://kisha.tattoo/images/work/middle-graphic-body-flower-tattoo.jpg", title: "Grafik Blumen K\u00f6rper Tattoo M\u00fcnchen \u2014 Kisha", caption: "Graphic flower body tattoo by Kisha Tattoo M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/work/4x4-japan-fox-tattoo-graphic.jpg", title: "Japanisches Fuchs Tattoo M\u00fcnchen \u2014 Kisha", caption: "Japanese fox graphic tattoo by Kisha \u2014 M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/work/4x4-rabbit-tattoo-graphic.jpg", title: "Grafik Hasen Tattoo M\u00fcnchen \u2014 Kisha", caption: "Graphic rabbit tattoo by Kisha Tattoo M\u00fcnchen" },
