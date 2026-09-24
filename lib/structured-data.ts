@@ -88,11 +88,23 @@ export function websiteSchema() {
   }
 }
 
+/**
+ * Absolute URL of a path in a given locale. German sits at the root, the other
+ * two under their prefix — the same rule the canonical tag follows, so schema
+ * and canonical cannot drift apart.
+ */
+function localeUrl(path: string, locale: string): string {
+  const prefix = locale === 'de' ? '' : `/${locale}`
+  const clean = path === '/' ? '' : path
+  return `${SITE.url}${prefix}${clean}`
+}
+
 export function serviceSchema({
   name,
   description,
   url,
   image,
+  locale = 'de',
 }: {
   name: string
   description: string
@@ -100,13 +112,18 @@ export function serviceSchema({
   /** Absolute URL of a photo representing this service. Omitted rather than
    *  falling back to the site default — a generic image says nothing here. */
   image?: string
+  locale?: string
 }) {
+  // The same trap breadcrumbSchema and articleSchema already guard against:
+  // without the prefix, the Service on /en/ and /uk/ claims the German URL and
+  // contradicts the page's own canonical.
+  const pageUrl = localeUrl(url, locale)
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name,
     description,
-    url: `${SITE.url}${url}`,
+    url: pageUrl,
     ...(image ? { image } : {}),
     provider: {
       '@type': 'LocalBusiness',
@@ -349,14 +366,15 @@ export function videoObjectSchema(videos: Array<{
  * Tattoo pricing schema — Service with Offer/PriceSpecification for rich results.
  * Shows prices directly in Google Search (price range snippets).
  */
-export function tattooServicePricesSchema() {
+export function tattooServicePricesSchema(locale = 'de') {
+  const pageUrl = localeUrl('/tattoo-preise-muenchen', locale)
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': `${SITE.url}/tattoo-preise-muenchen#service`,
+    '@id': `${pageUrl}#service`,
     name: 'Tattoo Preise München — KishaTattoo',
     description: 'Tattoo Kosten und Preise in München. Kleine Tattoos ab 150 €, Sleeve ab 2.500 €. Transparente Preisübersicht.',
-    url: `${SITE.url}/tattoo-preise-muenchen`,
+    url: pageUrl,
     image: `${SITE.url}/og/tattoo-preise-muenchen.jpg`,
     provider: {
       '@type': 'LocalBusiness',
@@ -451,17 +469,20 @@ export function locationServiceSchema({
   cityName,
   citySlug,
   travelMinutes,
+  locale = 'de',
 }: {
   cityName: string
   citySlug: string
   travelMinutes: number
+  locale?: string
 }) {
+  const pageUrl = localeUrl(`/tattoo-${citySlug}`, locale)
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: `Tattoo ${cityName} — KishaTattoo München`,
     description: `KishaTattoo bietet professionelles Tatowieren für Kunden aus ${cityName}. Erreichbar in ca. ${travelMinutes} Minuten nach München.`,
-    url: `${SITE.url}/tattoo-${citySlug}`,
+    url: pageUrl,
     provider: { '@type': 'LocalBusiness', '@id': `${SITE.url}/#business`, name: SITE.name },
     areaServed: [
       { '@type': 'City', name: 'München', addressCountry: 'DE' },

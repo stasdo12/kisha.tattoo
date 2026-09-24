@@ -77,10 +77,10 @@ export async function LocationPageTemplate({
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        locationServiceSchema({ cityName, citySlug, travelMinutes })
+        locationServiceSchema({ cityName, citySlug, travelMinutes, locale })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: `Tattoo ${cityName}`, url: path }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: `Tattoo ${cityName}`, url: path }], locale)
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         faqSchema(faqItems.map((f) => ({ question: f.q, answer: f.a })))

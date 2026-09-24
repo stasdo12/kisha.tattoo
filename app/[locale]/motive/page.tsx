@@ -57,7 +57,7 @@ export default async function MotiveHub({
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        serviceSchema({ name: 'Japanische Tattoo Motive', description: 'Irezumi Motive — Drachen, Koi, Kitsune, Sakura, Tiger. Bedeutung und Symbolik erklärt.', url: '/motive' })
+        serviceSchema({ name: 'Japanische Tattoo Motive', description: 'Irezumi Motive — Drachen, Koi, Kitsune, Sakura, Tiger. Bedeutung und Symbolik erklärt.', url: '/motive', locale })
       )}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
         breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Japanische Tattoo Motive', url: '/motive' }], locale)

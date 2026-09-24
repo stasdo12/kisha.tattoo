@@ -9,6 +9,7 @@ import {
   articleSchema,
   personSchema,
   locationServiceSchema,
+  tattooServicePricesSchema,
 } from '@/lib/structured-data'
 import { SITE } from '@/content/site'
 
@@ -455,5 +456,49 @@ describe('locationServiceSchema', () => {
     const cities = schema.areaServed.map((c: { name: string }) => c.name)
     expect(cities).toContain('München')
     expect(cities).toContain('Freising')
+  })
+})
+describe('schema URLs follow the page locale', () => {
+  // The fineline article taught us this the expensive way: markup that names a
+  // different URL than the canonical is markup Google has to reconcile, and it
+  // does not reconcile it in our favour.
+  it('serviceSchema puts the locale prefix on the URL', () => {
+    expect(serviceSchema({ name: 'N', description: 'D', url: '/motive' }).url)
+      .toBe('https://kisha.tattoo/motive')
+    expect(serviceSchema({ name: 'N', description: 'D', url: '/motive', locale: 'de' }).url)
+      .toBe('https://kisha.tattoo/motive')
+    expect(serviceSchema({ name: 'N', description: 'D', url: '/motive', locale: 'en' }).url)
+      .toBe('https://kisha.tattoo/en/motive')
+    expect(serviceSchema({ name: 'N', description: 'D', url: '/motive', locale: 'uk' }).url)
+      .toBe('https://kisha.tattoo/uk/motive')
+  })
+
+  it('serviceSchema does not leave a trailing slash on the homepage', () => {
+    expect(serviceSchema({ name: 'N', description: 'D', url: '/' }).url)
+      .toBe('https://kisha.tattoo')
+    expect(serviceSchema({ name: 'N', description: 'D', url: '/', locale: 'en' }).url)
+      .toBe('https://kisha.tattoo/en')
+  })
+
+  it('locationServiceSchema follows the locale too', () => {
+    const cfg = { cityName: 'Eching', citySlug: 'eching', travelMinutes: 20 }
+    expect(locationServiceSchema(cfg).url).toBe('https://kisha.tattoo/tattoo-eching')
+    expect(locationServiceSchema({ ...cfg, locale: 'uk' }).url)
+      .toBe('https://kisha.tattoo/uk/tattoo-eching')
+  })
+
+  it('the pricing Service @id is scoped per locale, so EN stops re-declaring the German node', () => {
+    expect(tattooServicePricesSchema('de')['@id'])
+      .toBe('https://kisha.tattoo/tattoo-preise-muenchen#service')
+    expect(tattooServicePricesSchema('en')['@id'])
+      .toBe('https://kisha.tattoo/en/tattoo-preise-muenchen#service')
+    expect(tattooServicePricesSchema('en').url)
+      .toBe('https://kisha.tattoo/en/tattoo-preise-muenchen')
+  })
+
+  it('German output is unchanged — no @id appears where there was none', () => {
+    expect(serviceSchema({ name: 'N', description: 'D', url: '/motive' })).not.toHaveProperty('@id')
+    expect(locationServiceSchema({ cityName: 'Eching', citySlug: 'eching', travelMinutes: 20 }))
+      .not.toHaveProperty('@id')
   })
 })

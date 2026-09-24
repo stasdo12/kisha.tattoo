@@ -1,7 +1,7 @@
 'use client'
 import type React from 'react'
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { trackFormSubmit } from '@/lib/gtag'
@@ -9,6 +9,7 @@ import { breadcrumbSchema, serviceSchema } from '@/lib/structured-data'
 import s from './booking.module.css'
 
 export default function BookingPage() {
+  const locale = useLocale()
   const t = useTranslations('booking')
   const [experience, setExperience] = useState<'yes' | 'no' | null>(null)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
@@ -168,10 +169,10 @@ export default function BookingPage() {
       <GFooter />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Termin buchen', url: '/booking' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Termin buchen', url: '/booking' }], locale)
       ) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        serviceSchema({ name: 'Tattoo Termin buchen — KishaTattoo München', description: 'Termin für ein Custom Tattoo bei KishaTattoo München buchen — Japanisches Irezumi, Fineline, Grafik-Tattoo.', url: '/booking' })
+        serviceSchema({ name: 'Tattoo Termin buchen — KishaTattoo München', description: 'Termin für ein Custom Tattoo bei KishaTattoo München buchen — Japanisches Irezumi, Fineline, Grafik-Tattoo.', url: '/booking', locale })
       ) }} />
 
     </main>

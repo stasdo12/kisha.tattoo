@@ -1,13 +1,14 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { breadcrumbSchema } from '@/lib/structured-data'
 import s from './contact.module.css'
 
 export default function GraphicContactPage() {
+  const locale = useLocale()
   const t = useTranslations('contact')
   const [copied, setCopied] = useState(false)
 
@@ -74,7 +75,7 @@ export default function GraphicContactPage() {
       <GFooter />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Kontakt', url: '/contact' }])
+        breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Kontakt', url: '/contact' }], locale)
       ) }} />
 
     </main>

@@ -44,7 +44,10 @@ const WORKS = [
 /* FAQ defined inside component */
 
 /* ── Page ───────────────────────────────────────────────────────────────────── */
-export default async function GraphicHomePage() {
+export default async function GraphicHomePage(
+  { params }: { params: Promise<{ locale: string }> }
+) {
+  const { locale } = await params
   const t = await getTranslations('home')
 
   const MOTIFS = [
@@ -67,6 +70,7 @@ export default async function GraphicHomePage() {
     name: 'Kisha — Tattoo Artist München',
     description: 'Kisha ist Tattoo Artist in München — spezialisiert auf Japanisches Irezumi, Fineline und Grafik. Individuelle Tattoo-Projekte mit 5+ Jahren Erfahrung.',
     url: '/',
+    locale,
   })
 
   const faq = faqSchema(FAQ.map((f) => ({ question: f.q, answer: f.a })))
