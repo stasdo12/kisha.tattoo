@@ -11,13 +11,18 @@ interface GArticleCardProps {
   date: string
   href: string
   imageSrc?: string
+  /**
+   * Collapsed behind a "load more" button. The card stays in the HTML so the
+   * link is crawlable — only the pixels go away.
+   */
+  collapsed?: boolean
 }
 
-export function GArticleCard({ id, title, category, date, href, imageSrc }: GArticleCardProps) {
+export function GArticleCard({ id, title, category, date, href, imageSrc, collapsed }: GArticleCardProps) {
   const src = imageSrc ?? `https://picsum.photos/seed/blog-card-${id}/448/448`
 
   return (
-    <article>
+    <article style={collapsed ? { display: 'none' } : undefined}>
       <Link href={href} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
         <div
           style={{

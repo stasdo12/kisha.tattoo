@@ -83,4 +83,41 @@ describe('BlogFilter', () => {
     render(<BlogFilter articles={[]} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
     expect(screen.getByRole('button', { name: 'All' })).toBeInTheDocument()
   })
+
+  // Regression guard: the grid used to render only the first 8 articles, which
+  // left the rest without a crawlable link anywhere on the site. Every article
+  // must ship a real <a href> even while it sits behind "load more".
+  it('puts every article link in the markup, past the load-more cutoff', () => {
+    const many = Array.from({ length: 20 }, (_, i) => ({
+      slug: `article-${i}`,
+      title: `Article ${i}`,
+      category: 'Guide',
+      publishedAt: '2025-01-01',
+      coverImage: '',
+    }))
+    render(<BlogFilter articles={many} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
+
+    const hrefs = screen.getAllByRole('link', { hidden: true }).map((a) => a.getAttribute('href'))
+    for (let i = 0; i < 20; i++) {
+      expect(hrefs).toContain(`/blog/article-${i}`)
+    }
+  })
+
+  it('keeps articles past the cutoff out of sight until load more is clicked', () => {
+    const many = Array.from({ length: 12 }, (_, i) => ({
+      slug: `article-${i}`,
+      title: `Article ${i}`,
+      category: 'Guide',
+      publishedAt: '2025-01-01',
+      coverImage: '',
+    }))
+    render(<BlogFilter articles={many} allArticlesLabel="All articles" loadMoreLabel="Load more" />)
+
+    const card = (i: number) => screen.getByText(`Article ${i}`).closest('article') as HTMLElement
+    expect(card(7).style.display).toBe('')
+    expect(card(8).style.display).toBe('none')
+
+    fireEvent.click(screen.getByRole('button', { name: 'Load more' }))
+    expect(card(8).style.display).toBe('')
+  })
 })

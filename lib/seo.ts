@@ -61,8 +61,11 @@ export function buildMetadata(input: SeoInput): Metadata {
     alternates: {
       canonical,
     },
+    // `follow` stays on when a page is held back from the index: the page is
+    // still a junction in the internal link graph, and nofollow would throw
+    // away the links it passes to pages we do want indexed.
     robots: noIndex
-      ? { index: false, follow: false }
+      ? { index: false, follow: true }
       : { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
       title: fullTitle,

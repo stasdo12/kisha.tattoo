@@ -50,9 +50,9 @@ describe('buildMetadata', () => {
       expect(meta.robots).toMatchObject({ index: true, follow: true })
     })
 
-    it('noIndex: true → not indexed, not followed', () => {
+    it('noIndex: true → not indexed, but still followed', () => {
       const meta = buildMetadata({ title: 'T', description: 'D', path: '/', noIndex: true })
-      expect(meta.robots).toMatchObject({ index: false, follow: false })
+      expect(meta.robots).toMatchObject({ index: false, follow: true })
     })
   })
 

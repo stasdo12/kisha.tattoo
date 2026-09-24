@@ -28,7 +28,10 @@ export function BlogFilter({ articles, allArticlesLabel, loadMoreLabel }: Props)
     ? articles
     : articles.filter((a) => a.category === activeFilter)
 
-  const visibleArticles = filtered.slice(0, visibleCount)
+  // Every filtered article is rendered; `visibleCount` only decides which ones
+  // are painted. Slicing here used to leave 19 of 27 articles with no crawlable
+  // link anywhere on the site — they were reachable from the sitemap alone and
+  // Google stopped indexing them.
   const hasMore = visibleCount < filtered.length
 
   function handleFilterChange(tab: string) {
@@ -90,7 +93,7 @@ export function BlogFilter({ articles, allArticlesLabel, loadMoreLabel }: Props)
           columnGap: '16px',
         }}
       >
-        {visibleArticles.map((article, i) => (
+        {filtered.map((article, i) => (
           <GArticleCard
             key={article.slug}
             id={i + 1}
@@ -99,6 +102,7 @@ export function BlogFilter({ articles, allArticlesLabel, loadMoreLabel }: Props)
             date={article.publishedAt}
             href={`/blog/${article.slug}`}
             imageSrc={article.coverImage}
+            collapsed={i >= visibleCount}
           />
         ))}
       </div>

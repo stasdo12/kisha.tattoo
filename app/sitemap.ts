@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { SITE } from '@/content/site'
 import { STORIES } from '@/content/stories'
+import { SLUG_PAGES } from '@/content/routes'
 
 // Pages available in all 3 locales (DE = no prefix, EN = /en/, UK = /uk/)
 const I18N_PAGES = [
@@ -17,38 +18,29 @@ const I18N_PAGES = [
   { path: '/motive',    freq: 'monthly' as const, pri: 0.8  },
 ]
 
-// DE-only: German-slug service pages + geo location pages
-// These pages have German keywords in the URL — EN/UK versions must NOT appear in sitemap
-const DE_ONLY_PAGES = [
-  { path: '/tattoo-preise-muenchen',      freq: 'monthly' as const, pri: 0.9  },
-  { path: '/japanisches-tattoo-muenchen', freq: 'monthly' as const, pri: 0.85 },
-  { path: '/grafik-tattoo-muenchen',      freq: 'monthly' as const, pri: 0.85 },
-  { path: '/fineline-tattoo-muenchen',    freq: 'monthly' as const, pri: 0.85 },
-  { path: '/walk-in-tattoo-muenchen',     freq: 'monthly' as const, pri: 0.8  },
-  { path: '/tattoo-eching',               freq: 'yearly'  as const, pri: 0.6  },
-  { path: '/tattoo-freising',             freq: 'yearly'  as const, pri: 0.6  },
-  { path: '/tattoo-neufahrn',             freq: 'yearly'  as const, pri: 0.6  },
-  { path: '/tattoo-ottobrunn',            freq: 'yearly'  as const, pri: 0.6  },
-  { path: '/tattoo-dachau',               freq: 'yearly'  as const, pri: 0.6  },
-]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString()
+  // No `lastModified` on the pages below on purpose. It used to be the build
+  // timestamp, so every deploy told Google that sixty-odd pages had just
+  // changed — none of them had. Google drops lastmod it catches lying, and a
+  // missing value is worth more than one that is never true. Blog entries keep
+  // theirs: those dates are real.
 
   // Expand each i18n page into DE + EN + UK entries
   const i18nRoutes: MetadataRoute.Sitemap = I18N_PAGES.flatMap(({ path, freq, pri }) => [
-    { url: `${SITE.url}${path || '/'}`,    lastModified: now, changeFrequency: freq, priority: pri        },
-    { url: `${SITE.url}/en${path}`,        lastModified: now, changeFrequency: freq, priority: pri * 0.9  },
-    { url: `${SITE.url}/uk${path}`,        lastModified: now, changeFrequency: freq, priority: pri * 0.9  },
+    { url: `${SITE.url}${path || '/'}`,    changeFrequency: freq, priority: pri        },
+    { url: `${SITE.url}/en${path}`,        changeFrequency: freq, priority: pri * 0.9  },
+    { url: `${SITE.url}/uk${path}`,        changeFrequency: freq, priority: pri * 0.9  },
   ])
 
-  // DE-only routes — no EN/UK versions in sitemap
-  const deOnlyRoutes: MetadataRoute.Sitemap = DE_ONLY_PAGES.map(({ path, freq, pri }) => ({
-    url: `${SITE.url}${path}`,
-    lastModified: now,
-    changeFrequency: freq,
-    priority: pri,
-  }))
+  // German-slug routes, each in the locales that earn a listing
+  const slugRoutes: MetadataRoute.Sitemap = SLUG_PAGES.flatMap(({ path, freq, pri, locales }) =>
+    locales.map((locale) => ({
+      url: `${SITE.url}${locale}${path}`,
+      changeFrequency: freq,
+      priority: locale === '' ? pri : pri * 0.9,
+    }))
+  )
 
   // Blog posts — DE + EN + UK versions
   // Stories with an explicit canonicalPath point elsewhere — listing them here would
@@ -56,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoutes: MetadataRoute.Sitemap = STORIES
     .filter((story) => !story.canonicalPath)
     .flatMap((story) => {
-      const published = new Date(story.publishedAt).toISOString()
+      const published = new Date(story.updatedAt ?? story.publishedAt).toISOString()
       return [
         { url: `${SITE.url}/blog/${story.slug}`,     lastModified: published, changeFrequency: 'monthly' as const, priority: 0.65 },
         { url: `${SITE.url}/en/blog/${story.slug}`,  lastModified: published, changeFrequency: 'monthly' as const, priority: 0.60 },
@@ -64,5 +56,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ]
     })
 
-  return [...i18nRoutes, ...deOnlyRoutes, ...blogRoutes]
+  return [...i18nRoutes, ...slugRoutes, ...blogRoutes]
 }

@@ -5,6 +5,7 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { headers } from 'next/headers'
 import { SITE } from '@/content/site'
+import { slugPageLocales } from '@/content/routes'
 import { localBusinessSchema, websiteSchema } from '@/lib/structured-data'
 import { FormPopupLoader } from '@/components/graphic/FormPopupLoader'
 import { GScrollTop } from '@/components/graphic/GScrollTop'
@@ -81,11 +82,18 @@ async function HreflangTags() {
   const cleanPath = pathname.replace(/^\/(en|uk)/, '') || '/'
   const base = SITE.url.replace(/\/$/, '')
   const dePath = cleanPath === '/' ? '' : cleanPath
+
+  // A German-only page must not advertise translations it also asks Google not
+  // to index — hreflang pointing at a noindex URL is the kind of contradiction
+  // that gets the whole cluster ignored.
+  const locales = slugPageLocales(cleanPath)
+  const offers = (prefix: string) => !locales || locales.includes(prefix)
+
   return (
     <>
       <link rel="alternate" hrefLang="de"        href={`${base}${dePath}`} />
-      <link rel="alternate" hrefLang="en"        href={`${base}/en${dePath}`} />
-      <link rel="alternate" hrefLang="uk"        href={`${base}/uk${dePath}`} />
+      {offers('/en') && <link rel="alternate" hrefLang="en" href={`${base}/en${dePath}`} />}
+      {offers('/uk') && <link rel="alternate" hrefLang="uk" href={`${base}/uk${dePath}`} />}
       <link rel="alternate" hrefLang="x-default" href={`${base}${dePath}`} />
     </>
   )

@@ -5,6 +5,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
+import { isNoIndexLocale } from '@/content/routes'
 import { buildMetadata } from '@/lib/seo'
 import { locationServiceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { GHeader } from '@/components/graphic/GHeader'
@@ -31,6 +32,11 @@ export async function buildLocationMetadata(
     path: config.path,
     locale,
     hreflang: false,
+    // The English and Ukrainian copies of a Landkreis page serve the language
+    // switcher and nothing else — nobody searches for a studio in Eching in
+    // either language. They stayed crawlable for months and never got indexed;
+    // this just says so instead of letting Google work it out again.
+    noIndex: isNoIndexLocale(config.path, locale),
   })
 }
 
