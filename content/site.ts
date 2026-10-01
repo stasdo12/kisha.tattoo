@@ -59,7 +59,7 @@ export const SITE = {
   // visible reviews block — until then it feeds nothing and can drift safely.
   reviews: {
     ratingValue: 5.0,
-    reviewCount: 16,   // ← update this number (last checked 2026-09-08)
+    reviewCount: 18,   // ← update this number (last checked 2026-09-30)
     bestRating: 5,
   },
 } as const
