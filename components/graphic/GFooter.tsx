@@ -14,6 +14,7 @@ export function GFooter() {
   /* ── Link columns ─────────────────────────────────────────────────────── */
   const NAV = [
     { href: '/works',                   label: t('links.works')     },
+    { href: '/tattoo-unikate',          label: t('links.unikate')   },
     { href: '/about',                   label: t('links.about')     },
     { href: '/blog',                    label: t('links.stories')   },
     { href: '/faq',                     label: t('links.faq')       },

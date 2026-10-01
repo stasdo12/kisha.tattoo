@@ -14,7 +14,7 @@
  */
 export type SlugPage = {
   path: string
-  freq: 'monthly' | 'yearly'
+  freq: 'weekly' | 'monthly' | 'yearly'
   pri: number
   /** '' is German (no prefix). */
   locales: readonly string[]
@@ -28,6 +28,13 @@ export const SLUG_PAGES: readonly SlugPage[] = [
   { path: '/grafik-tattoo-muenchen',      freq: 'monthly', pri: 0.85, locales: ['', '/en', '/uk'] },
   { path: '/fineline-tattoo-muenchen',    freq: 'monthly', pri: 0.85, locales: ['', '/en', '/uk'] },
   { path: '/walk-in-tattoo-muenchen',     freq: 'monthly', pri: 0.8,  locales: ['', '/en', '/uk'] },
+
+  // Unikate — the one-off designs. German and English only: the whole /uk tree
+  // draws 23 clicks a quarter against 201 for /en/motive alone, so seven more
+  // Ukrainian URLs would dilute a coverage number that is already thin (17 of
+  // ~144 crawled URLs rank). The Ukrainian copy exists and renders; it is just
+  // not offered to the index. Add it once the section earns the traffic.
+  { path: '/tattoo-unikate',              freq: 'weekly',  pri: 0.75, locales: ['', '/en'] },
 
   // Landkreis pages — German only. Nobody looks for a studio in Eching or
   // Neufahrn in English or Ukrainian; those translations were crawled for

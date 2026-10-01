@@ -1,17 +1,38 @@
 'use client'
 import type React from 'react'
-import { useState } from 'react'
+import { useState, useSyncExternalStore } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { trackFormSubmit } from '@/lib/gtag'
 import { breadcrumbSchema, serviceSchema } from '@/lib/structured-data'
+import { UNIKAT_SLUGS } from '@/content/unikate'
 import s from './booking.module.css'
 
 export default function BookingPage() {
   const locale = useLocale()
   const t = useTranslations('booking')
+  const tu = useTranslations('unikate')
   const [experience, setExperience] = useState<'yes' | 'no' | null>(null)
+
+  // A visitor arriving from /tattoo-unikate/<slug> carries the design with them.
+  // Read straight from the URL rather than with useSearchParams — that hook
+  // would force a Suspense boundary around this prerendered page, and the
+  // fallback would ship an empty booking form in the HTML. useSyncExternalStore
+  // gives the server an empty string and the browser the real query, which is
+  // exactly the hydration contract React wants; an effect plus setState trips
+  // the project's set-state-in-effect rule and fails the build.
+  const search = useSyncExternalStore(
+    () => () => {},
+    () => window.location.search,
+    () => '',
+  )
+  const raw = new URLSearchParams(search).get('entwurf')
+  const entwurf = raw && (UNIKAT_SLUGS as readonly string[]).includes(raw) ? raw : null
+
+  const entwurfName  = entwurf ? tu(`items.${entwurf}.name`) : ''
+  const entwurfZone  = entwurf ? tu(`items.${entwurf}.zone`) : ''
+  const prefillIdea  = entwurf ? `${tu('booking.ideaPrefix')}: ${entwurfName}` : undefined
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -21,7 +42,7 @@ export default function BookingPage() {
     const fd = new FormData()
     fd.append('name',  raw.get('name')  as string)
     fd.append('email', raw.get('email') as string)
-    fd.append('brief', `Phone: ${raw.get('phone') || '—'}\nStyle: ${raw.get('style') || '—'}\nPlacement: ${raw.get('placement') || '—'}\nIdea: ${raw.get('idea') || '—'}\nWorked together: ${experience ?? '—'}`)
+    fd.append('brief', `${entwurf ? `Unikat: ${entwurfName} (/tattoo-unikate/${entwurf})\n` : ''}Phone: ${raw.get('phone') || '—'}\nStyle: ${raw.get('style') || '—'}\nPlacement: ${raw.get('placement') || '—'}\nIdea: ${raw.get('idea') || '—'}\nWorked together: ${experience ?? '—'}`)
     const file = raw.get('files') as File
     if (file && file.size > 0) fd.append('file', file)
     try {
@@ -45,6 +66,16 @@ export default function BookingPage() {
         <GHeader theme="light" />
 
         <h1 className={s.h1}>{t('hero.h1')}</h1>
+
+        {entwurf && status !== 'success' && (
+          <p style={{
+            margin: '0 var(--g-pad) 8px',
+            fontSize: 'var(--g-bs)',
+            color: '#0D0D0D',
+          }}>
+            {tu('booking.context')} <strong>{entwurfName}</strong>
+          </p>
+        )}
 
         {status === 'success' ? (
           <div className={s.form}>
@@ -87,14 +118,14 @@ export default function BookingPage() {
             <div className={s.row}>
               <label htmlFor="b-placement" className={s.label}>{t('form.placementLabel')}</label>
               <div className={s.underline}>
-                <input id="b-placement" name="placement" type="text" placeholder={t('form.placementPlaceholder')} className={s.input} />
+                <input key={`pl-${entwurf ?? ''}`} id="b-placement" name="placement" type="text" defaultValue={entwurfZone || undefined} placeholder={t('form.placementPlaceholder')} className={s.input} />
               </div>
             </div>
 
             <div className={s.row}>
               <label htmlFor="b-idea" className={s.label}>{t('form.ideaLabel')}</label>
               <div className={s.underline}>
-                <input id="b-idea" name="idea" type="text" placeholder={t('form.ideaPlaceholder')} className={s.input} />
+                <input key={`id-${entwurf ?? ''}`} id="b-idea" name="idea" type="text" defaultValue={prefillIdea} placeholder={t('form.ideaPlaceholder')} className={s.input} />
               </div>
             </div>
 

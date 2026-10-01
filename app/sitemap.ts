@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { SITE } from '@/content/site'
 import { STORIES } from '@/content/stories'
 import { SLUG_PAGES } from '@/content/routes'
+import { UNIKATE } from '@/content/unikate'
 
 // Pages available in all 3 locales (DE = no prefix, EN = /en/, UK = /uk/)
 const I18N_PAGES = [
@@ -67,5 +68,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ]
     })
 
-  return [...i18nRoutes, ...slugRoutes, ...blogRoutes]
+  // Unikate cards — DE + EN, matching the locales the hub is listed in. Status
+  // changes are the only thing that moves on these pages, and they ship with a
+  // commit, so there is no honest lastModified to give.
+  const unikatRoutes: MetadataRoute.Sitemap = UNIKATE.flatMap((u) => [
+    { url: `${SITE.url}/tattoo-unikate/${u.slug}`,    changeFrequency: 'weekly' as const, priority: 0.7  },
+    { url: `${SITE.url}/en/tattoo-unikate/${u.slug}`, changeFrequency: 'weekly' as const, priority: 0.63 },
+  ])
+
+  return [...i18nRoutes, ...slugRoutes, ...blogRoutes, ...unikatRoutes]
 }
