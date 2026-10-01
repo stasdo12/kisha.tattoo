@@ -16,6 +16,7 @@ export function GFooter() {
     { href: '/works',                   label: t('links.works')     },
     { href: '/tattoo-unikate',          label: t('links.unikate')   },
     { href: '/about',                   label: t('links.about')     },
+    { href: '/team',                    label: t('links.team')      },
     { href: '/blog',                    label: t('links.stories')   },
     { href: '/faq',                     label: t('links.faq')       },
     { href: '/aftercare',               label: t('links.aftercare') },
