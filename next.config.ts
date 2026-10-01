@@ -50,6 +50,28 @@ const nextConfig: NextConfig = {
       { source: '/tattoo-realismus-muenchen',    destination: '/team',    permanent: true },
       { source: '/en/tattoo-realismus-muenchen', destination: '/en/team', permanent: true },
       { source: '/uk/tattoo-realismus-muenchen', destination: '/uk/team', permanent: true },
+
+      // Addresses Google still remembers and still sends people to, found by
+      // walking every URL in the 30.09.2026 Search Console export. Each was
+      // answering 404; one of them had earned a click from position 1.
+      //
+      // An early slug for the blowout article, and a typo'd one (blout).
+      { source: '/blog/tattoo-linien-verlaufen',           destination: '/blog/tattoo-blowout-linien-verlaufen',     permanent: true },
+      { source: '/en/blog/tattoo-linien-verlaufen',        destination: '/en/blog/tattoo-blowout-linien-verlaufen',  permanent: true },
+      { source: '/uk/blog/tattoo-linien-verlaufen',        destination: '/uk/blog/tattoo-blowout-linien-verlaufen',  permanent: true },
+      { source: '/blog/tattoo-blout-linien-verlaufen',     destination: '/blog/tattoo-blowout-linien-verlaufen',     permanent: true },
+      { source: '/en/blog/tattoo-blout-linien-verlaufen',  destination: '/en/blog/tattoo-blowout-linien-verlaufen',  permanent: true },
+      { source: '/uk/blog/tattoo-blout-linien-verlaufen',  destination: '/uk/blog/tattoo-blowout-linien-verlaufen',  permanent: true },
+
+      // Realism article from the same removed cluster as the page above.
+      { source: '/blog/black-grey-realismus-tattoo-muenchen',    destination: '/works',    permanent: true },
+      { source: '/en/blog/black-grey-realismus-tattoo-muenchen', destination: '/en/works', permanent: true },
+      { source: '/uk/blog/black-grey-realismus-tattoo-muenchen', destination: '/uk/works', permanent: true },
+
+      // Truncated style slug — Google holds it at position 4.
+      { source: '/japanisches-muenchen',    destination: '/japanisches-tattoo-muenchen',    permanent: true },
+      { source: '/en/japanisches-muenchen', destination: '/en/japanisches-tattoo-muenchen', permanent: true },
+      { source: '/uk/japanisches-muenchen', destination: '/uk/japanisches-tattoo-muenchen', permanent: true },
     ]
   },
 

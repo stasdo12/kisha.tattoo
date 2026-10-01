@@ -230,8 +230,28 @@ async function unboard(boardId) {
  *  searchable on Pinterest and a slug would waste that surface. */
 function articleFor(slug) {
   const messages = JSON.parse(readFileSync(path.join(root, 'messages', 'de.json'), 'utf8'))
+
+  // A design, not a blog post. Its own drawing is the pin image — an OG card
+  // would be the wrong thing to show on a board people browse for artwork.
+  const unikat = messages.unikate?.items?.[slug]
+  if (unikat) {
+    const image = unikatImage(slug)
+    if (!image) throw new Error(`No file for "${slug}" in content/unikate.ts`)
+    return {
+      slug,
+      // Pinterest searches the title, so it carries the motif, the body zone,
+      // the piece's own name and the city — not the bare slug line the page uses.
+      title: `${unikat.title.replace(/ — Unikat-Entwurf von Kisha$/, '')} — ${unikat.name} | Kisha Tattoo München`,
+      // First paragraph, then the terms, because a pin description is read on
+      // its own, far from the page it links to.
+      excerpt: `${unikat.body[0]} ${messages.unikate.terms.once} ${messages.unikate.terms.free}`,
+      image: `${SITE_URL}${image}`,
+      link: `${SITE_URL}/tattoo-unikate/${slug}`,
+    }
+  }
+
   const story = messages.blog?.stories?.[slug]
-  if (!story) throw new Error(`No article "${slug}" in messages/de.json`)
+  if (!story) throw new Error(`No article or design "${slug}" in messages/de.json`)
   return {
     slug,
     title: story.title,
@@ -239,6 +259,19 @@ function articleFor(slug) {
     image: `${SITE_URL}/og/blog/${slug}.jpg`,
     link: `${SITE_URL}/blog/${slug}`,
   }
+}
+
+/** The drawing's own file path, read from content/unikate.ts. */
+function unikatImage(slug) {
+  const src = readFileSync(path.join(root, 'content', 'unikate.ts'), 'utf8')
+  const block = src.split(`slug: '${slug}'`)[1]
+  return block?.match(/image:\s*'([^']+)'/)?.[1] ?? null
+}
+
+/** Every design, in the order the hub shows them. */
+function listUnikate() {
+  const src = readFileSync(path.join(root, 'content', 'unikate.ts'), 'utf8')
+  return [...src.matchAll(/slug:\s*'([^']+)',\s*\n\s*image:/g)].map(([, slug]) => articleFor(slug))
 }
 
 /** Articles offered by the UI, newest first — the same list and order the blog
@@ -249,6 +282,21 @@ function listArticles() {
   return entries
     .map(([, slug, publishedAt]) => ({ ...articleFor(slug), publishedAt }))
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+}
+
+/** Pins every design onto one board, pausing so the API does not rate-limit. */
+async function unikate(boardId) {
+  if (!boardId) throw new Error('Usage: npm run pinterest unikate <board_id>')
+  const all = listUnikate()
+  console.log(`Pinning ${all.length} designs to ${boardId} in ${sandbox ? 'Sandbox' : 'production'}...\n`)
+  for (const [i, a] of all.entries()) {
+    const created = await createPin(boardId, a.slug)
+    console.log(`  ${i + 1}. ${created.article.title}`)
+    console.log(`     pin   ${created.id}`)
+    console.log(`     link  ${created.article.link}`)
+    if (i < all.length - 1) await new Promise((r) => setTimeout(r, 2500))
+  }
+  console.log(`\nDone. ${all.length} pins created.`)
 }
 
 async function pin(boardId, slug) {
@@ -397,7 +445,7 @@ function readBody(req) {
 }
 
 const [command, ...args] = argv.filter((a) => a !== '--sandbox')
-const commands = { auth, boards, board, pin, unpin, unboard, ui }
+const commands = { auth, boards, board, pin, unpin, unboard, ui, unikate }
 
 if (!commands[command]) {
   console.log('Usage: npm run pinterest <ui|auth|boards|board|pin|unpin|unboard> [-- --sandbox]')
