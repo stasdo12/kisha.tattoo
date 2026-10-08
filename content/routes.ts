@@ -29,6 +29,11 @@ export const SLUG_PAGES: readonly SlugPage[] = [
   { path: '/fineline-tattoo-muenchen',    freq: 'monthly', pri: 0.85, locales: ['', '/en', '/uk'] },
   { path: '/walk-in-tattoo-muenchen',     freq: 'monthly', pri: 0.8,  locales: ['', '/en', '/uk'] },
 
+  // Gift vouchers — German and English. Ukrainian demand for the term is zero
+  // (Google Ads, Oct 2026), so that translation renders for visitors already on
+  // the /uk tree but is not offered to the index, like Unikate below.
+  { path: '/tattoo-gutschein-muenchen',   freq: 'monthly', pri: 0.8,  locales: ['', '/en'] },
+
   // Unikate — the one-off designs. German and English only: the whole /uk tree
   // draws 23 clicks a quarter against 201 for /en/motive alone, so seven more
   // Ukrainian URLs would dilute a coverage number that is already thin (17 of

@@ -35,6 +35,13 @@ describe('slug page locales', () => {
     expect(slugPageLocales('/tattoo-preise-muenchen')).toEqual(['', '/en', '/uk'])
     expect(slugPageLocales('/fineline-tattoo-muenchen')).toEqual(['', '/en', '/uk'])
   })
+
+  it('the voucher page is offered in German and English only', () => {
+    expect(slugPageLocales('/tattoo-gutschein-muenchen')).toEqual(['', '/en'])
+    expect(isNoIndexLocale('/tattoo-gutschein-muenchen', 'uk')).toBe(true)
+    expect(isNoIndexLocale('/tattoo-gutschein-muenchen', 'en')).toBe(false)
+    expect(isNoIndexLocale('/tattoo-gutschein-muenchen', 'de')).toBe(false)
+  })
 })
 
 describe('isNoIndexLocale', () => {

@@ -20,16 +20,24 @@ function track(eventName: string, params?: Record<string, unknown>) {
 }
 
 /** Booking or contact form submitted successfully */
-export function trackFormSubmit(formLocation: 'booking' | 'contact') {
+export function trackFormSubmit(formLocation: 'booking' | 'contact' | 'gutschein') {
   track('generate_lead', {
     event_category: 'conversion',
     form_location: formLocation,
   })
   if (typeof window !== 'undefined' && window.pintrk) {
     window.pintrk('track', 'lead', {
-      lead_type: formLocation === 'booking' ? 'Booking' : 'Contact',
+      lead_type: formLocation === 'booking' ? 'Booking' : formLocation === 'gutschein' ? 'Gutschein' : 'Contact',
     })
   }
+}
+
+/** A voucher button opened the modal — the top of the voucher funnel, before generate_lead */
+export function trackGutscheinOpen(betrag: '200' | '500' | '1000' | null) {
+  track('gutschein_open', {
+    event_category: 'engagement',
+    betrag: betrag ?? 'offen',
+  })
 }
 
 /** WhatsApp button clicked */

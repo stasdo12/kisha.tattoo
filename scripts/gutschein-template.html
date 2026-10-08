@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--
+  Tattoo Gutschein — print template. Ported 1:1 from the Claude Design handoff
+  (kisha-tattoo-gift-certificate, 2026-10-08): A5 landscape 210 × 148 mm, three
+  artboards (front dark, back dark, front light). Every measurement below is the
+  designer's; the only additions are the theme variables so one file serves both
+  the dark (e-mail / studio print) and the light (home printing) variant, and the
+  optional bleed for a print shop.
+
+  Placeholders are filled by scripts/gutschein-pdf.mjs:
+    {{amount}} {{recipient}} {{giver}} {{number}} {{issued}} {{validUntil}}
+    {{signature}} (an <img> or empty) {{bleed}} (3mm or 0mm)
+    {{pageW}} {{pageH}} (210/148 mm, or 216/154 with bleed)
+-->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Inter:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&text=%E5%88%BA&display=swap">
+<style>
+  @page { size: {{pageW}} {{pageH}}; margin: 0; }
+  html, body { margin: 0; padding: 0; }
+  body { -webkit-font-smoothing: antialiased; }
+
+  /* Theme — dark is the designer's primary artboard, light is artboard 03. */
+  .theme-dark  { --bg: #0D0D0D; --fg: #F2F2F2; --muted: #BFBFBF; --rule: #BFBFBF; --hanko-fg: #0D0D0D; }
+  .theme-light { --bg: #E8E8E8; --fg: #0D0D0D; --muted: #5C5C5C; --rule: #5C5C5C; --hanko-fg: #E8E8E8; }
+
+  .page {
+    position: relative; width: {{pageW}}; height: {{pageH}};
+    background: var(--bg); overflow: hidden; page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+  .trim { position: absolute; left: {{bleed}}; top: {{bleed}}; width: 210mm; height: 148mm; }
+
+  .watermark {
+    position: absolute; left: 104.5mm; top: 14mm;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 300; font-size: 120mm; line-height: 1;
+    color: var(--fg); opacity: 0.06; white-space: nowrap;
+  }
+  .topbar { position: absolute; left: 12mm; right: 12mm; top: 12mm; display: flex; justify-content: space-between; align-items: center; }
+  .eyebrow { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 6.5pt; line-height: 1; letter-spacing: 0.32em; color: var(--muted); }
+  .brand { display: flex; align-items: center; gap: 2.4mm; }
+  .brand-mark { font-family: 'Noto Sans JP', sans-serif; font-weight: 500; font-size: 10pt; line-height: 1; color: var(--fg); }
+  .brand-name { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 6.5pt; line-height: 1; letter-spacing: 0.32em; margin-right: -0.32em; color: var(--fg); }
+
+  .headline {
+    position: absolute; left: 12mm; top: 27mm; margin: 0;
+    font-family: 'Cinzel', serif; font-weight: 400; font-size: 17pt; line-height: 1.1; letter-spacing: 0.24em;
+    text-transform: uppercase; white-space: nowrap; color: var(--fg);
+  }
+  .subline {
+    position: absolute; left: 12mm; top: 35.2mm; margin: 0;
+    font-family: 'Inter', sans-serif; font-weight: 400; font-size: 8pt; line-height: 1.3; letter-spacing: 0.02em;
+    white-space: nowrap; color: var(--fg);
+  }
+  .amount {
+    position: absolute; left: 11.4mm; top: 43.5mm;
+    font-family: 'Cinzel', serif; font-weight: 400; font-size: 84pt; line-height: 0.86; letter-spacing: 0.06em;
+    white-space: nowrap; color: var(--fg);
+  }
+
+  .field { position: absolute; height: 8.5mm; }
+  .field .label {
+    position: absolute; left: 0; bottom: 1.6mm;
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: 6pt; line-height: 1; letter-spacing: 0.2em;
+    text-transform: uppercase; white-space: nowrap; color: var(--muted);
+  }
+  .field .value {
+    position: absolute; right: 0; bottom: 1.5mm; min-height: 8.5pt;
+    font-family: 'Inter', sans-serif; font-weight: 400; font-size: 8.5pt; line-height: 1; letter-spacing: 0.02em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--fg);
+  }
+  .field .value.mono { letter-spacing: 0.06em; font-variant-numeric: tabular-nums; }
+  .field .rule { position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; overflow: visible; display: block; }
+  .rule line { stroke: var(--rule); stroke-width: 0.5pt; }
+  .f-recipient   { left: 12mm;  top: 79mm;   width: 88mm;  }
+  .f-giver       { left: 110mm; top: 79mm;   width: 88mm;  }
+  .f-number      { left: 12mm;  top: 87.5mm; width: 186mm; }
+  .f-issued      { left: 12mm;  top: 96mm;   width: 88mm;  }
+  .f-valid       { left: 110mm; top: 96mm;   width: 88mm;  }
+  .f-recipient .value, .f-number .value, .f-issued .value { left: 28.5mm; }
+  .f-giver .value, .f-valid .value { left: 19.5mm; }
+
+  .contact {
+    position: absolute; left: 12mm; bottom: 12mm; display: flex; align-items: baseline; gap: 2.2mm;
+    white-space: nowrap; font-family: 'Inter', sans-serif; line-height: 1;
+  }
+  .contact-label { font-weight: 500; font-size: 6pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  .contact-details { font-weight: 400; font-size: 7pt; letter-spacing: 0.04em; color: var(--fg); }
+
+  .signature-block { position: absolute; left: 123mm; top: 121.5mm; width: 58mm; height: 10mm; }
+  .signature { position: absolute; left: 0; right: 0; top: 0; bottom: 0.6mm; display: flex; align-items: flex-end; }
+  .signature img { max-height: 100%; max-width: 100%; object-fit: contain; }
+  .signature-block .rule { position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; overflow: visible; display: block; }
+  .label-signature {
+    position: absolute; left: 123mm; bottom: 12mm;
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: 6pt; line-height: 1; letter-spacing: 0.2em;
+    text-transform: uppercase; white-space: nowrap; color: var(--muted);
+  }
+  .hanko {
+    position: absolute; left: 185mm; top: 123mm; width: 13mm; height: 13mm;
+    background: #CC3333; border-radius: 1.2mm; display: flex; align-items: center; justify-content: center;
+  }
+  .hanko span { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 9.4mm; line-height: 1; color: var(--hanko-fg); }
+
+  /* Back */
+  .terms-headline {
+    position: absolute; left: 12mm; top: 27mm; margin: 0;
+    font-family: 'Cinzel', serif; font-weight: 400; font-size: 17pt; line-height: 1.1; letter-spacing: 0.24em;
+    text-transform: uppercase; white-space: nowrap; color: var(--fg);
+  }
+  .terms {
+    position: absolute; left: 12mm; top: 38.5mm; width: 100mm; margin: 0; padding: 0; list-style: none;
+    font-family: 'Inter', sans-serif; font-weight: 400; font-size: 7.5pt; line-height: 1.55; color: var(--fg);
+  }
+  .terms li { position: relative; display: grid; grid-template-columns: 7mm minmax(0, 1fr); padding: 2.7mm 0; }
+  .terms li svg { position: absolute; left: 0; top: 0; width: 100%; height: 1px; overflow: visible; display: block; }
+  .terms li .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+
+<section class="page theme-{{theme}}" id="front">
+  <div class="trim">
+    <div class="watermark" aria-hidden="true">刺</div>
+    <div class="topbar">
+      <span class="eyebrow">GUTSCHEIN</span>
+      <div class="brand"><span class="brand-mark">刺</span><span class="brand-name">KISHA TATTOO</span></div>
+    </div>
+    <h1 class="headline">Tattoo Gutschein</h1>
+    <p class="subline">Für ein Tattoo bei Kisha Tattoo München — Irezumi · Fineline · Grafik</p>
+    <div class="amount">{{amount}}</div>
+
+    <div class="field f-recipient"><span class="label">Für</span><span class="value">{{recipient}}</span><svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg></div>
+    <div class="field f-giver"><span class="label">Von</span><span class="value">{{giver}}</span><svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg></div>
+    <div class="field f-number"><span class="label">Gutschein-Nr.</span><span class="value mono">{{number}}</span><svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg></div>
+    <div class="field f-issued"><span class="label">Ausgestellt am</span><span class="value mono">{{issued}}</span><svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg></div>
+    <div class="field f-valid"><span class="label">Gültig bis</span><span class="value mono">{{validUntil}}</span><svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg></div>
+
+    <div class="contact">
+      <span class="contact-label">Termin anfragen:</span>
+      <span class="contact-details">kisha.tattoo · @kisha.tattoo · +49 170 1893395</span>
+    </div>
+
+    <div class="signature-block">
+      <div class="signature">{{signature}}</div>
+      <svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg>
+    </div>
+    <span class="label-signature">Unterschrift</span>
+    <div class="hanko"><span>刺</span></div>
+  </div>
+</section>
+
+<section class="page theme-{{theme}}" id="back">
+  <div class="trim">
+    <div class="watermark" aria-hidden="true">刺</div>
+    <h2 class="terms-headline">Hinweise</h2>
+    <ol class="terms">
+      <li><svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg><span class="n">1.</span><span>Der Gutschein gilt für alle Tattoo-Arbeiten bei Kisha Tattoo und wird auf den vereinbarten Preis angerechnet.</span></li>
+      <li><svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg><span class="n">2.</span><span>Termin nach Vereinbarung über kisha.tattoo oder Instagram — bitte die Gutschein-Nummer angeben.</span></li>
+      <li><svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg><span class="n">3.</span><span>Keine Barauszahlung. Ein Restbetrag bleibt bis zum Ablaufdatum gutgeschrieben.</span></li>
+      <li><svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg><span class="n">4.</span><span>Der Gutschein ist übertragbar und kann weiterverschenkt werden.</span></li>
+      <li><svg class="rule"><line x1="0" y1="0.5" x2="100%" y2="0.5"/></svg><span class="n">5.</span><span>Gültig drei Jahre, gerechnet ab dem Ende des Ausstellungsjahres.</span></li>
+    </ol>
+  </div>
+</section>
+
+</body>
+</html>

@@ -29,3 +29,6 @@ tsconfig.tsbuildinfo
 # Pinterest OAuth access token — credential, never commit
 .pinterest-token.json
 .pinterest-token-sandbox.json
+
+# Issued gift vouchers (PDFs + log) — personal data, never commit
+gutscheine/

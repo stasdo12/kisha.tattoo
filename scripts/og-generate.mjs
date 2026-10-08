@@ -29,6 +29,8 @@ const LANDINGS = [
   { name: 'fineline-tattoo-muenchen', source: '/images/work/maigloeckchen-tattoo-unterarm.jpg' },
   { name: 'walk-in-tattoo-muenchen', source: '/images/work/4x4-dog-tattoo-fineline.jpg' },
   { name: 'tattoo-preise-muenchen', source: '/images/work/spiegel-tattoo-graphic.jpg' },
+  // The voucher itself, whole, on its own black — a crop of a photo would say nothing about the page.
+  { name: 'tattoo-gutschein-muenchen', source: '/images/gutschein/gutschein-500-dunkel.png', fit: 'contain', background: '#0D0D0D' },
 ]
 
 /** Pulls slug + coverImageBig pairs straight out of the TS source. */
@@ -40,14 +42,14 @@ function readStories() {
   return stories
 }
 
-async function generate({ slug, cover, dir = outDir }) {
+async function generate({ slug, cover, dir = outDir, fit = 'cover', background }) {
   const source = path.join(publicDir, cover)
   const target = path.join(dir, `${slug}.jpg`)
 
   const meta = await sharp(source).metadata()
 
   const info = await sharp(source)
-    .resize(OG_WIDTH, OG_HEIGHT, { fit: 'cover', position: 'centre' })
+    .resize(OG_WIDTH, OG_HEIGHT, { fit, position: 'centre', ...(background ? { background } : {}) })
     .jpeg({ quality: 82, mozjpeg: true })
     .toFile(target)
 
@@ -67,7 +69,7 @@ async function main() {
 
   const jobs = [
     ...readStories().map(({ slug, cover }) => ({ slug, cover })),
-    ...LANDINGS.map(({ name, source }) => ({ slug: name, cover: source, dir: landingDir })),
+    ...LANDINGS.map(({ name, source, fit, background }) => ({ slug: name, cover: source, dir: landingDir, fit, background })),
   ]
 
   const results = []

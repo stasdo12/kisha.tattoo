@@ -51,7 +51,8 @@
       "stories": "Stories",
       "contact": "Contact",
       "linework": "Linework Tattoo",
-      "datenschutz": "Privacy Policy"
+      "datenschutz": "Privacy Policy",
+      "gutschein": "Tattoo Gift Card"
     },
     "rights": "All Rights Reserved."
   },
@@ -1944,6 +1945,163 @@
       "fineline": "Fineline Tattoo Munich",
       "grafik": "Tattoo Munich",
       "booking": "Book appointment"
+    }
+  },
+  "gutschein": {
+    "meta": {
+      "title": "Tattoo Gift Card Munich — Give a Tattoo",
+      "description": "Tattoo gift voucher from Kisha Tattoo Munich in €200, €500 or €1,000. Valid for three years, transferable, sent as a PDF in a dark and a light version. Request via the form, everything else directly with me."
+    },
+    "hero": {
+      "h1": "Tattoo Gift Card Munich",
+      "sub": "You give the tattoo, the person you're gifting chooses the design. Valid for any work at Kisha Tattoo, in a dark and a light version."
+    },
+    "intro": {
+      "lead": "The voucher comes in €200, €500 or €1,000. It is valid for three years, can be passed on, and arrives as a PDF by e-mail.",
+      "body": "A tattoo can't be bought ready-made. With the voucher you give the time with me, and the design takes shape later in a conversation. What it can become is on the <preise>prices page</preise> and among my <unikate>one-off designs</unikate>."
+    },
+    "facts": {
+      "heading": "Good to know",
+      "items": [
+        {
+          "k": "Amounts",
+          "v": "€200, €500 or €1,000. The voucher is worth exactly what you pay."
+        },
+        {
+          "k": "Validity",
+          "v": "Three years from the end of the year of purchase. That is the statutory period, and I don't shorten it."
+        },
+        {
+          "k": "Transferable",
+          "v": "The voucher is not tied to a name and can be passed on as a gift."
+        },
+        {
+          "k": "Request",
+          "v": "Through the form on this page. I reply directly, and we settle everything else in the conversation."
+        },
+        {
+          "k": "Payment",
+          "v": "Bank transfer or PayPal, with no fees and no markup."
+        },
+        {
+          "k": "Delivery",
+          "v": "As a PDF by e-mail, usually within 24 hours of payment. By arrangement also in person, on paper."
+        },
+        {
+          "k": "Two versions",
+          "v": "Dark for screens and printing on heavy paper, light for printing at home. Same number, same value."
+        },
+        {
+          "k": "Redeeming",
+          "v": "Request an appointment via the form or Instagram and give the voucher number. Any remaining balance stays on the voucher, there is no cash refund."
+        }
+      ]
+    },
+    "grid": {
+      "heading": "Three amounts and what they get you",
+      "items": [
+        {
+          "value": "200",
+          "label": "€200",
+          "title": "A small piece",
+          "line": "about one hour",
+          "body": "A fineline motif, a kanji, a small symbol, or the first step of a larger project.",
+          "cta": "Request €200"
+        },
+        {
+          "value": "500",
+          "label": "€500",
+          "title": "One session",
+          "line": "about three hours",
+          "body": "A worked-out piece on the forearm or calf, a graphic design with detail, a fineline set.",
+          "cta": "Request €500"
+        },
+        {
+          "value": "1000",
+          "label": "€1,000",
+          "title": "A large project",
+          "line": "a full session, six to ten hours",
+          "body": "The start of an Irezumi back piece or a sleeve, or one of my one-off designs, retired once it is tattooed.",
+          "cta": "Request €1,000"
+        }
+      ],
+      "note": {
+        "title": "How it works",
+        "body": "No shop and no cart. You write to me, I write back, and the voucher is on its way.",
+        "steps": [
+          "Pick an amount and send the form. If you like, with the name of the person it is for.",
+          "I get back to you directly. Bank transfer or PayPal, whichever suits you.",
+          "Once the payment is in, the voucher arrives as a PDF with its number and date, in both versions. Print it in A5, or pick it up on paper by arrangement."
+        ],
+        "link": "Request a gift card"
+      },
+      "back": {
+        "label": "Back",
+        "title": "Terms",
+        "line": "Validity, transferability and redeeming are printed on every voucher."
+      }
+    },
+    "faq": {
+      "heading": "FAQ — Tattoo gift card Munich",
+      "items": [
+        {
+          "q": "How long is the tattoo gift card valid?",
+          "a": "Three years from the end of the year it was bought. A voucher from December 2026 is valid until 31 December 2029. That is the statutory period in Germany, and I don't shorten it."
+        },
+        {
+          "q": "What does a tattoo gift card cost?",
+          "a": "Exactly the amount printed on it, so €200, €500 or €1,000. There is no markup and no fee, not even for sending it as a PDF."
+        },
+        {
+          "q": "How big a tattoo do you get for €200?",
+          "a": "At my hourly rate of €150 to €200 that is about one hour, for example a small fineline motif, a kanji or a symbol. €500 is around three hours, €1,000 a full session. A voucher can also serve as a deposit for a larger project, and the rest is billed as usual."
+        },
+        {
+          "q": "Where can I buy a tattoo gift card in Munich?",
+          "a": "Right here through the form. You receive the voucher as a PDF by e-mail, or in person on paper by arrangement."
+        },
+        {
+          "q": "How do I receive the voucher, and how do I wrap it?",
+          "a": "After payment it arrives as a PDF by e-mail, in a dark and a light version. Both are designed for printing in A5. On heavy paper the dark one looks like an original, the light one is easy on a home printer."
+        },
+        {
+          "q": "Can the voucher be used as a deposit for a one-off design?",
+          "a": "Yes. For my one-off designs, drawings that get tattooed exactly once, I take a €100 deposit that reserves the design. A voucher covers it, and the remaining amount counts towards the session."
+        },
+        {
+          "q": "Which tattoos is the voucher valid for?",
+          "a": "Everything I tattoo, from Japanese Irezumi to fineline and graphic work, for small motifs as much as for large projects over several sessions. We discuss the design later, the voucher only sets the amount."
+        },
+        {
+          "q": "Can I pass the voucher on or return it?",
+          "a": "Passing it on, yes, it is not tied to a name. A cash refund is not possible, and any remaining balance stays on the voucher until it expires."
+        }
+      ]
+    },
+    "cta": {
+      "hint": "Give a tattoo without knowing the design yet.",
+      "button": "Request a gift card"
+    },
+    "popup": {
+      "tag": "[ Tattoo gift card ]",
+      "heading": "Which amount would you like to give?",
+      "close": "Close",
+      "amountLbl": "Amount",
+      "amountMissing": "Please pick an amount.",
+      "nameLbl": "My name is",
+      "namePlh": "[ Name ]",
+      "emailLbl": "My e-mail is",
+      "emailPlh": "[ E-mail ]",
+      "phoneLbl": "My phone number is",
+      "phonePlh": "[ Phone, optional ]",
+      "forLbl": "The voucher is for",
+      "forPlh": "[ Name, optional ]",
+      "noteLbl": "Message",
+      "notePlh": "[ optional ]",
+      "submit": "Request gift card",
+      "submitting": "Sending…",
+      "success": "Thank you. I will get back to you directly, usually the same day.",
+      "error": "Something went wrong. Please try again."
     }
   },
   "locations": {

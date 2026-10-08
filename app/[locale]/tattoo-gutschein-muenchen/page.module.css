@@ -1,0 +1,156 @@
+/* Tattoo Gutschein München — layout rules only. The page is built on the
+   Unikate pattern (app/[locale]/tattoo-unikate/page.tsx): dark hero with the
+   vouchers lying like sheets, two-column intro, numbered terms, a tile grid
+   on warm grey, two-column FAQ, black CTA. Visual values live inline next to
+   the markup, exactly as on that page; this file holds what media queries
+   need to reach. */
+
+.hero {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: clamp(24px, 4vw, 48px);
+  padding: 0 var(--g-pad) clamp(32px, 6vh, 64px);
+}
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.5vh, 28px);
+  z-index: 10;
+}
+.sheets {
+  position: relative;
+  height: clamp(300px, 52svh, 560px);
+  align-self: center;
+  /* Three landscape sheets need more than half the screen: reach past the
+     column on the right, the way the Unikate sheets do. */
+  width: calc(100% + 10vw);
+  margin-left: -2vw;
+  margin-right: -8vw;
+}
+.sheet {
+  position: absolute;
+  aspect-ratio: 210 / 148;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+/* A dark voucher on the dark hero would dissolve into it without an edge. */
+.sheetDark {
+  outline: 1px solid rgba(242, 242, 242, 0.16);
+  outline-offset: -1px;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+.terms {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 32px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 32px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.note {
+  grid-column: span 2;
+}
+
+.faq {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 3vw, 48px);
+}
+
+/* Buttons that open the voucher modal. `font: inherit` matters — a <button>
+   falls back to the system font otherwise. */
+.tileCta,
+.noteCta,
+.ctaButton {
+  font: inherit;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.tileCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  background: var(--g-black);
+  color: var(--g-white);
+  font-size: var(--g-bs);
+}
+.noteCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  min-width: 16rem;
+  padding: 14px 16px;
+  border: 1px solid var(--g-black);
+  background: transparent;
+  color: var(--g-black);
+  font-size: var(--g-bs);
+}
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 28px;
+  border: 0;
+  background: var(--g-white);
+  color: var(--g-black);
+  font-size: var(--g-bm);
+}
+@media (hover: hover) {
+  .tileCta:hover { background: #3A3A3A; }
+  .noteCta:hover { background: var(--g-black); color: var(--g-white); }
+  .ctaButton:hover { background: #DADADA; }
+}
+
+@media (max-width: 1199px) {
+  /* Sheets on top, words at the bottom of the screen — and clear of the
+     fixed, transparent header. */
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    align-items: stretch;
+    padding-top: clamp(72px, 11vh, 104px);
+  }
+  .sheets {
+    order: -1;
+    height: clamp(260px, 38svh, 380px);
+    width: 100%;
+    margin: 0;
+  }
+  .heroText {
+    justify-content: flex-end;
+    padding-bottom: clamp(8px, 2vh, 24px);
+  }
+  .terms { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .sheets { height: clamp(220px, 32svh, 300px); }
+  .intro { grid-template-columns: 1fr; }
+  .terms { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; }
+  .note { grid-column: auto; }
+  .faq { grid-template-columns: 1fr; }
+}

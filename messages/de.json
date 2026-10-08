@@ -51,7 +51,8 @@
       "stories": "Stories",
       "contact": "Kontakt",
       "linework": "Linework Tattoo",
-      "datenschutz": "Datenschutz"
+      "datenschutz": "Datenschutz",
+      "gutschein": "Tattoo Gutschein"
     },
     "rights": "All Rights Reserved."
   },
@@ -1952,6 +1953,163 @@
       "fineline": "Fineline Tattoo München",
       "grafik": "Tattoo Munich",
       "booking": "Termin buchen"
+    }
+  },
+  "gutschein": {
+    "meta": {
+      "title": "Tattoo Gutschein München — Tattoo verschenken",
+      "description": "Tattoo Gutschein von Kisha Tattoo München mit 200, 500 oder 1000 €. Drei Jahre gültig, übertragbar, als PDF in einer dunklen und einer hellen Version. Anfrage per Formular, alles Weitere direkt mit mir."
+    },
+    "hero": {
+      "h1": "Tattoo Gutschein München",
+      "sub": "Du schenkst ein Tattoo, das Motiv wählt die beschenkte Person selbst. Gilt für jede Arbeit bei Kisha Tattoo, in einer dunklen und einer hellen Version."
+    },
+    "intro": {
+      "lead": "Den Gutschein gibt es mit 200, 500 oder 1000 €. Er gilt drei Jahre, lässt sich weiterverschenken und kommt als PDF per E-Mail.",
+      "body": "Ein Tattoo kann man nicht fertig kaufen. Mit dem Gutschein schenkst du die Zeit mit mir, das Motiv entsteht später im Gespräch. Was daraus werden kann, zeigen die <preise>Preise</preise> und meine <unikate>Unikate</unikate>."
+    },
+    "facts": {
+      "heading": "Gut zu wissen",
+      "items": [
+        {
+          "k": "Beträge",
+          "v": "200, 500 oder 1000 €. Der Gutschein ist genau so viel wert, wie du bezahlst."
+        },
+        {
+          "k": "Gültigkeit",
+          "v": "Drei Jahre ab dem Ende des Kaufjahres. Das ist die gesetzliche Frist, und ich verkürze sie nicht."
+        },
+        {
+          "k": "Übertragbar",
+          "v": "Der Gutschein ist an keinen Namen gebunden und kann weiterverschenkt werden."
+        },
+        {
+          "k": "Anfrage",
+          "v": "Über das Formular auf dieser Seite. Ich melde mich direkt bei dir, alles Weitere klären wir im Gespräch."
+        },
+        {
+          "k": "Bezahlung",
+          "v": "Überweisung oder PayPal, ohne Gebühren und ohne Aufschlag."
+        },
+        {
+          "k": "Zustellung",
+          "v": "Als PDF per E-Mail, meist innerhalb von 24 Stunden nach Zahlungseingang. Nach Absprache auch persönlich auf Papier."
+        },
+        {
+          "k": "Zwei Versionen",
+          "v": "Dunkel für den Bildschirm und den Druck auf festem Papier, hell zum Ausdrucken zu Hause. Gleiche Nummer, gleicher Wert."
+        },
+        {
+          "k": "Einlösen",
+          "v": "Termin über das Formular oder Instagram anfragen und die Gutschein-Nummer nennen. Ein Restbetrag bleibt gutgeschrieben, Barauszahlung gibt es nicht."
+        }
+      ]
+    },
+    "grid": {
+      "heading": "Drei Beträge und was damit geht",
+      "items": [
+        {
+          "value": "200",
+          "label": "200 €",
+          "title": "Kleines Motiv",
+          "line": "etwa eine Stunde",
+          "body": "Ein Fineline-Motiv, ein Kanji, ein kleines Symbol oder der Einstieg in ein größeres Projekt.",
+          "cta": "200 € anfragen"
+        },
+        {
+          "value": "500",
+          "label": "500 €",
+          "title": "Eine Sitzung",
+          "line": "etwa drei Stunden",
+          "body": "Ein ausgearbeitetes Motiv am Unterarm oder an der Wade, ein Grafik-Stück mit Details, ein Fineline-Set.",
+          "cta": "500 € anfragen"
+        },
+        {
+          "value": "1000",
+          "label": "1000 €",
+          "title": "Großes Projekt",
+          "line": "eine ganze Sitzung, sechs bis zehn Stunden",
+          "body": "Der Start eines Irezumi-Rückens oder eines Sleeves, oder ein Unikat aus meiner Sammlung, das danach vergeben ist.",
+          "cta": "1000 € anfragen"
+        }
+      ],
+      "note": {
+        "title": "So läuft es",
+        "body": "Kein Shop und kein Warenkorb. Du schreibst mir, ich schreibe zurück, und der Gutschein ist unterwegs.",
+        "steps": [
+          "Betrag wählen und das Formular schicken. Wenn du willst, mit dem Namen der Person, die ihn bekommt.",
+          "Ich melde mich direkt bei dir. Überweisung oder PayPal, wie es dir passt.",
+          "Nach Zahlungseingang kommt der Gutschein als PDF mit Nummer und Datum, in beiden Versionen. Zum Ausdrucken in A5 oder nach Absprache persönlich auf Papier."
+        ],
+        "link": "Gutschein anfragen"
+      },
+      "back": {
+        "label": "Rückseite",
+        "title": "Hinweise",
+        "line": "Gültigkeit, Übertragbarkeit und Einlösen stehen auf jedem Gutschein."
+      }
+    },
+    "faq": {
+      "heading": "FAQ — Tattoo Gutschein München",
+      "items": [
+        {
+          "q": "Wie lange ist der Tattoo-Gutschein gültig?",
+          "a": "Drei Jahre ab dem Ende des Jahres, in dem er gekauft wurde. Ein Gutschein vom Dezember 2026 gilt also bis zum 31. Dezember 2029. Das ist die gesetzliche Frist in Deutschland, und ich verkürze sie nicht."
+        },
+        {
+          "q": "Was kostet ein Tattoo-Gutschein?",
+          "a": "Genau den Betrag, der draufsteht, also 200, 500 oder 1000 €. Es gibt keinen Aufschlag und keine Gebühren, auch nicht für den Versand als PDF."
+        },
+        {
+          "q": "Wie groß ist ein Tattoo für 200 €?",
+          "a": "Bei meinem Stundensatz von 150 bis 200 € entspricht das etwa einer Stunde, zum Beispiel ein kleines Fineline-Motiv, ein Kanji oder ein Symbol. Für 500 € sind es rund drei Stunden, für 1000 € eine ganze Sitzung. Ein Gutschein kann auch als Anzahlung für ein größeres Projekt dienen, der Rest wird dann regulär abgerechnet."
+        },
+        {
+          "q": "Wo kann ich einen Tattoo-Gutschein in München kaufen?",
+          "a": "Direkt hier über das Formular. Du bekommst den Gutschein als PDF per E-Mail oder nach Absprache persönlich auf Papier."
+        },
+        {
+          "q": "Wie bekomme ich den Gutschein und wie verpacke ich ihn?",
+          "a": "Nach Zahlungseingang kommt er als PDF per E-Mail, in einer dunklen und einer hellen Version. Beide sind für den Druck in A5 gestaltet. Auf festem Papier wirkt die dunkle Version wie ein Original, die helle schont den Drucker zu Hause."
+        },
+        {
+          "q": "Kann der Gutschein als Anzahlung für ein Unikat verwendet werden?",
+          "a": "Ja. Für meine Unikate, also Entwürfe, die genau einmal tätowiert werden, nehme ich eine Anzahlung von 100 €, die den Entwurf reserviert. Ein Gutschein deckt sie ab, der Restbetrag wird auf die Sitzung angerechnet."
+        },
+        {
+          "q": "Für welche Tattoos gilt der Gutschein?",
+          "a": "Für alles, was ich tätowiere, von japanischem Irezumi über Fineline bis Grafik, für kleine Motive genauso wie für große Projekte über mehrere Sitzungen. Das Motiv besprechen wir später, der Gutschein legt nur den Betrag fest."
+        },
+        {
+          "q": "Kann ich den Gutschein weiterverschenken oder zurückgeben?",
+          "a": "Weiterverschenken ja, er ist an keinen Namen gebunden. Eine Barauszahlung ist nicht möglich, ein Restbetrag bleibt bis zum Ablauf gutgeschrieben."
+        }
+      ]
+    },
+    "cta": {
+      "hint": "Ein Tattoo verschenken, ohne das Motiv zu kennen.",
+      "button": "Gutschein anfragen"
+    },
+    "popup": {
+      "tag": "[ Tattoo Gutschein ]",
+      "heading": "Welchen Betrag möchtest du verschenken?",
+      "close": "Schließen",
+      "amountLbl": "Betrag",
+      "amountMissing": "Bitte wähle einen Betrag.",
+      "nameLbl": "Mein Name ist",
+      "namePlh": "[ Name ]",
+      "emailLbl": "Meine E-Mail ist",
+      "emailPlh": "[ E-Mail ]",
+      "phoneLbl": "Meine Telefonnummer ist",
+      "phonePlh": "[ Telefon, optional ]",
+      "forLbl": "Der Gutschein ist für",
+      "forPlh": "[ Name, optional ]",
+      "noteLbl": "Nachricht",
+      "notePlh": "[ optional ]",
+      "submit": "Gutschein anfragen",
+      "submitting": "Wird gesendet…",
+      "success": "Danke. Ich melde mich direkt bei dir, meist noch am selben Tag.",
+      "error": "Fehler beim Senden. Bitte versuche es erneut."
     }
   },
   "locations": {

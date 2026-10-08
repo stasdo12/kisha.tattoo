@@ -23,6 +23,7 @@ export function GFooter() {
     { href: '/awards',                  label: t('links.awards')    },
     { href: '/tattoo-preise-muenchen',  label: t('links.prices')    },
     { href: '/walk-in-tattoo-muenchen', label: t('links.walkin')    },
+    { href: '/tattoo-gutschein-muenchen', label: t('links.gutschein') },
     { href: '/contact',                 label: t('links.contact')   },
   ]
 
