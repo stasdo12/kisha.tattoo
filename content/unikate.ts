@@ -5,9 +5,10 @@
  * under the `unikate` namespace, keyed by slug.
  *
  * Status is edited by hand here and shipped with a push; a deploy takes a few
- * minutes, which is fast enough while there are six of these. `reservedUntil`
- * is what makes a reservation honest — it is held by the 100 € deposit, not by
- * an enquiry, so a design cannot sit frozen because somebody once wrote in.
+ * minutes, which is fast enough while there are a handful of these.
+ * `reservedUntil` is what makes a reservation honest — it is held by the
+ * 100 € deposit, not by an enquiry, so a design cannot sit frozen because
+ * somebody once wrote in.
  *
  * Keyword rules this file obeys (see the 30.09.2026 cannibalisation check):
  *  - no `Bedeutung` / `meaning` anywhere in a heading — that cluster belongs to
@@ -15,7 +16,7 @@
  *  - no `irezumi` in English headings — /en/motive ranks #5 for `lotus irezumi`
  *  - no `Preis` / `Kosten` in headings — /tattoo-preise-muenchen holds 27 arm
  *    and 7 back keywords, all of them price variants
- *  - one body zone per card, never a list of them, so the six cards do not
+ *  - one body zone per card, never a list of them, so the cards do not
  *    compete with each other
  */
 
@@ -69,9 +70,16 @@ export const UNIKATE: readonly Unikat[] = [
     height: 1600,
     status: 'verfuegbar',
   },
-  // Last on purpose: this is the only landscape drawing of the six, and a wide
+  {
+    slug: 'geisha-welle-oberschenkel',
+    image: '/images/unikate/geisha-welle-oberschenkel-tattoo-entwurf.jpg',
+    width: 1024,
+    height: 1536,
+    status: 'verfuegbar',
+  },
+  // Last on purpose: this is the only landscape drawing of the set, and a wide
   // sketch in a portrait tile reads as the smallest one on the page. At the end
-  // of the grid it gets its own row instead of competing with its neighbours.
+  // of the grid it spans two columns beside the note cell.
   {
     slug: 'lotus-koi-brust',
     image: '/images/unikate/lotus-koi-brust-tattoo-entwurf.jpg',

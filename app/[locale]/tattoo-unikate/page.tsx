@@ -269,12 +269,12 @@ export default async function TattooUnikate({
             margin: 0,
             padding: 0,
           }}>
-            {/* Portrait drawings first, then the note that fills the gap five
-                of them leave in a three-column row, then the wide one. */}
+            {/* Portrait drawings first, six of them fill two full rows. Then
+                the note and the wide one share the last row. */}
             {[...UNIKATE.filter((u) => u.height >= u.width), NOTE_CELL, ...UNIKATE.filter((u) => u.width > u.height)].map((u) => {
               if (u === NOTE_CELL) {
                 return (
-                  <li key="note" style={{
+                  <li key="note" className="g-unikate-note" style={{
                     background: 'transparent',
                     border: '1px solid #C9C5BD',
                     padding: 'clamp(20px, 2.5vw, 32px)',
@@ -550,7 +550,7 @@ export default async function TattooUnikate({
         }
 
         /* The one landscape sketch spans the row it sits in. */
-        .g-unikate-wide { grid-column: span 3; }
+        .g-unikate-wide { grid-column: span 2; }
 
         /* The button inverts on hover. Touch devices never see it, and it is
            skipped for anyone who asked for less motion. */
@@ -566,14 +566,16 @@ export default async function TattooUnikate({
         @media (max-width: 1199px) {
           .g-unikate-grid  { grid-template-columns: repeat(2, 1fr) !important; }
           .g-unikate-terms { grid-template-columns: repeat(2, 1fr) !important; }
-          .g-unikate-wide  { grid-column: span 2; }
+          .g-unikate-wide,
+          .g-unikate-note  { grid-column: span 2; }
         }
         @media (max-width: 767px) {
           .g-unikate-grid,
           .g-unikate-terms,
           .g-unikate-intro,
           .g-unikate-faq { grid-template-columns: 1fr !important; }
-          .g-unikate-wide { grid-column: span 1; }
+          .g-unikate-wide,
+          .g-unikate-note { grid-column: span 1; }
         }
       `}</style>
     </main>
