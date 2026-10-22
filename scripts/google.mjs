@@ -6,6 +6,7 @@
 //   inspect  <url>                         index status of one URL as Google sees it
 //   sitemaps                               submitted sitemaps and when Google last read them
 //   submit   <sitemap url>                 (re)submit a sitemap
+//   weekly   [--days 7]                    leads, channels, landing pages, Search Console — this period vs the one before
 //   ga4      [--start 28daysAgo] [--end yesterday] [--dims pagePath] [--metrics sessions,totalUsers] [--limit 25]
 //
 // Dates take YYYY-MM-DD or NdaysAgo / yesterday / today. GSC data lags 2–3 days.
@@ -113,6 +114,89 @@ if (cmd === 'gsc') {
   for (const r of res.rows ?? []) {
     console.log([...r.metricValues.map((m) => m.value), ...(r.dimensionValues ?? []).map((d) => d.value)].join('\t'))
   }
+} else if (cmd === 'weekly') {
+  await weekly(Number(flags.days ?? 7))
 } else {
-  console.log('Commands: gsc, inspect, sitemaps, submit, ga4 — see the header of scripts/google.mjs')
+  console.log('Commands: gsc, inspect, sitemaps, submit, ga4, weekly — see the header of scripts/google.mjs')
+}
+
+// ── weekly: one summary, this period against the one before ─────────────────
+async function weekly(days) {
+  const GA = 'https://www.googleapis.com/auth/analytics.readonly'
+  const shift = (from, n) => { const d = new Date(`${from}T12:00:00Z`); d.setUTCDate(d.getUTCDate() - n); return d.toISOString().slice(0, 10) }
+  const range = (endDate) => ({ startDate: shift(endDate, days - 1), endDate })
+  const pct = (a, b) => (b ? `${a >= b ? '+' : ''}${Math.round(((a - b) / b) * 100)}%` : '—')
+  const pad = (v, n) => String(v).padEnd(n)
+
+  // GA4 is complete up to yesterday; Search Console lags about three days.
+  const gaNow = range(date('yesterday'))
+  const gaPrev = range(shift(gaNow.startDate, 1))
+  const scNow = range(date('3daysAgo'))
+  const scPrev = range(shift(scNow.startDate, 1))
+
+  const ga = async (r, dims, metrics, extra = {}) => {
+    const res = await call(GA, `https://analyticsdata.googleapis.com/v1beta/properties/${GA4_PROPERTY}:runReport`, {
+      dateRanges: [r], dimensions: dims.map((name) => ({ name })), metrics: metrics.map((name) => ({ name })), limit: 50, ...extra,
+    })
+    return (res.rows ?? []).map((row) => ({ d: (row.dimensionValues ?? []).map((v) => v.value), m: row.metricValues.map((v) => Number(v.value)) }))
+  }
+  const onlyEvent = (name) => ({ dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { value: name } } } })
+  const sc = async (r, dims) => {
+    const res = await call(WM_RO, `https://www.googleapis.com/webmasters/v3/sites/${site}/searchAnalytics/query`, {
+      startDate: r.startDate, endDate: r.endDate, dimensions: dims, rowLimit: 500,
+    })
+    return res.rows ?? []
+  }
+
+  console.log(`\n═══ Kisha Tattoo — ${days} Tage ═══`)
+  console.log(`GA4 ${gaNow.startDate} → ${gaNow.endDate} (vs ${gaPrev.startDate} → ${gaPrev.endDate})`)
+
+  // Leads first: they are what the site is for.
+  const leadsNow = await ga(gaNow, ['pagePath', 'sessionSource'], ['eventCount'], onlyEvent('generate_lead'))
+  const leadsPrev = await ga(gaPrev, [], ['eventCount'], onlyEvent('generate_lead'))
+  const leadTotal = leadsNow.reduce((s, r) => s + r.m[0], 0)
+  console.log(`\nЗАЯВКИ  ${leadTotal}  (было ${leadsPrev[0]?.m[0] ?? 0})`)
+  for (const r of leadsNow) console.log(`  ${pad(r.m[0], 3)} ${pad(r.d[0], 40)} ← ${r.d[1]}`)
+  try {
+    const byForm = await ga(gaNow, ['customEvent:form_location'], ['eventCount'], onlyEvent('generate_lead'))
+    console.log('  по формам: ' + byForm.map((r) => `${r.d[0]} ${r.m[0]}`).join(' · '))
+  } catch {
+    console.log('  по формам: нужен пользовательский параметр form_location в GA4')
+  }
+  const wa = await ga(gaNow, ['pagePath'], ['eventCount'], onlyEvent('whatsapp_click'))
+  console.log(`WhatsApp-клики  ${wa.reduce((s, r) => s + r.m[0], 0)}  ${wa.slice(0, 5).map((r) => `${r.d[0]} ${r.m[0]}`).join(' · ')}`)
+
+  const chNow = await ga(gaNow, ['sessionDefaultChannelGroup'], ['sessions', 'engagedSessions'])
+  const chPrev = new Map((await ga(gaPrev, ['sessionDefaultChannelGroup'], ['sessions'])).map((r) => [r.d[0], r.m[0]]))
+  console.log('\nКАНАЛЫ (сессии, вовлечённые, к прошлому периоду)')
+  for (const r of chNow.sort((a, b) => b.m[0] - a.m[0])) {
+    console.log(`  ${pad(r.d[0], 18)} ${pad(r.m[0], 5)} ${pad(r.m[1], 5)} ${pct(r.m[0], chPrev.get(r.d[0]) ?? 0)}`)
+  }
+  const ai = await ga(gaNow, ['sessionSource'], ['sessions'], { dimensionFilter: { filter: { fieldName: 'sessionDefaultChannelGroup', stringFilter: { value: 'AI Assistant' } } } })
+  if (ai.length) console.log('  AI: ' + ai.map((r) => `${r.d[0]} ${r.m[0]}`).join(' · '))
+
+  const land = await ga(gaNow, ['landingPage'], ['sessions', 'engagedSessions'], { orderBys: [{ metric: { metricName: 'sessions' }, desc: true }], limit: 10 })
+  console.log('\nСТРАНИЦЫ ВХОДА (сессии / вовлечённые)')
+  for (const r of land) console.log(`  ${pad(r.m[0], 4)} ${pad(r.m[1], 4)} ${r.d[0]}`)
+
+  console.log(`\nSEARCH CONSOLE ${scNow.startDate} → ${scNow.endDate} (данные отстают ~3 дня)`)
+  const [tNow] = await sc(scNow, [])
+  const [tPrev] = await sc(scPrev, [])
+  console.log(`  клики ${tNow?.clicks ?? 0} (${pct(tNow?.clicks ?? 0, tPrev?.clicks ?? 0)})  показы ${tNow?.impressions ?? 0} (${pct(tNow?.impressions ?? 0, tPrev?.impressions ?? 0)})  позиция ${tNow?.position.toFixed(1) ?? '—'} (было ${tPrev?.position.toFixed(1) ?? '—'})`)
+  const pNow = await sc(scNow, ['page'])
+  const pPrev = new Map((await sc(scPrev, ['page'])).map((r) => [r.keys[0], r]))
+  const KEY_PAGES = ['/walk-in-tattoo-muenchen', '/tattoo-preise-muenchen', '/japanisches-tattoo-muenchen', '/fineline-tattoo-muenchen', '/grafik-tattoo-muenchen', '/tattoo-unikate', '/tattoo-gutschein-muenchen', '/']
+  console.log('  ключевые страницы: клики · показы · позиция (было)')
+  for (const path of KEY_PAGES) {
+    const match = (r) => { const p = r.keys[0].replace('https://kisha.tattoo', '') || '/'; return path === '/' ? p === '/' : p.startsWith(path) }
+    const now = pNow.filter(match)
+    const prev = [...pPrev.values()].filter(match)
+    const sum = (rows, k) => rows.reduce((s, r) => s + r[k], 0)
+    const pos = (rows) => { const i = sum(rows, 'impressions'); return i ? (rows.reduce((s, r) => s + r.position * r.impressions, 0) / i).toFixed(1) : '—' }
+    console.log(`  ${pad(path, 30)} ${pad(sum(now, 'clicks'), 4)} ${pad(sum(now, 'impressions'), 6)} ${pos(now)} (${pos(prev)})`)
+  }
+  console.log('  лучшие страницы:')
+  for (const r of pNow.sort((a, b) => b.clicks - a.clicks).slice(0, 5)) {
+    console.log(`    ${pad(r.clicks, 4)} ${r.keys[0].replace('https://kisha.tattoo', '') || '/'}`)
+  }
 }
