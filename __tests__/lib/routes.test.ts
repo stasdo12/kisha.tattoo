@@ -19,6 +19,12 @@ describe('slug page locales', () => {
     expect(slugPageLocales('/')).toBeNull()
   })
 
+  it('a design card takes the locales of the Unikate hub', () => {
+    expect(slugPageLocales('/tattoo-unikate/lotus-koi-brust')).toEqual(['', '/en'])
+    expect(isNoIndexLocale('/tattoo-unikate/lotus-koi-brust', 'uk')).toBe(true)
+    expect(isNoIndexLocale('/tattoo-unikate/lotus-koi-brust', 'en')).toBe(false)
+  })
+
   it('blog articles are German and English, Ukrainian only where it earns', () => {
     expect(slugPageLocales('/blog/tattoo-coverup-muenchen')).toEqual(['', '/en'])
     expect(isNoIndexLocale('/blog/tattoo-coverup-muenchen', 'uk')).toBe(true)

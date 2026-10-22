@@ -87,6 +87,10 @@ const SITEMAP_LOCALES = new Map(SLUG_PAGES.map((p) => [p.path, p.locales]))
 export function slugPageLocales(path: string): readonly string[] | null {
   const article = path.match(/^\/blog\/([^/]+)$/)?.[1]
   if (article) return BLOG_UK_KEEP.has(article) ? null : ['', '/en']
+  // A design card follows its hub. Without this the cards' robots tag (which
+  // asks about the hub) and their hreflang (which asks about the card's own
+  // path) disagreed: DE and EN pointed hreflang at a Ukrainian card set to noindex.
+  if (path.startsWith('/tattoo-unikate/')) return SITEMAP_LOCALES.get('/tattoo-unikate') ?? null
   return SITEMAP_LOCALES.get(path) ?? null
 }
 
