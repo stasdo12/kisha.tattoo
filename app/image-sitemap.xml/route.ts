@@ -1,6 +1,8 @@
 import { SITE } from '@/content/site'
 import { STORIES } from '@/content/stories'
 import { CURATED_IMAGE_PAGES, type SitemapImagePage } from '@/content/image-sitemap'
+import { UNIKATE } from '@/content/unikate'
+import de from '@/messages/de.json'
 
 /**
  * Image sitemap. Was a static file in public/ listing four pages, so the 28
@@ -26,7 +28,23 @@ export function GET(): Response {
     }],
   }))
 
-  const body = [...CURATED_IMAGE_PAGES, ...blogPages]
+  // Same idea for the design cards: a new Unikat brings its drawing along, on
+  // its own page and on the hub that lists it.
+  const items = de.unikate.items as Record<string, { name: string; alt: string }>
+  const unikatImages = UNIKATE.map((u) => ({
+    path: `/tattoo-unikate/${u.slug}`,
+    image: {
+      loc: `${SITE.url}${encodeURI(u.image)}`,
+      title: `${items[u.slug].name} — Tattoo Entwurf von Kisha`,
+      caption: items[u.slug].alt,
+    },
+  }))
+  const unikatPages: SitemapImagePage[] = [
+    { path: '/tattoo-unikate', images: unikatImages.map((u) => u.image) },
+    ...unikatImages.map((u) => ({ path: u.path, images: [u.image] })),
+  ]
+
+  const body = [...CURATED_IMAGE_PAGES, ...blogPages, ...unikatPages]
     .map((page) => {
       const images = page.images
         .map((image) => [
