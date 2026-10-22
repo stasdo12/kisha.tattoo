@@ -29,7 +29,11 @@ export const CURATED_IMAGE_PAGES: SitemapImagePage[] = [
       { loc: "https://kisha.tattoo/images/work/4x4-dog-tattoo-fineline.jpg", title: "Fineline Hund Tattoo M\u00fcnchen \u2014 Kisha", caption: "Fineline dog tattoo by Kisha \u2014 M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/work/4x4-fogel-tattoo-graphic.jpg", title: "Grafik Vogel Tattoo M\u00fcnchen \u2014 Kisha", caption: "Graphic bird tattoo by Kisha Tattoo M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/work/4x4-owl-tattoo-fineline.jpg", title: "Fineline Eule Tattoo M\u00fcnchen \u2014 Kisha", caption: "Fineline owl tattoo by Kisha \u2014 M\u00fcnchen" },
-      { loc: "https://kisha.tattoo/images/work/4x4-sakura-tattoo.jpg", title: "Sakura Tattoo M\u00fcnchen \u2014 Kisha", caption: "Sakura cherry blossom tattoo by Kisha Tattoo M\u00fcnchen" }
+      { loc: "https://kisha.tattoo/images/work/4x4-sakura-tattoo.jpg", title: "Sakura Tattoo M\u00fcnchen \u2014 Kisha", caption: "Sakura cherry blossom tattoo by Kisha Tattoo M\u00fcnchen" },
+      { loc: "https://kisha.tattoo/images/work/justitia-tattoo-oberarm.jpg", title: "Justitia Tattoo Oberarm M\u00fcnchen \u2014 Kisha", caption: "Lady Justice upper arm tattoo by Kisha Tattoo M\u00fcnchen" },
+      { loc: "https://kisha.tattoo/images/work/japanisches-tempel-lotus-tattoo-unterarm.jpg", title: "Japanisches Tempel Lotus Tattoo Unterarm M\u00fcnchen \u2014 Kisha", caption: "Japanese temple and lotus forearm tattoo by Kisha \u2014 M\u00fcnchen" },
+      { loc: "https://kisha.tattoo/images/work/koi-lotus-tattoo-unterarm.jpg", title: "Japanisches Koi Lotus Tattoo Unterarm M\u00fcnchen \u2014 Kisha", caption: "Japanese koi and lotus forearm tattoo by Kisha Tattoo M\u00fcnchen" },
+      { loc: "https://kisha.tattoo/images/work/wildblumen-farn-fineline-tattoo-unterarm.jpg", title: "Fineline Wildblumen Farn Tattoo Unterarm M\u00fcnchen \u2014 Kisha", caption: "Fineline wildflower and fern forearm tattoo by Kisha \u2014 M\u00fcnchen" }
     ],
   },
   {

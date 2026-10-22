@@ -47,6 +47,12 @@ const ROW2 = {
   tags: ['München'],
   name: 'Schlange Knie — Grafik',
 }
+// Hochformat 2:3 (1024×1536) — 3-col slot is almost the photo's own ratio, so cover barely crops
+const ROW2B = [
+  { src: '/images/work/justitia-tattoo-oberarm.jpg',                   alt: 'Justitia Tattoo Oberarm München — Kisha',                tags: ['München'], name: 'Justitia — Grafik'           },
+  { src: '/images/work/japanisches-tempel-lotus-tattoo-unterarm.jpg',  alt: 'Japanisches Tempel Lotus Tattoo Unterarm München — Kisha', tags: ['München'], name: 'Tempel & Lotus — Japanisch' },
+  { src: '/images/work/wildblumen-farn-fineline-tattoo-unterarm.jpg',  alt: 'Fineline Wildblumen Farn Tattoo Unterarm München — Kisha', tags: ['München'], name: 'Wildblumen — Fineline'      },
+]
 const ROW3 = [
   { src: '/images/work/middle-graphic-hand-with-flower-tattoo.jpg', alt: 'Grafik Blumen Hand Tattoo München — Kisha', tags: ['München'], name: 'Blumen Hand — Grafik'  },
   { src: '/images/home/works-01-blackwork-fullbody.jpg',           alt: 'Japanisches Irezumi Fullbody Tattoo München — Kisha', tags: ['München'], name: 'Irezumi Fullbody — Japanisch' },
@@ -243,6 +249,13 @@ export default async function GraphicWorksPage({
             className="g-works-row2"
             style={{ height: 'clamp(432px, 39.6vw, 672px)' }}
           />
+
+          {/* ROW 2B — 3 equal columns, newest works */}
+          <div className="g-works-row9" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+            {ROW2B.map((img) => (
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 33vw" style={{ height: H_LARGE }} />
+            ))}
+          </div>
 
           {/* ROW 3 — 2 equal columns */}
           <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>

@@ -129,6 +129,31 @@ export default async function JapanischesTattooMuenchen({
           </div>
 
           {/* Additional Japanese works — 2 col */}
+          {/* Hochformat sleeves — 3 col keeps them close to their own ratio */}
+          <div className="g-works-row9" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '16px' }}>
+            <GWorkImage
+              src="/images/work/japanisches-tempel-lotus-tattoo-unterarm.jpg"
+              alt="Japanisches Tempel Lotus Tattoo Unterarm München — KishaTattoo Irezumi"
+              sizes="(max-width: 767px) 100vw, 33vw"
+              tags={['Irezumi', 'München', 'Kisha']}
+              style={{ height: 'clamp(720px, 50vw, 820px)' }}
+            />
+            <GWorkImage
+              src="/images/work/koi-lotus-tattoo-unterarm.jpg"
+              alt="Japanisches Koi Lotus Tattoo Unterarm München — KishaTattoo Irezumi"
+              sizes="(max-width: 767px) 100vw, 33vw"
+              tags={['Irezumi', 'München', 'Kisha']}
+              style={{ height: 'clamp(720px, 50vw, 820px)' }}
+            />
+            <GWorkImage
+              src="/images/home/works-03-flower-japanese.jpg"
+              alt="Japanisches Blumen Sleeve Tattoo München — KishaTattoo Irezumi"
+              sizes="(max-width: 767px) 100vw, 33vw"
+              tags={['Irezumi', 'München', 'Kisha']}
+              style={{ height: 'clamp(720px, 50vw, 820px)' }}
+            />
+          </div>
+
           <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '16px' }}>
             <GWorkImage
               src="/images/home/works-04-god-japanese.jpg"

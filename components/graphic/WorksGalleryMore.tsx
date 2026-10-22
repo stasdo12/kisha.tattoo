@@ -30,9 +30,10 @@ const ROW10 = [
   { src: '/images/home/works-05-flowers-graphic.jpg',       alt: 'Fineline Blumen Arm Tattoo München — Kisha',           tags: ['München'], name: 'Blumen Arm — Fineline'        },
   { src: '/images/work/middle-graphic-legs-tattoo.jpg',      alt: 'Grafik Bein Tattoo München — Kisha',                    tags: ['München'], name: 'Bein — Grafik'               },
 ]
-// Hochformat (portrait, 1500×2000 / 1333×2000) — in 2-col slots, cover crops top/bottom moderately (~40%), not left/right
+// Hochformat (portrait, 1500×2000 / 1024×1536) — 3-col slot, close to the photos' own ratio
 const ROW11 = [
   { src: '/images/work/koi-fisch-tattoo-unterarm.jpg',             alt: 'Koi Fisch Tattoo München — Kisha',           tags: ['München'], name: 'Koi Fisch — Japanisch'    },
+  { src: '/images/work/koi-lotus-tattoo-unterarm.jpg',              alt: 'Japanisches Koi Lotus Tattoo Unterarm München — Kisha', tags: ['München'], name: 'Koi & Lotus — Japanisch' },
   { src: '/images/work/kanji-schriftzeichen-tattoo-nacken.jpg',     alt: 'Kanji Schriftzeichen Nacken Tattoo München — Kisha', tags: ['München'], name: 'Kanji Nacken — Japanisch' },
 ]
 const ROW12 = [
@@ -121,9 +122,9 @@ export function WorksGalleryMore({ label, inProgressLabel }: { label: string; in
             ))}
           </div>
 
-          <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="g-works-row9" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
             {ROW11.map((img) => (
-              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 33vw" style={{ height: H_LARGE }} />
             ))}
           </div>
 
