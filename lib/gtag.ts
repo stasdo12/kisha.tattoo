@@ -19,12 +19,12 @@ function track(eventName: string, params?: Record<string, unknown>) {
   window.gtag('event', eventName, params)
 }
 
-/** Booking or contact form submitted successfully */
+/**
+ * Booking or contact form submitted successfully. GA4's generate_lead is sent by
+ * the API route itself (lib/ga-server.ts) — blockers ate about half of the
+ * browser's copies. Only the Pinterest tag is left here.
+ */
 export function trackFormSubmit(formLocation: 'booking' | 'contact' | 'gutschein') {
-  track('generate_lead', {
-    event_category: 'conversion',
-    form_location: formLocation,
-  })
   if (typeof window !== 'undefined' && window.pintrk) {
     window.pintrk('track', 'lead', {
       lead_type: formLocation === 'booking' ? 'Booking' : formLocation === 'gutschein' ? 'Gutschein' : 'Contact',

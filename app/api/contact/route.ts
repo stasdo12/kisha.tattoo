@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { trackLeadServer } from '@/lib/ga-server'
 import { sendMessage, sendDocument, escapeHtml } from '@/lib/telegram'
 
 const MAX          = { name: 100, email: 200, brief: 2000 }
@@ -52,6 +53,7 @@ export async function POST(req: Request) {
     } else {
       await sendMessage(text)
     }
+    await trackLeadServer(req, 'brief')
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('[api/contact]', err)

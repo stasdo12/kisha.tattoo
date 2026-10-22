@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { trackLeadServer } from '@/lib/ga-server'
 import { sendMessage, escapeHtml } from '@/lib/telegram'
 
 const MAX = { name: 100, phone: 30, idea: 500 }
@@ -34,6 +35,7 @@ export async function POST(req: Request) {
 
   try {
     await sendMessage(text)
+    await trackLeadServer(req, 'popup')
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('[api/booking]', err)

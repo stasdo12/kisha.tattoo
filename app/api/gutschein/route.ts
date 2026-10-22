@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { trackLeadServer } from '@/lib/ga-server'
 import { sendMessage, escapeHtml } from '@/lib/telegram'
 
 // Voucher requests from the modal on /tattoo-gutschein-muenchen. No payment,
@@ -44,6 +45,7 @@ export async function POST(req: Request) {
 
   try {
     await sendMessage(text)
+    await trackLeadServer(req, 'gutschein')
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('[api/gutschein]', err)
