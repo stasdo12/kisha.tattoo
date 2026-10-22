@@ -19,6 +19,7 @@
     "test:e2e:local": "BASE_URL=http://localhost:3000 playwright test",
     "test:all": "vitest run && playwright test",
     "indexnow": "node scripts/indexnow-submit.mjs",
+    "google": "node scripts/google.mjs",
     "og": "node scripts/og-generate.mjs",
     "pinterest": "node --env-file=.env.local scripts/pinterest.mjs",
     "seo:ranks": "node --env-file=.env.local scripts/dataforseo-rank-check.mjs",

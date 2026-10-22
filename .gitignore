@@ -32,3 +32,6 @@ tsconfig.tsbuildinfo
 
 # Issued gift vouchers (PDFs + log) — personal data, never commit
 gutscheine/
+
+# Google service account key (GSC + GA4 read access)
+.google-sa.json
