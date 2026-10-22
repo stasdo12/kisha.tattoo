@@ -5,6 +5,11 @@ import { GWorkImage } from './GWorkImage'
 
 const H_LARGE = 'clamp(720px, 50vw, 820px)'
 
+// Near-square (1196×1315) + Querformat (1536×1024) — the ~1:1 slot crops only the dark sides of the landscape
+const ROW4B = [
+  { src: '/images/work/ornament-sonne-fineline-tattoo-schulter.jpg', alt: 'Fineline Ornament Sonne Tattoo Schulter München — Kisha', tags: ['München'], name: 'Sonne & Zweige — Fineline' },
+  { src: '/images/work/ornament-lotus-mond-tattoo-unterarm.jpg',     alt: 'Ornamental Lotus Mond Tattoo Unterarm München — Kisha',   tags: ['München'], name: 'Lotus & Mond — Grafik'     },
+]
 const ROW5 = {
   src: '/images/work/anime-augen-tattoo.jpg',
   alt: 'Anime Augen Tattoo München — KishaTattoo Grafik',
@@ -84,6 +89,12 @@ export function WorksGalleryMore({ label, inProgressLabel }: { label: string; in
 
       {expanded && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {ROW4B.map((img) => (
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
+            ))}
+          </div>
+
           <GWorkImage
             src={ROW5.src}
             alt={ROW5.alt}

@@ -51,7 +51,9 @@ export const CURATED_IMAGE_PAGES: SitemapImagePage[] = [
       { loc: "https://kisha.tattoo/images/work/japanisches-blackwork-tattoo-unterarm.jpg", title: "Japanisches Blackwork Tattoo M\u00fcnchen \u2014 Kisha", caption: "Japanisches Blackwork Tattoo M\u00fcnchen \u2014 Kisha" },
       { loc: "https://kisha.tattoo/images/work/hibiskus-blumen-tattoo-oberschenkel.jpg", title: "Blumen Schriftzug Tattoo Oberschenkel M\u00fcnchen \u2014 Kisha", caption: "Blumen Schriftzug Tattoo Oberschenkel M\u00fcnchen \u2014 Kisha" },
       { loc: "https://kisha.tattoo/images/work/vogel-pfingstrose-tattoo-ruecken.jpg", title: "Grafik Vogel Pfingstrose R\u00fccken Tattoo M\u00fcnchen \u2014 Kisha, laufende Arbeit: Linien stehen, Schattierung folgt", caption: "Grafik Vogel Pfingstrose R\u00fccken Tattoo M\u00fcnchen \u2014 Kisha, laufende Arbeit: Linien stehen, Schattierung folgt" },
-      { loc: "https://kisha.tattoo/images/work/hannya-maske-tattoo-unterarm.jpg", title: "Hannya Maske Tattoo M\u00fcnchen \u2014 Kisha", caption: "Hannya Maske Tattoo M\u00fcnchen \u2014 Kisha" }
+      { loc: "https://kisha.tattoo/images/work/hannya-maske-tattoo-unterarm.jpg", title: "Hannya Maske Tattoo M\u00fcnchen \u2014 Kisha", caption: "Hannya Maske Tattoo M\u00fcnchen \u2014 Kisha" },
+      { loc: "https://kisha.tattoo/images/work/ornament-sonne-fineline-tattoo-schulter.jpg", title: "Fineline Ornament Sonne Tattoo Schulter M\u00fcnchen \u2014 Kisha", caption: "Fineline Ornament Sonne Tattoo Schulter M\u00fcnchen \u2014 Kisha" },
+      { loc: "https://kisha.tattoo/images/work/ornament-lotus-mond-tattoo-unterarm.jpg", title: "Ornamental Lotus Mond Tattoo Unterarm M\u00fcnchen \u2014 Kisha", caption: "Ornamental Lotus Mond Tattoo Unterarm M\u00fcnchen \u2014 Kisha" }
     ],
   },
   {
@@ -122,7 +124,8 @@ export const CURATED_IMAGE_PAGES: SitemapImagePage[] = [
       { loc: "https://kisha.tattoo/images/work/schlangen-pfingstrose-tattoo-oberschenkel.jpg", title: "Grafik Schlange Pfingstrose Tattoo M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik Schlange Pfingstrose Tattoo M\u00fcnchen \u2014 KishaTattoo" },
       { loc: "https://kisha.tattoo/images/work/japanisches-blackwork-tattoo-unterarm.jpg", title: "Japanisches Blackwork Tattoo M\u00fcnchen \u2014 KishaTattoo", caption: "Japanisches Blackwork Tattoo M\u00fcnchen \u2014 KishaTattoo" },
       { loc: "https://kisha.tattoo/images/work/justitia-tattoo-oberarm.jpg", title: "Grafik Justitia Tattoo Oberarm M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik Justitia Tattoo Oberarm M\u00fcnchen \u2014 KishaTattoo" },
-      { loc: "https://kisha.tattoo/images/work/wildblumen-farn-fineline-tattoo-arm.jpg", title: "Grafik Wildblumen Farn Tattoo Arm M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik Wildblumen Farn Tattoo Arm M\u00fcnchen \u2014 KishaTattoo" }
+      { loc: "https://kisha.tattoo/images/work/wildblumen-farn-fineline-tattoo-arm.jpg", title: "Grafik Wildblumen Farn Tattoo Arm M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik Wildblumen Farn Tattoo Arm M\u00fcnchen \u2014 KishaTattoo" },
+      { loc: "https://kisha.tattoo/images/work/ornament-lotus-mond-tattoo-unterarm-hand.jpg", title: "Grafik Ornament Lotus Mond Tattoo Unterarm M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik Ornament Lotus Mond Tattoo Unterarm M\u00fcnchen \u2014 KishaTattoo" }
     ],
   },
   {

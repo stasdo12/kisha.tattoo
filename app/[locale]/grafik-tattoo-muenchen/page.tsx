@@ -163,18 +163,26 @@ export default async function GrafikTattooMuenchen({
                 style={{ height: 'clamp(720px, 50vw, 820px)' }}
               />
             </div>
-            <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {/* Hochformat 2:3 — 3 col keeps them close to their own ratio */}
+            <div className="g-works-row9" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
               <GWorkImage
                 src="/images/work/justitia-tattoo-oberarm.jpg"
                 alt="Grafik Justitia Tattoo Oberarm München — KishaTattoo"
-                sizes="(max-width: 767px) 100vw, 50vw"
+                sizes="(max-width: 767px) 100vw, 33vw"
                 tags={['Grafik', 'München', 'Kisha']}
-                style={{ height: 'clamp(720px, 50vw, 820px)', objectPosition: 'center 60%' }}
+                style={{ height: 'clamp(720px, 50vw, 820px)' }}
+              />
+              <GWorkImage
+                src="/images/work/ornament-lotus-mond-tattoo-unterarm-hand.jpg"
+                alt="Grafik Ornament Lotus Mond Tattoo Unterarm München — KishaTattoo"
+                sizes="(max-width: 767px) 100vw, 33vw"
+                tags={['Ornamental', 'München', 'Kisha']}
+                style={{ height: 'clamp(720px, 50vw, 820px)' }}
               />
               <GWorkImage
                 src="/images/work/wildblumen-farn-fineline-tattoo-arm.jpg"
                 alt="Grafik Wildblumen Farn Tattoo Arm München — KishaTattoo"
-                sizes="(max-width: 767px) 100vw, 50vw"
+                sizes="(max-width: 767px) 100vw, 33vw"
                 tags={['Linework', 'München', 'Kisha']}
                 style={{ height: 'clamp(720px, 50vw, 820px)' }}
               />
