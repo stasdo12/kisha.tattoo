@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { SITE } from '@/content/site'
 import { STORIES } from '@/content/stories'
-import { SLUG_PAGES } from '@/content/routes'
+import { SLUG_PAGES, isNoIndexLocale } from '@/content/routes'
 import { UNIKATE } from '@/content/unikate'
 
 // Pages available in all 3 locales (DE = no prefix, EN = /en/, UK = /uk/)
@@ -54,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   )
 
-  // Blog posts — DE + EN + UK versions
+  // Blog posts — DE + EN, and UK only where content/routes.ts keeps it indexed
   // Stories with an explicit canonicalPath point elsewhere — listing them here would
   // tell Google the opposite of what their canonical tag says.
   const blogRoutes: MetadataRoute.Sitemap = STORIES
@@ -65,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: `${SITE.url}/blog/${story.slug}`,     lastModified: published, changeFrequency: 'monthly' as const, priority: 0.65 },
         { url: `${SITE.url}/en/blog/${story.slug}`,  lastModified: published, changeFrequency: 'monthly' as const, priority: 0.60 },
         { url: `${SITE.url}/uk/blog/${story.slug}`,  lastModified: published, changeFrequency: 'monthly' as const, priority: 0.60 },
-      ]
+      ].filter((entry) => !entry.url.includes('/uk/') || !isNoIndexLocale(`/blog/${story.slug}`, 'uk'))
     })
 
   // Unikate cards — DE + EN, matching the locales the hub is listed in. Status

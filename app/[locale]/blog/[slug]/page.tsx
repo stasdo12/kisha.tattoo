@@ -15,6 +15,7 @@ import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
 import { pickRelated } from '@/lib/related'
+import { isNoIndexLocale } from '@/content/routes'
 
 export function generateStaticParams() {
   const locales = ['de', 'en', 'uk']
@@ -41,6 +42,7 @@ export async function generateMetadata({
     description: content?.excerpt ?? '',
     path: meta?.canonicalPath ?? `/blog/${slug}`,
     locale,
+    noIndex: isNoIndexLocale(`/blog/${slug}`, locale),
     ogType: 'article',
     // One 1200x630 crop per article, cut from the same cover the hero shows
     // (scripts/og-generate.mjs). Unknown slugs 404 in the component, but

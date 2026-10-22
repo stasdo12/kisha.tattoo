@@ -15,8 +15,20 @@ const GEO_PAGES_IN_TOP_10 = ['/tattoo-freising', '/tattoo-ottobrunn']
 describe('slug page locales', () => {
   it('returns null for routes that are not German-slug pages', () => {
     expect(slugPageLocales('/booking')).toBeNull()
-    expect(slugPageLocales('/blog/tattoo-coverup-muenchen')).toBeNull()
+    expect(slugPageLocales('/blog')).toBeNull()
     expect(slugPageLocales('/')).toBeNull()
+  })
+
+  it('blog articles are German and English, Ukrainian only where it earns', () => {
+    expect(slugPageLocales('/blog/tattoo-coverup-muenchen')).toEqual(['', '/en'])
+    expect(isNoIndexLocale('/blog/tattoo-coverup-muenchen', 'uk')).toBe(true)
+    expect(isNoIndexLocale('/blog/tattoo-coverup-muenchen', 'en')).toBe(false)
+    expect(isNoIndexLocale('/blog/tattoo-coverup-muenchen', 'de')).toBe(false)
+    // UK translations with clicks, and the top-10 article whose hreflang stays as Google has it
+    for (const slug of ['alkohol-vor-und-nach-dem-tattoo', 'sport-nach-tattoo-muenchen', 'tattoo-blowout-linien-verlaufen', 'wie-tattoos-altern']) {
+      expect(slugPageLocales(`/blog/${slug}`)).toBeNull()
+      expect(isNoIndexLocale(`/blog/${slug}`, 'uk')).toBe(false)
+    }
   })
 
   it('every slug page offers German', () => {

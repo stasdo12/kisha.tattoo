@@ -57,6 +57,25 @@ export const SLUG_PAGES: readonly SlugPage[] = [
   { path: '/tattoo-ottobrunn', freq: 'yearly', pri: 0.6, locales: ['', '/en', '/uk'] },
 ]
 
+/**
+ * Blog articles whose Ukrainian translation stays in the index. The rest of the
+ * /uk/blog tree is German and English only (22.10.2026): it drew 7 clicks a
+ * quarter, mostly from Ukraine rather than from clients in Germany, and 19 of
+ * 28 translations sat in "crawled — currently not indexed". The /uk service and
+ * style pages are a different story — Ukrainians living here land on them — and
+ * are untouched.
+ *
+ * Kept: the translations that earn clicks (alkohol, sport, blowout) and the
+ * article whose German original is in the top 10 (wie-tattoos-altern), whose
+ * hreflang cluster is not ours to change.
+ */
+const BLOG_UK_KEEP = new Set([
+  'alkohol-vor-und-nach-dem-tattoo',
+  'sport-nach-tattoo-muenchen',
+  'tattoo-blowout-linien-verlaufen',
+  'wie-tattoos-altern',
+])
+
 /** Only the sitemap lists EN/UK for a slug page when the page earns it. */
 const SITEMAP_LOCALES = new Map(SLUG_PAGES.map((p) => [p.path, p.locales]))
 
@@ -66,6 +85,8 @@ const SITEMAP_LOCALES = new Map(SLUG_PAGES.map((p) => [p.path, p.locales]))
  * default three-locale treatment.
  */
 export function slugPageLocales(path: string): readonly string[] | null {
+  const article = path.match(/^\/blog\/([^/]+)$/)?.[1]
+  if (article) return BLOG_UK_KEEP.has(article) ? null : ['', '/en']
   return SITEMAP_LOCALES.get(path) ?? null
 }
 
