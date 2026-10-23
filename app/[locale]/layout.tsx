@@ -14,7 +14,6 @@ import { FloatingWhatsApp } from '@/components/graphic/FloatingWhatsApp'
 import { routing } from '@/i18n/routing'
 import '@/styles/globals.css'
 import '@/styles/graphic.css'
-import '@/styles/form-popup.css'
 import '@/styles/floating-cta.css'
 
 /* ── Fonts ──────────────────────────────────────────────────────────────── */

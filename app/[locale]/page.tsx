@@ -118,8 +118,10 @@ export default async function GraphicHomePage(
               alt="Kisha — Tattoo Artist München, Spezialistin für Japanisches Irezumi"
               fill
               priority
+              fetchPriority="high"
               style={{ objectFit: 'cover', objectPosition: 'top center' }}
-              sizes="(max-width: 767px) 160px, (max-width: 1919px) 17vw, 320px"
+              /* On phones graphic.css stretches the photo edge to edge (15px gutters) */
+              sizes="(max-width: 767px) 100vw, (max-width: 1919px) 17vw, 320px"
             />
           </div>
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { useTranslations } from 'next-intl'
 import { trackFormSubmit } from '@/lib/gtag'
+import s from './FormPopup.module.css'
 
 export function FormPopup() {
   const t = useTranslations('formPopup')
@@ -64,50 +65,50 @@ export function FormPopup() {
 
   return (
     <div
-      className="fp-overlay"
+      className={s.overlay}
       ref={overlayRef}
       onClick={(e) => { if (e.target === overlayRef.current) close() }}
     >
-      <div className="fp-popup" role="dialog" aria-modal="true" aria-labelledby="fp-heading">
-        <div className="fp-top">
-          <div className="fp-content">
-            <div className="fp-heading-block">
-              <span className="fp-tag">{t('tag')}</span>
-              <h2 id="fp-heading" className="fp-heading">
+      <div className={s.popup} role="dialog" aria-modal="true" aria-labelledby="fp-heading">
+        <div className={s.top}>
+          <div className={s.content}>
+            <div className={s.headingBlock}>
+              <span className={s.tag}>{t('tag')}</span>
+              <h2 id="fp-heading" className={s.heading}>
                 {t('heading')}
               </h2>
             </div>
-            <button ref={closeButtonRef} className="fp-close" onClick={close} aria-label={t('close')}>✕</button>
+            <button ref={closeButtonRef} className={s.close} onClick={close} aria-label={t('close')}>✕</button>
           </div>
-          <span className="fp-kanji" aria-hidden="true">想</span>
+          <span className={s.kanji} aria-hidden="true">想</span>
         </div>
 
         {status === 'success' ? (
-          <div className="fp-form" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '120px' }}>
+          <div className={s.form} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '120px' }}>
             <p style={{ color: '#0D0D0D', fontSize: 'var(--g-bm)', textAlign: 'center', lineHeight: 'var(--g-lh-bm)', maxWidth: '28rem' }}>
               {t('success')}
             </p>
           </div>
         ) : (
-          <form className="fp-form" onSubmit={handleSubmit}>
-            <div className="fp-fields">
-              <div className="fp-row">
-                <div className="fp-field">
-                  <span className="fp-label">{t('nameLbl')}</span>
-                  <div className="fp-input">
+          <form className={s.form} onSubmit={handleSubmit}>
+            <div className={s.fields}>
+              <div className={s.row}>
+                <div className={s.field}>
+                  <span className={s.label}>{t('nameLbl')}</span>
+                  <div className={s.input}>
                     <input type="text" name="name" placeholder={t('namePlh')} autoComplete="name" required />
                   </div>
                 </div>
-                <div className="fp-field">
-                  <span className="fp-label">{t('phoneLbl')}</span>
-                  <div className="fp-input">
+                <div className={s.field}>
+                  <span className={s.label}>{t('phoneLbl')}</span>
+                  <div className={s.input}>
                     <input type="tel" name="phone" placeholder={t('phonePlh')} autoComplete="tel" required />
                   </div>
                 </div>
               </div>
-              <div className="fp-field fp-field--idea">
-                <span className="fp-label">{t('ideaLbl')}</span>
-                <div className="fp-input">
+              <div className={`${s.field} ${s.fieldIdea}`}>
+                <span className={s.label}>{t('ideaLbl')}</span>
+                <div className={s.input}>
                   <input type="text" name="idea" placeholder={t('ideaPlh')} />
                 </div>
               </div>
@@ -117,7 +118,7 @@ export function FormPopup() {
                 {t('error')}
               </p>
             )}
-            <button type="submit" className="fp-submit" disabled={status === 'submitting'}>
+            <button type="submit" className={s.submit} disabled={status === 'submitting'}>
               {status === 'submitting' ? t('submitting') : t('submit')}
             </button>
           </form>

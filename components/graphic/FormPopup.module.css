@@ -1,0 +1,287 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   KISHA — Form Popup
+   Design: 1920px / 1440px / 390px
+   Colors: #0A0A0A · #FFFFFF · #C4C4C4
+
+   Shared by FormPopup and GutscheinPopup. A module rather than a global sheet,
+   so it arrives with the popups instead of blocking the first paint of every page.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@keyframes popupIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* POPUP */
+.popup {
+  /* Desktop: fill viewport minus 80px margins, max 1840px */
+  width: min(calc(100vw - 80px), 1840px);
+  background: #FFFFFF;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 172px;
+  animation: popupIn 300ms ease forwards;
+}
+
+/* ── TOP SECTION ── */
+.top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 20px;
+}
+
+/* Heading row: tag+h2 on left, close on right */
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.headingBlock {
+  max-width: 667px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tag {
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+.heading {
+  font-family: var(--g-font);
+  font-weight: 500;
+  /* 40px@1440 → 52px@1920: calc(4px + 2.5vw) */
+  font-size: clamp(40px, calc(4px + 2.5vw), 52px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+/* CLOSE BUTTON */
+.close {
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  color: #0A0A0A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.close:hover { opacity: 0.6; }
+
+/* KANJI */
+.kanji {
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: clamp(52px, 5.56vw, 80px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+/* ── FORM SECTION ── */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 20px 0;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ROW: name + email side by side */
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+/* FIELD (name / email) */
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+/* LABEL "My name is" etc. */
+.label {
+  font-family: var(--g-font);
+  font-weight: 500;
+  /* 28px@1440 → 32px@1920: calc(16px + 0.833vw) */
+  font-size: clamp(28px, calc(16px + 0.833vw), 32px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* INPUT WRAPPER */
+.input {
+  flex: 1;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 4px 0;
+  border-bottom: 1px solid #C4C4C4;
+}
+
+.input input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+}
+
+.input input::placeholder {
+  color: #C4C4C4;
+}
+
+/* IDEA FIELD — spans full width */
+.fieldIdea {
+  width: 100%;
+}
+
+/* SUBMIT */
+.submit {
+  width: 100%;
+  background: #0A0A0A;
+  color: #FFFFFF;
+  padding: 16px 12px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--g-font);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.submit:hover { background: #2a2a2a; }
+
+/* ── TABLET / FOLDABLE 481–767px ── */
+/* The 172px base gap is tuned for tall desktop viewports; on foldables and small
+   tablets it pushes the form below the fold. Must stay ABOVE the ≤480 block so
+   the phone values there still win the cascade. */
+@media (max-width: 767px) {
+  .popup {
+    gap: 48px;
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+  }
+}
+
+/* ── MOBILE ≤480px ── */
+@media (max-width: 480px) {
+  .overlay {
+    align-items: center;
+  }
+
+  .popup {
+    width: 100%;
+    max-width: 390px;
+    height: 543px;
+    padding: 8px 1px 4px;
+    gap: 8px;
+    overflow-y: auto;
+  }
+
+  .top {
+    padding: 8px 12px;
+    gap: 12px;
+  }
+
+  .headingBlock {
+    max-width: none;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+
+  .kanji {
+    font-size: 2rem; /* 32px */
+  }
+
+  .close {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .form {
+    padding: 8px 12px 0;
+    gap: 20px;
+  }
+
+  /* Name + email stack vertically */
+  .row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Each field: label on top, input below */
+  .field {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .fieldIdea {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .label {
+    font-size: 24px;
+  }
+
+  .input {
+    width: 100%;
+    height: 24px;
+    padding-left: 0;
+  }
+}
