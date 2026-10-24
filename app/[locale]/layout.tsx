@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Cinzel, Inter, Noto_Sans_JP, DM_Sans } from 'next/font/google'
-import { NextIntlClientProvider } from 'next-intl'
+import { NextIntlClientProvider, type AbstractIntlMessages } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { headers } from 'next/headers'
@@ -111,6 +111,31 @@ export const viewport: Viewport = {
   themeColor: '#0a0a0a',
 }
 
+/* Only what client components read goes into the HTML. The whole file is ~310 KB, mostly
+   blog text that server components already render, and it was riding along in the RSC
+   payload of every page. A new useTranslations() in a 'use client' file needs its
+   namespace added here, or it renders the raw key. */
+type Messages = { [key: string]: Messages }
+function clientMessages(all: AbstractIntlMessages): AbstractIntlMessages {
+  const m = all as Messages
+  const items: Messages = {}
+  for (const [slug, item] of Object.entries(m.unikate.items)) {
+    items[slug] = { name: item.name, zone: item.zone }
+  }
+  return {
+    menu: m.menu,
+    footer: m.footer,
+    formPopup: m.formPopup,
+    cookieConsent: m.cookieConsent,
+    floatingCta: m.floatingCta,
+    gutschein: { popup: m.gutschein.popup },
+    contact: m.contact,
+    booking: m.booking,
+    about: { passion: m.about.passion },
+    unikate: { items, booking: m.unikate.booking },
+  }
+}
+
 /* ── Layout ─────────────────────────────────────────────────────────────── */
 export default async function LocaleLayout({
   children,
@@ -126,7 +151,7 @@ export default async function LocaleLayout({
     notFound()
   }
 
-  const messages = await getMessages()
+  const messages = clientMessages(await getMessages())
 
   return (
     <html
