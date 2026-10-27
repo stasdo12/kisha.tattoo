@@ -1,0 +1,278 @@
+{
+ "Perplexity": {
+  "preise": {
+   "hit": 5,
+   "n": 5,
+   "comp": {
+    "avantgarde-cosmetic.com": 5,
+    "tattoo-noir.de": 5,
+    "tattoodesignpro.com": 5,
+    "muenchen-tattoo-studio.de": 5,
+    "planity.com": 5
+   }
+  },
+  "fineline": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "pigmentera-ink.de": 5,
+    "prime-ink-muenchen.de": 5,
+    "avantgarde-cosmetic.com": 5,
+    "toms.tattoo": 5,
+    "tattoo-noir.de": 5,
+    "milanmaya.com": 5,
+    "dasoertliche.de": 5,
+    "chicskintattoo.de": 4,
+    "muenchenkompass.de": 1
+   }
+  },
+  "gutschein": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "whitegatetattoo.com": 5,
+    "tempel-muenchen.de": 5,
+    "pigmentera-ink.de": 5,
+    "groupon.de": 5,
+    "pardonparis.com": 5
+   }
+  },
+  "walkin": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "cleosinkmunich.de": 5,
+    "tempel-muenchen.de": 5,
+    "unlimited-bodyart.de": 5,
+    "surface-tattoo.de": 5,
+    "giesink-tattoo.de": 5,
+    "milanmaya.com": 5,
+    "avantgarde-cosmetic.com": 5,
+    "wildatheart.de": 5,
+    "tattoonetz.de": 3,
+    "walhalla-ink.de": 2
+   }
+  },
+  "best_en": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "inkppl.com": 5,
+    "whitegatetattoo.com": 5,
+    "tattooanansi.de": 5,
+    "reddit.com": 5,
+    "suvorov.tattoo": 5,
+    "fresha.com": 5,
+    "stachuspassagen.de": 5
+   }
+  },
+  "irezumi": {
+   "hit": 5,
+   "n": 5,
+   "comp": {
+    "goldenfudo.com": 5,
+    "prime-ink-muenchen.de": 5,
+    "komplize.tattoo": 5,
+    "starkov.tattoo": 5,
+    "muenchen.de": 5,
+    "inkppl.com": 5
+   }
+  }
+ },
+ "ChatGPT": {
+  "walkin": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "tempel-muenchen.de": 5,
+    "cleosink.de": 5,
+    "tattoo-noir.de": 4,
+    "surface-tattoo.de": 5,
+    "whitegatetattoo.com": 4,
+    "wildatheart.de": 3,
+    "findglocal.com": 1,
+    "rudis-body-tattoo.de": 1,
+    "matoink.wixsite.com": 1
+   }
+  },
+  "fineline": {
+   "hit": 3,
+   "n": 5,
+   "comp": {
+    "werkenntdenbesten.de": 1,
+    "muenchenkompass.de": 5,
+    "avantgarde-cosmetic.com": 2,
+    "cleosink.de": 3,
+    "pigmentera-ink.de": 3,
+    "mytattoo.com": 2
+   }
+  },
+  "preise": {
+   "hit": 3,
+   "n": 5,
+   "comp": {
+    "avantgarde-cosmetic.com": 2,
+    "kostenfrage.com": 1,
+    "listando.com": 1
+   }
+  },
+  "gutschein": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "tempel-muenchen.de": 5,
+    "pardonparis.com": 5,
+    "tattoo-noir.de": 5,
+    "di-089.de": 5,
+    "golden-geometry.com": 5,
+    "whitegatetattoo.com": 2,
+    "babaink.de": 3,
+    "tattoostudiomunich.de": 2,
+    "kleinewelttattoos.de": 1
+   }
+  },
+  "best_en": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "deutschlands-experten.de": 3,
+    "tempel-muenchen.de": 2,
+    "muenchenkompass.de": 4,
+    "tattoola.de": 1,
+    "tatscout.com": 1,
+    "tattoolife.com": 1,
+    "inkppl.com": 1,
+    "werkenntdenbesten.de": 1,
+    "tattooreg.com": 1
+   }
+  },
+  "irezumi": {
+   "hit": 5,
+   "n": 5,
+   "comp": {
+    "goldenfudo.com": 5,
+    "starkov.tattoo": 5,
+    "prime-ink-muenchen.de": 4,
+    "nowornevertattoo.de": 2,
+    "komplize.tattoo": 3,
+    "reddit.com": 1,
+    "yancoo-tattoo.de": 2
+   }
+  }
+ },
+ "AIO": {
+  "walk in tattoo münchen": {
+   "hit": 5,
+   "n": 5,
+   "comp": {
+    "tempel-muenchen.de": 5,
+    "giesink-tattoo.de": 5,
+    "instagram.com": 5,
+    "tattoo-noir.de": 5,
+    "muenchen-tattoo-studio.de": 5,
+    "avantgarde-cosmetic.com": 5
+   }
+  },
+  "fineline tattoo münchen": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "prime-ink-muenchen.de": 5,
+    "pigmentera-ink.de": 5,
+    "holapapayatattoo.de": 5,
+    "danuvue.com": 5,
+    "surface-tattoo.de": 5,
+    "instagram.com": 5
+   }
+  },
+  "tattoo gutschein münchen": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "tempel-muenchen.de": 5,
+    "pardonparis.com": 1,
+    "pigmentera-ink.de": 3,
+    "danuvue.com": 1,
+    "toms.tattoo": 1,
+    "tattoostudiomunich.de": 4,
+    "tattoo-noir.de": 4,
+    "unlimited-bodyart.de": 1,
+    "glorious-art.de": 2,
+    "instagram.com": 1,
+    "tatowierer.com": 2
+   }
+  },
+  "kitsune tattoo bedeutung": {
+   "hit": 5,
+   "n": 5,
+   "comp": {
+    "daiyokai.com": 5,
+    "barb.pro": 5,
+    "tattoo-spirit.de": 5,
+    "japanische-tattoos.com": 5,
+    "tiktok.com": 5,
+    "tattooflow.decorexpro.com": 5,
+    "discover.hubpages.com": 5
+   }
+  },
+  "japanische tattoos bedeutung": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "japandigest.de": 5,
+    "superprof.de": 5,
+    "simpleink.de": 5,
+    "oryoki.de": 5,
+    "japanwelt.de": 5,
+    "youtube.com": 5,
+    "instagram.com": 5,
+    "homejapan.de": 5,
+    "rightstuff.eu": 5,
+    "japanische-tattoos.com": 5,
+    "edo-tattoo.de": 5
+   }
+  },
+  "cover up tattoo": {
+   "hit": 0,
+   "n": 5,
+   "comp": {
+    "tattoomed.de": 2,
+    "face2facetattoo.de": 4,
+    "prime-ink-muenchen.de": 1,
+    "de.pinterest.com": 2,
+    "silvertattoo.de": 1,
+    "youtube.com": 2,
+    "instagram.com": 3,
+    "inklabs.de": 1,
+    "studioone1ink.de": 2,
+    "intothelight.tattoo": 1,
+    "13munich.de": 1,
+    "holapapayatattoo.de": 1,
+    "pinterest.com": 1
+   }
+  },
+  "tattoo preise": {
+   "hit": 2,
+   "n": 5,
+   "comp": {
+    "katharsis-studio.de": 5,
+    "kenneth-zach-tattoocoach.de": 5,
+    "inkppl.com": 2,
+    "tiktok.com": 2,
+    "planity.com": 5,
+    "holapapayatattoo.de": 2,
+    "avantgarde-cosmetic.com": 1,
+    "inklabs.de": 2,
+    "tattoomed.de": 2,
+    "babaink.de": 3,
+    "frevler.de": 1,
+    "neebol.com": 3,
+    "dynamite-tattoo.de": 3,
+    "atelierhannibal.de": 1,
+    "toms.tattoo": 1,
+    "facebook.com": 1,
+    "tattoographika.com": 1
+   }
+  }
+ }
+}

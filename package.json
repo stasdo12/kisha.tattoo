@@ -25,6 +25,7 @@
     "pinterest": "node --env-file=.env.local scripts/pinterest.mjs",
     "seo:ranks": "node --env-file=.env.local scripts/dataforseo-rank-check.mjs",
     "seo:slice": "node --env-file=.env.local scripts/dataforseo-serp-slice.mjs",
+    "seo:ai": "node scripts/ai-visibility.mjs",
     "gutschein": "node scripts/gutschein-pdf.mjs"
   },
   "dependencies": {
