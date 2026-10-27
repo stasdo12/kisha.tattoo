@@ -7,6 +7,8 @@
 //   pages    [--days 28] [--limit 25]      pages by impressions, summed over the period
 //   inspect  <url>                         when Bing found and last crawled one URL
 //   submit   <url> [<url> …]               push URLs to Bing for crawling (quota 100/day, 500/month)
+//   sitemaps                               submitted sitemaps and when Bing last read them
+//   resubmit                               ask Bing to read sitemap.xml again
 //   quota                                  submission quota left
 //
 // Data lags 1–2 days. Positions are Bing's averages; -1 means no clicks.
@@ -89,9 +91,16 @@ if (cmd === 'summary') {
   if (!args.length) throw new Error('submit needs at least one URL')
   await bing('SubmitUrlBatch', {}, { urlList: args })
   console.log(`submitted ${args.length}:\n  ${args.join('\n  ')}`)
+} else if (cmd === 'sitemaps') {
+  for (const f of await bing('GetFeeds')) {
+    console.log(`${f.Url}  ${f.Status} · ${f.UrlCount} URL · последнее чтение ${day(f.LastCrawled)}`)
+  }
+} else if (cmd === 'resubmit') {
+  await bing('SubmitFeed', {}, { feedUrl: `${SITE}sitemap.xml` })
+  console.log(`sitemap resubmitted: ${SITE}sitemap.xml`)
 } else if (cmd === 'quota') {
   const q = await bing('GetUrlSubmissionQuota')
   console.log(`осталось сегодня ${q.DailyQuota}, в этом месяце ${q.MonthlyQuota}`)
 } else {
-  console.log('Commands: summary, queries, pages, inspect, submit, quota — see the header of scripts/bing.mjs')
+  console.log('Commands: summary, queries, pages, inspect, submit, sitemaps, resubmit, quota — see the header of scripts/bing.mjs')
 }
