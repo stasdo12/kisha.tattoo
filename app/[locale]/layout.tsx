@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Cinzel, Inter, Noto_Sans_JP, DM_Sans } from 'next/font/google'
+import { Cinzel, Inter, DM_Sans } from 'next/font/google'
 import { NextIntlClientProvider, type AbstractIntlMessages } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -28,13 +28,6 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-})
-
-const notoSansJP = Noto_Sans_JP({
-  subsets: ['latin'],
-  variable: '--font-noto-jp',
-  display: 'swap',
-  weight: ['300', '400', '700'],
 })
 
 const dmSans = DM_Sans({
@@ -158,7 +151,7 @@ export default async function LocaleLayout({
       lang={locale}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${cinzel.variable} ${inter.variable} ${notoSansJP.variable} ${dmSans.variable}`}
+      className={`${cinzel.variable} ${inter.variable} ${dmSans.variable}`}
     >
       <head suppressHydrationWarning>
         <HreflangTags locale={locale} />
