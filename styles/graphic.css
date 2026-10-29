@@ -1538,13 +1538,36 @@ body:has([data-theme='graphic']) {
   .g-preise-factors > div:last-child {
     border-bottom: none !important;
   }
+  /* Card text spans the full width; the letter stays centred under it */
+  .g-preise-factors p {
+    max-width: none !important;
+  }
 
   /* FAQ layout: side-by-side → stacked */
   .g-preise-faq-layout {
     flex-direction: column !important;
+    gap: 1.5rem !important;
   }
   .g-preise-faq-layout > h2 {
     width: 100% !important;
+  }
+  /* The item column is 30rem minimum on desktop and pushed past the screen */
+  .g-preise-faq-layout > div {
+    width: 100% !important;
+    flex-shrink: 1 !important;
+    gap: 2rem !important;
+  }
+  /* Question / answer hierarchy: a hairline between items, the answer
+     looser and quieter so the questions read as headings */
+  .g-preise-faq-layout > div > div {
+    gap: 0.75rem !important;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(13, 13, 13, 0.15);
+  }
+  .g-preise-faq-layout > div p {
+    max-width: none !important;
+    line-height: 1.45 !important;
+    color: rgba(13, 13, 13, 0.72) !important;
   }
 
   /* ── WALK IN PAGE ── */
