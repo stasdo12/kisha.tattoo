@@ -1,4 +1,4 @@
-// Uptime check for kisha.tattoo, run from GitHub Actions every 10 minutes and once a day.
+// Uptime check for kisha.tattoo, run from GitHub Actions every 30 minutes and once a day.
 // Writes to the same Telegram chat as the enquiries, but only when something changes:
 // 🔴 when the site stops answering, 🟢 when it is back. The daily run always reports.
 //

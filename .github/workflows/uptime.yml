@@ -1,12 +1,12 @@
 name: Uptime
 
-# Checks the live site from outside every 10 minutes and reports to the enquiries Telegram chat
+# Checks the live site from outside every 30 minutes and reports to the enquiries Telegram chat
 # only when its state changes (🔴 down / 🟢 back). Once a day at 06:00 UTC (07:00 Munich in
 # winter) it sends a short summary either way. See scripts/uptime.mjs.
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/30 * * * *'
     - cron: '0 6 * * *'
   workflow_dispatch:
     inputs:
@@ -35,7 +35,7 @@ jobs:
           node-version: '20'
 
       # The last result travels between runs in the Actions cache, so a long outage
-      # sends one 🔴 and one 🟢 instead of a message every 10 minutes.
+      # sends one 🔴 and one 🟢 instead of a message every 30 minutes.
       - name: Restore last state
         uses: actions/cache/restore@v4
         with:
