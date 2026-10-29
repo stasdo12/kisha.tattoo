@@ -2133,7 +2133,7 @@
       "notePlh": "[ optional ]",
       "submit": "Gutschein anfragen",
       "submitting": "Wird gesendet…",
-      "success": "Danke. Ich melde mich direkt bei dir, meist noch am selben Tag.",
+      "success": "Danke. Ich melde mich innerhalb von 48 Stunden direkt bei dir.",
       "error": "Fehler beim Senden. Bitte versuche es erneut."
     }
   },
@@ -2486,7 +2486,7 @@
     "tag": "[ Hey, das ist Kisha Tattoo ]",
     "heading": "Schreib mir einfach oder erzähl mir von deiner Tattoo-Idee",
     "close": "Schließen",
-    "success": "Danke — jede Idee ist ein einzigartiges Phänomen. Ich schaue mir deine bald an und melde mich bei dir.",
+    "success": "Danke, jede Idee ist ein einzigartiges Phänomen. Ich schaue mir deine an und melde mich innerhalb von 48 Stunden.",
     "nameLbl": "Mein Name ist",
     "phoneLbl": "Meine Telefonnummer ist",
     "ideaLbl": "Meine Tattoo-Idee ist",

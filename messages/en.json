@@ -2125,7 +2125,7 @@
       "notePlh": "[ optional ]",
       "submit": "Request gift card",
       "submitting": "Sending…",
-      "success": "Thank you. I will get back to you directly, usually the same day.",
+      "success": "Thank you. I will get back to you directly within 48 hours.",
       "error": "Something went wrong. Please try again."
     }
   },
@@ -2446,7 +2446,7 @@
     "tag": "[ Hey, it's Kisha Tattoo ]",
     "heading": "Drop me a message below or tell me about your tattoo idea",
     "close": "Close",
-    "success": "Thank you — every idea is a unique phenomenon. I will review yours shortly and get back to you.",
+    "success": "Thank you, every idea is a unique phenomenon. I will review yours and get back to you within 48 hours.",
     "nameLbl": "My name is",
     "phoneLbl": "My phone is",
     "ideaLbl": "My tattoo idea is",
