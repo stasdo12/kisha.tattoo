@@ -4,7 +4,9 @@ import { sendMessage, sendDocument, escapeHtml, sourcePage } from '@/lib/telegra
 
 const MAX          = { name: 100, email: 200, brief: 2000 }
 const MAX_FILE_B   = 20 * 1024 * 1024 // 20 MB — Telegram document limit
-const ALLOWED_MIME = new Set(['image/jpeg', 'image/png', 'image/webp', 'application/pdf'])
+const MAX_FILES    = 5
+// HEIC is what an iPhone hands over when Safari does not convert the photo.
+const ALLOWED_MIME = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif', 'application/pdf'])
 
 export async function POST(req: Request) {
   let formData: FormData
@@ -17,7 +19,7 @@ export async function POST(req: Request) {
   const name  = formData.get('name')  as string | null
   const email = formData.get('email') as string | null
   const brief = formData.get('brief') as string | null
-  const file  = formData.get('file')  as File   | null
+  const files = formData.getAll('file').filter((f): f is File => f instanceof File && f.size > 0).slice(0, MAX_FILES)
 
   if (!name?.trim()) {
     return NextResponse.json({ ok: false, error: 'Name is required' }, { status: 422 })
@@ -26,12 +28,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'Email is required' }, { status: 422 })
   }
 
-  if (file && file.size > 0) {
+  for (const file of files) {
     if (file.size > MAX_FILE_B) {
       return NextResponse.json({ ok: false, error: 'File too large (max 20 MB)' }, { status: 413 })
     }
     if (!ALLOWED_MIME.has(file.type)) {
-      return NextResponse.json({ ok: false, error: 'Invalid file type. Allowed: JPEG, PNG, WebP, PDF' }, { status: 415 })
+      return NextResponse.json({ ok: false, error: 'Invalid file type. Allowed: JPEG, PNG, WebP, HEIC, PDF' }, { status: 415 })
     }
   }
 
@@ -51,10 +53,17 @@ export async function POST(req: Request) {
   ].filter((line) => line !== null).join('\n')
 
   try {
-    if (file && file.size > 0) {
-      await sendDocument(file, text)
-    } else {
-      await sendMessage(text)
+    // The brief goes first as its own message: a document caption stops at
+    // 1024 characters and the brief may run to 2000. The files follow, each
+    // labelled with the sender so they stay readable in a busy chat.
+    await sendMessage(text)
+    for (const [i, file] of files.entries()) {
+      try {
+        await sendDocument(file, `📎 ${safeName} · ${i + 1}/${files.length}`)
+      } catch (err) {
+        // The enquiry itself has arrived; a lost picture can be asked for again.
+        console.error('[api/contact] file', i + 1, err)
+      }
     }
     await trackLeadServer(req, 'brief')
     return NextResponse.json({ ok: true })

@@ -319,12 +319,14 @@
       "no": "No, I'm new",
       "filesLabel": "Reference images",
       "filesHint": "*Send reference images and inspiration — the more context, the better the custom design",
-      "filesMax": "[ max 100 mb ]",
+      "filesMax": "[ up to 5 images or PDF ]",
       "filesButton": "Choose files",
       "submit": "Send booking request",
       "submitting": "Sending…",
       "success": "Thank you — your vision has been received. Kisha will review it and get back to you within 48 hours.",
-      "error": "Something went wrong. Please try again."
+      "error": "Something went wrong. Please try again.",
+      "filesTooLarge": "The files are too large. Please send fewer images or a smaller PDF.",
+      "filesType": "This file type does not work. Please send a photo or a PDF."
     },
     "steps": {
       "heading": "How does booking work?",

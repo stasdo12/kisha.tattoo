@@ -319,12 +319,14 @@
       "no": "Nein, ich bin neu",
       "filesLabel": "Referenzbilder",
       "filesHint": "*Schick Referenzbilder und Inspiration. Je mehr ich sehe, desto besser wird dein Entwurf.",
-      "filesMax": "[ max 100 mb ]",
+      "filesMax": "[ bis 5 Bilder oder PDF ]",
       "filesButton": "Dateien wählen",
       "submit": "Anfrage senden",
       "submitting": "Wird gesendet…",
       "success": "Danke, deine Idee ist angekommen. Kisha schaut sie sich an und meldet sich innerhalb von 48 Stunden.",
-      "error": "Das hat nicht geklappt. Bitte versuch es noch einmal."
+      "error": "Das hat nicht geklappt. Bitte versuch es noch einmal.",
+      "filesTooLarge": "Die Dateien sind zu groß. Schick bitte weniger Bilder oder ein kleineres PDF.",
+      "filesType": "Diese Datei geht leider nicht. Bitte schick ein Foto oder ein PDF."
     },
     "steps": {
       "heading": "Wie funktioniert die Buchung?",

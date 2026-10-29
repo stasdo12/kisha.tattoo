@@ -7,6 +7,7 @@ import { GFooter } from '@/components/graphic/GFooter'
 import { trackFormSubmit } from '@/lib/gtag'
 import { breadcrumbSchema, serviceSchema } from '@/lib/structured-data'
 import { UNIKAT_SLUGS } from '@/content/unikate'
+import { prepareUploads, MAX_FILES, UPLOAD_BUDGET_B } from '@/lib/shrink-image'
 import s from './booking.module.css'
 
 export default function BookingPage() {
@@ -34,6 +35,13 @@ export default function BookingPage() {
   const entwurfZone  = entwurf ? tu(`items.${entwurf}.zone`) : ''
   const prefillIdea  = entwurf ? `${tu('booking.ideaPrefix')}: ${entwurfName}` : undefined
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [errorKey, setErrorKey] = useState<'error' | 'filesTooLarge' | 'filesType'>('error')
+  const [files, setFiles] = useState<File[]>([])
+
+  function fail(key: typeof errorKey) {
+    setErrorKey(key)
+    setStatus('error')
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -43,18 +51,20 @@ export default function BookingPage() {
     fd.append('name',  raw.get('name')  as string)
     fd.append('email', raw.get('email') as string)
     fd.append('brief', `${entwurf ? `Unikat: ${entwurfName} (/tattoo-unikate/${entwurf})\n` : ''}Phone: ${raw.get('phone') || '—'}\nStyle: ${raw.get('style') || '—'}\nPlacement: ${raw.get('placement') || '—'}\nIdea: ${raw.get('idea') || '—'}\nWorked together: ${experience ?? '—'}`)
-    const file = raw.get('files') as File
-    if (file && file.size > 0) fd.append('file', file)
+    // Every chosen file goes along, shrunk to fit the server's 1 MB request limit.
+    const uploads = await prepareUploads(files)
+    if (uploads.reduce((sum, f) => sum + f.size, 0) > UPLOAD_BUDGET_B) return fail('filesTooLarge')
+    for (const file of uploads) fd.append('file', file)
     try {
       const res = await fetch('/api/contact', { method: 'POST', body: fd })
       if (res.ok) {
         trackFormSubmit('booking')
         setStatus('success')
       } else {
-        setStatus('error')
+        fail(res.status === 413 ? 'filesTooLarge' : res.status === 415 ? 'filesType' : 'error')
       }
     } catch {
-      setStatus('error')
+      fail('error')
     }
   }
 
@@ -155,10 +165,23 @@ export default function BookingPage() {
                 <span style={{ fontSize: 'var(--g-tag)', color: '#BFBFBF', whiteSpace: 'nowrap' }}>{t('form.filesMax')}</span>
               </div>
               <label htmlFor="b-files" className={s.fileBtn}>{t('form.filesButton')}</label>
-              <input id="b-files" name="files" type="file" multiple style={{ display: 'none' }} />
+              <input
+                id="b-files"
+                name="files"
+                type="file"
+                multiple
+                accept="image/*,application/pdf"
+                onChange={(e) => setFiles(Array.from(e.currentTarget.files ?? []).slice(0, MAX_FILES))}
+                style={{ display: 'none' }}
+              />
+              {files.length > 0 && (
+                <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.4, color: '#0D0D0D', overflowWrap: 'anywhere' }}>
+                  {files.map((f) => f.name).join(', ')}
+                </p>
+              )}
             </div>
 
-            {status === 'error' && <p className={s.error}>{t('form.error')}</p>}
+            {status === 'error' && <p className={s.error}>{t(`form.${errorKey}`)}</p>}
 
             <button type="submit" disabled={status === 'submitting'} className={s.submit}>
               {status === 'submitting' ? t('form.submitting') : t('form.submit')}

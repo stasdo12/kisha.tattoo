@@ -6,10 +6,10 @@ vi.mock('@/lib/telegram', async (importOriginal) => {
   return { ...actual, sendMessage: vi.fn(), sendDocument: vi.fn() }
 })
 
-function makeFormRequest(fields: Record<string, string>, file?: File) {
+function makeFormRequest(fields: Record<string, string>, file?: File | File[]) {
   const form = new FormData()
   for (const [k, v] of Object.entries(fields)) form.append(k, v)
-  if (file) form.append('file', file)
+  for (const f of [file ?? []].flat()) form.append('file', f)
   return new Request('http://localhost/api/contact', { method: 'POST', body: form })
 }
 
@@ -58,6 +58,42 @@ describe('POST /api/contact', () => {
     const res = await POST(makeFormRequest({ name: 'Anna', email: 'anna@test.com' }, file))
     expect(res.status).toBe(200)
     expect(sendDocument).toHaveBeenCalledOnce()
+  })
+
+  it('sends the brief once and every attached file after it', async () => {
+    const { sendMessage, sendDocument } = await import('@/lib/telegram')
+    const files = ['a.jpg', 'b.jpg', 'c.pdf'].map(
+      (n) => new File(['x'], n, { type: n.endsWith('pdf') ? 'application/pdf' : 'image/jpeg' }),
+    )
+    const res = await POST(makeFormRequest({ name: 'Anna', email: 'anna@test.com', brief: 'x'.repeat(1500) }, files))
+    expect(res.status).toBe(200)
+    expect(sendMessage).toHaveBeenCalledOnce()
+    expect(vi.mocked(sendMessage).mock.calls[0][0]).toContain('x'.repeat(1500))
+    expect(sendDocument).toHaveBeenCalledTimes(3)
+    expect(vi.mocked(sendDocument).mock.calls[2][1]).toContain('3/3')
+  })
+
+  it('takes at most five files', async () => {
+    const { sendDocument } = await import('@/lib/telegram')
+    const files = Array.from({ length: 7 }, (_, i) => new File(['x'], `${i}.jpg`, { type: 'image/jpeg' }))
+    await POST(makeFormRequest({ name: 'Anna', email: 'anna@test.com' }, files))
+    expect(sendDocument).toHaveBeenCalledTimes(5)
+  })
+
+  it('accepts an iPhone HEIC photo', async () => {
+    const file = new File(['x'], 'IMG_0001.HEIC', { type: 'image/heic' })
+    const res = await POST(makeFormRequest({ name: 'Anna', email: 'anna@test.com' }, file))
+    expect(res.status).toBe(200)
+  })
+
+  it('still reports success when only a file fails to reach Telegram', async () => {
+    const { sendDocument } = await import('@/lib/telegram')
+    vi.mocked(sendDocument).mockRejectedValueOnce(new Error('Timeout'))
+    vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    const file = new File(['img'], 'ref.jpg', { type: 'image/jpeg' })
+    const res = await POST(makeFormRequest({ name: 'Anna', email: 'anna@test.com' }, file))
+    expect(res.status).toBe(200)
   })
 
   it('sends plain message when no file attached', async () => {
