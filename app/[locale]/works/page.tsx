@@ -97,7 +97,9 @@ export default async function GraphicWorksPage({
           aria-hidden="true"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center center' }}
+          // Kisha sits on the right edge of the photo. On a wide screen the
+          // whole width shows anyway; on a phone the crop would cut her out.
+          style={{ objectFit: 'cover', objectPosition: '90% center' }}
           sizes="100vw"
         />
         {/* Dark overlay */}
