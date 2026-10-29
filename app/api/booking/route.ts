@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { trackLeadServer } from '@/lib/ga-server'
-import { sendMessage, escapeHtml } from '@/lib/telegram'
+import { sendMessage, escapeHtml, sourcePage } from '@/lib/telegram'
 
 const MAX = { name: 100, phone: 30, idea: 500 }
 
@@ -25,13 +25,16 @@ export async function POST(req: Request) {
   const safePhone = escapeHtml(String(phone).slice(0, MAX.phone).trim())
   const safeIdea  = idea ? escapeHtml(String(idea).slice(0, MAX.idea).trim()) : '—'
 
+  const page = sourcePage(req)
+
   const text = [
     '📩 <b>Новая заявка с сайта</b>',
     '',
     `👤 <b>Имя:</b> ${safeName}`,
     `📞 <b>Телефон:</b> ${safePhone}`,
     `💭 <b>Идея:</b> ${safeIdea}`,
-  ].join('\n')
+    page ? `🔗 <b>Страница:</b> ${page}` : null,
+  ].filter((line) => line !== null).join('\n')
 
   try {
     await sendMessage(text)

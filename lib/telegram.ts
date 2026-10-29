@@ -25,6 +25,23 @@ export function escapeHtml(value: string): string {
     .replace(/"/g, '&quot;')
 }
 
+/**
+ * The page a form was sent from, read from the Referer header the browser
+ * attaches to the request itself — `/walk-in-tattoo-muenchen`, `/en/booking`.
+ * Nothing is read from the visitor's device, so it needs no consent. Without
+ * it, finding where a lead came from meant digging through the nginx logs.
+ */
+export function sourcePage(req: Request): string | null {
+  const referer = req.headers.get('referer')
+  if (!referer) return null
+  try {
+    const url = new URL(referer)
+    return escapeHtml(url.pathname.slice(0, 200))
+  } catch {
+    return null
+  }
+}
+
 /** Sends a plain HTML-formatted text message */
 export async function sendMessage(text: string): Promise<void> {
   const controller = new AbortController()

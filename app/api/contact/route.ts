@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { trackLeadServer } from '@/lib/ga-server'
-import { sendMessage, sendDocument, escapeHtml } from '@/lib/telegram'
+import { sendMessage, sendDocument, escapeHtml, sourcePage } from '@/lib/telegram'
 
 const MAX          = { name: 100, email: 200, brief: 2000 }
 const MAX_FILE_B   = 20 * 1024 * 1024 // 20 MB — Telegram document limit
@@ -39,13 +39,16 @@ export async function POST(req: Request) {
   const safeEmail = escapeHtml(email.slice(0, MAX.email).trim())
   const safeBrief = brief ? escapeHtml(brief.slice(0, MAX.brief).trim()) : '—'
 
+  const page = sourcePage(req)
+
   const text = [
     '📋 <b>Новый бриф с сайта</b>',
     '',
     `👤 <b>Имя:</b> ${safeName}`,
     `📧 <b>Email:</b> ${safeEmail}`,
     `📝 <b>Бриф:</b> ${safeBrief}`,
-  ].join('\n')
+    page ? `🔗 <b>Страница:</b> ${page}` : null,
+  ].filter((line) => line !== null).join('\n')
 
   try {
     if (file && file.size > 0) {

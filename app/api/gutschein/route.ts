@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { trackLeadServer } from '@/lib/ga-server'
-import { sendMessage, escapeHtml } from '@/lib/telegram'
+import { sendMessage, escapeHtml, sourcePage } from '@/lib/telegram'
 
 // Voucher requests from the modal on /tattoo-gutschein-muenchen. No payment,
 // no shop: the message lands in Telegram and the rest happens in the
@@ -29,6 +29,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'E-mail is required' }, { status: 422 })
   }
 
+  const page = sourcePage(req)
+
   const clean = (v: unknown, max: number) =>
     typeof v === 'string' && v.trim() ? escapeHtml(v.slice(0, max).trim()) : '—'
 
@@ -41,6 +43,7 @@ export async function POST(req: Request) {
     `🎀 <b>Für:</b> ${clean(recipient, MAX.recipient)}`,
     `💬 <b>Nachricht:</b> ${clean(note, MAX.note)}`,
     typeof locale === 'string' && locale !== 'de' ? `🌐 ${escapeHtml(locale)}` : null,
+    page ? `🔗 <b>Seite:</b> ${page}` : null,
   ].filter((line) => line !== null).join('\n')
 
   try {
