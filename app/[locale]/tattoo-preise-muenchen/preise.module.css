@@ -1,0 +1,61 @@
+/* Price cards with a real work per row, laid out like the /tattoo-unikate
+   grid: photo on top, size and description under it, the price at the foot.
+   Three to a row on desktop, two on a tablet. On a phone the cards stack and
+   the photo sits between the text and the price.
+   The card keeps its inline styles from the text-only version, so the
+   overrides here need !important. */
+
+.grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.39vw, 1.25rem) !important;
+}
+
+.card {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: clamp(1rem, 1.39vw, 1.25rem) !important;
+}
+
+.photo {
+  position: relative;
+  order: -1;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #d9d9d9;
+}
+
+.text {
+  order: 0;
+}
+
+.price {
+  order: 1;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .photo {
+    order: 1;
+    aspect-ratio: 4 / 3;
+  }
+  .text {
+    order: 0;
+  }
+  .price {
+    order: 2;
+    padding-top: 0;
+  }
+}

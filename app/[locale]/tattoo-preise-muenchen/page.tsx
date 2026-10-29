@@ -5,6 +5,8 @@
  * Total cluster: ~7000+/mo, KD 4–34
  */
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import s from './preise.module.css'
 import { Link } from '@/i18n/navigation'
 import { SITE } from '@/content/site'
 import { buildMetadata } from '@/lib/seo'
@@ -21,6 +23,20 @@ export async function generateMetadata(
   return buildMetadata({ title: t('meta.title'), description: t('meta.description'), path: '/tattoo-preise-muenchen', locale, hreflang: false, ogImage: `${SITE.url}/og/tattoo-preise-muenchen.jpg` })
 }
 
+// One real work per price row, in row order, so the "ab" price has a picture
+// behind it. "tattoo bilder mit preis" is this page's biggest query (419
+// impressions in 90 days at position 11) and the page had no picture at all.
+// Each work belongs to its size class or a larger one, never a smaller one:
+// the big blackwork project stands for the backpiece row, which is a minimum.
+const ROW_PHOTOS = [
+  '/images/work/tattoo-lego-fineline-work.jpg',
+  '/images/work/4x4-owl-tattoo-fineline.jpg',
+  '/images/work/justitia-tattoo-oberarm.jpg',
+  '/images/home/works-02-fox-japanese.jpg',
+  '/images/home/works-04-god-japanese.jpg',
+  '/images/home/works-01-blackwork-fullbody.jpg',
+]
+
 export default async function TattooPreiseMuenchen({
   params,
 }: {
@@ -29,7 +45,7 @@ export default async function TattooPreiseMuenchen({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'preise' })
   const faqItems    = t.raw('faq.items')    as Array<{ q: string; a: string }>
-  const tableRows   = t.raw('table.rows')   as Array<{ size: string; style: string; price: string; time: string; desc: string }>
+  const tableRows   = t.raw('table.rows')   as Array<{ size: string; style: string; price: string; time: string; desc: string; photoAlt: string }>
   const factorItems = t.raw('factors.items') as Array<{ title: string; body: string }>
 
   return (
@@ -82,13 +98,13 @@ export default async function TattooPreiseMuenchen({
           >
             {t('table.heading')}
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.75rem, 1.39vw, 1.25rem)' }}>
-            {tableRows.map((row) => {
+          <div className={s.grid} style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.75rem, 1.39vw, 1.25rem)' }}>
+            {tableRows.map((row, rowIndex) => {
               const styleTags = row.style.replace(/\s[·/]\s/g, '|').split('|')
               return (
                 <div
                   key={row.size}
-                  className="g-price-card"
+                  className={`g-price-card ${s.card}`}
                   style={{
                     background: '#E8E8E8',
                     padding: 'clamp(1.25rem, 2.08vw, 2.5rem)',
@@ -99,7 +115,7 @@ export default async function TattooPreiseMuenchen({
                   }}
                 >
                   {/* Left */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 1.94vw, 1.75rem)' }}>
+                  <div className={s.text} style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 1.94vw, 1.75rem)' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.625rem, 1.11vw, 1rem)' }}>
                       <p
                         style={{
@@ -135,8 +151,26 @@ export default async function TattooPreiseMuenchen({
                       {row.desc}
                     </p>
                   </div>
+                  {/* Photo — a real work of this size class */}
+                  {ROW_PHOTOS[rowIndex] && (
+                    <div className={s.photo}>
+                      <Image
+                        src={ROW_PHOTOS[rowIndex]}
+                        alt={row.photoAlt}
+                        fill
+                        // The first row sits near the top: the first photo is
+                        // preloaded, the other two of the desktop row load at
+                        // once, so the largest picture on screen is not held back.
+                        priority={rowIndex === 0}
+                        loading={rowIndex === 0 ? undefined : rowIndex < 3 ? 'eager' : 'lazy'}
+                        sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                  )}
                   {/* Right — price */}
                   <p
+                    className={s.price}
                     style={{
                       fontSize: 'var(--g-s)',
                       lineHeight: 'var(--g-lh-s)',

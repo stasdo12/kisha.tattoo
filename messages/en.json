@@ -1740,42 +1740,48 @@
           "style": "Fineline / Script / Symbol",
           "price": "from €150",
           "time": "1–2 hrs",
-          "desc": "Small, precise motifs — ideal for wrist, finger, ankle"
+          "desc": "Small, precise motifs — ideal for wrist, finger, ankle",
+          "photoAlt": "Fineline Lego figure tattoo, example of a mini tattoo"
         },
         {
           "size": "Small (5–10 cm)",
           "style": "Fineline · Graphic · Japanese",
           "price": "from €250",
           "time": "2–3 hrs",
-          "desc": "Individual motifs with detail — forearm, collarbone, ribs"
+          "desc": "Individual motifs with detail — forearm, collarbone, ribs",
+          "photoAlt": "Fineline owl tattoo on the arm, example of a small tattoo"
         },
         {
           "size": "Medium (10–20 cm)",
           "style": "All styles",
           "price": "from €400",
           "time": "3–5 hrs",
-          "desc": "Complex individual motifs or smaller compositions"
+          "desc": "Complex individual motifs or smaller compositions",
+          "photoAlt": "Graphic Justitia tattoo on the upper arm, example of a medium tattoo"
         },
         {
           "size": "Upper arm / half sleeve",
           "style": "Irezumi · Graphic · Linework",
           "price": "from €800 / session",
           "time": "5–7 hrs",
-          "desc": "Typically 2–4 sessions for a complete half set"
+          "desc": "Typically 2–4 sessions for a complete half set",
+          "photoAlt": "Japanese tattoo with a fox on the arm, example of a half sleeve"
         },
         {
           "size": "Full Sleeve",
           "style": "Irezumi · Graphic",
           "price": "from €2,500 total",
           "time": "15–30 hrs total",
-          "desc": "Multiple sessions over 6–18 months — individually calculated"
+          "desc": "Multiple sessions over 6–18 months — individually calculated",
+          "photoAlt": "Japanese sleeve tattoo with a deity, example of a full sleeve"
         },
         {
           "size": "Backpiece",
           "style": "Japanese Irezumi",
           "price": "from €3,500 total",
           "time": "20–40 hrs total",
-          "desc": "Large-scale projects following traditional Irezumi composition principles"
+          "desc": "Large-scale projects following traditional Irezumi composition principles",
+          "photoAlt": "Large blackwork project across chest and arms, example of a large-scale piece"
         }
       ],
       "disclaimer": "* All prices are approximate. The final quote is prepared after personal consultation. Deposit required on booking. Prices include VAT."

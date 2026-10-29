@@ -1744,42 +1744,48 @@
           "style": "Fineline / Schrift / Symbol",
           "price": "ab 150 €",
           "time": "1–2 Std.",
-          "desc": "Kleine, präzise Motive — ideal für Handgelenk, Finger, Knöchel"
+          "desc": "Kleine, präzise Motive — ideal für Handgelenk, Finger, Knöchel",
+          "photoAlt": "Fineline Tattoo Lego Figur, Beispiel für ein Mini Tattoo"
         },
         {
           "size": "Klein (5–10 cm)",
           "style": "Fineline · Grafik · Japanisch",
           "price": "ab 250 €",
           "time": "2–3 Std.",
-          "desc": "Einzelne Motive mit Details — Unterarm, Schlüsselbein, Rippen"
+          "desc": "Einzelne Motive mit Details — Unterarm, Schlüsselbein, Rippen",
+          "photoAlt": "Fineline Tattoo Eule am Arm, Beispiel für ein kleines Tattoo"
         },
         {
           "size": "Mittel (10–20 cm)",
           "style": "Alle Stile",
           "price": "ab 400 €",
           "time": "3–5 Std.",
-          "desc": "Komplexe Einzelmotive oder kleinere Kompositionen"
+          "desc": "Komplexe Einzelmotive oder kleinere Kompositionen",
+          "photoAlt": "Grafik Tattoo Justitia am Oberarm, Beispiel für ein mittleres Tattoo"
         },
         {
           "size": "Oberarm / Halbärmel",
           "style": "Irezumi · Grafik · Linework",
           "price": "ab 800 € / Sitzung",
           "time": "5–7 Std.",
-          "desc": "Typischerweise 2–4 Sitzungen für ein vollständiges Halfset"
+          "desc": "Typischerweise 2–4 Sitzungen für ein vollständiges Halfset",
+          "photoAlt": "Japanisches Tattoo mit Fuchs am Arm, Beispiel für einen Halbärmel"
         },
         {
           "size": "Full Sleeve",
           "style": "Irezumi · Grafik",
           "price": "ab 2.500 € gesamt",
           "time": "15–30 Std. total",
-          "desc": "Mehrere Sitzungen über 6–18 Monate — individuell kalkuliert"
+          "desc": "Mehrere Sitzungen über 6–18 Monate — individuell kalkuliert",
+          "photoAlt": "Japanisches Sleeve Tattoo mit Gottheit, Beispiel für einen Full Sleeve"
         },
         {
           "size": "Rückenstück / Backpiece",
           "style": "Japanisches Irezumi",
           "price": "ab 3.500 € gesamt",
           "time": "20–40 Std. total",
-          "desc": "Großformatige Projekte nach traditioneller Irezumi-Kompositionslehre"
+          "desc": "Großformatige Projekte nach traditioneller Irezumi-Kompositionslehre",
+          "photoAlt": "Großflächiges Blackwork Projekt an Brust und Armen, Beispiel für ein Großprojekt"
         }
       ],
       "disclaimer": "* Alle Preise sind Richtwerte. Das endgültige Angebot wird nach persönlicher Konsultation erstellt. Anzahlung bei Buchung erforderlich. Preise inkl. MwSt."
