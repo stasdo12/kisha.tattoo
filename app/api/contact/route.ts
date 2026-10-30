@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { sendConfirmation } from '@/lib/confirmation-mail'
 import { trackLeadServer } from '@/lib/ga-server'
 import { sendMessage, sendDocument, escapeHtml, sourcePage } from '@/lib/telegram'
 
@@ -66,6 +67,8 @@ export async function POST(req: Request) {
       }
     }
     await trackLeadServer(req, 'brief')
+    // Not awaited: a slow mail server must not keep the visitor waiting.
+    void sendConfirmation(email.slice(0, MAX.email), name.slice(0, MAX.name), page)
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('[api/contact]', err)

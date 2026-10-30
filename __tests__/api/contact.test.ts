@@ -6,6 +6,8 @@ vi.mock('@/lib/telegram', async (importOriginal) => {
   return { ...actual, sendMessage: vi.fn(), sendDocument: vi.fn() }
 })
 
+vi.mock('@/lib/confirmation-mail', () => ({ sendConfirmation: vi.fn() }))
+
 function makeFormRequest(fields: Record<string, string>, file?: File | File[]) {
   const form = new FormData()
   for (const [k, v] of Object.entries(fields)) form.append(k, v)
@@ -111,5 +113,26 @@ describe('POST /api/contact', () => {
 
     const res = await POST(makeFormRequest({ name: 'Anna', email: 'anna@test.com' }))
     expect(res.status).toBe(500)
+  })
+
+  it('confirms by mail once the enquiry has reached Telegram', async () => {
+    const { sendConfirmation } = await import('@/lib/confirmation-mail')
+    // The fetch spec strips `referer` from requests built in code, so the headers are swapped in.
+    const req = makeFormRequest({ name: 'Anna Berg', email: 'anna@test.com' })
+    Object.defineProperty(req, 'headers', {
+      value: new Headers({ referer: 'https://kisha.tattoo/en/booking' }),
+    })
+
+    await POST(req)
+    expect(sendConfirmation).toHaveBeenCalledWith('anna@test.com', 'Anna Berg', '/en/booking')
+  })
+
+  it('promises nothing by mail when the enquiry did not reach Telegram', async () => {
+    const { sendMessage } = await import('@/lib/telegram')
+    const { sendConfirmation } = await import('@/lib/confirmation-mail')
+    vi.mocked(sendMessage).mockRejectedValueOnce(new Error('Timeout'))
+
+    await POST(makeFormRequest({ name: 'Anna', email: 'anna@test.com' }))
+    expect(sendConfirmation).not.toHaveBeenCalled()
   })
 })
