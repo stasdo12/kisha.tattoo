@@ -6,6 +6,7 @@
 import { appendFileSync, existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import { resultDomain } from './serp-result.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const HISTORY_FILE = join(__dirname, 'rank-history.csv')
@@ -73,9 +74,9 @@ async function checkKeyword(keyword, locationName) {
   }
   const items = task.result?.[0]?.items ?? []
   const organic = items.filter((i) => i.type === 'organic')
-  const ownIndex = organic.findIndex((i) => i.domain?.includes(DOMAIN))
+  const ownIndex = organic.findIndex((i) => resultDomain(i)?.includes(DOMAIN))
   const own = ownIndex === -1 ? null : organic[ownIndex]
-  const top3 = organic.slice(0, 3).map((i) => i.domain)
+  const top3 = organic.slice(0, 3).map(resultDomain)
   return {
     keyword,
     cost: task.cost,

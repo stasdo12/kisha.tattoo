@@ -15,6 +15,7 @@
 import { appendFileSync, existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import { resultDomain } from './serp-result.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const HISTORY_FILE = join(__dirname, 'serp-slice-history.csv')
@@ -61,7 +62,7 @@ async function slice(keyword) {
 
   // rank_absolute counts every SERP block; the organic index is what people mean by "position".
   // Storing both is the fix for the ambiguity that made rank-history.csv unreadable.
-  const ownIdx = organic.findIndex((i) => i.domain?.includes(DOMAIN))
+  const ownIdx = organic.findIndex((i) => resultDomain(i)?.includes(DOMAIN))
   const own = ownIdx === -1 ? null : organic[ownIdx]
 
   const aiBlock = items.find((i) => i.type === 'ai_overview')
@@ -84,7 +85,7 @@ async function slice(keyword) {
     aiOverview: Boolean(aiBlock),
     aiRefs,
     aiCitesUs: aiRefs.some((d) => d.includes(DOMAIN)),
-    top10: organic.slice(0, 10).map((i) => i.domain),
+    top10: organic.slice(0, 10).map(resultDomain),
   }
 }
 
