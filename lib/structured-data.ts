@@ -177,6 +177,7 @@ export function faqFromArticleBody(body: string): FaqItem[] {
       const next = blocks[j]
       if (next.startsWith('##')) break // next heading of any level ends the answer
       if (next.includes('](/booking)')) continue // closing CTA, not part of the answer
+      if (next.startsWith('![')) continue // photo between the paragraphs of an answer
       answerBlocks.push(next)
     }
 

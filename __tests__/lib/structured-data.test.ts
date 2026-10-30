@@ -178,6 +178,11 @@ describe('faqFromArticleBody', () => {
     expect(items).toEqual([{ question: 'Tut es weh?', answer: 'Ja.' }])
   })
 
+  it('keeps a photo out of the answer text', () => {
+    const items = faqFromArticleBody('### Geht das weg?\n\nNein.\n\n![Alt](/images/work/x.jpg 1024x1536 "Foto")\n\nAber es verblasst.')
+    expect(items[0].answer).toBe('Nein. Aber es verblasst.')
+  })
+
   it('joins a multi-paragraph answer', () => {
     const items = faqFromArticleBody('### Geht das weg?\n\nNein.\n\nAber es verblasst.')
     expect(items[0].answer).toBe('Nein. Aber es verblasst.')

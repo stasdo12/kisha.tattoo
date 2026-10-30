@@ -16,6 +16,7 @@ import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
 import { pickRelated } from '@/lib/related'
 import { isNoIndexLocale } from '@/content/routes'
+import { parseArticleImage } from '@/lib/article-image'
 
 export function generateStaticParams() {
   const locales = ['de', 'en', 'uk']
@@ -70,12 +71,34 @@ function renderInline(text: string): React.ReactNode {
   return parts.length > 1 ? parts : text
 }
 
-/* ── Body renderer: parses ## H2, - lists, paragraphs ── */
+/* ── Body renderer: parses ## H2, - lists, images, paragraphs ── */
 function ArticleBody({ body }: { body: string }) {
   const blocks = body.split('\n\n')
   return (
     <>
       {blocks.map((block, i) => {
+        // Photo — block of the form ![alt](/images/… WxH "caption")
+        const image = parseArticleImage(block)
+        if (image) {
+          return (
+            <figure key={i} style={{ margin: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px' }}>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                sizes="(max-width: 768px) 100vw, 692px"
+                // Capped so a portrait shot fits the screen in one look, uncropped.
+                style={{ width: 'auto', maxWidth: '100%', height: 'auto', maxHeight: '80vh', display: 'block' }}
+              />
+              {image.caption && (
+                <figcaption style={{ fontSize: 'var(--g-tag)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}>
+                  {image.caption}
+                </figcaption>
+              )}
+            </figure>
+          )
+        }
         // H3 heading
         if (block.startsWith('### ')) {
           return (
