@@ -12,6 +12,8 @@ export type StoryMeta = {
   coverImage: string
   coverImageBig: string
   coverAlt: string
+  /** object-position of the hero up to tablet width, when the tattoo sits off-centre. */
+  coverPositionMobile?: string
   canonicalPath?: string
 }
 
@@ -200,6 +202,7 @@ export const STORIES: StoryMeta[] = [
     coverImage: '/images/blog/botanicBlog20.jpg',
     coverImageBig: '/images/blog/botanicBlog20(Big).jpg',
     coverAlt: 'Botanisches Tattoo München — Fineline Sleeve von Kisha',
+    coverPositionMobile: '20% center',
   },
   {
     slug: 'tattoo-nachstechen-muenchen',

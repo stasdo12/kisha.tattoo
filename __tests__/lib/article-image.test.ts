@@ -1,7 +1,7 @@
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, it, expect } from 'vitest'
-import { parseArticleImage } from '@/lib/article-image'
+import { parseArticleImage, parseArticleImages } from '@/lib/article-image'
 
 describe('parseArticleImage', () => {
   it('reads alt, src, size and caption', () => {
@@ -23,6 +23,17 @@ describe('parseArticleImage', () => {
   })
 })
 
+describe('parseArticleImages', () => {
+  it('reads two lines as one row', () => {
+    const images = parseArticleImages('![A](/images/work/a.jpg 900x900)\n![B](/images/work/b.jpg 1024x1536)')
+    expect(images?.map((image) => image.src)).toEqual(['/images/work/a.jpg', '/images/work/b.jpg'])
+  })
+
+  it('refuses a block that mixes photos and text', () => {
+    expect(parseArticleImages('![A](/images/work/a.jpg 900x900)\nText')).toBeNull()
+  })
+})
+
 // A block the parser rejects would land on the page as raw markdown, and a wrong
 // path as a broken image, so every photo in every article is checked here.
 describe.each(['de', 'en', 'uk'])('article photos in %s', (locale) => {
@@ -33,8 +44,10 @@ describe.each(['de', 'en', 'uk'])('article photos in %s', (locale) => {
     .filter((block) => block.startsWith('!['))
 
   it.each(blocks)('%s', (block) => {
-    const image = parseArticleImage(block)
-    expect(image).not.toBeNull()
-    expect(existsSync(join(process.cwd(), 'public', image!.src))).toBe(true)
+    const images = parseArticleImages(block)
+    expect(images).not.toBeNull()
+    for (const image of images!) {
+      expect(existsSync(join(process.cwd(), 'public', image.src))).toBe(true)
+    }
   })
 })

@@ -1,0 +1,50 @@
+/* Hero cover: the hero is far taller than the photo up to tablet width, so only a
+   narrow slice stays visible. An article can aim that slice at the tattoo. */
+.cover {
+  object-position: center;
+}
+
+@media (max-width: 1024px) {
+  .cover {
+    object-position: var(--cover-position-mobile, center);
+  }
+}
+
+/* Photos in the body. A row splits the width by aspect ratio, which keeps both
+   photos the same height without cropping either. */
+.photos {
+  display: flex;
+  gap: 12px;
+}
+
+.photo {
+  margin: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.photo figcaption {
+  font-size: var(--g-tag);
+  line-height: 1.5;
+  color: #0d0d0d;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .photos {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .photo {
+    flex: none !important;
+  }
+}

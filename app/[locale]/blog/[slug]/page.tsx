@@ -16,7 +16,8 @@ import { GFooter } from '@/components/graphic/GFooter'
 import { GArticleCard } from '@/components/graphic/GArticleCard'
 import { pickRelated } from '@/lib/related'
 import { isNoIndexLocale } from '@/content/routes'
-import { parseArticleImage } from '@/lib/article-image'
+import { parseArticleImages } from '@/lib/article-image'
+import styles from './article.module.css'
 
 export function generateStaticParams() {
   const locales = ['de', 'en', 'uk']
@@ -77,26 +78,28 @@ function ArticleBody({ body }: { body: string }) {
   return (
     <>
       {blocks.map((block, i) => {
-        // Photo — block of the form ![alt](/images/… WxH "caption")
-        const image = parseArticleImage(block)
-        if (image) {
+        // Photos — one ![alt](/images/… WxH "caption") per line
+        const images = parseArticleImages(block)
+        if (images) {
           return (
-            <figure key={i} style={{ margin: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px' }}>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                sizes="(max-width: 768px) 100vw, 692px"
-                // Capped so a portrait shot fits the screen in one look, uncropped.
-                style={{ width: 'auto', maxWidth: '100%', height: 'auto', maxHeight: '80vh', display: 'block' }}
-              />
-              {image.caption && (
-                <figcaption style={{ fontSize: 'var(--g-tag)', lineHeight: 1.5, color: '#0D0D0D', fontWeight: 500 }}>
-                  {image.caption}
-                </figcaption>
-              )}
-            </figure>
+            <div key={i} className={styles.photos}>
+              {images.map((image) => (
+                <figure
+                  key={image.src}
+                  className={styles.photo}
+                  style={{ flex: `${image.width / image.height} 1 0` }}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                    sizes={images.length > 1 ? '(max-width: 767px) 100vw, 346px' : '(max-width: 767px) 100vw, 692px'}
+                  />
+                  {image.caption && <figcaption>{image.caption}</figcaption>}
+                </figure>
+              ))}
+            </div>
           )
         }
         // H3 heading
@@ -253,7 +256,8 @@ export default async function ArticleDetailPage({
           aria-hidden="true"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          className={styles.cover}
+          style={{ objectFit: 'cover', '--cover-position-mobile': meta?.coverPositionMobile } as React.CSSProperties}
           sizes="100vw"
         />
         {/* Overlay */}
