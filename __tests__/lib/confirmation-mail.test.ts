@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 
 const sendMail = vi.fn()
@@ -42,6 +43,38 @@ describe('buildConfirmation', () => {
       expect(buildConfirmation('Anna', page).text).toContain('48')
     }
   })
+
+  it('says the same thing in the html as in the plain text', async () => {
+    const { buildConfirmation } = await load()
+    for (const page of ['/booking', '/en/booking', '/uk/booking']) {
+      const { text, html, subject } = buildConfirmation('Anna', page)
+      expect(html).toContain(`>${subject}</h1>`)
+      for (const paragraph of text.split('\n\n')) expect(html).toContain(paragraph)
+    }
+  })
+
+  it('sets the html language to the language of the mail', async () => {
+    const { buildConfirmation } = await load()
+    expect(buildConfirmation('Anna', '/booking').html).toContain('<html lang="de">')
+    expect(buildConfirmation('Anna', '/en/booking').html).toContain('<html lang="en">')
+    expect(buildConfirmation('Anna', '/uk/booking').html).toContain('<html lang="uk">')
+  })
+
+  it('points to a logo that ships with the site', async () => {
+    const { buildConfirmation } = await load()
+    const [, path] = /src="https:\/\/kisha\.tattoo(\/[^"]+)"/.exec(buildConfirmation('Anna', '/booking').html) ?? []
+    expect(path).toBe('/images/mail/kisha-logo.png')
+    expect(existsSync(`public${path}`)).toBe(true)
+  })
+
+  it('never lets a typed name into the html', async () => {
+    const { buildConfirmation } = await load()
+    for (const name of ['https://spam.example', 'Buy<b>now']) {
+      const { html } = buildConfirmation(name, '/booking')
+      expect(html).not.toContain('spam.example')
+      expect(html).not.toContain('Buy')
+    }
+  })
 })
 
 describe('sendConfirmation', () => {
@@ -57,6 +90,14 @@ describe('sendConfirmation', () => {
     await sendConfirmation('Anna@Test.com ', 'Anna', '/booking')
     expect(sendMail).toHaveBeenCalledOnce()
     expect(sendMail.mock.calls[0][0]).toMatchObject({ to: 'anna@test.com', from: 'Kisha Tattoo <info@kisha.tattoo>' })
+  })
+
+  it('sends both the html and the plain text', async () => {
+    const { sendConfirmation } = await load()
+    await sendConfirmation('anna@test.com', 'Anna', '/booking')
+    const mail = sendMail.mock.calls[0][0]
+    expect(mail.html).toContain('<html')
+    expect(mail.text).toContain('Hallo Anna,')
   })
 
   it('does nothing until the mailbox password is set', async () => {
