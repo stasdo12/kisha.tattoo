@@ -2487,6 +2487,28 @@
     "decline": "Decline",
     "privacyLink": "Learn more"
   },
+  "impressum": {
+    "meta": {
+      "title": "Impressum | KishaTattoo Munich",
+      "description": "Legal notice for KishaTattoo Munich: provider details under § 5 DDG and contact."
+    },
+    "hero": {
+      "tags": ["[ § 5 DDG ]", "[ Contact ]"],
+      "h1": "Impressum"
+    },
+    "provider": {
+      "title": "Provider",
+      "heading": "Information under § 5 DDG",
+      "country": "Germany",
+      "contact": "Contact",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "editorial": {
+      "title": "Content",
+      "heading": "Responsible under § 18(2) MStV"
+    }
+  },
   "datenschutz": {
     "meta": {
       "title": "Privacy Policy | KishaTattoo Munich",

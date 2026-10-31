@@ -2487,6 +2487,28 @@
     "decline": "Відхилити",
     "privacyLink": "Дізнатися більше"
   },
+  "impressum": {
+    "meta": {
+      "title": "Impressum | KishaTattoo Мюнхен",
+      "description": "Impressum KishaTattoo Мюнхен: дані надавача згідно з § 5 DDG і контакт."
+    },
+    "hero": {
+      "tags": ["[ § 5 DDG ]", "[ Контакт ]"],
+      "h1": "Impressum"
+    },
+    "provider": {
+      "title": "Надавач",
+      "heading": "Дані згідно з § 5 DDG",
+      "country": "Німеччина",
+      "contact": "Контакт",
+      "phone": "Телефон",
+      "email": "Email"
+    },
+    "editorial": {
+      "title": "Зміст",
+      "heading": "Відповідальна особа згідно з § 18 абз. 2 MStV"
+    }
+  },
   "datenschutz": {
     "meta": {
       "title": "Політика конфіденційності | KishaTattoo Мюнхен",

@@ -2527,6 +2527,28 @@
     "decline": "Ablehnen",
     "privacyLink": "Mehr erfahren"
   },
+  "impressum": {
+    "meta": {
+      "title": "Impressum | KishaTattoo München",
+      "description": "Impressum von KishaTattoo München: Anbieterangaben nach § 5 DDG und Kontakt."
+    },
+    "hero": {
+      "tags": ["[ § 5 DDG ]", "[ Kontakt ]"],
+      "h1": "Impressum"
+    },
+    "provider": {
+      "title": "Anbieter",
+      "heading": "Angaben gemäß § 5 DDG",
+      "country": "Deutschland",
+      "contact": "Kontakt",
+      "phone": "Telefon",
+      "email": "E-Mail"
+    },
+    "editorial": {
+      "title": "Inhalt",
+      "heading": "Verantwortlich nach § 18 Abs. 2 MStV"
+    }
+  },
   "datenschutz": {
     "meta": {
       "title": "Datenschutzerklärung | KishaTattoo München",

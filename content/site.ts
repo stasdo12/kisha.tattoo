@@ -30,7 +30,13 @@ export const SITE = {
   contact: {
     email: 'info@kisha.tattoo',
     phone: '+491701893395',
+    phoneDisplay: '+49 170 1893395',
     bookingUrl: '/booking',
+  },
+
+  // Legal provider — Impressum (§ 5 DDG) and Datenschutz (Art. 13 DSGVO)
+  legal: {
+    owner: 'Svitlana Donets',
   },
 
   location: {
