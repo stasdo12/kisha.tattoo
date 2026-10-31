@@ -4,6 +4,7 @@ import { useState, useSyncExternalStore } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
+import { FormLegalNote } from '@/components/graphic/FormLegalNote'
 import { trackFormSubmit } from '@/lib/gtag'
 import { breadcrumbSchema, serviceSchema } from '@/lib/structured-data'
 import { UNIKAT_SLUGS } from '@/content/unikate'
@@ -186,6 +187,8 @@ export default function BookingPage() {
             <button type="submit" disabled={status === 'submitting'} className={s.submit}>
               {status === 'submitting' ? t('form.submitting') : t('form.submit')}
             </button>
+
+            <FormLegalNote />
 
           </form>
         )}

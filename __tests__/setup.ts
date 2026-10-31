@@ -23,10 +23,17 @@ vi.mock('next/link', () => ({
 }))
 
 // Mock next-intl
-vi.mock('next-intl', () => ({
-  useTranslations: () => (key: string) => key,
-  useLocale: () => 'de',
-}))
+vi.mock('next-intl', () => {
+  const React = require('react')
+  return {
+    useTranslations: () =>
+      Object.assign((key: string) => key, {
+        rich: (_key: string, tags: Record<string, (chunks: string) => React.ReactNode>) =>
+          React.Children.toArray(Object.entries(tags).map(([name, tag]) => tag(name))),
+      }),
+    useLocale: () => 'de',
+  }
+})
 
 // Mock next/navigation
 vi.mock('next/navigation', () => ({

@@ -9,6 +9,9 @@
     "gutschein": "Hallo Kisha, ich interessiere mich für einen Tattoo-Gutschein.",
     "unikate": "Hallo Kisha, ich interessiere mich für ein Unikat."
   },
+  "formLegal": {
+    "note": "Mit deiner Anfrage akzeptierst du die <agb>AGB</agb>. Mehr zu deinen Daten im <privacy>Datenschutz</privacy>."
+  },
   "floatingCta": {
     "whatsappAria": "Kisha per WhatsApp schreiben"
   },

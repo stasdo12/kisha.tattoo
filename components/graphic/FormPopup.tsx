@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { useTranslations } from 'next-intl'
 import { trackFormSubmit } from '@/lib/gtag'
+import { FormLegalNote } from './FormLegalNote'
 import s from './FormPopup.module.css'
 
 export function FormPopup() {
@@ -121,6 +122,7 @@ export function FormPopup() {
             <button type="submit" className={s.submit} disabled={status === 'submitting'}>
               {status === 'submitting' ? t('submitting') : t('submit')}
             </button>
+            <FormLegalNote />
           </form>
         )}
       </div>

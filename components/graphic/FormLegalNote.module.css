@@ -1,0 +1,10 @@
+.note {
+  font-size: var(--g-tag);
+  line-height: 1.4;
+  color: #0D0D0D;
+}
+
+.note a {
+  color: inherit;
+  text-decoration: underline;
+}

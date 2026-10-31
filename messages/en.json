@@ -9,6 +9,9 @@
     "gutschein": "Hi Kisha, I'm interested in a tattoo gift card.",
     "unikate": "Hi Kisha, I'm interested in one of your Unikate designs."
   },
+  "formLegal": {
+    "note": "By sending your request you accept the <agb>AGB (terms, in German)</agb>. More about your data in the <privacy>privacy policy</privacy>."
+  },
   "floatingCta": {
     "whatsappAria": "Message Kisha on WhatsApp"
   },
