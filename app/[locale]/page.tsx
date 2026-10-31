@@ -68,7 +68,7 @@ export default async function GraphicHomePage(
 
   const schema = serviceSchema({
     name: 'Kisha — Tattoo Artist München',
-    description: 'Kisha ist Tattoo Artist in München — spezialisiert auf Japanisches Irezumi, Fineline und Grafik. Individuelle Tattoo-Projekte mit 5+ Jahren Erfahrung.',
+    description: 'Kisha ist Tattoo Artist in München — spezialisiert auf Japanisches Irezumi, Fineline und Grafik. Individuelle Tattoo-Projekte mit 8+ Jahren Erfahrung.',
     url: '/',
     locale,
   })
