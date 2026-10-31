@@ -123,6 +123,7 @@ export default function BookingPage() {
               <label htmlFor="b-style" className={s.label}>{t('form.styleLabel')}</label>
               <div className={s.underline}>
                 <input id="b-style" name="style" type="text" placeholder={t('form.stylePlaceholder')} className={s.input} />
+                <span className={s.optional}>{t('form.optional')}</span>
               </div>
             </div>
 
@@ -130,6 +131,7 @@ export default function BookingPage() {
               <label htmlFor="b-placement" className={s.label}>{t('form.placementLabel')}</label>
               <div className={s.underline}>
                 <input key={`pl-${entwurf ?? ''}`} id="b-placement" name="placement" type="text" defaultValue={entwurfZone || undefined} placeholder={t('form.placementPlaceholder')} className={s.input} />
+                <span className={s.optional}>{t('form.optional')}</span>
               </div>
             </div>
 
@@ -137,11 +139,15 @@ export default function BookingPage() {
               <label htmlFor="b-idea" className={s.label}>{t('form.ideaLabel')}</label>
               <div className={s.underline}>
                 <input key={`id-${entwurf ?? ''}`} id="b-idea" name="idea" type="text" defaultValue={prefillIdea} placeholder={t('form.ideaPlaceholder')} className={s.input} />
+                <span className={s.optional}>{t('form.optional')}</span>
               </div>
             </div>
 
             <div className={s.stacked}>
-              <span className={s.label}>{t('form.togetherLabel')}</span>
+              <div className={s.stackedHead}>
+                <span className={s.label}>{t('form.togetherLabel')}</span>
+                <span className={s.optional}>{t('form.optional')}</span>
+              </div>
               <div className={s.toggles}>
                 {(['yes', 'no'] as const).map((val) => (
                   <button
@@ -158,7 +164,10 @@ export default function BookingPage() {
             </div>
 
             <div className={s.stacked}>
-              <span className={s.label}>{t('form.filesLabel')}</span>
+              <div className={s.stackedHead}>
+                <span className={s.label}>{t('form.filesLabel')}</span>
+                <span className={s.optional}>{t('form.optional')}</span>
+              </div>
               <div className={s.fileHint}>
                 <p style={{ fontSize: 'var(--g-tag)', lineHeight: 1.4, color: '#0D0D0D', maxWidth: '26rem' }}>
                   {t('form.filesHint')}

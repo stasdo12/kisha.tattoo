@@ -335,6 +335,7 @@
       "filesMax": "[ up to 5 images or PDF ]",
       "filesButton": "Choose files",
       "submit": "Send booking request",
+      "optional": "[ optional ]",
       "submitting": "Sending…",
       "success": "Thank you — your vision has been received. Kisha will review it and get back to you within 48 hours.",
       "error": "Something went wrong. Please try again.",

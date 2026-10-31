@@ -60,6 +60,22 @@
   gap: 20px;
 }
 
+.stackedHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 1rem;
+}
+
+.optional {
+  font-size: var(--g-tag);
+  color: #0D0D0D;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-left: 8px;
+}
+
 .toggles {
   display: flex;
   gap: 16px;

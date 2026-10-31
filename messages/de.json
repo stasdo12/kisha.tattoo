@@ -335,6 +335,7 @@
       "filesMax": "[ bis 5 Bilder oder PDF ]",
       "filesButton": "Dateien wählen",
       "submit": "Anfrage senden",
+      "optional": "[ optional ]",
       "submitting": "Wird gesendet…",
       "success": "Danke, deine Idee ist angekommen. Kisha schaut sie sich an und meldet sich innerhalb von 48 Stunden.",
       "error": "Das hat nicht geklappt. Bitte versuch es noch einmal.",
