@@ -49,8 +49,17 @@ describe('buildConfirmation', () => {
     for (const page of ['/booking', '/en/booking', '/uk/booking']) {
       const { text, html, subject } = buildConfirmation('Anna', page)
       expect(html).toContain(`>${subject}</h1>`)
-      for (const paragraph of text.split('\n\n')) expect(html).toContain(paragraph)
+      const visible = html.replace(/<[^>]+>/g, '')
+      for (const paragraph of text.split('\n\n')) expect(visible).toContain(paragraph)
     }
+  })
+
+  it('points to the AGB and the privacy notice in the language of the page', async () => {
+    const { buildConfirmation } = await load()
+    expect(buildConfirmation('Anna', '/booking').text).toContain('kisha.tattoo/agb')
+    expect(buildConfirmation('Anna', '/booking').text).toContain('kisha.tattoo/datenschutz')
+    expect(buildConfirmation('Anna', '/en/booking').html).toContain('href="https://kisha.tattoo/en/agb"')
+    expect(buildConfirmation('Anna', '/uk/booking').html).toContain('href="https://kisha.tattoo/uk/datenschutz"')
   })
 
   it('sets the html language to the language of the mail', async () => {

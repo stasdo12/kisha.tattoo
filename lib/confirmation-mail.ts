@@ -20,21 +20,24 @@ const TIMEOUT_MS = 10_000
 // people's addresses from sending more than a handful of mails from our domain.
 const MAX_PER_DAY = 20
 
-const TEXT: Record<MailLocale, { subject: string; greeting: (name: string) => string; body: string }> = {
+const TEXT: Record<MailLocale, { subject: string; greeting: (name: string) => string; body: string; legal: string }> = {
   de: {
     subject: 'Deine Anfrage ist angekommen',
     greeting: (name) => (name ? `Hallo ${name},` : 'Hallo,'),
     body: 'danke für deine Anfrage. Sie ist gut bei mir angekommen. Ich schaue sie mir an und melde mich innerhalb von 48 Stunden bei dir.\n\nDas ist eine automatische Bestätigung. Wenn du noch etwas ergänzen möchtest, antworte einfach auf diese Mail.',
+    legal: 'Es gelten die AGB unter {agb}. Mehr zu deinen Daten unter {privacy}.',
   },
   en: {
     subject: 'Your request has arrived',
     greeting: (name) => (name ? `Hi ${name},` : 'Hi,'),
     body: 'thank you for your request. It reached me safely. I will look at it and get back to you within 48 hours.\n\nThis is an automatic confirmation. If you want to add anything, just reply to this email.',
+    legal: 'The AGB (terms, in German) at {agb} apply. More about your data at {privacy}.',
   },
   uk: {
     subject: 'Твоя заявка надійшла',
     greeting: (name) => (name ? `Привіт, ${name}!` : 'Привіт!'),
     body: 'Дякую за заявку. Вона вже в мене. Я перегляну її і відповім протягом 48 годин.\n\nЦе автоматичне підтвердження. Якщо хочеш щось додати, просто дай відповідь на цей лист.',
+    legal: 'Діють AGB (умови німецькою) на {agb}. Більше про твої дані на {privacy}.',
   },
 }
 
@@ -48,6 +51,14 @@ function localeOf(page: string | null): MailLocale {
 function firstName(name: string): string {
   const [word = ''] = name.trim().split(/\s+/)
   return /^[\p{L}'-]{1,30}$/u.test(word) ? word : ''
+}
+
+/** The AGB line, with each address passed through `show`: plain for the text part, a link for the html. */
+function legalLine(locale: MailLocale, show: (address: string) => string): string {
+  const base = `kisha.tattoo${locale === 'de' ? '' : `/${locale}`}`
+  return TEXT[locale].legal
+    .replace('{agb}', show(`${base}/agb`))
+    .replace('{privacy}', show(`${base}/datenschutz`))
 }
 
 const INK = '#0D0D0D'
@@ -88,6 +99,7 @@ ${rows}
 <p style="margin:0 0 18px;font:500 16px/1.55 ${FONT};color:${INK};">Kisha</p>
 </td></tr>
 <tr><td style="padding:16px 28px 0;font:400 13px ${FONT};"><a href="${SITE}" style="color:${MUTED};text-decoration:none;">[ kisha.tattoo ]</a></td></tr>
+<tr><td style="padding:8px 28px 0;font:400 12px/1.5 ${FONT};color:${MUTED};">${legalLine(locale, (address) => `<a href="https://${address}" style="color:${MUTED};">${address}</a>`)}</td></tr>
 </table>
 </td></tr>
 </table>
@@ -101,7 +113,7 @@ export function buildConfirmation(name: string, page: string | null) {
   const greeting = text.greeting(firstName(name))
   return {
     subject: text.subject,
-    text: `${greeting}\n\n${text.body}\n\nKisha`,
+    text: `${greeting}\n\n${text.body}\n\nKisha\n\n${legalLine(locale, (address) => address)}`,
     html: renderHtml(locale, text.subject, [greeting, ...text.body.split('\n\n')]),
   }
 }
