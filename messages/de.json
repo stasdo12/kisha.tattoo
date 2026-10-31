@@ -1,4 +1,14 @@
 {
+  "whatsapp": {
+    "default": "Hallo Kisha, ich habe eine Tattoo-Idee.",
+    "japanese": "Hallo Kisha, ich interessiere mich für ein japanisches Tattoo.",
+    "graphic": "Hallo Kisha, ich interessiere mich für ein Grafik-Tattoo.",
+    "fineline": "Hallo Kisha, ich interessiere mich für ein Fineline-Tattoo.",
+    "walkin": "Hallo Kisha, ich interessiere mich für einen Walk-in Termin.",
+    "prices": "Hallo Kisha, ich möchte wissen, was mein Tattoo kostet.",
+    "gutschein": "Hallo Kisha, ich interessiere mich für einen Tattoo-Gutschein.",
+    "unikate": "Hallo Kisha, ich interessiere mich für ein Unikat."
+  },
   "floatingCta": {
     "whatsappAria": "Kisha per WhatsApp schreiben"
   },

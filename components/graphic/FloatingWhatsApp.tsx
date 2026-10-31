@@ -20,11 +20,12 @@
 
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { SITE } from '@/content/site'
 import { trackWhatsAppClick } from '@/lib/gtag'
+import { useWhatsAppHref } from '@/lib/use-whatsapp-href'
 
 export function FloatingWhatsApp() {
   const t = useTranslations('floatingCta')
+  const whatsAppHref = useWhatsAppHref()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export function FloatingWhatsApp() {
 
   return (
     <a
-      href={`https://wa.me/${SITE.contact.phone.replace(/\D/g, '')}`}
+      href={whatsAppHref}
       target="_blank"
       rel="noopener noreferrer"
       className="fw-cta"

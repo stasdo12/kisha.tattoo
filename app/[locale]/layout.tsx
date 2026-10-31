@@ -121,6 +121,7 @@ function clientMessages(all: AbstractIntlMessages): AbstractIntlMessages {
     formPopup: m.formPopup,
     cookieConsent: m.cookieConsent,
     floatingCta: m.floatingCta,
+    whatsapp: m.whatsapp,
     gutschein: { popup: m.gutschein.popup },
     contact: m.contact,
     booking: m.booking,

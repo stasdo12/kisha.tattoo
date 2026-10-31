@@ -16,6 +16,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
 import { SITE } from '@/content/site'
 import { trackWhatsAppClick } from '@/lib/gtag'
+import { useWhatsAppHref } from '@/lib/use-whatsapp-href'
 
 const NAV_HREFS = [
   { href: '/works' as const,                  key: 'works'   },
@@ -45,6 +46,7 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
   const locale   = useLocale()
   const pathname = usePathname()
   const t        = useTranslations('menu')
+  const whatsAppHref = useWhatsAppHref()
 
   /* ── Hide on scroll-down, show on scroll-up ─────────────────── */
   useEffect(() => {
@@ -262,7 +264,7 @@ export function GHeader({ theme = 'light' }: GHeaderProps) {
               [ Instagram ]
             </a>
             <a
-              href={`https://wa.me/${SITE.contact.phone.replace(/\D/g, '')}`}
+              href={whatsAppHref}
               target="_blank"
               rel="noopener noreferrer"
               className="g-menu-footer-link"

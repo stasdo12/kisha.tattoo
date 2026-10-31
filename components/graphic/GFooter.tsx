@@ -7,9 +7,11 @@ import { Link } from '@/i18n/navigation'
 import { SITE } from '@/content/site'
 import { useTranslations } from 'next-intl'
 import { trackWhatsAppClick } from '@/lib/gtag'
+import { useWhatsAppHref } from '@/lib/use-whatsapp-href'
 
 export function GFooter() {
   const t = useTranslations('footer')
+  const whatsAppHref = useWhatsAppHref()
 
   /* ── Link columns ─────────────────────────────────────────────────────── */
   const NAV = [
@@ -57,7 +59,7 @@ export function GFooter() {
 
   const SOCIAL = [
     { href: SITE.social.instagram,                                     label: t('instagram'), external: true },
-    { href: `https://wa.me/${SITE.contact.phone.replace(/\D/g, '')}`, label: t('whatsapp'),  external: true, onClick: () => trackWhatsAppClick('footer') },
+    { href: whatsAppHref,                                              label: t('whatsapp'),  external: true, onClick: () => trackWhatsAppClick('footer') },
   ]
 
   return (
