@@ -47,11 +47,11 @@ const ROW2 = {
   tags: ['München'],
   name: 'Schlange Knie — Grafik',
 }
-// Hochformat 2:3 (1024×1536) — 3-col slot is almost the photo's own ratio, so cover barely crops
+// Hochformat 2:3 (1024×1536) + 4:5 (1200×1500) — 3-col slot is close to the photos' own ratio, so cover barely crops
 const ROW2B = [
+  { src: '/images/work/frosch-tattoo-oberarm.jpg',                     alt: 'Grafik Frosch Tattoo Oberarm München — Kisha',            tags: ['München'], name: 'Frosch — Grafik'             },
   { src: '/images/work/justitia-tattoo-oberarm.jpg',                   alt: 'Justitia Tattoo Oberarm München — Kisha',                tags: ['München'], name: 'Justitia — Grafik'           },
   { src: '/images/work/japanisches-tempel-lotus-tattoo-unterarm.jpg',  alt: 'Japanisches Tempel Lotus Tattoo Unterarm München — Kisha', tags: ['München'], name: 'Tempel & Lotus — Japanisch' },
-  { src: '/images/work/wildblumen-farn-fineline-tattoo-unterarm.jpg',  alt: 'Fineline Wildblumen Farn Tattoo Unterarm München — Kisha', tags: ['München'], name: 'Wildblumen — Fineline'      },
 ]
 const ROW3 = [
   { src: '/images/work/middle-graphic-hand-with-flower-tattoo.jpg', alt: 'Grafik Blumen Hand Tattoo München — Kisha', tags: ['München'], name: 'Blumen Hand — Grafik'  },

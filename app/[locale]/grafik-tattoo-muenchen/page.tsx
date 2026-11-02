@@ -187,6 +187,22 @@ export default async function GrafikTattooMuenchen({
                 style={{ height: 'clamp(720px, 50vw, 820px)' }}
               />
             </div>
+            <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <GWorkImage
+                src="/images/work/frosch-tattoo-oberarm.jpg"
+                alt="Grafik Frosch Tattoo Oberarm München — KishaTattoo"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Grafik', 'München', 'Kisha']}
+                style={{ height: 'clamp(720px, 50vw, 820px)' }}
+              />
+              <GWorkImage
+                src="/images/work/4x4-birds-tattoo-graphic.jpg"
+                alt="Grafik Vögel Tattoo München — KishaTattoo"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Grafik', 'München', 'Kisha']}
+                style={{ height: 'clamp(720px, 50vw, 820px)' }}
+              />
+            </div>
           </div>
         </div>
 

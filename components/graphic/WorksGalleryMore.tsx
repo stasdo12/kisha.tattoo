@@ -42,6 +42,7 @@ const ROW11 = [
   { src: '/images/work/kanji-schriftzeichen-tattoo-nacken.jpg',     alt: 'Kanji Schriftzeichen Nacken Tattoo München — Kisha', tags: ['München'], name: 'Kanji Nacken — Japanisch' },
 ]
 const ROW12 = [
+  { src: '/images/work/wildblumen-farn-fineline-tattoo-unterarm.jpg',     alt: 'Fineline Wildblumen Farn Tattoo Unterarm München — Kisha', tags: ['München'], name: 'Wildblumen — Fineline'    },
   { src: '/images/work/feines-linien-tattoo-daten-portraet-unterarm.jpg', alt: 'Fineline Portrait Tattoo München — Kisha',       tags: ['München'], name: 'Portrait Lineart — Fineline'   },
   { src: '/images/work/schlangen-pfingstrose-tattoo-oberschenkel.jpg',    alt: 'Grafik Schlange Pfingstrose Tattoo München — Kisha', tags: ['München'], name: 'Schlange & Pfingstrose — Grafik' },
 ]
@@ -139,9 +140,9 @@ export function WorksGalleryMore({ label, inProgressLabel }: { label: string; in
             ))}
           </div>
 
-          <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="g-works-row9" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
             {ROW12.map((img) => (
-              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 33vw" style={{ height: H_LARGE }} />
             ))}
           </div>
 
