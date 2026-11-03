@@ -8,11 +8,18 @@
 //   submit   <sitemap url>                 (re)submit a sitemap
 //   weekly   [--days 7]                    leads, channels, landing pages, Search Console — this period vs the one before
 //   ga4      [--start 28daysAgo] [--end yesterday] [--dims pagePath] [--metrics sessions,totalUsers] [--limit 25]
+//   gbp-login                              one-time browser sign-in to Business Profile, saves the refresh token
+//   gbp      [--days 28] [--end 4daysAgo] [--reviews 5]  Business Profile: rating, latest reviews, views/routes/calls/site clicks, search terms
 //
 // Dates take YYYY-MM-DD or NdaysAgo / yesterday / today. GSC data lags 2–3 days.
+//
+// Business Profile has no service-account access: it signs in as Stas, a manager of the listing.
+// OAuth Desktop client and refresh token sit next to the SA key, both git-ignored. Read-only on purpose.
 
-import { readFileSync } from 'node:fs'
-import { createSign } from 'node:crypto'
+import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { createSign, createHash, randomBytes } from 'node:crypto'
+import { createServer } from 'node:http'
+import { execFile } from 'node:child_process'
 
 const GSC_SITE = 'sc-domain:kisha.tattoo'
 const GA4_PROPERTY = '530315154'
@@ -71,6 +78,13 @@ const WM = 'https://www.googleapis.com/auth/webmasters'
 const WM_RO = 'https://www.googleapis.com/auth/webmasters.readonly'
 const site = encodeURIComponent(GSC_SITE)
 
+// Business Profile signs in as Stas; these are read by the gbp functions at the bottom.
+const GBP_CLIENT = new URL('../.google-gbp-client.json', import.meta.url)
+const GBP_TOKEN = new URL('../.google-gbp-token.json', import.meta.url)
+const GBP_SCOPE = 'https://www.googleapis.com/auth/business.manage'
+const gbpClient = () => JSON.parse(readFileSync(GBP_CLIENT, 'utf8')).installed
+let gbpAccess
+
 if (cmd === 'gsc') {
   const dims = (flags.dims ?? 'query').split(',')
   const filters = []
@@ -116,8 +130,12 @@ if (cmd === 'gsc') {
   }
 } else if (cmd === 'weekly') {
   await weekly(Number(flags.days ?? 7))
+} else if (cmd === 'gbp-login') {
+  await gbpLogin()
+} else if (cmd === 'gbp') {
+  await gbp(Number(flags.days ?? 28), Number(flags.reviews ?? 5))
 } else {
-  console.log('Commands: gsc, inspect, sitemaps, submit, ga4, weekly — see the header of scripts/google.mjs')
+  console.log('Commands: gsc, inspect, sitemaps, submit, ga4, weekly, gbp-login, gbp — see the header of scripts/google.mjs')
 }
 
 // ── weekly: one summary, this period against the one before ─────────────────
@@ -198,5 +216,128 @@ async function weekly(days) {
   console.log('  лучшие страницы:')
   for (const r of pNow.sort((a, b) => b.clicks - a.clicks).slice(0, 5)) {
     console.log(`    ${pad(r.clicks, 4)} ${r.keys[0].replace('https://kisha.tattoo', '') || '/'}`)
+  }
+}
+
+// ── Business Profile: signed in as Stas ─────────────────────────────────────
+
+// Loopback flow with PKCE: a one-shot local server catches Google's redirect.
+async function gbpLogin() {
+  const c = gbpClient()
+  const verifier = randomBytes(32).toString('base64url')
+  const state = randomBytes(16).toString('hex')
+  const server = createServer()
+  await new Promise((ok) => server.listen(0, '127.0.0.1', ok))
+  const redirect = `http://127.0.0.1:${server.address().port}`
+  const url = `https://accounts.google.com/o/oauth2/v2/auth?${new URLSearchParams({
+    client_id: c.client_id, redirect_uri: redirect, response_type: 'code', scope: GBP_SCOPE, access_type: 'offline',
+    prompt: 'consent', state, code_challenge: createHash('sha256').update(verifier).digest('base64url'), code_challenge_method: 'S256',
+  })}`
+  console.log(`Opening the browser. If nothing opens, visit:\n${url}\n`)
+  execFile('open', [url])
+  const code = await new Promise((ok, fail) => {
+    const timer = setTimeout(() => { server.close(); fail(new Error('No sign-in within 10 minutes')) }, 600_000)
+    server.on('request', (req, res) => {
+      const q = new URL(req.url, redirect).searchParams
+      if (!q.has('code') && !q.has('error')) return res.end()
+      res.end(q.has('code') ? 'Kisha GBP: signed in. You can close this tab.' : `Kisha GBP: ${q.get('error')}`)
+      clearTimeout(timer)
+      server.close()
+      if (q.get('state') !== state) fail(new Error('State mismatch'))
+      else if (q.has('error')) fail(new Error(`Google said: ${q.get('error')}`))
+      else ok(q.get('code'))
+    })
+  })
+  const res = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    body: new URLSearchParams({ grant_type: 'authorization_code', code, code_verifier: verifier, redirect_uri: redirect, client_id: c.client_id, client_secret: c.client_secret }),
+  })
+  const json = await res.json()
+  if (!json.refresh_token) throw new Error(`Token: ${json.error ?? 'no refresh_token'} ${json.error_description ?? ''}`)
+  writeFileSync(GBP_TOKEN, JSON.stringify({ refresh_token: json.refresh_token, scope: json.scope, created: new Date().toISOString() }), { mode: 0o600 })
+  console.log(`Signed in. Refresh token saved (git-ignored). Scope: ${json.scope}`)
+}
+
+async function gbpCall(url) {
+  if (!gbpAccess) {
+    if (!existsSync(GBP_TOKEN)) throw new Error('No Business Profile sign-in yet: npm run google -- gbp-login')
+    const c = gbpClient()
+    const res = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      body: new URLSearchParams({ grant_type: 'refresh_token', refresh_token: JSON.parse(readFileSync(GBP_TOKEN, 'utf8')).refresh_token, client_id: c.client_id, client_secret: c.client_secret }),
+    })
+    const json = await res.json()
+    if (!json.access_token) throw new Error(`Business Profile token: ${json.error} ${json.error_description ?? ''}. Sign in again: npm run google -- gbp-login`)
+    gbpAccess = json.access_token
+  }
+  const res = await fetch(url, { headers: { authorization: `Bearer ${gbpAccess}` } })
+  const text = await res.text()
+  if (!res.ok) throw new Error(`${res.status} ${text}`)
+  return text ? JSON.parse(text) : {}
+}
+
+async function gbp(days, reviewsToShow) {
+  const shift = (from, n) => { const d = new Date(`${from}T12:00:00Z`); d.setUTCDate(d.getUTCDate() - n); return d.toISOString().slice(0, 10) }
+  const pct = (a, b) => (b ? `${a >= b ? '+' : ''}${Math.round(((a - b) / b) * 100)}%` : '—')
+  const pad = (v, n) => String(v).padEnd(n)
+  const STARS = { ONE: 1, TWO: 2, THREE: 3, FOUR: 4, FIVE: 5 }
+  const METRICS = {
+    BUSINESS_IMPRESSIONS_MOBILE_SEARCH: 'просмотры · поиск, телефон',
+    BUSINESS_IMPRESSIONS_DESKTOP_SEARCH: 'просмотры · поиск, компьютер',
+    BUSINESS_IMPRESSIONS_MOBILE_MAPS: 'просмотры · карты, телефон',
+    BUSINESS_IMPRESSIONS_DESKTOP_MAPS: 'просмотры · карты, компьютер',
+    BUSINESS_DIRECTION_REQUESTS: 'маршруты',
+    CALL_CLICKS: 'звонки',
+    WEBSITE_CLICKS: 'переходы на сайт',
+    BUSINESS_CONVERSATIONS: 'чаты',
+  }
+
+  const { accounts = [] } = await gbpCall('https://mybusinessaccountmanagement.googleapis.com/v1/accounts')
+  for (const account of accounts) {
+    const { locations = [] } = await gbpCall(`https://mybusinessbusinessinformation.googleapis.com/v1/${account.name}/locations?readMask=name,title,metadata&pageSize=100`)
+    for (const loc of locations) {
+      console.log(`\n═══ ${loc.title} — ${loc.name} (${account.accountName ?? account.name}) ═══`)
+
+      const rv = await gbpCall(`https://mybusiness.googleapis.com/v4/${account.name}/${loc.name}/reviews?pageSize=50&orderBy=${encodeURIComponent('updateTime desc')}`)
+      const replied = (rv.reviews ?? []).filter((r) => r.reviewReply).length
+      console.log(`\nОТЗЫВЫ  ${rv.totalReviewCount ?? 0}, средняя ${rv.averageRating ?? '—'}, с ответом ${replied} из ${(rv.reviews ?? []).length} последних`)
+      for (const r of (rv.reviews ?? []).slice(0, reviewsToShow)) {
+        const text = (r.comment ?? '').replace(/\s+/g, ' ').replace(/\(Translated by Google\).*/, '').slice(0, 70)
+        console.log(`  ${r.createTime.slice(0, 10)} ${'★'.repeat(STARS[r.starRating] ?? 0)} ${pad(r.reviewer?.displayName ?? '?', 22)} ${r.reviewReply ? 'ответ ✓' : 'без ответа'}  ${text}`)
+      }
+
+      // Performance data trails by about four days (03.11 the last filled day was 30.10), like Search Console.
+      const end = date(flags.end ?? '4daysAgo')
+      const split = shift(end, days - 1)
+      const ymd = (d, k) => `dailyRange.${k}.year=${+d.slice(0, 4)}&dailyRange.${k}.month=${+d.slice(5, 7)}&dailyRange.${k}.day=${+d.slice(8, 10)}`
+      const perf = await gbpCall(`https://businessprofileperformance.googleapis.com/v1/${loc.name}:fetchMultiDailyMetricsTimeSeries?${Object.keys(METRICS).map((m) => `dailyMetrics=${m}`).join('&')}&${ymd(shift(end, days * 2 - 1), 'startDate')}&${ymd(end, 'endDate')}`)
+      console.log(`\nКАРТОЧКА ${split} → ${end} (к ${days} дням до этого)`)
+      const totals = new Map()
+      for (const series of (perf.multiDailyMetricTimeSeries ?? []).flatMap((m) => m.dailyMetricTimeSeries ?? [])) {
+        const t = { now: 0, prev: 0 }
+        for (const v of series.timeSeries?.datedValues ?? []) {
+          const d = `${v.date.year}-${String(v.date.month).padStart(2, '0')}-${String(v.date.day).padStart(2, '0')}`
+          t[d >= split ? 'now' : 'prev'] += Number(v.value ?? 0)
+        }
+        totals.set(series.dailyMetric, t)
+      }
+      const views = [...totals].filter(([k]) => k.startsWith('BUSINESS_IMPRESSIONS')).reduce((s, [, t]) => ({ now: s.now + t.now, prev: s.prev + t.prev }), { now: 0, prev: 0 })
+      console.log(`  ${pad('просмотры всего', 30)} ${pad(views.now, 6)} ${pct(views.now, views.prev)}`)
+      for (const [k, label] of Object.entries(METRICS)) {
+        const t = totals.get(k) ?? { now: 0, prev: 0 }
+        console.log(`  ${pad(label, 30)} ${pad(t.now, 6)} ${pct(t.now, t.prev)}`)
+      }
+
+      // Search terms come per month only; take the last three full months.
+      const first = new Date(); first.setUTCDate(1)
+      const month = (back) => { const d = new Date(first); d.setUTCMonth(d.getUTCMonth() - back); return { y: d.getUTCFullYear(), m: d.getUTCMonth() + 1 } }
+      const [from, to] = [month(3), month(1)]
+      const kw = await gbpCall(`https://businessprofileperformance.googleapis.com/v1/${loc.name}/searchkeywords/impressions/monthly?monthlyRange.startMonth.year=${from.y}&monthlyRange.startMonth.month=${from.m}&monthlyRange.endMonth.year=${to.y}&monthlyRange.endMonth.month=${to.m}&pageSize=100`)
+      console.log(`\nПОИСКОВЫЕ ЗАПРОСЫ ${from.y}-${String(from.m).padStart(2, '0')} → ${to.y}-${String(to.m).padStart(2, '0')}`)
+      for (const r of (kw.searchKeywordsCounts ?? []).slice(0, 15)) {
+        const v = r.insightsValue ?? {}
+        console.log(`  ${pad(v.value ?? `<${v.threshold}`, 6)} ${r.searchKeyword}`)
+      }
+    }
   }
 }
