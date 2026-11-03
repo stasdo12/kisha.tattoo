@@ -34,3 +34,6 @@ gutscheine/
 
 # Google service account key (GSC + GA4 read access)
 .google-sa.json
+
+# Business Profile OAuth client + refresh token (Stas's Google account)
+.google-gbp-*.json

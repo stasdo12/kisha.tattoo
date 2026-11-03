@@ -7,7 +7,7 @@ import sys
 
 cmd = json.load(sys.stdin).get("tool_input", {}).get("command", "")
 
-SECRETS = r"(\.env\.local|\.google-sa\.json|\.pinterest-token[^\s]*\.json|gutscheine/)"
+SECRETS = r"(\.env\.local|\.google-sa\.json|\.google-gbp-[^\s]*\.json|\.pinterest-token[^\s]*\.json|gutscheine/)"
 
 RULES = [
     # PLAN-*.md, Arieta/, analiz/ and secrets live untracked next to the code.
