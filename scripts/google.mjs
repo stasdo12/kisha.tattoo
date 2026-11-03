@@ -10,11 +10,19 @@
 //   ga4      [--start 28daysAgo] [--end yesterday] [--dims pagePath] [--metrics sessions,totalUsers] [--limit 25]
 //   gbp-login                              one-time browser sign-in to Business Profile, saves the refresh token
 //   gbp      [--days 28] [--end 4daysAgo] [--reviews 5]  Business Profile: rating, latest reviews, views/routes/calls/site clicks, search terms
+//   gbp-media                              photos already on the Kisha listing, newest first, with views and thumbnail URLs
+//   gbp-posts                              latest posts with state (LIVE / PROCESSING / REJECTED)
+//   gbp-photo <file.jpg> [--publish]       add a photo to the gallery; without --publish only shows what would go out
+//   gbp-post --text <file> --link /path [--photo <file.jpg | accounts/…/media/… | https url>] [--publish]
+//                                          "Update" post with a Learn more button (UTM gbp_post); same dry run without --publish
+//   gbp-delete <accounts/…/localPosts/… | accounts/…/media/…>   undo a post or photo
+//   (--publish goes last: the flag parser takes the next word as its value)
 //
 // Dates take YYYY-MM-DD or NdaysAgo / yesterday / today. GSC data lags 2–3 days.
 //
 // Business Profile has no service-account access: it signs in as Stas, a manager of the listing.
-// OAuth Desktop client and refresh token sit next to the SA key, both git-ignored. Read-only on purpose.
+// OAuth Desktop client and refresh token sit next to the SA key, both git-ignored.
+// Writes go out only with --publish and only to the Kisha listing: the same sign-in manages another studio.
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { createSign, createHash, randomBytes } from 'node:crypto'
@@ -83,6 +91,8 @@ const GBP_CLIENT = new URL('../.google-gbp-client.json', import.meta.url)
 const GBP_TOKEN = new URL('../.google-gbp-token.json', import.meta.url)
 const GBP_SCOPE = 'https://www.googleapis.com/auth/business.manage'
 const gbpClient = () => JSON.parse(readFileSync(GBP_CLIENT, 'utf8')).installed
+const GBP_LOCATION = 'locations/16541041380732066850'
+const V4 = 'https://mybusiness.googleapis.com/v4'
 let gbpAccess
 
 if (cmd === 'gsc') {
@@ -134,8 +144,18 @@ if (cmd === 'gsc') {
   await gbpLogin()
 } else if (cmd === 'gbp') {
   await gbp(Number(flags.days ?? 28), Number(flags.reviews ?? 5))
+} else if (cmd === 'gbp-media') {
+  await gbpMedia()
+} else if (cmd === 'gbp-posts') {
+  await gbpPosts()
+} else if (cmd === 'gbp-photo') {
+  await gbpPhoto(args[0], 'publish' in flags)
+} else if (cmd === 'gbp-post') {
+  await gbpPost(flags, 'publish' in flags)
+} else if (cmd === 'gbp-delete') {
+  await gbpDelete(args[0])
 } else {
-  console.log('Commands: gsc, inspect, sitemaps, submit, ga4, weekly, gbp-login, gbp — see the header of scripts/google.mjs')
+  console.log('Commands: gsc, inspect, sitemaps, submit, ga4, weekly, gbp-login, gbp, gbp-media, gbp-posts, gbp-photo, gbp-post, gbp-delete — see the header of scripts/google.mjs')
 }
 
 // ── weekly: one summary, this period against the one before ─────────────────
@@ -258,7 +278,7 @@ async function gbpLogin() {
   console.log(`Signed in. Refresh token saved (git-ignored). Scope: ${json.scope}`)
 }
 
-async function gbpCall(url) {
+async function gbpCall(url, body, method = body ? 'POST' : 'GET') {
   if (!gbpAccess) {
     if (!existsSync(GBP_TOKEN)) throw new Error('No Business Profile sign-in yet: npm run google -- gbp-login')
     const c = gbpClient()
@@ -270,7 +290,12 @@ async function gbpCall(url) {
     if (!json.access_token) throw new Error(`Business Profile token: ${json.error} ${json.error_description ?? ''}. Sign in again: npm run google -- gbp-login`)
     gbpAccess = json.access_token
   }
-  const res = await fetch(url, { headers: { authorization: `Bearer ${gbpAccess}` } })
+  const raw = Buffer.isBuffer(body)
+  const res = await fetch(url, {
+    method,
+    headers: { authorization: `Bearer ${gbpAccess}`, ...(body && { 'content-type': raw ? 'application/octet-stream' : 'application/json' }) },
+    body: body && (raw ? body : JSON.stringify(body)),
+  })
   const text = await res.text()
   if (!res.ok) throw new Error(`${res.status} ${text}`)
   return text ? JSON.parse(text) : {}
@@ -340,4 +365,86 @@ async function gbp(days, reviewsToShow) {
       }
     }
   }
+}
+
+// v4 paths need the account too; find the one the Kisha listing sits under.
+async function kishaParent() {
+  const { accounts = [] } = await gbpCall('https://mybusinessaccountmanagement.googleapis.com/v1/accounts')
+  for (const a of accounts) {
+    const { locations = [] } = await gbpCall(`https://mybusinessbusinessinformation.googleapis.com/v1/${a.name}/locations?readMask=name&pageSize=100`)
+    if (locations.some((l) => l.name === GBP_LOCATION)) return `${a.name}/${GBP_LOCATION}`
+  }
+  throw new Error(`${GBP_LOCATION} is not under this sign-in`)
+}
+
+async function gbpMedia() {
+  const parent = await kishaParent()
+  const items = []
+  let page
+  do {
+    const r = await gbpCall(`${V4}/${parent}/media?pageSize=100${page ? `&pageToken=${page}` : ''}`)
+    items.push(...(r.mediaItems ?? []))
+    page = r.nextPageToken
+  } while (page)
+  console.log(`${items.length} photos/videos on the listing, newest first`)
+  console.log(['created', 'format', 'category', 'views', 'size', 'id', 'thumbnail'].join('\t'))
+  for (const m of items.sort((a, b) => b.createTime.localeCompare(a.createTime))) {
+    console.log([m.createTime.slice(0, 10), m.mediaFormat, m.locationAssociation?.category ?? '', m.insights?.viewCount ?? '', `${m.dimensions?.widthPixels}x${m.dimensions?.heightPixels}`, m.name, m.thumbnailUrl].join('\t'))
+  }
+}
+
+async function gbpPosts() {
+  const parent = await kishaParent()
+  const { localPosts = [] } = await gbpCall(`${V4}/${parent}/localPosts?pageSize=20`)
+  for (const p of localPosts) {
+    console.log(`${p.createTime.slice(0, 10)} ${p.state} ${p.topicType} ${(p.summary ?? '').replace(/\s+/g, ' ').slice(0, 60)}…`)
+    console.log(`  ${p.callToAction?.url ?? '(no button)'}\n  ${p.searchUrl ?? ''}\n  ${p.name}`)
+  }
+}
+
+// Google takes 10 KB–5 MB and at least 250 px. Re-encode every photo: it drops EXIF and keeps big originals under the cap.
+async function gbpJpeg(file) {
+  const sharp = (await import('sharp')).default
+  return sharp(file).rotate().resize({ width: 2400, height: 2400, fit: 'inside', withoutEnlargement: true }).jpeg({ quality: 92 }).toBuffer()
+}
+
+async function gbpPhoto(file, publish) {
+  if (!file || !existsSync(file)) throw new Error(`No such file: ${file}`)
+  const bytes = await gbpJpeg(file)
+  console.log(`${file} → ${Math.round(bytes.length / 1024)} KB JPEG, no EXIF`)
+  if (!publish) return console.log('Dry run. Add --publish at the end to upload.')
+  const parent = await kishaParent()
+  const { resourceName } = await gbpCall(`${V4}/${parent}/media:startUpload`, {})
+  await gbpCall(`https://mybusiness.googleapis.com/upload/v1/media/${resourceName}?upload_type=media`, bytes)
+  const item = await gbpCall(`${V4}/${parent}/media`, { mediaFormat: 'PHOTO', locationAssociation: { category: 'ADDITIONAL' }, dataRef: { resourceName } })
+  console.log(`Uploaded ${item.name}\n  ${item.googleUrl}`)
+  return item
+}
+
+async function gbpPost(f, publish) {
+  if (!f.text || !f.link?.startsWith('/')) throw new Error('Need --text <file> and --link /path')
+  const summary = readFileSync(f.text, 'utf8').trim()
+  if (summary.length > 1500) throw new Error(`Post is ${summary.length} chars, Google allows 1500`)
+  const url = `https://kisha.tattoo${f.link}?utm_source=google&utm_medium=organic&utm_campaign=gbp_post`
+  // A post takes photos only by public URL: reuse a gallery photo (accounts/…/media/…), or upload a local file to the gallery first.
+  const gallery = f.photo?.includes(`/${GBP_LOCATION}/media/`)
+  const local = f.photo && !gallery && !/^https?:/.test(f.photo)
+  if (local && !existsSync(f.photo)) throw new Error(`No such file: ${f.photo}`)
+  const galleryUrl = gallery && (await gbpCall(`${V4}/${f.photo}`)).googleUrl
+  console.log(`Text (${summary.length} chars):\n${summary}\n\nButton "Learn more" → ${url}\nPhoto: ${galleryUrl || f.photo || 'none'}${local ? ' (uploaded to the gallery first, the post uses its Google URL)' : ''}`)
+  if (!publish) return console.log('\nDry run. Add --publish at the end to post.')
+  const sourceUrl = galleryUrl || (local ? (await gbpPhoto(f.photo, true)).googleUrl : f.photo)
+  const parent = await kishaParent()
+  const post = await gbpCall(`${V4}/${parent}/localPosts`, {
+    languageCode: f.lang ?? 'de', topicType: 'STANDARD', summary,
+    callToAction: { actionType: 'LEARN_MORE', url },
+    ...(sourceUrl && { media: [{ mediaFormat: 'PHOTO', sourceUrl }] }),
+  })
+  console.log(`\nPosted: ${post.state}\n  ${post.searchUrl ?? ''}\n  ${post.name}`)
+}
+
+async function gbpDelete(name) {
+  if (!name?.includes(`/${GBP_LOCATION}/`) || !/\/(localPosts|media)\/[^/]+$/.test(name)) throw new Error('Give the full name of a Kisha post or photo, as gbp-posts / gbp-photo print it')
+  await gbpCall(`${V4}/${name}`, undefined, 'DELETE')
+  console.log('Deleted', name)
 }
