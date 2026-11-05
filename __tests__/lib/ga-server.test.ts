@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
-import { trackLeadServer } from '@/lib/ga-server'
+import { trackLeadServer, trackWhatsAppServer } from '@/lib/ga-server'
 
 // A bare Headers, not new Request(): the fetch spec strips `cookie` from
 // requests built in code, while Next hands the route the real incoming one.
@@ -74,5 +74,33 @@ describe('trackLeadServer', () => {
     await expect(trackLeadServer(makeRequest(), 'popup')).resolves.toBeUndefined()
     expect(log).toHaveBeenCalled()
     log.mockRestore()
+  })
+})
+
+describe('trackWhatsAppServer', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs()
+    vi.unstubAllGlobals()
+  })
+
+  it('sends whatsapp_click with the link position, the page and the session', async () => {
+    vi.stubEnv('GA4_API_SECRET', 'secret')
+    const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 204 }))
+    vi.stubGlobal('fetch', fetchMock)
+
+    await trackWhatsAppServer(
+      makeRequest('_ga=GA1.1.111.222; _ga_EKLZT9R83C=GS2.1.s1761130000$o3$g1$t1761130100'),
+      'floating',
+      'https://kisha.tattoo/walk-in-tattoo-muenchen',
+    )
+
+    const body = sentBody(fetchMock)
+    expect(body.client_id).toBe('111.222')
+    expect(body.events[0].name).toBe('whatsapp_click')
+    expect(body.events[0].params).toMatchObject({
+      click_location: 'floating',
+      page_location: 'https://kisha.tattoo/walk-in-tattoo-muenchen',
+      session_id: '1761130000',
+    })
   })
 })

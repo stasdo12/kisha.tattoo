@@ -40,10 +40,20 @@ export function trackGutscheinOpen(betrag: '200' | '500' | '1000' | null) {
   })
 }
 
-/** WhatsApp button clicked */
-export function trackWhatsAppClick(location: string) {
-  track('whatsapp_click', {
-    event_category: 'engagement',
-    click_location: location,
-  })
+/**
+ * WhatsApp link tapped. Counted by the server (app/api/whatsapp), like the
+ * leads: the browser's own whatsapp_click only arrived with cookie consent, and
+ * since 31.10.2026 the walk-in page's enquiries mostly go to WhatsApp. The
+ * beacon leaves alongside the wa.me navigation and never delays it; the
+ * browser no longer sends its own event, so nothing is counted twice.
+ */
+export function trackWhatsAppClick(location: 'floating' | 'header-menu' | 'footer') {
+  try {
+    const body = JSON.stringify({ location, page: window.location.pathname })
+    if (!navigator.sendBeacon?.('/api/whatsapp', body)) {
+      fetch('/api/whatsapp', { method: 'POST', body, keepalive: true }).catch(() => {})
+    }
+  } catch {
+    // A lost count must never get in the way of the chat.
+  }
 }

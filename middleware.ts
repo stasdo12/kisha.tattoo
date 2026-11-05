@@ -33,11 +33,13 @@ export function middleware(req: NextRequest) {
   // Rate limiting for /api/* routes
   if (pathname.startsWith('/api/')) {
     const ip  = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown'
+    // WhatsApp taps keep their own count, so a few of them never use up the forms' five.
+    const key = pathname === '/api/whatsapp' ? `${ip} whatsapp` : ip
     const now = Date.now()
-    const rec = store.get(ip)
+    const rec = store.get(key)
 
     if (!rec || now > rec.resetAt) {
-      store.set(ip, { count: 1, resetAt: now + WINDOW_MS })
+      store.set(key, { count: 1, resetAt: now + WINDOW_MS })
       return NextResponse.next()
     }
 

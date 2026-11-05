@@ -1,5 +1,5 @@
 /**
- * Server-side GA4 conversions via the Measurement Protocol.
+ * Server-side GA4 events via the Measurement Protocol: enquiries and WhatsApp taps.
  *
  * The browser's generate_lead never arrived for roughly half of the real
  * enquiries — ad blockers drop every request to Google, and the 22.10.2026
@@ -41,13 +41,12 @@ function sessionId(header: string): string | undefined {
   return value.match(/^GS2\.\d\.s(\d+)/)?.[1] ?? value.match(/^GS1\.\d\.(\d+)/)?.[1]
 }
 
-export async function trackLeadServer(req: Request, form: LeadForm): Promise<void> {
+async function sendEvent(req: Request, name: string, params: Record<string, unknown>): Promise<void> {
   const secret = process.env.GA4_API_SECRET
   if (!secret) return
 
   const cookies = req.headers.get('cookie') ?? ''
   const session = sessionId(cookies)
-  const page = req.headers.get('referer') ?? undefined
 
   try {
     await fetch(
@@ -57,11 +56,9 @@ export async function trackLeadServer(req: Request, form: LeadForm): Promise<voi
         body: JSON.stringify({
           client_id: clientId(cookies),
           events: [{
-            name: 'generate_lead',
+            name,
             params: {
-              form_location: form,
-              event_category: 'conversion',
-              page_location: page,
+              ...params,
               ...(session && { session_id: session, engagement_time_msec: 1 }),
             },
           }],
@@ -73,4 +70,26 @@ export async function trackLeadServer(req: Request, form: LeadForm): Promise<voi
     // A lost analytics hit must never cost a lead — the enquiry is already in Telegram.
     console.error('[ga-server]', err)
   }
+}
+
+export async function trackLeadServer(req: Request, form: LeadForm): Promise<void> {
+  await sendEvent(req, 'generate_lead', {
+    form_location: form,
+    event_category: 'conversion',
+    page_location: req.headers.get('referer') ?? undefined,
+  })
+}
+
+/**
+ * A tap on a WhatsApp link. Since 31.10.2026 the walk-in page sends most of its
+ * enquiries to WhatsApp instead of the form, and the browser's whatsapp_click
+ * only reached GA4 for visitors who accepted cookies. Same rules as the lead:
+ * no personal data, only where the link sat and the page it was tapped on.
+ */
+export async function trackWhatsAppServer(req: Request, location: string, page: string | undefined): Promise<void> {
+  await sendEvent(req, 'whatsapp_click', {
+    click_location: location,
+    event_category: 'engagement',
+    page_location: page,
+  })
 }
