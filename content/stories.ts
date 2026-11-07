@@ -103,8 +103,8 @@ export const STORIES: StoryMeta[] = [
   {
     slug: 'tattoo-coverup-muenchen',
     publishedAt: '2026-04-25',
-    updatedAt: '2026-10-27',
-    readingTime: '5 min',
+    updatedAt: '2026-11-07',
+    readingTime: '6 min',
     category: 'Guide',
     coverImage: '/images/blog/coverupBlog10.jpg',
     coverImageBig: '/images/blog/coverupBlog10(Big).jpg',
