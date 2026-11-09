@@ -13,6 +13,7 @@ import { serviceSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-dat
 import { GHeader } from '@/components/graphic/GHeader'
 import { GFooter } from '@/components/graphic/GFooter'
 import { GWorkImage } from '@/components/graphic/GWorkImage'
+import seigaiha from '@/components/graphic/Seigaiha.module.css'
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }
@@ -220,25 +221,28 @@ export default async function JapanischesTattooMuenchen({
       {/* ── MOTIVES ───────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="jp-motive-heading"
+        className={seigaiha.waves}
         style={{ background: '#F2F2F2', padding: 'clamp(2rem, calc(20px + 4.167vw), 6.25rem) 0' }}
       >
         <div className="g-container">
-          <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', display: 'flex', justifyContent: 'center', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
-            <h2 id="jp-motive-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}>
-              {t('motives.heading')}
-            </h2>
-          </div>
-          <div className="g-about-steps" style={{ display: 'flex' }}>
-            {(t.raw('motives.items') as Array<{ title: string; body: string }>).map((col, i) => (
-              <div key={col.title} className="g-about-step-col" style={{
-                flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '1.5rem',
-                padding: i === 0 ? '0 clamp(1rem, 2vw, 2rem) 0 0' : i === 1 ? '0 clamp(1rem, 2vw, 2rem)' : '0 0 0 clamp(1rem, 2vw, 2rem)',
-                borderLeft: i > 0 ? '1px solid #0D0D0D' : 'none',
-              }}>
-                <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{col.title}</h3>
-                <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{col.body}</p>
-              </div>
-            ))}
+          <div className={seigaiha.plate}>
+            <div style={{ paddingBottom: '1.25rem', borderBottom: '2px solid #0D0D0D', display: 'flex', justifyContent: 'center', marginBottom: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
+              <h2 id="jp-motive-heading" style={{ fontSize: 'var(--g-l)', lineHeight: 'var(--g-lh-l)', color: '#0D0D0D', textAlign: 'center' }}>
+                {t('motives.heading')}
+              </h2>
+            </div>
+            <div className="g-about-steps" style={{ display: 'flex' }}>
+              {(t.raw('motives.items') as Array<{ title: string; body: string }>).map((col, i) => (
+                <div key={col.title} className="g-about-step-col" style={{
+                  flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '1.5rem',
+                  padding: i === 0 ? '0 clamp(1rem, 2vw, 2rem) 0 0' : i === 1 ? '0 clamp(1rem, 2vw, 2rem)' : '0 0 0 clamp(1rem, 2vw, 2rem)',
+                  borderLeft: i > 0 ? '1px solid #0D0D0D' : 'none',
+                }}>
+                  <h3 style={{ fontSize: 'var(--g-s)', lineHeight: 'var(--g-lh-s)', color: '#0D0D0D' }}>{col.title}</h3>
+                  <p style={{ fontSize: 'var(--g-bm)', lineHeight: 'var(--g-lh-bm)', color: '#0D0D0D' }}>{col.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
