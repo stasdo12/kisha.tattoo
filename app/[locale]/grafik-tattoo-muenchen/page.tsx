@@ -203,6 +203,22 @@ export default async function GrafikTattooMuenchen({
                 style={{ height: 'clamp(720px, 50vw, 820px)' }}
               />
             </div>
+            <div className="g-gallery-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <GWorkImage
+                src="/images/work/totenkopfschwaermer-taubenschwaenzchen-tattoo-arm.jpg"
+                alt="Grafik Totenkopfschwärmer Taubenschwänzchen Tattoo Arm München — KishaTattoo"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Grafik', 'München', 'Kisha']}
+                style={{ height: 'clamp(720px, 50vw, 820px)' }}
+              />
+              <GWorkImage
+                src="/images/work/nashornkaefer-wildblumen-tattoo-unterarm.jpg"
+                alt="Fineline Nashornkäfer Wildblumen Tattoo Unterarm München — KishaTattoo"
+                sizes="(max-width: 767px) 100vw, 50vw"
+                tags={['Grafik', 'München', 'Kisha']}
+                style={{ height: 'clamp(720px, 50vw, 820px)' }}
+              />
+            </div>
           </div>
         </div>
 

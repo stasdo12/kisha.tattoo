@@ -30,6 +30,8 @@ export const CURATED_IMAGE_PAGES: SitemapImagePage[] = [
       { loc: "https://kisha.tattoo/images/work/4x4-fogel-tattoo-graphic.jpg", title: "Grafik Vogel Tattoo M\u00fcnchen \u2014 Kisha", caption: "Graphic bird tattoo by Kisha Tattoo M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/work/4x4-owl-tattoo-fineline.jpg", title: "Fineline Eule Tattoo M\u00fcnchen \u2014 Kisha", caption: "Fineline owl tattoo by Kisha \u2014 M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/work/4x4-sakura-tattoo.jpg", title: "Sakura Tattoo M\u00fcnchen \u2014 Kisha", caption: "Sakura cherry blossom tattoo by Kisha Tattoo M\u00fcnchen" },
+      { loc: "https://kisha.tattoo/images/work/nashornkaefer-wildblumen-tattoo-unterarm.jpg", title: "Fineline Nashornk\u00e4fer Wildblumen Tattoo Unterarm M\u00fcnchen \u2014 Kisha", caption: "Fineline rhinoceros beetle and wildflower forearm tattoo by Kisha Tattoo M\u00fcnchen" },
+      { loc: "https://kisha.tattoo/images/work/totenkopfschwaermer-taubenschwaenzchen-tattoo-arm.jpg", title: "Grafik Totenkopfschw\u00e4rmer Taubenschw\u00e4nzchen Tattoo Arm M\u00fcnchen \u2014 Kisha", caption: "Death's-head and hummingbird hawk-moth arm tattoo by Kisha Tattoo M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/work/frosch-tattoo-oberarm.jpg", title: "Grafik Frosch Tattoo Oberarm M\u00fcnchen \u2014 Kisha", caption: "Graphic frog upper arm tattoo by Kisha Tattoo M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/work/justitia-tattoo-oberarm.jpg", title: "Justitia Tattoo Oberarm M\u00fcnchen \u2014 Kisha", caption: "Lady Justice upper arm tattoo by Kisha Tattoo M\u00fcnchen" },
       { loc: "https://kisha.tattoo/images/work/japanisches-tempel-lotus-tattoo-unterarm.jpg", title: "Japanisches Tempel Lotus Tattoo Unterarm M\u00fcnchen \u2014 Kisha", caption: "Japanese temple and lotus forearm tattoo by Kisha \u2014 M\u00fcnchen" },
@@ -128,7 +130,9 @@ export const CURATED_IMAGE_PAGES: SitemapImagePage[] = [
       { loc: "https://kisha.tattoo/images/work/wildblumen-farn-fineline-tattoo-arm.jpg", title: "Grafik Wildblumen Farn Tattoo Arm M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik Wildblumen Farn Tattoo Arm M\u00fcnchen \u2014 KishaTattoo" },
       { loc: "https://kisha.tattoo/images/work/ornament-lotus-mond-tattoo-unterarm-hand.jpg", title: "Grafik Ornament Lotus Mond Tattoo Unterarm M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik Ornament Lotus Mond Tattoo Unterarm M\u00fcnchen \u2014 KishaTattoo" },
       { loc: "https://kisha.tattoo/images/work/frosch-tattoo-oberarm.jpg", title: "Grafik Frosch Tattoo Oberarm M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik Frosch Tattoo Oberarm M\u00fcnchen \u2014 KishaTattoo" },
-      { loc: "https://kisha.tattoo/images/work/4x4-birds-tattoo-graphic.jpg", title: "Grafik V\u00f6gel Tattoo M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik V\u00f6gel Tattoo M\u00fcnchen \u2014 KishaTattoo" }
+      { loc: "https://kisha.tattoo/images/work/4x4-birds-tattoo-graphic.jpg", title: "Grafik V\u00f6gel Tattoo M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik V\u00f6gel Tattoo M\u00fcnchen \u2014 KishaTattoo" },
+      { loc: "https://kisha.tattoo/images/work/totenkopfschwaermer-taubenschwaenzchen-tattoo-arm.jpg", title: "Grafik Totenkopfschw\u00e4rmer Taubenschw\u00e4nzchen Tattoo Arm M\u00fcnchen \u2014 KishaTattoo", caption: "Grafik Totenkopfschw\u00e4rmer Taubenschw\u00e4nzchen Tattoo Arm M\u00fcnchen \u2014 KishaTattoo" },
+      { loc: "https://kisha.tattoo/images/work/nashornkaefer-wildblumen-tattoo-unterarm.jpg", title: "Fineline Nashornk\u00e4fer Wildblumen Tattoo Unterarm M\u00fcnchen \u2014 KishaTattoo", caption: "Fineline Nashornk\u00e4fer Wildblumen Tattoo Unterarm M\u00fcnchen \u2014 KishaTattoo" }
     ],
   },
   {
