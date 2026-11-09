@@ -2,7 +2,7 @@ import { SITE } from '@/content/site'
 import { trackWhatsAppServer } from '@/lib/ga-server'
 
 /** Where a WhatsApp link can sit; anything else is counted as `other`. */
-const LOCATIONS = ['floating', 'header-menu', 'footer'] as const
+const LOCATIONS = ['floating', 'header-menu', 'footer', 'not-found'] as const
 
 /**
  * Counts a tap on a WhatsApp link. The browser sends it with sendBeacon while

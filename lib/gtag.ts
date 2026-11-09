@@ -47,7 +47,7 @@ export function trackGutscheinOpen(betrag: '200' | '500' | '1000' | null) {
  * beacon leaves alongside the wa.me navigation and never delays it; the
  * browser no longer sends its own event, so nothing is counted twice.
  */
-export function trackWhatsAppClick(location: 'floating' | 'header-menu' | 'footer') {
+export function trackWhatsAppClick(location: 'floating' | 'header-menu' | 'footer' | 'not-found') {
   try {
     const body = JSON.stringify({ location, page: window.location.pathname })
     if (!navigator.sendBeacon?.('/api/whatsapp', body)) {

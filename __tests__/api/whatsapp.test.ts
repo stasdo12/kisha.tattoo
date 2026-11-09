@@ -24,6 +24,13 @@ describe('POST /api/whatsapp', () => {
     )
   })
 
+  it('keeps the 404 page as its own position', async () => {
+    const { trackWhatsAppServer } = await import('@/lib/ga-server')
+    await POST(makeRequest(JSON.stringify({ location: 'not-found', page: '/uk/gibt-es-nicht' })))
+
+    expect(vi.mocked(trackWhatsAppServer).mock.calls[0][1]).toBe('not-found')
+  })
+
   it('files an unknown position under other', async () => {
     const { trackWhatsAppServer } = await import('@/lib/ga-server')
     await POST(makeRequest(JSON.stringify({ location: '<script>', page: '/' })))

@@ -1,0 +1,190 @@
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--g-white);
+  color: var(--g-black);
+}
+
+/* Header bar as on every page, without the menu: the menu needs the locale layout. */
+.bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 20px var(--g-pad) 12px;
+  background: var(--g-black);
+}
+
+.barLogo {
+  font-size: var(--g-bs);
+  color: var(--g-white);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.barTag {
+  font-size: var(--g-bxs);
+  color: var(--g-white);
+  line-height: 1;
+}
+
+/* ── Hero: text left, framed photo right ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+  padding: clamp(2.5rem, 8vh, 5rem) var(--g-pad);
+}
+
+.title {
+  font-size: var(--g-xl);
+  line-height: var(--g-lh-xl);
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--g-black);
+  margin: 1rem 0 clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.lead {
+  font-size: var(--g-bm);
+  line-height: var(--g-lh-bm);
+  max-width: 34ch;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  font-size: var(--g-bm);
+  line-height: 1;
+  text-decoration: none;
+}
+
+.primary {
+  background: var(--g-black);
+  color: var(--g-white);
+}
+
+.primary svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.secondary {
+  border: 1px solid var(--g-black);
+  color: var(--g-black);
+}
+
+.secondary:hover {
+  background: var(--g-black);
+  color: var(--g-white);
+}
+
+/* The photo sits on the wave pattern, like the voucher tiles. */
+.frame {
+  justify-self: end;
+  width: 100%;
+  max-width: 460px;
+  padding: clamp(12px, 1.5vw, 20px);
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--g-black);
+}
+
+/* Caption chip, the same as the amount labels on the voucher tiles. */
+.photoLabel {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--g-white);
+  color: var(--g-black);
+  font-size: var(--g-tag);
+  line-height: 1;
+  padding: 8px 10px;
+}
+
+/* ── Where to go instead ── */
+.more {
+  padding: 0 var(--g-pad) clamp(2.5rem, 6vh, 4rem);
+}
+
+.moreTitle {
+  font-size: var(--g-m);
+  line-height: var(--g-lh-l);
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--g-black);
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 20px 24px 0;
+  border-bottom: 1px solid var(--g-black);
+  color: var(--g-black);
+  text-decoration: none;
+}
+
+.link + .link {
+  padding-left: 20px;
+  border-left: 1px solid var(--g-black);
+}
+
+.linkTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: var(--g-s);
+  line-height: var(--g-lh-s);
+}
+
+.linkTitle span {
+  transition: transform 0.2s ease;
+}
+
+.link:hover .linkTitle span {
+  transform: translateX(4px);
+}
+
+.linkText {
+  font-size: var(--g-bxs);
+  opacity: 0.6;
+}
+
+@media (max-width: 899px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .frame {
+    justify-self: start;
+  }
+
+  .links {
+    grid-template-columns: 1fr;
+  }
+
+  .link + .link {
+    padding-left: 0;
+    border-left: none;
+  }
+}
