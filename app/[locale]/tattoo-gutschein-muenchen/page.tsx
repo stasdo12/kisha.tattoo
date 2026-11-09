@@ -32,6 +32,7 @@ import { Link } from '@/i18n/navigation'
 import { GutscheinButton } from '@/components/graphic/GutscheinButton'
 import { GutscheinPopup } from '@/components/graphic/GutscheinPopup'
 import s from './page.module.css'
+import seigaiha from '@/components/graphic/Seigaiha.module.css'
 
 const PATH = '/tattoo-gutschein-muenchen'
 const OG_IMAGE = `${SITE.url}/og/tattoo-gutschein-muenchen.jpg`
@@ -301,7 +302,7 @@ export default async function TattooGutscheinMuenchen({
                 height: '100%',
                 background: 'var(--g-white)',
               }}>
-                <div style={{
+                <div className={seigaiha.waves} style={{
                   position: 'relative',
                   width: '100%',
                   aspectRatio: '210 / 148',
