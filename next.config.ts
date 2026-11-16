@@ -72,6 +72,12 @@ const nextConfig: NextConfig = {
       { source: '/japanisches-muenchen',    destination: '/japanisches-tattoo-muenchen',    permanent: true },
       { source: '/en/japanisches-muenchen', destination: '/en/japanisches-tattoo-muenchen', permanent: true },
       { source: '/uk/japanisches-muenchen', destination: '/uk/japanisches-tattoo-muenchen', permanent: true },
+
+      // Irezumi history article from April, removed in the code cleanup. Google
+      // still crawls it (16.10.2026); its topic lives on in the motif article.
+      { source: '/blog/history-of-japanese-irezumi',    destination: '/blog/japan-tattoo-bedeutung-irezumi-motive',    permanent: true },
+      { source: '/en/blog/history-of-japanese-irezumi', destination: '/en/blog/japan-tattoo-bedeutung-irezumi-motive', permanent: true },
+      { source: '/uk/blog/history-of-japanese-irezumi', destination: '/uk/blog/japan-tattoo-bedeutung-irezumi-motive', permanent: true },
     ]
   },
 
