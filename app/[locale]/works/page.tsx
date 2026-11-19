@@ -47,6 +47,11 @@ const ROW2 = {
   tags: ['München'],
   name: 'Schlange Knie — Grafik',
 }
+// Hochformat 4:5 (880×1100), motif in the centre
+const ROW2A = [
+  { src: '/images/work/familienwappen-fineline-tattoo-oberarm.jpg', alt: 'Fineline Familienwappen Tattoo Oberarm München — Kisha', tags: ['München'], name: 'Familienwappen — Fineline' },
+  { src: '/images/work/wellen-blackwork-tattoo-schulter.jpg',       alt: 'Blackwork Wellen Tattoo Schulter München — Kisha',       tags: ['München'], name: 'Wellen — Blackwork'        },
+]
 // Hochformat 2:3 (1024×1536) + 4:5 (1200×1500) — 3-col slot is close to the photos' own ratio, so cover barely crops
 const ROW2B = [
   { src: '/images/work/nashornkaefer-wildblumen-tattoo-unterarm.jpg',          alt: 'Fineline Nashornkäfer Wildblumen Tattoo Unterarm München — Kisha',          tags: ['München'], name: 'Käfer & Wildblumen — Fineline' },
@@ -257,14 +262,21 @@ export default async function GraphicWorksPage({
             style={{ height: 'clamp(432px, 39.6vw, 672px)' }}
           />
 
-          {/* ROW 2B — 3 equal columns, newest works */}
+          {/* ROW 2A — 2 equal columns, newest works */}
+          <div className="g-works-row3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {ROW2A.map((img) => (
+              <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 50vw" style={{ height: H_LARGE }} />
+            ))}
+          </div>
+
+          {/* ROW 2B — 3 equal columns, the works before those */}
           <div className="g-works-row9" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
             {ROW2B.map((img) => (
               <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 33vw" style={{ height: H_LARGE }} />
             ))}
           </div>
 
-          {/* ROW 2C — 3 equal columns, the newest works before those */}
+          {/* ROW 2C — 3 equal columns, older again */}
           <div className="g-works-row9" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
             {ROW2C.map((img) => (
               <GWorkImage key={img.src} src={img.src} alt={img.alt} tags={img.tags} name={img.name} sizes="(max-width: 767px) 100vw, 33vw" style={{ height: H_LARGE }} />
