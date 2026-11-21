@@ -15,6 +15,7 @@
 //   gbp-photo <file.jpg> [--publish]       add a photo to the gallery; without --publish only shows what would go out
 //   gbp-post --text <file> --link /path [--photo <file.jpg | accounts/…/media/… | https url>] [--publish]
 //                                          "Update" post with a Learn more button (UTM gbp_post); same dry run without --publish
+//            [--offer "Title" --start YYYY-MM-DD --end YYYY-MM-DD [--terms "…"]]  makes it an "Offer" post with dates instead
 //   gbp-delete <accounts/…/localPosts/… | accounts/…/media/…>   undo a post or photo
 //   (--publish goes last: the flag parser takes the next word as its value)
 //
@@ -398,7 +399,8 @@ async function gbpPosts() {
   const { localPosts = [] } = await gbpCall(`${V4}/${parent}/localPosts?pageSize=20`)
   for (const p of localPosts) {
     console.log(`${p.createTime.slice(0, 10)} ${p.state} ${p.topicType} ${(p.summary ?? '').replace(/\s+/g, ' ').slice(0, 60)}…`)
-    console.log(`  ${p.callToAction?.url ?? '(no button)'}\n  ${p.searchUrl ?? ''}\n  ${p.name}`)
+    if (p.event) console.log(`  "${p.event.title}" ${Object.values(p.event.schedule?.startDate ?? {}).join('-')} → ${Object.values(p.event.schedule?.endDate ?? {}).join('-')}`)
+    console.log(`  ${p.callToAction?.url ?? p.offer?.redeemOnlineUrl ?? '(no button)'}\n  ${p.searchUrl ?? ''}\n  ${p.name}`)
   }
 }
 
@@ -426,18 +428,26 @@ async function gbpPost(f, publish) {
   const summary = readFileSync(f.text, 'utf8').trim()
   if (summary.length > 1500) throw new Error(`Post is ${summary.length} chars, Google allows 1500`)
   const url = `https://kisha.tattoo${f.link}?utm_source=google&utm_medium=organic&utm_campaign=gbp_post`
+  // An offer post carries a title and dates; Google ignores callToAction on it and links through offer.redeemOnlineUrl.
+  const isDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s ?? '')
+  if (f.offer && (!isDate(f.start) || !isDate(f.end))) throw new Error('An offer needs --start and --end as YYYY-MM-DD')
+  if (f.offer?.length > 58) throw new Error(`Offer title is ${f.offer.length} chars, Google allows 58`)
+  const ymd = (s) => { const [year, month, day] = s.split('-').map(Number); return { year, month, day } }
+  const kind = f.offer
+    ? { topicType: 'OFFER', event: { title: f.offer, schedule: { startDate: ymd(f.start), endDate: ymd(f.end) } }, offer: { redeemOnlineUrl: url, ...(f.terms && { termsConditions: f.terms }) } }
+    : { topicType: 'STANDARD', callToAction: { actionType: 'LEARN_MORE', url } }
   // A post takes photos only by public URL: reuse a gallery photo (accounts/…/media/…), or upload a local file to the gallery first.
   const gallery = f.photo?.includes(`/${GBP_LOCATION}/media/`)
   const local = f.photo && !gallery && !/^https?:/.test(f.photo)
   if (local && !existsSync(f.photo)) throw new Error(`No such file: ${f.photo}`)
   const galleryUrl = gallery && (await gbpCall(`${V4}/${f.photo}`)).googleUrl
-  console.log(`Text (${summary.length} chars):\n${summary}\n\nButton "Learn more" → ${url}\nPhoto: ${galleryUrl || f.photo || 'none'}${local ? ' (uploaded to the gallery first, the post uses its Google URL)' : ''}`)
+  if (f.offer) console.log(`Offer "${f.offer}" ${f.start} → ${f.end}\nTerms: ${f.terms ?? 'none'}\n`)
+  console.log(`Text (${summary.length} chars):\n${summary}\n\nButton "${f.offer ? 'View offer' : 'Learn more'}" → ${url}\nPhoto: ${galleryUrl || f.photo || 'none'}${local ? ' (uploaded to the gallery first, the post uses its Google URL)' : ''}`)
   if (!publish) return console.log('\nDry run. Add --publish at the end to post.')
   const sourceUrl = galleryUrl || (local ? (await gbpPhoto(f.photo, true)).googleUrl : f.photo)
   const parent = await kishaParent()
   const post = await gbpCall(`${V4}/${parent}/localPosts`, {
-    languageCode: f.lang ?? 'de', topicType: 'STANDARD', summary,
-    callToAction: { actionType: 'LEARN_MORE', url },
+    languageCode: f.lang ?? 'de', summary, ...kind,
     ...(sourceUrl && { media: [{ mediaFormat: 'PHOTO', sourceUrl }] }),
   })
   console.log(`\nPosted: ${post.state}\n  ${post.searchUrl ?? ''}\n  ${post.name}`)
