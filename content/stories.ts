@@ -170,6 +170,7 @@ export const STORIES: StoryMeta[] = [
   {
     slug: 'schriftzug-tattoo-muenchen',
     publishedAt: '2026-06-16',
+    updatedAt: '2026-11-26',
     readingTime: '5 min',
     category: 'Style Guide',
     coverImage: '/images/blog/schriftzug-tattoo.jpg',
